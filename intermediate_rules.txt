@@ -1,0 +1,564 @@
+{
+ "rules": [
+  {
+   "ruleId": "1.1",
+   "ruleText": "Access roads are determined in agreement with the fire department according to the following guideline:",
+   "entities": [
+    "access roads",
+    "fire department"
+   ],
+   "conditions": "Agreement with fire department required",
+   "measurements": null,
+   "relationships": "Fire department approval needed for access road determination"
+  }
+ ]
+}
+{
+ "rules": [
+  {
+   "ruleId": "1.1.1",
+   "ruleText": "For single-story buildings, fire department vehicles must be able to approach at least to within 60 m of a building fa\u00e7ade.",
+   "entities": [
+    "fire department vehicles",
+    "single-story buildings",
+    "building fa\u00e7ade"
+   ],
+   "conditions": [
+    "single-story buildings"
+   ],
+   "measurements": [
+    "60 m"
+   ],
+   "relationships": [
+    "fire department vehicles must approach within 60 m of building fa\u00e7ade"
+   ]
+  },
+  {
+   "ruleId": "1.1.2",
+   "ruleText": "For buildings with more than one storey, fire department vehicles must be able to reach a facade at least at one point that provides access to each storey at recognizable points.",
+   "entities": [
+    "fire department vehicles",
+    "multi-story buildings",
+    "building fa\u00e7ade",
+    "storeys"
+   ],
+   "conditions": [
+    "buildings with more than one storey"
+   ],
+   "measurements": [],
+   "relationships": [
+    "fire department vehicles must reach facade",
+    "facade must provide access to each storey"
+   ]
+  },
+  {
+   "ruleId": "1.1.3",
+   "ruleText": "Vehicles must have an access point and a staging area either on the drivable roadway of the public highway or on a special access road from the travelable roadway of the public highway.",
+   "entities": [
+    "vehicles",
+    "access point",
+    "staging area",
+    "public highway",
+    "special access road"
+   ],
+   "conditions": [],
+   "measurements": [],
+   "relationships": [
+    "vehicles must have access point and staging area",
+    "access point and staging area on public highway or special access road"
+   ]
+  },
+  {
+   "ruleId": "1.1.4",
+   "ruleText": "Special access road characteristics: minimum clear width: 4 m; minimum turning radius: 11 m on the inside and 15 m on the outside; minimum clear height: 4 m; maximum slope: 6%;",
+   "entities": [
+    "special access road"
+   ],
+   "conditions": [],
+   "measurements": [
+    "minimum clear width: 4 m",
+    "minimum turning radius: 11 m (inside), 15 m (outside)",
+    "minimum clear height: 4 m",
+    "maximum slope: 6%"
+   ],
+   "relationships": []
+  },
+  {
+   "ruleId": "1.1.5",
+   "ruleText": "Load bearing capacity: such that vehicles, without galvanization, with a maximum axle load of 13t can drive and stop there, even if they deform the terrain.",
+   "entities": [
+    "special access road",
+    "vehicles"
+   ],
+   "conditions": [
+    "vehicles without galvanization"
+   ],
+   "measurements": [
+    "maximum axle load: 13t"
+   ],
+   "relationships": [
+    "road must support vehicles with 13t axle load"
+   ]
+  },
+  {
+   "ruleId": "1.1.6",
+   "ruleText": "For structures located on access roads, refer to NBN B 03-101.",
+   "entities": [
+    "structures",
+    "access roads"
+   ],
+   "conditions": [
+    "structures on access roads"
+   ],
+   "measurements": [],
+   "relationships": [
+    "refer to NBN B 03-101 for structures on access roads"
+   ]
+  }
+ ]
+}
+{
+ "rules": [
+  {
+   "ruleId": "1.2.1",
+   "ruleText": "Outbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if they do not compromise either evacuation, occupant safety or fire department action.",
+   "entities": [
+    "outbuildings",
+    "projecting roofs",
+    "canopies",
+    "cantilevers",
+    "additions"
+   ],
+   "conditions": [
+    "Must not compromise evacuation",
+    "Must not compromise occupant safety",
+    "Must not compromise fire department action"
+   ],
+   "measurements": null,
+   "relationships": [
+    "Outbuildings, projecting roofs, canopies, cantilevers, and other additions are related to evacuation routes",
+    "Outbuildings, projecting roofs, canopies, cantilevers, and other additions are related to occupant safety",
+    "Outbuildings, projecting roofs, canopies, cantilevers, and other additions are related to fire department access and operations"
+   ]
+  }
+ ]
+}
+{
+ "rules": [
+  {
+   "ruleId": "1.3.1",
+   "ruleText": "The horizontal distance, free from any combustible element and located between an LG and an opposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent buildings.",
+   "entities": [
+    "LG",
+    "opposing building",
+    "walls"
+   ],
+   "conditions": "Unless the walls meet the conditions defined for adjacent buildings",
+   "measurements": "At least 6 m",
+   "relationships": "Horizontal distance between LG and opposing building"
+  },
+  {
+   "ruleId": "1.3.2",
+   "ruleText": "The walls separating adjacent buildings have Rf 1 h.",
+   "entities": [
+    "walls",
+    "adjacent buildings"
+   ],
+   "conditions": null,
+   "measurements": "Rf 1 h",
+   "relationships": "Walls separate adjacent buildings"
+  },
+  {
+   "ruleId": "1.3.3",
+   "ruleText": "In these walls a connection between these buildings may exist through a door Rf \u00bd h, self-closing or self-closing in case of fire.",
+   "entities": [
+    "walls",
+    "buildings",
+    "door"
+   ],
+   "conditions": "Self-closing or self-closing in case of fire",
+   "measurements": "Rf \u00bd h",
+   "relationships": "Door connects adjacent buildings through walls"
+  },
+  {
+   "ruleId": "1.3.4",
+   "ruleText": "The condition of distance between an LG and an opposing building does not apply to buildings separated by existing streets, roads..., belonging to the public domain.",
+   "entities": [
+    "LG",
+    "opposing building",
+    "streets",
+    "roads",
+    "public domain"
+   ],
+   "conditions": "Buildings separated by existing streets, roads, etc. belonging to the public domain",
+   "measurements": null,
+   "relationships": "Distance requirement exemption for buildings separated by public domain"
+  }
+ ]
+}
+{
+ "rules": "No rules"
+}
+{
+ "rules": [
+  {
+   "ruleId": "2.1.1",
+   "ruleText": "The building is divided into compartments whose area is less than 2,500 m\u00b2, with the exception of the parking buildings.",
+   "entities": [
+    "building",
+    "compartments",
+    "parking buildings"
+   ],
+   "conditions": [
+    "Exception for parking buildings"
+   ],
+   "measurements": [
+    "2,500 m\u00b2"
+   ],
+   "relationships": [
+    "Building is divided into compartments"
+   ]
+  },
+  {
+   "ruleId": "2.1.2",
+   "ruleText": "Single-story buildings that can be carried out in a single compartment, the area of that compartment may reach 3500 m\u00b2. The length of this compartment shall not exceed 90 m.",
+   "entities": [
+    "single-story buildings",
+    "compartment"
+   ],
+   "conditions": [
+    "Single-story buildings"
+   ],
+   "measurements": [
+    "3500 m\u00b2",
+    "90 m"
+   ],
+   "relationships": [
+    "Single-story building can have one compartment"
+   ]
+  },
+  {
+   "ruleId": "2.1.3",
+   "ruleText": "The area of a compartment may exceed either 2,500 square meters or 3,500 square meters, if it is equipped with an automatic fire extinguishing system and a smoke and heat extraction system.",
+   "entities": [
+    "compartment",
+    "fire extinguishing system",
+    "smoke and heat extraction system"
+   ],
+   "conditions": [
+    "Equipped with fire extinguishing and smoke extraction systems"
+   ],
+   "measurements": [
+    "2,500 square meters",
+    "3,500 square meters"
+   ],
+   "relationships": [
+    "Systems allow for larger compartment areas"
+   ]
+  },
+  {
+   "ruleId": "2.1.4",
+   "ruleText": "The height of a compartment corresponds to the height of one storey, with some exceptions.",
+   "entities": [
+    "compartment",
+    "storey"
+   ],
+   "conditions": [
+    "General rule with exceptions"
+   ],
+   "measurements": [],
+   "relationships": [
+    "Compartment height equals one storey height"
+   ]
+  },
+  {
+   "ruleId": "2.1.5",
+   "ruleText": "A compartment may extend over two superimposed floors with an interior connecting staircase (duplex), if the cumulative area of those floors does not exceed 2,500 m\u00b2.",
+   "entities": [
+    "compartment",
+    "floors",
+    "interior connecting staircase"
+   ],
+   "conditions": [
+    "Duplex arrangement"
+   ],
+   "measurements": [
+    "2,500 m\u00b2"
+   ],
+   "relationships": [
+    "Compartment can span two floors"
+   ]
+  },
+  {
+   "ruleId": "2.1.6",
+   "ruleText": "The height of a compartment may extend over several superimposed building levels, if this compartment contains only technical rooms.",
+   "entities": [
+    "compartment",
+    "building levels",
+    "technical rooms"
+   ],
+   "conditions": [
+    "Contains only technical rooms"
+   ],
+   "measurements": [],
+   "relationships": [
+    "Compartment can span multiple levels for technical rooms"
+   ]
+  },
+  {
+   "ruleId": "2.1.7",
+   "ruleText": "The height of a compartment may extend over several floors (atrium) provided that this compartment is equipped with an automatic fire extinguishing system and a smoke and heat extraction system.",
+   "entities": [
+    "compartment",
+    "atrium",
+    "fire extinguishing system",
+    "smoke and heat extraction system"
+   ],
+   "conditions": [
+    "Equipped with fire extinguishing and smoke extraction systems"
+   ],
+   "measurements": [],
+   "relationships": [
+    "Compartment can span multiple floors for atrium"
+   ]
+  }
+ ]
+}
+{
+ "rules": [
+  {
+   "ruleId": "2.2.1.1",
+   "ruleText": "Each compartment has minimum an exit if occupancy is less than 100 persons",
+   "entities": [
+    "compartment",
+    "exit"
+   ],
+   "conditions": "occupancy is less than 100 persons",
+   "measurements": "1 exit",
+   "relationships": "compartment contains exit"
+  },
+  {
+   "ruleId": "2.2.1.2",
+   "ruleText": "Each compartment has minimum two exits if occupancy is 100 or more than 100 and less than 500 persons",
+   "entities": [
+    "compartment",
+    "exit"
+   ],
+   "conditions": "occupancy is 100 or more than 100 and less than 500 persons",
+   "measurements": "2 exits",
+   "relationships": "compartment contains exits"
+  },
+  {
+   "ruleId": "2.2.1.3",
+   "ruleText": "Each compartment has minimum 2 + n exits where n is the integer immediately greater than the division by 1000 of the maximum occupancy of the compartment, if the occupancy is 500 or more than 500 persons",
+   "entities": [
+    "compartment",
+    "exit"
+   ],
+   "conditions": "occupancy is 500 or more than 500 persons",
+   "measurements": "2 + n exits, n = ceil(occupancy / 1000)",
+   "relationships": "compartment contains exits"
+  },
+  {
+   "ruleId": "2.2.1.4",
+   "ruleText": "The minimum number of exits can be increased by the fire department in function of the occupancy and configuration of the premises",
+   "entities": [
+    "exit",
+    "fire department",
+    "premises"
+   ],
+   "conditions": "fire department discretion based on occupancy and configuration",
+   "measurements": null,
+   "relationships": "fire department can increase number of exits"
+  },
+  {
+   "ruleId": "2.2.1.5",
+   "ruleText": "The number of exits from building floors and classrooms is determined as for compartments",
+   "entities": [
+    "building floor",
+    "classroom",
+    "exit"
+   ],
+   "conditions": null,
+   "measurements": null,
+   "relationships": "building floors and classrooms follow same exit rules as compartments"
+  },
+  {
+   "ruleId": "2.2.2.1",
+   "ruleText": "The exits are located in opposite zones of the compartment",
+   "entities": [
+    "exit",
+    "compartment"
+   ],
+   "conditions": null,
+   "measurements": null,
+   "relationships": "exits are in opposite zones of compartment"
+  },
+  {
+   "ruleId": "2.2.2.2",
+   "ruleText": "Evacuation routes lead outside or to stairwells, or stairs, located inside or outside the building",
+   "entities": [
+    "evacuation route",
+    "stairwell",
+    "stairs",
+    "building"
+   ],
+   "conditions": null,
+   "measurements": null,
+   "relationships": "evacuation routes connect to outside or stairwells/stairs"
+  },
+  {
+   "ruleId": "2.2.2.3",
+   "ruleText": "With regard to underground building levels, one exit to the outside via an evacuation path with walls and doors Rf \u00bd h may replace the required access to one of the stairwells",
+   "entities": [
+    "underground building level",
+    "exit",
+    "evacuation path",
+    "wall",
+    "door",
+    "stairwell"
+   ],
+   "conditions": "underground building level",
+   "measurements": "Rf \u00bd h for walls and doors",
+   "relationships": "exit with Rf \u00bd h evacuation path can replace stairwell access"
+  },
+  {
+   "ruleId": "2.2.2.4",
+   "ruleText": "At an evacuation level, each stairway leads to the outside either directly or over an evacuation path that meets the requirements of 4.4",
+   "entities": [
+    "evacuation level",
+    "stairway",
+    "evacuation path"
+   ],
+   "conditions": "at evacuation level",
+   "measurements": null,
+   "relationships": "stairway leads to outside directly or via compliant evacuation path"
+  }
+ ]
+}
+{
+ "rules": "No rules"
+}
+{
+ "rules": [
+  {
+   "ruleId": "3.1",
+   "ruleText": "Penetrations through walls of pipes for fluids or for electricity and the expansion joints shall not adversely affect the required fire resistance of the building elements.",
+   "entities": [
+    "walls",
+    "pipes",
+    "expansion joints",
+    "building elements"
+   ],
+   "conditions": "Penetrations through walls",
+   "measurements": null,
+   "relationships": "Penetrations must not affect fire resistance of building elements"
+  },
+  {
+   "ruleId": "3.2a",
+   "ruleText": "The structural elements have Rf \u00bd h for single-story buildings. However, this requirement does not apply to the roof if it is protected on the inside by a building element with Rf \u00bd h",
+   "entities": [
+    "structural elements",
+    "roof",
+    "building element"
+   ],
+   "conditions": "Single-story buildings",
+   "measurements": "Rf \u00bd h",
+   "relationships": "Structural elements must have Rf \u00bd h, except for roof if protected internally"
+  },
+  {
+   "ruleId": "3.2b",
+   "ruleText": "For buildings with more than one storey : Rf 1 h above Ei level. The structure of the roof has a fire stability of \u00bd h. This requirement is not applicable if the roof is protected on the inside by a building element with Rf \u00bd h",
+   "entities": [
+    "structural elements",
+    "roof",
+    "building element"
+   ],
+   "conditions": "Buildings with more than one storey",
+   "measurements": "Rf 1 h above Ei level, Rf \u00bd h for roof",
+   "relationships": "Structural elements must have Rf 1 h above Ei level, roof must have Rf \u00bd h unless protected internally"
+  },
+  {
+   "ruleId": "3.2c",
+   "ruleText": "The structural elements in the basement floors, including the level Ei floor have Rf 1 h.",
+   "entities": [
+    "structural elements",
+    "basement floors",
+    "Ei floor"
+   ],
+   "conditions": "Basement floors and Ei floor",
+   "measurements": "Rf 1 h",
+   "relationships": "Structural elements in basement and Ei floor must have Rf 1 h"
+  },
+  {
+   "ruleId": "3.2d",
+   "ruleText": "No fire resistance requirements are imposed on the structural elements of open parking buildings whose horizontal walls possess Rf 1 h.",
+   "entities": [
+    "structural elements",
+    "open parking buildings",
+    "horizontal walls"
+   ],
+   "conditions": "Open parking buildings with horizontal walls possessing Rf 1 h",
+   "measurements": "Rf 1 h for horizontal walls",
+   "relationships": "No fire resistance requirements for structural elements if horizontal walls have Rf 1 h"
+  }
+ ]
+}
+{
+ "rules": [
+  {
+   "ruleId": "3.3.1",
+   "ruleText": "For walls and doors, which demarcate compartments, 4.1 applies; if they demarcate evacuation routes, 4.4 applies.",
+   "entities": [
+    "walls",
+    "doors",
+    "compartments",
+    "evacuation routes"
+   ],
+   "conditions": [
+    "Walls and doors demarcate compartments",
+    "Walls and doors demarcate evacuation routes"
+   ],
+   "measurements": null,
+   "relationships": [
+    "Walls and doors can demarcate compartments or evacuation routes",
+    "Section 4.1 applies to compartment demarcation",
+    "Section 4.4 applies to evacuation route demarcation"
+   ]
+  },
+  {
+   "ruleId": "3.3.2",
+   "ruleText": "The interior vertical walls demarcating classrooms or the entirety of classrooms with night occupancy have at least the fire resistance of the structural elements.",
+   "entities": [
+    "interior vertical walls",
+    "classrooms",
+    "structural elements"
+   ],
+   "conditions": [
+    "Walls demarcate classrooms",
+    "Walls demarcate classrooms with night occupancy"
+   ],
+   "measurements": null,
+   "relationships": [
+    "Interior vertical walls must have fire resistance equal to or greater than structural elements"
+   ]
+  },
+  {
+   "ruleId": "3.3.3",
+   "ruleText": "The doors in these walls have Rf \u00bd h.",
+   "entities": [
+    "doors",
+    "walls"
+   ],
+   "conditions": [
+    "Doors are in walls demarcating classrooms or classrooms with night occupancy"
+   ],
+   "measurements": [
+    "Rf \u00bd h"
+   ],
+   "relationships": [
+    "Doors must have fire resistance of Rf \u00bd h"
+   ]
+  }
+ ]
+}
