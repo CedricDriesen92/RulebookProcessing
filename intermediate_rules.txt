@@ -1,564 +1,2748 @@
 {
  "rules": [
   {
-   "ruleId": "1.1",
-   "ruleText": "Access roads are determined in agreement with the fire department according to the following guideline:",
-   "entities": [
-    "access roads",
-    "fire department"
+   "Rule ID": "LG-001",
+   "Entities": [
+    "low buildings"
    ],
-   "conditions": "Agreement with fire department required",
-   "measurements": null,
-   "relationships": "Fire department approval needed for access road determination"
+   "Conditions": [
+    "Buildings classified as low buildings"
+   ],
+   "Measurements": [
+    {
+     "type": "maximum height",
+     "value": 10,
+     "unit": "m"
+    }
+   ],
+   "Relationships": [
+    "Annex 2 applies to low buildings"
+   ]
   }
- ]
+ ],
+ "FullText": "Federal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\n24/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).ANNEX 2: LOW BUILDINGS"
+}
+{
+ "rules": "No rules",
+ "FullText": "0 GENERAL."
+}
+{
+ "rules": "No rules",
+ "FullText": "0.1 Objective.\nThese basic regulations define the minimum requirements that the conception, construction and \ndesign of low-rise buildings (LG) must meet in order to:\na)prevent the occurrence, development and propagation of fire;\nb)ensure the safety of those present;\nc)preventively facilitate the fire department's intervention."
 }
 {
  "rules": [
   {
-   "ruleId": "1.1.1",
-   "ruleText": "For single-story buildings, fire department vehicles must be able to approach at least to within 60 m of a building fa\u00e7ade.",
-   "entities": [
-    "fire department vehicles",
-    "single-story buildings",
-    "building fa\u00e7ade"
+   "Rule ID": "LG-0.2.1",
+   "Entities": [
+    "low buildings",
+    "extensions",
+    "premises",
+    "industrial activity"
    ],
-   "conditions": [
-    "single-story buildings"
+   "Conditions": [
+    "Application for construction submitted after December 31, 1997 and before December 1, 2012",
+    "Extensions result in low buildings after realization",
+    "Industrial activity area less than or equal to 500 m\u00b2",
+    "Mainly non-industrial activities in the building",
+    "Industrial activities support non-industrial activities in the same compartment",
+    "No night-occupied premises in compartment with industrial activities"
    ],
-   "measurements": [
-    "60 m"
+   "Measurements": [
+    {
+     "type": "maximum industrial activity area",
+     "value": 500,
+     "unit": "m\u00b2"
+    }
    ],
-   "relationships": [
-    "fire department vehicles must approach within 60 m of building fa\u00e7ade"
+   "Relationships": [
+    "Industrial activity area must be less than remaining building area",
+    "Industrial activities support non-industrial activities in same compartment"
    ]
   },
   {
-   "ruleId": "1.1.2",
-   "ruleText": "For buildings with more than one storey, fire department vehicles must be able to reach a facade at least at one point that provides access to each storey at recognizable points.",
-   "entities": [
-    "fire department vehicles",
-    "multi-story buildings",
-    "building fa\u00e7ade",
-    "storeys"
+   "Rule ID": "LG-0.2.2",
+   "Entities": [
+    "industrial buildings",
+    "small buildings",
+    "single-family homes"
    ],
-   "conditions": [
-    "buildings with more than one storey"
+   "Conditions": [
+    "Excluded from scope of annex"
    ],
-   "measurements": [],
-   "relationships": [
-    "fire department vehicles must reach facade",
-    "facade must provide access to each storey"
+   "Measurements": [
+    {
+     "type": "maximum storeys",
+     "value": 2,
+     "unit": "floors"
+    },
+    {
+     "type": "maximum total area",
+     "value": 100,
+     "unit": "m\u00b2"
+    }
+   ],
+   "Relationships": [
+    "Small buildings have up to two storeys and total area less than or equal to 100 m\u00b2"
+   ]
+  }
+ ],
+ "FullText": "0.2 Scope.\n0.2.1 This annex applies to the following buildings to be erected and the following extensions to existing \nbuildings, for which the application for construction is submitted after December 31, 1997 and \nbefore December 1, 2012:\n1.the low buildings;\n2.the extensions of buildings that are low buildings after realization;\n3.the premises or parts of low-rise buildings in which an industrial activity takes place and whose \ntotal area is less than or equal to 500 m\u00b2, under the following conditions:\n-mainly non-industrial activities take place in the building and the total area of premises \nwith industrial activity is less than the remaining area of the building;\n-the industrial activities in these premises support the non-industrial activities in the same \ncompartment;\n-there are no night-occupied premises in the compartment in which industrial activities take \nplace.\n0.2.2 However, excluded from the scope of this annex are:\n1.the industrial buildings;\n2.The buildings consisting of up to two storeys and with a total area less than or equal to 100 \nm\u00b2;\n3.the single-family homes."
+}
+{
+ "rules": "No rules",
+ "FullText": "0.3 Terminology - see Appendix 1."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-0.4",
+   "Entities": [
+    "materials"
+   ],
+   "Conditions": [
+    "Response to fire specifications"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Materials must comply with fire response requirements in Appendix 5"
+   ]
+  }
+ ],
+ "FullText": "0.4 Response to fire of the materials - see Appendix 5."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-1",
+   "Entities": [
+    "access roads",
+    "fire department"
+   ],
+   "Conditions": [
+    "Access roads are determined in agreement with the fire department"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Fire department is involved in determining access roads"
+   ]
+  }
+ ],
+ "FullText": "1 IMPLANTATION AND ACCESS ROADS.\nAccess roads are determined in agreement with the fire department according to the following \nguideline:"
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-1.1.1",
+   "Entities": [
+    "fire department vehicle",
+    "building facade",
+    "single-story building"
+   ],
+   "Conditions": [
+    "Applies to single-story buildings"
+   ],
+   "Measurements": [
+    {
+     "type": "maximum approach distance",
+     "value": 60,
+     "unit": "m"
+    }
+   ],
+   "Relationships": [
+    "Fire department vehicle must be able to approach building facade"
    ]
   },
   {
-   "ruleId": "1.1.3",
-   "ruleText": "Vehicles must have an access point and a staging area either on the drivable roadway of the public highway or on a special access road from the travelable roadway of the public highway.",
-   "entities": [
-    "vehicles",
+   "Rule ID": "LG-1.1.2",
+   "Entities": [
+    "fire department vehicle",
+    "building facade",
+    "multi-story building"
+   ],
+   "Conditions": [
+    "Applies to buildings with more than one storey"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Fire department vehicle must be able to reach facade at least at one point",
+    "Access point must provide access to each storey at recognizable points"
+   ]
+  },
+  {
+   "Rule ID": "LG-1.1.3",
+   "Entities": [
+    "fire department vehicle",
     "access point",
     "staging area",
     "public highway",
     "special access road"
    ],
-   "conditions": [],
-   "measurements": [],
-   "relationships": [
-    "vehicles must have access point and staging area",
-    "access point and staging area on public highway or special access road"
+   "Conditions": [
+    "Access point and staging area can be on public highway or special access road"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Fire department vehicles must have access point and staging area"
    ]
   },
   {
-   "ruleId": "1.1.4",
-   "ruleText": "Special access road characteristics: minimum clear width: 4 m; minimum turning radius: 11 m on the inside and 15 m on the outside; minimum clear height: 4 m; maximum slope: 6%;",
-   "entities": [
+   "Rule ID": "LG-1.1.4",
+   "Entities": [
     "special access road"
    ],
-   "conditions": [],
-   "measurements": [
-    "minimum clear width: 4 m",
-    "minimum turning radius: 11 m (inside), 15 m (outside)",
-    "minimum clear height: 4 m",
-    "maximum slope: 6%"
+   "Conditions": [
+    "Applies when access is not on public highway"
    ],
-   "relationships": []
-  },
-  {
-   "ruleId": "1.1.5",
-   "ruleText": "Load bearing capacity: such that vehicles, without galvanization, with a maximum axle load of 13t can drive and stop there, even if they deform the terrain.",
-   "entities": [
-    "special access road",
-    "vehicles"
+   "Measurements": [
+    {
+     "type": "minimum clear width",
+     "value": 4,
+     "unit": "m"
+    },
+    {
+     "type": "minimum inner turning radius",
+     "value": 11,
+     "unit": "m"
+    },
+    {
+     "type": "minimum outer turning radius",
+     "value": 15,
+     "unit": "m"
+    },
+    {
+     "type": "minimum clear height",
+     "value": 4,
+     "unit": "m"
+    },
+    {
+     "type": "maximum slope",
+     "value": 6,
+     "unit": "%"
+    }
    ],
-   "conditions": [
-    "vehicles without galvanization"
-   ],
-   "measurements": [
-    "maximum axle load: 13t"
-   ],
-   "relationships": [
-    "road must support vehicles with 13t axle load"
+   "Relationships": [
+    "Special access road connects to public highway"
    ]
   },
   {
-   "ruleId": "1.1.6",
-   "ruleText": "For structures located on access roads, refer to NBN B 03-101.",
-   "entities": [
-    "structures",
-    "access roads"
+   "Rule ID": "LG-1.1.5",
+   "Entities": [
+    "special access road",
+    "fire department vehicle"
    ],
-   "conditions": [
-    "structures on access roads"
+   "Conditions": [
+    "Applies to special access roads"
    ],
-   "measurements": [],
-   "relationships": [
-    "refer to NBN B 03-101 for structures on access roads"
+   "Measurements": [
+    {
+     "type": "maximum axle load",
+     "value": 13,
+     "unit": "t"
+    }
+   ],
+   "Relationships": [
+    "Special access road must support fire department vehicles"
    ]
   }
- ]
+ ],
+ "FullText": "1.1 [Fire department accessibility and emplacement]\nFor single-story buildings, fire department vehicles must be able to approach at least to within 60 \nm of a building fa\u00e7ade.\nFor buildings with more than one storey, fire department vehicles must be able to reach a facade \nat least at one point that provides access to each storey at recognizable points.\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS\n25/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).To this end, vehicles must have an access point and a staging area:\n-either on the drivable roadway of the public highway;\n-either on a special access road from the travelable roadway of the public highway and having \nthe following characteristics:\n-minimum clear width: 4 m;\n-minimum turning radius: 11 m on the inside and 15 m on the outside;\n-minimum clear height: 4 m;\n-maximum slope: 6%;\n-load bearing capacity: such that vehicles, without galvanization, with a maximum axle load \nof 13t can drive and stop there, even if they deform the terrain. For structures l o c a t e d  \non access roads, refer to NBN B 03-101."
 }
 {
  "rules": [
   {
-   "ruleId": "1.2.1",
-   "ruleText": "Outbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if they do not compromise either evacuation, occupant safety or fire department action.",
-   "entities": [
+   "Rule ID": "LG-1.2-001",
+   "Entities": [
     "outbuildings",
     "projecting roofs",
     "canopies",
     "cantilevers",
     "additions"
    ],
-   "conditions": [
-    "Must not compromise evacuation",
-    "Must not compromise occupant safety",
-    "Must not compromise fire department action"
+   "Conditions": [
+    "Permitted only if they do not compromise evacuation",
+    "Permitted only if they do not compromise occupant safety",
+    "Permitted only if they do not compromise fire department action"
    ],
-   "measurements": null,
-   "relationships": [
-    "Outbuildings, projecting roofs, canopies, cantilevers, and other additions are related to evacuation routes",
-    "Outbuildings, projecting roofs, canopies, cantilevers, and other additions are related to occupant safety",
-    "Outbuildings, projecting roofs, canopies, cantilevers, and other additions are related to fire department access and operations"
+   "Measurements": [],
+   "Relationships": [
+    "Outbuildings, projecting roofs, canopies, cantilevers, and other additions are related to the main building",
+    "These structures must not interfere with evacuation routes",
+    "These structures must not interfere with fire department operations"
    ]
   }
- ]
+ ],
+ "FullText": "1.2 [Outbuildings, etc.]\nOutbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if \nthey do not compromise either evacuation, occupant safety or fire department action."
 }
 {
  "rules": [
   {
-   "ruleId": "1.3.1",
-   "ruleText": "The horizontal distance, free from any combustible element and located between an LG and an opposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent buildings.",
-   "entities": [
-    "LG",
-    "opposing building",
-    "walls"
+   "Rule ID": "LG-1.3.1",
+   "Entities": [
+    "LG building",
+    "opposing building"
    ],
-   "conditions": "Unless the walls meet the conditions defined for adjacent buildings",
-   "measurements": "At least 6 m",
-   "relationships": "Horizontal distance between LG and opposing building"
+   "Conditions": [
+    "Space between buildings must be free from combustible elements",
+    "Exception if walls meet conditions for adjacent buildings",
+    "Exception for buildings separated by existing public streets or roads"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum horizontal distance",
+     "value": 6,
+     "unit": "m"
+    }
+   ],
+   "Relationships": [
+    "Horizontal distance separates LG building from opposing building"
+   ]
   },
   {
-   "ruleId": "1.3.2",
-   "ruleText": "The walls separating adjacent buildings have Rf 1 h.",
-   "entities": [
-    "walls",
-    "adjacent buildings"
+   "Rule ID": "LG-1.3.2",
+   "Entities": [
+    "adjacent buildings",
+    "separating walls"
    ],
-   "conditions": null,
-   "measurements": "Rf 1 h",
-   "relationships": "Walls separate adjacent buildings"
+   "Conditions": [
+    "Applies to walls separating adjacent buildings"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 1,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "Separating walls are between adjacent buildings"
+   ]
   },
   {
-   "ruleId": "1.3.3",
-   "ruleText": "In these walls a connection between these buildings may exist through a door Rf \u00bd h, self-closing or self-closing in case of fire.",
-   "entities": [
-    "walls",
-    "buildings",
-    "door"
+   "Rule ID": "LG-1.3.3",
+   "Entities": [
+    "adjacent buildings",
+    "connecting door"
    ],
-   "conditions": "Self-closing or self-closing in case of fire",
-   "measurements": "Rf \u00bd h",
-   "relationships": "Door connects adjacent buildings through walls"
-  },
-  {
-   "ruleId": "1.3.4",
-   "ruleText": "The condition of distance between an LG and an opposing building does not apply to buildings separated by existing streets, roads..., belonging to the public domain.",
-   "entities": [
-    "LG",
-    "opposing building",
-    "streets",
-    "roads",
-    "public domain"
+   "Conditions": [
+    "Door must be self-closing or self-closing in case of fire"
    ],
-   "conditions": "Buildings separated by existing streets, roads, etc. belonging to the public domain",
-   "measurements": null,
-   "relationships": "Distance requirement exemption for buildings separated by public domain"
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "Connecting door is part of the wall separating adjacent buildings"
+   ]
   }
- ]
-}
-{
- "rules": "No rules"
+ ],
+ "FullText": "1.3 [Horizontal distance between buildings]\nThe horizontal distance, free from any combustible element and located between an LG and an \nopposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent \nbuildings.\nThe walls separating adjacent buildings have Rf 1 h.\nIn these walls a connection between these buildings may exist through a door Rf \u00bd h, self-closing \nor self-closing in case of fire.\nThe condition of distance between an LG and an opposing building does not apply to buildings \nseparated by existing streets, roads..., belonging to the public domain."
 }
 {
  "rules": [
   {
-   "ruleId": "2.1.1",
-   "ruleText": "The building is divided into compartments whose area is less than 2,500 m\u00b2, with the exception of the parking buildings.",
-   "entities": [
-    "building",
-    "compartments",
-    "parking buildings"
+   "Rule ID": "LG-2",
+   "Entities": [
+    "compartment",
+    "evacuation"
    ],
-   "conditions": [
+   "Conditions": [
+    "Section header for compartmentalization and evacuation rules"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Compartmentalization and evacuation are related concepts in building safety"
+   ]
+  }
+ ],
+ "FullText": "2 COMPARTMENTALIZATION AND EVACUATION."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-2.1.1",
+   "Entities": [
+    "building",
+    "compartment"
+   ],
+   "Conditions": [
+    "General rule for multi-story buildings",
     "Exception for parking buildings"
    ],
-   "measurements": [
-    "2,500 m\u00b2"
+   "Measurements": [
+    {
+     "type": "maximum area",
+     "value": 2500,
+     "unit": "m\u00b2"
+    }
    ],
-   "relationships": [
+   "Relationships": [
     "Building is divided into compartments"
    ]
   },
   {
-   "ruleId": "2.1.2",
-   "ruleText": "Single-story buildings that can be carried out in a single compartment, the area of that compartment may reach 3500 m\u00b2. The length of this compartment shall not exceed 90 m.",
-   "entities": [
-    "single-story buildings",
+   "Rule ID": "LG-2.1.2",
+   "Entities": [
+    "single-story building",
     "compartment"
    ],
-   "conditions": [
-    "Single-story buildings"
+   "Conditions": [
+    "Applies to single-story buildings only"
    ],
-   "measurements": [
-    "3500 m\u00b2",
-    "90 m"
+   "Measurements": [
+    {
+     "type": "maximum area",
+     "value": 3500,
+     "unit": "m\u00b2"
+    },
+    {
+     "type": "maximum length",
+     "value": 90,
+     "unit": "m"
+    }
    ],
-   "relationships": [
-    "Single-story building can have one compartment"
+   "Relationships": [
+    "Single-story building can be a single compartment"
    ]
   },
   {
-   "ruleId": "2.1.3",
-   "ruleText": "The area of a compartment may exceed either 2,500 square meters or 3,500 square meters, if it is equipped with an automatic fire extinguishing system and a smoke and heat extraction system.",
-   "entities": [
+   "Rule ID": "LG-2.1.3",
+   "Entities": [
     "compartment",
-    "fire extinguishing system",
+    "automatic fire extinguishing system",
     "smoke and heat extraction system"
    ],
-   "conditions": [
-    "Equipped with fire extinguishing and smoke extraction systems"
+   "Conditions": [
+    "Applies to buildings mentioned in previous paragraphs",
+    "Systems must comply with standards or recognized good practices",
+    "Minister of the Interior determines procedure and conditions"
    ],
-   "measurements": [
-    "2,500 square meters",
-    "3,500 square meters"
+   "Measurements": [
+    {
+     "type": "area",
+     "value": "exceeding 2500 or 3500",
+     "unit": "m\u00b2"
+    }
    ],
-   "relationships": [
-    "Systems allow for larger compartment areas"
+   "Relationships": [
+    "Compartment area can exceed limits if equipped with specified systems"
    ]
   },
   {
-   "ruleId": "2.1.4",
-   "ruleText": "The height of a compartment corresponds to the height of one storey, with some exceptions.",
-   "entities": [
+   "Rule ID": "LG-2.1.4",
+   "Entities": [
     "compartment",
     "storey"
    ],
-   "conditions": [
-    "General rule with exceptions"
+   "Conditions": [
+    "General rule for compartment height"
    ],
-   "measurements": [],
-   "relationships": [
-    "Compartment height equals one storey height"
+   "Measurements": [
+    {
+     "type": "height",
+     "value": "one storey",
+     "unit": "storey"
+    }
+   ],
+   "Relationships": [
+    "Compartment height corresponds to one storey height"
    ]
   },
   {
-   "ruleId": "2.1.5",
-   "ruleText": "A compartment may extend over two superimposed floors with an interior connecting staircase (duplex), if the cumulative area of those floors does not exceed 2,500 m\u00b2.",
-   "entities": [
+   "Rule ID": "LG-2.1.5",
+   "Entities": [
     "compartment",
-    "floors",
+    "duplex",
     "interior connecting staircase"
    ],
-   "conditions": [
-    "Duplex arrangement"
+   "Conditions": [
+    "Exception to general height rule"
    ],
-   "measurements": [
-    "2,500 m\u00b2"
+   "Measurements": [
+    {
+     "type": "maximum cumulative area",
+     "value": 2500,
+     "unit": "m\u00b2"
+    }
    ],
-   "relationships": [
-    "Compartment can span two floors"
+   "Relationships": [
+    "Compartment can extend over two superimposed floors",
+    "Floors connected by interior staircase"
    ]
   },
   {
-   "ruleId": "2.1.6",
-   "ruleText": "The height of a compartment may extend over several superimposed building levels, if this compartment contains only technical rooms.",
-   "entities": [
+   "Rule ID": "LG-2.1.6",
+   "Entities": [
     "compartment",
-    "building levels",
     "technical rooms"
    ],
-   "conditions": [
-    "Contains only technical rooms"
+   "Conditions": [
+    "Exception to general height rule",
+    "Compartment contains only technical rooms"
    ],
-   "measurements": [],
-   "relationships": [
-    "Compartment can span multiple levels for technical rooms"
+   "Measurements": [
+    {
+     "type": "height",
+     "value": "several",
+     "unit": "building levels"
+    }
+   ],
+   "Relationships": [
+    "Compartment can extend over multiple building levels"
    ]
   },
   {
-   "ruleId": "2.1.7",
-   "ruleText": "The height of a compartment may extend over several floors (atrium) provided that this compartment is equipped with an automatic fire extinguishing system and a smoke and heat extraction system.",
-   "entities": [
+   "Rule ID": "LG-2.1.7",
+   "Entities": [
     "compartment",
     "atrium",
-    "fire extinguishing system",
+    "automatic fire extinguishing system",
     "smoke and heat extraction system"
    ],
-   "conditions": [
-    "Equipped with fire extinguishing and smoke extraction systems"
+   "Conditions": [
+    "Exception to general height rule",
+    "Systems must comply with standards or recognized good practices",
+    "Minister of the Interior determines procedure and conditions"
    ],
-   "measurements": [],
-   "relationships": [
-    "Compartment can span multiple floors for atrium"
+   "Measurements": [
+    {
+     "type": "height",
+     "value": "several",
+     "unit": "floors"
+    }
+   ],
+   "Relationships": [
+    "Compartment can extend over multiple floors if equipped with specified systems"
    ]
   }
- ]
+ ],
+ "FullText": "2.1 [Size of compartments]\nThe building is divided into compartments whose area is less than 2,500 m\u00b2, with the exception of \nthe parking buildings (see 5.2).\nSingle-story buildings that can be carried out in a single compartment, the area of that \ncompartment may reach 3500 m\u00b2. The length of this compartment shall not exceed 90 m.\nAs for the buildings referred to in the above paragraphs, the area of a compartment, as the case \nmay be, may exceed either 2,500 square meters or 3,500 square meters, if it is equipped with an \nautomatic fire extinguishing system and a smoke and heat extraction system, which comply with \nthe standards or with the rules of good craftsmanship in this matter recognized by the Minister of \nthe Interior, according to the procedure and conditions he determines.\nThe height of a compartment corresponds to the height of one storey. However, \nthe following exceptions are allowed:\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS\n26/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).-the parking building with building levels (see 5.2);\n-a compartment may extend over two superimposed floors with an interior connecting staircase \n(duplex), if the cumulative area of those floors does not exceed 2,500 m\u00b2;\n-the height of a compartment may extend over several superimposed building levels, if this \ncompartment contains only technical rooms (see 5.1.1).\n-the height of a compartment may extend over several floors (atrium) provided that this \ncompartment is equipped with an automatic fire extinguishing system and a smoke and heat \nextraction system, which comply with the standards or with the rules of good craftsmanship on \nthe subject recognized by the Minister of the Interior, according to the procedure and \nconditions he determines."
 }
 {
  "rules": [
   {
-   "ruleId": "2.2.1.1",
-   "ruleText": "Each compartment has minimum an exit if occupancy is less than 100 persons",
-   "entities": [
+   "Rule ID": "LG-2.2.1-1",
+   "Entities": [
     "compartment",
     "exit"
    ],
-   "conditions": "occupancy is less than 100 persons",
-   "measurements": "1 exit",
-   "relationships": "compartment contains exit"
+   "Conditions": [
+    "Applies when occupancy is less than 100 persons"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum number of exits",
+     "value": 1,
+     "unit": "exit"
+    }
+   ],
+   "Relationships": [
+    "Compartment must have at least one exit"
+   ]
   },
   {
-   "ruleId": "2.2.1.2",
-   "ruleText": "Each compartment has minimum two exits if occupancy is 100 or more than 100 and less than 500 persons",
-   "entities": [
+   "Rule ID": "LG-2.2.1-2",
+   "Entities": [
     "compartment",
     "exit"
    ],
-   "conditions": "occupancy is 100 or more than 100 and less than 500 persons",
-   "measurements": "2 exits",
-   "relationships": "compartment contains exits"
+   "Conditions": [
+    "Applies when occupancy is 100 or more than 100 and less than 500 persons"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum number of exits",
+     "value": 2,
+     "unit": "exits"
+    }
+   ],
+   "Relationships": [
+    "Compartment must have at least two exits"
+   ]
   },
   {
-   "ruleId": "2.2.1.3",
-   "ruleText": "Each compartment has minimum 2 + n exits where n is the integer immediately greater than the division by 1000 of the maximum occupancy of the compartment, if the occupancy is 500 or more than 500 persons",
-   "entities": [
+   "Rule ID": "LG-2.2.1-3",
+   "Entities": [
     "compartment",
     "exit"
    ],
-   "conditions": "occupancy is 500 or more than 500 persons",
-   "measurements": "2 + n exits, n = ceil(occupancy / 1000)",
-   "relationships": "compartment contains exits"
+   "Conditions": [
+    "Applies when occupancy is 500 or more than 500 persons"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum number of exits",
+     "value": "2 + n",
+     "unit": "exits"
+    }
+   ],
+   "Relationships": [
+    "Compartment must have at least 2 + n exits",
+    "n is the integer immediately greater than the division by 1000 of the maximum occupancy"
+   ]
   },
   {
-   "ruleId": "2.2.1.4",
-   "ruleText": "The minimum number of exits can be increased by the fire department in function of the occupancy and configuration of the premises",
-   "entities": [
-    "exit",
+   "Rule ID": "LG-2.2.1-4",
+   "Entities": [
     "fire department",
-    "premises"
+    "compartment",
+    "exit"
    ],
-   "conditions": "fire department discretion based on occupancy and configuration",
-   "measurements": null,
-   "relationships": "fire department can increase number of exits"
+   "Conditions": [
+    "Based on occupancy and configuration of premises"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Fire department can increase the minimum number of exits"
+   ]
   },
   {
-   "ruleId": "2.2.1.5",
-   "ruleText": "The number of exits from building floors and classrooms is determined as for compartments",
-   "entities": [
+   "Rule ID": "LG-2.2.1-5",
+   "Entities": [
     "building floor",
     "classroom",
     "exit"
    ],
-   "conditions": null,
-   "measurements": null,
-   "relationships": "building floors and classrooms follow same exit rules as compartments"
+   "Conditions": [],
+   "Measurements": [],
+   "Relationships": [
+    "Number of exits for building floors and classrooms is determined as for compartments"
+   ]
   },
   {
-   "ruleId": "2.2.2.1",
-   "ruleText": "The exits are located in opposite zones of the compartment",
-   "entities": [
-    "exit",
-    "compartment"
+   "Rule ID": "LG-2.2.2-1",
+   "Entities": [
+    "compartment",
+    "exit"
    ],
-   "conditions": null,
-   "measurements": null,
-   "relationships": "exits are in opposite zones of compartment"
+   "Conditions": [],
+   "Measurements": [],
+   "Relationships": [
+    "Exits must be located in opposite zones of the compartment"
+   ]
   },
   {
-   "ruleId": "2.2.2.2",
-   "ruleText": "Evacuation routes lead outside or to stairwells, or stairs, located inside or outside the building",
-   "entities": [
+   "Rule ID": "LG-2.2.2-2",
+   "Entities": [
     "evacuation route",
     "stairwell",
     "stairs",
     "building"
    ],
-   "conditions": null,
-   "measurements": null,
-   "relationships": "evacuation routes connect to outside or stairwells/stairs"
+   "Conditions": [],
+   "Measurements": [],
+   "Relationships": [
+    "Evacuation routes must lead outside or to stairwells or stairs",
+    "Stairwells or stairs can be located inside or outside the building"
+   ]
   },
   {
-   "ruleId": "2.2.2.3",
-   "ruleText": "With regard to underground building levels, one exit to the outside via an evacuation path with walls and doors Rf \u00bd h may replace the required access to one of the stairwells",
-   "entities": [
+   "Rule ID": "LG-2.2.2-3",
+   "Entities": [
     "underground building level",
     "exit",
     "evacuation path",
-    "wall",
-    "door",
     "stairwell"
    ],
-   "conditions": "underground building level",
-   "measurements": "Rf \u00bd h for walls and doors",
-   "relationships": "exit with Rf \u00bd h evacuation path can replace stairwell access"
+   "Conditions": [
+    "Applies to underground building levels"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": "1/2",
+     "unit": "hour"
+    }
+   ],
+   "Relationships": [
+    "One exit to the outside via an evacuation path can replace access to one stairwell",
+    "Evacuation path must have walls and doors with Rf 1/2 h"
+   ]
   },
   {
-   "ruleId": "2.2.2.4",
-   "ruleText": "At an evacuation level, each stairway leads to the outside either directly or over an evacuation path that meets the requirements of 4.4",
-   "entities": [
+   "Rule ID": "LG-2.2.2-4",
+   "Entities": [
     "evacuation level",
     "stairway",
     "evacuation path"
    ],
-   "conditions": "at evacuation level",
-   "measurements": null,
-   "relationships": "stairway leads to outside directly or via compliant evacuation path"
+   "Conditions": [
+    "Applies at evacuation level"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Each stairway must lead to the outside",
+    "Stairway can lead directly outside or over an evacuation path"
+   ]
   }
- ]
+ ],
+ "FullText": "2.2 Evacuation of compartments.\n2.2.1 Number of outputs.\nEach compartment has minimum :\n-an exit if occupancy is less than 100 persons;\n-two exits if occupancy is 100 or more than 100 and less than 500 persons;\n-2 + n exits where n is the integer immediately greater than the division by 1000 of the \nmaximum occupancy of the compartment, if the occupancy is 500 or more than 500 persons.\nThe minimum number of exits can be increased by the fire department in function of the occupancy \nand configuration of the premises.\nThe number of exits from building floors and classrooms is determined as for compartments.\n2.2.2 Outputs.\nThe exits are located in opposite zones of the compartment.\nEvacuation routes lead outside or to stairwells, or stairs, located inside or outside the building, (for \nhorizontal distances see 4.4).\nWith regard to underground building levels, one exit to the outside via an evacuation path with \nwalls and doors Rf \u00bd h may replace the required access to one of the stairwells.\nFor the parking building: see 5.2.\nAt an evacuation level, each stairway leads to the outside either directly or over an evacuation path \nthat meets the requirements of 4.4."
 }
 {
- "rules": "No rules"
+ "rules": "No rules",
+ "FullText": "3 REGULATIONS FOR SOME BUILDING ELEMENTS."
 }
 {
  "rules": [
   {
-   "ruleId": "3.1",
-   "ruleText": "Penetrations through walls of pipes for fluids or for electricity and the expansion joints shall not adversely affect the required fire resistance of the building elements.",
-   "entities": [
+   "Rule ID": "LG-3.1",
+   "Entities": [
     "walls",
     "pipes",
     "expansion joints",
     "building elements"
    ],
-   "conditions": "Penetrations through walls",
-   "measurements": null,
-   "relationships": "Penetrations must not affect fire resistance of building elements"
-  },
-  {
-   "ruleId": "3.2a",
-   "ruleText": "The structural elements have Rf \u00bd h for single-story buildings. However, this requirement does not apply to the roof if it is protected on the inside by a building element with Rf \u00bd h",
-   "entities": [
-    "structural elements",
-    "roof",
-    "building element"
+   "Conditions": [
+    "Applies to penetrations through walls",
+    "Applies to pipes for fluids or electricity",
+    "Applies to expansion joints"
    ],
-   "conditions": "Single-story buildings",
-   "measurements": "Rf \u00bd h",
-   "relationships": "Structural elements must have Rf \u00bd h, except for roof if protected internally"
+   "Measurements": [],
+   "Relationships": [
+    "Penetrations and expansion joints must not adversely affect fire resistance of building elements"
+   ]
   },
   {
-   "ruleId": "3.2b",
-   "ruleText": "For buildings with more than one storey : Rf 1 h above Ei level. The structure of the roof has a fire stability of \u00bd h. This requirement is not applicable if the roof is protected on the inside by a building element with Rf \u00bd h",
-   "entities": [
+   "Rule ID": "LG-3.2a",
+   "Entities": [
     "structural elements",
-    "roof",
-    "building element"
+    "single-story buildings",
+    "roof"
    ],
-   "conditions": "Buildings with more than one storey",
-   "measurements": "Rf 1 h above Ei level, Rf \u00bd h for roof",
-   "relationships": "Structural elements must have Rf 1 h above Ei level, roof must have Rf \u00bd h unless protected internally"
+   "Conditions": [
+    "Applies to single-story buildings",
+    "Exception for roof if protected on the inside"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "hour"
+    }
+   ],
+   "Relationships": [
+    "Structural elements must have specified fire resistance",
+    "Roof may be exempt if protected internally"
+   ]
   },
   {
-   "ruleId": "3.2c",
-   "ruleText": "The structural elements in the basement floors, including the level Ei floor have Rf 1 h.",
-   "entities": [
+   "Rule ID": "LG-3.2b",
+   "Entities": [
+    "structural elements",
+    "multi-story buildings",
+    "roof"
+   ],
+   "Conditions": [
+    "Applies to buildings with more than one storey",
+    "Applies above Ei level"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 1,
+     "unit": "hour"
+    },
+    {
+     "type": "fire stability of roof",
+     "value": 0.5,
+     "unit": "hour"
+    }
+   ],
+   "Relationships": [
+    "Structural elements must have specified fire resistance",
+    "Roof structure must have specified fire stability",
+    "Roof may be exempt if protected internally"
+   ]
+  },
+  {
+   "Rule ID": "LG-3.2c",
+   "Entities": [
     "structural elements",
     "basement floors",
-    "Ei floor"
+    "Ei level floor"
    ],
-   "conditions": "Basement floors and Ei floor",
-   "measurements": "Rf 1 h",
-   "relationships": "Structural elements in basement and Ei floor must have Rf 1 h"
+   "Conditions": [
+    "Applies to basement floors and Ei level floor"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 1,
+     "unit": "hour"
+    }
+   ],
+   "Relationships": [
+    "Structural elements in basement floors must have specified fire resistance",
+    "Ei level floor must have specified fire resistance"
+   ]
   },
   {
-   "ruleId": "3.2d",
-   "ruleText": "No fire resistance requirements are imposed on the structural elements of open parking buildings whose horizontal walls possess Rf 1 h.",
-   "entities": [
-    "structural elements",
+   "Rule ID": "LG-3.2d",
+   "Entities": [
     "open parking buildings",
     "horizontal walls"
    ],
-   "conditions": "Open parking buildings with horizontal walls possessing Rf 1 h",
-   "measurements": "Rf 1 h for horizontal walls",
-   "relationships": "No fire resistance requirements for structural elements if horizontal walls have Rf 1 h"
+   "Conditions": [
+    "Applies to open parking buildings"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance of horizontal walls",
+     "value": 1,
+     "unit": "hour"
+    }
+   ],
+   "Relationships": [
+    "No fire resistance requirements for structural elements if horizontal walls meet specified fire resistance"
+   ]
   }
- ]
+ ],
+ "FullText": "3.1 Penetrations through walls.\nPenetrations through walls of pipes for fluids or for electricity and the expansion joints shall not \nadversely affect the required fire resistance of the building elements.\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS\n27/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).3.2 Structural elements.\nThe structural elements have:\na)Rf \u00bd h for single-story buildings. However, this requirement does not apply to the roof if it is \nprotected on the inside by a building element with Rf \u00bd h;\nb)for buildings with more than one storey : Rf 1 h above Ei level. The structure of the roof has a \nfire stability of \u00bd h. This requirement is not applicable if the roof is protected on the inside by a \nbuilding element with Rf \u00bd h;\nc)the structural elements in the basement floors, including the level Ei floor have Rf 1 h.\nNo fire resistance requirements are imposed on the structural elements of open parking buildings \nwhose horizontal walls possess Rf 1 h."
 }
 {
  "rules": [
   {
-   "ruleId": "3.3.1",
-   "ruleText": "For walls and doors, which demarcate compartments, 4.1 applies; if they demarcate evacuation routes, 4.4 applies.",
-   "entities": [
-    "walls",
-    "doors",
-    "compartments",
+   "Rule ID": "LG-3.3.1",
+   "Entities": [
+    "vertical interior walls",
+    "interior doors",
+    "compartments"
+   ],
+   "Conditions": [
+    "Applies to walls and doors demarcating compartments"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Walls and doors demarcate compartments",
+    "Section 4.1 applies to these walls and doors"
+   ]
+  },
+  {
+   "Rule ID": "LG-3.3.2",
+   "Entities": [
+    "vertical interior walls",
+    "interior doors",
     "evacuation routes"
    ],
-   "conditions": [
-    "Walls and doors demarcate compartments",
-    "Walls and doors demarcate evacuation routes"
+   "Conditions": [
+    "Applies to walls and doors demarcating evacuation routes"
    ],
-   "measurements": null,
-   "relationships": [
-    "Walls and doors can demarcate compartments or evacuation routes",
-    "Section 4.1 applies to compartment demarcation",
-    "Section 4.4 applies to evacuation route demarcation"
+   "Measurements": [],
+   "Relationships": [
+    "Walls and doors demarcate evacuation routes",
+    "Section 4.4 applies to these walls and doors"
    ]
   },
   {
-   "ruleId": "3.3.2",
-   "ruleText": "The interior vertical walls demarcating classrooms or the entirety of classrooms with night occupancy have at least the fire resistance of the structural elements.",
-   "entities": [
+   "Rule ID": "LG-3.3.3",
+   "Entities": [
     "interior vertical walls",
     "classrooms",
-    "structural elements"
+    "night occupancy"
    ],
-   "conditions": [
+   "Conditions": [
+    "Applies to walls demarcating classrooms or entirety of classrooms with night occupancy"
+   ],
+   "Measurements": [],
+   "Relationships": [
     "Walls demarcate classrooms",
-    "Walls demarcate classrooms with night occupancy"
-   ],
-   "measurements": null,
-   "relationships": [
-    "Interior vertical walls must have fire resistance equal to or greater than structural elements"
+    "Walls must have at least the fire resistance of the structural elements"
    ]
   },
   {
-   "ruleId": "3.3.3",
-   "ruleText": "The doors in these walls have Rf \u00bd h.",
-   "entities": [
+   "Rule ID": "LG-3.3.4",
+   "Entities": [
     "doors",
-    "walls"
+    "interior vertical walls",
+    "classrooms",
+    "night occupancy"
    ],
-   "conditions": [
-    "Doors are in walls demarcating classrooms or classrooms with night occupancy"
+   "Conditions": [
+    "Applies to doors in walls demarcating classrooms or entirety of classrooms with night occupancy"
    ],
-   "measurements": [
-    "Rf \u00bd h"
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "hours"
+    }
    ],
-   "relationships": [
-    "Doors must have fire resistance of Rf \u00bd h"
+   "Relationships": [
+    "Doors are part of walls demarcating classrooms",
+    "Doors must have specified fire resistance"
    ]
   }
- ]
+ ],
+ "FullText": "3.3 Vertical interior walls and interior doors.\nFor walls and doors, which demarcate compartments, 4.1 applies; if they demarcate evacuation \nroutes, 4.4 applies.\nThe interior vertical walls demarcating classrooms or the entirety of classrooms with night \noccupancy have at least the fire resistance of the structural elements.\nThe doors in these walls have Rf \u00bd h."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-3.4.1",
+   "Entities": [
+    "false ceilings",
+    "evacuation routes",
+    "premises open to the public",
+    "collective kitchens"
+   ],
+   "Conditions": [
+    "Applies to false ceilings in specific areas"
+   ],
+   "Measurements": [
+    {
+     "type": "fire stability",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "False ceilings are part of specified areas"
+   ]
+  },
+  {
+   "Rule ID": "LG-3.4.2a",
+   "Entities": [
+    "ceiling",
+    "false ceiling",
+    "vertical walls"
+   ],
+   "Conditions": [
+    "Applies to space between ceiling and false ceiling"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "Vertical walls extend into space between ceiling and false ceiling",
+    "Vertical walls interrupt space between ceiling and false ceiling"
+   ]
+  },
+  {
+   "Rule ID": "LG-3.4.2b",
+   "Entities": [
+    "ceiling",
+    "false ceiling",
+    "vertical separations"
+   ],
+   "Conditions": [
+    "Applies when space between ceiling and false ceiling is not equipped with automatic extinguishing system"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance of vertical separations",
+     "value": 0.5,
+     "unit": "h"
+    },
+    {
+     "type": "maximum side length of horizontal projection",
+     "value": 25,
+     "unit": "m"
+    }
+   ],
+   "Relationships": [
+    "Vertical separations interrupt space between ceiling and false ceiling",
+    "Horizontal projection of spaces can be inscribed in a square"
+   ]
+  }
+ ],
+ "FullText": "3.4 Ceilings and false ceilings.\n3.4.1 In evacuation routes, premises open to the public and collective kitchens, false ceilings have a fire \nstability of \u00bd h.\n3.4.2 The space between the ceiling and the false ceiling is interrupted by the extension of all vertical \nwalls possessing at least Rf \u00bd h.\nIf the space between the ceiling and the false ceiling is not equipped with an automatic \nextinguishing system, the space should be interrupted by vertical separations with Rf \u00bd h such \nthat there are spaces whose horizontal projection can be inscribed in a square of maximum 25 m \nside."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-3.5.1",
+   "Entities": [
+    "curtain wall skeleton",
+    "building skeleton",
+    "studs"
+   ],
+   "Conditions": [
+    "Applies to light facades"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Studs of curtain wall skeleton are fixed to building skeleton",
+    "Fixing occurs at each storey level"
+   ]
+  },
+  {
+   "Rule ID": "LG-3.5.2",
+   "Entities": [
+    "parapet",
+    "lintel",
+    "floor slab",
+    "pennants"
+   ],
+   "Conditions": [],
+   "Measurements": [
+    {
+     "type": "flame tightness duration",
+     "value": 0.5,
+     "unit": "hour"
+    }
+   ],
+   "Relationships": [
+    "Parapet and lintel are fastened to floor slab",
+    "Parapet, lintel, and pennants must meet flame tightness criterion"
+   ]
+  },
+  {
+   "Rule ID": "LG-3.5.3",
+   "Entities": [
+    "facade element",
+    "floor",
+    "compartment walls"
+   ],
+   "Conditions": [],
+   "Measurements": [],
+   "Relationships": [
+    "Connection of facade element to floor must meet requirements for floor or compartment walls"
+   ]
+  }
+ ],
+ "FullText": "3.5 Facades.\nThe studs of the curtain wall skeleton (light facade) are fixed to the building skeleton at the level of \neach storey.\nThe parapet and the lintel are fastened to the floor slab in such a way that the whole assembly will \nbe in place during\n\u00bd h meets the \"flame tightness\" criterion of NBN 713-020; the same requirement is also met by the \npennants.\nThe connection of the fa\u00e7ade element to the floor meets the requirements imposed for the floor or \nfor the walls separating the compartments.\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS\n28/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).4 PRECAUTIONS ON CONSTRUCTION OF COMPARTMENTS\nAND EVACUATION ROOMS."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-4.1.1",
+   "Entities": [
+    "compartment",
+    "wall",
+    "structural elements"
+   ],
+   "Conditions": [
+    "Applies to walls between compartments"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum fire resistance",
+     "value": "equal to or greater than",
+     "unit": "structural elements fire resistance"
+    }
+   ],
+   "Relationships": [
+    "Walls separate compartments",
+    "Walls have fire resistance related to structural elements"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.1.2",
+   "Entities": [
+    "compartment",
+    "door"
+   ],
+   "Conditions": [
+    "Connection between two compartments is allowed only through specified door types"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "Door connects two compartments",
+    "Door must be self-closing or self-closing in the event of fire"
+   ]
+  }
+ ],
+ "FullText": "4.1 Compartments.\nThe walls between compartments have at least the fire resistance of the structural elements.\nThe connection between two compartments is permitted only if it is through a self-closing or, in the \nevent of fire, self-closing door Rf \u00bd h."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-4.2.1",
+   "Entities": [
+    "stairs",
+    "compartments"
+   ],
+   "Conditions": [
+    "Stairs connecting several compartments"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Stairs are enclosed",
+    "Basic principles of Compartmentalization and Evacuation apply"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.2.2.1",
+   "Entities": [
+    "stairwell",
+    "interior walls",
+    "outer walls"
+   ],
+   "Conditions": [
+    "Outer walls may be glazed if openings are sealed"
+   ],
+   "Measurements": [
+    {
+     "type": "lateral sealing",
+     "value": 1,
+     "unit": "m"
+    },
+    {
+     "type": "flame density",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "Interior walls have at least required Rf of structural elements"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.2.2.2",
+   "Entities": [
+    "stairwell",
+    "evacuation level"
+   ],
+   "Conditions": [],
+   "Measurements": [],
+   "Relationships": [
+    "Stairwells must provide access to evacuation level"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.2.2.3",
+   "Entities": [
+    "compartment",
+    "stairwell",
+    "door",
+    "duplex compartment"
+   ],
+   "Conditions": [
+    "Exception for duplex compartments under certain conditions"
+   ],
+   "Measurements": [
+    {
+     "type": "door fire resistance",
+     "value": 0.5,
+     "unit": "h"
+    },
+    {
+     "type": "maximum duplex compartment area",
+     "value": 300,
+     "unit": "m\u00b2"
+    }
+   ],
+   "Relationships": [
+    "Connection between compartment and stairwell ensured by door"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.2.2.4",
+   "Entities": [
+    "compartments",
+    "stairwell",
+    "door"
+   ],
+   "Conditions": [
+    "Multiple compartments in same horizontal plane",
+    "Door must be self-closing or self-closing in event of fire"
+   ],
+   "Measurements": [
+    {
+     "type": "door fire resistance",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "Compartments may share common stairwell"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.2.2.5",
+   "Entities": [
+    "stairwell",
+    "underground levels",
+    "evacuation level"
+   ],
+   "Conditions": [
+    "Stairwells serving underground levels",
+    "Stairwells serving levels above evacuation level"
+   ],
+   "Measurements": [
+    {
+     "type": "door fire resistance",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "Underground stairwells should not be direct extension of above-ground stairwells",
+    "Stairwells can be one over the other under certain conditions"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.2.2.6",
+   "Entities": [
+    "stairwell",
+    "air vent"
+   ],
+   "Conditions": [
+    "At top of each interior stairwell",
+    "Does not apply to stairwells between evacuation levels and underground levels"
+   ],
+   "Measurements": [
+    {
+     "type": "air vent diameter",
+     "value": 1,
+     "unit": "m\u00b2"
+    }
+   ],
+   "Relationships": [
+    "Air vent opens to open air",
+    "Air vent controlled by hand control at evacuation level"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.2.3.1",
+   "Entities": [
+    "stairs",
+    "handrails",
+    "steps"
+   ],
+   "Conditions": [],
+   "Measurements": [
+    {
+     "type": "fire stability",
+     "value": 0.5,
+     "unit": "h"
+    },
+    {
+     "type": "minimum step tread",
+     "value": 0.2,
+     "unit": "m"
+    },
+    {
+     "type": "maximum step rise",
+     "value": 18,
+     "unit": "cm"
+    },
+    {
+     "type": "maximum slope",
+     "value": 75,
+     "unit": "%"
+    },
+    {
+     "type": "maximum slope angle",
+     "value": 37,
+     "unit": "\u00b0"
+    },
+    {
+     "type": "minimum tread for spiral stairs",
+     "value": 24,
+     "unit": "cm"
+    }
+   ],
+   "Relationships": [
+    "Stairs equipped with handrails on both sides",
+    "Stairs are of 'straight' type, with exception for spiral staircases"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.2.3.2",
+   "Entities": [
+    "stairs",
+    "spillways",
+    "sashes",
+    "compartment"
+   ],
+   "Conditions": [
+    "Special purpose rooms in compartment affect theoretical useful stair width"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum useful width",
+     "value": 0.8,
+     "unit": "m"
+    }
+   ],
+   "Relationships": [
+    "Useful width must reach required width br calculated according to Annex 1",
+    "Staircase arms and landings in same compartment must not differ in useful width by more than one passage unit"
+   ]
+  }
+ ],
+ "FullText": "4.2 Interior stairwells.\n4.2.1 General.\nThe stairs connecting several compartments are enclosed. The basic principles of 2 \n\"Compartmentalization and Evacuation\" apply to them.\n4.2.2 Opinion.\n4.2.2.1 The interior walls of the stairwells have at least the required Rf of the structural elements.\nTheir outer walls may be glazed if these openings are sealed over at least 1 m laterally with an \nelement that has a flame density of \u00bd h.\n4.2.2.2 Stairwells must provide access to an evacuation level.\n4.2.2.3 On each floor, the connection between the compartment and the stairwell is ensured by a door \nwith Rf \u00bd h.\nA direct connection of both floors of a duplex compartment to the stairwell is not required, provided \nthat:\n-the total area of the compartment is less than or equal to 300 m\u00b2;\n-the area of the floor of the duplex that evacuates directly through the stairwell is greater than \nthe area of the other floor of the duplex compartment.\n4.2.2.4 If several compartments lie in the same horizontal plane, they may have a common stairwell \nprovided that it is accessible from each compartment through a self-closing or, in the event of fire, \nself-closing door with Rf \u00bd h.\n4.2.2.5 Stairwells serving underground levels should not be a  direct extension of those serving levels \nabove an evacuation level.\nThis does not preclude one over the other, subject to the following conditions:\n1.the walls separating them have the same resistance to fire as those of the interior walls of \nstairwells.\n2.access to each stairwell is through a self-closing or, in the event of fire, self-closing door with \nRf \u00bd h.\n4.2.2.6 At the top of each interior stairwell is an air vent with a diameter of at least\n1 m\u00b2 and which opens into the open a i r . This opening is normally closed; to open it, one uses a \nhand control placed in a highly visible position at the evacuation level.\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS29/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).This requirement does not apply to stairwells between evacuation levels and underground building \nlevels.\n4.2.3 Stairs.\n4.2.3.1 Construction provisions.\nThe stairs have the following features:\n1.Like the spillways, they have a fire stability of \u00bd h or the same conception of construction as a \nconcrete slab with Rf \u00bd h;\n2.they are equipped with handrails on both sides.\nFor stairs with a useful width, less than 1.20 m, one handrail is sufficient, provided there is no \ndanger of falling;\n3.the step tread is at least 0.20 m at each point;\n4.the rise of the steps should not exceed 18 cm;\n5.their slope should not exceed 75% (maximum slope angle 37\u00b0);\n6.they are of the \" straight \" type.\nHowever, \"spiral staircases\" are permitted if they have displaced treads and if, in addition to \nthe above requirements, with the exception of the aforementioned point 3, their treads have at \nleast 24 cm of tread on the walkway.\n4.2.3.2 Useful width of stair arms, spillways and sashes.\nThe useful width is at least equal to 0.80 m and reaches at least the required useful width br \ncalculated according to Annex 1 \"Terminology\".\nThe staircase arms and staircase landings of the same compartment shall not differ in their useful \nwidth by more than one passage unit.\nIf a compartment contains special purpose rooms, the theoretical useful stair width (according to \nAppendix 1 \"Terminology\") based on their number of users is calculated only over the height \nbetween this compartment and the evacuation level."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-4.3-1",
+   "Entities": [
+    "exterior stairwell",
+    "evacuation level"
+   ],
+   "Conditions": [],
+   "Measurements": [],
+   "Relationships": [
+    "Exterior stairwell should provide access to evacuation level"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.3-2",
+   "Entities": [
+    "exterior stairwell",
+    "fire stability",
+    "material"
+   ],
+   "Conditions": [
+    "Requirements of 4.2.3 apply with deviations"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "No fire stability required for exterior stairwell",
+    "Material of exterior stairwell belongs to class A0"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.3-3",
+   "Entities": [
+    "compartment",
+    "external staircase",
+    "door",
+    "escape terrace"
+   ],
+   "Conditions": [],
+   "Measurements": [],
+   "Relationships": [
+    "Connection between compartment and external staircase is through door or escape terrace(s)"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.3-4",
+   "Entities": [
+    "evacuation level",
+    "higher level",
+    "staircase",
+    "retractable staircase",
+    "articulated staircase"
+   ],
+   "Conditions": [
+    "Applies to connection between evacuation level and immediately higher level"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Connection can be made using retractable or articulated staircase or section of staircase"
+   ]
+  }
+ ],
+ "FullText": "4.3 Exterior stairwells.\nExterior stairs should provide access to an evacuation level.\nThe requirements of 4.2.3 apply to it with however the following deviation: no fire stability is \nrequired, but the material belongs to class A0.\nThe connection between the compartment and an external staircase is done\n-either through a door;\n-either through escape terrace(s).\nFor the connection between the evacuation level and the immediately higher level, a staircase or \nsection of staircase may be used that is retractable or articulated."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-4.4.1",
+   "Entities": [
+    "compartment",
+    "stairs",
+    "evacuation routes",
+    "escape terraces"
+   ],
+   "Conditions": [],
+   "Measurements": [],
+   "Relationships": [
+    "Connection between and to stairs is via evacuation routes or over escape terraces"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.4.2",
+   "Entities": [
+    "dead-end evacuation roads"
+   ],
+   "Conditions": [],
+   "Measurements": [
+    {
+     "type": "maximum length",
+     "value": 15,
+     "unit": "m"
+    }
+   ],
+   "Relationships": []
+  },
+  {
+   "Rule ID": "LG-4.4.3",
+   "Entities": [
+    "evacuation paths",
+    "escape terraces",
+    "access doors",
+    "exit doors",
+    "passage doors"
+   ],
+   "Conditions": [],
+   "Measurements": [
+    {
+     "type": "minimum width for evacuation routes and doors",
+     "value": 0.8,
+     "unit": "m"
+    },
+    {
+     "type": "minimum width for escape terraces",
+     "value": 0.6,
+     "unit": "m"
+    }
+   ],
+   "Relationships": []
+  },
+  {
+   "Rule ID": "LG-4.4.4",
+   "Entities": [
+    "doors",
+    "evacuation paths"
+   ],
+   "Conditions": [
+    "Doors on evacuation paths shall not possess any locking device that could impede evacuation"
+   ],
+   "Measurements": [],
+   "Relationships": []
+  },
+  {
+   "Rule ID": "LG-4.4.5a",
+   "Entities": [
+    "classrooms",
+    "evacuation road",
+    "stairs",
+    "exits"
+   ],
+   "Conditions": [
+    "Applies to classrooms with daytime occupancy only"
+   ],
+   "Measurements": [
+    {
+     "type": "maximum distance to evacuation road",
+     "value": 30,
+     "unit": "m"
+    },
+    {
+     "type": "maximum distance to nearest staircase or exit",
+     "value": 45,
+     "unit": "m"
+    },
+    {
+     "type": "maximum distance to second staircase or exit",
+     "value": 80,
+     "unit": "m"
+    }
+   ],
+   "Relationships": []
+  },
+  {
+   "Rule ID": "LG-4.4.5b",
+   "Entities": [
+    "classrooms",
+    "evacuation road",
+    "stairs",
+    "exits"
+   ],
+   "Conditions": [
+    "Applies to classrooms or entirety of classrooms with night occupancy"
+   ],
+   "Measurements": [
+    {
+     "type": "maximum distance to evacuation road",
+     "value": 20,
+     "unit": "m"
+    },
+    {
+     "type": "maximum distance to nearest staircase or exit",
+     "value": 30,
+     "unit": "m"
+    },
+    {
+     "type": "maximum distance to second staircase or exit",
+     "value": 60,
+     "unit": "m"
+    }
+   ],
+   "Relationships": []
+  },
+  {
+   "Rule ID": "LG-4.4.6",
+   "Entities": [
+    "exits",
+    "compartment"
+   ],
+   "Conditions": [],
+   "Measurements": [],
+   "Relationships": [
+    "Exits lead outside or to another compartment"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.4.7",
+   "Entities": [
+    "vertical interior walls",
+    "evacuation roads",
+    "access doors"
+   ],
+   "Conditions": [
+    "Does not apply to compartments with only daytime occupancy whose area does not reach 1250 m\u00b2"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": []
+  },
+  {
+   "Rule ID": "LG-4.4.8",
+   "Entities": [
+    "classrooms",
+    "evacuation routes",
+    "vertical walls",
+    "doors"
+   ],
+   "Conditions": [
+    "Applies to classrooms or set of classrooms with night occupancy",
+    "Does not apply to evacuation of premises belonging to a building with a commercial function"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": []
+  },
+  {
+   "Rule ID": "LG-4.4.9",
+   "Entities": [
+    "evacuation level",
+    "exit windows",
+    "commercial function",
+    "evacuation road",
+    "public road"
+   ],
+   "Conditions": [
+    "Applies to evacuation level",
+    "Does not apply to parking buildings"
+   ],
+   "Measurements": [
+    {
+     "type": "distance from public road",
+     "value": 3,
+     "unit": "m"
+    }
+   ],
+   "Relationships": [
+    "No exit windows of building sections with commercial function (without Rf \u00bd h) shall open onto evacuation road connecting exits to public road, except for last 3 m"
+   ]
+  }
+ ],
+ "FullText": "4.4 Evacuation routes and escape terraces.\nIn a compartment, the connection between and to stairs is via evacuation routes or over escape \nterraces.\nThe length of dead-end evacuation roads should not exceed 15 m.\nThe road to be traveled in open air plays no role in calculating these distances.\nThe useful width of evacuation paths, escape terraces and of their access, exit or\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS30/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).passage doors is greater than or equal to the required useful width (see Appendix 1 \n\"Terminology\"). It is at least 0.80 m for evacuation routes and doors, and at least 0.60 m for \nescape terraces.\nDoors on these paths shall not possess any locking device that could impede evacuation. No \npoint of a compartment shall be beyond:\na)For classrooms with daytime occupancy only:\n-30 m from the evacuation road connecting the stairs or exits;\n-45 m from access to the nearest staircase or exit;\n-80 m from access to a second staircase or exit.\nb)For classrooms or entirety of classrooms with night occupancy:\n-20 m from the evacuation route connecting stairs or exits;\n-30 m from access to the nearest staircase or exit;\n-60 m from access to a second staircase or exit.\nThe exits lead outside or to another compartment.\nAny vertical interior walls of evacuation roads and access doors to these roads have Rf \u00bd h.\nThis requirement does not apply to compartments with only daytime occupancy whose area does \nnot reach 1250 m\u00b2.\nThe evacuation of classrooms or a set of classrooms with night occupancy is done through \nevacuation routes whose vertical walls and doors have an Rf \u00bd h.\nThis requirement does not apply to the evacuation of these premises if they belong to the \noperation of a building with a commercial function.\nAt an evacuation level, no exit windows of building sections with a commercial function, which do \nnot have Rf \u00bd h, shall open onto the evacuation road connecting the exits of other building \nsections to the public road, except for the last 3 m of this evacuation road.\nThese provisions do not apply to parking buildings (see 5.2)."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-4.5.1",
+   "Entities": [
+    "building levels",
+    "landings",
+    "escape areas",
+    "stairwells",
+    "elevators"
+   ],
+   "Conditions": [
+    "Applies to all building levels"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Sequence number is associated with building levels",
+    "Sequence number is displayed on landings, escape areas, stairwells, and elevators"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.5.2",
+   "Entities": [
+    "exits",
+    "emergency exits"
+   ],
+   "Conditions": [
+    "Designation must comply with occupational safety and health signage provisions"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Exits and emergency exits must have proper designation"
+   ]
+  }
+ ],
+ "FullText": "4.5 Signalization.\nFor all building levels, the sequence number shall be clearly posted on landings and in the escape \nareas at stairwells and elevators.\nThe designation of exits and emergency exits shall comply with the provisions on occupational \nsafety and health signage."
+}
+{
+ "rules": "No rules",
+ "FullText": "5 CONSTRUCTION REQUIREMENTS FOR SOME CLASSROOMS AND TECHNICAL ROOMS."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-5.1.1",
+   "Entities": [
+    "technical room",
+    "compartment"
+   ],
+   "Conditions": [
+    "Technical room or set of technical rooms constitutes a compartment",
+    "Height may extend over several successive floors"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Technical room is part of compartment"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.1.1.1-1",
+   "Entities": [
+    "technical room",
+    "compartment",
+    "exit",
+    "door"
+   ],
+   "Conditions": [
+    "Access to two exits required"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "hour"
+    }
+   ],
+   "Relationships": [
+    "Exit leads to adjacent compartment through Rf \u00bd h door",
+    "Exit leads to stairwell through Rf \u00bd h door",
+    "Exit leads to outside"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.1.1.1-2",
+   "Entities": [
+    "technical compartment",
+    "exit",
+    "evacuation route"
+   ],
+   "Conditions": [],
+   "Measurements": [
+    {
+     "type": "maximum distance",
+     "value": 45,
+     "unit": "m",
+     "description": "from any point to road connecting two exits"
+    },
+    {
+     "type": "maximum distance",
+     "value": 60,
+     "unit": "m",
+     "description": "from any point to nearest exit"
+    },
+    {
+     "type": "maximum distance",
+     "value": 100,
+     "unit": "m",
+     "description": "from any point to second exit"
+    }
+   ],
+   "Relationships": []
+  },
+  {
+   "Rule ID": "LG-5.1.1.1-3",
+   "Entities": [
+    "technical compartment",
+    "exit"
+   ],
+   "Conditions": [
+    "Surface area of technical compartment does not exceed 1000 m\u00b2"
+   ],
+   "Measurements": [
+    {
+     "type": "maximum distance",
+     "value": 60,
+     "unit": "m",
+     "description": "to single exit"
+    }
+   ],
+   "Relationships": [
+    "One exit to stairwell, outside, or another compartment is sufficient"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.1.1.1-4",
+   "Entities": [
+    "technical compartment",
+    "service floor",
+    "exit"
+   ],
+   "Conditions": [
+    "Height extends over several successive floors",
+    "Includes more than one service floor connected by stairs or ladders",
+    "Compartment area is less than 1000 m\u00b2"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "One access to exit required every two service floors, starting from lowest"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.1.1.1-5",
+   "Entities": [
+    "technical compartment",
+    "service floor",
+    "exit"
+   ],
+   "Conditions": [
+    "Height extends over several successive floors",
+    "Includes more than one service floor connected by stairs or ladders",
+    "Compartment area exceeds 1000 m\u00b2"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Each service floor must provide access to at least one of two exits",
+    "Exits alternate from floor to floor"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.1.1.1-6",
+   "Entities": [
+    "evacuation route",
+    "stairway",
+    "spillway",
+    "shaft"
+   ],
+   "Conditions": [],
+   "Measurements": [
+    {
+     "type": "minimum useful width",
+     "value": 0.8,
+     "unit": "m"
+    }
+   ],
+   "Relationships": []
+  }
+ ],
+ "FullText": "5.1 Technical classrooms and spaces.\n5.1.1 General.\nA technical room or a set of technical rooms constitutes a compartment. Its height may extend over \nseveral successive floors.\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS31/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).5.1.1.1 For the technical rooms, the compartment requirements apply subject to the following modifications:\n1.access to two exits leading:\n-either to an adjacent compartment through a door Rf \u00bd h;\n-either to a stairwell through a door Rf \u00bd h;\n-either to the outside, such that an evacuation level is attainable;\n2.deviating from 4.4, no point of the compartment shall be beyond:\n-45 m from the road connecting the two exits in the technical compartment;\n-60 m from the nearest exit;\n-100 m from the second exit;\nif however the surface of the technical compartment does not exceed 1000 m\u00b2, one exit to a \nstairwell, to the outside or to another compartment is sufficient. In this case, the distance to \nthis exit may not exceed 60 m;\n3.if the height of the technical compartment extends over several successive floors (see 2.1) \nand if it includes more than one service floor connected by stairs or ladders:\n-then, provided that the compartment area is less than 1000 m\u00b2, one access to a stairwell, \nto the outside or to another compartment may suffice every two service floors, and starting \nwith the lowest;\n-if the compartment area exceeds 1000 m\u00b2, then each service floor must provide access to \nat least one of two exits; these alternate from floor to floor;\n4.the useful width of evacuation routes, stairways, spillways and shafts shall be at least 0.80 m.\n5.1.2 Heating departments and ancillaries.\nTheir design and implementation comply with the requirements of standard NBN B 61-001 +A1 : \n1996. If the total useful heat capacity of the generators installed in the boiler room is less than 70 \nkW but greater than 30 kW, this room is considered a technical room.\nThe boiler rooms and their connections to the other parts of the building may be provided by a \nself-closing door Rf 1 h provided that it does not open onto a stairwell or onto an elevator landing \nor into a room at particular risk. The door rotates in the sense of escape.\nThe facilities for storage and relaxation of liquefied petroleum gas used to heat the building are \nlocated outside the building.\n5.1.3 Transformer Rooms.\n5.1.3.1 General.\nThey comply with the requirements of the General Regulations on Electrical Installations (A.R.E.I.).\nFurthermore:\n-the walls have Rf 1 h, except for the exterior walls;\n-the interior doors have Rf \u00bd h;\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS32/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).- If water (from any source, including fire water) can reach the floor, for example by infiltration or \nthrough cable ducts, then all measures must be taken so that the water level remains \nconstantly and automatically below the vital parts of the electrical installation as long as it is in \nuse.\nIf the oil content of the whole apparatus reaches 50 l or more, the regulations of NBN C 18-200 \n\"Guidelines for the fire protection of the premises of electricity transformation\" must be applied.\n5.1.3.2 On-site assembled posts or prefabricated posts.\nAn on-site assembled post or prefabricated post shall be erected in a designated room, with walls Rf \n1 h.\nAccess, if not from the outside, is through a door Rf \u00bd h.\n5.1.4 Household waste disposal.\n5.1.4.1 Dumpster.\nIt is preferably installed on the outside of the building.\nIts walls are made of non-combustible materials and have a smooth inner surface.\nThe ventilation tube of the chute must extend at least 1 m above the roof level. The chute \ndoors shall be self-closing.\nRegarding resistance to fire:\n1.if the tube is set up inside the building, the walls have Rf 1 h and the doors have Rf \u00bd h;\n2.if the tube is set up outside the building with the doors on the inside, they have Rf \u00bd h; each \njoint between the door and the tube has Rf 1 h.\n5.1.4.2 Local for storage of garbage.\nThe walls have Rf 1 h.\nIf this room does not give out into the open air, it is accessible through a self-closing door Rf \u00bd h.\n5.1.5 Pipe sleeves.\n5.1.5.1 Vertical tubes.\nTheir walls have Rf 1 h.\nThe trapdoors and doors have Rf \u00bd h.\nThe free ventilation cross section of the duct is at least equal to 10% of the total horizontal cross \nsection of the duct, with a minimum of 4 dm\u00b2.\nThese tubes may be built in the stairwells.\nHowever, their walls may have Rf \u00bd h if the ducts are compartmentalized at the level of each storey \nby horizontal screens with the following characteristics:\n-they are of non-combustible material;\n-they cover the entire space between the pipes;\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS33/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).-they have Rf \u00bd h.\nIn this case, the tube should not be ventilated.\n5.1.5.2 Horizontal tubes.\nDucts penetrating vertical walls for which an Rf is prescribed have:\n-either walls and doors with the same Rf as these vertical walls;\n-either a building element at the height of each wall with the same Rf as these vertical walls."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-5.2.1",
+   "Entities": [
+    "parking building",
+    "compartment",
+    "building levels"
+   ],
+   "Conditions": [
+    "Applies to parking buildings",
+    "Deviation from basic principle in section 2.1"
+   ],
+   "Measurements": [
+    {
+     "type": "area limit",
+     "value": "unlimited",
+     "unit": ""
+    }
+   ],
+   "Relationships": [
+    "Parking building forms a compartment",
+    "Compartment may span multiple building levels"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.2.2",
+   "Entities": [
+    "walls",
+    "parking building",
+    "rest of building"
+   ],
+   "Conditions": [
+    "Applies to walls between parking buildings and rest of building"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum fire resistance",
+     "value": "Rf of structural elements",
+     "unit": ""
+    }
+   ],
+   "Relationships": [
+    "Walls separate parking building from rest of building"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.2.3",
+   "Entities": [
+    "parking compartment",
+    "non-residential premises"
+   ],
+   "Conditions": [
+    "Applies to specific non-residential premises within parking compartment"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Parking compartment may include specific non-residential premises"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.2.4",
+   "Entities": [
+    "walls",
+    "non-residential rooms",
+    "access doors"
+   ],
+   "Conditions": [
+    "Applies to walls and doors of non-residential rooms within parking compartment"
+   ],
+   "Measurements": [
+    {
+     "type": "wall fire resistance",
+     "value": 1,
+     "unit": "h"
+    },
+    {
+     "type": "door fire resistance",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "Walls of non-residential rooms within parking compartment",
+    "Access doors to non-residential rooms within parking compartment"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.2.5",
+   "Entities": [
+    "evacuation",
+    "stairwells",
+    "exterior stairways"
+   ],
+   "Conditions": [
+    "Applies to each building level of parking building"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum number of evacuation routes",
+     "value": 2,
+     "unit": ""
+    }
+   ],
+   "Relationships": [
+    "Stairwells or exterior stairways provide evacuation routes",
+    "Evacuation routes must meet requirements in section 4.2"
+   ]
+  }
+ ],
+ "FullText": "5.2 Parking buildings.\nIn deviation from the basic principle stated in 2.1, a parking building may form a compartment \nwhose area is not limited even when there are several communicating building levels.\nThe walls between the parking buildings and the rest of the building have at least the required Rf \nof the structural elements.\nHowever, the parking compartment may include some premises not intended for residence, such \nas : premises for electrical transformation, archive rooms, technical rooms ...\nThe walls of these rooms exhibit Rf 1 h and access is by a self-closing door Rf \u00bd h.\nAt each building level, evacuation is arranged as follows :\n- at least two stairwells or exterior stairways meet the requirements contained in 4.2 or"
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-4.3.1",
+   "Entities": [
+    "staircase",
+    "building level"
+   ],
+   "Conditions": [
+    "Staircases shall be accessible from any point on the building level"
+   ],
+   "Measurements": [
+    {
+     "type": "maximum distance to nearest staircase",
+     "value": 45,
+     "unit": "m"
+    },
+    {
+     "type": "minimum useful width of staircases",
+     "value": 0.8,
+     "unit": "m"
+    }
+   ],
+   "Relationships": [
+    "Staircases are accessible from building level"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.3.2",
+   "Entities": [
+    "stairwell",
+    "direct exit",
+    "building level"
+   ],
+   "Conditions": [
+    "Applies to the building level under consideration",
+    "As stated in 2.2.2 al. 3"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Required access to one of two stairwells may be replaced by a direct exit to the outside"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.3.3",
+   "Entities": [
+    "sloped roadway",
+    "stairwell",
+    "exit level"
+   ],
+   "Conditions": [
+    "Applies to the building level closest to the exit level"
+   ],
+   "Measurements": [
+    {
+     "type": "maximum slope at centerline",
+     "value": 10,
+     "unit": "%"
+    }
+   ],
+   "Relationships": [
+    "Sloped roadway may replace one of the stairwells if slope requirement is met"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.3.4",
+   "Entities": [
+    "compartment",
+    "ramp"
+   ],
+   "Conditions": [
+    "Applies to compartments smaller than 500 m\u00b2",
+    "Evacuation via the ramp must remain possible"
+   ],
+   "Measurements": [
+    {
+     "type": "maximum compartment size",
+     "value": 500,
+     "unit": "m\u00b2"
+    }
+   ],
+   "Relationships": [
+    "10% slope limitation does not apply to small compartments"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.3.5",
+   "Entities": [
+    "evacuation routes",
+    "signs",
+    "floor"
+   ],
+   "Conditions": [
+    "In addition to signs defined in 4.5"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Evacuation routes on each level are indicated on the floor or above"
+   ]
+  },
+  {
+   "Rule ID": "LG-4.3.6",
+   "Entities": [
+    "enclosed parking buildings",
+    "smoke"
+   ],
+   "Conditions": [
+    "Applies to enclosed parking buildings with a total area greater than 2,500 m\u00b2"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum total area",
+     "value": 2500,
+     "unit": "m\u00b2"
+    }
+   ],
+   "Relationships": [
+    "Measures must be taken to prevent the spread of smoke in large enclosed parking buildings"
+   ]
+  }
+ ],
+ "FullText": "4.3 and shall be accessible from any point on the building level; the distance to be covered to \nthe nearest staircase shall not exceed 45 m; the minimum useful width of such staircases shall \nbe 0.80 m ;\n-as stated in 2.2.2 al. 3, on the building level under consideration, the required access to one of \nthe two stairwells may be replaced by a direct exit to the outside;\n-on the building level closest to the exit level, the sloped roadway may replace one of the \nstairwells if the slope measured at its centerline does not exceed 10%;\n-the 10% limitation does not apply to compartments smaller than 500 m\u00b2, if evacuation via the \nramp remains possible.\n-In addition to the signs defined in 4.5, the evacuation routes on each level are also indicated \non the floor or above.\nIn enclosed parking buildings with a total area greater than 2,500 m\u00b2, the measures necessary to \nprevent the spread of smoke must be taken."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-5.3.1-1",
+   "Entities": [
+    "hall",
+    "underground installation",
+    "evacuation level"
+   ],
+   "Conditions": [
+    "Applies to halls accommodating more than 500 people",
+    "For underground installation"
+   ],
+   "Measurements": [
+    {
+     "type": "maximum level difference",
+     "value": 3,
+     "unit": "m"
+    }
+   ],
+   "Relationships": [
+    "Difference between lowest floor level of hall and closest evacuation level"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.3.1-2",
+   "Entities": [
+    "hall",
+    "underground installation",
+    "evacuation level"
+   ],
+   "Conditions": [
+    "Applies to halls intended for a maximum of 500 persons",
+    "For underground installation"
+   ],
+   "Measurements": [
+    {
+     "type": "maximum depth",
+     "value": 4,
+     "unit": "m"
+    }
+   ],
+   "Relationships": [
+    "Depth is measured from lowest floor level accessible to public to average level of various evacuation levels"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.3.1-3",
+   "Entities": [
+    "hall",
+    "exit"
+   ],
+   "Conditions": [
+    "Applies to all halls"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Number of exits is determined as for compartments"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.3.2-1",
+   "Entities": [
+    "hall",
+    "wall",
+    "compartment"
+   ],
+   "Conditions": [
+    "Applies to walls forming rooms or set of rooms"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Walls must meet regulatory requirements applicable to these rooms",
+    "Walls must have the Rf value of compartment walls"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.3.2-2",
+   "Entities": [
+    "passageway",
+    "vertical wall",
+    "door"
+   ],
+   "Conditions": [
+    "Applies to passageways in vertical walls"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "Passageway must be closed by a self-closing door or fire self-closing door"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.3.2-3",
+   "Entities": [
+    "door",
+    "exit"
+   ],
+   "Conditions": [
+    "Applies to doors in passageways"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Doors must swing open in the direction of escape"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.3.2-4",
+   "Entities": [
+    "object",
+    "exit"
+   ],
+   "Conditions": [
+    "Applies to all objects in the hall"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "No object should interfere with evacuation to the exits"
+   ]
+  }
+ ],
+ "FullText": "5.3 Halls.\n5.3.1 [General]]\nIf it can accommodate more than 500 people, these halls may be arranged underground only if the \ndifference between the lowest floor level of these halls and the closest evacuation level does not \nexceed 3 m.\nIf the aforementioned halls are intended for a maximum of 500 persons, they may be installed \nunderground, provided that the lowest floor level accessible to the public is not more than 4 m \nbelow the average level of the various evacuation levels of the establishment.\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS34/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).The number of exits is determined as for compartments.\n5.3.2 Construction.\nThe walls forming these rooms or set of rooms not only meet the regulatory requirements \napplicable to these rooms, but also have the Rf value of the walls of a compartment.\nEach passageway in the vertical walls is closed by a self-closing door or in case of fire self-closing \ndoor Rf \u00bd h.\nThese doors swing open in the sense of escape.\nNo object should interfere with evacuation to the exits."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-5.4.1",
+   "Entities": [
+    "storefront",
+    "interior gallery",
+    "evacuation level",
+    "adjacent building floors"
+   ],
+   "Conditions": [
+    "Applies to shopping or commercial complexes",
+    "Storefronts open onto interior galleries",
+    "Permitted at evacuation level and adjacent building floors"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Storefronts are part of shopping or commercial complex",
+    "Interior galleries are part of shopping or commercial complex",
+    "Storefronts open onto interior galleries"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.4.2",
+   "Entities": [
+    "complex",
+    "gallery",
+    "building parts",
+    "walls"
+   ],
+   "Conditions": [
+    "Applies to shopping or commercial complexes"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 1,
+     "unit": "hour"
+    }
+   ],
+   "Relationships": [
+    "Complex with galleries is separated from other building parts by walls",
+    "Walls have specified fire resistance"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.4.3",
+   "Entities": [
+    "building sections",
+    "exits",
+    "retail or commercial complex"
+   ],
+   "Conditions": [
+    "Applies to other building sections in a complex with retail or commercial areas"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Other building sections have independent exits",
+    "Exits of other building sections are separate from retail or commercial complex exits"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.4.4",
+   "Entities": [
+    "partition walls",
+    "commercial premises",
+    "false ceiling"
+   ],
+   "Conditions": [
+    "Applies to partition walls between commercial premises"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "hour"
+    }
+   ],
+   "Relationships": [
+    "Partition walls separate commercial premises",
+    "Partition walls extend into false ceiling"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.4.5",
+   "Entities": [
+    "store",
+    "commercial complex",
+    "automatic hydraulic extinguishing system"
+   ],
+   "Conditions": [
+    "Applies when store or commercial complex is equipped with an automatic hydraulic extinguishing system"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Automatic hydraulic extinguishing system is installed in store or commercial complex",
+    "Installation of system waives partition wall requirement"
+   ]
+  }
+ ],
+ "FullText": "5.4 Shopping or commercial complex.\nThe furnishing of storefronts opening onto interior galleries is permitted at an evacuation level and \non adjacent building floors provided:\n1.the complex with its galleries is separated from other building parts by walls with Rf 1 h;\n2.the other building sections have their own exits independent of the exits of the retail or \ncommercial complex;\nThe partition walls between commercial premises have Rf \u00bd h and extend into any false ceiling. \nThis requirement is waived if the store or commercial complex is equipped with an automatic \nhydraulic extinguishing system (NBN S 21-028)."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-5.5.1",
+   "Entities": [
+    "collective kitchen",
+    "restaurant",
+    "walls"
+   ],
+   "Conditions": [
+    "Applies to collective kitchens, possibly including the restaurant"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 1,
+     "unit": "hour"
+    }
+   ],
+   "Relationships": [
+    "Collective kitchens are separated from other building parts by walls"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.5.2",
+   "Entities": [
+    "kitchen",
+    "restaurant",
+    "deep-frying appliance",
+    "fire extinguisher",
+    "energy supply"
+   ],
+   "Conditions": [
+    "Applies when kitchen is not compartmentalized with respect to the restaurant"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Each fixed deep-frying appliance is equipped with a fixed automatic fire extinguisher",
+    "Fire extinguisher is coupled with a device that interrupts energy supply to the deep-frying appliance"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.5.3",
+   "Entities": [
+    "passageway",
+    "door"
+   ],
+   "Conditions": [
+    "Applies to passageways between kitchen and other areas"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "hour"
+    }
+   ],
+   "Relationships": [
+    "Each passageway is closed by a self-closing door",
+    "Doors turn away from the kitchen in the direction of escape"
+   ]
+  },
+  {
+   "Rule ID": "LG-5.5.4",
+   "Entities": [
+    "transport system",
+    "kitchen",
+    "restaurant",
+    "duct"
+   ],
+   "Conditions": [
+    "Applies to horizontal and vertical transport systems for dishes between kitchens and restaurants"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "hour"
+    }
+   ],
+   "Relationships": [
+    "Transport systems passing through other premises must be enclosed in ducts",
+    "Ducts must have walls with specified fire resistance"
+   ]
+  }
+ ],
+ "FullText": "5.5 Collective kitchens.\nThe collective kitchens, possibly including the restaurant, are separated from the other building \nparts by walls with Rf 1 h.\nWhen the kitchen is not compartmentalized with respect to the restaurant, each fixed deep-frying \nappliance is equipped with a fixed automatic fire extinguisher that is coupled with a device that \ninterrupts the supply of energy to the deep-frying appliance.\nEach passageway is closed by a self-closing door Rf \u00bd h or in case of fire self-closing door. \nThese doors turn away from the kitchen in the direction of escape.\nHorizontal and vertical transport systems for dishes may be installed between kitchens and \nrestaurants; if this transport passes through other premises, it must be enclosed in ducts with walls \nRf \u00bd h."
+}
+{
+ "rules": "No rules",
+ "FullText": "6 EQUIPMENT OF THE BUILDINGS"
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-6.1.1.1",
+   "Entities": [
+    "elevator",
+    "freight elevator",
+    "machine",
+    "drive unit",
+    "machine room",
+    "shaft"
+   ],
+   "Conditions": [
+    "Machine and associated parts not accessible except for maintenance, inspection, and emergencies",
+    "Exception for oleohydraulic elevators"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Drive unit located in machine room or shaft",
+    "For oleohydraulic elevators, drive unit and oil reservoir must be in machine room"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.1.2",
+   "Entities": [
+    "elevator",
+    "evacuation level",
+    "recall mechanism"
+   ],
+   "Conditions": [
+    "All elevators must have recall mechanism",
+    "Elevator becomes inoperative after recall",
+    "Only authorized person can reactivate elevator"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Recall mechanism brings elevator to evacuation level"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.1.3",
+   "Entities": [
+    "shaft",
+    "access landing",
+    "walls",
+    "access doors",
+    "compartment",
+    "sas"
+   ],
+   "Conditions": [
+    "Applies to underground building levels"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 1,
+     "unit": "h",
+     "entity": "walls"
+    },
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "h",
+     "entity": "access doors"
+    }
+   ],
+   "Relationships": [
+    "Shafts and access landings enclosed by fire-resistant walls",
+    "Access doors between compartment and sas are self-closing or self-closing in case of fire"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.1.4",
+   "Entities": [
+    "shaft doors",
+    "platform wall"
+   ],
+   "Conditions": [
+    "Tested according to NBN 713-020"
+   ],
+   "Measurements": [
+    {
+     "type": "fire stability",
+     "value": 0.5,
+     "unit": "h"
+    },
+    {
+     "type": "flame tightness",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "Platform wall tested with operating and control devices"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.1.5",
+   "Entities": [
+    "elevator",
+    "compartment",
+    "shaft walls",
+    "shaft doors",
+    "stairwell"
+   ],
+   "Conditions": [
+    "Applies when elevator serves only one compartment",
+    "Walls of elevator shaft in stairwell must be solid, continuous, and non-combustible"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Shaft walls and doors don't need to meet fire resistance requirements in single compartment scenario"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.1.6",
+   "Entities": [
+    "shaft",
+    "extinguishing device"
+   ],
+   "Conditions": [
+    "No water-based extinguishing devices allowed in shafts"
+   ],
+   "Measurements": [],
+   "Relationships": []
+  },
+  {
+   "Rule ID": "LG-6.1.1.7",
+   "Entities": [
+    "elevator",
+    "machine",
+    "control organs",
+    "cabin",
+    "doors"
+   ],
+   "Conditions": [
+    "Applies in case of abnormal temperature increase"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum door open time",
+     "value": 15,
+     "unit": "seconds"
+    }
+   ],
+   "Relationships": [
+    "Elevator stops at first technically possible access platform",
+    "Audible alarm alerts passengers",
+    "Doors open for passengers to exit"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.1.8",
+   "Entities": [
+    "building",
+    "fire detection system",
+    "elevator",
+    "shaft doors"
+   ],
+   "Conditions": [
+    "Applies when building has fire detection system",
+    "Fire detected outside elevators and associated components"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum door open time",
+     "value": 15,
+     "unit": "seconds"
+    }
+   ],
+   "Relationships": [
+    "Elevators recalled to evacuation level",
+    "Shaft doors open for passengers to exit",
+    "Elevator becomes inoperative",
+    "Only authorized person can reactivate elevator"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.2.1",
+   "Entities": [
+    "shaft",
+    "machine room",
+    "walls",
+    "door",
+    "trap door",
+    "ventilation openings"
+   ],
+   "Conditions": [
+    "Applies to elevators with machinery in machine room"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 1,
+     "unit": "h",
+     "entity": "enclosing walls"
+    },
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "h",
+     "entity": "machine room door/trap door"
+    },
+    {
+     "type": "minimum ventilation area",
+     "value": 1,
+     "unit": "%",
+     "entity": "separate ventilation"
+    },
+    {
+     "type": "minimum ventilation area",
+     "value": 4,
+     "unit": "%",
+     "entity": "top shaft ventilation"
+    }
+   ],
+   "Relationships": [
+    "Shaft and machine room enclosed by fire-resistant walls",
+    "Natural ventilation required for shaft and machine room"
+   ]
+  }
+ ],
+ "FullText": "6.1 Elevators and freight elevators\n6.1.1 General.\n6.1.1.1 The machine and associated parts of an elevator and/or freight elevator are not accessible except \nfor maintenance, inspection and emergencies. The drive unit is located :\n-or in a machine room\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS35/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).-either in the shaft, with the exception of oleohydraulic elevators, for which the drive unit, \nincluding the oil reservoir, must be located exclusively in a machine room.\nThe control bodies will be able to be accessed from the overflow if they:\n-Are placed in an area that meets the requirements listed in 5.1.5.1;\n-be part of the platform wall.\n6.1.1.2 All elevators are equipped at their evacuation level with a mechanism that allows them to be \nrecalled to that level, after which the elevator is rendered inoperative.\nThis mechanism will be indicated.\nThe elevator will only be able to be reactivated by an authorized person.\n6.1.1.3 The assembly consisting of one or more shafts, and of their access landings to form a shaft for the \nunderground building levels, is enclosed by walls with Rf 1 h.\nAccess doors between the compartment and the sas are self-closing or self-closing in case of fire \nand have Rf \u00bd h.\n6.1.1.4 The assembly of the shaft doors shall have a stability to fire and a flame tightness of \u00bd h in \naccordance with NBN 713-020. This is assessed by exposing the door wall on the side of the \nplatform to the fire.\nThe platform wall will be tested with any operating and control devices that are part of it.\n6.1.1.5 When the elevator calls on only one compartment, the walls of the shaft, referred to in 6.1.1.3, and \nthe shaft doors, referred to in 6.1.1.4, shall not meet the respective requirements for fire \nresistance, stability in the event of fire, and flame tightness.\nYet the walls of an elevator shaft in a stairwell are solid, continuous and non-combustible.\n6.1.1.6 No extinguishing device containing water shall be installed in the shaft(s).\n6.1.1.7 In case of abnormal increase in the temperature of the machine and/or of the control organs, the \nelevators must be designed and constructed to stop at the first access platform that is technically \npossible, but refuse new operating orders.\nIn this case, an audible alarm signal should alert those in the cabin to exit the elevator when it \nstops; the doors open and remain open just long enough for passengers to exit, that is, at least 15 \nseconds.\nThe mechanisms enabling the opening of the doors remain active. This operation \nmust take precedence over any other command.\n6.1.1.8 If the building is equipped with a fire detection - system, the elevators should be recalled to the \nevacuation level if a fire is detected outside the elevators and their associated components.\nThe shaft doors open, and remain open just long enough for passengers to exit, that is, at least 15 \nseconds, after which the elevator becomes inoperative.\nThe mechanisms that allow the doors to open remain active.\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS36/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).The elevator will only be able to be reactivated by an authorized person.\n6.1.2 Elevators and freight elevators whose machinery is located in a machine room.\n6.1.2.1 The walls enclosing the assembly formed by the shaft and engine room have Rf 1 h.\nIf the engine room door or trap door gives out into the building, they have Rf \u00bd h. One must \nprovide in the vicinity a glass, locked cabinet containing the key.\nThe whole shaft and engine room, or shaft are naturally ventilated through outside air nozzles.\nIf the shaft and engine room are ventilated separately, the ventilation openings each have a \nminimum cross-sectional area of 1% of the respective horizontal surfaces.\nIf the whole shaft and machine room are ventilated at the top of the shaft, the ventilation opening \nhas a minimum cross-sectional area of 4% of the horizontal area of the shaft.\n6.1.3 Elevators and freight elevators whose machinery is located in the shaft."
+}
+{
+ "rules": [
+  {
+   "Rule ID": "LG-6.1.3.1-1",
+   "Entities": [
+    "smoke detection system",
+    "elevator shaft"
+   ],
+   "Conditions": [
+    "Smoke detection system must be placed at the top of the shaft"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Smoke detection system is installed in elevator shaft"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.3.1-2",
+   "Entities": [
+    "elevator cabin",
+    "smoke detection"
+   ],
+   "Conditions": [
+    "Cabin must stop in case of smoke detection"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Smoke detection triggers elevator cabin stop"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.3.1-3",
+   "Entities": [
+    "smoke detection system",
+    "elevator shaft"
+   ],
+   "Conditions": [
+    "Maintenance and control of detection system must be possible from outside the shaft"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Smoke detection system is accessible from outside the shaft"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.3.1-4",
+   "Entities": [
+    "elevator",
+    "authorized person"
+   ],
+   "Conditions": [
+    "Only an authorized person can reactivate the elevator after smoke detection"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Authorized person controls elevator reactivation"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.3.2-1",
+   "Entities": [
+    "elevator shaft",
+    "ventilation"
+   ],
+   "Conditions": [
+    "Shaft should be naturally ventilated through outside air nozzles"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Elevator shaft has natural ventilation"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.3.2-2",
+   "Entities": [
+    "ventilation opening",
+    "elevator shaft"
+   ],
+   "Conditions": [
+    "Ventilation opening located at the top of the shaft"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum cross-sectional area",
+     "value": 4,
+     "unit": "%"
+    }
+   ],
+   "Relationships": [
+    "Ventilation opening is part of elevator shaft"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.4-1",
+   "Entities": [
+    "machine room",
+    "elevator shaft",
+    "oleohydraulic elevators"
+   ],
+   "Conditions": [
+    "Machine room must be separated from elevator shaft"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Machine room is separate from elevator shaft"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.4-2",
+   "Entities": [
+    "machine room walls",
+    "oleohydraulic elevators"
+   ],
+   "Conditions": [],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 1,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "Walls are part of machine room"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.4-3",
+   "Entities": [
+    "machine room door",
+    "oleohydraulic elevators"
+   ],
+   "Conditions": [
+    "Door must be self-closing"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": 0.5,
+     "unit": "h"
+    }
+   ],
+   "Relationships": [
+    "Door provides access to machine room"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.4-4",
+   "Entities": [
+    "machine room",
+    "elevator shaft",
+    "ventilation",
+    "oleohydraulic elevators"
+   ],
+   "Conditions": [
+    "Should be naturally ventilated through outside air nozzles"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum cross-sectional area",
+     "value": 4,
+     "unit": "%"
+    }
+   ],
+   "Relationships": [
+    "Ventilation openings are part of machine room and elevator shaft"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.4-5",
+   "Entities": [
+    "machine room door threshold",
+    "oleohydraulic elevators"
+   ],
+   "Conditions": [
+    "Threshold must be raised to form a tub"
+   ],
+   "Measurements": [
+    {
+     "type": "minimum capacity",
+     "value": 1.2,
+     "unit": "times the oil content of machinery"
+    }
+   ],
+   "Relationships": [
+    "Threshold is part of machine room door"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.4-6",
+   "Entities": [
+    "electrical equipment",
+    "electrical lines",
+    "hydraulic lines",
+    "machine room",
+    "elevator shaft",
+    "oleohydraulic elevators"
+   ],
+   "Conditions": [
+    "Must be installed higher than the highest level that drained oil can reach in the machine room"
+   ],
+   "Measurements": [],
+   "Relationships": [
+    "Equipment and lines connect machine room to elevator shaft"
+   ]
+  },
+  {
+   "Rule ID": "LG-6.1.4-7",
+   "Entities": [
+    "pipe penetrations",
+    "wall",
+    "oleohydraulic elevators"
+   ],
+   "Conditions": [
+    "Space around penetrations must be sealed"
+   ],
+   "Measurements": [
+    {
+     "type": "fire resistance",
+     "value": "at least the same as the wall",
+     "unit": ""
+    }
+   ],
+   "Relationships": [
+    "Penetrations go through wall"
+   ]
+  }
+ ],
+ "FullText": "6.1.3.1 A smoke detection system will be placed at the top of the shaft. In case of detection of smoke in \nthe shaft, the cabin will stop in accordance with 6.1.1.7. The detection system in the shaft shall be \nprovided so that its maintenance and control can be done from outside the shaft.\nThe elevator will only be able to be reactivated by an authorized person.\n6.1.3.2 The shaft should be naturally ventilated through outside air nozzles.\nThe ventilation opening, located at the top of the shaft, has a minimum cross-sectional area of 4% \nof the horizontal area of the shaft.\n6.1.4 Oleohydraulic elevators\nThe machine room is separated from the elevator shaft. The walls of the machine room have Rf 1 \nh.\nAccess to the engine room is through a self-closing door Rf \u00bd h.\nThe machine rooms and elevator shafts should be naturally ventilated through outside air nozzles.\nThe ventilation openings have a minimum cross-sectional area of 4% of the horizontal cross-\nsectional area of the room.\nThe level of the engine room door thresholds is raised so that the tub thus formed has a capacity \nat least equal to 1.2 times the oil content of the machinery.\nElectrical equipment as well as electrical and hydraulic lines running from the engine room to the \nelevator shaft are installed higher than the highest level that the drained oil in the engine room can \nreach. The space around the penetrations for these pipes, should be sealed with materials with at \nleast the same Rf as the wall."
 }

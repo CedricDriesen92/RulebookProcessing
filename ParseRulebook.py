@@ -32,17 +32,87 @@ def split_into_sections(text):
     return detailed_sections
 
 def process_section(parnum, totparnum, section):
-    prompt = f"""
+    prompt = """
     Analyze the following building code rulebook text and extract individual rules.
     For each rule, provide:
     1. Rule ID
-    2. Rule text
-    3. Entities involved (e.g., rooms, doors, walls)
-    4. Conditions or constraints
-    5. Measurements or thresholds
-    6. Relationships between entities
+    2. Entities involved (e.g., rooms, doors, walls)
+    3. Conditions or constraints
+    4. Measurements or thresholds
+    5. Relationships between entities
 
-    Provide the output as a JSON array of rule objects. If there are no explicit or implicit rules to parse, simply output a valid 1-line json with "rules": "No rules" in it. Your output will be sent directly to a json processor so it's important you only output valid json.
+    Provide the output as a JSON array of rule objects. Make sure every rule is separate and clear. If there are no explicit or implicit rules to parse, simply output a valid 1-line json with "rules": "No rules" in it. Your output will be sent directly to a json processor so it's important you only output valid json.
+    
+    Here is an example of an output, follow this format as much as possible. Replace 'LG-xxx' by the section/subsection/paragraph you are in if available, whichever is most detailed, otherwise use LG-""" +str(parnum)+""".
+    {
+  "rules": [
+    {
+      "Rule ID": "LG-001",
+      "Entities": ["compartment", "building", "floor"],
+      "Conditions": [
+        "Applies to buildings with more than one floor",
+        "Exception for parking buildings"
+      ],
+      "Measurements": [
+        {"type": "maximum area", "value": 2500, "unit": "m²"}
+      ],
+      "Relationships": [
+        "Compartment is part of building",
+        "Compartment may span multiple floors if conditions met"
+      ]
+    },
+    {
+      "Rule ID": "LG-002",
+      "Entities": ["single-story building", "compartment"],
+      "Conditions": [
+        "Applies to single-story buildings only"
+      ],
+      "Measurements": [
+        {"type": "maximum area", "value": 3500, "unit": "m²"},
+        {"type": "maximum length", "value": 90, "unit": "m"}
+      ],
+      "Relationships": [
+        "Compartment is part of single-story building"
+      ]
+    },
+    {
+      "Rule ID": "LG-003",
+      "Entities": ["fire department vehicle", "building facade", "access road"],
+      "Conditions": [
+        "Applies to single-story buildings",
+        "Access road can be public highway or special access road"
+      ],
+      "Measurements": [
+        {"type": "maximum approach distance", "value": 60, "unit": "m"},
+        {"type": "minimum road width", "value": 4, "unit": "m"},
+        {"type": "minimum inner turning radius", "value": 11, "unit": "m"},
+        {"type": "minimum outer turning radius", "value": 15, "unit": "m"},
+        {"type": "minimum clear height", "value": 4, "unit": "m"},
+        {"type": "maximum slope", "value": 6, "unit": "%"}
+      ],
+      "Relationships": [
+        "Fire department vehicle must be able to approach building facade",
+        "Access road provides path for fire department vehicle"
+      ]
+    },
+    {
+      "Rule ID": "LG-004",
+      "Entities": ["evacuation route", "staircase", "exit"],
+      "Conditions": [
+        "Applies to compartments with daytime occupancy only"
+      ],
+      "Measurements": [
+        {"type": "maximum distance to evacuation route", "value": 30, "unit": "m"},
+        {"type": "maximum distance to nearest staircase/exit", "value": 45, "unit": "m"},
+        {"type": "maximum distance to second staircase/exit", "value": 80, "unit": "m"}
+      ],
+      "Relationships": [
+        "Evacuation route connects to staircases and exits",
+        "Compartment contains evacuation routes"
+      ]
+    }
+  ]
+}
     """
     ruletext_as_message = [{
         "role": "user",
@@ -178,11 +248,16 @@ sections = split_into_sections(rulebook_text)
 processed_sections = []
 intermediate_rules_file = open("intermediate_rules.txt", "w")
 for i, section in enumerate(sections):
-    if i > 5: #Skip initial paragraphs
+    if i >= 0: #Skip initial paragraphs
         try:
             cur_processed_section = process_section(i, len(sections), section)
             processed_sections.append(cur_processed_section)
-            intermediate_rules_file.write(json.dumps(cur_processed_section, indent=1) + "\n")
+
+            # Create a copy of cur_processed_section and add the FullText to it
+            output_dict = cur_processed_section.copy()
+            output_dict["FullText"] = section
+            
+            intermediate_rules_file.write(json.dumps(output_dict, indent=1) + "\n")
             intermediate_rules_file.flush()
         except Exception as error:
             print("Error: " + str(error))
