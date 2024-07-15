@@ -1,0 +1,45 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5.5 a firebim:Section ;
+    firebim:hasID "5.5" ;
+    firebim:hasOriginalText "5.5 Collective kitchens.\nThe collective kitchens, possibly including the restaurant, are separated from the other building \nparts by walls with Rf 1 h.\nWhen the kitchen is not compartmentalized with respect to the restaurant, each fixed deep-frying \nappliance is equipped with a fixed automatic fire extinguisher that is coupled with a device that \ninterrupts the supply of energy to the deep-frying appliance.\nEach passageway is closed by a self-closing door Rf ½ h or in case of fire self-closing door. \nThese doors turn away from the kitchen in the direction of escape.\nHorizontal and vertical transport systems for dishes may be installed between kitchens and \nrestaurants; if this transport passes through other premises, it must be enclosed in ducts with walls \nRf ½ h." ;
+    firebim:hasArticle firebim:Article_5.5.1, firebim:Article_5.5.2, firebim:Article_5.5.3, firebim:Article_5.5.4 .
+
+firebim:Article_5.5.1 a firebim:Article ;
+    firebim:hasOriginalText "The collective kitchens, possibly including the restaurant, are separated from the other building parts by walls with Rf 1 h." ;
+    firebim:hasMember firebim:Member_5.5.1.1 .
+
+firebim:Member_5.5.1.1 a firebim:Member ;
+    firebim:hasOriginalText "The collective kitchens, possibly including the restaurant, are separated from the other building parts by walls with Rf 1 h." .
+
+firebim:Article_5.5.2 a firebim:Article ;
+    firebim:hasOriginalText "When the kitchen is not compartmentalized with respect to the restaurant, each fixed deep-frying appliance is equipped with a fixed automatic fire extinguisher that is coupled with a device that interrupts the supply of energy to the deep-frying appliance." ;
+    firebim:hasMember firebim:Member_5.5.2.1 .
+
+firebim:Member_5.5.2.1 a firebim:Member ;
+    firebim:hasOriginalText "When the kitchen is not compartmentalized with respect to the restaurant, each fixed deep-frying appliance is equipped with a fixed automatic fire extinguisher that is coupled with a device that interrupts the supply of energy to the deep-frying appliance." .
+
+firebim:Article_5.5.3 a firebim:Article ;
+    firebim:hasOriginalText "Each passageway is closed by a self-closing door Rf ½ h or in case of fire self-closing door. These doors turn away from the kitchen in the direction of escape." ;
+    firebim:hasMember firebim:Member_5.5.3.1, firebim:Member_5.5.3.2 .
+
+firebim:Member_5.5.3.1 a firebim:Member ;
+    firebim:hasOriginalText "Each passageway is closed by a self-closing door Rf ½ h or in case of fire self-closing door." .
+
+firebim:Member_5.5.3.2 a firebim:Member ;
+    firebim:hasOriginalText "These doors turn away from the kitchen in the direction of escape." .
+
+firebim:Article_5.5.4 a firebim:Article ;
+    firebim:hasOriginalText "Horizontal and vertical transport systems for dishes may be installed between kitchens and restaurants; if this transport passes through other premises, it must be enclosed in ducts with walls Rf ½ h." ;
+    firebim:hasMember firebim:Member_5.5.4.1 .
+
+firebim:Member_5.5.4.1 a firebim:Member ;
+    firebim:hasOriginalText "Horizontal and vertical transport systems for dishes may be installed between kitchens and restaurants; if this transport passes through other premises, it must be enclosed in ducts with walls Rf ½ h." .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_5.5 .

@@ -1,0 +1,33 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_3.4 a firebim:Section ;
+    firebim:hasID "3.4" ;
+    firebim:hasOriginalText "3.4 Ceilings and false ceilings." ;
+    firebim:hasArticle firebim:Article_3.4.1, firebim:Article_3.4.2 .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_3.4 .
+
+firebim:Article_3.4.1 a firebim:Article ;
+    firebim:hasID "3.4.1" ;
+    firebim:hasOriginalText "3.4.1 In evacuation routes, premises open to the public and collective kitchens, false ceilings have a fire stability of ½ h." ;
+    firebim:hasMember firebim:Member_3.4.1_1 .
+
+firebim:Member_3.4.1_1 a firebim:Member ;
+    firebim:hasOriginalText "In evacuation routes, premises open to the public and collective kitchens, false ceilings have a fire stability of ½ h." .
+
+firebim:Article_3.4.2 a firebim:Article ;
+    firebim:hasID "3.4.2" ;
+    firebim:hasOriginalText "3.4.2 The space between the ceiling and the false ceiling is interrupted by the extension of all vertical walls possessing at least Rf ½ h.\nIf the space between the ceiling and the false ceiling is not equipped with an automatic extinguishing system, the space should be interrupted by vertical separations with Rf ½ h such that there are spaces whose horizontal projection can be inscribed in a square of maximum 25 m side." ;
+    firebim:hasMember firebim:Member_3.4.2_1, firebim:Member_3.4.2_2 .
+
+firebim:Member_3.4.2_1 a firebim:Member ;
+    firebim:hasOriginalText "The space between the ceiling and the false ceiling is interrupted by the extension of all vertical walls possessing at least Rf ½ h." .
+
+firebim:Member_3.4.2_2 a firebim:Member ;
+    firebim:hasOriginalText "If the space between the ceiling and the false ceiling is not equipped with an automatic extinguishing system, the space should be interrupted by vertical separations with Rf ½ h such that there are spaces whose horizontal projection can be inscribed in a square of maximum 25 m side." .

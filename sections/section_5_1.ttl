@@ -1,0 +1,66 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5.1 a firebim:Section ;
+    firebim:hasID "5.1" ;
+    firebim:hasOriginalText "5.1 Technical classrooms and spaces." ;
+    firebim:hasSubsection firebim:Section_5.1.1, firebim:Section_5.1.2, firebim:Section_5.1.3, firebim:Section_5.1.4, firebim:Section_5.1.5 .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_5.1 .
+
+firebim:Section_5.1.1 a firebim:Section ;
+    firebim:hasID "5.1.1" ;
+    firebim:hasOriginalText "5.1.1 General.\nA technical room or a set of technical rooms constitutes a compartment. Its height may extend over several successive floors." ;
+    firebim:hasSubsection firebim:Section_5.1.1.1 .
+
+firebim:Section_5.1.1.1 a firebim:Section ;
+    firebim:hasID "5.1.1.1" ;
+    firebim:hasOriginalText "5.1.1.1 For the technical rooms, the compartment requirements apply subject to the following modifications:\n1.access to two exits leading:\n-either to an adjacent compartment through a door Rf ½ h;\n-either to a stairwell through a door Rf ½ h;\n-either to the outside, such that an evacuation level is attainable;\n2.deviating from 4.4, no point of the compartment shall be beyond:\n-45 m from the road connecting the two exits in the technical compartment;\n-60 m from the nearest exit;\n-100 m from the second exit;\nif however the surface of the technical compartment does not exceed 1000 m², one exit to a stairwell, to the outside or to another compartment is sufficient. In this case, the distance to this exit may not exceed 60 m;\n3.if the height of the technical compartment extends over several successive floors (see 2.1) and if it includes more than one service floor connected by stairs or ladders:\n-then, provided that the compartment area is less than 1000 m², one access to a stairwell, to the outside or to another compartment may suffice every two service floors, and starting with the lowest;\n-if the compartment area exceeds 1000 m², then each service floor must provide access to at least one of two exits; these alternate from floor to floor;\n4.the useful width of evacuation routes, stairways, spillways and shafts shall be at least 0.80 m." .
+
+firebim:Section_5.1.2 a firebim:Section ;
+    firebim:hasID "5.1.2" ;
+    firebim:hasOriginalText "5.1.2 Heating departments and ancillaries.\nTheir design and implementation comply with the requirements of standard NBN B 61-001 +A1 : 1996. If the total useful heat capacity of the generators installed in the boiler room is less than 70 kW but greater than 30 kW, this room is considered a technical room.\nThe boiler rooms and their connections to the other parts of the building may be provided by a self-closing door Rf 1 h provided that it does not open onto a stairwell or onto an elevator landing or into a room at particular risk. The door rotates in the sense of escape.\nThe facilities for storage and relaxation of liquefied petroleum gas used to heat the building are located outside the building." .
+
+firebim:Section_5.1.3 a firebim:Section ;
+    firebim:hasID "5.1.3" ;
+    firebim:hasOriginalText "5.1.3 Transformer Rooms." ;
+    firebim:hasSubsection firebim:Section_5.1.3.1, firebim:Section_5.1.3.2 .
+
+firebim:Section_5.1.3.1 a firebim:Section ;
+    firebim:hasID "5.1.3.1" ;
+    firebim:hasOriginalText "5.1.3.1 General.\nThey comply with the requirements of the General Regulations on Electrical Installations (A.R.E.I.).\nFurthermore:\n-the walls have Rf 1 h, except for the exterior walls;\n-the interior doors have Rf ½ h;\n- If water (from any source, including fire water) can reach the floor, for example by infiltration or through cable ducts, then all measures must be taken so that the water level remains constantly and automatically below the vital parts of the electrical installation as long as it is in use.\nIf the oil content of the whole apparatus reaches 50 l or more, the regulations of NBN C 18-200 \"Guidelines for the fire protection of the premises of electricity transformation\" must be applied." .
+
+firebim:Section_5.1.3.2 a firebim:Section ;
+    firebim:hasID "5.1.3.2" ;
+    firebim:hasOriginalText "5.1.3.2 On-site assembled posts or prefabricated posts.\nAn on-site assembled post or prefabricated post shall be erected in a designated room, with walls Rf 1 h.\nAccess, if not from the outside, is through a door Rf ½ h." .
+
+firebim:Section_5.1.4 a firebim:Section ;
+    firebim:hasID "5.1.4" ;
+    firebim:hasOriginalText "5.1.4 Household waste disposal." ;
+    firebim:hasSubsection firebim:Section_5.1.4.1, firebim:Section_5.1.4.2 .
+
+firebim:Section_5.1.4.1 a firebim:Section ;
+    firebim:hasID "5.1.4.1" ;
+    firebim:hasOriginalText "5.1.4.1 Dumpster.\nIt is preferably installed on the outside of the building.\nIts walls are made of non-combustible materials and have a smooth inner surface.\nThe ventilation tube of the chute must extend at least 1 m above the roof level. The chute doors shall be self-closing.\nRegarding resistance to fire:\n1.if the tube is set up inside the building, the walls have Rf 1 h and the doors have Rf ½ h;\n2.if the tube is set up outside the building with the doors on the inside, they have Rf ½ h; each joint between the door and the tube has Rf 1 h." .
+
+firebim:Section_5.1.4.2 a firebim:Section ;
+    firebim:hasID "5.1.4.2" ;
+    firebim:hasOriginalText "5.1.4.2 Local for storage of garbage.\nThe walls have Rf 1 h.\nIf this room does not give out into the open air, it is accessible through a self-closing door Rf ½ h." .
+
+firebim:Section_5.1.5 a firebim:Section ;
+    firebim:hasID "5.1.5" ;
+    firebim:hasOriginalText "5.1.5 Pipe sleeves." ;
+    firebim:hasSubsection firebim:Section_5.1.5.1, firebim:Section_5.1.5.2 .
+
+firebim:Section_5.1.5.1 a firebim:Section ;
+    firebim:hasID "5.1.5.1" ;
+    firebim:hasOriginalText "5.1.5.1 Vertical tubes.\nTheir walls have Rf 1 h.\nThe trapdoors and doors have Rf ½ h.\nThe free ventilation cross section of the duct is at least equal to 10% of the total horizontal cross section of the duct, with a minimum of 4 dm².\nThese tubes may be built in the stairwells.\nHowever, their walls may have Rf ½ h if the ducts are compartmentalized at the level of each storey by horizontal screens with the following characteristics:\n-they are of non-combustible material;\n-they cover the entire space between the pipes;\n-they have Rf ½ h.\nIn this case, the tube should not be ventilated." .
+
+firebim:Section_5.1.5.2 a firebim:Section ;
+    firebim:hasID "5.1.5.2" ;
+    firebim:hasOriginalText "5.1.5.2 Horizontal tubes.\nDucts penetrating vertical walls for which an Rf is prescribed have:\n-either walls and doors with the same Rf as these vertical walls;\n-either a building element at the height of each wall with the same Rf as these vertical walls." .

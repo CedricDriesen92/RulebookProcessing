@@ -1,0 +1,50 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_0.2 a firebim:Section ;
+    firebim:hasID "0.2" ;
+    firebim:hasOriginalText "Scope." ;
+    firebim:hasArticle firebim:Article_0.2.1, firebim:Article_0.2.2 .
+
+firebim:Article_0.2.1 a firebim:Article ;
+    firebim:hasID "0.2.1" ;
+    firebim:hasOriginalText "This annex applies to the following buildings to be erected and the following extensions to existing buildings, for which the application for construction is submitted after December 31, 1997 and before December 1, 2012:" ;
+    firebim:hasMember firebim:Member_0.2.1.1, firebim:Member_0.2.1.2, firebim:Member_0.2.1.3 .
+
+firebim:Member_0.2.1.1 a firebim:Member ;
+    firebim:hasOriginalText "the low buildings;" .
+
+firebim:Member_0.2.1.2 a firebim:Member ;
+    firebim:hasOriginalText "the extensions of buildings that are low buildings after realization;" .
+
+firebim:Member_0.2.1.3 a firebim:Member ;
+    firebim:hasOriginalText "the premises or parts of low-rise buildings in which an industrial activity takes place and whose total area is less than or equal to 500 m², under the following conditions:" ;
+    firebim:hasMember firebim:Member_0.2.1.3.1, firebim:Member_0.2.1.3.2, firebim:Member_0.2.1.3.3 .
+
+firebim:Member_0.2.1.3.1 a firebim:Member ;
+    firebim:hasOriginalText "mainly non-industrial activities take place in the building and the total area of premises with industrial activity is less than the remaining area of the building;" .
+
+firebim:Member_0.2.1.3.2 a firebim:Member ;
+    firebim:hasOriginalText "the industrial activities in these premises support the non-industrial activities in the same compartment;" .
+
+firebim:Member_0.2.1.3.3 a firebim:Member ;
+    firebim:hasOriginalText "there are no night-occupied premises in the compartment in which industrial activities take place." .
+
+firebim:Article_0.2.2 a firebim:Article ;
+    firebim:hasID "0.2.2" ;
+    firebim:hasOriginalText "However, excluded from the scope of this annex are:" ;
+    firebim:hasMember firebim:Member_0.2.2.1, firebim:Member_0.2.2.2, firebim:Member_0.2.2.3 .
+
+firebim:Member_0.2.2.1 a firebim:Member ;
+    firebim:hasOriginalText "the industrial buildings;" .
+
+firebim:Member_0.2.2.2 a firebim:Member ;
+    firebim:hasOriginalText "The buildings consisting of up to two storeys and with a total area less than or equal to 100 m²;" .
+
+firebim:Member_0.2.2.3 a firebim:Member ;
+    firebim:hasOriginalText "the single-family homes." .

@@ -1,0 +1,65 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_3.5 a firebim:Section ;
+    firebim:hasID "3.5" ;
+    firebim:hasOriginalText """3.5 Facades.
+The studs of the curtain wall skeleton (light facade) are fixed to the building skeleton at the level of each storey.
+The parapet and the lintel are fastened to the floor slab in such a way that the whole assembly will be in place during
+½ h meets the "flame tightness" criterion of NBN 713-020; the same requirement is also met by the pennants.
+The connection of the façade element to the floor meets the requirements imposed for the floor or for the walls separating the compartments.
+Federal Public Service Home Affairs
+General Directorate of Civil Security - Fire Prevention.
+ANNEX 2: LOW BUILDINGS
+28/281
+(v3.0)
+Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).4 PRECAUTIONS ON CONSTRUCTION OF COMPARTMENTS
+AND EVACUATION ROOMS.""" ;
+    firebim:hasArticle firebim:Article_3.5.1, firebim:Article_3.5.2, firebim:Article_3.5.3, firebim:Article_3.5.4 .
+
+firebim:Article_3.5.1 a firebim:Article ;
+    firebim:hasOriginalText "The studs of the curtain wall skeleton (light facade) are fixed to the building skeleton at the level of each storey." ;
+    firebim:hasMember firebim:Member_3.5.1.1 .
+
+firebim:Member_3.5.1.1 a firebim:Member ;
+    firebim:hasOriginalText "The studs of the curtain wall skeleton (light facade) are fixed to the building skeleton at the level of each storey." .
+
+firebim:Article_3.5.2 a firebim:Article ;
+    firebim:hasOriginalText "The parapet and the lintel are fastened to the floor slab in such a way that the whole assembly will be in place during ½ h meets the \"flame tightness\" criterion of NBN 713-020; the same requirement is also met by the pennants." ;
+    firebim:hasMember firebim:Member_3.5.2.1 .
+
+firebim:Member_3.5.2.1 a firebim:Member ;
+    firebim:hasOriginalText "The parapet and the lintel are fastened to the floor slab in such a way that the whole assembly will be in place during ½ h meets the \"flame tightness\" criterion of NBN 713-020; the same requirement is also met by the pennants." .
+
+firebim:Article_3.5.3 a firebim:Article ;
+    firebim:hasOriginalText "The connection of the façade element to the floor meets the requirements imposed for the floor or for the walls separating the compartments." ;
+    firebim:hasMember firebim:Member_3.5.3.1 .
+
+firebim:Member_3.5.3.1 a firebim:Member ;
+    firebim:hasOriginalText "The connection of the façade element to the floor meets the requirements imposed for the floor or for the walls separating the compartments." .
+
+firebim:Article_3.5.4 a firebim:Article ;
+    firebim:hasOriginalText """Federal Public Service Home Affairs
+General Directorate of Civil Security - Fire Prevention.
+ANNEX 2: LOW BUILDINGS
+28/281
+(v3.0)
+Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).4 PRECAUTIONS ON CONSTRUCTION OF COMPARTMENTS
+AND EVACUATION ROOMS.""" ;
+    firebim:hasMember firebim:Member_3.5.4.1 .
+
+firebim:Member_3.5.4.1 a firebim:Member ;
+    firebim:hasOriginalText """Federal Public Service Home Affairs
+General Directorate of Civil Security - Fire Prevention.
+ANNEX 2: LOW BUILDINGS
+28/281
+(v3.0)
+Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).4 PRECAUTIONS ON CONSTRUCTION OF COMPARTMENTS
+AND EVACUATION ROOMS.""" .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_3.5 .

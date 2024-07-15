@@ -1,0 +1,61 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_4.3 a firebim:Section ;
+    firebim:hasID "4.3" ;
+    firebim:hasOriginalText "4.3 Exterior stairwells.\nExterior stairs should provide access to an evacuation level.\nThe requirements of 4.2.3 apply to it with however the following deviation: no fire stability is \nrequired, but the material belongs to class A0.\nThe connection between the compartment and an external staircase is done\n-either through a door;\n-either through escape terrace(s).\nFor the connection between the evacuation level and the immediately higher level, a staircase or \nsection of staircase may be used that is retractable or articulated." .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_4.3 .
+
+firebim:Section_4.3 firebim:hasArticle firebim:Article_4.3.1 .
+
+firebim:Article_4.3.1 a firebim:Article ;
+    firebim:hasOriginalText "Exterior stairs should provide access to an evacuation level." ;
+    firebim:hasMember firebim:Member_4.3.1.1 .
+
+firebim:Member_4.3.1.1 a firebim:Member ;
+    firebim:hasOriginalText "Exterior stairs should provide access to an evacuation level." .
+
+firebim:Section_4.3 firebim:hasArticle firebim:Article_4.3.2 .
+
+firebim:Article_4.3.2 a firebim:Article ;
+    firebim:hasOriginalText "The requirements of 4.2.3 apply to it with however the following deviation: no fire stability is required, but the material belongs to class A0." ;
+    firebim:hasMember firebim:Member_4.3.2.1 .
+
+firebim:Member_4.3.2.1 a firebim:Member ;
+    firebim:hasOriginalText "The requirements of 4.2.3 apply to it with however the following deviation: no fire stability is required, but the material belongs to class A0." ;
+    firebim:hasBackwardReference firebim:Reference_4.2.3 .
+
+firebim:Reference_4.2.3 a firebim:Reference ;
+    firebim:hasID "4.2.3" .
+
+firebim:Section_4.3 firebim:hasArticle firebim:Article_4.3.3 .
+
+firebim:Article_4.3.3 a firebim:Article ;
+    firebim:hasOriginalText "The connection between the compartment and an external staircase is done\n-either through a door;\n-either through escape terrace(s)." ;
+    firebim:hasMember firebim:Member_4.3.3.1 ,
+                      firebim:Member_4.3.3.2 ,
+                      firebim:Member_4.3.3.3 .
+
+firebim:Member_4.3.3.1 a firebim:Member ;
+    firebim:hasOriginalText "The connection between the compartment and an external staircase is done" .
+
+firebim:Member_4.3.3.2 a firebim:Member ;
+    firebim:hasOriginalText "-either through a door;" .
+
+firebim:Member_4.3.3.3 a firebim:Member ;
+    firebim:hasOriginalText "-either through escape terrace(s)." .
+
+firebim:Section_4.3 firebim:hasArticle firebim:Article_4.3.4 .
+
+firebim:Article_4.3.4 a firebim:Article ;
+    firebim:hasOriginalText "For the connection between the evacuation level and the immediately higher level, a staircase or section of staircase may be used that is retractable or articulated." ;
+    firebim:hasMember firebim:Member_4.3.4.1 .
+
+firebim:Member_4.3.4.1 a firebim:Member ;
+    firebim:hasOriginalText "For the connection between the evacuation level and the immediately higher level, a staircase or section of staircase may be used that is retractable or articulated." .

@@ -20,7 +20,7 @@ firebim:hasAppendix rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf firebim:hasSubdivision ;
                     rdfs:domain firebim:DocumentSubdivision ;
                     rdfs:range firebim:Appendix ;
-                    rdfs:label "has appendix" .
+                    rdfs:label "has appendix"@en .
 
 
 ###  http://example.com/firebim#hasArticle
@@ -49,7 +49,7 @@ firebim:hasChapter rdf:type owl:ObjectProperty ;
 firebim:hasDocument rdf:type owl:ObjectProperty ;
                     rdfs:domain firebim:Authority ;
                     rdfs:range firebim:Document ;
-                    rdfs:label "has document" .
+                    rdfs:label "has document"@en .
 
 
 ###  http://example.com/firebim#hasFigure
@@ -57,7 +57,7 @@ firebim:hasFigure rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf firebim:hasSubdivision ;
                   rdfs:domain firebim:DocumentSubdivision ;
                   rdfs:range firebim:Figure ;
-                  rdfs:label "has figure" .
+                  rdfs:label "has figure"@en .
 
 
 ###  http://example.com/firebim#hasForwardReference
@@ -71,8 +71,7 @@ firebim:hasMember rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf firebim:hasSubdivision ;
                   rdfs:domain firebim:Article ;
                   rdfs:range firebim:Member ;
-                  rdfs:label "has member"@en ,
-                             "has member" .
+                  rdfs:label "has member"@en .
 
 
 ###  http://example.com/firebim#hasParagraph
@@ -119,7 +118,7 @@ firebim:hasTable rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf firebim:hasSubdivision ;
                  rdfs:domain firebim:DocumentSubdivision ;
                  rdfs:range firebim:Table ;
-                 rdfs:label "has table" .
+                 rdfs:label "has table"@en .
 
 
 #################################################################

@@ -1,0 +1,48 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5.3 a firebim:Section ;
+    firebim:hasID "5.3" ;
+    firebim:hasOriginalText "5.3 Halls." .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_5.3 .
+
+firebim:Section_5.3 firebim:hasArticle firebim:Article_5.3.1 .
+
+firebim:Article_5.3.1 a firebim:Article ;
+    firebim:hasID "5.3.1" ;
+    firebim:hasOriginalText "5.3.1 [General]] If it can accommodate more than 500 people, these halls may be arranged underground only if the difference between the lowest floor level of these halls and the closest evacuation level does not exceed 3 m. If the aforementioned halls are intended for a maximum of 500 persons, they may be installed underground, provided that the lowest floor level accessible to the public is not more than 4 m below the average level of the various evacuation levels of the establishment. The number of exits is determined as for compartments." ;
+    firebim:hasMember firebim:Member_5.3.1_1, firebim:Member_5.3.1_2, firebim:Member_5.3.1_3 .
+
+firebim:Member_5.3.1_1 a firebim:Member ;
+    firebim:hasOriginalText "If it can accommodate more than 500 people, these halls may be arranged underground only if the difference between the lowest floor level of these halls and the closest evacuation level does not exceed 3 m." .
+
+firebim:Member_5.3.1_2 a firebim:Member ;
+    firebim:hasOriginalText "If the aforementioned halls are intended for a maximum of 500 persons, they may be installed underground, provided that the lowest floor level accessible to the public is not more than 4 m below the average level of the various evacuation levels of the establishment." .
+
+firebim:Member_5.3.1_3 a firebim:Member ;
+    firebim:hasOriginalText "The number of exits is determined as for compartments." .
+
+firebim:Section_5.3 firebim:hasArticle firebim:Article_5.3.2 .
+
+firebim:Article_5.3.2 a firebim:Article ;
+    firebim:hasID "5.3.2" ;
+    firebim:hasOriginalText "5.3.2 Construction. The walls forming these rooms or set of rooms not only meet the regulatory requirements applicable to these rooms, but also have the Rf value of the walls of a compartment. Each passageway in the vertical walls is closed by a self-closing door or in case of fire self-closing door Rf ½ h. These doors swing open in the sense of escape. No object should interfere with evacuation to the exits." ;
+    firebim:hasMember firebim:Member_5.3.2_1, firebim:Member_5.3.2_2, firebim:Member_5.3.2_3, firebim:Member_5.3.2_4 .
+
+firebim:Member_5.3.2_1 a firebim:Member ;
+    firebim:hasOriginalText "The walls forming these rooms or set of rooms not only meet the regulatory requirements applicable to these rooms, but also have the Rf value of the walls of a compartment." .
+
+firebim:Member_5.3.2_2 a firebim:Member ;
+    firebim:hasOriginalText "Each passageway in the vertical walls is closed by a self-closing door or in case of fire self-closing door Rf ½ h." .
+
+firebim:Member_5.3.2_3 a firebim:Member ;
+    firebim:hasOriginalText "These doors swing open in the sense of escape." .
+
+firebim:Member_5.3.2_4 a firebim:Member ;
+    firebim:hasOriginalText "No object should interfere with evacuation to the exits." .

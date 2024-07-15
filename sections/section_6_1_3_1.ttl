@@ -1,0 +1,94 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6.1.3.1 a firebim:Section ;
+    firebim:hasID "6.1.3.1" ;
+    firebim:hasOriginalText """6.1.3.1 A smoke detection system will be placed at the top of the shaft. In case of detection of smoke in 
+the shaft, the cabin will stop in accordance with 6.1.1.7. The detection system in the shaft shall be 
+provided so that its maintenance and control can be done from outside the shaft.
+The elevator will only be able to be reactivated by an authorized person.
+6.1.3.2 The shaft should be naturally ventilated through outside air nozzles.
+The ventilation opening, located at the top of the shaft, has a minimum cross-sectional area of 4% 
+of the horizontal area of the shaft.
+6.1.4 Oleohydraulic elevators
+The machine room is separated from the elevator shaft. The walls of the machine room have Rf 1 
+h.
+Access to the engine room is through a self-closing door Rf ½ h.
+The machine rooms and elevator shafts should be naturally ventilated through outside air nozzles.
+The ventilation openings have a minimum cross-sectional area of 4% of the horizontal cross-
+sectional area of the room.
+The level of the engine room door thresholds is raised so that the tub thus formed has a capacity 
+at least equal to 1.2 times the oil content of the machinery.
+Electrical equipment as well as electrical and hydraulic lines running from the engine room to the 
+elevator shaft are installed higher than the highest level that the drained oil in the engine room can 
+reach. The space around the penetrations for these pipes, should be sealed with materials with at 
+least the same Rf as the wall.""" ;
+    firebim:hasArticle firebim:Article_6.1.3.1, firebim:Article_6.1.3.2, firebim:Article_6.1.4 .
+
+firebim:Article_6.1.3.1 a firebim:Article ;
+    firebim:hasID "6.1.3.1" ;
+    firebim:hasOriginalText "6.1.3.1 A smoke detection system will be placed at the top of the shaft. In case of detection of smoke in the shaft, the cabin will stop in accordance with 6.1.1.7. The detection system in the shaft shall be provided so that its maintenance and control can be done from outside the shaft. The elevator will only be able to be reactivated by an authorized person." ;
+    firebim:hasMember firebim:Member_6.1.3.1_1, firebim:Member_6.1.3.1_2, firebim:Member_6.1.3.1_3, firebim:Member_6.1.3.1_4 .
+
+firebim:Member_6.1.3.1_1 a firebim:Member ;
+    firebim:hasOriginalText "A smoke detection system will be placed at the top of the shaft." .
+
+firebim:Member_6.1.3.1_2 a firebim:Member ;
+    firebim:hasOriginalText "In case of detection of smoke in the shaft, the cabin will stop in accordance with 6.1.1.7." ;
+    firebim:hasForwardReference firebim:Reference_6.1.1.7 .
+
+firebim:Member_6.1.3.1_3 a firebim:Member ;
+    firebim:hasOriginalText "The detection system in the shaft shall be provided so that its maintenance and control can be done from outside the shaft." .
+
+firebim:Member_6.1.3.1_4 a firebim:Member ;
+    firebim:hasOriginalText "The elevator will only be able to be reactivated by an authorized person." .
+
+firebim:Article_6.1.3.2 a firebim:Article ;
+    firebim:hasID "6.1.3.2" ;
+    firebim:hasOriginalText "6.1.3.2 The shaft should be naturally ventilated through outside air nozzles. The ventilation opening, located at the top of the shaft, has a minimum cross-sectional area of 4% of the horizontal area of the shaft." ;
+    firebim:hasMember firebim:Member_6.1.3.2_1, firebim:Member_6.1.3.2_2 .
+
+firebim:Member_6.1.3.2_1 a firebim:Member ;
+    firebim:hasOriginalText "The shaft should be naturally ventilated through outside air nozzles." .
+
+firebim:Member_6.1.3.2_2 a firebim:Member ;
+    firebim:hasOriginalText "The ventilation opening, located at the top of the shaft, has a minimum cross-sectional area of 4% of the horizontal area of the shaft." .
+
+firebim:Article_6.1.4 a firebim:Article ;
+    firebim:hasID "6.1.4" ;
+    firebim:hasOriginalText "6.1.4 Oleohydraulic elevators The machine room is separated from the elevator shaft. The walls of the machine room have Rf 1 h. Access to the engine room is through a self-closing door Rf ½ h. The machine rooms and elevator shafts should be naturally ventilated through outside air nozzles. The ventilation openings have a minimum cross-sectional area of 4% of the horizontal cross-sectional area of the room. The level of the engine room door thresholds is raised so that the tub thus formed has a capacity at least equal to 1.2 times the oil content of the machinery. Electrical equipment as well as electrical and hydraulic lines running from the engine room to the elevator shaft are installed higher than the highest level that the drained oil in the engine room can reach. The space around the penetrations for these pipes, should be sealed with materials with at least the same Rf as the wall." ;
+    firebim:hasMember firebim:Member_6.1.4_1, firebim:Member_6.1.4_2, firebim:Member_6.1.4_3, firebim:Member_6.1.4_4, firebim:Member_6.1.4_5, firebim:Member_6.1.4_6, firebim:Member_6.1.4_7, firebim:Member_6.1.4_8 .
+
+firebim:Member_6.1.4_1 a firebim:Member ;
+    firebim:hasOriginalText "Oleohydraulic elevators" .
+
+firebim:Member_6.1.4_2 a firebim:Member ;
+    firebim:hasOriginalText "The machine room is separated from the elevator shaft." .
+
+firebim:Member_6.1.4_3 a firebim:Member ;
+    firebim:hasOriginalText "The walls of the machine room have Rf 1 h." .
+
+firebim:Member_6.1.4_4 a firebim:Member ;
+    firebim:hasOriginalText "Access to the engine room is through a self-closing door Rf ½ h." .
+
+firebim:Member_6.1.4_5 a firebim:Member ;
+    firebim:hasOriginalText "The machine rooms and elevator shafts should be naturally ventilated through outside air nozzles." .
+
+firebim:Member_6.1.4_6 a firebim:Member ;
+    firebim:hasOriginalText "The ventilation openings have a minimum cross-sectional area of 4% of the horizontal cross-sectional area of the room." .
+
+firebim:Member_6.1.4_7 a firebim:Member ;
+    firebim:hasOriginalText "The level of the engine room door thresholds is raised so that the tub thus formed has a capacity at least equal to 1.2 times the oil content of the machinery." .
+
+firebim:Member_6.1.4_8 a firebim:Member ;
+    firebim:hasOriginalText "Electrical equipment as well as electrical and hydraulic lines running from the engine room to the elevator shaft are installed higher than the highest level that the drained oil in the engine room can reach. The space around the penetrations for these pipes, should be sealed with materials with at least the same Rf as the wall." .
+
+firebim:Reference_6.1.1.7 a firebim:Reference ;
+    firebim:hasID "6.1.1.7" .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_6.1.3.1 .

@@ -1,0 +1,55 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_1.1 a firebim:Section ;
+    firebim:hasID "1.1" ;
+    firebim:hasOriginalText "Fire department accessibility and emplacement" ;
+    firebim:hasArticle firebim:Article_1.1.1, firebim:Article_1.1.2, firebim:Article_1.1.3 .
+
+firebim:Article_1.1.1 a firebim:Article ;
+    firebim:hasMember firebim:Member_1.1.1.1, firebim:Member_1.1.1.2 .
+
+firebim:Member_1.1.1.1 a firebim:Member ;
+    firebim:hasOriginalText "For single-story buildings, fire department vehicles must be able to approach at least to within 60 m of a building façade." .
+
+firebim:Member_1.1.1.2 a firebim:Member ;
+    firebim:hasOriginalText "For buildings with more than one storey, fire department vehicles must be able to reach a facade at least at one point that provides access to each storey at recognizable points." .
+
+firebim:Article_1.1.2 a firebim:Article ;
+    firebim:hasMember firebim:Member_1.1.2.1 .
+
+firebim:Member_1.1.2.1 a firebim:Member ;
+    firebim:hasOriginalText "To this end, vehicles must have an access point and a staging area:" .
+
+firebim:Article_1.1.3 a firebim:Article ;
+    firebim:hasMember firebim:Member_1.1.3.1, firebim:Member_1.1.3.2 .
+
+firebim:Member_1.1.3.1 a firebim:Member ;
+    firebim:hasOriginalText "either on the drivable roadway of the public highway;" .
+
+firebim:Member_1.1.3.2 a firebim:Member ;
+    firebim:hasOriginalText "either on a special access road from the travelable roadway of the public highway and having the following characteristics:" ;
+    firebim:hasParagraph firebim:Paragraph_1.1.3.2.1, firebim:Paragraph_1.1.3.2.2, firebim:Paragraph_1.1.3.2.3, firebim:Paragraph_1.1.3.2.4, firebim:Paragraph_1.1.3.2.5, firebim:Paragraph_1.1.3.2.6 .
+
+firebim:Paragraph_1.1.3.2.1 a firebim:Paragraph ;
+    firebim:hasOriginalText "minimum clear width: 4 m;" .
+
+firebim:Paragraph_1.1.3.2.2 a firebim:Paragraph ;
+    firebim:hasOriginalText "minimum turning radius: 11 m on the inside and 15 m on the outside;" .
+
+firebim:Paragraph_1.1.3.2.3 a firebim:Paragraph ;
+    firebim:hasOriginalText "minimum clear height: 4 m;" .
+
+firebim:Paragraph_1.1.3.2.4 a firebim:Paragraph ;
+    firebim:hasOriginalText "maximum slope: 6%;" .
+
+firebim:Paragraph_1.1.3.2.5 a firebim:Paragraph ;
+    firebim:hasOriginalText "load bearing capacity: such that vehicles, without galvanization, with a maximum axle load of 13t can drive and stop there, even if they deform the terrain." .
+
+firebim:Paragraph_1.1.3.2.6 a firebim:Paragraph ;
+    firebim:hasOriginalText "For structures located on access roads, refer to NBN B 03-101." .

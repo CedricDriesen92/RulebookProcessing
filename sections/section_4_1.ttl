@@ -1,0 +1,30 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_4.1 a firebim:Section ;
+    firebim:hasID "4.1" ;
+    firebim:hasOriginalText "4.1 Compartments.\nThe walls between compartments have at least the fire resistance of the structural elements.\nThe connection between two compartments is permitted only if it is through a self-closing or, in the \nevent of fire, self-closing door Rf ½ h." .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_4.1 .
+
+firebim:Article_4.1.1 a firebim:Article ;
+    firebim:hasOriginalText "The walls between compartments have at least the fire resistance of the structural elements." .
+
+firebim:Article_4.1.2 a firebim:Article ;
+    firebim:hasOriginalText "The connection between two compartments is permitted only if it is through a self-closing or, in the event of fire, self-closing door Rf ½ h." .
+
+firebim:Section_4.1 firebim:hasArticle firebim:Article_4.1.1 , firebim:Article_4.1.2 .
+
+firebim:Member_4.1.1.1 a firebim:Member ;
+    firebim:hasOriginalText "The walls between compartments have at least the fire resistance of the structural elements." .
+
+firebim:Member_4.1.2.1 a firebim:Member ;
+    firebim:hasOriginalText "The connection between two compartments is permitted only if it is through a self-closing or, in the event of fire, self-closing door Rf ½ h." .
+
+firebim:Article_4.1.1 firebim:hasMember firebim:Member_4.1.1.1 .
+firebim:Article_4.1.2 firebim:hasMember firebim:Member_4.1.2.1 .

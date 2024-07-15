@@ -1,0 +1,57 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_2.2 a firebim:Section ;
+    firebim:hasID "2.2" ;
+    firebim:hasOriginalText "2.2 Evacuation of compartments." ;
+    firebim:hasArticle firebim:Article_2.2.1, firebim:Article_2.2.2 .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_2.2 .
+
+firebim:Article_2.2.1 a firebim:Article ;
+    firebim:hasID "2.2.1" ;
+    firebim:hasOriginalText "2.2.1 Number of outputs.\nEach compartment has minimum :\n-an exit if occupancy is less than 100 persons;\n-two exits if occupancy is 100 or more than 100 and less than 500 persons;\n-2 + n exits where n is the integer immediately greater than the division by 1000 of the maximum occupancy of the compartment, if the occupancy is 500 or more than 500 persons.\nThe minimum number of exits can be increased by the fire department in function of the occupancy and configuration of the premises.\nThe number of exits from building floors and classrooms is determined as for compartments." ;
+    firebim:hasMember firebim:Member_2.2.1.1, firebim:Member_2.2.1.2, firebim:Member_2.2.1.3, firebim:Member_2.2.1.4, firebim:Member_2.2.1.5 .
+
+firebim:Member_2.2.1.1 a firebim:Member ;
+    firebim:hasOriginalText "Each compartment has minimum :" .
+
+firebim:Member_2.2.1.2 a firebim:Member ;
+    firebim:hasOriginalText "-an exit if occupancy is less than 100 persons;" .
+
+firebim:Member_2.2.1.3 a firebim:Member ;
+    firebim:hasOriginalText "-two exits if occupancy is 100 or more than 100 and less than 500 persons;" .
+
+firebim:Member_2.2.1.4 a firebim:Member ;
+    firebim:hasOriginalText "-2 + n exits where n is the integer immediately greater than the division by 1000 of the maximum occupancy of the compartment, if the occupancy is 500 or more than 500 persons." .
+
+firebim:Member_2.2.1.5 a firebim:Member ;
+    firebim:hasOriginalText "The minimum number of exits can be increased by the fire department in function of the occupancy and configuration of the premises.\nThe number of exits from building floors and classrooms is determined as for compartments." .
+
+firebim:Article_2.2.2 a firebim:Article ;
+    firebim:hasID "2.2.2" ;
+    firebim:hasOriginalText "2.2.2 Outputs.\nThe exits are located in opposite zones of the compartment.\nEvacuation routes lead outside or to stairwells, or stairs, located inside or outside the building, (for horizontal distances see 4.4).\nWith regard to underground building levels, one exit to the outside via an evacuation path with walls and doors Rf ½ h may replace the required access to one of the stairwells.\nFor the parking building: see 5.2.\nAt an evacuation level, each stairway leads to the outside either directly or over an evacuation path that meets the requirements of 4.4." ;
+    firebim:hasMember firebim:Member_2.2.2.1, firebim:Member_2.2.2.2, firebim:Member_2.2.2.3, firebim:Member_2.2.2.4, firebim:Member_2.2.2.5 .
+
+firebim:Member_2.2.2.1 a firebim:Member ;
+    firebim:hasOriginalText "The exits are located in opposite zones of the compartment." .
+
+firebim:Member_2.2.2.2 a firebim:Member ;
+    firebim:hasOriginalText "Evacuation routes lead outside or to stairwells, or stairs, located inside or outside the building, (for horizontal distances see 4.4)." ;
+    firebim:hasForwardReference firebim:Section_4.4 .
+
+firebim:Member_2.2.2.3 a firebim:Member ;
+    firebim:hasOriginalText "With regard to underground building levels, one exit to the outside via an evacuation path with walls and doors Rf ½ h may replace the required access to one of the stairwells." .
+
+firebim:Member_2.2.2.4 a firebim:Member ;
+    firebim:hasOriginalText "For the parking building: see 5.2." ;
+    firebim:hasForwardReference firebim:Section_5.2 .
+
+firebim:Member_2.2.2.5 a firebim:Member ;
+    firebim:hasOriginalText "At an evacuation level, each stairway leads to the outside either directly or over an evacuation path that meets the requirements of 4.4." ;
+    firebim:hasForwardReference firebim:Section_4.4 .

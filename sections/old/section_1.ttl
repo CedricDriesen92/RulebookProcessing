@@ -1,0 +1,28 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_1 a firebim:Section ;
+    firebim:hasID "1" ;
+    firebim:hasOriginalText """Federal Public Service Home Affairs
+General Directorate of Civil Security - Fire Prevention.
+24/281
+(v3.0)
+Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).ANNEX 2: LOW BUILDINGS""" .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_1 .
+
+firebim:Section_1 firebim:hasReference [
+    a firebim:Reference ;
+    firebim:hasOriginalText "Royal Decree of July 7, 1994 (coordinated version on May 20, 2022)"
+] .
+
+firebim:Section_1 firebim:hasAppendix [
+    a firebim:Appendix ;
+    firebim:hasID "2" ;
+    firebim:hasOriginalText "ANNEX 2: LOW BUILDINGS"
+] .

@@ -8,10 +8,19 @@
 
 firebim:Section_0.3 a firebim:Section ;
     firebim:hasID "0.3" ;
-    firebim:hasOriginalText "0.3 Terminology - see Appendix 1." ;
-    firebim:hasForwardReference firebim:Appendix_1 .
-
-firebim:Appendix_1 a firebim:Appendix ;
-    firebim:hasID "1" .
+    firebim:hasOriginalText "0.3 Terminology - see Appendix 1." .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_0.3 .
+
+firebim:Section_0.3 firebim:hasArticle firebim:Article_0.3.1 .
+
+firebim:Article_0.3.1 a firebim:Article ;
+    firebim:hasOriginalText "0.3 Terminology - see Appendix 1." ;
+    firebim:hasMember firebim:Member_0.3.1.1 .
+
+firebim:Member_0.3.1.1 a firebim:Member ;
+    firebim:hasOriginalText "Terminology - see Appendix 1." ;
+    firebim:hasForwardReference firebim:Reference_Appendix1 .
+
+firebim:Reference_Appendix1 a firebim:Reference ;
+    firebim:hasID "Appendix1" .

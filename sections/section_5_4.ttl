@@ -1,0 +1,30 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5.4 a firebim:Section ;
+    firebim:hasID "5.4" ;
+    firebim:hasOriginalText "5.4 Shopping or commercial complex.\nThe furnishing of storefronts opening onto interior galleries is permitted at an evacuation level and on adjacent building floors provided:\n1.the complex with its galleries is separated from other building parts by walls with Rf 1 h;\n2.the other building sections have their own exits independent of the exits of the retail or commercial complex;\nThe partition walls between commercial premises have Rf ½ h and extend into any false ceiling. This requirement is waived if the store or commercial complex is equipped with an automatic hydraulic extinguishing system (NBN S 21-028)." .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_5.4 .
+
+firebim:Section_5.4 firebim:hasArticle firebim:Article_5.4.1 .
+
+firebim:Article_5.4.1 a firebim:Article ;
+    firebim:hasOriginalText "The furnishing of storefronts opening onto interior galleries is permitted at an evacuation level and on adjacent building floors provided:" ;
+    firebim:hasMember firebim:Member_5.4.1.1, firebim:Member_5.4.1.2 .
+
+firebim:Member_5.4.1.1 a firebim:Member ;
+    firebim:hasOriginalText "1.the complex with its galleries is separated from other building parts by walls with Rf 1 h;" .
+
+firebim:Member_5.4.1.2 a firebim:Member ;
+    firebim:hasOriginalText "2.the other building sections have their own exits independent of the exits of the retail or commercial complex;" .
+
+firebim:Section_5.4 firebim:hasArticle firebim:Article_5.4.2 .
+
+firebim:Article_5.4.2 a firebim:Article ;
+    firebim:hasOriginalText "The partition walls between commercial premises have Rf ½ h and extend into any false ceiling. This requirement is waived if the store or commercial complex is equipped with an automatic hydraulic extinguishing system (NBN S 21-028)." .

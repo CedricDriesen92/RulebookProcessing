@@ -1,0 +1,30 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_0.1 a firebim:Section ;
+    firebim:hasID "0.1" ;
+    firebim:hasOriginalText "0.1 Objective.\nThese basic regulations define the minimum requirements that the conception, construction and \ndesign of low-rise buildings (LG) must meet in order to:\na)prevent the occurrence, development and propagation of fire;\nb)ensure the safety of those present;\nc)preventively facilitate the fire department's intervention." ;
+    firebim:hasArticle firebim:Article_0.1.1 .
+
+firebim:Article_0.1.1 a firebim:Article ;
+    firebim:hasID "0.1.1" ;
+    firebim:hasMember firebim:Member_0.1.1.1, firebim:Member_0.1.1.2, firebim:Member_0.1.1.3, firebim:Member_0.1.1.4 .
+
+firebim:Member_0.1.1.1 a firebim:Member ;
+    firebim:hasOriginalText "These basic regulations define the minimum requirements that the conception, construction and design of low-rise buildings (LG) must meet in order to:" .
+
+firebim:Member_0.1.1.2 a firebim:Member ;
+    firebim:hasOriginalText "a)prevent the occurrence, development and propagation of fire;" .
+
+firebim:Member_0.1.1.3 a firebim:Member ;
+    firebim:hasOriginalText "b)ensure the safety of those present;" .
+
+firebim:Member_0.1.1.4 a firebim:Member ;
+    firebim:hasOriginalText "c)preventively facilitate the fire department's intervention." .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_0.1 .

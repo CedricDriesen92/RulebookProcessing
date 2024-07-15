@@ -1,0 +1,40 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_3.3 a firebim:Section ;
+    firebim:hasID "3.3" ;
+    firebim:hasOriginalText "3.3 Vertical interior walls and interior doors.\nFor walls and doors, which demarcate compartments, 4.1 applies; if they demarcate evacuation routes, 4.4 applies.\nThe interior vertical walls demarcating classrooms or the entirety of classrooms with night occupancy have at least the fire resistance of the structural elements.\nThe doors in these walls have Rf ½ h." ;
+    firebim:hasArticle firebim:Article_3.3.1, firebim:Article_3.3.2, firebim:Article_3.3.3 .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_3.3 .
+
+firebim:Article_3.3.1 a firebim:Article ;
+    firebim:hasOriginalText "For walls and doors, which demarcate compartments, 4.1 applies; if they demarcate evacuation routes, 4.4 applies." ;
+    firebim:hasMember firebim:Member_3.3.1.1 .
+
+firebim:Member_3.3.1.1 a firebim:Member ;
+    firebim:hasOriginalText "For walls and doors, which demarcate compartments, 4.1 applies; if they demarcate evacuation routes, 4.4 applies." ;
+    firebim:hasForwardReference firebim:Reference_4.1, firebim:Reference_4.4 .
+
+firebim:Article_3.3.2 a firebim:Article ;
+    firebim:hasOriginalText "The interior vertical walls demarcating classrooms or the entirety of classrooms with night occupancy have at least the fire resistance of the structural elements." ;
+    firebim:hasMember firebim:Member_3.3.2.1 .
+
+firebim:Member_3.3.2.1 a firebim:Member ;
+    firebim:hasOriginalText "The interior vertical walls demarcating classrooms or the entirety of classrooms with night occupancy have at least the fire resistance of the structural elements." .
+
+firebim:Article_3.3.3 a firebim:Article ;
+    firebim:hasOriginalText "The doors in these walls have Rf ½ h." ;
+    firebim:hasMember firebim:Member_3.3.3.1 .
+
+firebim:Member_3.3.3.1 a firebim:Member ;
+    firebim:hasOriginalText "The doors in these walls have Rf ½ h." .
+
+firebim:Reference_4.1 a firebim:Reference .
+
+firebim:Reference_4.4 a firebim:Reference .

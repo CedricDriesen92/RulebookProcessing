@@ -1,0 +1,36 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_1.3 a firebim:Section ;
+    firebim:hasID "1.3" ;
+    firebim:hasOriginalText "[Horizontal distance between buildings]" ;
+    firebim:hasArticle firebim:Article_1.3.1, firebim:Article_1.3.2, firebim:Article_1.3.3, firebim:Article_1.3.4 .
+
+firebim:Article_1.3.1 a firebim:Article ;
+    firebim:hasMember firebim:Member_1.3.1.1 .
+
+firebim:Member_1.3.1.1 a firebim:Member ;
+    firebim:hasOriginalText "The horizontal distance, free from any combustible element and located between an LG and an opposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent buildings." .
+
+firebim:Article_1.3.2 a firebim:Article ;
+    firebim:hasMember firebim:Member_1.3.2.1 .
+
+firebim:Member_1.3.2.1 a firebim:Member ;
+    firebim:hasOriginalText "The walls separating adjacent buildings have Rf 1 h." .
+
+firebim:Article_1.3.3 a firebim:Article ;
+    firebim:hasMember firebim:Member_1.3.3.1 .
+
+firebim:Member_1.3.3.1 a firebim:Member ;
+    firebim:hasOriginalText "In these walls a connection between these buildings may exist through a door Rf ½ h, self-closing or self-closing in case of fire." .
+
+firebim:Article_1.3.4 a firebim:Article ;
+    firebim:hasMember firebim:Member_1.3.4.1 .
+
+firebim:Member_1.3.4.1 a firebim:Member ;
+    firebim:hasOriginalText "The condition of distance between an LG and an opposing building does not apply to buildings separated by existing streets, roads..., belonging to the public domain." .

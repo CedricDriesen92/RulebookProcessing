@@ -1,0 +1,28 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_4.5 a firebim:Section ;
+    firebim:hasID "4.5" ;
+    firebim:hasOriginalText "4.5 Signalization." ;
+    firebim:hasArticle firebim:Article_4.5.1, firebim:Article_4.5.2 .
+
+firebim:Article_4.5.1 a firebim:Article ;
+    firebim:hasOriginalText "For all building levels, the sequence number shall be clearly posted on landings and in the escape areas at stairwells and elevators." ;
+    firebim:hasMember firebim:Member_4.5.1.1 .
+
+firebim:Member_4.5.1.1 a firebim:Member ;
+    firebim:hasOriginalText "For all building levels, the sequence number shall be clearly posted on landings and in the escape areas at stairwells and elevators." .
+
+firebim:Article_4.5.2 a firebim:Article ;
+    firebim:hasOriginalText "The designation of exits and emergency exits shall comply with the provisions on occupational safety and health signage." ;
+    firebim:hasMember firebim:Member_4.5.2.1 .
+
+firebim:Member_4.5.2.1 a firebim:Member ;
+    firebim:hasOriginalText "The designation of exits and emergency exits shall comply with the provisions on occupational safety and health signage." .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_4.5 .

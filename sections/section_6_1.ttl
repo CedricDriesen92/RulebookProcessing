@@ -1,0 +1,69 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6.1 a firebim:Section ;
+    firebim:hasID "6.1" ;
+    firebim:hasOriginalText "6.1 Elevators and freight elevators" .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_6.1 .
+
+firebim:Section_6.1 firebim:hasArticle firebim:Article_6.1.1 .
+
+firebim:Article_6.1.1 a firebim:Article ;
+    firebim:hasID "6.1.1" ;
+    firebim:hasOriginalText "6.1.1 General." ;
+    firebim:hasMember firebim:Member_6.1.1.1, firebim:Member_6.1.1.2, firebim:Member_6.1.1.3, firebim:Member_6.1.1.4, firebim:Member_6.1.1.5, firebim:Member_6.1.1.6, firebim:Member_6.1.1.7, firebim:Member_6.1.1.8 .
+
+firebim:Member_6.1.1.1 a firebim:Member ;
+    firebim:hasID "6.1.1.1" ;
+    firebim:hasOriginalText "6.1.1.1 The machine and associated parts of an elevator and/or freight elevator are not accessible except for maintenance, inspection and emergencies. The drive unit is located : -or in a machine room -either in the shaft, with the exception of oleohydraulic elevators, for which the drive unit, including the oil reservoir, must be located exclusively in a machine room. The control bodies will be able to be accessed from the overflow if they: -Are placed in an area that meets the requirements listed in 5.1.5.1; -be part of the platform wall." .
+
+firebim:Member_6.1.1.2 a firebim:Member ;
+    firebim:hasID "6.1.1.2" ;
+    firebim:hasOriginalText "6.1.1.2 All elevators are equipped at their evacuation level with a mechanism that allows them to be recalled to that level, after which the elevator is rendered inoperative. This mechanism will be indicated. The elevator will only be able to be reactivated by an authorized person." .
+
+firebim:Member_6.1.1.3 a firebim:Member ;
+    firebim:hasID "6.1.1.3" ;
+    firebim:hasOriginalText "6.1.1.3 The assembly consisting of one or more shafts, and of their access landings to form a shaft for the underground building levels, is enclosed by walls with Rf 1 h. Access doors between the compartment and the sas are self-closing or self-closing in case of fire and have Rf ½ h." .
+
+firebim:Member_6.1.1.4 a firebim:Member ;
+    firebim:hasID "6.1.1.4" ;
+    firebim:hasOriginalText "6.1.1.4 The assembly of the shaft doors shall have a stability to fire and a flame tightness of ½ h in accordance with NBN 713-020. This is assessed by exposing the door wall on the side of the platform to the fire. The platform wall will be tested with any operating and control devices that are part of it." .
+
+firebim:Member_6.1.1.5 a firebim:Member ;
+    firebim:hasID "6.1.1.5" ;
+    firebim:hasOriginalText "6.1.1.5 When the elevator calls on only one compartment, the walls of the shaft, referred to in 6.1.1.3, and the shaft doors, referred to in 6.1.1.4, shall not meet the respective requirements for fire resistance, stability in the event of fire, and flame tightness. Yet the walls of an elevator shaft in a stairwell are solid, continuous and non-combustible." .
+
+firebim:Member_6.1.1.6 a firebim:Member ;
+    firebim:hasID "6.1.1.6" ;
+    firebim:hasOriginalText "6.1.1.6 No extinguishing device containing water shall be installed in the shaft(s)." .
+
+firebim:Member_6.1.1.7 a firebim:Member ;
+    firebim:hasID "6.1.1.7" ;
+    firebim:hasOriginalText "6.1.1.7 In case of abnormal increase in the temperature of the machine and/or of the control organs, the elevators must be designed and constructed to stop at the first access platform that is technically possible, but refuse new operating orders. In this case, an audible alarm signal should alert those in the cabin to exit the elevator when it stops; the doors open and remain open just long enough for passengers to exit, that is, at least 15 seconds. The mechanisms enabling the opening of the doors remain active. This operation must take precedence over any other command." .
+
+firebim:Member_6.1.1.8 a firebim:Member ;
+    firebim:hasID "6.1.1.8" ;
+    firebim:hasOriginalText "6.1.1.8 If the building is equipped with a fire detection - system, the elevators should be recalled to the evacuation level if a fire is detected outside the elevators and their associated components. The shaft doors open, and remain open just long enough for passengers to exit, that is, at least 15 seconds, after which the elevator becomes inoperative. The mechanisms that allow the doors to open remain active. The elevator will only be able to be reactivated by an authorized person." .
+
+firebim:Section_6.1 firebim:hasArticle firebim:Article_6.1.2 .
+
+firebim:Article_6.1.2 a firebim:Article ;
+    firebim:hasID "6.1.2" ;
+    firebim:hasOriginalText "6.1.2 Elevators and freight elevators whose machinery is located in a machine room." ;
+    firebim:hasMember firebim:Member_6.1.2.1 .
+
+firebim:Member_6.1.2.1 a firebim:Member ;
+    firebim:hasID "6.1.2.1" ;
+    firebim:hasOriginalText "6.1.2.1 The walls enclosing the assembly formed by the shaft and engine room have Rf 1 h. If the engine room door or trap door gives out into the building, they have Rf ½ h. One must provide in the vicinity a glass, locked cabinet containing the key. The whole shaft and engine room, or shaft are naturally ventilated through outside air nozzles. If the shaft and engine room are ventilated separately, the ventilation openings each have a minimum cross-sectional area of 1% of the respective horizontal surfaces. If the whole shaft and machine room are ventilated at the top of the shaft, the ventilation opening has a minimum cross-sectional area of 4% of the horizontal area of the shaft." .
+
+firebim:Section_6.1 firebim:hasArticle firebim:Article_6.1.3 .
+
+firebim:Article_6.1.3 a firebim:Article ;
+    firebim:hasID "6.1.3" ;
+    firebim:hasOriginalText "6.1.3 Elevators and freight elevators whose machinery is located in the shaft." .

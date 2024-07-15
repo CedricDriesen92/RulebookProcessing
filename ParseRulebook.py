@@ -232,6 +232,7 @@ def process_section_to_ttl(section_number, section_text, ontology):
     Section text:
     {section_text}
 
+    In your .ttl, make sure to give the royal decree document a hasSection link to this section. Make sure the article originaltext has the full text, including text that defines the members. Adding all originaltext from all articles should recreate the rules part of the document.
     Do not include prefix declarations or @base. Start directly with the triples for this section. Ensure the output is valid Turtle syntax that can be parsed when added to an existing graph.
 
     Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be combined with the .ttl files for the other sections, as well as the base file defining the authority and document this section is from:
@@ -315,7 +316,7 @@ def main():
         main_graph = Graph()
         main_graph.parse("sections/document.ttl", format="turtle")
     
-    for i, section in enumerate(sections[:10]):  # Process first 10 sections for testing
+    for i, section in enumerate(sections):#[:10]):  # Process first 10 sections for testing
         match = re.match(r'(\d+(?:\.\d+)*)\s', section)
         if match:
             section_number = match.group(1)

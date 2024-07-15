@@ -2,9 +2,9 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-firebim:Authority_Belgian_Government a firebim:Authority ;
-    firebim:hasDocument firebim:Document_RoyalDecree .
+firebim:Belgian_Government a firebim:Authority ;
+    firebim:hasDocument firebim:RoyalDecree .
 
-firebim:Document_RoyalDecree a firebim:Document ;
+firebim:RoyalDecree a firebim:Document ;
     firebim:hasID "RoyalDecree1994" ;
     firebim:issued "1994-07-07"^^xsd:date .
