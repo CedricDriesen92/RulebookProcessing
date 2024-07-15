@@ -1,14 +1,14 @@
-    @prefix owl: <http://www.w3.org/2002/07/owl#> .
-    @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-    @prefix xml: <http://www.w3.org/XML/1998/namespace> .
-    @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-    @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    @prefix firebim: <http://example.com/firebim#> .
-    @base <http://example.com/firebim> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
 
-firebim:Section ;
+firebim:Section_0.2 a firebim:Section ;
     firebim:hasID "0.2" ;
-    firebim:hasOriginalText "0.2 Scope." ;
+    firebim:hasOriginalText "Scope." ;
     firebim:hasArticle firebim:Article_0.2.1, firebim:Article_0.2.2 .
 
 firebim:Article_0.2.1 a firebim:Article ;
@@ -17,23 +17,23 @@ firebim:Article_0.2.1 a firebim:Article ;
     firebim:hasMember firebim:Member_0.2.1.1, firebim:Member_0.2.1.2, firebim:Member_0.2.1.3 .
 
 firebim:Member_0.2.1.1 a firebim:Member ;
-    firebim:hasOriginalText "1.the low buildings;" .
+    firebim:hasOriginalText "the low buildings;" .
 
 firebim:Member_0.2.1.2 a firebim:Member ;
-    firebim:hasOriginalText "2.the extensions of buildings that are low buildings after realization;" .
+    firebim:hasOriginalText "the extensions of buildings that are low buildings after realization;" .
 
 firebim:Member_0.2.1.3 a firebim:Member ;
-    firebim:hasOriginalText "3.the premises or parts of low-rise buildings in which an industrial activity takes place and whose total area is less than or equal to 500 m², under the following conditions:" ;
-    firebim:hasParagraph firebim:Paragraph_0.2.1.3.1, firebim:Paragraph_0.2.1.3.2, firebim:Paragraph_0.2.1.3.3 .
+    firebim:hasOriginalText "the premises or parts of low-rise buildings in which an industrial activity takes place and whose total area is less than or equal to 500 m², under the following conditions:" ;
+    firebim:hasMember firebim:Member_0.2.1.3.1, firebim:Member_0.2.1.3.2, firebim:Member_0.2.1.3.3 .
 
-firebim:Paragraph_0.2.1.3.1 a firebim:Paragraph ;
-    firebim:hasOriginalText "-mainly non-industrial activities take place in the building and the total area of premises with industrial activity is less than the remaining area of the building;" .
+firebim:Member_0.2.1.3.1 a firebim:Member ;
+    firebim:hasOriginalText "mainly non-industrial activities take place in the building and the total area of premises with industrial activity is less than the remaining area of the building;" .
 
-firebim:Paragraph_0.2.1.3.2 a firebim:Paragraph ;
-    firebim:hasOriginalText "-the industrial activities in these premises support the non-industrial activities in the same compartment;" .
+firebim:Member_0.2.1.3.2 a firebim:Member ;
+    firebim:hasOriginalText "the industrial activities in these premises support the non-industrial activities in the same compartment;" .
 
-firebim:Paragraph_0.2.1.3.3 a firebim:Paragraph ;
-    firebim:hasOriginalText "-there are no night-occupied premises in the compartment in which industrial activities take place." .
+firebim:Member_0.2.1.3.3 a firebim:Member ;
+    firebim:hasOriginalText "there are no night-occupied premises in the compartment in which industrial activities take place." .
 
 firebim:Article_0.2.2 a firebim:Article ;
     firebim:hasID "0.2.2" ;
@@ -41,10 +41,10 @@ firebim:Article_0.2.2 a firebim:Article ;
     firebim:hasMember firebim:Member_0.2.2.1, firebim:Member_0.2.2.2, firebim:Member_0.2.2.3 .
 
 firebim:Member_0.2.2.1 a firebim:Member ;
-    firebim:hasOriginalText "1.the industrial buildings;" .
+    firebim:hasOriginalText "the industrial buildings;" .
 
 firebim:Member_0.2.2.2 a firebim:Member ;
-    firebim:hasOriginalText "2.The buildings consisting of up to two storeys and with a total area less than or equal to 100 m²;" .
+    firebim:hasOriginalText "The buildings consisting of up to two storeys and with a total area less than or equal to 100 m²;" .
 
 firebim:Member_0.2.2.3 a firebim:Member ;
-    firebim:hasOriginalText "3.the single-family homes." .
+    firebim:hasOriginalText "the single-family homes." .

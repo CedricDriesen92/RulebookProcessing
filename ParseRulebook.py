@@ -200,8 +200,8 @@ def create_initial_graph():
     g = Graph()
     g.bind("firebim", FIREBIM)
     
-    document = URIRef(FIREBIM.Document_RoyalDecree)
-    authority = URIRef(FIREBIM.Authority_FPS_Home_Affairs)
+    document = URIRef(FIREBIM.RoyalDecree)
+    authority = URIRef(FIREBIM.Belgian_Government)
     
     g.add((document, RDF.type, FIREBIM.Document))
     g.add((document, FIREBIM.hasID, Literal("RoyalDecree1994")))
@@ -209,7 +209,6 @@ def create_initial_graph():
     
     g.add((authority, RDF.type, FIREBIM.Authority))
     g.add((authority, FIREBIM.hasDocument, document))
-    g.add((authority, FIREBIM.hasOriginalText, Literal("Federal Public Service Home Affairs")))
     
     return g
 
@@ -222,7 +221,11 @@ def process_section_to_ttl(section_number, section_text, ontology):
     You are an AI assistant specialized in converting building code rulebook sections into Turtle (.ttl) format following the FireBIM Document Ontology. Here's the complete ontology for your reference:
 
     {ontology}
-
+    Here is some more info on the firebim ontology and how you should use it:
+    
+    The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the firebim:Authority (which represents the legal body that publishes and maintains the regulatory document), the firebim:DocumentSubdivision (which represents documents or parts of documents), and the firebim:Reference (which represents references to other representations of the regulation, or similar regulations). The firebim:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
+    The created data graph (not shown here) clearly shows how a document is modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can have references to other members, using the firebim:hasBackwardReference and firebim:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
+    
     Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following this ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text, references, and any specific measurements or conditions mentioned.
 
     Section number: {section_number}
@@ -233,23 +236,23 @@ def process_section_to_ttl(section_number, section_text, ontology):
 
     Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be combined with the .ttl files for the other sections, as well as the base file defining the authority and document this section is from:
     
-    @prefix firebim: <http://example.com/firebim#> .
-    @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-    @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-    firebim:Authority_Belgian_Government a firebim:Authority ;
-        firebim:hasDocument firebim:Document_RoyalDecree .
+firebim:Belgian_Government a firebim:Authority ;
+    firebim:hasDocument firebim:RoyalDecree .
 
-    firebim:Document_RoyalDecree a firebim:Document ;
-        firebim:hasID "RoyalDecree1994" ;
-        firebim:issued "1994-07-07"^^xsd:date .
+firebim:RoyalDecree a firebim:Document ;
+    firebim:hasID "RoyalDecree1994" ;
+    firebim:issued "1994-07-07"^^xsd:date .
     """
 
     response = client.messages.create(
         max_tokens=4096,
         messages=[
             {"role": "user", "content": prompt},
-            {"role": "assistant", "content": "firebim:Section_" + str(section_number)}
+            {"role": "assistant", "content": "firebim:Section_" + str(section_number) +" a"}
         ],
         model="claude-3-5-sonnet@20240620"
     )
@@ -260,7 +263,7 @@ def process_section_to_ttl(section_number, section_text, ontology):
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .\n\n"""
-    full_ttl_content += response.content[0].text.strip()
+    full_ttl_content += "firebim:Section_" + str(section_number) +" a " + response.content[0].text.strip()
     return full_ttl_content
 
 def create_and_combine_section_ttl(section_number, section_text, ontology, main_graph):
@@ -291,9 +294,14 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
             return True
         except Exception as e:
             print(f"Error processing section {section_number} (Attempt {attempt + 1}): {e}")
-            print(f"Generated TTL content:\n{ttl_content}")  # Print first 500 characters for debugging
+            print(f"Generated TTL content:\n{ttl_content}")
+            if attempt < 2:
+                print("Retrying with AI...")
+                # Here we're giving feedback to the AI about the error
+                section_text += f"\n\nPrevious attempt failed with error: {str(e)}. Please try again and ensure valid Turtle syntax."
+            else:
+                print(f"Failed to process section {section_number} after 3 attempts")
     
-    print(f"Failed to process section {section_number} after 3 attempts")
     return False
 
 def main():
@@ -316,7 +324,7 @@ def main():
         
         create_and_combine_section_ttl(section_number, section, ontology, main_graph)
     
-    main_graph.serialize("document_data_graph.ttl", format="turtle")
+    main_graph.serialize("combined_document_data_graph.ttl", format="turtle")
 
 if __name__ == "__main__":
     main()
