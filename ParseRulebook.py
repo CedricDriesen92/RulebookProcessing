@@ -4,6 +4,9 @@ import json
 from anthropic import AnthropicVertex
 from typing import List, Dict
 import re
+from rdflib import Graph, Namespace, Literal, URIRef
+from rdflib.namespace import RDF, RDFS, XSD
+import os
 
 client = AnthropicVertex(region="europe-west1", project_id="spatial-conduit-420822", )
 
@@ -16,7 +19,7 @@ def extract_text_from_pdf(pdf_path: str) -> str:
     return text
 
 def split_into_sections(text):
-    # This regex pattern looks for section headers like "0 GENERAL", "1 IMPLANTATION AND ACCESS ROADS", etc.
+    # Looks for section headers like "0 GENERAL", "1 IMPLANTATION AND ACCESS ROADS", etc.
     pattern = r'\n(?=\d+(?:\.\d+)*\s+[A-Z][A-Z\s]+)'
     sections = re.split(pattern, text)
     
@@ -153,61 +156,6 @@ def combine_processed_sections(processed_sections):
     
     return all_rules
 
-def parse_ontology(ttl_path: str) -> Dict:
-    g = rdflib.Graph()
-    g.parse(ttl_path, format="turtle")
-    
-    ontology = {
-        "classes": [],
-        "properties": [],
-        "relationships": []
-    }
-    
-    for s, p, o in g:
-        if p == rdflib.RDF.type:
-            if o == rdflib.OWL.Class:
-                ontology["classes"].append(str(s))
-            elif o == rdflib.OWL.ObjectProperty or o == rdflib.OWL.DatatypeProperty:
-                ontology["properties"].append(str(s))
-        elif p == rdflib.RDFS.subClassOf:
-            ontology["relationships"].append((str(s), "subClassOf", str(o)))
-    
-    return ontology
-
-
-def map_to_ontology(processed_rules: List[Dict], ontology: Dict) -> List[Dict]:
-    mapped_rules = []
-    
-    for rule in processed_rules:
-        prompt = f"""
-        Map the given rule entities to the provided ontology:
-
-        Ontology:
-        Classes: {ontology['classes']}
-        Properties: {ontology['properties']}
-        Relationships: {ontology['relationships']}
-
-        Provide the mapping as a JSON object with keys for each entity in the rule
-        and values from the ontology. If no exact match is found, suggest the closest match.
-        """
-        rule_as_message = {
-            "role": "user",
-            "content": json.dumps(rule)
-        }
-        response = client.messages.create(
-            max_tokens=2048,
-            messages=rule_as_message,
-            model="claude-3-5-sonnet@20240620",
-            system=prompt
-        )
-        
-        mapping =  json.loads(response.content[0].text)
-        rule['ontology_mapping'] = mapping
-        mapped_rules.append(rule)
-    
-    return mapped_rules
-
-
 def prepare_shacl_generation(mapped_rules: List[Dict]) -> List[Dict]:
     prepared_rules = []
     
@@ -242,32 +190,133 @@ def prepare_shacl_generation(mapped_rules: List[Dict]) -> List[Dict]:
     
     return prepared_rules
 
+def load_ontology(file_path):
+    with open(file_path, 'r') as file:
+        return file.read()
 
-rulebook_text = extract_text_from_pdf('BE_BasisnormenLG_EN_excerpt.pdf')
-sections = split_into_sections(rulebook_text)
-processed_sections = []
-intermediate_rules_file = open("intermediate_rules.txt", "w")
-for i, section in enumerate(sections):
-    if i >= 0: #Skip initial paragraphs
+FIREBIM = Namespace("http://example.com/firebim#")
+
+def create_initial_graph():
+    g = Graph()
+    g.bind("firebim", FIREBIM)
+    
+    document = URIRef(FIREBIM.Document_RoyalDecree)
+    authority = URIRef(FIREBIM.Authority_FPS_Home_Affairs)
+    
+    g.add((document, RDF.type, FIREBIM.Document))
+    g.add((document, FIREBIM.hasID, Literal("RoyalDecree1994")))
+    g.add((document, FIREBIM.issued, Literal("1994-07-07", datatype=XSD.date)))
+    
+    g.add((authority, RDF.type, FIREBIM.Authority))
+    g.add((authority, FIREBIM.hasDocument, document))
+    g.add((authority, FIREBIM.hasOriginalText, Literal("Federal Public Service Home Affairs")))
+    
+    return g
+
+def load_ontology(file_path):
+    with open(file_path, 'r') as file:
+        return file.read()
+
+def process_section_to_ttl(section_number, section_text, ontology):
+    prompt = f"""
+    You are an AI assistant specialized in converting building code rulebook sections into Turtle (.ttl) format following the FireBIM Document Ontology. Here's the complete ontology for your reference:
+
+    {ontology}
+
+    Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following this ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text, references, and any specific measurements or conditions mentioned.
+
+    Section number: {section_number}
+    Section text:
+    {section_text}
+
+    Do not include prefix declarations or @base. Start directly with the triples for this section. Ensure the output is valid Turtle syntax that can be parsed when added to an existing graph.
+
+    Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be combined with the .ttl files for the other sections, as well as the base file defining the authority and document this section is from:
+    
+    @prefix firebim: <http://example.com/firebim#> .
+    @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+    @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+    firebim:Authority_Belgian_Government a firebim:Authority ;
+        firebim:hasDocument firebim:Document_RoyalDecree .
+
+    firebim:Document_RoyalDecree a firebim:Document ;
+        firebim:hasID "RoyalDecree1994" ;
+        firebim:issued "1994-07-07"^^xsd:date .
+    """
+
+    response = client.messages.create(
+        max_tokens=4096,
+        messages=[
+            {"role": "user", "content": prompt},
+            {"role": "assistant", "content": "firebim:Section_" + str(section_number)}
+        ],
+        model="claude-3-5-sonnet@20240620"
+    )
+    full_ttl_content = """@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .\n\n"""
+    full_ttl_content += response.content[0].text.strip()
+    return full_ttl_content
+
+def create_and_combine_section_ttl(section_number, section_text, ontology, main_graph):
+    file_name = f"sections/section_{section_number.replace('.', '_')}.ttl"
+    
+    if os.path.exists(file_name):
         try:
-            cur_processed_section = process_section(i, len(sections), section)
-            processed_sections.append(cur_processed_section)
-
-            # Create a copy of cur_processed_section and add the FullText to it
-            output_dict = cur_processed_section.copy()
-            output_dict["FullText"] = section
+            section_graph = Graph()
+            section_graph.parse(file_name, format="turtle")
+            main_graph += section_graph
+            print(f"Loaded existing section {section_number}")
+            return True
+        except Exception as e:
+            print(f"Error loading existing section {section_number}: {e}")
+    
+    for attempt in range(3):
+        try:
+            ttl_content = process_section_to_ttl(section_number, section_text, ontology)
+            section_graph = Graph()
+            section_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
+            main_graph += section_graph
             
-            intermediate_rules_file.write(json.dumps(output_dict, indent=1) + "\n")
-            intermediate_rules_file.flush()
-        except Exception as error:
-            print("Error: " + str(error))
-combined_rules = combine_processed_sections(processed_sections)
-with open('processed_rules.json', 'w') as f:
-    json.dump(combined_rules, f, indent=2)
+            os.makedirs("sections", exist_ok=True)
+            with open(file_name, 'w', encoding='utf-8') as f:
+                f.write(ttl_content)
+            
+            print(f"Processed section {section_number} (Attempt {attempt + 1})")
+            return True
+        except Exception as e:
+            print(f"Error processing section {section_number} (Attempt {attempt + 1}): {e}")
+            print(f"Generated TTL content:\n{ttl_content}")  # Print first 500 characters for debugging
+    
+    print(f"Failed to process section {section_number} after 3 attempts")
+    return False
 
-#ontology = parse_ontology('building_ontology.ttl')
-#ontology_mapped_rules = map_to_ontology(processed_rules, ontology)
-#shacl_prepared_rules = prepare_shacl_generation(ontology_mapped_rules)
+def main():
+    ontology = load_ontology('FireBIM_Document_Ontology.ttl')
+    rulebook_text = extract_text_from_pdf('BE_BasisnormenLG_EN_excerpt.pdf')
+    sections = split_into_sections(rulebook_text)
+    if not os.path.isfile("sections/document.ttl"):
+        main_graph = create_initial_graph()
+        main_graph.serialize("sections/document.ttl", format="turtle")
+    else:
+        main_graph = Graph()
+        main_graph.parse("sections/document.ttl", format="turtle")
+    
+    for i, section in enumerate(sections[:10]):  # Process first 10 sections for testing
+        match = re.match(r'(\d+(?:\.\d+)*)\s', section)
+        if match:
+            section_number = match.group(1)
+        else:
+            section_number = str(i+1)
+        
+        create_and_combine_section_ttl(section_number, section, ontology, main_graph)
+    
+    main_graph.serialize("document_data_graph.ttl", format="turtle")
 
-#with open('processed_rules.json', 'w') as f:
-#    json.dump(shacl_prepared_rules, f, indent=2)
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,233 @@
+@prefix : <http://example.com/firebim#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+<http://example.com/firebim> rdf:type owl:Ontology ;
+                              rdfs:comment "An ontology for representing fire safety regulations documents"@en ;
+                              rdfs:label "FireBIM Document Ontology"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.com/firebim#hasAppendix
+firebim:hasAppendix rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf firebim:hasSubdivision ;
+                    rdfs:domain firebim:DocumentSubdivision ;
+                    rdfs:range firebim:Appendix ;
+                    rdfs:label "has appendix" .
+
+
+###  http://example.com/firebim#hasArticle
+firebim:hasArticle rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf firebim:hasSubdivision ;
+                   rdfs:domain firebim:Section ;
+                   rdfs:range firebim:Article ;
+                   rdfs:label "has article"@en .
+
+
+###  http://example.com/firebim#hasBackwardReference
+firebim:hasBackwardReference rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf firebim:hasReference ;
+                             rdfs:label "has backward reference"@en .
+
+
+###  http://example.com/firebim#hasChapter
+firebim:hasChapter rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf firebim:hasSubdivision ;
+                   rdfs:domain firebim:DocumentSubdivision ;
+                   rdfs:range firebim:Chapter ;
+                   rdfs:label "has chapter"@en .
+
+
+###  http://example.com/firebim#hasDocument
+firebim:hasDocument rdf:type owl:ObjectProperty ;
+                    rdfs:domain firebim:Authority ;
+                    rdfs:range firebim:Document ;
+                    rdfs:label "has document" .
+
+
+###  http://example.com/firebim#hasFigure
+firebim:hasFigure rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf firebim:hasSubdivision ;
+                  rdfs:domain firebim:DocumentSubdivision ;
+                  rdfs:range firebim:Figure ;
+                  rdfs:label "has figure" .
+
+
+###  http://example.com/firebim#hasForwardReference
+firebim:hasForwardReference rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf firebim:hasReference ;
+                            rdfs:label "has forward reference"@en .
+
+
+###  http://example.com/firebim#hasMember
+firebim:hasMember rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf firebim:hasSubdivision ;
+                  rdfs:domain firebim:Article ;
+                  rdfs:range firebim:Member ;
+                  rdfs:label "has member"@en ,
+                             "has member" .
+
+
+###  http://example.com/firebim#hasParagraph
+firebim:hasParagraph rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf firebim:hasSubdivision ;
+                     rdfs:domain firebim:DocumentSubdivision ;
+                     rdfs:range firebim:Paragraph ;
+                     rdfs:label "has paragraph"@en .
+
+
+###  http://example.com/firebim#hasReference
+firebim:hasReference rdf:type owl:ObjectProperty ;
+                     rdfs:domain firebim:DocumentSubdivision ;
+                     rdfs:range firebim:Reference ;
+                     rdfs:label "has reference"@en .
+
+
+###  http://example.com/firebim#hasSection
+firebim:hasSection rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf firebim:hasSubdivision ;
+                   rdfs:domain firebim:DocumentSubdivision ;
+                   rdfs:range firebim:Section ;
+                   rdfs:label "has section"@en .
+
+
+###  http://example.com/firebim#hasSubchapter
+firebim:hasSubchapter rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf firebim:hasSubdivision ;
+                      rdfs:domain firebim:DocumentSubdivision ;
+                      rdfs:range firebim:Subchapter ;
+                      rdfs:label "has subchapter"@en .
+
+
+###  http://example.com/firebim#hasSubdivision
+firebim:hasSubdivision rdf:type owl:ObjectProperty ,
+                                owl:TransitiveProperty ;
+                       rdfs:domain firebim:DocumentSubdivision ;
+                       rdfs:range firebim:DocumentSubdivision ;
+                       rdfs:label "has subdivision"@en .
+
+
+###  http://example.com/firebim#hasTable
+firebim:hasTable rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf firebim:hasSubdivision ;
+                 rdfs:domain firebim:DocumentSubdivision ;
+                 rdfs:range firebim:Table ;
+                 rdfs:label "has table" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://example.com/firebim#hasID
+firebim:hasID rdf:type owl:DatatypeProperty ;
+              rdfs:domain firebim:DocumentSubdivision ;
+              rdfs:range xsd:string ;
+              rdfs:label "has ID"@en .
+
+
+###  http://example.com/firebim#hasOriginalText
+firebim:hasOriginalText rdf:type owl:DatatypeProperty ;
+                        rdfs:domain firebim:DocumentSubdivision ;
+                        rdfs:range xsd:string ;
+                        rdfs:label "has original text"@en .
+
+
+###  http://example.com/firebim#issued
+firebim:issued rdf:type owl:DatatypeProperty ;
+               rdfs:domain firebim:Document ;
+               rdfs:range xsd:dateTime ;
+               rdfs:label "issued"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.com/firebim#Appendix
+firebim:Appendix rdf:type owl:Class ;
+                 rdfs:subClassOf firebim:Section ;
+                 rdfs:label "Appendix"@en .
+
+
+###  http://example.com/firebim#Article
+firebim:Article rdf:type owl:Class ;
+                rdfs:subClassOf firebim:DocumentSubdivision ;
+                rdfs:label "Article"@en .
+
+
+###  http://example.com/firebim#Authority
+firebim:Authority rdf:type owl:Class ;
+                  rdfs:comment "Represents the legal body that publishes and maintains the regulatory document"@en ;
+                  rdfs:label "Authority"@en .
+
+
+###  http://example.com/firebim#Chapter
+firebim:Chapter rdf:type owl:Class ;
+                rdfs:subClassOf firebim:Section ;
+                rdfs:label "Chapter"@en .
+
+
+###  http://example.com/firebim#Document
+firebim:Document rdf:type owl:Class ;
+                 rdfs:subClassOf firebim:DocumentSubdivision ;
+                 rdfs:label "Document"@en .
+
+
+###  http://example.com/firebim#DocumentSubdivision
+firebim:DocumentSubdivision rdf:type owl:Class ;
+                            rdfs:comment "Represents documents or parts of documents"@en ;
+                            rdfs:label "Document Subdivision"@en .
+
+
+###  http://example.com/firebim#Figure
+firebim:Figure rdf:type owl:Class ;
+               rdfs:subClassOf firebim:Section ;
+               rdfs:label "Figure"@en .
+
+
+###  http://example.com/firebim#Member
+firebim:Member rdf:type owl:Class ;
+               rdfs:subClassOf firebim:DocumentSubdivision ;
+               rdfs:comment "Typically holds the one or multiple bodies of text that an article exists of"@en ;
+               rdfs:label "Member"@en .
+
+
+###  http://example.com/firebim#Paragraph
+firebim:Paragraph rdf:type owl:Class ;
+                  rdfs:subClassOf firebim:Section ;
+                  rdfs:label "Paragraph"@en .
+
+
+###  http://example.com/firebim#Reference
+firebim:Reference rdf:type owl:Class ;
+                  rdfs:comment "Represents references to other representations of the regulation, or similar regulations"@en ;
+                  rdfs:label "Reference"@en .
+
+
+###  http://example.com/firebim#Section
+firebim:Section rdf:type owl:Class ;
+                rdfs:subClassOf firebim:DocumentSubdivision ;
+                rdfs:label "Section"@en .
+
+
+###  http://example.com/firebim#Subchapter
+firebim:Subchapter rdf:type owl:Class ;
+                   rdfs:subClassOf firebim:Section ;
+                   rdfs:label "Subchapter"@en .
+
+
+###  http://example.com/firebim#Table
+firebim:Table rdf:type owl:Class ;
+              rdfs:subClassOf firebim:Section ;
+              rdfs:label "Table"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
