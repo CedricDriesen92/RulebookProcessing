@@ -8,11 +8,14 @@
 
 firebim:Section_1.2 a firebim:Section ;
     firebim:hasID "1.2" ;
-    firebim:hasOriginalText "[Outbuildings, etc.]" ;
+    firebim:hasOriginalText "[Outbuildings, etc.]\nOutbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if \nthey do not compromise either evacuation, occupant safety or fire department action." ;
     firebim:hasArticle firebim:Article_1.2.1 .
 
 firebim:Article_1.2.1 a firebim:Article ;
+    firebim:hasOriginalText "Outbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if \nthey do not compromise either evacuation, occupant safety or fire department action." ;
     firebim:hasMember firebim:Member_1.2.1.1 .
 
 firebim:Member_1.2.1.1 a firebim:Member ;
-    firebim:hasOriginalText "Outbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if they do not compromise either evacuation, occupant safety or fire department action." .
+    firebim:hasOriginalText "Outbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if \nthey do not compromise either evacuation, occupant safety or fire department action." .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_1.2 .

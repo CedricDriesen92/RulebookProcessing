@@ -8,6 +8,13 @@
 
 firebim:Section_0 a firebim:Section ;
     firebim:hasID "0" ;
-    firebim:hasOriginalText "0 GENERAL." .
+    firebim:hasArticle firebim:Article_0 .
+
+firebim:Article_0 a firebim:Article ;
+    firebim:hasOriginalText "0 GENERAL." ;
+    firebim:hasMember firebim:Member_0_1 .
+
+firebim:Member_0_1 a firebim:Member ;
+    firebim:hasOriginalText "GENERAL." .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_0 .

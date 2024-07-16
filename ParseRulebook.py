@@ -232,9 +232,12 @@ def process_section_to_ttl(section_number, section_text, ontology):
     Section text:
     {section_text}
 
-    In your .ttl, make sure to give the royal decree document a hasSection link to this section. Make sure the article originaltext has the full text, including text that defines the members. Adding all originaltext from all articles should recreate the rules part of the document.
+    In your .ttl, make sure to give the royal decree document a hasSection link to this section. Make sure the article originaltext has the full text, including text that defines the members. Adding all originaltext from all articles should recreate the rules part of the document. For the section don't include the full originaltext, only the part preceding the articles themselves.
     Do not include prefix declarations or @base. Start directly with the triples for this section. Ensure the output is valid Turtle syntax that can be parsed when added to an existing graph.
-
+    Depending on the language of the source text, make sure to add language tags where necessary. Do not translate the original text in any way, keep the source perfectly accurate.
+    If a figure or table is implied in the text, make sure to declare it and add the required relations/properties. Even if you can't see it, it's still there.
+    Make sure every article consists of AT LEAST 1 member, these are the rule building blocks. However, does not necessarily need an article, since articles are about rules and checks and requirements. 
+    For text spanning multiple lines make sure to use triple quotes, as single codes will be invalid there.
     Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be combined with the .ttl files for the other sections, as well as the base file defining the authority and document this section is from:
     
 @prefix firebim: <http://example.com/firebim#> .
@@ -285,7 +288,11 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
             ttl_content = process_section_to_ttl(section_number, section_text, ontology)
             section_graph = Graph()
             section_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
-            main_graph += section_graph
+            
+            # Update existing section in main_graph instead of adding a new one
+            section_uri = URIRef(FIREBIM['Section_' + section_number])
+            for s, p, o in section_graph.triples((section_uri, None, None)):
+                main_graph.add((s, p, o))
             
             os.makedirs("sections", exist_ok=True)
             with open(file_name, 'w', encoding='utf-8') as f:
@@ -298,7 +305,6 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
             print(f"Generated TTL content:\n{ttl_content}")
             if attempt < 2:
                 print("Retrying with AI...")
-                # Here we're giving feedback to the AI about the error
                 section_text += f"\n\nPrevious attempt failed with error: {str(e)}. Please try again and ensure valid Turtle syntax."
             else:
                 print(f"Failed to process section {section_number} after 3 attempts")
@@ -307,23 +313,50 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
 
 def main():
     ontology = load_ontology('FireBIM_Document_Ontology.ttl')
-    rulebook_text = extract_text_from_pdf('BE_BasisnormenLG_EN_excerpt.pdf')
+    rulebook_text = extract_text_from_pdf('BasisnormenLG.pdf')
     sections = split_into_sections(rulebook_text)
-    if not os.path.isfile("sections/document.ttl"):
-        main_graph = create_initial_graph()
-        main_graph.serialize("sections/document.ttl", format="turtle")
-    else:
-        main_graph = Graph()
-        main_graph.parse("sections/document.ttl", format="turtle")
     
-    for i, section in enumerate(sections):#[:10]):  # Process first 10 sections for testing
+    main_graph = create_initial_graph()
+    
+    # Create section structure
+    section_numbers = []
+    for i, section in enumerate(sections):
         match = re.match(r'(\d+(?:\.\d+)*)\s', section)
         if match:
             section_number = match.group(1)
         else:
             section_number = str(i+1)
+        section_numbers.append(section_number.replace('.', '_'))
+    
+    document = URIRef(FIREBIM.RoyalDecree)
+    
+    # Sort section numbers to ensure parent sections are created before child sections
+    section_numbers.sort(key=lambda x: [int(n) for n in x.split('_')])
+    
+    for section_number in section_numbers:
+        section_uri = URIRef(FIREBIM['Section_' + section_number])
+        main_graph.add((section_uri, RDF.type, FIREBIM.Section))
+        main_graph.add((section_uri, FIREBIM.hasID, Literal(section_number)))
         
-        create_and_combine_section_ttl(section_number, section, ontology, main_graph)
+        # Link top-level sections to the document
+        if '_' not in section_number:
+            main_graph.add((document, FIREBIM.hasSection, section_uri))
+        
+        # Link child sections to parent sections
+        parts = section_number.split('_')
+        if len(parts) > 1:
+            parent_number = '_'.join(parts[:-1])
+            parent_uri = URIRef(FIREBIM['Section_' + parent_number])
+            main_graph.add((parent_uri, FIREBIM.hasSection, section_uri))
+    
+    # Serialize the initial structure
+    main_graph.serialize("sections/document.ttl", format="turtle")
+    
+    # Process sections
+    for i, section in enumerate(sections):
+        section_number = section_numbers[i]
+        if float(section_number.replace('_', '.')) < 3:
+            create_and_combine_section_ttl(section_number, section, ontology, main_graph)
     
     main_graph.serialize("combined_document_data_graph.ttl", format="turtle")
 

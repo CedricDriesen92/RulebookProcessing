@@ -8,10 +8,19 @@
 
 firebim:Section_0.4 a firebim:Section ;
     firebim:hasID "0.4" ;
-    firebim:hasOriginalText "0.4 Response to fire of the materials - see Appendix 5." ;
-    firebim:hasForwardReference firebim:Appendix_5 .
-
-firebim:Appendix_5 a firebim:Appendix ;
-    firebim:hasID "5" .
+    firebim:hasOriginalText "0.4 Response to fire of the materials - see Appendix 5." .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_0.4 .
+
+firebim:Section_0.4 firebim:hasArticle firebim:Article_0.4.1 .
+
+firebim:Article_0.4.1 a firebim:Article ;
+    firebim:hasOriginalText "0.4 Response to fire of the materials - see Appendix 5." ;
+    firebim:hasMember firebim:Member_0.4.1.1 .
+
+firebim:Member_0.4.1.1 a firebim:Member ;
+    firebim:hasOriginalText "Response to fire of the materials - see Appendix 5." ;
+    firebim:hasForwardReference firebim:Reference_Appendix5 .
+
+firebim:Reference_Appendix5 a firebim:Reference ;
+    firebim:hasID "Appendix5" .

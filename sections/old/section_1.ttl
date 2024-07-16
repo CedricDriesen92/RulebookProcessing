@@ -16,13 +16,36 @@ Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).ANNEX 2: LOW 
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_1 .
 
-firebim:Section_1 firebim:hasReference [
-    a firebim:Reference ;
-    firebim:hasOriginalText "Royal Decree of July 7, 1994 (coordinated version on May 20, 2022)"
-] .
+firebim:Article_1 a firebim:Article ;
+    firebim:hasOriginalText """Federal Public Service Home Affairs
+General Directorate of Civil Security - Fire Prevention.
+24/281
+(v3.0)
+Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).ANNEX 2: LOW BUILDINGS""" .
 
-firebim:Section_1 firebim:hasAppendix [
-    a firebim:Appendix ;
-    firebim:hasID "2" ;
-    firebim:hasOriginalText "ANNEX 2: LOW BUILDINGS"
-] .
+firebim:Section_1 firebim:hasArticle firebim:Article_1 .
+
+firebim:Member_1_1 a firebim:Member ;
+    firebim:hasOriginalText "Federal Public Service Home Affairs" .
+
+firebim:Member_1_2 a firebim:Member ;
+    firebim:hasOriginalText "General Directorate of Civil Security - Fire Prevention." .
+
+firebim:Member_1_3 a firebim:Member ;
+    firebim:hasOriginalText "24/281" .
+
+firebim:Member_1_4 a firebim:Member ;
+    firebim:hasOriginalText "(v3.0)" .
+
+firebim:Member_1_5 a firebim:Member ;
+    firebim:hasOriginalText "Royal Decree of July 7, 1994 (coordinated version on May 20, 2022)." .
+
+firebim:Member_1_6 a firebim:Member ;
+    firebim:hasOriginalText "ANNEX 2: LOW BUILDINGS" .
+
+firebim:Article_1 firebim:hasMember firebim:Member_1_1 ,
+                                    firebim:Member_1_2 ,
+                                    firebim:Member_1_3 ,
+                                    firebim:Member_1_4 ,
+                                    firebim:Member_1_5 ,
+                                    firebim:Member_1_6 .

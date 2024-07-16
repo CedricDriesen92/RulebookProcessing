@@ -4,1361 +4,191 @@
 firebim:Belgian_Government a firebim:Authority ;
     firebim:hasDocument firebim:RoyalDecree .
 
-firebim:Article_0 a firebim:Article ;
-    firebim:hasMember firebim:Member_0_1 ;
-    firebim:hasOriginalText "0 GENERAL." .
-
-firebim:Article_0.1.1 a firebim:Article ;
-    firebim:hasID "0.1.1" ;
-    firebim:hasMember firebim:Member_0.1.1.1,
-        firebim:Member_0.1.1.2,
-        firebim:Member_0.1.1.3,
-        firebim:Member_0.1.1.4 ;
-    firebim:hasOriginalText """These basic regulations define the minimum requirements that the conception, construction and 
-design of low-rise buildings (LG) must meet in order to:
-a)prevent the occurrence, development and propagation of fire;
-b)ensure the safety of those present;
-c)preventively facilitate the fire department's intervention.""" .
-
-firebim:Article_0.2.1 a firebim:Article ;
-    firebim:hasID "0.2.1" ;
-    firebim:hasMember firebim:Member_0.2.1.1,
-        firebim:Member_0.2.1.2,
-        firebim:Member_0.2.1.3 ;
-    firebim:hasOriginalText "0.2.1 This annex applies to the following buildings to be erected and the following extensions to existing buildings, for which the application for construction is submitted after December 31, 1997 and before December 1, 2012:" .
-
-firebim:Article_0.2.2 a firebim:Article ;
-    firebim:hasID "0.2.2" ;
-    firebim:hasMember firebim:Member_0.2.2.1,
-        firebim:Member_0.2.2.2,
-        firebim:Member_0.2.2.3 ;
-    firebim:hasOriginalText "0.2.2 However, excluded from the scope of this annex are:" .
-
-firebim:Article_0.3.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_0.3.1.1 ;
-    firebim:hasOriginalText "0.3 Terminology - see Appendix 1." .
-
-firebim:Article_0.4.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_0.4.1.1 ;
-    firebim:hasOriginalText "0.4 Response to fire of the materials - see Appendix 5." .
-
-firebim:Article_1 a firebim:Article ;
-    firebim:hasMember firebim:Member_1_1,
-        firebim:Member_1_2,
-        firebim:Member_1_3,
-        firebim:Member_1_4,
-        firebim:Member_1_5,
-        firebim:Member_1_6 ;
-    firebim:hasOriginalText """Federal Public Service Home Affairs
-General Directorate of Civil Security - Fire Prevention.
-24/281
-(v3.0)
-Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).ANNEX 2: LOW BUILDINGS""",
-        """Federal Public Service Home Affairs\r
-General Directorate of Civil Security - Fire Prevention.\r
-24/281\r
-(v3.0)\r
-Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).ANNEX 2: LOW BUILDINGS""" .
-
-firebim:Article_1.1.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_1.1.1.1 ;
-    firebim:hasOriginalText "For single-story buildings, fire department vehicles must be able to approach at least to within 60 m of a building façade." .
-
-firebim:Article_1.1.2 a firebim:Article ;
-    firebim:hasMember firebim:Member_1.1.2.1 ;
-    firebim:hasOriginalText "For buildings with more than one storey, fire department vehicles must be able to reach a facade at least at one point that provides access to each storey at recognizable points." .
-
-firebim:Article_1.1.3 a firebim:Article ;
-    firebim:hasMember firebim:Member_1.1.3.1,
-        firebim:Member_1.1.3.2,
-        firebim:Member_1.1.3.3 ;
-    firebim:hasOriginalText """To this end, vehicles must have an access point and a staging area:
--either on the drivable roadway of the public highway;
--either on a special access road from the travelable roadway of the public highway and having the following characteristics:
--minimum clear width: 4 m;
--minimum turning radius: 11 m on the inside and 15 m on the outside;
--minimum clear height: 4 m;
--maximum slope: 6%;
--load bearing capacity: such that vehicles, without galvanization, with a maximum axle load of 13t can drive and stop there, even if they deform the terrain. For structures located on access roads, refer to NBN B 03-101.""" .
-
-firebim:Article_1.2.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_1.2.1.1 ;
-    firebim:hasOriginalText """Outbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if 
-they do not compromise either evacuation, occupant safety or fire department action.""" .
-
-firebim:Article_1.3.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_1.3.1.1 ;
-    firebim:hasOriginalText """1.3 [Horizontal distance between buildings]
-The horizontal distance, free from any combustible element and located between an LG and an opposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent buildings.""" .
-
-firebim:Article_1.3.2 a firebim:Article ;
-    firebim:hasMember firebim:Member_1.3.2.1 ;
-    firebim:hasOriginalText "The walls separating adjacent buildings have Rf 1 h." .
-
-firebim:Article_1.3.3 a firebim:Article ;
-    firebim:hasMember firebim:Member_1.3.3.1 ;
-    firebim:hasOriginalText "In these walls a connection between these buildings may exist through a door Rf ½ h, self-closing or self-closing in case of fire." .
-
-firebim:Article_1.3.4 a firebim:Article ;
-    firebim:hasMember firebim:Member_1.3.4.1 ;
-    firebim:hasOriginalText "The condition of distance between an LG and an opposing building does not apply to buildings separated by existing streets, roads..., belonging to the public domain." .
-
-firebim:Article_2.1.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_2.1.1.1 ;
-    firebim:hasOriginalText """The building is divided into compartments whose area is less than 2,500 m², with the exception of 
-the parking buildings (see 5.2).""" .
-
-firebim:Article_2.1.2 a firebim:Article ;
-    firebim:hasMember firebim:Member_2.1.2.1 ;
-    firebim:hasOriginalText """Single-story buildings that can be carried out in a single compartment, the area of that 
-compartment may reach 3500 m². The length of this compartment shall not exceed 90 m.""" .
-
-firebim:Article_2.1.3 a firebim:Article ;
-    firebim:hasMember firebim:Member_2.1.3.1 ;
-    firebim:hasOriginalText """As for the buildings referred to in the above paragraphs, the area of a compartment, as the case 
-may be, may exceed either 2,500 square meters or 3,500 square meters, if it is equipped with an 
-automatic fire extinguishing system and a smoke and heat extraction system, which comply with 
-the standards or with the rules of good craftsmanship in this matter recognized by the Minister of 
-the Interior, according to the procedure and conditions he determines.""" .
-
-firebim:Article_2.1.4 a firebim:Article ;
-    firebim:hasMember firebim:Member_2.1.4.1,
-        firebim:Member_2.1.4.2,
-        firebim:Member_2.1.4.3,
-        firebim:Member_2.1.4.4,
-        firebim:Member_2.1.4.5 ;
-    firebim:hasOriginalText """The height of a compartment corresponds to the height of one storey. However, 
-the following exceptions are allowed:
--the parking building with building levels (see 5.2);
--a compartment may extend over two superimposed floors with an interior connecting staircase 
-(duplex), if the cumulative area of those floors does not exceed 2,500 m²;
--the height of a compartment may extend over several superimposed building levels, if this 
-compartment contains only technical rooms (see 5.1.1).
--the height of a compartment may extend over several floors (atrium) provided that this 
-compartment is equipped with an automatic fire extinguishing system and a smoke and heat 
-extraction system, which comply with the standards or with the rules of good craftsmanship on 
-the subject recognized by the Minister of the Interior, according to the procedure and 
-conditions he determines.""" .
-
-firebim:Article_2.2.1 a firebim:Article ;
-    firebim:hasID "2.2.1" ;
-    firebim:hasMember firebim:Member_2.2.1.1,
-        firebim:Member_2.2.1.2,
-        firebim:Member_2.2.1.3,
-        firebim:Member_2.2.1.4,
-        firebim:Member_2.2.1.5 ;
-    firebim:hasOriginalText """2.2.1 Number of outputs.
-Each compartment has minimum :
--an exit if occupancy is less than 100 persons;
--two exits if occupancy is 100 or more than 100 and less than 500 persons;
--2 + n exits where n is the integer immediately greater than the division by 1000 of the maximum occupancy of the compartment, if the occupancy is 500 or more than 500 persons.
-The minimum number of exits can be increased by the fire department in function of the occupancy and configuration of the premises.
-The number of exits from building floors and classrooms is determined as for compartments.""" .
-
-firebim:Article_2.2.2 a firebim:Article ;
-    firebim:hasID "2.2.2" ;
-    firebim:hasMember firebim:Member_2.2.2.1,
-        firebim:Member_2.2.2.2,
-        firebim:Member_2.2.2.3,
-        firebim:Member_2.2.2.4,
-        firebim:Member_2.2.2.5 ;
-    firebim:hasOriginalText """2.2.2 Outputs.
-The exits are located in opposite zones of the compartment.
-Evacuation routes lead outside or to stairwells, or stairs, located inside or outside the building, (for horizontal distances see 4.4).
-With regard to underground building levels, one exit to the outside via an evacuation path with walls and doors Rf ½ h may replace the required access to one of the stairwells.
-For the parking building: see 5.2.
-At an evacuation level, each stairway leads to the outside either directly or over an evacuation path that meets the requirements of 4.4.""" .
-
-firebim:Article_3.1.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_3.1.1.1 ;
-    firebim:hasOriginalText "Penetrations through walls of pipes for fluids or for electricity and the expansion joints shall not adversely affect the required fire resistance of the building elements." .
-
-firebim:Article_3.2.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_3.2.1.1,
-        firebim:Member_3.2.1.2,
-        firebim:Member_3.2.1.3 ;
-    firebim:hasOriginalText """The structural elements have:
-a)Rf ½ h for single-story buildings. However, this requirement does not apply to the roof if it is protected on the inside by a building element with Rf ½ h;
-b)for buildings with more than one storey : Rf 1 h above Ei level. The structure of the roof has a fire stability of ½ h. This requirement is not applicable if the roof is protected on the inside by a building element with Rf ½ h;
-c)the structural elements in the basement floors, including the level Ei floor have Rf 1 h.""" .
-
-firebim:Article_3.2.2 a firebim:Article ;
-    firebim:hasMember firebim:Member_3.2.2.1 ;
-    firebim:hasOriginalText "No fire resistance requirements are imposed on the structural elements of open parking buildings whose horizontal walls possess Rf 1 h." .
-
-firebim:Article_3.3.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_3.3.1.1 ;
-    firebim:hasOriginalText "For walls and doors, which demarcate compartments, 4.1 applies; if they demarcate evacuation routes, 4.4 applies." .
-
-firebim:Article_3.3.2 a firebim:Article ;
-    firebim:hasMember firebim:Member_3.3.2.1 ;
-    firebim:hasOriginalText "The interior vertical walls demarcating classrooms or the entirety of classrooms with night occupancy have at least the fire resistance of the structural elements." .
-
-firebim:Article_3.3.3 a firebim:Article ;
-    firebim:hasMember firebim:Member_3.3.3.1 ;
-    firebim:hasOriginalText "The doors in these walls have Rf ½ h." .
-
-firebim:Article_3.4.1 a firebim:Article ;
-    firebim:hasID "3.4.1" ;
-    firebim:hasMember firebim:Member_3.4.1_1 ;
-    firebim:hasOriginalText "3.4.1 In evacuation routes, premises open to the public and collective kitchens, false ceilings have a fire stability of ½ h." .
-
-firebim:Article_3.4.2 a firebim:Article ;
-    firebim:hasID "3.4.2" ;
-    firebim:hasMember firebim:Member_3.4.2_1,
-        firebim:Member_3.4.2_2 ;
-    firebim:hasOriginalText """3.4.2 The space between the ceiling and the false ceiling is interrupted by the extension of all vertical walls possessing at least Rf ½ h.
-If the space between the ceiling and the false ceiling is not equipped with an automatic extinguishing system, the space should be interrupted by vertical separations with Rf ½ h such that there are spaces whose horizontal projection can be inscribed in a square of maximum 25 m side.""" .
-
-firebim:Article_3.5.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_3.5.1.1 ;
-    firebim:hasOriginalText "The studs of the curtain wall skeleton (light facade) are fixed to the building skeleton at the level of each storey." .
-
-firebim:Article_3.5.2 a firebim:Article ;
-    firebim:hasMember firebim:Member_3.5.2.1 ;
-    firebim:hasOriginalText "The parapet and the lintel are fastened to the floor slab in such a way that the whole assembly will be in place during ½ h meets the \"flame tightness\" criterion of NBN 713-020; the same requirement is also met by the pennants." .
-
-firebim:Article_3.5.3 a firebim:Article ;
-    firebim:hasMember firebim:Member_3.5.3.1 ;
-    firebim:hasOriginalText "The connection of the façade element to the floor meets the requirements imposed for the floor or for the walls separating the compartments." .
-
-firebim:Article_3.5.4 a firebim:Article ;
-    firebim:hasMember firebim:Member_3.5.4.1 ;
-    firebim:hasOriginalText """Federal Public Service Home Affairs
-General Directorate of Civil Security - Fire Prevention.
-ANNEX 2: LOW BUILDINGS
-28/281
-(v3.0)
-Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).4 PRECAUTIONS ON CONSTRUCTION OF COMPARTMENTS
-AND EVACUATION ROOMS.""" .
-
-firebim:Article_4.1.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_4.1.1.1 ;
-    firebim:hasOriginalText "The walls between compartments have at least the fire resistance of the structural elements." .
-
-firebim:Article_4.1.2 a firebim:Article ;
-    firebim:hasMember firebim:Member_4.1.2.1 ;
-    firebim:hasOriginalText "The connection between two compartments is permitted only if it is through a self-closing or, in the event of fire, self-closing door Rf ½ h." .
-
-firebim:Article_4.2.1 a firebim:Article ;
-    firebim:hasID "4.2.1" ;
-    firebim:hasMember firebim:Member_4.2.1_1 ;
-    firebim:hasOriginalText """4.2.1 General.
-The stairs connecting several compartments are enclosed. The basic principles of 2 "Compartmentalization and Evacuation" apply to them.""" .
-
-firebim:Article_4.2.2 a firebim:Article ;
-    firebim:hasID "4.2.2" ;
-    firebim:hasMember firebim:Member_4.2.2.1,
-        firebim:Member_4.2.2.2,
-        firebim:Member_4.2.2.3,
-        firebim:Member_4.2.2.4,
-        firebim:Member_4.2.2.5,
-        firebim:Member_4.2.2.6 ;
-    firebim:hasOriginalText "4.2.2 Opinion." .
-
-firebim:Article_4.2.3 a firebim:Article ;
-    firebim:hasID "4.2.3" ;
-    firebim:hasMember firebim:Member_4.2.3.1,
-        firebim:Member_4.2.3.2 ;
-    firebim:hasOriginalText "4.2.3 Stairs." .
-
-firebim:Article_4.3.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_4.3.1.1 ;
-    firebim:hasOriginalText "Exterior stairs should provide access to an evacuation level." .
-
-firebim:Article_4.3.2 a firebim:Article ;
-    firebim:hasMember firebim:Member_4.3.2.1 ;
-    firebim:hasOriginalText "The requirements of 4.2.3 apply to it with however the following deviation: no fire stability is required, but the material belongs to class A0." .
-
-firebim:Article_4.3.3 a firebim:Article ;
-    firebim:hasMember firebim:Member_4.3.3.1,
-        firebim:Member_4.3.3.2,
-        firebim:Member_4.3.3.3 ;
-    firebim:hasOriginalText """The connection between the compartment and an external staircase is done
--either through a door;
--either through escape terrace(s).""" .
-
-firebim:Article_4.3.4 a firebim:Article ;
-    firebim:hasMember firebim:Member_4.3.4.1 ;
-    firebim:hasOriginalText "For the connection between the evacuation level and the immediately higher level, a staircase or section of staircase may be used that is retractable or articulated." .
-
-firebim:Article_4.5.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_4.5.1.1 ;
-    firebim:hasOriginalText "For all building levels, the sequence number shall be clearly posted on landings and in the escape areas at stairwells and elevators." .
-
-firebim:Article_4.5.2 a firebim:Article ;
-    firebim:hasMember firebim:Member_4.5.2.1 ;
-    firebim:hasOriginalText "The designation of exits and emergency exits shall comply with the provisions on occupational safety and health signage." .
-
-firebim:Article_5 a firebim:Article ;
-    firebim:hasMember firebim:Member_5 ;
-    firebim:hasOriginalText "5 CONSTRUCTION REQUIREMENTS FOR SOME CLASSROOMS AND TECHNICAL ROOMS." .
-
-firebim:Article_5.2.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_5.2.1.1,
-        firebim:Member_5.2.1.2 ;
-    firebim:hasOriginalText """5.2 Parking buildings.
-In deviation from the basic principle stated in 2.1, a parking building may form a compartment 
-whose area is not limited even when there are several communicating building levels.""" .
-
-firebim:Article_5.2.2 a firebim:Article ;
-    firebim:hasMember firebim:Member_5.2.2.1 ;
-    firebim:hasOriginalText """The walls between the parking buildings and the rest of the building have at least the required Rf 
-of the structural elements.""" .
-
-firebim:Article_5.2.3 a firebim:Article ;
-    firebim:hasMember firebim:Member_5.2.3.1 ;
-    firebim:hasOriginalText """However, the parking compartment may include some premises not intended for residence, such 
-as : premises for electrical transformation, archive rooms, technical rooms ...""" .
-
-firebim:Article_5.2.4 a firebim:Article ;
-    firebim:hasMember firebim:Member_5.2.4.1 ;
-    firebim:hasOriginalText "The walls of these rooms exhibit Rf 1 h and access is by a self-closing door Rf ½ h." .
-
-firebim:Article_5.2.5 a firebim:Article ;
-    firebim:hasMember firebim:Member_5.2.5.1,
-        firebim:Member_5.2.5.2 ;
-    firebim:hasOriginalText """At each building level, evacuation is arranged as follows :
-- at least two stairwells or exterior stairways meet the requirements contained in 4.2 or""" .
-
-firebim:Article_5.3.1 a firebim:Article ;
-    firebim:hasID "5.3.1" ;
-    firebim:hasMember firebim:Member_5.3.1_1,
-        firebim:Member_5.3.1_2,
-        firebim:Member_5.3.1_3 ;
-    firebim:hasOriginalText "5.3.1 [General]] If it can accommodate more than 500 people, these halls may be arranged underground only if the difference between the lowest floor level of these halls and the closest evacuation level does not exceed 3 m. If the aforementioned halls are intended for a maximum of 500 persons, they may be installed underground, provided that the lowest floor level accessible to the public is not more than 4 m below the average level of the various evacuation levels of the establishment. The number of exits is determined as for compartments." .
-
-firebim:Article_5.3.2 a firebim:Article ;
-    firebim:hasID "5.3.2" ;
-    firebim:hasMember firebim:Member_5.3.2_1,
-        firebim:Member_5.3.2_2,
-        firebim:Member_5.3.2_3,
-        firebim:Member_5.3.2_4 ;
-    firebim:hasOriginalText "5.3.2 Construction. The walls forming these rooms or set of rooms not only meet the regulatory requirements applicable to these rooms, but also have the Rf value of the walls of a compartment. Each passageway in the vertical walls is closed by a self-closing door or in case of fire self-closing door Rf ½ h. These doors swing open in the sense of escape. No object should interfere with evacuation to the exits." .
-
-firebim:Article_5.4.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_5.4.1.1,
-        firebim:Member_5.4.1.2 ;
-    firebim:hasOriginalText "The furnishing of storefronts opening onto interior galleries is permitted at an evacuation level and on adjacent building floors provided:" .
-
-firebim:Article_5.4.2 a firebim:Article ;
-    firebim:hasOriginalText "The partition walls between commercial premises have Rf ½ h and extend into any false ceiling. This requirement is waived if the store or commercial complex is equipped with an automatic hydraulic extinguishing system (NBN S 21-028)." .
-
-firebim:Article_5.5.1 a firebim:Article ;
-    firebim:hasMember firebim:Member_5.5.1.1 ;
-    firebim:hasOriginalText "The collective kitchens, possibly including the restaurant, are separated from the other building parts by walls with Rf 1 h." .
-
-firebim:Article_5.5.2 a firebim:Article ;
-    firebim:hasMember firebim:Member_5.5.2.1 ;
-    firebim:hasOriginalText "When the kitchen is not compartmentalized with respect to the restaurant, each fixed deep-frying appliance is equipped with a fixed automatic fire extinguisher that is coupled with a device that interrupts the supply of energy to the deep-frying appliance." .
-
-firebim:Article_5.5.3 a firebim:Article ;
-    firebim:hasMember firebim:Member_5.5.3.1,
-        firebim:Member_5.5.3.2 ;
-    firebim:hasOriginalText "Each passageway is closed by a self-closing door Rf ½ h or in case of fire self-closing door. These doors turn away from the kitchen in the direction of escape." .
-
-firebim:Article_5.5.4 a firebim:Article ;
-    firebim:hasMember firebim:Member_5.5.4.1 ;
-    firebim:hasOriginalText "Horizontal and vertical transport systems for dishes may be installed between kitchens and restaurants; if this transport passes through other premises, it must be enclosed in ducts with walls Rf ½ h." .
-
-firebim:Article_6.1.1 a firebim:Article ;
-    firebim:hasID "6.1.1" ;
-    firebim:hasMember firebim:Member_6.1.1.1,
-        firebim:Member_6.1.1.2,
-        firebim:Member_6.1.1.3,
-        firebim:Member_6.1.1.4,
-        firebim:Member_6.1.1.5,
-        firebim:Member_6.1.1.6,
-        firebim:Member_6.1.1.7,
-        firebim:Member_6.1.1.8 ;
-    firebim:hasOriginalText "6.1.1 General." .
-
-firebim:Article_6.1.2 a firebim:Article ;
-    firebim:hasID "6.1.2" ;
-    firebim:hasMember firebim:Member_6.1.2.1 ;
-    firebim:hasOriginalText "6.1.2 Elevators and freight elevators whose machinery is located in a machine room." .
-
-firebim:Article_6.1.3 a firebim:Article ;
-    firebim:hasID "6.1.3" ;
-    firebim:hasOriginalText "6.1.3 Elevators and freight elevators whose machinery is located in the shaft." .
-
-firebim:Article_6.1.3.1 a firebim:Article ;
-    firebim:hasID "6.1.3.1" ;
-    firebim:hasMember firebim:Member_6.1.3.1_1,
-        firebim:Member_6.1.3.1_2,
-        firebim:Member_6.1.3.1_3,
-        firebim:Member_6.1.3.1_4 ;
-    firebim:hasOriginalText "6.1.3.1 A smoke detection system will be placed at the top of the shaft. In case of detection of smoke in the shaft, the cabin will stop in accordance with 6.1.1.7. The detection system in the shaft shall be provided so that its maintenance and control can be done from outside the shaft. The elevator will only be able to be reactivated by an authorized person." .
-
-firebim:Article_6.1.3.2 a firebim:Article ;
-    firebim:hasID "6.1.3.2" ;
-    firebim:hasMember firebim:Member_6.1.3.2_1,
-        firebim:Member_6.1.3.2_2 ;
-    firebim:hasOriginalText "6.1.3.2 The shaft should be naturally ventilated through outside air nozzles. The ventilation opening, located at the top of the shaft, has a minimum cross-sectional area of 4% of the horizontal area of the shaft." .
-
-firebim:Article_6.1.4 a firebim:Article ;
-    firebim:hasID "6.1.4" ;
-    firebim:hasMember firebim:Member_6.1.4_1,
-        firebim:Member_6.1.4_2,
-        firebim:Member_6.1.4_3,
-        firebim:Member_6.1.4_4,
-        firebim:Member_6.1.4_5,
-        firebim:Member_6.1.4_6,
-        firebim:Member_6.1.4_7,
-        firebim:Member_6.1.4_8 ;
-    firebim:hasOriginalText "6.1.4 Oleohydraulic elevators The machine room is separated from the elevator shaft. The walls of the machine room have Rf 1 h. Access to the engine room is through a self-closing door Rf ½ h. The machine rooms and elevator shafts should be naturally ventilated through outside air nozzles. The ventilation openings have a minimum cross-sectional area of 4% of the horizontal cross-sectional area of the room. The level of the engine room door thresholds is raised so that the tub thus formed has a capacity at least equal to 1.2 times the oil content of the machinery. Electrical equipment as well as electrical and hydraulic lines running from the engine room to the elevator shaft are installed higher than the highest level that the drained oil in the engine room can reach. The space around the penetrations for these pipes, should be sealed with materials with at least the same Rf as the wall." .
-
-firebim:Member_0.1.1.1 a firebim:Member ;
-    firebim:hasID "0.1.1.1" ;
-    firebim:hasOriginalText """These basic regulations define the minimum requirements that the conception, construction and 
-design of low-rise buildings (LG) must meet in order to:""" .
-
-firebim:Member_0.1.1.2 a firebim:Member ;
-    firebim:hasID "0.1.1.2" ;
-    firebim:hasOriginalText "a)prevent the occurrence, development and propagation of fire;" .
-
-firebim:Member_0.1.1.3 a firebim:Member ;
-    firebim:hasID "0.1.1.3" ;
-    firebim:hasOriginalText "b)ensure the safety of those present;" .
-
-firebim:Member_0.1.1.4 a firebim:Member ;
-    firebim:hasID "0.1.1.4" ;
-    firebim:hasOriginalText "c)preventively facilitate the fire department's intervention." .
-
-firebim:Member_0.2.1.1 a firebim:Member ;
-    firebim:hasID "0.2.1.1" ;
-    firebim:hasOriginalText "1.the low buildings;" .
-
-firebim:Member_0.2.1.2 a firebim:Member ;
-    firebim:hasID "0.2.1.2" ;
-    firebim:hasOriginalText "2.the extensions of buildings that are low buildings after realization;" .
-
-firebim:Member_0.2.1.3 a firebim:Member ;
-    firebim:hasID "0.2.1.3" ;
-    firebim:hasMember firebim:Member_0.2.1.3.1,
-        firebim:Member_0.2.1.3.2,
-        firebim:Member_0.2.1.3.3 ;
-    firebim:hasOriginalText "3.the premises or parts of low-rise buildings in which an industrial activity takes place and whose total area is less than or equal to 500 m², under the following conditions:" .
-
-firebim:Member_0.2.1.3.1 a firebim:Member ;
-    firebim:hasID "0.2.1.3.1" ;
-    firebim:hasOriginalText "-mainly non-industrial activities take place in the building and the total area of premises with industrial activity is less than the remaining area of the building;" .
-
-firebim:Member_0.2.1.3.2 a firebim:Member ;
-    firebim:hasID "0.2.1.3.2" ;
-    firebim:hasOriginalText "-the industrial activities in these premises support the non-industrial activities in the same compartment;" .
-
-firebim:Member_0.2.1.3.3 a firebim:Member ;
-    firebim:hasID "0.2.1.3.3" ;
-    firebim:hasOriginalText "-there are no night-occupied premises in the compartment in which industrial activities take place." .
-
-firebim:Member_0.2.2.1 a firebim:Member ;
-    firebim:hasID "0.2.2.1" ;
-    firebim:hasOriginalText "1.the industrial buildings;" .
-
-firebim:Member_0.2.2.2 a firebim:Member ;
-    firebim:hasID "0.2.2.2" ;
-    firebim:hasOriginalText "2.The buildings consisting of up to two storeys and with a total area less than or equal to 100 m²;" .
-
-firebim:Member_0.2.2.3 a firebim:Member ;
-    firebim:hasID "0.2.2.3" ;
-    firebim:hasOriginalText "3.the single-family homes." .
-
-firebim:Member_0.3.1.1 a firebim:Member ;
-    firebim:hasForwardReference firebim:Reference_Appendix1 ;
-    firebim:hasOriginalText "Terminology - see Appendix 1." .
-
-firebim:Member_0.4.1.1 a firebim:Member ;
-    firebim:hasForwardReference firebim:Reference_Appendix5 ;
-    firebim:hasOriginalText "Response to fire of the materials - see Appendix 5." .
-
-firebim:Member_0_1 a firebim:Member ;
-    firebim:hasOriginalText "GENERAL." .
-
-firebim:Member_1.1.1.1 a firebim:Member ;
-    firebim:hasOriginalText "For single-story buildings, fire department vehicles must be able to approach at least to within 60 m of a building façade." .
-
-firebim:Member_1.1.2.1 a firebim:Member ;
-    firebim:hasOriginalText "For buildings with more than one storey, fire department vehicles must be able to reach a facade at least at one point that provides access to each storey at recognizable points." .
-
-firebim:Member_1.1.3.1 a firebim:Member ;
-    firebim:hasOriginalText "To this end, vehicles must have an access point and a staging area:" .
-
-firebim:Member_1.1.3.2 a firebim:Member ;
-    firebim:hasOriginalText "-either on the drivable roadway of the public highway;" .
-
-firebim:Member_1.1.3.3 a firebim:Member ;
-    firebim:hasOriginalText """-either on a special access road from the travelable roadway of the public highway and having the following characteristics:
--minimum clear width: 4 m;
--minimum turning radius: 11 m on the inside and 15 m on the outside;
--minimum clear height: 4 m;
--maximum slope: 6%;
--load bearing capacity: such that vehicles, without galvanization, with a maximum axle load of 13t can drive and stop there, even if they deform the terrain. For structures located on access roads, refer to NBN B 03-101.""" .
-
-firebim:Member_1.2.1.1 a firebim:Member ;
-    firebim:hasOriginalText """Outbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if 
-they do not compromise either evacuation, occupant safety or fire department action.""" .
-
-firebim:Member_1.3.1.1 a firebim:Member ;
-    firebim:hasOriginalText "The horizontal distance, free from any combustible element and located between an LG and an opposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent buildings." .
-
-firebim:Member_1.3.2.1 a firebim:Member ;
-    firebim:hasOriginalText "The walls separating adjacent buildings have Rf 1 h." .
-
-firebim:Member_1.3.3.1 a firebim:Member ;
-    firebim:hasOriginalText "In these walls a connection between these buildings may exist through a door Rf ½ h, self-closing or self-closing in case of fire." .
-
-firebim:Member_1.3.4.1 a firebim:Member ;
-    firebim:hasOriginalText "The condition of distance between an LG and an opposing building does not apply to buildings separated by existing streets, roads..., belonging to the public domain." .
-
-firebim:Member_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Federal Public Service Home Affairs" .
-
-firebim:Member_1_2 a firebim:Member ;
-    firebim:hasOriginalText "General Directorate of Civil Security - Fire Prevention." .
-
-firebim:Member_1_3 a firebim:Member ;
-    firebim:hasOriginalText "24/281" .
-
-firebim:Member_1_4 a firebim:Member ;
-    firebim:hasOriginalText "(v3.0)" .
-
-firebim:Member_1_5 a firebim:Member ;
-    firebim:hasOriginalText "Royal Decree of July 7, 1994 (coordinated version on May 20, 2022)." .
-
-firebim:Member_1_6 a firebim:Member ;
-    firebim:hasOriginalText "ANNEX 2: LOW BUILDINGS" .
-
-firebim:Member_2.1.1.1 a firebim:Member ;
-    firebim:hasForwardReference firebim:Section_5.2 ;
-    firebim:hasOriginalText """The building is divided into compartments whose area is less than 2,500 m², with the exception of 
-the parking buildings (see 5.2).""" .
-
-firebim:Member_2.1.2.1 a firebim:Member ;
-    firebim:hasOriginalText """Single-story buildings that can be carried out in a single compartment, the area of that 
-compartment may reach 3500 m². The length of this compartment shall not exceed 90 m.""" .
-
-firebim:Member_2.1.3.1 a firebim:Member ;
-    firebim:hasOriginalText """As for the buildings referred to in the above paragraphs, the area of a compartment, as the case 
-may be, may exceed either 2,500 square meters or 3,500 square meters, if it is equipped with an 
-automatic fire extinguishing system and a smoke and heat extraction system, which comply with 
-the standards or with the rules of good craftsmanship in this matter recognized by the Minister of 
-the Interior, according to the procedure and conditions he determines.""" .
-
-firebim:Member_2.1.4.1 a firebim:Member ;
-    firebim:hasOriginalText """The height of a compartment corresponds to the height of one storey. However, 
-the following exceptions are allowed:""" .
-
-firebim:Member_2.1.4.2 a firebim:Member ;
-    firebim:hasForwardReference firebim:Section_5.2 ;
-    firebim:hasOriginalText "-the parking building with building levels (see 5.2);" .
-
-firebim:Member_2.1.4.3 a firebim:Member ;
-    firebim:hasOriginalText """-a compartment may extend over two superimposed floors with an interior connecting staircase 
-(duplex), if the cumulative area of those floors does not exceed 2,500 m²;""" .
-
-firebim:Member_2.1.4.4 a firebim:Member ;
-    firebim:hasForwardReference firebim:Section_5.1.1 ;
-    firebim:hasOriginalText """-the height of a compartment may extend over several superimposed building levels, if this 
-compartment contains only technical rooms (see 5.1.1).""" .
-
-firebim:Member_2.1.4.5 a firebim:Member ;
-    firebim:hasOriginalText """-the height of a compartment may extend over several floors (atrium) provided that this 
-compartment is equipped with an automatic fire extinguishing system and a smoke and heat 
-extraction system, which comply with the standards or with the rules of good craftsmanship on 
-the subject recognized by the Minister of the Interior, according to the procedure and 
-conditions he determines.""" .
-
-firebim:Member_2.2.1.1 a firebim:Member ;
-    firebim:hasOriginalText "Each compartment has minimum :" .
-
-firebim:Member_2.2.1.2 a firebim:Member ;
-    firebim:hasOriginalText "-an exit if occupancy is less than 100 persons;" .
-
-firebim:Member_2.2.1.3 a firebim:Member ;
-    firebim:hasOriginalText "-two exits if occupancy is 100 or more than 100 and less than 500 persons;" .
-
-firebim:Member_2.2.1.4 a firebim:Member ;
-    firebim:hasOriginalText "-2 + n exits where n is the integer immediately greater than the division by 1000 of the maximum occupancy of the compartment, if the occupancy is 500 or more than 500 persons." .
-
-firebim:Member_2.2.1.5 a firebim:Member ;
-    firebim:hasOriginalText """The minimum number of exits can be increased by the fire department in function of the occupancy and configuration of the premises.
-The number of exits from building floors and classrooms is determined as for compartments.""" .
-
-firebim:Member_2.2.2.1 a firebim:Member ;
-    firebim:hasOriginalText "The exits are located in opposite zones of the compartment." .
-
-firebim:Member_2.2.2.2 a firebim:Member ;
-    firebim:hasForwardReference firebim:Section_4.4 ;
-    firebim:hasOriginalText "Evacuation routes lead outside or to stairwells, or stairs, located inside or outside the building, (for horizontal distances see 4.4)." .
-
-firebim:Member_2.2.2.3 a firebim:Member ;
-    firebim:hasOriginalText "With regard to underground building levels, one exit to the outside via an evacuation path with walls and doors Rf ½ h may replace the required access to one of the stairwells." .
-
-firebim:Member_2.2.2.4 a firebim:Member ;
-    firebim:hasForwardReference firebim:Section_5.2 ;
-    firebim:hasOriginalText "For the parking building: see 5.2." .
-
-firebim:Member_2.2.2.5 a firebim:Member ;
-    firebim:hasForwardReference firebim:Section_4.4 ;
-    firebim:hasOriginalText "At an evacuation level, each stairway leads to the outside either directly or over an evacuation path that meets the requirements of 4.4." .
-
-firebim:Member_3.1.1.1 a firebim:Member ;
-    firebim:hasOriginalText "Penetrations through walls of pipes for fluids or for electricity and the expansion joints shall not adversely affect the required fire resistance of the building elements." .
-
-firebim:Member_3.2.1.1 a firebim:Member ;
-    firebim:hasOriginalText "Rf ½ h for single-story buildings. However, this requirement does not apply to the roof if it is protected on the inside by a building element with Rf ½ h;" .
-
-firebim:Member_3.2.1.2 a firebim:Member ;
-    firebim:hasOriginalText "for buildings with more than one storey : Rf 1 h above Ei level. The structure of the roof has a fire stability of ½ h. This requirement is not applicable if the roof is protected on the inside by a building element with Rf ½ h;" .
-
-firebim:Member_3.2.1.3 a firebim:Member ;
-    firebim:hasOriginalText "the structural elements in the basement floors, including the level Ei floor have Rf 1 h." .
-
-firebim:Member_3.2.2.1 a firebim:Member ;
-    firebim:hasOriginalText "No fire resistance requirements are imposed on the structural elements of open parking buildings whose horizontal walls possess Rf 1 h." .
-
-firebim:Member_3.3.1.1 a firebim:Member ;
-    firebim:hasForwardReference firebim:Reference_4.1,
-        firebim:Reference_4.4 ;
-    firebim:hasOriginalText "For walls and doors, which demarcate compartments, 4.1 applies; if they demarcate evacuation routes, 4.4 applies." .
-
-firebim:Member_3.3.2.1 a firebim:Member ;
-    firebim:hasOriginalText "The interior vertical walls demarcating classrooms or the entirety of classrooms with night occupancy have at least the fire resistance of the structural elements." .
-
-firebim:Member_3.3.3.1 a firebim:Member ;
-    firebim:hasOriginalText "The doors in these walls have Rf ½ h." .
-
-firebim:Member_3.4.1_1 a firebim:Member ;
-    firebim:hasOriginalText "In evacuation routes, premises open to the public and collective kitchens, false ceilings have a fire stability of ½ h." .
-
-firebim:Member_3.4.2_1 a firebim:Member ;
-    firebim:hasOriginalText "The space between the ceiling and the false ceiling is interrupted by the extension of all vertical walls possessing at least Rf ½ h." .
-
-firebim:Member_3.4.2_2 a firebim:Member ;
-    firebim:hasOriginalText "If the space between the ceiling and the false ceiling is not equipped with an automatic extinguishing system, the space should be interrupted by vertical separations with Rf ½ h such that there are spaces whose horizontal projection can be inscribed in a square of maximum 25 m side." .
-
-firebim:Member_3.5.1.1 a firebim:Member ;
-    firebim:hasOriginalText "The studs of the curtain wall skeleton (light facade) are fixed to the building skeleton at the level of each storey." .
-
-firebim:Member_3.5.2.1 a firebim:Member ;
-    firebim:hasOriginalText "The parapet and the lintel are fastened to the floor slab in such a way that the whole assembly will be in place during ½ h meets the \"flame tightness\" criterion of NBN 713-020; the same requirement is also met by the pennants." .
-
-firebim:Member_3.5.3.1 a firebim:Member ;
-    firebim:hasOriginalText "The connection of the façade element to the floor meets the requirements imposed for the floor or for the walls separating the compartments." .
-
-firebim:Member_3.5.4.1 a firebim:Member ;
-    firebim:hasOriginalText """Federal Public Service Home Affairs
-General Directorate of Civil Security - Fire Prevention.
-ANNEX 2: LOW BUILDINGS
-28/281
-(v3.0)
-Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).4 PRECAUTIONS ON CONSTRUCTION OF COMPARTMENTS
-AND EVACUATION ROOMS.""" .
-
-firebim:Member_4.1.1.1 a firebim:Member ;
-    firebim:hasOriginalText "The walls between compartments have at least the fire resistance of the structural elements." .
-
-firebim:Member_4.1.2.1 a firebim:Member ;
-    firebim:hasOriginalText "The connection between two compartments is permitted only if it is through a self-closing or, in the event of fire, self-closing door Rf ½ h." .
-
-firebim:Member_4.2.1_1 a firebim:Member ;
-    firebim:hasOriginalText "The stairs connecting several compartments are enclosed. The basic principles of 2 \"Compartmentalization and Evacuation\" apply to them." .
-
-firebim:Member_4.2.2.1 a firebim:Member ;
-    firebim:hasOriginalText """4.2.2.1 The interior walls of the stairwells have at least the required Rf of the structural elements.
-Their outer walls may be glazed if these openings are sealed over at least 1 m laterally with an element that has a flame density of ½ h.""" .
-
-firebim:Member_4.2.2.2 a firebim:Member ;
-    firebim:hasOriginalText "4.2.2.2 Stairwells must provide access to an evacuation level." .
-
-firebim:Member_4.2.2.3 a firebim:Member ;
-    firebim:hasOriginalText """4.2.2.3 On each floor, the connection between the compartment and the stairwell is ensured by a door with Rf ½ h.
-A direct connection of both floors of a duplex compartment to the stairwell is not required, provided that:
--the total area of the compartment is less than or equal to 300 m²;
--the area of the floor of the duplex that evacuates directly through the stairwell is greater than the area of the other floor of the duplex compartment.""" .
-
-firebim:Member_4.2.2.4 a firebim:Member ;
-    firebim:hasOriginalText "4.2.2.4 If several compartments lie in the same horizontal plane, they may have a common stairwell provided that it is accessible from each compartment through a self-closing or, in the event of fire, self-closing door with Rf ½ h." .
-
-firebim:Member_4.2.2.5 a firebim:Member ;
-    firebim:hasOriginalText """4.2.2.5 Stairwells serving underground levels should not be a  direct extension of those serving levels above an evacuation level.
-This does not preclude one over the other, subject to the following conditions:
-1.the walls separating them have the same resistance to fire as those of the interior walls of stairwells.
-2.access to each stairwell is through a self-closing or, in the event of fire, self-closing door with Rf ½ h.""" .
-
-firebim:Member_4.2.2.6 a firebim:Member ;
-    firebim:hasOriginalText """4.2.2.6 At the top of each interior stairwell is an air vent with a diameter of at least 1 m² and which opens into the open a i r . This opening is normally closed; to open it, one uses a hand control placed in a highly visible position at the evacuation level.
-Federal Public Service Home Affairs
-General Directorate of Civil Security - Fire Prevention.
-ANNEX 2: LOW BUILDINGS29/281
-(v3.0)
-Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).This requirement does not apply to stairwells between evacuation levels and underground building levels.""" .
-
-firebim:Member_4.2.3.1 a firebim:Member ;
-    firebim:hasOriginalText """4.2.3.1 Construction provisions.
-The stairs have the following features:
-1.Like the spillways, they have a fire stability of ½ h or the same conception of construction as a concrete slab with Rf ½ h;
-2.they are equipped with handrails on both sides.
-For stairs with a useful width, less than 1.20 m, one handrail is sufficient, provided there is no danger of falling;
-3.the step tread is at least 0.20 m at each point;
-4.the rise of the steps should not exceed 18 cm;
-5.their slope should not exceed 75% (maximum slope angle 37°);
-6.they are of the " straight " type.
-However, "spiral staircases" are permitted if they have displaced treads and if, in addition to the above requirements, with the exception of the aforementioned point 3, their treads have at least 24 cm of tread on the walkway.""" .
-
-firebim:Member_4.2.3.2 a firebim:Member ;
-    firebim:hasOriginalText """4.2.3.2 Useful width of stair arms, spillways and sashes.
-The useful width is at least equal to 0.80 m and reaches at least the required useful width br calculated according to Annex 1 "Terminology".
-The staircase arms and staircase landings of the same compartment shall not differ in their useful width by more than one passage unit.
-If a compartment contains special purpose rooms, the theoretical useful stair width (according to Appendix 1 "Terminology") based on their number of users is calculated only over the height between this compartment and the evacuation level.""" .
-
-firebim:Member_4.3.1.1 a firebim:Member ;
-    firebim:hasOriginalText "Exterior stairs should provide access to an evacuation level." .
-
-firebim:Member_4.3.2.1 a firebim:Member ;
-    firebim:hasBackwardReference firebim:Reference_4.2.3 ;
-    firebim:hasOriginalText "The requirements of 4.2.3 apply to it with however the following deviation: no fire stability is required, but the material belongs to class A0." .
-
-firebim:Member_4.3.3.1 a firebim:Member ;
-    firebim:hasOriginalText "The connection between the compartment and an external staircase is done" .
-
-firebim:Member_4.3.3.2 a firebim:Member ;
-    firebim:hasOriginalText "-either through a door;" .
-
-firebim:Member_4.3.3.3 a firebim:Member ;
-    firebim:hasOriginalText "-either through escape terrace(s)." .
-
-firebim:Member_4.3.4.1 a firebim:Member ;
-    firebim:hasOriginalText "For the connection between the evacuation level and the immediately higher level, a staircase or section of staircase may be used that is retractable or articulated." .
-
-firebim:Member_4.5.1.1 a firebim:Member ;
-    firebim:hasOriginalText "For all building levels, the sequence number shall be clearly posted on landings and in the escape areas at stairwells and elevators." .
-
-firebim:Member_4.5.2.1 a firebim:Member ;
-    firebim:hasOriginalText "The designation of exits and emergency exits shall comply with the provisions on occupational safety and health signage." .
-
-firebim:Member_5 a firebim:Member ;
-    firebim:hasOriginalText "5 CONSTRUCTION REQUIREMENTS FOR SOME CLASSROOMS AND TECHNICAL ROOMS." .
-
-firebim:Member_5.2.1.1 a firebim:Member ;
-    firebim:hasOriginalText "5.2 Parking buildings." .
-
-firebim:Member_5.2.1.2 a firebim:Member ;
-    firebim:hasBackwardReference firebim:Reference_2.1 ;
-    firebim:hasOriginalText """In deviation from the basic principle stated in 2.1, a parking building may form a compartment 
-whose area is not limited even when there are several communicating building levels.""" .
-
-firebim:Member_5.2.2.1 a firebim:Member ;
-    firebim:hasOriginalText """The walls between the parking buildings and the rest of the building have at least the required Rf 
-of the structural elements.""" .
-
-firebim:Member_5.2.3.1 a firebim:Member ;
-    firebim:hasOriginalText """However, the parking compartment may include some premises not intended for residence, such 
-as : premises for electrical transformation, archive rooms, technical rooms ...""" .
-
-firebim:Member_5.2.4.1 a firebim:Member ;
-    firebim:hasOriginalText "The walls of these rooms exhibit Rf 1 h and access is by a self-closing door Rf ½ h." .
-
-firebim:Member_5.2.5.1 a firebim:Member ;
-    firebim:hasOriginalText "At each building level, evacuation is arranged as follows :" .
-
-firebim:Member_5.2.5.2 a firebim:Member ;
-    firebim:hasForwardReference firebim:Reference_4.2 ;
-    firebim:hasOriginalText "- at least two stairwells or exterior stairways meet the requirements contained in 4.2 or" .
-
-firebim:Member_5.3.1_1 a firebim:Member ;
-    firebim:hasOriginalText "If it can accommodate more than 500 people, these halls may be arranged underground only if the difference between the lowest floor level of these halls and the closest evacuation level does not exceed 3 m." .
-
-firebim:Member_5.3.1_2 a firebim:Member ;
-    firebim:hasOriginalText "If the aforementioned halls are intended for a maximum of 500 persons, they may be installed underground, provided that the lowest floor level accessible to the public is not more than 4 m below the average level of the various evacuation levels of the establishment." .
-
-firebim:Member_5.3.1_3 a firebim:Member ;
-    firebim:hasOriginalText "The number of exits is determined as for compartments." .
-
-firebim:Member_5.3.2_1 a firebim:Member ;
-    firebim:hasOriginalText "The walls forming these rooms or set of rooms not only meet the regulatory requirements applicable to these rooms, but also have the Rf value of the walls of a compartment." .
-
-firebim:Member_5.3.2_2 a firebim:Member ;
-    firebim:hasOriginalText "Each passageway in the vertical walls is closed by a self-closing door or in case of fire self-closing door Rf ½ h." .
-
-firebim:Member_5.3.2_3 a firebim:Member ;
-    firebim:hasOriginalText "These doors swing open in the sense of escape." .
-
-firebim:Member_5.3.2_4 a firebim:Member ;
-    firebim:hasOriginalText "No object should interfere with evacuation to the exits." .
-
-firebim:Member_5.4.1.1 a firebim:Member ;
-    firebim:hasOriginalText "1.the complex with its galleries is separated from other building parts by walls with Rf 1 h;" .
-
-firebim:Member_5.4.1.2 a firebim:Member ;
-    firebim:hasOriginalText "2.the other building sections have their own exits independent of the exits of the retail or commercial complex;" .
-
-firebim:Member_5.5.1.1 a firebim:Member ;
-    firebim:hasOriginalText "The collective kitchens, possibly including the restaurant, are separated from the other building parts by walls with Rf 1 h." .
-
-firebim:Member_5.5.2.1 a firebim:Member ;
-    firebim:hasOriginalText "When the kitchen is not compartmentalized with respect to the restaurant, each fixed deep-frying appliance is equipped with a fixed automatic fire extinguisher that is coupled with a device that interrupts the supply of energy to the deep-frying appliance." .
-
-firebim:Member_5.5.3.1 a firebim:Member ;
-    firebim:hasOriginalText "Each passageway is closed by a self-closing door Rf ½ h or in case of fire self-closing door." .
-
-firebim:Member_5.5.3.2 a firebim:Member ;
-    firebim:hasOriginalText "These doors turn away from the kitchen in the direction of escape." .
-
-firebim:Member_5.5.4.1 a firebim:Member ;
-    firebim:hasOriginalText "Horizontal and vertical transport systems for dishes may be installed between kitchens and restaurants; if this transport passes through other premises, it must be enclosed in ducts with walls Rf ½ h." .
-
-firebim:Member_6.1.1.1 a firebim:Member ;
-    firebim:hasID "6.1.1.1" ;
-    firebim:hasOriginalText "6.1.1.1 The machine and associated parts of an elevator and/or freight elevator are not accessible except for maintenance, inspection and emergencies. The drive unit is located : -or in a machine room -either in the shaft, with the exception of oleohydraulic elevators, for which the drive unit, including the oil reservoir, must be located exclusively in a machine room. The control bodies will be able to be accessed from the overflow if they: -Are placed in an area that meets the requirements listed in 5.1.5.1; -be part of the platform wall." .
-
-firebim:Member_6.1.1.2 a firebim:Member ;
-    firebim:hasID "6.1.1.2" ;
-    firebim:hasOriginalText "6.1.1.2 All elevators are equipped at their evacuation level with a mechanism that allows them to be recalled to that level, after which the elevator is rendered inoperative. This mechanism will be indicated. The elevator will only be able to be reactivated by an authorized person." .
-
-firebim:Member_6.1.1.3 a firebim:Member ;
-    firebim:hasID "6.1.1.3" ;
-    firebim:hasOriginalText "6.1.1.3 The assembly consisting of one or more shafts, and of their access landings to form a shaft for the underground building levels, is enclosed by walls with Rf 1 h. Access doors between the compartment and the sas are self-closing or self-closing in case of fire and have Rf ½ h." .
-
-firebim:Member_6.1.1.4 a firebim:Member ;
-    firebim:hasID "6.1.1.4" ;
-    firebim:hasOriginalText "6.1.1.4 The assembly of the shaft doors shall have a stability to fire and a flame tightness of ½ h in accordance with NBN 713-020. This is assessed by exposing the door wall on the side of the platform to the fire. The platform wall will be tested with any operating and control devices that are part of it." .
-
-firebim:Member_6.1.1.5 a firebim:Member ;
-    firebim:hasID "6.1.1.5" ;
-    firebim:hasOriginalText "6.1.1.5 When the elevator calls on only one compartment, the walls of the shaft, referred to in 6.1.1.3, and the shaft doors, referred to in 6.1.1.4, shall not meet the respective requirements for fire resistance, stability in the event of fire, and flame tightness. Yet the walls of an elevator shaft in a stairwell are solid, continuous and non-combustible." .
-
-firebim:Member_6.1.1.6 a firebim:Member ;
-    firebim:hasID "6.1.1.6" ;
-    firebim:hasOriginalText "6.1.1.6 No extinguishing device containing water shall be installed in the shaft(s)." .
-
-firebim:Member_6.1.1.7 a firebim:Member ;
-    firebim:hasID "6.1.1.7" ;
-    firebim:hasOriginalText "6.1.1.7 In case of abnormal increase in the temperature of the machine and/or of the control organs, the elevators must be designed and constructed to stop at the first access platform that is technically possible, but refuse new operating orders. In this case, an audible alarm signal should alert those in the cabin to exit the elevator when it stops; the doors open and remain open just long enough for passengers to exit, that is, at least 15 seconds. The mechanisms enabling the opening of the doors remain active. This operation must take precedence over any other command." .
-
-firebim:Member_6.1.1.8 a firebim:Member ;
-    firebim:hasID "6.1.1.8" ;
-    firebim:hasOriginalText "6.1.1.8 If the building is equipped with a fire detection - system, the elevators should be recalled to the evacuation level if a fire is detected outside the elevators and their associated components. The shaft doors open, and remain open just long enough for passengers to exit, that is, at least 15 seconds, after which the elevator becomes inoperative. The mechanisms that allow the doors to open remain active. The elevator will only be able to be reactivated by an authorized person." .
-
-firebim:Member_6.1.2.1 a firebim:Member ;
-    firebim:hasID "6.1.2.1" ;
-    firebim:hasOriginalText "6.1.2.1 The walls enclosing the assembly formed by the shaft and engine room have Rf 1 h. If the engine room door or trap door gives out into the building, they have Rf ½ h. One must provide in the vicinity a glass, locked cabinet containing the key. The whole shaft and engine room, or shaft are naturally ventilated through outside air nozzles. If the shaft and engine room are ventilated separately, the ventilation openings each have a minimum cross-sectional area of 1% of the respective horizontal surfaces. If the whole shaft and machine room are ventilated at the top of the shaft, the ventilation opening has a minimum cross-sectional area of 4% of the horizontal area of the shaft." .
-
-firebim:Member_6.1.3.1_1 a firebim:Member ;
-    firebim:hasOriginalText "A smoke detection system will be placed at the top of the shaft." .
-
-firebim:Member_6.1.3.1_2 a firebim:Member ;
-    firebim:hasForwardReference firebim:Reference_6.1.1.7 ;
-    firebim:hasOriginalText "In case of detection of smoke in the shaft, the cabin will stop in accordance with 6.1.1.7." .
-
-firebim:Member_6.1.3.1_3 a firebim:Member ;
-    firebim:hasOriginalText "The detection system in the shaft shall be provided so that its maintenance and control can be done from outside the shaft." .
-
-firebim:Member_6.1.3.1_4 a firebim:Member ;
-    firebim:hasOriginalText "The elevator will only be able to be reactivated by an authorized person." .
-
-firebim:Member_6.1.3.2_1 a firebim:Member ;
-    firebim:hasOriginalText "The shaft should be naturally ventilated through outside air nozzles." .
-
-firebim:Member_6.1.3.2_2 a firebim:Member ;
-    firebim:hasOriginalText "The ventilation opening, located at the top of the shaft, has a minimum cross-sectional area of 4% of the horizontal area of the shaft." .
-
-firebim:Member_6.1.4_1 a firebim:Member ;
-    firebim:hasOriginalText "Oleohydraulic elevators" .
-
-firebim:Member_6.1.4_2 a firebim:Member ;
-    firebim:hasOriginalText "The machine room is separated from the elevator shaft." .
-
-firebim:Member_6.1.4_3 a firebim:Member ;
-    firebim:hasOriginalText "The walls of the machine room have Rf 1 h." .
-
-firebim:Member_6.1.4_4 a firebim:Member ;
-    firebim:hasOriginalText "Access to the engine room is through a self-closing door Rf ½ h." .
-
-firebim:Member_6.1.4_5 a firebim:Member ;
-    firebim:hasOriginalText "The machine rooms and elevator shafts should be naturally ventilated through outside air nozzles." .
-
-firebim:Member_6.1.4_6 a firebim:Member ;
-    firebim:hasOriginalText "The ventilation openings have a minimum cross-sectional area of 4% of the horizontal cross-sectional area of the room." .
-
-firebim:Member_6.1.4_7 a firebim:Member ;
-    firebim:hasOriginalText "The level of the engine room door thresholds is raised so that the tub thus formed has a capacity at least equal to 1.2 times the oil content of the machinery." .
-
-firebim:Member_6.1.4_8 a firebim:Member ;
-    firebim:hasOriginalText "Electrical equipment as well as electrical and hydraulic lines running from the engine room to the elevator shaft are installed higher than the highest level that the drained oil in the engine room can reach. The space around the penetrations for these pipes, should be sealed with materials with at least the same Rf as the wall." .
-
-firebim:Reference_2.1 a firebim:Reference ;
-    firebim:hasID "2.1" .
-
-firebim:Reference_4.1 a firebim:Reference .
-
-firebim:Reference_4.2 a firebim:Reference ;
-    firebim:hasID "4.2" .
-
-firebim:Reference_4.2.3 a firebim:Reference ;
-    firebim:hasID "4.2.3" .
-
-firebim:Reference_4.4 a firebim:Reference .
-
-firebim:Reference_6.1.1.7 a firebim:Reference ;
-    firebim:hasID "6.1.1.7" .
-
-firebim:Reference_Appendix1 a firebim:Reference ;
-    firebim:hasID "Appendix1" .
-
-firebim:Reference_Appendix5 a firebim:Reference ;
-    firebim:hasID "Appendix5" .
+firebim:Article_1_1 a firebim:Article ;
+    firebim:hasMember firebim:Member_1_1_1 ;
+    firebim:hasOriginalText "[De platen zijn opgenomen bij de betreffende tekst]"@nl .
+
+firebim:Figure_2_1 a firebim:Figure ;
+    firebim:hasID "2.1" ;
+    firebim:hasOriginalText "Plaat 2.1  - Gevels tussen gebouwen"@nl .
+
+firebim:Figure_2_2 a firebim:Figure ;
+    firebim:hasID "2.2" ;
+    firebim:hasOriginalText "Plaat 2. 2 - Gevels tussen compartimenten"@nl .
+
+firebim:Member_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "[De platen zijn opgenomen bij de betreffende tekst]"@nl .
 
 firebim:RoyalDecree a firebim:Document ;
     firebim:hasID "RoyalDecree1994" ;
     firebim:hasSection firebim:Section_0,
-        firebim:Section_0.1,
-        firebim:Section_0.2,
-        firebim:Section_0.3,
-        firebim:Section_0.4,
         firebim:Section_1,
-        firebim:Section_1.1,
-        firebim:Section_1.2,
-        firebim:Section_1.3,
         firebim:Section_2,
-        firebim:Section_2.1,
-        firebim:Section_2.2,
         firebim:Section_3,
-        firebim:Section_3.1,
-        firebim:Section_3.2,
-        firebim:Section_3.3,
-        firebim:Section_3.4,
-        firebim:Section_3.5,
-        firebim:Section_4.1,
-        firebim:Section_4.2,
-        firebim:Section_4.3,
-        firebim:Section_4.5,
+        firebim:Section_4,
         firebim:Section_5,
-        firebim:Section_5.1,
-        firebim:Section_5.2,
-        firebim:Section_5.3,
-        firebim:Section_5.4,
-        firebim:Section_5.5,
-        firebim:Section_6,
-        firebim:Section_6.1,
-        firebim:Section_6.1.3.1 ;
+        firebim:Section_6 ;
     firebim:issued "1994-07-07"^^xsd:date .
 
 firebim:Section_0 a firebim:Section ;
-    firebim:hasArticle firebim:Article_0 ;
-    firebim:hasID "0" .
+    firebim:hasArticle firebim:Article_0_1 ;
+    firebim:hasID "0" ;
+    firebim:hasOriginalText """Federale Overheidsdienst Binnenlandse Zaken  
+Algemene Directie Civiele Veiligheid – Brandpreventie  
+ 
+45/275 
+ (v3.0 ) Koninklijk besluit van 7 juli 1994 (gecoördi neerde versie op 20 mei  2022) 
+BIJLAGE 2/1: LAGE GEBOUWEN"""@nl ;
+    firebim:hasSection firebim:Section_0_1,
+        firebim:Section_0_2,
+        firebim:Section_0_3 .
 
-firebim:Section_0.1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_0.1.1 ;
-    firebim:hasID "0.1" ;
-    firebim:hasOriginalText """0.1 Objective.
-These basic regulations define the minimum requirements that the conception, construction and 
-design of low-rise buildings (LG) must meet in order to:
-a)prevent the occurrence, development and propagation of fire;
-b)ensure the safety of those present;
-c)preventively facilitate the fire department's intervention.""" .
+firebim:Section_0_1 a firebim:Section ;
+    firebim:hasArticle firebim:Article_0_1_1 ;
+    firebim:hasID "0_1" ;
+    firebim:hasOriginalText "0 ALGEMEEN."@nl .
 
-firebim:Section_0.2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_0.2.1,
-        firebim:Article_0.2.2 ;
-    firebim:hasID "0.2" ;
-    firebim:hasOriginalText "0.2 Scope." .
+firebim:Section_0_2 a firebim:Section ;
+    firebim:hasArticle firebim:Article_0_1 ;
+    firebim:hasID "0_2" ;
+    firebim:hasOriginalText "0.1 Doel."@nl .
 
-firebim:Section_0.3 a firebim:Section ;
-    firebim:hasArticle firebim:Article_0.3.1 ;
-    firebim:hasID "0.3" ;
-    firebim:hasOriginalText "0.3 Terminology - see Appendix 1." .
-
-firebim:Section_0.4 a firebim:Section ;
-    firebim:hasArticle firebim:Article_0.4.1 ;
-    firebim:hasID "0.4" ;
-    firebim:hasOriginalText "0.4 Response to fire of the materials - see Appendix 5." .
+firebim:Section_0_3 a firebim:Section ;
+    firebim:hasID "0_3" .
 
 firebim:Section_1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_1 ;
+    firebim:hasArticle firebim:Article_1_1 ;
+    firebim:hasFigure firebim:Figure_2_1,
+        firebim:Figure_2_2 ;
     firebim:hasID "1" ;
-    firebim:hasOriginalText """Federal Public Service Home Affairs
-General Directorate of Civil Security - Fire Prevention.
-24/281
-(v3.0)
-Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).ANNEX 2: LOW BUILDINGS""",
-        """Federal Public Service Home Affairs\r
-General Directorate of Civil Security - Fire Prevention.\r
-24/281\r
-(v3.0)\r
-Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).ANNEX 2: LOW BUILDINGS""" .
+    firebim:hasOriginalText "0.3 Platen"@nl ;
+    firebim:hasSection firebim:Section_1_1,
+        firebim:Section_1_2,
+        firebim:Section_1_3 .
 
-firebim:Section_1.1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_1.1.1,
-        firebim:Article_1.1.2,
-        firebim:Article_1.1.3 ;
-    firebim:hasID "1.1" ;
-    firebim:hasOriginalText "1.1 [Fire department accessibility and emplacement]" .
+firebim:Section_1_1 a firebim:Section ;
+    firebim:hasID "1_1" .
 
-firebim:Section_1.2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_1.2.1 ;
-    firebim:hasID "1.2" ;
-    firebim:hasOriginalText """[Outbuildings, etc.]
-Outbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if 
-they do not compromise either evacuation, occupant safety or fire department action.""" .
+firebim:Section_1_2 a firebim:Section ;
+    firebim:hasID "1_2" .
 
-firebim:Section_1.3 a firebim:Section ;
-    firebim:hasArticle firebim:Article_1.3.1,
-        firebim:Article_1.3.2,
-        firebim:Article_1.3.3,
-        firebim:Article_1.3.4 ;
-    firebim:hasID "1.3" ;
-    firebim:hasOriginalText """1.3 [Horizontal distance between buildings]
-The horizontal distance, free from any combustible element and located between an LG and an opposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent buildings.
-The walls separating adjacent buildings have Rf 1 h.
-In these walls a connection between these buildings may exist through a door Rf ½ h, self-closing or self-closing in case of fire.
-The condition of distance between an LG and an opposing building does not apply to buildings separated by existing streets, roads..., belonging to the public domain.""" .
+firebim:Section_1_3 a firebim:Section ;
+    firebim:hasID "1_3" .
 
 firebim:Section_2 a firebim:Section ;
+    firebim:hasArticle firebim:Article_2_1 ;
     firebim:hasID "2" ;
-    firebim:hasOriginalText "2 COMPARTMENTALIZATION AND EVACUATION." .
+    firebim:hasOriginalText "COMPARTIMENTERING EN EVACUATIE."@nl ;
+    firebim:hasSection firebim:Section_2_1,
+        firebim:Section_2_2 .
 
-firebim:Section_2.1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2.1.1,
-        firebim:Article_2.1.2,
-        firebim:Article_2.1.3,
-        firebim:Article_2.1.4 ;
-    firebim:hasID "2.1" ;
-    firebim:hasOriginalText """2.1 [Size of compartments]
-The building is divided into compartments whose area is less than 2,500 m², with the exception of 
-the parking buildings (see 5.2).
-Single-story buildings that can be carried out in a single compartment, the area of that 
-compartment may reach 3500 m². The length of this compartment shall not exceed 90 m.
-As for the buildings referred to in the above paragraphs, the area of a compartment, as the case 
-may be, may exceed either 2,500 square meters or 3,500 square meters, if it is equipped with an 
-automatic fire extinguishing system and a smoke and heat extraction system, which comply with 
-the standards or with the rules of good craftsmanship in this matter recognized by the Minister of 
-the Interior, according to the procedure and conditions he determines.
-The height of a compartment corresponds to the height of one storey. However, 
-the following exceptions are allowed:
-Federal Public Service Home Affairs
-General Directorate of Civil Security - Fire Prevention.
-ANNEX 2: LOW BUILDINGS
-26/281
-(v3.0)
-Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).-the parking building with building levels (see 5.2);
--a compartment may extend over two superimposed floors with an interior connecting staircase 
-(duplex), if the cumulative area of those floors does not exceed 2,500 m²;
--the height of a compartment may extend over several superimposed building levels, if this 
-compartment contains only technical rooms (see 5.1.1).
--the height of a compartment may extend over several floors (atrium) provided that this 
-compartment is equipped with an automatic fire extinguishing system and a smoke and heat 
-extraction system, which comply with the standards or with the rules of good craftsmanship on 
-the subject recognized by the Minister of the Interior, according to the procedure and 
-conditions he determines.""" .
+firebim:Section_2_1 a firebim:Section ;
+    firebim:hasID "2_1" .
 
-firebim:Section_2.2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2.2.1,
-        firebim:Article_2.2.2 ;
-    firebim:hasID "2.2" ;
-    firebim:hasOriginalText "2.2 Evacuation of compartments." .
+firebim:Section_2_2 a firebim:Section ;
+    firebim:hasID "2_2" .
 
 firebim:Section_3 a firebim:Section ;
     firebim:hasID "3" ;
-    firebim:hasOriginalText "3 REGULATIONS FOR SOME BUILDING ELEMENTS." .
+    firebim:hasSection firebim:Section_3_1,
+        firebim:Section_3_2,
+        firebim:Section_3_3,
+        firebim:Section_3_4,
+        firebim:Section_3_5 .
 
-firebim:Section_3.1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_3.1.1 ;
-    firebim:hasID "3.1" ;
-    firebim:hasOriginalText """3.1 Penetrations through walls.
-Penetrations through walls of pipes for fluids or for electricity and the expansion joints shall not adversely affect the required fire resistance of the building elements.
-Federal Public Service Home Affairs
-General Directorate of Civil Security - Fire Prevention.
-ANNEX 2: LOW BUILDINGS
-27/281
-(v3.0)
-Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).""" .
+firebim:Section_3_1 a firebim:Section ;
+    firebim:hasID "3_1" .
 
-firebim:Section_3.2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_3.2.1,
-        firebim:Article_3.2.2 ;
-    firebim:hasID "3.2" ;
-    firebim:hasOriginalText """3.2 Structural elements.
-The structural elements have:
-a)Rf ½ h for single-story buildings. However, this requirement does not apply to the roof if it is protected on the inside by a building element with Rf ½ h;
-b)for buildings with more than one storey : Rf 1 h above Ei level. The structure of the roof has a fire stability of ½ h. This requirement is not applicable if the roof is protected on the inside by a building element with Rf ½ h;
-c)the structural elements in the basement floors, including the level Ei floor have Rf 1 h.
-No fire resistance requirements are imposed on the structural elements of open parking buildings whose horizontal walls possess Rf 1 h.""" .
+firebim:Section_3_2 a firebim:Section ;
+    firebim:hasID "3_2" .
 
-firebim:Section_3.3 a firebim:Section ;
-    firebim:hasArticle firebim:Article_3.3.1,
-        firebim:Article_3.3.2,
-        firebim:Article_3.3.3 ;
-    firebim:hasID "3.3" ;
-    firebim:hasOriginalText """3.3 Vertical interior walls and interior doors.
-For walls and doors, which demarcate compartments, 4.1 applies; if they demarcate evacuation routes, 4.4 applies.
-The interior vertical walls demarcating classrooms or the entirety of classrooms with night occupancy have at least the fire resistance of the structural elements.
-The doors in these walls have Rf ½ h.""" .
+firebim:Section_3_3 a firebim:Section ;
+    firebim:hasID "3_3" .
 
-firebim:Section_3.4 a firebim:Section ;
-    firebim:hasArticle firebim:Article_3.4.1,
-        firebim:Article_3.4.2 ;
-    firebim:hasID "3.4" ;
-    firebim:hasOriginalText "3.4 Ceilings and false ceilings." .
+firebim:Section_3_4 a firebim:Section ;
+    firebim:hasID "3_4" .
 
-firebim:Section_3.5 a firebim:Section ;
-    firebim:hasArticle firebim:Article_3.5.1,
-        firebim:Article_3.5.2,
-        firebim:Article_3.5.3,
-        firebim:Article_3.5.4 ;
-    firebim:hasID "3.5" ;
-    firebim:hasOriginalText """3.5 Facades.
-The studs of the curtain wall skeleton (light facade) are fixed to the building skeleton at the level of each storey.
-The parapet and the lintel are fastened to the floor slab in such a way that the whole assembly will be in place during
-½ h meets the "flame tightness" criterion of NBN 713-020; the same requirement is also met by the pennants.
-The connection of the façade element to the floor meets the requirements imposed for the floor or for the walls separating the compartments.
-Federal Public Service Home Affairs
-General Directorate of Civil Security - Fire Prevention.
-ANNEX 2: LOW BUILDINGS
-28/281
-(v3.0)
-Royal Decree of July 7, 1994 (coordinated version on May 20, 2022).4 PRECAUTIONS ON CONSTRUCTION OF COMPARTMENTS
-AND EVACUATION ROOMS.""" .
+firebim:Section_3_5 a firebim:Section ;
+    firebim:hasID "3_5" .
 
-firebim:Section_4.1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_4.1.1,
-        firebim:Article_4.1.2 ;
-    firebim:hasID "4.1" ;
-    firebim:hasOriginalText """4.1 Compartments.
-The walls between compartments have at least the fire resistance of the structural elements.
-The connection between two compartments is permitted only if it is through a self-closing or, in the 
-event of fire, self-closing door Rf ½ h.""" .
+firebim:Section_4 a firebim:Section ;
+    firebim:hasID "4" ;
+    firebim:hasSection firebim:Section_4_1,
+        firebim:Section_4_2,
+        firebim:Section_4_3,
+        firebim:Section_4_4,
+        firebim:Section_4_5 .
 
-firebim:Section_4.2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_4.2.1,
-        firebim:Article_4.2.2,
-        firebim:Article_4.2.3 ;
-    firebim:hasID "4.2" ;
-    firebim:hasOriginalText "4.2 Interior stairwells." .
+firebim:Section_4_1 a firebim:Section ;
+    firebim:hasID "4_1" .
 
-firebim:Section_4.3 a firebim:Section ;
-    firebim:hasArticle firebim:Article_4.3.1,
-        firebim:Article_4.3.2,
-        firebim:Article_4.3.3,
-        firebim:Article_4.3.4 ;
-    firebim:hasID "4.3" ;
-    firebim:hasOriginalText """4.3 Exterior stairwells.
-Exterior stairs should provide access to an evacuation level.
-The requirements of 4.2.3 apply to it with however the following deviation: no fire stability is 
-required, but the material belongs to class A0.
-The connection between the compartment and an external staircase is done
--either through a door;
--either through escape terrace(s).
-For the connection between the evacuation level and the immediately higher level, a staircase or 
-section of staircase may be used that is retractable or articulated.""" .
+firebim:Section_4_2 a firebim:Section ;
+    firebim:hasID "4_2" .
 
-firebim:Section_4.5 a firebim:Section ;
-    firebim:hasArticle firebim:Article_4.5.1,
-        firebim:Article_4.5.2 ;
-    firebim:hasID "4.5" ;
-    firebim:hasOriginalText "4.5 Signalization." .
+firebim:Section_4_3 a firebim:Section ;
+    firebim:hasID "4_3" .
+
+firebim:Section_4_4 a firebim:Section ;
+    firebim:hasID "4_4" .
+
+firebim:Section_4_5 a firebim:Section ;
+    firebim:hasID "4_5" .
 
 firebim:Section_5 a firebim:Section ;
-    firebim:hasArticle firebim:Article_5 ;
     firebim:hasID "5" ;
-    firebim:hasOriginalText "5 CONSTRUCTION REQUIREMENTS FOR SOME CLASSROOMS AND TECHNICAL ROOMS." .
+    firebim:hasSection firebim:Section_5_1,
+        firebim:Section_5_2,
+        firebim:Section_5_3,
+        firebim:Section_5_4,
+        firebim:Section_5_5 .
 
-firebim:Section_5.1 a firebim:Section ;
-    firebim:hasID "5.1" ;
-    firebim:hasOriginalText "5.1 Technical classrooms and spaces." ;
-    firebim:hasSubsection firebim:Section_5.1.1,
-        firebim:Section_5.1.2,
-        firebim:Section_5.1.3,
-        firebim:Section_5.1.4,
-        firebim:Section_5.1.5 .
+firebim:Section_5_1 a firebim:Section ;
+    firebim:hasID "5_1" .
 
-firebim:Section_5.1.1.1 a firebim:Section ;
-    firebim:hasID "5.1.1.1" ;
-    firebim:hasOriginalText """5.1.1.1 For the technical rooms, the compartment requirements apply subject to the following modifications:
-1.access to two exits leading:
--either to an adjacent compartment through a door Rf ½ h;
--either to a stairwell through a door Rf ½ h;
--either to the outside, such that an evacuation level is attainable;
-2.deviating from 4.4, no point of the compartment shall be beyond:
--45 m from the road connecting the two exits in the technical compartment;
--60 m from the nearest exit;
--100 m from the second exit;
-if however the surface of the technical compartment does not exceed 1000 m², one exit to a stairwell, to the outside or to another compartment is sufficient. In this case, the distance to this exit may not exceed 60 m;
-3.if the height of the technical compartment extends over several successive floors (see 2.1) and if it includes more than one service floor connected by stairs or ladders:
--then, provided that the compartment area is less than 1000 m², one access to a stairwell, to the outside or to another compartment may suffice every two service floors, and starting with the lowest;
--if the compartment area exceeds 1000 m², then each service floor must provide access to at least one of two exits; these alternate from floor to floor;
-4.the useful width of evacuation routes, stairways, spillways and shafts shall be at least 0.80 m.""" .
+firebim:Section_5_2 a firebim:Section ;
+    firebim:hasID "5_2" .
 
-firebim:Section_5.1.2 a firebim:Section ;
-    firebim:hasID "5.1.2" ;
-    firebim:hasOriginalText """5.1.2 Heating departments and ancillaries.
-Their design and implementation comply with the requirements of standard NBN B 61-001 +A1 : 1996. If the total useful heat capacity of the generators installed in the boiler room is less than 70 kW but greater than 30 kW, this room is considered a technical room.
-The boiler rooms and their connections to the other parts of the building may be provided by a self-closing door Rf 1 h provided that it does not open onto a stairwell or onto an elevator landing or into a room at particular risk. The door rotates in the sense of escape.
-The facilities for storage and relaxation of liquefied petroleum gas used to heat the building are located outside the building.""" .
+firebim:Section_5_3 a firebim:Section ;
+    firebim:hasID "5_3" .
 
-firebim:Section_5.1.3 a firebim:Section ;
-    firebim:hasID "5.1.3" ;
-    firebim:hasOriginalText "5.1.3 Transformer Rooms." ;
-    firebim:hasSubsection firebim:Section_5.1.3.1,
-        firebim:Section_5.1.3.2 .
+firebim:Section_5_4 a firebim:Section ;
+    firebim:hasID "5_4" .
 
-firebim:Section_5.1.3.1 a firebim:Section ;
-    firebim:hasID "5.1.3.1" ;
-    firebim:hasOriginalText """5.1.3.1 General.
-They comply with the requirements of the General Regulations on Electrical Installations (A.R.E.I.).
-Furthermore:
--the walls have Rf 1 h, except for the exterior walls;
--the interior doors have Rf ½ h;
-- If water (from any source, including fire water) can reach the floor, for example by infiltration or through cable ducts, then all measures must be taken so that the water level remains constantly and automatically below the vital parts of the electrical installation as long as it is in use.
-If the oil content of the whole apparatus reaches 50 l or more, the regulations of NBN C 18-200 "Guidelines for the fire protection of the premises of electricity transformation" must be applied.""" .
-
-firebim:Section_5.1.3.2 a firebim:Section ;
-    firebim:hasID "5.1.3.2" ;
-    firebim:hasOriginalText """5.1.3.2 On-site assembled posts or prefabricated posts.
-An on-site assembled post or prefabricated post shall be erected in a designated room, with walls Rf 1 h.
-Access, if not from the outside, is through a door Rf ½ h.""" .
-
-firebim:Section_5.1.4 a firebim:Section ;
-    firebim:hasID "5.1.4" ;
-    firebim:hasOriginalText "5.1.4 Household waste disposal." ;
-    firebim:hasSubsection firebim:Section_5.1.4.1,
-        firebim:Section_5.1.4.2 .
-
-firebim:Section_5.1.4.1 a firebim:Section ;
-    firebim:hasID "5.1.4.1" ;
-    firebim:hasOriginalText """5.1.4.1 Dumpster.
-It is preferably installed on the outside of the building.
-Its walls are made of non-combustible materials and have a smooth inner surface.
-The ventilation tube of the chute must extend at least 1 m above the roof level. The chute doors shall be self-closing.
-Regarding resistance to fire:
-1.if the tube is set up inside the building, the walls have Rf 1 h and the doors have Rf ½ h;
-2.if the tube is set up outside the building with the doors on the inside, they have Rf ½ h; each joint between the door and the tube has Rf 1 h.""" .
-
-firebim:Section_5.1.4.2 a firebim:Section ;
-    firebim:hasID "5.1.4.2" ;
-    firebim:hasOriginalText """5.1.4.2 Local for storage of garbage.
-The walls have Rf 1 h.
-If this room does not give out into the open air, it is accessible through a self-closing door Rf ½ h.""" .
-
-firebim:Section_5.1.5 a firebim:Section ;
-    firebim:hasID "5.1.5" ;
-    firebim:hasOriginalText "5.1.5 Pipe sleeves." ;
-    firebim:hasSubsection firebim:Section_5.1.5.1,
-        firebim:Section_5.1.5.2 .
-
-firebim:Section_5.1.5.1 a firebim:Section ;
-    firebim:hasID "5.1.5.1" ;
-    firebim:hasOriginalText """5.1.5.1 Vertical tubes.
-Their walls have Rf 1 h.
-The trapdoors and doors have Rf ½ h.
-The free ventilation cross section of the duct is at least equal to 10% of the total horizontal cross section of the duct, with a minimum of 4 dm².
-These tubes may be built in the stairwells.
-However, their walls may have Rf ½ h if the ducts are compartmentalized at the level of each storey by horizontal screens with the following characteristics:
--they are of non-combustible material;
--they cover the entire space between the pipes;
--they have Rf ½ h.
-In this case, the tube should not be ventilated.""" .
-
-firebim:Section_5.1.5.2 a firebim:Section ;
-    firebim:hasID "5.1.5.2" ;
-    firebim:hasOriginalText """5.1.5.2 Horizontal tubes.
-Ducts penetrating vertical walls for which an Rf is prescribed have:
--either walls and doors with the same Rf as these vertical walls;
--either a building element at the height of each wall with the same Rf as these vertical walls.""" .
-
-firebim:Section_5.3 a firebim:Section ;
-    firebim:hasArticle firebim:Article_5.3.1,
-        firebim:Article_5.3.2 ;
-    firebim:hasID "5.3" ;
-    firebim:hasOriginalText "5.3 Halls." .
-
-firebim:Section_5.4 a firebim:Section ;
-    firebim:hasArticle firebim:Article_5.4.1,
-        firebim:Article_5.4.2 ;
-    firebim:hasID "5.4" ;
-    firebim:hasOriginalText """5.4 Shopping or commercial complex.
-The furnishing of storefronts opening onto interior galleries is permitted at an evacuation level and on adjacent building floors provided:
-1.the complex with its galleries is separated from other building parts by walls with Rf 1 h;
-2.the other building sections have their own exits independent of the exits of the retail or commercial complex;
-The partition walls between commercial premises have Rf ½ h and extend into any false ceiling. This requirement is waived if the store or commercial complex is equipped with an automatic hydraulic extinguishing system (NBN S 21-028).""" .
-
-firebim:Section_5.5 a firebim:Section ;
-    firebim:hasArticle firebim:Article_5.5.1,
-        firebim:Article_5.5.2,
-        firebim:Article_5.5.3,
-        firebim:Article_5.5.4 ;
-    firebim:hasID "5.5" ;
-    firebim:hasOriginalText """5.5 Collective kitchens.
-The collective kitchens, possibly including the restaurant, are separated from the other building 
-parts by walls with Rf 1 h.
-When the kitchen is not compartmentalized with respect to the restaurant, each fixed deep-frying 
-appliance is equipped with a fixed automatic fire extinguisher that is coupled with a device that 
-interrupts the supply of energy to the deep-frying appliance.
-Each passageway is closed by a self-closing door Rf ½ h or in case of fire self-closing door. 
-These doors turn away from the kitchen in the direction of escape.
-Horizontal and vertical transport systems for dishes may be installed between kitchens and 
-restaurants; if this transport passes through other premises, it must be enclosed in ducts with walls 
-Rf ½ h.""" .
+firebim:Section_5_5 a firebim:Section ;
+    firebim:hasID "5_5" .
 
 firebim:Section_6 a firebim:Section ;
     firebim:hasID "6" ;
-    firebim:hasOriginalText "6 EQUIPMENT OF THE BUILDINGS" .
+    firebim:hasSection firebim:Section_6_1,
+        firebim:Section_6_2,
+        firebim:Section_6_3,
+        firebim:Section_6_4,
+        firebim:Section_6_5,
+        firebim:Section_6_6,
+        firebim:Section_6_7,
+        firebim:Section_6_8 .
 
-firebim:Section_6.1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_6.1.1,
-        firebim:Article_6.1.2,
-        firebim:Article_6.1.3 ;
-    firebim:hasID "6.1" ;
-    firebim:hasOriginalText "6.1 Elevators and freight elevators" .
+firebim:Section_6_1 a firebim:Section ;
+    firebim:hasID "6_1" .
 
-firebim:Section_6.1.3.1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_6.1.3.1,
-        firebim:Article_6.1.3.2,
-        firebim:Article_6.1.4 ;
-    firebim:hasID "6.1.3.1" ;
-    firebim:hasOriginalText """6.1.3.1 A smoke detection system will be placed at the top of the shaft. In case of detection of smoke in 
-the shaft, the cabin will stop in accordance with 6.1.1.7. The detection system in the shaft shall be 
-provided so that its maintenance and control can be done from outside the shaft.
-The elevator will only be able to be reactivated by an authorized person.
-6.1.3.2 The shaft should be naturally ventilated through outside air nozzles.
-The ventilation opening, located at the top of the shaft, has a minimum cross-sectional area of 4% 
-of the horizontal area of the shaft.
-6.1.4 Oleohydraulic elevators
-The machine room is separated from the elevator shaft. The walls of the machine room have Rf 1 
-h.
-Access to the engine room is through a self-closing door Rf ½ h.
-The machine rooms and elevator shafts should be naturally ventilated through outside air nozzles.
-The ventilation openings have a minimum cross-sectional area of 4% of the horizontal cross-
-sectional area of the room.
-The level of the engine room door thresholds is raised so that the tub thus formed has a capacity 
-at least equal to 1.2 times the oil content of the machinery.
-Electrical equipment as well as electrical and hydraulic lines running from the engine room to the 
-elevator shaft are installed higher than the highest level that the drained oil in the engine room can 
-reach. The space around the penetrations for these pipes, should be sealed with materials with at 
-least the same Rf as the wall.""" .
+firebim:Section_6_2 a firebim:Section ;
+    firebim:hasID "6_2" .
 
-firebim:Section_5.1.1 a firebim:Section ;
-    firebim:hasID "5.1.1" ;
-    firebim:hasOriginalText """5.1.1 General.
-A technical room or a set of technical rooms constitutes a compartment. Its height may extend over several successive floors.""" ;
-    firebim:hasSubsection firebim:Section_5.1.1.1 .
+firebim:Section_6_3 a firebim:Section ;
+    firebim:hasID "6_3" .
 
-firebim:Section_5.2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_5.2.1,
-        firebim:Article_5.2.2,
-        firebim:Article_5.2.3,
-        firebim:Article_5.2.4,
-        firebim:Article_5.2.5 ;
-    firebim:hasID "5.2" ;
-    firebim:hasOriginalText """5.2 Parking buildings.
-In deviation from the basic principle stated in 2.1, a parking building may form a compartment 
-whose area is not limited even when there are several communicating building levels.
-The walls between the parking buildings and the rest of the building have at least the required Rf 
-of the structural elements.
-However, the parking compartment may include some premises not intended for residence, such 
-as : premises for electrical transformation, archive rooms, technical rooms ...
-The walls of these rooms exhibit Rf 1 h and access is by a self-closing door Rf ½ h.
-At each building level, evacuation is arranged as follows :
-- at least two stairwells or exterior stairways meet the requirements contained in 4.2 or""" .
+firebim:Section_6_4 a firebim:Section ;
+    firebim:hasID "6_4" .
+
+firebim:Section_6_5 a firebim:Section ;
+    firebim:hasID "6_5" .
+
+firebim:Section_6_6 a firebim:Section ;
+    firebim:hasID "6_6" .
+
+firebim:Section_6_7 a firebim:Section ;
+    firebim:hasID "6_7" .
+
+firebim:Section_6_8 a firebim:Section ;
+    firebim:hasID "6_8" .
 

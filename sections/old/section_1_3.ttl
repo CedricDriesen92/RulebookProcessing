@@ -8,28 +8,41 @@
 
 firebim:Section_1.3 a firebim:Section ;
     firebim:hasID "1.3" ;
-    firebim:hasOriginalText "[Horizontal distance between buildings]" ;
-    firebim:hasArticle firebim:Article_1.3.1, firebim:Article_1.3.2, firebim:Article_1.3.3, firebim:Article_1.3.4 .
+    firebim:hasOriginalText "1.3 [Horizontal distance between buildings]\nThe horizontal distance, free from any combustible element and located between an LG and an opposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent buildings.\nThe walls separating adjacent buildings have Rf 1 h.\nIn these walls a connection between these buildings may exist through a door Rf ½ h, self-closing or self-closing in case of fire.\nThe condition of distance between an LG and an opposing building does not apply to buildings separated by existing streets, roads..., belonging to the public domain." .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_1.3 .
+
+firebim:Section_1.3 firebim:hasArticle firebim:Article_1.3.1 .
 
 firebim:Article_1.3.1 a firebim:Article ;
+    firebim:hasOriginalText "1.3 [Horizontal distance between buildings]\nThe horizontal distance, free from any combustible element and located between an LG and an opposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent buildings." ;
     firebim:hasMember firebim:Member_1.3.1.1 .
 
 firebim:Member_1.3.1.1 a firebim:Member ;
     firebim:hasOriginalText "The horizontal distance, free from any combustible element and located between an LG and an opposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent buildings." .
 
+firebim:Section_1.3 firebim:hasArticle firebim:Article_1.3.2 .
+
 firebim:Article_1.3.2 a firebim:Article ;
+    firebim:hasOriginalText "The walls separating adjacent buildings have Rf 1 h." ;
     firebim:hasMember firebim:Member_1.3.2.1 .
 
 firebim:Member_1.3.2.1 a firebim:Member ;
     firebim:hasOriginalText "The walls separating adjacent buildings have Rf 1 h." .
 
+firebim:Section_1.3 firebim:hasArticle firebim:Article_1.3.3 .
+
 firebim:Article_1.3.3 a firebim:Article ;
+    firebim:hasOriginalText "In these walls a connection between these buildings may exist through a door Rf ½ h, self-closing or self-closing in case of fire." ;
     firebim:hasMember firebim:Member_1.3.3.1 .
 
 firebim:Member_1.3.3.1 a firebim:Member ;
     firebim:hasOriginalText "In these walls a connection between these buildings may exist through a door Rf ½ h, self-closing or self-closing in case of fire." .
 
+firebim:Section_1.3 firebim:hasArticle firebim:Article_1.3.4 .
+
 firebim:Article_1.3.4 a firebim:Article ;
+    firebim:hasOriginalText "The condition of distance between an LG and an opposing building does not apply to buildings separated by existing streets, roads..., belonging to the public domain." ;
     firebim:hasMember firebim:Member_1.3.4.1 .
 
 firebim:Member_1.3.4.1 a firebim:Member ;
