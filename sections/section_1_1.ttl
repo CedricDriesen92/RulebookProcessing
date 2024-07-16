@@ -1,0 +1,80 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_1_1 a firebim:Section ;
+    firebim:hasID "1_1" ;
+    firebim:hasOriginalText "Bereikbaarheid e n opstelmogelijkheden brandweer"@nl .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_1_1 .
+
+firebim:Section_1_1 firebim:hasArticle firebim:Article_1_1_1, firebim:Article_1_1_2, firebim:Article_1_1_3 .
+
+firebim:Article_1_1_1 a firebim:Article ;
+    firebim:hasOriginalText """Voor de gebouwen met één bouwlaag moeten de voertuigen van de brandweer ten minste tot op 
+60 m van een gevel van het gebouw kunnen naderen."""@nl ;
+    firebim:hasMember firebim:Member_1_1_1_1 .
+
+firebim:Member_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Voor de gebouwen met één bouwlaag moeten de voertuigen van de brandweer ten minste tot op 
+60 m van een gevel van het gebouw kunnen naderen."""@nl .
+
+firebim:Article_1_1_2 a firebim:Article ;
+    firebim:hasOriginalText """Voor de gebouwen met meer dan één bouwlaag moeten de voertuigen van de brandweer ten 
+minste in één punt een gevel kunnen bereiken die op herkenbare plaatsen toegang geeft tot 
+Federale Overheidsdienst Binnenlandse Zaken  
+Algemene Directie Civiele Veiligheid – Brandpreventie  
+ 
+46/275 
+ (v3.0 ) Koninklijk besluit van 7 juli 1994 (gecoördi neerde versie op 20 mei  2022) 
+BIJLAGE 2/1: LAGE GEBOUWEN  
+ 
+iedere bouwlaag."""@nl ;
+    firebim:hasMember firebim:Member_1_1_2_1 .
+
+firebim:Member_1_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText """Voor de gebouwen met meer dan één bouwlaag moeten de voertuigen van de brandweer ten 
+minste in één punt een gevel kunnen bereiken die op herkenbare plaatsen toegang geeft tot 
+iedere bouwlaag."""@nl .
+
+firebim:Article_1_1_3 a firebim:Article ;
+    firebim:hasOriginalText """Daartoe moeten de voertuigen beschikken over een toegangsmogeli jkheid en een opstelplaats:  
+a) ofwel op de berijdbare rijweg van de openbare weg;  
+b) ofwel op een bijzondere toegangsweg vanaf de berijdbare rijweg van de openbare weg en die 
+de volgende karakteristieken vertoont:  
+- minimale vrije breedte: 4  m; 
+- minimale draaicirke l met draaistraal 11  m (aan de binnenkant) en 15  m (aan de 
+buitenkant);  
+- minimale vrije hoogte: 4  m; 
+- maximale helling: 6%;  
+- draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting 
+van 13t er kunnen rijden en stilstaan, zelfs wa nneer ze het terrein vervormen.  
+Voor de kunstwerken welke zich op de toegangswegen bevinden, richt men zich naar 
+NBN  B 03-101."""@nl ;
+    firebim:hasMember firebim:Member_1_1_3_1, firebim:Member_1_1_3_2 .
+
+firebim:Member_1_1_3_1 a firebim:Member ;
+    firebim:hasOriginalText """Daartoe moeten de voertuigen beschikken over een toegangsmogeli jkheid en een opstelplaats:  
+a) ofwel op de berijdbare rijweg van de openbare weg;  
+b) ofwel op een bijzondere toegangsweg vanaf de berijdbare rijweg van de openbare weg en die 
+de volgende karakteristieken vertoont:"""@nl .
+
+firebim:Member_1_1_3_2 a firebim:Member ;
+    firebim:hasOriginalText """- minimale vrije breedte: 4  m; 
+- minimale draaicirke l met draaistraal 11  m (aan de binnenkant) en 15  m (aan de 
+buitenkant);  
+- minimale vrije hoogte: 4  m; 
+- maximale helling: 6%;  
+- draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting 
+van 13t er kunnen rijden en stilstaan, zelfs wa nneer ze het terrein vervormen.  
+Voor de kunstwerken welke zich op de toegangswegen bevinden, richt men zich naar 
+NBN  B 03-101."""@nl .
+
+firebim:Table_1_1_1 a firebim:Table ;
+    firebim:hasID "1_1_1" .
+
+firebim:Section_1_1 firebim:hasTable firebim:Table_1_1_1 .

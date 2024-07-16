@@ -4,19 +4,6 @@
 firebim:Belgian_Government a firebim:Authority ;
     firebim:hasDocument firebim:RoyalDecree .
 
-firebim:Figure_2_1 a firebim:Figure ;
-    firebim:hasID "2.1" ;
-    firebim:hasOriginalText "Plaat 2.1  - Gevels tussen gebouwen"@nl .
-
-firebim:Figure_2_2 a firebim:Figure ;
-    firebim:hasID "2.2" ;
-    firebim:hasOriginalText "Plaat 2. 2 - Gevels tussen compartimenten"@nl .
-
-firebim:Paragraph_1_1 a firebim:Paragraph ;
-    firebim:hasFigure firebim:Figure_2_1,
-        firebim:Figure_2_2 ;
-    firebim:hasOriginalText "[De platen zijn opgenomen bij de betreffende tekst]"@nl .
-
 firebim:RoyalDecree a firebim:Document ;
     firebim:hasID "RoyalDecree1994" ;
     firebim:hasSection firebim:Section_0,
@@ -29,86 +16,45 @@ firebim:RoyalDecree a firebim:Document ;
     firebim:issued "1994-07-07"^^xsd:date .
 
 firebim:Section_0 a firebim:Section ;
-    firebim:hasAppendix firebim:Appendix_2_1 ;
     firebim:hasID "0" ;
-    firebim:hasOriginalText """Federale Overheidsdienst Binnenlandse Zaken  
-Algemene Directie Civiele Veiligheid – Brandpreventie  
- 
-45/275 
- (v3.0 ) Koninklijk besluit van 7 juli 1994 (gecoördi neerde versie op 20 mei  2022) 
-BIJLAGE 2/1: LAGE GEBOUWEN"""@nl ;
     firebim:hasSection firebim:Section_0_1,
         firebim:Section_0_2,
         firebim:Section_0_3 .
 
 firebim:Section_0_1 a firebim:Section ;
-    firebim:hasChapter firebim:Chapter_0 ;
-    firebim:hasID "0_1" ;
-    firebim:hasOriginalText "0 ALGEMEEN."@nl .
+    firebim:hasID "0_1" .
 
 firebim:Section_0_2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_0_1 ;
-    firebim:hasID "0_2" ;
-    firebim:hasOriginalText "0.1 Doel."@nl .
+    firebim:hasID "0_2" .
 
 firebim:Section_0_3 a firebim:Section ;
-    firebim:hasArticle firebim:Article_0_2_1,
-        firebim:Article_0_2_2 ;
-    firebim:hasID "0_3" ;
-    firebim:hasOriginalText "0.2 Toepassingsgebied."@nl .
+    firebim:hasID "0_3" .
 
 firebim:Section_1 a firebim:Section ;
     firebim:hasID "1" ;
-    firebim:hasOriginalText "0.3 Platen"@nl ;
-    firebim:hasParagraph firebim:Paragraph_1_1 ;
     firebim:hasSection firebim:Section_1_1,
         firebim:Section_1_2,
         firebim:Section_1_3 .
 
 firebim:Section_1_1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_1_1_1,
-        firebim:Article_1_1_2,
-        firebim:Article_1_1_3 ;
-    firebim:hasID "1_1" ;
-    firebim:hasOriginalText "Bereikbaarheid e n opstelmogelijkheden brandweer"@nl ;
-    firebim:hasTable firebim:Table_1_1_1 .
+    firebim:hasID "1_1" .
 
 firebim:Section_1_2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_1_2_1 ;
-    firebim:hasID "1_2" ;
-    firebim:hasOriginalText "1.2 Bijgebouwen"@nl .
+    firebim:hasID "1_2" .
 
 firebim:Section_1_3 a firebim:Section ;
-    firebim:hasArticle firebim:Article_1_3_1,
-        firebim:Article_1_3_2,
-        firebim:Article_1_3_3,
-        firebim:Article_1_3_4 ;
-    firebim:hasID "1_3" ;
-    firebim:hasOriginalText """1.3 Horizontale afstand tussen gebouwen  
- Om te vermijden dat een brand tussen twee gebouwen kan overslaan:"""@nl .
+    firebim:hasID "1_3" .
 
 firebim:Section_2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_1 ;
     firebim:hasID "2" ;
-    firebim:hasOriginalText "COMPARTIMENTERING EN EVACUATIE."@nl ;
     firebim:hasSection firebim:Section_2_1,
         firebim:Section_2_2 .
 
 firebim:Section_2_1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_1_1,
-        firebim:Article_2_1_2,
-        firebim:Article_2_1_3,
-        firebim:Article_2_1_4,
-        firebim:Article_2_1_5,
-        firebim:Article_2_1_6 ;
-    firebim:hasID "2_1" ;
-    firebim:hasOriginalText "2.1 Grootte van de compartimenten"@nl .
+    firebim:hasID "2_1" .
 
 firebim:Section_2_2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_2_1,
-        firebim:Article_2_2_2 ;
-    firebim:hasID "2_2" ;
-    firebim:hasOriginalText "Evacuatie van de compartimenten."@nl .
+    firebim:hasID "2_2" .
 
 firebim:Section_3 a firebim:Section ;
     firebim:hasID "3" ;

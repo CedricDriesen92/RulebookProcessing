@@ -1,0 +1,26 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_1 a firebim:Section ;
+    firebim:hasID "1" ;
+    firebim:hasOriginalText "0.3 Platen"@nl ;
+    firebim:hasParagraph firebim:Paragraph_1_1 .
+
+firebim:Paragraph_1_1 a firebim:Paragraph ;
+    firebim:hasOriginalText "[De platen zijn opgenomen bij de betreffende tekst]"@nl ;
+    firebim:hasFigure firebim:Figure_2_1, firebim:Figure_2_2 .
+
+firebim:Figure_2_1 a firebim:Figure ;
+    firebim:hasID "2.1" ;
+    firebim:hasOriginalText "Plaat 2.1  - Gevels tussen gebouwen"@nl .
+
+firebim:Figure_2_2 a firebim:Figure ;
+    firebim:hasID "2.2" ;
+    firebim:hasOriginalText "Plaat 2. 2 - Gevels tussen compartimenten"@nl .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_1 .

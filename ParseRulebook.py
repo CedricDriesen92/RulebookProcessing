@@ -7,6 +7,7 @@ import re
 from rdflib import Graph, Namespace, Literal, URIRef
 from rdflib.namespace import RDF, RDFS, XSD
 import os
+import time
 
 client = AnthropicVertex(region="europe-west1", project_id="spatial-conduit-420822", )
 
@@ -302,7 +303,11 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
             return True
         except Exception as e:
             print(f"Error processing section {section_number} (Attempt {attempt + 1}): {e}")
-            print(f"Generated TTL content:\n{ttl_content}")
+            if ttl_content:
+                print(f"Generated TTL content:\n{ttl_content}")
+            else:
+                print("probably rate limit exceeded... waiting")
+                time.sleep(5)
             if attempt < 2:
                 print("Retrying with AI...")
                 section_text += f"\n\nPrevious attempt failed with error: {str(e)}. Please try again and ensure valid Turtle syntax."
