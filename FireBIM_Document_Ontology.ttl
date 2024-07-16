@@ -5,7 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
+@base <http://example.com/firebim#> .
 
 <http://example.com/firebim> rdf:type owl:Ontology ;
                               rdfs:comment "An ontology for representing fire safety regulations documents"@en ;
@@ -34,6 +34,9 @@ firebim:hasArticle rdf:type owl:ObjectProperty ;
 ###  http://example.com/firebim#hasBackwardReference
 firebim:hasBackwardReference rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf firebim:hasReference ;
+                             owl:inverseOf firebim:hasForwardReference ;
+                             rdfs:domain firebim:DocumentSubdivision ;
+                             rdfs:range firebim:DocumentSubdivision ;
                              rdfs:label "has backward reference"@en .
 
 
@@ -63,6 +66,8 @@ firebim:hasFigure rdf:type owl:ObjectProperty ;
 ###  http://example.com/firebim#hasForwardReference
 firebim:hasForwardReference rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf firebim:hasReference ;
+                            rdfs:domain firebim:DocumentSubdivision ;
+                            rdfs:range firebim:DocumentSubdivision ;
                             rdfs:label "has forward reference"@en .
 
 
@@ -85,7 +90,8 @@ firebim:hasParagraph rdf:type owl:ObjectProperty ;
 ###  http://example.com/firebim#hasReference
 firebim:hasReference rdf:type owl:ObjectProperty ;
                      rdfs:domain firebim:DocumentSubdivision ;
-                     rdfs:range firebim:Reference ;
+                     rdfs:range firebim:DocumentSubdivision ,
+                                firebim:Reference ;
                      rdfs:label "has reference"@en .
 
 
@@ -159,6 +165,7 @@ firebim:Appendix rdf:type owl:Class ;
 ###  http://example.com/firebim#Article
 firebim:Article rdf:type owl:Class ;
                 rdfs:subClassOf firebim:DocumentSubdivision ;
+                rdfs:comment "A separate rule \"article\", a subdivision of a section as the smallest containing text of a rule."@en ;
                 rdfs:label "Article"@en .
 
 
@@ -177,6 +184,7 @@ firebim:Chapter rdf:type owl:Class ;
 ###  http://example.com/firebim#Document
 firebim:Document rdf:type owl:Class ;
                  rdfs:subClassOf firebim:DocumentSubdivision ;
+                 rdfs:comment "The individual document containing the rules, this can be a law, guidelines, etc."@en ;
                  rdfs:label "Document"@en .
 
 
@@ -195,7 +203,7 @@ firebim:Figure rdf:type owl:Class ;
 ###  http://example.com/firebim#Member
 firebim:Member rdf:type owl:Class ;
                rdfs:subClassOf firebim:DocumentSubdivision ;
-               rdfs:comment "Typically holds the one or multiple bodies of text that an article exists of"@en ;
+               rdfs:comment "Typically holds the one or multiple bodies of text that an article exists of, the individual rule conditions."@en ;
                rdfs:label "Member"@en .
 
 
@@ -214,6 +222,7 @@ firebim:Reference rdf:type owl:Class ;
 ###  http://example.com/firebim#Section
 firebim:Section rdf:type owl:Class ;
                 rdfs:subClassOf firebim:DocumentSubdivision ;
+                rdfs:comment "Any subdivision of a document, wether it's a large section itself, a subsection, a table, a figure, a paragraph..."@en ;
                 rdfs:label "Section"@en .
 
 
