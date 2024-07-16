@@ -8,16 +8,11 @@
 
 firebim:Section_5 a firebim:Section ;
     firebim:hasID "5" ;
-    firebim:hasOriginalText "5 CONSTRUCTION REQUIREMENTS FOR SOME CLASSROOMS AND TECHNICAL ROOMS." .
+    firebim:hasOriginalText "CONSTRUCTIEVOORSCHRIFTEN VOOR SOMMIGE LOKALEN EN TECHNISCHE RUIMTEN."@nl .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_5 .
 
-firebim:Article_5 a firebim:Article ;
-    firebim:hasOriginalText "5 CONSTRUCTION REQUIREMENTS FOR SOME CLASSROOMS AND TECHNICAL ROOMS." .
+firebim:Section_5 firebim:hasMember firebim:Member_5_1 .
 
-firebim:Section_5 firebim:hasArticle firebim:Article_5 .
-
-firebim:Member_5 a firebim:Member ;
-    firebim:hasOriginalText "5 CONSTRUCTION REQUIREMENTS FOR SOME CLASSROOMS AND TECHNICAL ROOMS." .
-
-firebim:Article_5 firebim:hasMember firebim:Member_5 .
+firebim:Member_5_1 a firebim:Member ;
+    firebim:hasOriginalText "CONSTRUCTIEVOORSCHRIFTEN VOOR SOMMIGE LOKALEN EN TECHNISCHE RUIMTEN."@nl .

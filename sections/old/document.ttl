@@ -1,5 +1,4 @@
 @prefix firebim: <http://example.com/firebim#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 firebim:Belgian_Government a firebim:Authority ;
@@ -7,4 +6,369 @@ firebim:Belgian_Government a firebim:Authority ;
 
 firebim:RoyalDecree a firebim:Document ;
     firebim:hasID "RoyalDecree1994" ;
+    firebim:hasSection firebim:Section_0,
+        firebim:Section_1,
+        firebim:Section_2,
+        firebim:Section_3,
+        firebim:Section_4,
+        firebim:Section_5,
+        firebim:Section_6 ;
     firebim:issued "1994-07-07"^^xsd:date .
+
+firebim:Section_0 a firebim:Section ;
+    firebim:hasID "0" ;
+    firebim:hasSection firebim:Section_0_1,
+        firebim:Section_0_2,
+        firebim:Section_0_3 .
+
+firebim:Section_0_1 a firebim:Section ;
+    firebim:hasID "0.1" .
+
+firebim:Section_0_2 a firebim:Section ;
+    firebim:hasID "0.2" ;
+    firebim:hasSection firebim:Section_0_2_1,
+        firebim:Section_0_2_2 .
+
+firebim:Section_0_2_1 a firebim:Section ;
+    firebim:hasID "0.2.1" .
+
+firebim:Section_0_2_2 a firebim:Section ;
+    firebim:hasID "0.2.2" .
+
+firebim:Section_0_3 a firebim:Section ;
+    firebim:hasID "0.3" .
+
+firebim:Section_1 a firebim:Section ;
+    firebim:hasID "1" ;
+    firebim:hasSection firebim:Section_1_1,
+        firebim:Section_1_2,
+        firebim:Section_1_3 .
+
+firebim:Section_1_1 a firebim:Section ;
+    firebim:hasID "1.1" .
+
+firebim:Section_1_2 a firebim:Section ;
+    firebim:hasID "1.2" .
+
+firebim:Section_1_3 a firebim:Section ;
+    firebim:hasID "1.3" .
+
+firebim:Section_2 a firebim:Section ;
+    firebim:hasID "2" ;
+    firebim:hasSection firebim:Section_2_1,
+        firebim:Section_2_2 .
+
+firebim:Section_2_1 a firebim:Section ;
+    firebim:hasID "2.1" .
+
+firebim:Section_2_2 a firebim:Section ;
+    firebim:hasID "2.2" ;
+    firebim:hasSection firebim:Section_2_2_1,
+        firebim:Section_2_2_2 .
+
+firebim:Section_2_2_1 a firebim:Section ;
+    firebim:hasID "2.2.1" .
+
+firebim:Section_2_2_2 a firebim:Section ;
+    firebim:hasID "2.2.2" .
+
+firebim:Section_3 a firebim:Section ;
+    firebim:hasID "3" ;
+    firebim:hasSection firebim:Section_3_1,
+        firebim:Section_3_2,
+        firebim:Section_3_3,
+        firebim:Section_3_4,
+        firebim:Section_3_5 .
+
+firebim:Section_3_1 a firebim:Section ;
+    firebim:hasID "3.1" .
+
+firebim:Section_3_2 a firebim:Section ;
+    firebim:hasID "3.2" .
+
+firebim:Section_3_3 a firebim:Section ;
+    firebim:hasID "3.3" .
+
+firebim:Section_3_4 a firebim:Section ;
+    firebim:hasID "3.4" ;
+    firebim:hasSection firebim:Section_3_4_1,
+        firebim:Section_3_4_2 .
+
+firebim:Section_3_4_1 a firebim:Section ;
+    firebim:hasID "3.4.1" .
+
+firebim:Section_3_4_2 a firebim:Section ;
+    firebim:hasID "3.4.2" .
+
+firebim:Section_3_5 a firebim:Section ;
+    firebim:hasID "3.5" ;
+    firebim:hasSection firebim:Section_3_5_1,
+        firebim:Section_3_5_2 .
+
+firebim:Section_3_5_1 a firebim:Section ;
+    firebim:hasID "3.5.1" .
+
+firebim:Section_3_5_2 a firebim:Section ;
+    firebim:hasID "3.5.2" .
+
+firebim:Section_4 a firebim:Section ;
+    firebim:hasID "4" ;
+    firebim:hasSection firebim:Section_4_1,
+        firebim:Section_4_2,
+        firebim:Section_4_3,
+        firebim:Section_4_4,
+        firebim:Section_4_5 .
+
+firebim:Section_4_1 a firebim:Section ;
+    firebim:hasID "4.1" .
+
+firebim:Section_4_2 a firebim:Section ;
+    firebim:hasID "4.2" ;
+    firebim:hasSection firebim:Section_4_2_1,
+        firebim:Section_4_2_2,
+        firebim:Section_4_2_3 .
+
+firebim:Section_4_2_1 a firebim:Section ;
+    firebim:hasID "4.2.1" .
+
+firebim:Section_4_2_2 a firebim:Section ;
+    firebim:hasID "4.2.2" .
+
+firebim:Section_4_2_3 a firebim:Section ;
+    firebim:hasID "4.2.3" .
+
+firebim:Section_4_3 a firebim:Section ;
+    firebim:hasID "4.3" .
+
+firebim:Section_4_4 a firebim:Section ;
+    firebim:hasID "4.4" ;
+    firebim:hasSection firebim:Section_4_4_1,
+        firebim:Section_4_4_2 .
+
+firebim:Section_4_4_1 a firebim:Section ;
+    firebim:hasID "4.4.1" .
+
+firebim:Section_4_4_2 a firebim:Section ;
+    firebim:hasID "4.4.2" .
+
+firebim:Section_4_5 a firebim:Section ;
+    firebim:hasID "4.5" .
+
+firebim:Section_5 a firebim:Section ;
+    firebim:hasID "5" ;
+    firebim:hasSection firebim:Section_5_1,
+        firebim:Section_5_2,
+        firebim:Section_5_3,
+        firebim:Section_5_4,
+        firebim:Section_5_5 .
+
+firebim:Section_5_1 a firebim:Section ;
+    firebim:hasID "5.1" ;
+    firebim:hasSection firebim:Section_5_1_1,
+        firebim:Section_5_1_2,
+        firebim:Section_5_1_3,
+        firebim:Section_5_1_4,
+        firebim:Section_5_1_5 .
+
+firebim:Section_5_1_1 a firebim:Section ;
+    firebim:hasID "5.1.1" .
+
+firebim:Section_5_1_2 a firebim:Section ;
+    firebim:hasID "5.1.2" .
+
+firebim:Section_5_1_3 a firebim:Section ;
+    firebim:hasID "5.1.3" .
+
+firebim:Section_5_1_4 a firebim:Section ;
+    firebim:hasID "5.1.4" .
+
+firebim:Section_5_1_5 a firebim:Section ;
+    firebim:hasID "5.1.5" .
+
+firebim:Section_5_2 a firebim:Section ;
+    firebim:hasID "5.2" ;
+    firebim:hasSection firebim:Section_5_2_1,
+        firebim:Section_5_2_2,
+        firebim:Section_5_2_3,
+        firebim:Section_5_2_4,
+        firebim:Section_5_2_5 .
+
+firebim:Section_5_2_1 a firebim:Section ;
+    firebim:hasID "5.2.1" .
+
+firebim:Section_5_2_2 a firebim:Section ;
+    firebim:hasID "5.2.2" .
+
+firebim:Section_5_2_3 a firebim:Section ;
+    firebim:hasID "5.2.3" .
+
+firebim:Section_5_2_4 a firebim:Section ;
+    firebim:hasID "5.2.4" .
+
+firebim:Section_5_2_5 a firebim:Section ;
+    firebim:hasID "5.2.5" .
+
+firebim:Section_5_3 a firebim:Section ;
+    firebim:hasID "5.3" ;
+    firebim:hasSection firebim:Section_5_3_1,
+        firebim:Section_5_3_2 .
+
+firebim:Section_5_3_1 a firebim:Section ;
+    firebim:hasID "5.3.1" .
+
+firebim:Section_5_3_2 a firebim:Section ;
+    firebim:hasID "5.3.2" .
+
+firebim:Section_5_4 a firebim:Section ;
+    firebim:hasID "5.4" .
+
+firebim:Section_5_5 a firebim:Section ;
+    firebim:hasID "5.5" .
+
+firebim:Section_6 a firebim:Section ;
+    firebim:hasID "6" ;
+    firebim:hasSection firebim:Section_6_1,
+        firebim:Section_6_2,
+        firebim:Section_6_3,
+        firebim:Section_6_4,
+        firebim:Section_6_5,
+        firebim:Section_6_6,
+        firebim:Section_6_7,
+        firebim:Section_6_8 .
+
+firebim:Section_6_1 a firebim:Section ;
+    firebim:hasID "6.1" ;
+    firebim:hasSection firebim:Section_6_1_1,
+        firebim:Section_6_1_2,
+        firebim:Section_6_1_3,
+        firebim:Section_6_1_4 .
+
+firebim:Section_6_1_1 a firebim:Section ;
+    firebim:hasID "6.1.1" .
+
+firebim:Section_6_1_2 a firebim:Section ;
+    firebim:hasID "6.1.2" .
+
+firebim:Section_6_1_3 a firebim:Section ;
+    firebim:hasID "6.1.3" .
+
+firebim:Section_6_1_4 a firebim:Section ;
+    firebim:hasID "6.1.4" .
+
+firebim:Section_6_2 a firebim:Section ;
+    firebim:hasID "6.2" ;
+    firebim:hasSection firebim:Section_6_2_1,
+        firebim:Section_6_2_2 .
+
+firebim:Section_6_2_1 a firebim:Section ;
+    firebim:hasID "6.2.1" .
+
+firebim:Section_6_2_2 a firebim:Section ;
+    firebim:hasID "6.2.2" .
+
+firebim:Section_6_3 a firebim:Section ;
+    firebim:hasID "6.3" ;
+    firebim:hasSection firebim:Section_6_3_1,
+        firebim:Section_6_3_2,
+        firebim:Section_6_3_3,
+        firebim:Section_6_3_4 .
+
+firebim:Section_6_3_1 a firebim:Section ;
+    firebim:hasID "6.3.1" .
+
+firebim:Section_6_3_2 a firebim:Section ;
+    firebim:hasID "6.3.2" .
+
+firebim:Section_6_3_3 a firebim:Section ;
+    firebim:hasID "6.3.3" .
+
+firebim:Section_6_3_4 a firebim:Section ;
+    firebim:hasID "6.3.4" .
+
+firebim:Section_6_4 a firebim:Section ;
+    firebim:hasID "6.4" ;
+    firebim:hasSection firebim:Section_6_4_1,
+        firebim:Section_6_4_2,
+        firebim:Section_6_4_3 .
+
+firebim:Section_6_4_1 a firebim:Section ;
+    firebim:hasID "6.4.1" .
+
+firebim:Section_6_4_2 a firebim:Section ;
+    firebim:hasID "6.4.2" .
+
+firebim:Section_6_4_3 a firebim:Section ;
+    firebim:hasID "6.4.3" .
+
+firebim:Section_6_5 a firebim:Section ;
+    firebim:hasID "6.5" ;
+    firebim:hasSection firebim:Section_6_5_1,
+        firebim:Section_6_5_2,
+        firebim:Section_6_5_3,
+        firebim:Section_6_5_4 .
+
+firebim:Section_6_5_1 a firebim:Section ;
+    firebim:hasID "6.5.1" .
+
+firebim:Section_6_5_2 a firebim:Section ;
+    firebim:hasID "6.5.2" .
+
+firebim:Section_6_5_3 a firebim:Section ;
+    firebim:hasID "6.5.3" .
+
+firebim:Section_6_5_4 a firebim:Section ;
+    firebim:hasID "6.5.4" .
+
+firebim:Section_6_6 a firebim:Section ;
+    firebim:hasID "6.6" .
+
+firebim:Section_6_7 a firebim:Section ;
+    firebim:hasID "6.7" ;
+    firebim:hasSection firebim:Section_6_7_1,
+        firebim:Section_6_7_2,
+        firebim:Section_6_7_3,
+        firebim:Section_6_7_4,
+        firebim:Section_6_7_5,
+        firebim:Section_6_7_6 .
+
+firebim:Section_6_7_1 a firebim:Section ;
+    firebim:hasID "6.7.1" .
+
+firebim:Section_6_7_2 a firebim:Section ;
+    firebim:hasID "6.7.2" .
+
+firebim:Section_6_7_3 a firebim:Section ;
+    firebim:hasID "6.7.3" .
+
+firebim:Section_6_7_4 a firebim:Section ;
+    firebim:hasID "6.7.4" .
+
+firebim:Section_6_7_5 a firebim:Section ;
+    firebim:hasID "6.7.5" .
+
+firebim:Section_6_7_6 a firebim:Section ;
+    firebim:hasID "6.7.6" .
+
+firebim:Section_6_8 a firebim:Section ;
+    firebim:hasID "6.8" ;
+    firebim:hasSection firebim:Section_6_8_1,
+        firebim:Section_6_8_2,
+        firebim:Section_6_8_3,
+        firebim:Section_6_8_4,
+        firebim:Section_6_8_5 .
+
+firebim:Section_6_8_1 a firebim:Section ;
+    firebim:hasID "6.8.1" .
+
+firebim:Section_6_8_2 a firebim:Section ;
+    firebim:hasID "6.8.2" .
+
+firebim:Section_6_8_3 a firebim:Section ;
+    firebim:hasID "6.8.3" .
+
+firebim:Section_6_8_4 a firebim:Section ;
+    firebim:hasID "6.8.4" .
+
+firebim:Section_6_8_5 a firebim:Section ;
+    firebim:hasID "6.8.5" .
+

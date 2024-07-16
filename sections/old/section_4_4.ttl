@@ -1,0 +1,25 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_4_4 a firebim:Section ;
+    firebim:hasID "4_4" ;
+    firebim:hasOriginalText "Evacuatiewegen en vluchtterrassen."@nl .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_4_4 .
+
+firebim:Section_4_4 firebim:hasParagraph firebim:Paragraph_4_4 .
+
+firebim:Paragraph_4_4 a firebim:Paragraph ;
+    firebim:hasID "4_4" ;
+    firebim:hasOriginalText "Evacuatiewegen en vluchtterrassen."@nl .
+
+firebim:Paragraph_4_4 firebim:hasMember firebim:Member_4_4_1 .
+
+firebim:Member_4_4_1 a firebim:Member ;
+    firebim:hasID "4_4_1" ;
+    firebim:hasOriginalText "Evacuatiewegen en vluchtterrassen."@nl .

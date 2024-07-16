@@ -8,13 +8,17 @@
 
 firebim:Section_0 a firebim:Section ;
     firebim:hasID "0" ;
-    firebim:hasArticle firebim:Article_0 .
-
-firebim:Article_0 a firebim:Article ;
-    firebim:hasOriginalText "0 GENERAL." ;
-    firebim:hasMember firebim:Member_0_1 .
-
-firebim:Member_0_1 a firebim:Member ;
-    firebim:hasOriginalText "GENERAL." .
+    firebim:hasOriginalText "ALGEMEEN."@nl .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_0 .
+
+firebim:Section_0 firebim:hasParagraph firebim:Paragraph_0_1 .
+
+firebim:Paragraph_0_1 a firebim:Paragraph ;
+    firebim:hasID "0.1" ;
+    firebim:hasOriginalText "ALGEMEEN."@nl ;
+    firebim:hasMember firebim:Member_0_1_1 .
+
+firebim:Member_0_1_1 a firebim:Member ;
+    firebim:hasID "0.1.1" ;
+    firebim:hasOriginalText "ALGEMEEN."@nl .

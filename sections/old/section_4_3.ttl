@@ -6,56 +6,46 @@
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_4.3 a firebim:Section ;
-    firebim:hasID "4.3" ;
-    firebim:hasOriginalText "4.3 Exterior stairwells.\nExterior stairs should provide access to an evacuation level.\nThe requirements of 4.2.3 apply to it with however the following deviation: no fire stability is \nrequired, but the material belongs to class A0.\nThe connection between the compartment and an external staircase is done\n-either through a door;\n-either through escape terrace(s).\nFor the connection between the evacuation level and the immediately higher level, a staircase or \nsection of staircase may be used that is retractable or articulated." .
+firebim:Section_4_3 a firebim:Section ;
+    firebim:hasID "4_3" ;
+    firebim:hasOriginalText "Buitentrappenhuizen."@nl ;
+    firebim:hasArticle firebim:Article_4_3_1, firebim:Article_4_3_2, firebim:Article_4_3_3, firebim:Article_4_3_4 .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_4.3 .
+firebim:RoyalDecree firebim:hasSection firebim:Section_4_3 .
 
-firebim:Section_4.3 firebim:hasArticle firebim:Article_4.3.1 .
+firebim:Article_4_3_1 a firebim:Article ;
+    firebim:hasOriginalText "Buitentrappen moeten toegang geven tot een evacuatieniveau ."@nl ;
+    firebim:hasMember firebim:Member_4_3_1_1 .
 
-firebim:Article_4.3.1 a firebim:Article ;
-    firebim:hasOriginalText "Exterior stairs should provide access to an evacuation level." ;
-    firebim:hasMember firebim:Member_4.3.1.1 .
+firebim:Member_4_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText "Buitentrappen moeten toegang geven tot een evacuatieniveau ."@nl .
 
-firebim:Member_4.3.1.1 a firebim:Member ;
-    firebim:hasOriginalText "Exterior stairs should provide access to an evacuation level." .
+firebim:Article_4_3_2 a firebim:Article ;
+    firebim:hasOriginalText """De voorschriften van 4.2.3 zijn er op van toepassing met nochtans de volgende afwijking:  er wordt 
+geen stabiliteit bij brand vereist, maar het materiaal behoort tot klasse  A1."""@nl ;
+    firebim:hasMember firebim:Member_4_3_2_1 ;
+    firebim:hasBackwardReference firebim:Section_4_2_3 .
 
-firebim:Section_4.3 firebim:hasArticle firebim:Article_4.3.2 .
+firebim:Member_4_3_2_1 a firebim:Member ;
+    firebim:hasOriginalText """De voorschriften van 4.2.3 zijn er op van toepassing met nochtans de volgende afwijking:  er wordt 
+geen stabiliteit bij brand vereist, maar het materiaal behoort tot klasse  A1."""@nl .
 
-firebim:Article_4.3.2 a firebim:Article ;
-    firebim:hasOriginalText "The requirements of 4.2.3 apply to it with however the following deviation: no fire stability is required, but the material belongs to class A0." ;
-    firebim:hasMember firebim:Member_4.3.2.1 .
+firebim:Article_4_3_3 a firebim:Article ;
+    firebim:hasOriginalText """De verbinding tussen het compartiment en een buitentrap gebeurt : 
+- hetzij via een deur ; 
+- hetzij via (een) vluchtterras(sen) ."""@nl ;
+    firebim:hasMember firebim:Member_4_3_3_1 .
 
-firebim:Member_4.3.2.1 a firebim:Member ;
-    firebim:hasOriginalText "The requirements of 4.2.3 apply to it with however the following deviation: no fire stability is required, but the material belongs to class A0." ;
-    firebim:hasBackwardReference firebim:Reference_4.2.3 .
+firebim:Member_4_3_3_1 a firebim:Member ;
+    firebim:hasOriginalText """De verbinding tussen het compartiment en een buitentrap gebeurt : 
+- hetzij via een deur ; 
+- hetzij via (een) vluchtterras(sen) ."""@nl .
 
-firebim:Reference_4.2.3 a firebim:Reference ;
-    firebim:hasID "4.2.3" .
+firebim:Article_4_3_4 a firebim:Article ;
+    firebim:hasOriginalText """Voor de verbinding tussen het evacuatieniveau en de onmiddellijk hoger gelegen bouwlaag mag 
+echter een trap of gedeelte van tra p aangewend worden die inschuifbaar of geleed is."""@nl ;
+    firebim:hasMember firebim:Member_4_3_4_1 .
 
-firebim:Section_4.3 firebim:hasArticle firebim:Article_4.3.3 .
-
-firebim:Article_4.3.3 a firebim:Article ;
-    firebim:hasOriginalText "The connection between the compartment and an external staircase is done\n-either through a door;\n-either through escape terrace(s)." ;
-    firebim:hasMember firebim:Member_4.3.3.1 ,
-                      firebim:Member_4.3.3.2 ,
-                      firebim:Member_4.3.3.3 .
-
-firebim:Member_4.3.3.1 a firebim:Member ;
-    firebim:hasOriginalText "The connection between the compartment and an external staircase is done" .
-
-firebim:Member_4.3.3.2 a firebim:Member ;
-    firebim:hasOriginalText "-either through a door;" .
-
-firebim:Member_4.3.3.3 a firebim:Member ;
-    firebim:hasOriginalText "-either through escape terrace(s)." .
-
-firebim:Section_4.3 firebim:hasArticle firebim:Article_4.3.4 .
-
-firebim:Article_4.3.4 a firebim:Article ;
-    firebim:hasOriginalText "For the connection between the evacuation level and the immediately higher level, a staircase or section of staircase may be used that is retractable or articulated." ;
-    firebim:hasMember firebim:Member_4.3.4.1 .
-
-firebim:Member_4.3.4.1 a firebim:Member ;
-    firebim:hasOriginalText "For the connection between the evacuation level and the immediately higher level, a staircase or section of staircase may be used that is retractable or articulated." .
+firebim:Member_4_3_4_1 a firebim:Member ;
+    firebim:hasOriginalText """Voor de verbinding tussen het evacuatieniveau en de onmiddellijk hoger gelegen bouwlaag mag 
+echter een trap of gedeelte van tra p aangewend worden die inschuifbaar of geleed is."""@nl .

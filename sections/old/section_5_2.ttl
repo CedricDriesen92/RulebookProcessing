@@ -6,67 +6,19 @@
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_5.2 a firebim:Section ;
-    firebim:hasID "5.2" ;
-    firebim:hasOriginalText "5.2 Parking buildings.\nIn deviation from the basic principle stated in 2.1, a parking building may form a compartment \nwhose area is not limited even when there are several communicating building levels.\nThe walls between the parking buildings and the rest of the building have at least the required Rf \nof the structural elements.\nHowever, the parking compartment may include some premises not intended for residence, such \nas : premises for electrical transformation, archive rooms, technical rooms ...\nThe walls of these rooms exhibit Rf 1 h and access is by a self-closing door Rf ½ h.\nAt each building level, evacuation is arranged as follows :\n- at least two stairwells or exterior stairways meet the requirements contained in 4.2 or" .
+firebim:Section_5_2 a firebim:Section ;
+    firebim:hasID "5_2" ;
+    firebim:hasOriginalText "Parkings."@nl ;
+    firebim:hasParagraph firebim:Paragraph_5_2_1 .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_5.2 .
+firebim:Paragraph_5_2_1 a firebim:Paragraph ;
+    firebim:hasID "5_2_1" ;
+    firebim:hasMember firebim:Member_5_2_1_1 .
 
-firebim:Section_5.2 firebim:hasArticle firebim:Article_5.2.1 .
+firebim:Member_5_2_1_1 a firebim:Member ;
+    firebim:hasID "5_2_1_1" ;
+    firebim:hasOriginalText """Bij afwijking van het in punt 2.1 gestelde grondbeginsel kan een parking een compartiment 
+vormen waarvan de oppervlakte niet beperkt is, zelfs wanneer er verscheidene communicerende 
+bouwlagen zijn."""@nl .
 
-firebim:Article_5.2.1 a firebim:Article ;
-    firebim:hasOriginalText "5.2 Parking buildings.\nIn deviation from the basic principle stated in 2.1, a parking building may form a compartment \nwhose area is not limited even when there are several communicating building levels." ;
-    firebim:hasMember firebim:Member_5.2.1.1, firebim:Member_5.2.1.2 .
-
-firebim:Member_5.2.1.1 a firebim:Member ;
-    firebim:hasOriginalText "5.2 Parking buildings." .
-
-firebim:Member_5.2.1.2 a firebim:Member ;
-    firebim:hasOriginalText "In deviation from the basic principle stated in 2.1, a parking building may form a compartment \nwhose area is not limited even when there are several communicating building levels." ;
-    firebim:hasBackwardReference firebim:Reference_2.1 .
-
-firebim:Reference_2.1 a firebim:Reference ;
-    firebim:hasID "2.1" .
-
-firebim:Section_5.2 firebim:hasArticle firebim:Article_5.2.2 .
-
-firebim:Article_5.2.2 a firebim:Article ;
-    firebim:hasOriginalText "The walls between the parking buildings and the rest of the building have at least the required Rf \nof the structural elements." ;
-    firebim:hasMember firebim:Member_5.2.2.1 .
-
-firebim:Member_5.2.2.1 a firebim:Member ;
-    firebim:hasOriginalText "The walls between the parking buildings and the rest of the building have at least the required Rf \nof the structural elements." .
-
-firebim:Section_5.2 firebim:hasArticle firebim:Article_5.2.3 .
-
-firebim:Article_5.2.3 a firebim:Article ;
-    firebim:hasOriginalText "However, the parking compartment may include some premises not intended for residence, such \nas : premises for electrical transformation, archive rooms, technical rooms ..." ;
-    firebim:hasMember firebim:Member_5.2.3.1 .
-
-firebim:Member_5.2.3.1 a firebim:Member ;
-    firebim:hasOriginalText "However, the parking compartment may include some premises not intended for residence, such \nas : premises for electrical transformation, archive rooms, technical rooms ..." .
-
-firebim:Section_5.2 firebim:hasArticle firebim:Article_5.2.4 .
-
-firebim:Article_5.2.4 a firebim:Article ;
-    firebim:hasOriginalText "The walls of these rooms exhibit Rf 1 h and access is by a self-closing door Rf ½ h." ;
-    firebim:hasMember firebim:Member_5.2.4.1 .
-
-firebim:Member_5.2.4.1 a firebim:Member ;
-    firebim:hasOriginalText "The walls of these rooms exhibit Rf 1 h and access is by a self-closing door Rf ½ h." .
-
-firebim:Section_5.2 firebim:hasArticle firebim:Article_5.2.5 .
-
-firebim:Article_5.2.5 a firebim:Article ;
-    firebim:hasOriginalText "At each building level, evacuation is arranged as follows :\n- at least two stairwells or exterior stairways meet the requirements contained in 4.2 or" ;
-    firebim:hasMember firebim:Member_5.2.5.1, firebim:Member_5.2.5.2 .
-
-firebim:Member_5.2.5.1 a firebim:Member ;
-    firebim:hasOriginalText "At each building level, evacuation is arranged as follows :" .
-
-firebim:Member_5.2.5.2 a firebim:Member ;
-    firebim:hasOriginalText "- at least two stairwells or exterior stairways meet the requirements contained in 4.2 or" ;
-    firebim:hasForwardReference firebim:Reference_4.2 .
-
-firebim:Reference_4.2 a firebim:Reference ;
-    firebim:hasID "4.2" .
+firebim:RoyalDecree firebim:hasSection firebim:Section_5_2 .

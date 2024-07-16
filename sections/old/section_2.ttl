@@ -8,6 +8,6 @@
 
 firebim:Section_2 a firebim:Section ;
     firebim:hasID "2" ;
-    firebim:hasOriginalText "2 COMPARTMENTALIZATION AND EVACUATION." .
+    firebim:hasOriginalText "COMPARTIMENTERING EN EVACUATIE."@nl .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_2 .

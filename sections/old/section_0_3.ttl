@@ -6,21 +6,24 @@
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_0.3 a firebim:Section ;
-    firebim:hasID "0.3" ;
-    firebim:hasOriginalText "0.3 Terminology - see Appendix 1." .
+firebim:Section_0_3 a firebim:Section ;
+    firebim:hasID "0_3" ;
+    firebim:hasOriginalText "Platen   [De platen zijn opgenomen bij de betreffende tekst]"@nl ;
+    firebim:hasFigure firebim:Figure_2_1, firebim:Figure_2_2 .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_0.3 .
+firebim:RoyalDecree firebim:hasSection firebim:Section_0_3 .
 
-firebim:Section_0.3 firebim:hasArticle firebim:Article_0.3.1 .
+firebim:Figure_2_1 a firebim:Figure ;
+    firebim:hasID "2.1" ;
+    firebim:hasOriginalText "Plaat 2.1  - Gevels tussen gebouwen"@nl .
 
-firebim:Article_0.3.1 a firebim:Article ;
-    firebim:hasOriginalText "0.3 Terminology - see Appendix 1." ;
-    firebim:hasMember firebim:Member_0.3.1.1 .
+firebim:Figure_2_2 a firebim:Figure ;
+    firebim:hasID "2.2" ;
+    firebim:hasOriginalText "Plaat 2. 2 - Gevels tussen compartimenten"@nl .
 
-firebim:Member_0.3.1.1 a firebim:Member ;
-    firebim:hasOriginalText "Terminology - see Appendix 1." ;
-    firebim:hasForwardReference firebim:Reference_Appendix1 .
+firebim:Section_0_3 firebim:hasMember firebim:Member_0_3_1 .
 
-firebim:Reference_Appendix1 a firebim:Reference ;
-    firebim:hasID "Appendix1" .
+firebim:Member_0_3_1 a firebim:Member ;
+    firebim:hasOriginalText """Platen   [De platen zijn opgenomen bij de betreffende tekst]  
+Plaat 2.1  - Gevels tussen gebouwen  
+Plaat 2. 2 - Gevels tussen compartimenten"""@nl .

@@ -1,0 +1,114 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_1_2 a firebim:Section ;
+    firebim:hasID "5_1_2" ;
+    firebim:hasOriginalText "Stookafdelingen."@nl ;
+    firebim:hasArticle firebim:Article_5_1_2_1, firebim:Article_5_1_2_2, firebim:Article_5_1_2_3 .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_5_1_2 .
+
+firebim:Article_5_1_2_1 a firebim:Article ;
+    firebim:hasID "5_1_2_1" ;
+    firebim:hasOriginalText """Stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter 
+dan of gelijk aan 75 kW en brandstofopslagruimtes.  
+ De stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan 
+of gelijk aan 75 kW en d e brandstofopslagruimtes, zijn technische lokalen.  
+ 
+De voorschriften van punt 5.1.1 zijn van toepassing, mits volgende wijzigingen:  
+- Elke stooklokaal en brandstofopslagruimte moet een afzonderlijk compartiment vormen;  
+- De binnen wanden van deze stooklokalen en bran dstofopslagruimtes EI 60 hebben ; 
+- Toegang tot deze stooklokalen en brandstofopslagruimtes:  
+- Hetzij via een zelfsluitende deur EI 1 60; 
+- Hetzij via een sas met de volgende kenmerken:  
+1. het bevat zelfsluitende deuren EI 1 30; 
+2. de wanden hebben EI  60; 
+3. de opper vlakte bedraagt minimum 2 m²;  
+- Hetzij via een uitgang in open lucht, derwijze dat een evacuatieniveau bereikbaar is.  
+De deuren draaien open in de vluchtzin.  
+- Geen enkel punt van deze stooklokalen en brandstofopslagruimtes mag zich verder bevinden 
+dan 15  m van de dichtstbijzijnde uitgang.  
+ 
+De capaciteit van een brandstofopslagruimte wordt beperkt zodat de totale brandlast van de 
+brandstofopslagruimte kleiner is dan of gelijk aan 750  GJ."""@nl ;
+    firebim:hasMember firebim:Member_5_1_2_1_1, firebim:Member_5_1_2_1_2, firebim:Member_5_1_2_1_3, firebim:Member_5_1_2_1_4 .
+
+firebim:Member_5_1_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText "De stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan of gelijk aan 75 kW en d e brandstofopslagruimtes, zijn technische lokalen."@nl .
+
+firebim:Member_5_1_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De voorschriften van punt 5.1.1 zijn van toepassing, mits volgende wijzigingen:  
+- Elke stooklokaal en brandstofopslagruimte moet een afzonderlijk compartiment vormen;  
+- De binnen wanden van deze stooklokalen en bran dstofopslagruimtes EI 60 hebben ; 
+- Toegang tot deze stooklokalen en brandstofopslagruimtes:  
+- Hetzij via een zelfsluitende deur EI 1 60; 
+- Hetzij via een sas met de volgende kenmerken:  
+1. het bevat zelfsluitende deuren EI 1 30; 
+2. de wanden hebben EI  60; 
+3. de opper vlakte bedraagt minimum 2 m²;  
+- Hetzij via een uitgang in open lucht, derwijze dat een evacuatieniveau bereikbaar is."""@nl .
+
+firebim:Member_5_1_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText "De deuren draaien open in de vluchtzin."@nl .
+
+firebim:Member_5_1_2_1_4 a firebim:Member ;
+    firebim:hasOriginalText """Geen enkel punt van deze stooklokalen en brandstofopslagruimtes mag zich verder bevinden 
+dan 15  m van de dichtstbijzijnde uitgang.  
+ 
+De capaciteit van een brandstofopslagruimte wordt beperkt zodat de totale brandlast van de 
+brandstofopslagruimte kleiner is dan of gelijk aan 750  GJ."""@nl .
+
+firebim:Article_5_1_2_2 a firebim:Article ;
+    firebim:hasID "5_1_2_2" ;
+    firebim:hasOriginalText """Gemeenschappelijke bepalingen.   
+ Het ontwerp, de bouw en de inrichting van de stookafdelingen voldoen aan de bepalingen van 
+punt 4 van bijlage 7."""@nl ;
+    firebim:hasMember firebim:Member_5_1_2_2_1 .
+
+firebim:Member_5_1_2_2_1 a firebim:Member ;
+    firebim:hasOriginalText "Het ontwerp, de bouw en de inrichting van de stookafdelingen voldoen aan de bepalingen van punt 4 van bijlage 7."@nl .
+
+firebim:Article_5_1_2_3 a firebim:Article ;
+    firebim:hasID "5_1_2_3" ;
+    firebim:hasOriginalText """Afwijkende bepalingen.   
+ Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, gelden 
+de volgende afwijkende bepalingen:  
+ 
+- Punt 5.1.2.1: Niet van toepassing op de stookafdelingen met verbrandingstoestellen met een 
+totaal nuttig warmtevermogen (ook totaal nominaal vermogen genoemd) kleiner dan 70 kW;  
+- Punt 5.1.2.1: Niet van toepassing op de stookafdelingen met verbrandingstoestellen met een 
+totaal nuttig warmtevermogen (ook totaal nominaal vermogen genoemd) groter dan of gelijk 
+aan 70 kW als de toegang tot de stookafdeling en de brandwerendheid van de muren, 
+vloeren, plafonds en deuren van de stookafdeling voldoen aan de voorschriften  van de norm 
+NBN  B 61-001 +A1 : 1996.  
+ 
+In afwijking op deze norm mogen de stookafdelingen en hun bijvertrekken verbonden worden 
+met de andere gedeelten van het gebouw via een zelfsluitende deur EI 1 60 op voorwaarde dat 
+deze niet uitgeeft op een trappenhuis  noch op een liftoverloop noch in een lokaal met 
+bijzonder risico. De deur draait in de vluchtzin."""@nl ;
+    firebim:hasMember firebim:Member_5_1_2_3_1, firebim:Member_5_1_2_3_2, firebim:Member_5_1_2_3_3 .
+
+firebim:Member_5_1_2_3_1 a firebim:Member ;
+    firebim:hasOriginalText """Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, gelden 
+de volgende afwijkende bepalingen:  
+ 
+- Punt 5.1.2.1: Niet van toepassing op de stookafdelingen met verbrandingstoestellen met een 
+totaal nuttig warmtevermogen (ook totaal nominaal vermogen genoemd) kleiner dan 70 kW;"""@nl .
+
+firebim:Member_5_1_2_3_2 a firebim:Member ;
+    firebim:hasOriginalText """- Punt 5.1.2.1: Niet van toepassing op de stookafdelingen met verbrandingstoestellen met een 
+totaal nuttig warmtevermogen (ook totaal nominaal vermogen genoemd) groter dan of gelijk 
+aan 70 kW als de toegang tot de stookafdeling en de brandwerendheid van de muren, 
+vloeren, plafonds en deuren van de stookafdeling voldoen aan de voorschriften  van de norm 
+NBN  B 61-001 +A1 : 1996."""@nl .
+
+firebim:Member_5_1_2_3_3 a firebim:Member ;
+    firebim:hasOriginalText """In afwijking op deze norm mogen de stookafdelingen en hun bijvertrekken verbonden worden 
+met de andere gedeelten van het gebouw via een zelfsluitende deur EI 1 60 op voorwaarde dat 
+deze niet uitgeeft op een trappenhuis  noch op een liftoverloop noch in een lokaal met 
+bijzonder risico. De deur draait in de vluchtzin."""@nl .

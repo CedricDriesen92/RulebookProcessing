@@ -8,6 +8,17 @@
 
 firebim:Section_6 a firebim:Section ;
     firebim:hasID "6" ;
-    firebim:hasOriginalText "6 EQUIPMENT OF THE BUILDINGS" .
+    firebim:hasOriginalText "UITRUSTING VAN DE GEBOUWEN."@nl .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_6 .
+
+firebim:Section_6 firebim:hasParagraph firebim:Paragraph_6_1 .
+
+firebim:Paragraph_6_1 a firebim:Paragraph ;
+    firebim:hasID "6.1" ;
+    firebim:hasOriginalText """UITRUSTING VAN DE GEBOUWEN."""@nl ;
+    firebim:hasMember firebim:Member_6_1_1 .
+
+firebim:Member_6_1_1 a firebim:Member ;
+    firebim:hasID "6.1.1" ;
+    firebim:hasOriginalText """UITRUSTING VAN DE GEBOUWEN."""@nl .

@@ -1,0 +1,87 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_2_5 a firebim:Section ;
+    firebim:hasID "5_2_5" ;
+    firebim:hasOriginalText "Afwijkende bepalingen ."@nl ;
+    firebim:hasArticle firebim:Article_5_2_5_1, firebim:Article_5_2_5_2, firebim:Article_5_2_5_3, firebim:Article_5_2_5_4, firebim:Article_5_2_5_5, firebim:Article_5_2_5_6, firebim:Article_5_2_5_7 .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_5_2_5 .
+
+firebim:Article_5_2_5_1 a firebim:Article ;
+    firebim:hasOriginalText """De punten 5.2.1 tot 5.2.4 zijn niet van toepassing op de parking van een gebouw waarvoor de 
+aanvraag voor de bouw werd ingediend vóór 1 juli 2022 als het voldoet aan de volgende 
+voorwaarden."""@nl ;
+    firebim:hasMember firebim:Member_5_2_5_1_1 .
+
+firebim:Member_5_2_5_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De punten 5.2.1 tot 5.2.4 zijn niet van toepassing op de parking van een gebouw waarvoor de 
+aanvraag voor de bouw werd ingediend vóór 1 juli 2022 als het voldoet aan de volgende 
+voorwaarden."""@nl .
+
+firebim:Article_5_2_5_2 a firebim:Article ;
+    firebim:hasOriginalText """In afwijking van het punt 3.2, worden er geen eisen voor brandweerstand gesteld aan de 
+structurele elementen van open parkings waarvan de horizontale wanden REI 60 bezitten."""@nl ;
+    firebim:hasMember firebim:Member_5_2_5_2_1 .
+
+firebim:Member_5_2_5_2_1 a firebim:Member ;
+    firebim:hasOriginalText """In afwijking van het punt 3.2, worden er geen eisen voor brandweerstand gesteld aan de 
+structurele elementen van open parkings waarvan de horizontale wanden REI 60 bezitten."""@nl .
+
+firebim:Article_5_2_5_3 a firebim:Article ;
+    firebim:hasOriginalText "De wanden tussen de parking en de rest van het gebouw hebben EI  60."@nl ;
+    firebim:hasMember firebim:Member_5_2_5_3_1 .
+
+firebim:Member_5_2_5_3_1 a firebim:Member ;
+    firebim:hasOriginalText "De wanden tussen de parking en de rest van het gebouw hebben EI  60."@nl .
+
+firebim:Article_5_2_5_4 a firebim:Article ;
+    firebim:hasOriginalText """In het parkeercompartiment mogen sommige, niet voor verblijf bestemde lokalen worden 
+opgenomen, zoals: transformatorlokalen, bergingen, archieflokalen, technische ruimten …"""@nl ;
+    firebim:hasMember firebim:Member_5_2_5_4_1 .
+
+firebim:Member_5_2_5_4_1 a firebim:Member ;
+    firebim:hasOriginalText """In het parkeercompartiment mogen sommige, niet voor verblijf bestemde lokalen worden 
+opgenomen, zoals: transformatorlokalen, bergingen, archieflokalen, technische ruimten …"""@nl .
+
+firebim:Article_5_2_5_5 a firebim:Article ;
+    firebim:hasOriginalText """De wanden van deze lokalen vertonen EI  60 en de toegang geschiedt door een zelfs luitende of bij 
+brand zelfsluitende deur EI 1 30."""@nl ;
+    firebim:hasMember firebim:Member_5_2_5_5_1 .
+
+firebim:Member_5_2_5_5_1 a firebim:Member ;
+    firebim:hasOriginalText """De wanden van deze lokalen vertonen EI  60 en de toegang geschiedt door een zelfs luitende of bij 
+brand zelfsluitende deur EI 1 30."""@nl .
+
+firebim:Article_5_2_5_6 a firebim:Article ;
+    firebim:hasOriginalText """De specifieke voorschriften betreffende de stookafdelingen, de transformatorlokalen en de lokalen 
+voor vuilnisopslag blijven van toepassing (cf. respectievelijk de punten 5.1.2, 5.1.3 en 5.1.4)."""@nl ;
+    firebim:hasMember firebim:Member_5_2_5_6_1 .
+
+firebim:Member_5_2_5_6_1 a firebim:Member ;
+    firebim:hasOriginalText """De specifieke voorschriften betreffende de stookafdelingen, de transformatorlokalen en de lokalen 
+voor vuilnisopslag blijven van toepassing (cf. respectievelijk de punten 5.1.2, 5.1.3 en 5.1.4)."""@nl .
+
+firebim:Article_5_2_5_7 a firebim:Article ;
+    firebim:hasOriginalText """Op elke bouwlaag is de evacuatie als volgt geregeld:  
+- ten minste twee trappenhuizen of buitentrappen voldoen aan de voorschriften vervat in 4.2 of"""@nl ;
+    firebim:hasMember firebim:Member_5_2_5_7_1 .
+
+firebim:Member_5_2_5_7_1 a firebim:Member ;
+    firebim:hasOriginalText """Op elke bouwlaag is de evacuatie als volgt geregeld:  
+- ten minste twee trappenhuizen of buitentrappen voldoen aan de voorschriften vervat in 4.2 of"""@nl .
+
+firebim:Table_5_2_5 a firebim:Table ;
+    firebim:hasOriginalText """Federale Overheidsdienst Binnenlandse Zaken  
+Algemene Directie Civiele Veiligheid – Brandpreventie  
+ 
+61/275 
+ (v3.0 ) Koninklijk besluit van 7 juli 1994 (gecoördi neerde versie op 20 mei  2022) 
+BIJLAGE 2/1: LAGE GEBOUWEN"""@nl .
+
+firebim:Section_5_2_5 firebim:hasTable firebim:Table_5_2_5 .

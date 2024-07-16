@@ -1,4 +1,4 @@
-import PyPDF2
+import pypdf
 import rdflib
 import json
 from anthropic import AnthropicVertex
@@ -13,149 +13,47 @@ client = AnthropicVertex(region="europe-west1", project_id="spatial-conduit-4208
 
 def extract_text_from_pdf(pdf_path: str) -> str:
     with open(pdf_path, 'rb') as file:
-        reader = PyPDF2.PdfReader(file)
+        reader = pypdf.PdfReader(file)
         text = ""
         for page in reader.pages:
-            text += page.extract_text() + "\n"
+            text += page.extract_text(extraction_mode="layout", layout_mode_space_vertically=False) + "\n"
     return text
 
 def split_into_sections(text):
-    # Looks for section headers like "0 GENERAL", "1 IMPLANTATION AND ACCESS ROADS", etc.
-    pattern = r'\n(?=\d+(?:\.\d+)*\s+[A-Z][A-Z\s]+)'
-    sections = re.split(pattern, text)
+    # Looks for main section headers like "0 GENERAL", "1 IMPLANTATION AND ACCESS ROADS", etc.
+    main_pattern = r'\n(?=\d+(?:\.\d+)*\s+[A-Z][A-Z\s]+)'
+    main_sections = re.split(main_pattern, text)
     
     # Remove any empty sections and strip whitespace
-    sections = [section.strip() for section in sections if section.strip()]
+    main_sections = [section.strip() for section in main_sections if section.strip()]
     
-    # Further split subsections
     detailed_sections = []
-    for section in sections:
-        subsections = re.split(r'\n(?=\d+\.\d+\s+)', section)
-        detailed_sections.extend(subsections)
+    for main_section in main_sections:
+        # Split into subsections
+        subsection_pattern = r'\n(?=\d+\.\d+\s+)'
+        subsections = re.split(subsection_pattern, main_section)
+        
+        for subsection in subsections:
+            # Split into subsubsections
+            subsubsection_pattern = r'\n(?=\d+\.\d+\.\d+\s+)'
+            subsubsections = re.split(subsubsection_pattern, subsection)
+            
+            detailed_sections.extend(subsubsections)
     
-    return detailed_sections
-
-def process_section(parnum, totparnum, section):
-    prompt = """
-    Analyze the following building code rulebook text and extract individual rules.
-    For each rule, provide:
-    1. Rule ID
-    2. Entities involved (e.g., rooms, doors, walls)
-    3. Conditions or constraints
-    4. Measurements or thresholds
-    5. Relationships between entities
-
-    Provide the output as a JSON array of rule objects. Make sure every rule is separate and clear. If there are no explicit or implicit rules to parse, simply output a valid 1-line json with "rules": "No rules" in it. Your output will be sent directly to a json processor so it's important you only output valid json.
+    # Further clean up and identify sections
+    final_sections = []
+    for section in detailed_sections:
+        match = re.match(r'(\d+(?:\.\d+)*)\s+(.*?)(?:\n|$)', section)
+        if match:
+            section_number = match.group(1)
+            section_title = match.group(2)
+            section_content = section[match.end():].strip()
+            final_sections.append((section_number, section_title, section_content))
+        else:
+            # If no match, it might be content continuing from the previous section
+            final_sections.append((None, None, section.strip()))
     
-    Here is an example of an output, follow this format as much as possible. Replace 'LG-xxx' by the section/subsection/paragraph you are in if available, whichever is most detailed, otherwise use LG-""" +str(parnum)+""".
-    {
-  "rules": [
-    {
-      "Rule ID": "LG-001",
-      "Entities": ["compartment", "building", "floor"],
-      "Conditions": [
-        "Applies to buildings with more than one floor",
-        "Exception for parking buildings"
-      ],
-      "Measurements": [
-        {"type": "maximum area", "value": 2500, "unit": "m²"}
-      ],
-      "Relationships": [
-        "Compartment is part of building",
-        "Compartment may span multiple floors if conditions met"
-      ]
-    },
-    {
-      "Rule ID": "LG-002",
-      "Entities": ["single-story building", "compartment"],
-      "Conditions": [
-        "Applies to single-story buildings only"
-      ],
-      "Measurements": [
-        {"type": "maximum area", "value": 3500, "unit": "m²"},
-        {"type": "maximum length", "value": 90, "unit": "m"}
-      ],
-      "Relationships": [
-        "Compartment is part of single-story building"
-      ]
-    },
-    {
-      "Rule ID": "LG-003",
-      "Entities": ["fire department vehicle", "building facade", "access road"],
-      "Conditions": [
-        "Applies to single-story buildings",
-        "Access road can be public highway or special access road"
-      ],
-      "Measurements": [
-        {"type": "maximum approach distance", "value": 60, "unit": "m"},
-        {"type": "minimum road width", "value": 4, "unit": "m"},
-        {"type": "minimum inner turning radius", "value": 11, "unit": "m"},
-        {"type": "minimum outer turning radius", "value": 15, "unit": "m"},
-        {"type": "minimum clear height", "value": 4, "unit": "m"},
-        {"type": "maximum slope", "value": 6, "unit": "%"}
-      ],
-      "Relationships": [
-        "Fire department vehicle must be able to approach building facade",
-        "Access road provides path for fire department vehicle"
-      ]
-    },
-    {
-      "Rule ID": "LG-004",
-      "Entities": ["evacuation route", "staircase", "exit"],
-      "Conditions": [
-        "Applies to compartments with daytime occupancy only"
-      ],
-      "Measurements": [
-        {"type": "maximum distance to evacuation route", "value": 30, "unit": "m"},
-        {"type": "maximum distance to nearest staircase/exit", "value": 45, "unit": "m"},
-        {"type": "maximum distance to second staircase/exit", "value": 80, "unit": "m"}
-      ],
-      "Relationships": [
-        "Evacuation route connects to staircases and exits",
-        "Compartment contains evacuation routes"
-      ]
-    }
-  ]
-}
-    """
-    ruletext_as_message = [{
-        "role": "user",
-        "content": section
-    },
-    {
-        "role": "assistant",
-        "content": "{"
-    }]
-    response = client.messages.create(
-        max_tokens=2048,
-        messages=ruletext_as_message,
-        model="claude-3-5-sonnet@20240620",
-        system=prompt
-    )
-    
-    response_text = "{\n" + response.content[0].text
-   
-    answer = response_text
-
-    print("Paragraph " + str(parnum) + " out of " + str(totparnum)+": ")
-    print(answer)
-    
-    return json.loads(answer)
-
-def combine_processed_sections(processed_sections):
-    all_rules = []
-    for section_rules in processed_sections:
-        if "no rules" not in section_rules.lower():
-            all_rules.extend(section_rules)
-    
-    # Ensure unique Rule IDs
-    used_ids = set()
-    for rule in all_rules:
-        while rule['Rule ID'] in used_ids:
-            rule['Rule ID'] += '_dup'
-        used_ids.add(rule['Rule ID'])
-    
-    return all_rules
+    return final_sections
 
 def prepare_shacl_generation(mapped_rules: List[Dict]) -> List[Dict]:
     prepared_rules = []
@@ -252,15 +150,19 @@ firebim:RoyalDecree a firebim:Document ;
     firebim:hasID "RoyalDecree1994" ;
     firebim:issued "1994-07-07"^^xsd:date .
     """
-
-    response = client.messages.create(
-        max_tokens=4096,
-        messages=[
-            {"role": "user", "content": prompt},
-            {"role": "assistant", "content": "firebim:Section_" + str(section_number) +" a"}
-        ],
-        model="claude-3-5-sonnet@20240620"
-    )
+    while True:
+        try:
+            response = client.messages.create(
+                max_tokens=4096,
+                messages=[
+                    {"role": "user", "content": prompt},
+                    {"role": "assistant", "content": "firebim:Section_" + str(section_number) +" a"}
+                ],
+                model="claude-3-5-sonnet@20240620"
+            )
+            break
+        except Exception as e:
+            print(e)
     full_ttl_content = """@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -308,11 +210,11 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
             else:
                 print("probably rate limit exceeded... waiting")
                 time.sleep(5)
-            if attempt < 2:
+            if attempt < 5:
                 print("Retrying with AI...")
                 section_text += f"\n\nPrevious attempt failed with error: {str(e)}. Please try again and ensure valid Turtle syntax."
             else:
-                print(f"Failed to process section {section_number} after 3 attempts")
+                print(f"Failed to process section {section_number} after 6 attempts")
     
     return False
 
@@ -325,13 +227,9 @@ def main():
     
     # Create section structure
     section_numbers = []
-    for i, section in enumerate(sections):
-        match = re.match(r'(\d+(?:\.\d+)*)\s', section)
-        if match:
-            section_number = match.group(1)
-        else:
-            section_number = str(i+1)
-        section_numbers.append(section_number.replace('.', '_'))
+    for section_number, section_title, section_content in sections:
+        if section_number is not None:
+            section_numbers.append(section_number.replace('.', '_'))
     
     document = URIRef(FIREBIM.RoyalDecree)
     
@@ -341,7 +239,7 @@ def main():
     for section_number in section_numbers:
         section_uri = URIRef(FIREBIM['Section_' + section_number])
         main_graph.add((section_uri, RDF.type, FIREBIM.Section))
-        main_graph.add((section_uri, FIREBIM.hasID, Literal(section_number)))
+        main_graph.add((section_uri, FIREBIM.hasID, Literal(section_number.replace('_', '.'))))
         
         # Link top-level sections to the document
         if '_' not in section_number:
@@ -358,10 +256,13 @@ def main():
     main_graph.serialize("sections/document.ttl", format="turtle")
     
     # Process sections
-    for i, section in enumerate(sections):
-        section_number = section_numbers[i]
-        if float(section_number.replace('_', '.')) < 3:
-            create_and_combine_section_ttl(section_number, section, ontology, main_graph)
+    for section_number, section_title, section_content in sections:
+        if section_number is not None:
+            section_number_underscore = section_number.replace('.', '_')
+            #print(float(section_number[:3]))
+            if 3.1 < float(section_number[:3]) < 3.5:
+                full_content = f"{section_title}\n{section_content}" if section_title else section_content
+                create_and_combine_section_ttl(section_number_underscore, full_content, ontology, main_graph)
     
     main_graph.serialize("combined_document_data_graph.ttl", format="turtle")
 

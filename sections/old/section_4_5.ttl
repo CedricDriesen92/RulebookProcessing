@@ -6,23 +6,27 @@
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_4.5 a firebim:Section ;
-    firebim:hasID "4.5" ;
-    firebim:hasOriginalText "4.5 Signalization." ;
-    firebim:hasArticle firebim:Article_4.5.1, firebim:Article_4.5.2 .
+firebim:Section_4_5 a firebim:Section ;
+    firebim:hasID "4_5" ;
+    firebim:hasOriginalText "Signalisatie."@nl ;
+    firebim:hasArticle firebim:Article_4_5_1, firebim:Article_4_5_2 .
 
-firebim:Article_4.5.1 a firebim:Article ;
-    firebim:hasOriginalText "For all building levels, the sequence number shall be clearly posted on landings and in the escape areas at stairwells and elevators." ;
-    firebim:hasMember firebim:Member_4.5.1.1 .
+firebim:RoyalDecree firebim:hasSection firebim:Section_4_5 .
 
-firebim:Member_4.5.1.1 a firebim:Member ;
-    firebim:hasOriginalText "For all building levels, the sequence number shall be clearly posted on landings and in the escape areas at stairwells and elevators." .
+firebim:Article_4_5_1 a firebim:Article ;
+    firebim:hasOriginalText """Het volgnummer van elke bouwlaag wordt duidelijk aangebracht op de overlopen en in de 
+vluchtruimten bij trappenhuizen en liften."""@nl ;
+    firebim:hasMember firebim:Member_4_5_1_1 .
 
-firebim:Article_4.5.2 a firebim:Article ;
-    firebim:hasOriginalText "The designation of exits and emergency exits shall comply with the provisions on occupational safety and health signage." ;
-    firebim:hasMember firebim:Member_4.5.2.1 .
+firebim:Member_4_5_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Het volgnummer van elke bouwlaag wordt duidelijk aangebracht op de overlopen en in de 
+vluchtruimten bij trappenhuizen en liften."""@nl .
 
-firebim:Member_4.5.2.1 a firebim:Member ;
-    firebim:hasOriginalText "The designation of exits and emergency exits shall comply with the provisions on occupational safety and health signage." .
+firebim:Article_4_5_2 a firebim:Article ;
+    firebim:hasOriginalText """De aanduiding van de uitgangen en nooduitgangen dient te voldoen aan de bepalingen 
+betreffende de veiligheids - en gezondheidssignalering op het werk."""@nl ;
+    firebim:hasMember firebim:Member_4_5_2_1 .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_4.5 .
+firebim:Member_4_5_2_1 a firebim:Member ;
+    firebim:hasOriginalText """De aanduiding van de uitgangen en nooduitgangen dient te voldoen aan de bepalingen 
+betreffende de veiligheids - en gezondheidssignalering op het werk."""@nl .

@@ -6,16 +6,21 @@
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_1.2 a firebim:Section ;
-    firebim:hasID "1.2" ;
-    firebim:hasOriginalText "[Outbuildings, etc.]\nOutbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if \nthey do not compromise either evacuation, occupant safety or fire department action." ;
-    firebim:hasArticle firebim:Article_1.2.1 .
+firebim:Section_1_2 a firebim:Section ;
+    firebim:hasID "1_2" ;
+    firebim:hasOriginalText "Bijgebouwen"@nl ;
+    firebim:hasArticle firebim:Article_1_2_1 .
 
-firebim:Article_1.2.1 a firebim:Article ;
-    firebim:hasOriginalText "Outbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if \nthey do not compromise either evacuation, occupant safety or fire department action." ;
-    firebim:hasMember firebim:Member_1.2.1.1 .
+firebim:Article_1_2_1 a firebim:Article ;
+    firebim:hasOriginalText """Bijgebouwen  
+Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen 
+zijn enkel toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers, 
+noch de actie van de brandweer in het gedrang komen."""@nl ;
+    firebim:hasMember firebim:Member_1_2_1_1 .
 
-firebim:Member_1.2.1.1 a firebim:Member ;
-    firebim:hasOriginalText "Outbuildings, projecting roofs, canopies, cantilevers or other such additions are permitted only if \nthey do not compromise either evacuation, occupant safety or fire department action." .
+firebim:Member_1_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen 
+zijn enkel toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers, 
+noch de actie van de brandweer in het gedrang komen."""@nl .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_1.2 .
+firebim:RoyalDecree firebim:hasSection firebim:Section_1_2 .

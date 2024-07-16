@@ -1,0 +1,53 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_2_1 a firebim:Section ;
+    firebim:hasID "5_2_1" ;
+    firebim:hasOriginalText "Structurele elementen."@nl ;
+    firebim:hasArticle firebim:Article_5_2_1_1, firebim:Article_5_2_1_2, firebim:Article_5_2_1_3 .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_5_2_1 .
+
+firebim:Article_5_2_1_1 a firebim:Article ;
+    firebim:hasOriginalText """In afwijking van het punt 3.2 hebben de structurele elementen van de parking  R 120 en de vloeren 
+van de parkeerbouwlagen en van de hellingen hebben R  120."""@nl ;
+    firebim:hasMember firebim:Member_5_2_1_1_1 .
+
+firebim:Member_5_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """In afwijking van het punt 3.2 hebben de structurele elementen van de parking  R 120 en de vloeren 
+van de parkeerbouwlagen en van de hellingen hebben R  120."""@nl .
+
+firebim:Article_5_2_1_2 a firebim:Article ;
+    firebim:hasOriginalText """Wanneer het dak geen andere functie heeft dan alleen het beschermen van de parking tegen de 
+weersomstandigheden : 
+- hebben de struct urele elementen van het dak R 3 0; 
+- of worden de structurele  elementen van het dak gescheiden van de rest van de parking door 
+een bouwelement EI 30."""@nl ;
+    firebim:hasMember firebim:Member_5_2_1_2_1, firebim:Member_5_2_1_2_2 .
+
+firebim:Member_5_2_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "- hebben de struct urele elementen van het dak R 3 0;"@nl .
+
+firebim:Member_5_2_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText """- of worden de structurele  elementen van het dak gescheiden van de rest van de parking door 
+een bouwelement EI 30."""@nl .
+
+firebim:Article_5_2_1_3 a firebim:Article ;
+    firebim:hasOriginalText """Voor de open parkeerbouwlagen worden de structurele elementen aan geen enkele vereiste 
+onderworpen inzake brandweerstand, op voorwaarde:  
+- dat de vloeren van deze open parkeerbouwlagen en de hellingen tussen deze  open 
+parkeerbouwlagen minstens REI 60 hebben;  
+- en dat deze structurele elementen geen ander compartiment dragen."""@nl ;
+    firebim:hasMember firebim:Member_5_2_1_3_1, firebim:Member_5_2_1_3_2 .
+
+firebim:Member_5_2_1_3_1 a firebim:Member ;
+    firebim:hasOriginalText """- dat de vloeren van deze open parkeerbouwlagen en de hellingen tussen deze  open 
+parkeerbouwlagen minstens REI 60 hebben;"""@nl .
+
+firebim:Member_5_2_1_3_2 a firebim:Member ;
+    firebim:hasOriginalText "- en dat deze structurele elementen geen ander compartiment dragen."@nl .

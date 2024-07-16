@@ -6,35 +6,56 @@
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_3.3 a firebim:Section ;
-    firebim:hasID "3.3" ;
-    firebim:hasOriginalText "3.3 Vertical interior walls and interior doors.\nFor walls and doors, which demarcate compartments, 4.1 applies; if they demarcate evacuation routes, 4.4 applies.\nThe interior vertical walls demarcating classrooms or the entirety of classrooms with night occupancy have at least the fire resistance of the structural elements.\nThe doors in these walls have Rf ½ h." ;
-    firebim:hasArticle firebim:Article_3.3.1, firebim:Article_3.3.2, firebim:Article_3.3.3 .
+firebim:Section_3_3 a firebim:Section ;
+    firebim:hasID "3_3" ;
+    firebim:hasOriginalText """Verticale binnenwanden en binnendeuren."""@nl ;
+    firebim:hasArticle firebim:Article_3_3_1, firebim:Article_3_3_2, firebim:Article_3_3_3 .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_3.3 .
+firebim:RoyalDecree firebim:hasSection firebim:Section_3_3 .
 
-firebim:Article_3.3.1 a firebim:Article ;
-    firebim:hasOriginalText "For walls and doors, which demarcate compartments, 4.1 applies; if they demarcate evacuation routes, 4.4 applies." ;
-    firebim:hasMember firebim:Member_3.3.1.1 .
+firebim:Article_3_3_1 a firebim:Article ;
+    firebim:hasOriginalText """Voor de wanden en de deuren, die compartimenten afbakenen, geldt 4.1; bakenen zij 
+evacuatiewegen af dan geldt 4.4 ."""@nl ;
+    firebim:hasMember firebim:Member_3_3_1_1 .
 
-firebim:Member_3.3.1.1 a firebim:Member ;
-    firebim:hasOriginalText "For walls and doors, which demarcate compartments, 4.1 applies; if they demarcate evacuation routes, 4.4 applies." ;
-    firebim:hasForwardReference firebim:Reference_4.1, firebim:Reference_4.4 .
+firebim:Member_3_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Voor de wanden en de deuren, die compartimenten afbakenen, geldt 4.1; bakenen zij 
+evacuatiewegen af dan geldt 4.4 ."""@nl ;
+    firebim:hasForwardReference firebim:Section_4_1, firebim:Section_4_4 .
 
-firebim:Article_3.3.2 a firebim:Article ;
-    firebim:hasOriginalText "The interior vertical walls demarcating classrooms or the entirety of classrooms with night occupancy have at least the fire resistance of the structural elements." ;
-    firebim:hasMember firebim:Member_3.3.2.1 .
+firebim:Article_3_3_2 a firebim:Article ;
+    firebim:hasOriginalText """De verticale binnenwanden die lokalen of het geheel van lokalen met nachtbezetting afbakenen 
+hebben een brandweerstand, aangegeven in tabel 2.2."""@nl ;
+    firebim:hasMember firebim:Member_3_3_2_1 .
 
-firebim:Member_3.3.2.1 a firebim:Member ;
-    firebim:hasOriginalText "The interior vertical walls demarcating classrooms or the entirety of classrooms with night occupancy have at least the fire resistance of the structural elements." .
+firebim:Member_3_3_2_1 a firebim:Member ;
+    firebim:hasOriginalText """De verticale binnenwanden die lokalen of het geheel van lokalen met nachtbezetting afbakenen 
+hebben een brandweerstand, aangegeven in tabel 2.2."""@nl ;
+    firebim:hasForwardReference firebim:Table_2_2 .
 
-firebim:Article_3.3.3 a firebim:Article ;
-    firebim:hasOriginalText "The doors in these walls have Rf ½ h." ;
-    firebim:hasMember firebim:Member_3.3.3.1 .
+firebim:Table_2_2 a firebim:Table ;
+    firebim:hasID "2.2" ;
+    firebim:hasOriginalText """Wanden  
+ 
+Boven de vloer van  Ei 
+Eén bouwlaag  
+ 
+Meerdere bouwlagen  
+   
+EI 30 
+ 
+EI 60 
+Onder E i, 
+met inbegrip van de vloer van 
+Ei  
+EI 60 
+ 
+ 
+Tabel 2.2 – Brandweerstand van verticale binnenwanden"""@nl .
 
-firebim:Member_3.3.3.1 a firebim:Member ;
-    firebim:hasOriginalText "The doors in these walls have Rf ½ h." .
+firebim:Article_3_3_3 a firebim:Article ;
+    firebim:hasOriginalText """De deuren in deze wanden hebben EI 1 30."""@nl ;
+    firebim:hasMember firebim:Member_3_3_3_1 .
 
-firebim:Reference_4.1 a firebim:Reference .
-
-firebim:Reference_4.4 a firebim:Reference .
+firebim:Member_3_3_3_1 a firebim:Member ;
+    firebim:hasOriginalText """De deuren in deze wanden hebben EI 1 30."""@nl .

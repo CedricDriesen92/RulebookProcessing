@@ -6,51 +6,14 @@
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_4.2 a firebim:Section ;
-    firebim:hasID "4.2" ;
-    firebim:hasOriginalText "4.2 Interior stairwells." ;
-    firebim:hasArticle firebim:Article_4.2.1, firebim:Article_4.2.2, firebim:Article_4.2.3 .
+firebim:Section_4_2 a firebim:Section ;
+    firebim:hasID "4_2" ;
+    firebim:hasOriginalText "Binnentrappenhuizen."@nl .
 
-firebim:Article_4.2.1 a firebim:Article ;
-    firebim:hasID "4.2.1" ;
-    firebim:hasOriginalText "4.2.1 General.\nThe stairs connecting several compartments are enclosed. The basic principles of 2 \"Compartmentalization and Evacuation\" apply to them." ;
-    firebim:hasMember firebim:Member_4.2.1_1 .
+firebim:RoyalDecree firebim:hasSection firebim:Section_4_2 .
 
-firebim:Member_4.2.1_1 a firebim:Member ;
-    firebim:hasOriginalText "The stairs connecting several compartments are enclosed. The basic principles of 2 \"Compartmentalization and Evacuation\" apply to them." .
+firebim:Section_4_2 firebim:hasParagraph firebim:Paragraph_4_2_1 .
 
-firebim:Article_4.2.2 a firebim:Article ;
-    firebim:hasID "4.2.2" ;
-    firebim:hasOriginalText "4.2.2 Opinion." ;
-    firebim:hasMember firebim:Member_4.2.2.1, firebim:Member_4.2.2.2, firebim:Member_4.2.2.3, firebim:Member_4.2.2.4, firebim:Member_4.2.2.5, firebim:Member_4.2.2.6 .
-
-firebim:Member_4.2.2.1 a firebim:Member ;
-    firebim:hasOriginalText "4.2.2.1 The interior walls of the stairwells have at least the required Rf of the structural elements.\nTheir outer walls may be glazed if these openings are sealed over at least 1 m laterally with an element that has a flame density of ½ h." .
-
-firebim:Member_4.2.2.2 a firebim:Member ;
-    firebim:hasOriginalText "4.2.2.2 Stairwells must provide access to an evacuation level." .
-
-firebim:Member_4.2.2.3 a firebim:Member ;
-    firebim:hasOriginalText "4.2.2.3 On each floor, the connection between the compartment and the stairwell is ensured by a door with Rf ½ h.\nA direct connection of both floors of a duplex compartment to the stairwell is not required, provided that:\n-the total area of the compartment is less than or equal to 300 m²;\n-the area of the floor of the duplex that evacuates directly through the stairwell is greater than the area of the other floor of the duplex compartment." .
-
-firebim:Member_4.2.2.4 a firebim:Member ;
-    firebim:hasOriginalText "4.2.2.4 If several compartments lie in the same horizontal plane, they may have a common stairwell provided that it is accessible from each compartment through a self-closing or, in the event of fire, self-closing door with Rf ½ h." .
-
-firebim:Member_4.2.2.5 a firebim:Member ;
-    firebim:hasOriginalText "4.2.2.5 Stairwells serving underground levels should not be a  direct extension of those serving levels above an evacuation level.\nThis does not preclude one over the other, subject to the following conditions:\n1.the walls separating them have the same resistance to fire as those of the interior walls of stairwells.\n2.access to each stairwell is through a self-closing or, in the event of fire, self-closing door with Rf ½ h." .
-
-firebim:Member_4.2.2.6 a firebim:Member ;
-    firebim:hasOriginalText "4.2.2.6 At the top of each interior stairwell is an air vent with a diameter of at least 1 m² and which opens into the open a i r . This opening is normally closed; to open it, one uses a hand control placed in a highly visible position at the evacuation level.\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS29/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022).This requirement does not apply to stairwells between evacuation levels and underground building levels." .
-
-firebim:Article_4.2.3 a firebim:Article ;
-    firebim:hasID "4.2.3" ;
-    firebim:hasOriginalText "4.2.3 Stairs." ;
-    firebim:hasMember firebim:Member_4.2.3.1, firebim:Member_4.2.3.2 .
-
-firebim:Member_4.2.3.1 a firebim:Member ;
-    firebim:hasOriginalText "4.2.3.1 Construction provisions.\nThe stairs have the following features:\n1.Like the spillways, they have a fire stability of ½ h or the same conception of construction as a concrete slab with Rf ½ h;\n2.they are equipped with handrails on both sides.\nFor stairs with a useful width, less than 1.20 m, one handrail is sufficient, provided there is no danger of falling;\n3.the step tread is at least 0.20 m at each point;\n4.the rise of the steps should not exceed 18 cm;\n5.their slope should not exceed 75% (maximum slope angle 37°);\n6.they are of the \" straight \" type.\nHowever, \"spiral staircases\" are permitted if they have displaced treads and if, in addition to the above requirements, with the exception of the aforementioned point 3, their treads have at least 24 cm of tread on the walkway." .
-
-firebim:Member_4.2.3.2 a firebim:Member ;
-    firebim:hasOriginalText "4.2.3.2 Useful width of stair arms, spillways and sashes.\nThe useful width is at least equal to 0.80 m and reaches at least the required useful width br calculated according to Annex 1 \"Terminology\".\nThe staircase arms and staircase landings of the same compartment shall not differ in their useful width by more than one passage unit.\nIf a compartment contains special purpose rooms, the theoretical useful stair width (according to Appendix 1 \"Terminology\") based on their number of users is calculated only over the height between this compartment and the evacuation level." .
-
-firebim:RoyalDecree firebim:hasSection firebim:Section_4.2 .
+firebim:Paragraph_4_2_1 a firebim:Paragraph ;
+    firebim:hasID "4_2_1" ;
+    firebim:hasOriginalText """Binnentrappenhuizen."""@nl .

@@ -6,28 +6,19 @@
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_3.4 a firebim:Section ;
-    firebim:hasID "3.4" ;
-    firebim:hasOriginalText "3.4 Ceilings and false ceilings." ;
-    firebim:hasArticle firebim:Article_3.4.1, firebim:Article_3.4.2 .
+firebim:Section_3_4 a firebim:Section ;
+    firebim:hasID "3_4" ;
+    firebim:hasOriginalText "Plafonds en verlaagde plafonds."@nl .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_3.4 .
+firebim:RoyalDecree firebim:hasSection firebim:Section_3_4 .
 
-firebim:Article_3.4.1 a firebim:Article ;
-    firebim:hasID "3.4.1" ;
-    firebim:hasOriginalText "3.4.1 In evacuation routes, premises open to the public and collective kitchens, false ceilings have a fire stability of ½ h." ;
-    firebim:hasMember firebim:Member_3.4.1_1 .
+firebim:Section_3_4 firebim:hasParagraph firebim:Paragraph_3_4_1 .
 
-firebim:Member_3.4.1_1 a firebim:Member ;
-    firebim:hasOriginalText "In evacuation routes, premises open to the public and collective kitchens, false ceilings have a fire stability of ½ h." .
+firebim:Paragraph_3_4_1 a firebim:Paragraph ;
+    firebim:hasID "3_4_1" ;
+    firebim:hasOriginalText """Plafonds en verlaagde plafonds."""@nl ;
+    firebim:hasMember firebim:Member_3_4_1_1 .
 
-firebim:Article_3.4.2 a firebim:Article ;
-    firebim:hasID "3.4.2" ;
-    firebim:hasOriginalText "3.4.2 The space between the ceiling and the false ceiling is interrupted by the extension of all vertical walls possessing at least Rf ½ h.\nIf the space between the ceiling and the false ceiling is not equipped with an automatic extinguishing system, the space should be interrupted by vertical separations with Rf ½ h such that there are spaces whose horizontal projection can be inscribed in a square of maximum 25 m side." ;
-    firebim:hasMember firebim:Member_3.4.2_1, firebim:Member_3.4.2_2 .
-
-firebim:Member_3.4.2_1 a firebim:Member ;
-    firebim:hasOriginalText "The space between the ceiling and the false ceiling is interrupted by the extension of all vertical walls possessing at least Rf ½ h." .
-
-firebim:Member_3.4.2_2 a firebim:Member ;
-    firebim:hasOriginalText "If the space between the ceiling and the false ceiling is not equipped with an automatic extinguishing system, the space should be interrupted by vertical separations with Rf ½ h such that there are spaces whose horizontal projection can be inscribed in a square of maximum 25 m side." .
+firebim:Member_3_4_1_1 a firebim:Member ;
+    firebim:hasID "3_4_1_1" ;
+    firebim:hasOriginalText """Plafonds en verlaagde plafonds."""@nl .

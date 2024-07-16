@@ -6,44 +6,85 @@
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_1.3 a firebim:Section ;
-    firebim:hasID "1.3" ;
-    firebim:hasOriginalText "1.3 [Horizontal distance between buildings]\nThe horizontal distance, free from any combustible element and located between an LG and an opposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent buildings.\nThe walls separating adjacent buildings have Rf 1 h.\nIn these walls a connection between these buildings may exist through a door Rf ½ h, self-closing or self-closing in case of fire.\nThe condition of distance between an LG and an opposing building does not apply to buildings separated by existing streets, roads..., belonging to the public domain." .
+firebim:Section_1_3 a firebim:Section ;
+    firebim:hasID "1_3" ;
+    firebim:hasOriginalText """Horizontale afstand tussen gebouwen  
+Om te vermijden dat een brand tussen twee gebouwen kan overslaan:"""@nl ;
+    firebim:hasArticle firebim:Article_1_3_1, firebim:Article_1_3_2, firebim:Article_1_3_3, firebim:Article_1_3_4 .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_1.3 .
+firebim:RoyalDecree firebim:hasSection firebim:Section_1_3 .
 
-firebim:Section_1.3 firebim:hasArticle firebim:Article_1.3.1 .
+firebim:Article_1_3_1 a firebim:Article ;
+    firebim:hasOriginalText """a) ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan 
+bedraagt de afstand (in m) tussen de geveldelen die niet minstens EI 60 of REI 60 hebben, 
+ten minste:  
+ 
+h + 10
+2,5cos α voor 0° ≤  ≤ 90°  
+ 
+0 voor 90° <  ≤ 180°  
+ 
+waarbij  de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.1).  
+ 
+ 
+ 
+Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is 
+een horizontale afstand tussen de gebouwen van 6 m voldoende."""@nl ;
+    firebim:hasMember firebim:Member_1_3_1_1, firebim:Member_1_3_1_2 .
 
-firebim:Article_1.3.1 a firebim:Article ;
-    firebim:hasOriginalText "1.3 [Horizontal distance between buildings]\nThe horizontal distance, free from any combustible element and located between an LG and an opposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent buildings." ;
-    firebim:hasMember firebim:Member_1.3.1.1 .
+firebim:Member_1_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """a) ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan 
+bedraagt de afstand (in m) tussen de geveldelen die niet minstens EI 60 of REI 60 hebben, 
+ten minste:  
+ 
+h + 10
+2,5cos α voor 0° ≤  ≤ 90°  
+ 
+0 voor 90° <  ≤ 180°  
+ 
+waarbij  de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.1)."""@nl .
 
-firebim:Member_1.3.1.1 a firebim:Member ;
-    firebim:hasOriginalText "The horizontal distance, free from any combustible element and located between an LG and an opposing building, must be at least 6 m, unless the walls meet the conditions defined for adjacent buildings." .
+firebim:Member_1_3_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is 
+een horizontale afstand tussen de gebouwen van 6 m voldoende."""@nl .
 
-firebim:Section_1.3 firebim:hasArticle firebim:Article_1.3.2 .
+firebim:Article_1_3_2 a firebim:Article ;
+    firebim:hasOriginalText """b) ofwel mag de straling van een brand van een gebouw op een tegenoverstaand gebouw, en 
+omgekeerd, niet meer dan 15 kW/m² bedragen."""@nl ;
+    firebim:hasMember firebim:Member_1_3_2_1 .
 
-firebim:Article_1.3.2 a firebim:Article ;
-    firebim:hasOriginalText "The walls separating adjacent buildings have Rf 1 h." ;
-    firebim:hasMember firebim:Member_1.3.2.1 .
+firebim:Member_1_3_2_1 a firebim:Member ;
+    firebim:hasOriginalText """b) ofwel mag de straling van een brand van een gebouw op een tegenoverstaand gebouw, en 
+omgekeerd, niet meer dan 15 kW/m² bedragen."""@nl .
 
-firebim:Member_1.3.2.1 a firebim:Member ;
-    firebim:hasOriginalText "The walls separating adjacent buildings have Rf 1 h." .
+firebim:Article_1_3_3 a firebim:Article ;
+    firebim:hasOriginalText """De wanden die aangrenzende gebouwen scheiden hebben EI  60, of REI  60 wanneer ze dragend 
+zijn. 
+ 
+In deze wanden mag een verbinding tussen deze gebouwen bestaan via een deur EI 1 30, 
+zelfsluitend of zelfsluitend in geval van brand ."""@nl ;
+    firebim:hasMember firebim:Member_1_3_3_1, firebim:Member_1_3_3_2 .
 
-firebim:Section_1.3 firebim:hasArticle firebim:Article_1.3.3 .
+firebim:Member_1_3_3_1 a firebim:Member ;
+    firebim:hasOriginalText """De wanden die aangrenzende gebouwen scheiden hebben EI  60, of REI  60 wanneer ze dragend 
+zijn."""@nl .
 
-firebim:Article_1.3.3 a firebim:Article ;
-    firebim:hasOriginalText "In these walls a connection between these buildings may exist through a door Rf ½ h, self-closing or self-closing in case of fire." ;
-    firebim:hasMember firebim:Member_1.3.3.1 .
+firebim:Member_1_3_3_2 a firebim:Member ;
+    firebim:hasOriginalText """In deze wanden mag een verbinding tussen deze gebouwen bestaan via een deur EI 1 30, 
+zelfsluitend of zelfsluitend in geval van brand ."""@nl .
 
-firebim:Member_1.3.3.1 a firebim:Member ;
-    firebim:hasOriginalText "In these walls a connection between these buildings may exist through a door Rf ½ h, self-closing or self-closing in case of fire." .
+firebim:Article_1_3_4 a firebim:Article ;
+    firebim:hasOriginalText """De voorwaarde van de afstand tussen een laag gebouw en een tegenoverstaand gebouw geldt 
+niet voor gebouwen die van elkaar gescheiden worden door bestaande straten, wegen,... 
+behorende tot het openbaar domein."""@nl ;
+    firebim:hasMember firebim:Member_1_3_4_1 .
 
-firebim:Section_1.3 firebim:hasArticle firebim:Article_1.3.4 .
+firebim:Member_1_3_4_1 a firebim:Member ;
+    firebim:hasOriginalText """De voorwaarde van de afstand tussen een laag gebouw en een tegenoverstaand gebouw geldt 
+niet voor gebouwen die van elkaar gescheiden worden door bestaande straten, wegen,... 
+behorende tot het openbaar domein."""@nl .
 
-firebim:Article_1.3.4 a firebim:Article ;
-    firebim:hasOriginalText "The condition of distance between an LG and an opposing building does not apply to buildings separated by existing streets, roads..., belonging to the public domain." ;
-    firebim:hasMember firebim:Member_1.3.4.1 .
+firebim:Figure_2_1 a firebim:Figure ;
+    firebim:hasID "2.1" .
 
-firebim:Member_1.3.4.1 a firebim:Member ;
-    firebim:hasOriginalText "The condition of distance between an LG and an opposing building does not apply to buildings separated by existing streets, roads..., belonging to the public domain." .
+firebim:Member_1_3_1_1 firebim:hasReference firebim:Figure_2_1 .

@@ -6,41 +6,33 @@
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_3.1 a firebim:Section ;
-    firebim:hasID "3.1" ;
-    firebim:hasOriginalText "3.1 Penetrations through walls.\nPenetrations through walls of pipes for fluids or for electricity and the expansion joints shall not adversely affect the required fire resistance of the building elements.\nFederal Public Service Home Affairs\nGeneral Directorate of Civil Security - Fire Prevention.\nANNEX 2: LOW BUILDINGS\n27/281\n(v3.0)\nRoyal Decree of July 7, 1994 (coordinated version on May 20, 2022)." ;
-    firebim:hasArticle firebim:Article_3.1.1 .
+firebim:Section_3_1 a firebim:Section ;
+    firebim:hasID "3_1" ;
+    firebim:hasOriginalText "Doorvoeringen door wanden."@nl ;
+    firebim:hasArticle firebim:Article_3_1_1, firebim:Article_3_1_2 .
 
-firebim:Article_3.1.1 a firebim:Article ;
-    firebim:hasOriginalText "Penetrations through walls of pipes for fluids or for electricity and the expansion joints shall not adversely affect the required fire resistance of the building elements." ;
-    firebim:hasMember firebim:Member_3.1.1.1 .
+firebim:RoyalDecree firebim:hasSection firebim:Section_3_1 .
 
-firebim:Member_3.1.1.1 a firebim:Member ;
-    firebim:hasOriginalText "Penetrations through walls of pipes for fluids or for electricity and the expansion joints shall not adversely affect the required fire resistance of the building elements." .
+firebim:Article_3_1_1 a firebim:Article ;
+    firebim:hasOriginalText """Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen 
+van wanden mogen de vereiste brandweerstand van de bouwelementen niet nadelig beïnvloeden."""@nl ;
+    firebim:hasMember firebim:Member_3_1_1_1 .
 
-firebim:Section_3.2 a firebim:Section ;
-    firebim:hasID "3.2" ;
-    firebim:hasOriginalText "3.2 Structural elements.\nThe structural elements have:\na)Rf ½ h for single-story buildings. However, this requirement does not apply to the roof if it is protected on the inside by a building element with Rf ½ h;\nb)for buildings with more than one storey : Rf 1 h above Ei level. The structure of the roof has a fire stability of ½ h. This requirement is not applicable if the roof is protected on the inside by a building element with Rf ½ h;\nc)the structural elements in the basement floors, including the level Ei floor have Rf 1 h.\nNo fire resistance requirements are imposed on the structural elements of open parking buildings whose horizontal walls possess Rf 1 h." ;
-    firebim:hasArticle firebim:Article_3.2.1, firebim:Article_3.2.2 .
+firebim:Member_3_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen 
+van wanden mogen de vereiste brandweerstand van de bouwelementen niet nadelig beïnvloeden."""@nl .
 
-firebim:Article_3.2.1 a firebim:Article ;
-    firebim:hasOriginalText "The structural elements have:\na)Rf ½ h for single-story buildings. However, this requirement does not apply to the roof if it is protected on the inside by a building element with Rf ½ h;\nb)for buildings with more than one storey : Rf 1 h above Ei level. The structure of the roof has a fire stability of ½ h. This requirement is not applicable if the roof is protected on the inside by a building element with Rf ½ h;\nc)the structural elements in the basement floors, including the level Ei floor have Rf 1 h." ;
-    firebim:hasMember firebim:Member_3.2.1.1, firebim:Member_3.2.1.2, firebim:Member_3.2.1.3 .
+firebim:Article_3_1_2 a firebim:Article ;
+    firebim:hasOriginalText "De bepalingen van bijlage 7 \"Gemeenschappelijke bepalingen\", hoofdstuk 1, zijn van toepassing."@nl ;
+    firebim:hasMember firebim:Member_3_1_2_1 .
 
-firebim:Member_3.2.1.1 a firebim:Member ;
-    firebim:hasOriginalText "Rf ½ h for single-story buildings. However, this requirement does not apply to the roof if it is protected on the inside by a building element with Rf ½ h;" .
+firebim:Member_3_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "De bepalingen van bijlage 7 \"Gemeenschappelijke bepalingen\", hoofdstuk 1, zijn van toepassing."@nl ;
+    firebim:hasForwardReference firebim:Appendix_7 .
 
-firebim:Member_3.2.1.2 a firebim:Member ;
-    firebim:hasOriginalText "for buildings with more than one storey : Rf 1 h above Ei level. The structure of the roof has a fire stability of ½ h. This requirement is not applicable if the roof is protected on the inside by a building element with Rf ½ h;" .
+firebim:Appendix_7 a firebim:Appendix ;
+    firebim:hasID "7" ;
+    firebim:hasChapter firebim:Chapter_7_1 .
 
-firebim:Member_3.2.1.3 a firebim:Member ;
-    firebim:hasOriginalText "the structural elements in the basement floors, including the level Ei floor have Rf 1 h." .
-
-firebim:Article_3.2.2 a firebim:Article ;
-    firebim:hasOriginalText "No fire resistance requirements are imposed on the structural elements of open parking buildings whose horizontal walls possess Rf 1 h." ;
-    firebim:hasMember firebim:Member_3.2.2.1 .
-
-firebim:Member_3.2.2.1 a firebim:Member ;
-    firebim:hasOriginalText "No fire resistance requirements are imposed on the structural elements of open parking buildings whose horizontal walls possess Rf 1 h." .
-
-firebim:RoyalDecree firebim:hasSection firebim:Section_3.1, firebim:Section_3.2 .
+firebim:Chapter_7_1 a firebim:Chapter ;
+    firebim:hasID "1" .

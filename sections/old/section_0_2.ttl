@@ -6,56 +6,14 @@
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_0.2 a firebim:Section ;
-    firebim:hasID "0.2" ;
-    firebim:hasOriginalText "0.2 Scope." ;
-    firebim:hasArticle firebim:Article_0.2.1, firebim:Article_0.2.2 .
+firebim:Section_0_2 a firebim:Section ;
+    firebim:hasID "0_2" ;
+    firebim:hasOriginalText "Toepassingsgebied."@nl .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_0.2 .
+firebim:RoyalDecree firebim:hasSection firebim:Section_0_2 .
 
-firebim:Article_0.2.1 a firebim:Article ;
-    firebim:hasID "0.2.1" ;
-    firebim:hasOriginalText "0.2.1 This annex applies to the following buildings to be erected and the following extensions to existing buildings, for which the application for construction is submitted after December 31, 1997 and before December 1, 2012:" ;
-    firebim:hasMember firebim:Member_0.2.1.1, firebim:Member_0.2.1.2, firebim:Member_0.2.1.3 .
+firebim:Section_0_2 firebim:hasParagraph firebim:Paragraph_0_2_1 .
 
-firebim:Member_0.2.1.1 a firebim:Member ;
-    firebim:hasID "0.2.1.1" ;
-    firebim:hasOriginalText "1.the low buildings;" .
-
-firebim:Member_0.2.1.2 a firebim:Member ;
-    firebim:hasID "0.2.1.2" ;
-    firebim:hasOriginalText "2.the extensions of buildings that are low buildings after realization;" .
-
-firebim:Member_0.2.1.3 a firebim:Member ;
-    firebim:hasID "0.2.1.3" ;
-    firebim:hasOriginalText "3.the premises or parts of low-rise buildings in which an industrial activity takes place and whose total area is less than or equal to 500 m², under the following conditions:" ;
-    firebim:hasMember firebim:Member_0.2.1.3.1, firebim:Member_0.2.1.3.2, firebim:Member_0.2.1.3.3 .
-
-firebim:Member_0.2.1.3.1 a firebim:Member ;
-    firebim:hasID "0.2.1.3.1" ;
-    firebim:hasOriginalText "-mainly non-industrial activities take place in the building and the total area of premises with industrial activity is less than the remaining area of the building;" .
-
-firebim:Member_0.2.1.3.2 a firebim:Member ;
-    firebim:hasID "0.2.1.3.2" ;
-    firebim:hasOriginalText "-the industrial activities in these premises support the non-industrial activities in the same compartment;" .
-
-firebim:Member_0.2.1.3.3 a firebim:Member ;
-    firebim:hasID "0.2.1.3.3" ;
-    firebim:hasOriginalText "-there are no night-occupied premises in the compartment in which industrial activities take place." .
-
-firebim:Article_0.2.2 a firebim:Article ;
-    firebim:hasID "0.2.2" ;
-    firebim:hasOriginalText "0.2.2 However, excluded from the scope of this annex are:" ;
-    firebim:hasMember firebim:Member_0.2.2.1, firebim:Member_0.2.2.2, firebim:Member_0.2.2.3 .
-
-firebim:Member_0.2.2.1 a firebim:Member ;
-    firebim:hasID "0.2.2.1" ;
-    firebim:hasOriginalText "1.the industrial buildings;" .
-
-firebim:Member_0.2.2.2 a firebim:Member ;
-    firebim:hasID "0.2.2.2" ;
-    firebim:hasOriginalText "2.The buildings consisting of up to two storeys and with a total area less than or equal to 100 m²;" .
-
-firebim:Member_0.2.2.3 a firebim:Member ;
-    firebim:hasID "0.2.2.3" ;
-    firebim:hasOriginalText "3.the single-family homes." .
+firebim:Paragraph_0_2_1 a firebim:Paragraph ;
+    firebim:hasID "0_2_1" ;
+    firebim:hasOriginalText """Toepassingsgebied."""@nl .
