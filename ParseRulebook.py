@@ -179,8 +179,8 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
     if os.path.exists(file_name):
         try:
             section_graph = Graph()
-            section_graph.parse(file_name, format="turtle")
-            main_graph += section_graph
+            main_graph.parse(file_name, format="turtle", publicID=FIREBIM)
+            #main_graph += section_graph
             print(f"Loaded existing section {section_number}")
             return True
         except Exception as e:
@@ -190,12 +190,13 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
         try:
             ttl_content = process_section_to_ttl(section_number, section_text, ontology)
             section_graph = Graph()
-            section_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
+            main_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
             
             # Update existing section in main_graph instead of adding a new one
-            section_uri = URIRef(FIREBIM['Section_' + section_number])
-            for s, p, o in section_graph.triples((section_uri, None, None)):
-                main_graph.add((s, p, o))
+            #section_uri = URIRef(FIREBIM['Section_' + section_number])
+            #for s, p, o in section_graph.triples((section_uri, None, None)):
+            #    main_graph.add((s, p, o))
+            #main_graph += section_graph
             
             os.makedirs("sections", exist_ok=True)
             with open(file_name, 'w', encoding='utf-8') as f:
@@ -260,7 +261,7 @@ def main():
         if section_number is not None:
             section_number_underscore = section_number.replace('.', '_')
             #print(float(section_number[:3]))
-            if 3.1 < float(section_number[:3]) < 3.5:
+            if -1 < float(section_number[:3]) < 3.5:
                 full_content = f"{section_title}\n{section_content}" if section_title else section_content
                 create_and_combine_section_ttl(section_number_underscore, full_content, ontology, main_graph)
     
