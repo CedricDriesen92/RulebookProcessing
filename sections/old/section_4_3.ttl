@@ -14,38 +14,38 @@ firebim:Section_4_3 a firebim:Section ;
 firebim:RoyalDecree firebim:hasSection firebim:Section_4_3 .
 
 firebim:Article_4_3_1 a firebim:Article ;
-    firebim:hasOriginalText "Buitentrappen moeten toegang geven tot een evacuatieniveau ."@nl ;
+    firebim:hasOriginalText "Buitentrappen moeten toegang geven tot een evacuatieniveau."@nl ;
     firebim:hasMember firebim:Member_4_3_1_1 .
 
 firebim:Member_4_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Buitentrappen moeten toegang geven tot een evacuatieniveau ."@nl .
+    firebim:hasOriginalText "Buitentrappen moeten toegang geven tot een evacuatieniveau."@nl .
 
 firebim:Article_4_3_2 a firebim:Article ;
-    firebim:hasOriginalText """De voorschriften van 4.2.3 zijn er op van toepassing met nochtans de volgende afwijking:  er wordt 
-geen stabiliteit bij brand vereist, maar het materiaal behoort tot klasse  A1."""@nl ;
-    firebim:hasMember firebim:Member_4_3_2_1 ;
-    firebim:hasBackwardReference firebim:Section_4_2_3 .
+    firebim:hasOriginalText """De voorschriften van 4.2.3 zijn er op van toepassing met nochtans de volgende afwijking: er wordt
+geen stabiliteit bij brand vereist, maar het materiaal behoort tot klasse A1."""@nl ;
+    firebim:hasMember firebim:Member_4_3_2_1 .
 
 firebim:Member_4_3_2_1 a firebim:Member ;
-    firebim:hasOriginalText """De voorschriften van 4.2.3 zijn er op van toepassing met nochtans de volgende afwijking:  er wordt 
-geen stabiliteit bij brand vereist, maar het materiaal behoort tot klasse  A1."""@nl .
+    firebim:hasOriginalText """De voorschriften van 4.2.3 zijn er op van toepassing met nochtans de volgende afwijking: er wordt
+geen stabiliteit bij brand vereist, maar het materiaal behoort tot klasse A1."""@nl ;
+    firebim:hasBackwardReference firebim:Section_4_2_3 .
 
 firebim:Article_4_3_3 a firebim:Article ;
-    firebim:hasOriginalText """De verbinding tussen het compartiment en een buitentrap gebeurt : 
-- hetzij via een deur ; 
-- hetzij via (een) vluchtterras(sen) ."""@nl ;
+    firebim:hasOriginalText """De verbinding tussen het compartiment en een buitentrap gebeurt                  :
+-    hetzij via een deur;
+-    hetzij via (een) vluchtterras(sen)."""@nl ;
     firebim:hasMember firebim:Member_4_3_3_1 .
 
 firebim:Member_4_3_3_1 a firebim:Member ;
-    firebim:hasOriginalText """De verbinding tussen het compartiment en een buitentrap gebeurt : 
-- hetzij via een deur ; 
-- hetzij via (een) vluchtterras(sen) ."""@nl .
+    firebim:hasOriginalText """De verbinding tussen het compartiment en een buitentrap gebeurt                  :
+-    hetzij via een deur;
+-    hetzij via (een) vluchtterras(sen)."""@nl .
 
 firebim:Article_4_3_4 a firebim:Article ;
-    firebim:hasOriginalText """Voor de verbinding tussen het evacuatieniveau en de onmiddellijk hoger gelegen bouwlaag mag 
-echter een trap of gedeelte van tra p aangewend worden die inschuifbaar of geleed is."""@nl ;
+    firebim:hasOriginalText """Voor de verbinding tussen het evacuatieniveau en de onmiddellijk hoger gelegen bouwlaag mag
+echter een trap of gedeelte van trap aangewend worden die inschuifbaar of geleed is."""@nl ;
     firebim:hasMember firebim:Member_4_3_4_1 .
 
 firebim:Member_4_3_4_1 a firebim:Member ;
-    firebim:hasOriginalText """Voor de verbinding tussen het evacuatieniveau en de onmiddellijk hoger gelegen bouwlaag mag 
-echter een trap of gedeelte van tra p aangewend worden die inschuifbaar of geleed is."""@nl .
+    firebim:hasOriginalText """Voor de verbinding tussen het evacuatieniveau en de onmiddellijk hoger gelegen bouwlaag mag
+echter een trap of gedeelte van trap aangewend worden die inschuifbaar of geleed is."""@nl .

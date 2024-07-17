@@ -1,0 +1,34 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_4 a firebim:Section ;
+    firebim:hasID "6_4" ;
+    firebim:hasOriginalText "Speciale liften."@nl ;
+    firebim:hasArticle firebim:Article_6_4_1 .
+
+firebim:Article_6_4_1 a firebim:Article ;
+    firebim:hasOriginalText """Speciale liften.
+De speciale liften en de werking ervan bij brand beantwoorden aan de volgende voorschriften of
+            elke  andere  regel  van  goed  vakmanschap  die  een  gelijkwaardig  veiligheidsniveau  biedt,
+            overeenkomstig het koninklijk besluit van 12 april 2016 betreffende het op de markt brengen van
+            liften en veiligheidscomponenten voor liften."""@nl ;
+    firebim:hasMember firebim:Member_6_4_1_1 .
+
+firebim:Member_6_4_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De speciale liften en de werking ervan bij brand beantwoorden aan de volgende voorschriften of
+            elke  andere  regel  van  goed  vakmanschap  die  een  gelijkwaardig  veiligheidsniveau  biedt,
+            overeenkomstig het koninklijk besluit van 12 april 2016 betreffende het op de markt brengen van
+            liften en veiligheidscomponenten voor liften."""@nl .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_6_4 .
+
+firebim:RoyalDecree_2016 a firebim:Document ;
+    firebim:hasID "RoyalDecree2016" ;
+    firebim:issued "2016-04-12"^^xsd:date .
+
+firebim:Member_6_4_1_1 firebim:hasReference firebim:RoyalDecree_2016 .

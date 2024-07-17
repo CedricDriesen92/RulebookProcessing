@@ -8,30 +8,29 @@
 
 firebim:Section_3_4_1 a firebim:Section ;
     firebim:hasID "3_4_1" ;
-    firebim:hasOriginalText """In de evacuatiewegen, de voor het publiek toegankelijke lokalen en de collectieve keukens"""@nl ;
-    firebim:hasArticle firebim:Article_3_4_1_1, firebim:Article_3_4_1_2 .
+    firebim:hasArticle firebim:Article_3_4_1_1 .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_3_4_1 .
 
 firebim:Article_3_4_1_1 a firebim:Article ;
-    firebim:hasOriginalText """In de evacuatiewegen, de voor het publiek toegankelijke lokalen en de collectieve keukens 
-hebben de verlaagde plafonds EI  30 (ab), EI  30 (ba) of EI  30 (a ↔ b) volgens NBN  EN 13501 -
-2 en NBN EN 1364 -2 of hebben een stabiliteit bij brand van een ½  h volgens NBN 713 -020."""@nl ;
-    firebim:hasMember firebim:Member_3_4_1_1_1 .
+    firebim:hasOriginalText """In  de  evacuatiewegen,  de  voor  het  publiek  toegankelijke  lokalen  en  de  collectieve  keukens
+hebben de verlaagde plafonds EI 30 (ab), EI 30 (ba) of EI 30 (a ↔                     b) volgens NBN EN 13501-
+            2 en NBN EN 1364-2 of hebben een stabiliteit bij brand van een ½ h volgens NBN 713-020.
+            Deze vereiste is niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de
+            compartimenten die zijn uitgerust met een automat              ische blusinstallatie van het type sprinkler die is
+            aangepast aan de aanwezige risico's."""@nl ;
+    firebim:hasMember firebim:Member_3_4_1_1_1, firebim:Member_3_4_1_1_2 .
 
 firebim:Member_3_4_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """In de evacuatiewegen, de voor het publiek toegankelijke lokalen en de collectieve keukens 
-hebben de verlaagde plafonds EI  30 (ab), EI  30 (ba) of EI  30 (a ↔ b) volgens NBN  EN 13501 -
-2 en NBN EN 1364 -2 of hebben een stabiliteit bij brand van een ½  h volgens NBN 713 -020."""@nl .
+    firebim:hasOriginalText """In  de  evacuatiewegen,  de  voor  het  publiek  toegankelijke  lokalen  en  de  collectieve  keukens
+hebben de verlaagde plafonds EI 30 (ab), EI 30 (ba) of EI 30 (a ↔                     b) volgens NBN EN 13501-
+            2 en NBN EN 1364-2 of hebben een stabiliteit bij brand van een ½ h volgens NBN 713-020."""@nl .
 
-firebim:Article_3_4_1_2 a firebim:Article ;
-    firebim:hasOriginalText """Deze vereiste is niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de 
-compartimenten die zijn uitgerust met een automat ische blusinstallatie van het type sprinkler die is 
-aangepast aan de aanwezige risico's."""@nl ;
-    firebim:hasMember firebim:Member_3_4_1_2_1 .
-
-firebim:Member_3_4_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText """Deze vereiste is niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de 
-compartimenten die zijn uitgerust met een automat ische blusinstallatie van het type sprinkler die is 
-aangepast aan de aanwezige risico's."""@nl ;
+firebim:Member_3_4_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Deze vereiste is niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de
+            compartimenten die zijn uitgerust met een automat              ische blusinstallatie van het type sprinkler die is
+            aangepast aan de aanwezige risico's."""@nl ;
     firebim:hasForwardReference firebim:Section_4_4_1_2 .
+
+firebim:Section_4_4_1_2 a firebim:Section ;
+    firebim:hasID "4_4_1_2" .

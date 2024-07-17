@@ -1,0 +1,56 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_8_3 a firebim:Section ;
+    firebim:hasID "6_8_3" ;
+    firebim:hasOriginalText "Brandmelding."@nl ;
+    firebim:hasArticle firebim:Article_6_8_3_1, firebim:Article_6_8_3_2, firebim:Article_6_8_3_3 .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_6_8_3 .
+
+firebim:Article_6_8_3_1 a firebim:Article ;
+    firebim:hasID "6.8.3.1" ;
+    firebim:hasOriginalText """De  melding  van  ontdekking  of  detectie  van  brand moet  terstond  aan  de  brandweerdiensten
+            kunnen  worden  doorgegeven  door  een  meldingstoestel  per  compartiment;  in  de  gebouwen
+            waarvan de oppervlakte per bouwlaag kleiner is dan 500 m² volstaat één meldingstoestel voor het
+            gebouw."""@nl ;
+    firebim:hasMember firebim:Member_6_8_3_1_1 .
+
+firebim:Member_6_8_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De  melding  van  ontdekking  of  detectie  van  brand moet  terstond  aan  de  brandweerdiensten
+            kunnen  worden  doorgegeven  door  een  meldingstoestel  per  compartiment;  in  de  gebouwen
+            waarvan de oppervlakte per bouwlaag kleiner is dan 500 m² volstaat één meldingstoestel voor het
+            gebouw."""@nl .
+
+firebim:Article_6_8_3_2 a firebim:Article ;
+    firebim:hasID "6.8.3.2" ;
+    firebim:hasOriginalText """De nodige verbindingen worden bestendig en terstond verzekerd door telefoon-                           of elektrische
+            lijnen, of door elk ander systeem dat dezelfde werkingswaarborgen en dezelfde gebruiksfaciliteiten
+            biedt."""@nl ;
+    firebim:hasMember firebim:Member_6_8_3_2_1 .
+
+firebim:Member_6_8_3_2_1 a firebim:Member ;
+    firebim:hasOriginalText """De nodige verbindingen worden bestendig en terstond verzekerd door telefoon-                           of elektrische
+            lijnen, of door elk ander systeem dat dezelfde werkingswaarborgen en dezelfde gebruiksfaciliteiten
+            biedt."""@nl .
+
+firebim:Article_6_8_3_3 a firebim:Article ;
+    firebim:hasID "6.8.3.3" ;
+    firebim:hasOriginalText """Elk toestel dat de verbinding tot stand kan brengen mits menselijke interventie, draagt een bericht
+            over zijn bestemming en gebruiksaanwijzing.
+            Gaat het om een telefoontoestel, dan vermeldt dit bericht het te vormen oproepnummer, tenzij de
+            verbinding rechtstreeks of automatisch geschiedt."""@nl ;
+    firebim:hasMember firebim:Member_6_8_3_3_1, firebim:Member_6_8_3_3_2 .
+
+firebim:Member_6_8_3_3_1 a firebim:Member ;
+    firebim:hasOriginalText """Elk toestel dat de verbinding tot stand kan brengen mits menselijke interventie, draagt een bericht
+            over zijn bestemming en gebruiksaanwijzing."""@nl .
+
+firebim:Member_6_8_3_3_2 a firebim:Member ;
+    firebim:hasOriginalText """Gaat het om een telefoontoestel, dan vermeldt dit bericht het te vormen oproepnummer, tenzij de
+            verbinding rechtstreeks of automatisch geschiedt."""@nl .

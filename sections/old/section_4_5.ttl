@@ -8,25 +8,25 @@
 
 firebim:Section_4_5 a firebim:Section ;
     firebim:hasID "4_5" ;
-    firebim:hasOriginalText "Signalisatie."@nl ;
+    firebim:hasOriginalText """Signalisatie."""@nl ;
     firebim:hasArticle firebim:Article_4_5_1, firebim:Article_4_5_2 .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_4_5 .
 
 firebim:Article_4_5_1 a firebim:Article ;
-    firebim:hasOriginalText """Het volgnummer van elke bouwlaag wordt duidelijk aangebracht op de overlopen en in de 
-vluchtruimten bij trappenhuizen en liften."""@nl ;
+    firebim:hasOriginalText """Het  volgnummer  van  elke  bouwlaag  wordt  duidelijk  aangebracht  op  de  overlopen                      en  in  de
+            vluchtruimten bij trappenhuizen en liften."""@nl ;
     firebim:hasMember firebim:Member_4_5_1_1 .
 
 firebim:Member_4_5_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Het volgnummer van elke bouwlaag wordt duidelijk aangebracht op de overlopen en in de 
-vluchtruimten bij trappenhuizen en liften."""@nl .
+    firebim:hasOriginalText """Het  volgnummer  van  elke  bouwlaag  wordt  duidelijk  aangebracht  op  de  overlopen                      en  in  de
+            vluchtruimten bij trappenhuizen en liften."""@nl .
 
 firebim:Article_4_5_2 a firebim:Article ;
-    firebim:hasOriginalText """De aanduiding van de uitgangen en nooduitgangen dient te voldoen aan de bepalingen 
-betreffende de veiligheids - en gezondheidssignalering op het werk."""@nl ;
+    firebim:hasOriginalText """De  aanduiding  van  de  uitgangen  en  nooduitgangen  dient  te  voldoen  aan  de  bepalingen
+            betreffende de veiligheids- en gezondheidssignalering op het werk."""@nl ;
     firebim:hasMember firebim:Member_4_5_2_1 .
 
 firebim:Member_4_5_2_1 a firebim:Member ;
-    firebim:hasOriginalText """De aanduiding van de uitgangen en nooduitgangen dient te voldoen aan de bepalingen 
-betreffende de veiligheids - en gezondheidssignalering op het werk."""@nl .
+    firebim:hasOriginalText """De  aanduiding  van  de  uitgangen  en  nooduitgangen  dient  te  voldoen  aan  de  bepalingen
+            betreffende de veiligheids- en gezondheidssignalering op het werk."""@nl .

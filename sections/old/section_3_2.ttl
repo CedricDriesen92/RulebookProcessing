@@ -8,57 +8,33 @@
 
 firebim:Section_3_2 a firebim:Section ;
     firebim:hasID "3_2" ;
-    firebim:hasOriginalText """Structurele elementen."""@nl ;
+    firebim:hasOriginalText "Structurele elementen."@nl ;
     firebim:hasArticle firebim:Article_3_2_1 .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_3_2 .
+firebim:Section_3 firebim:hasSection firebim:Section_3_2 .
 
 firebim:Article_3_2_1 a firebim:Article ;
-    firebim:hasOriginalText """De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals 
-weergegeven in tabel 2.1, waarin E i het laagst gelegen evacuatieniveau voorstelt.  
-Federale Overheidsdienst Binnenlandse Zaken  
-Algemene Directie Civiele Veiligheid – Brandpreventie  
- 
-49/275 
- (v3.0 ) Koninklijk besluit van 7 juli 1994 (gecoördi neerde versie op 20 mei  2022) 
-BIJLAGE 2/1: LAGE GEBOUWEN"""@nl ;
+    firebim:hasOriginalText """De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals
+weergegeven in tabel 2.1, waarin Ei het laagst gelegen evacuatieniveau voorstelt."""@nl ;
     firebim:hasMember firebim:Member_3_2_1_1 ;
     firebim:hasTable firebim:Table_2_1 .
 
 firebim:Member_3_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals 
-weergegeven in tabel 2.1, waarin E i het laagst gelegen evacuatieniveau voorstelt."""@nl .
+    firebim:hasOriginalText """De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals
+weergegeven in tabel 2.1, waarin Ei het laagst gelegen evacuatieniveau voorstelt."""@nl .
 
 firebim:Table_2_1 a firebim:Table ;
     firebim:hasID "2.1" ;
-    firebim:hasOriginalText """   
-Structurele 
-elementen van het 
-dak 
-  
-Overige  
-structurele 
-elementen  
- 
-Boven de vloer van  Ei 
-Eén bouwlaag  
- 
-Meerdere bouwlagen  
-   
-R 30 (*)  
- 
-R 30 (*)   
-R 30 
- 
-R 60 
-Onder E i, 
-met inbegrip van de vloer van 
-Ei  
-Niet van 
-toepassing  
-  
-R 60 
- 
-Tabel 2.1 - Brandweerstand van structurele elementen.  
- (*) Geen eisen voor de structurele elementen van het dak indien het aan de binnenkant 
-beschermd is door mi ddel van een bouwelement EI  30."""@nl .
+    firebim:hasOriginalText """                                          Structurele                Overige
+                                                      elementen van het          structurele
+                                                      dak                        elementen
+              Boven de vloer van Ei
+                                 Eén bouwlaag         R 30 (*)                   R 30
+                         Meerdere bouwlagen           R 30 (*)                   R 60
+              Onder E    ,
+                        i                             Niet van                   R 60
+              met inbegrip van de vloer van           toepassing
+              Ei
+            Tabel 2.1 - Brandweerstand van structurele elementen.
+            (*)  Geen  eisen  voor  de  structurele  elementen  van  het  dak  indien  het  aan  de  binnenkant
+                 beschermd is door middel van een bouwelement EI 30."""@nl .

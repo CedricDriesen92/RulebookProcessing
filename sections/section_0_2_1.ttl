@@ -7,48 +7,43 @@
 @base <http://example.com/firebim> .
 
 firebim:Section_0_2_1 a firebim:Section ;
-    firebim:hasID "0_2_1" ;
-    firebim:hasOriginalText """Deze  bijlage  is  van  toepassing  op  de  volgende  op  te  richten  gebouwen  en  de  volgende
-uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend
-            vanaf 1 december 2012:"""@nl ;
-    firebim:hasArticle firebim:Article_0_2_1_1, firebim:Article_0_2_1_2, firebim:Article_0_2_1_3 .
+    firebim:hasID "0.2.1" ;
+    firebim:hasOriginalText "Deze  bijlage  is  van  toepassing  op  de  volgende  op  te  richten  gebouwen  en  de  volgende uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend vanaf 1 december 2012:"@nl ;
+    firebim:hasArticle firebim:Article_0_2_1_1 .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_0_2_1 .
+firebim:Section_0_2 firebim:hasSection firebim:Section_0_2_1 .
 
 firebim:Article_0_2_1_1 a firebim:Article ;
-    firebim:hasOriginalText "1.   de lage gebouwen;"@nl ;
-    firebim:hasMember firebim:Member_0_2_1_1 .
+    firebim:hasID "A0.2.1.1" ;
+    firebim:hasOriginalText """Deze  bijlage  is  van  toepassing  op  de  volgende  op  te  richten  gebouwen  en  de  volgende
+uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend
+vanaf 1 december 2012:
+1.   de lage gebouwen;
+2.   de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;
+3.   de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan
+     de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:
+     -    in  het  gebouw  hoofdzakelijk  niet-industriële  activiteiten  plaats  vinden  en  de  totale
+          oppervlakte  van  de  lokalen  met  industriële  activiteit  kleiner  is  dan  de  overblijvende
+          oppervlakte van het gebouw;
+     -    de  industriële  activiteiten  in  deze  lokalen  de  niet-industriële  activiteiten  in  hetzelfde
+          compartiment ondersteunen;
+     -    er  geen  lokalen  met  nachtbezetting  zijn  in  het  compartiment  waarin  er  industriële
+          activiteiten plaatsvinden."""@nl ;
+    firebim:hasMember firebim:Member_0_2_1_1_1, firebim:Member_0_2_1_1_2, firebim:Member_0_2_1_1_3 .
 
-firebim:Member_0_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "de lage gebouwen;"@nl .
+firebim:Member_0_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "1.   de lage gebouwen;"@nl .
 
-firebim:Article_0_2_1_2 a firebim:Article ;
-    firebim:hasOriginalText "2.   de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;"@nl ;
-    firebim:hasMember firebim:Member_0_2_1_2 .
+firebim:Member_0_2_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "2.   de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;"@nl .
 
-firebim:Member_0_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText "de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;"@nl .
-
-firebim:Article_0_2_1_3 a firebim:Article ;
+firebim:Member_0_2_1_1_3 a firebim:Member ;
     firebim:hasOriginalText """3.   de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan
-                 de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:
-                 -    in  het  gebouw  hoofdzakelijk  niet-industriële  activiteiten  plaats  vinden  en  de  totale
-                      oppervlakte  van  de  lokalen  met  industriële  activiteit  kleiner  is  dan  de  overblijvende
-                      oppervlakte van het gebouw;
-                 -    de  industriële  activiteiten  in  deze  lokalen  de  niet-industriële  activiteiten  in  hetzelfde
-                      compartiment ondersteunen;
-                 -    er  geen  lokalen  met  nachtbezetting  zijn  in  het  compartiment  waarin  er  industriële
-                      activiteiten plaatsvinden."""@nl ;
-    firebim:hasMember firebim:Member_0_2_1_3_1, firebim:Member_0_2_1_3_2, firebim:Member_0_2_1_3_3, firebim:Member_0_2_1_3_4 .
-
-firebim:Member_0_2_1_3_1 a firebim:Member ;
-    firebim:hasOriginalText "de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:"@nl .
-
-firebim:Member_0_2_1_3_2 a firebim:Member ;
-    firebim:hasOriginalText "in  het  gebouw  hoofdzakelijk  niet-industriële  activiteiten  plaats  vinden  en  de  totale oppervlakte  van  de  lokalen  met  industriële  activiteit  kleiner  is  dan  de  overblijvende oppervlakte van het gebouw;"@nl .
-
-firebim:Member_0_2_1_3_3 a firebim:Member ;
-    firebim:hasOriginalText "de  industriële  activiteiten  in  deze  lokalen  de  niet-industriële  activiteiten  in  hetzelfde compartiment ondersteunen;"@nl .
-
-firebim:Member_0_2_1_3_4 a firebim:Member ;
-    firebim:hasOriginalText "er  geen  lokalen  met  nachtbezetting  zijn  in  het  compartiment  waarin  er  industriële activiteiten plaatsvinden."@nl .
+     de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:
+     -    in  het  gebouw  hoofdzakelijk  niet-industriële  activiteiten  plaats  vinden  en  de  totale
+          oppervlakte  van  de  lokalen  met  industriële  activiteit  kleiner  is  dan  de  overblijvende
+          oppervlakte van het gebouw;
+     -    de  industriële  activiteiten  in  deze  lokalen  de  niet-industriële  activiteiten  in  hetzelfde
+          compartiment ondersteunen;
+     -    er  geen  lokalen  met  nachtbezetting  zijn  in  het  compartiment  waarin  er  industriële
+          activiteiten plaatsvinden."""@nl .

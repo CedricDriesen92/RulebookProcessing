@@ -14,12 +14,12 @@ firebim:Section_4_4_2 a firebim:Section ;
 firebim:RoyalDecree firebim:hasSection firebim:Section_4_4_2 .
 
 firebim:Article_4_4_2_1 a firebim:Article ;
-    firebim:hasOriginalText """Op een evacuatieniveau mogen geen uitstalramen van bouwdelen met een commerciële functie,  
-die geen EI  30 hebben, uitgeven op de evacuatieweg die de uitgangen van andere bouwdelen 
-verbindt met de openbare weg, met uitzondering van de laatste 3  m van deze evacuatieweg."""@nl ;
+    firebim:hasOriginalText """Op een evacuatieniveau mogen geen uitstalramen van bouwdelen met een commerciële functie,
+            die geen EI 30 hebben, uitgeven op de evacuatieweg die de uitgangen van andere bouwdelen
+            verbindt met de openbare weg, met uitzondering van de laatste 3 m van deze evacuatieweg."""@nl ;
     firebim:hasMember firebim:Member_4_4_2_1_1 .
 
 firebim:Member_4_4_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Op een evacuatieniveau mogen geen uitstalramen van bouwdelen met een commerciële functie,  
-die geen EI  30 hebben, uitgeven op de evacuatieweg die de uitgangen van andere bouwdelen 
-verbindt met de openbare weg, met uitzondering van de laatste 3  m van deze evacuatieweg."""@nl .
+    firebim:hasOriginalText """Op een evacuatieniveau mogen geen uitstalramen van bouwdelen met een commerciële functie,
+            die geen EI 30 hebben, uitgeven op de evacuatieweg die de uitgangen van andere bouwdelen
+            verbindt met de openbare weg, met uitzondering van de laatste 3 m van deze evacuatieweg."""@nl .

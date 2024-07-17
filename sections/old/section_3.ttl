@@ -15,4 +15,4 @@ firebim:RoyalDecree firebim:hasSection firebim:Section_3 .
 firebim:Section_3 firebim:hasMember firebim:Member_3_1 .
 
 firebim:Member_3_1 a firebim:Member ;
-    firebim:hasOriginalText "VOORSCHRIFTEN VOOR SOMMIGE BOUWELEMENTEN."@nl .
+    firebim:hasOriginalText """VOORSCHRIFTEN VOOR SOMMIGE BOUWELEMENTEN."""@nl .

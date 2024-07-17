@@ -1,0 +1,43 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_5_4 a firebim:Section ;
+    firebim:hasID "6_5_4" ;
+    firebim:hasOriginalText "Veiligheidsverlichting."@nl ;
+    firebim:hasArticle firebim:Article_6_5_4_1, firebim:Article_6_5_4_2, firebim:Article_6_5_4_3 .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_6_5_4 .
+
+firebim:Article_6_5_4_1 a firebim:Article ;
+    firebim:hasOriginalText """De veiligheidsverlichting voldoet aan de voorschriften van de normen NBN EN 1838, NBN EN
+60598-2-22 en NBN EN 50172."""@nl ;
+    firebim:hasMember firebim:Member_6_5_4_1_1 .
+
+firebim:Member_6_5_4_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De veiligheidsverlichting voldoet aan de voorschriften van de normen NBN EN 1838, NBN EN
+60598-2-22 en NBN EN 50172."""@nl .
+
+firebim:Article_6_5_4_2 a firebim:Article ;
+    firebim:hasOriginalText """Deze veiligheidsverlichting mag gevoed worden door de normale stroombron, maar valt deze uit,
+dan moet de voeding geschieden door één of meerdere autonome stroombron(nen)."""@nl ;
+    firebim:hasMember firebim:Member_6_5_4_2_1 .
+
+firebim:Member_6_5_4_2_1 a firebim:Member ;
+    firebim:hasOriginalText """Deze veiligheidsverlichting mag gevoed worden door de normale stroombron, maar valt deze uit,
+dan moet de voeding geschieden door één of meerdere autonome stroombron(nen)."""@nl .
+
+firebim:Article_6_5_4_3 a firebim:Article ;
+    firebim:hasOriginalText """Autonome verlichtingstoestellen aangesloten op de kring die de betrokken normale verlichting
+voedt, mogen eveneens gebruikt worden voor zover zij alle waarborgen voor een goede werking
+bieden."""@nl ;
+    firebim:hasMember firebim:Member_6_5_4_3_1 .
+
+firebim:Member_6_5_4_3_1 a firebim:Member ;
+    firebim:hasOriginalText """Autonome verlichtingstoestellen aangesloten op de kring die de betrokken normale verlichting
+voedt, mogen eveneens gebruikt worden voor zover zij alle waarborgen voor een goede werking
+bieden."""@nl .

@@ -12,8 +12,11 @@ firebim:Section_4_2 a firebim:Section ;
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_4_2 .
 
-firebim:Section_4_2 firebim:hasParagraph firebim:Paragraph_4_2_1 .
+firebim:Section_4_2 firebim:hasArticle firebim:Article_4_2_1 .
 
-firebim:Paragraph_4_2_1 a firebim:Paragraph ;
-    firebim:hasID "4_2_1" ;
-    firebim:hasOriginalText """Binnentrappenhuizen."""@nl .
+firebim:Article_4_2_1 a firebim:Article ;
+    firebim:hasOriginalText "Binnentrappenhuizen."@nl ;
+    firebim:hasMember firebim:Member_4_2_1_1 .
+
+firebim:Member_4_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText "Binnentrappenhuizen."@nl .

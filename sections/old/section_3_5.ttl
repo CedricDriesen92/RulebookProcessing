@@ -11,14 +11,3 @@ firebim:Section_3_5 a firebim:Section ;
     firebim:hasOriginalText "Gevels"@nl .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_3_5 .
-
-firebim:Section_3_5 firebim:hasParagraph firebim:Paragraph_3_5_1 .
-
-firebim:Paragraph_3_5_1 a firebim:Paragraph ;
-    firebim:hasID "3_5_1" ;
-    firebim:hasOriginalText "Gevels"@nl ;
-    firebim:hasMember firebim:Member_3_5_1_1 .
-
-firebim:Member_3_5_1_1 a firebim:Member ;
-    firebim:hasID "3_5_1_1" ;
-    firebim:hasOriginalText "Gevels"@nl .

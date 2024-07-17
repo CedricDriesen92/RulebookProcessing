@@ -11,8 +11,3 @@ firebim:Section_5_1 a firebim:Section ;
     firebim:hasOriginalText "Technische lokalen en ruimten."@nl .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_5_1 .
-
-firebim:Section_5_1 firebim:hasMember firebim:Member_5_1_1 .
-
-firebim:Member_5_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Technische lokalen en ruimten."@nl .

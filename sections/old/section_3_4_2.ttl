@@ -8,38 +8,33 @@
 
 firebim:Section_3_4_2 a firebim:Section ;
     firebim:hasID "3_4_2" ;
-    firebim:hasOriginalText """De wanden waarvoor brandwerendheid vereist is, lopen door in de ruimte tussen het plafond en 
-het verlaagd plafond."""@nl ;
+    firebim:hasOriginalText "De wanden waarvoor brandwerendheid vereist is, lopen door in de ruimte tussen het plafond en het verlaagd plafond."@nl ;
     firebim:hasArticle firebim:Article_3_4_2_1, firebim:Article_3_4_2_2 .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_3_4_2 .
 
 firebim:Article_3_4_2_1 a firebim:Article ;
-    firebim:hasOriginalText """Indien de ruimte tussen het plafond  en het verlaagd plafond niet is uitgerust met een automatische 
-blusinstallatie, moet  deze ruimte worden verdeeld in volumes  waarvan de horizontale projectie kan 
-ingeschreven worden in een vierkant van maximum 25  m zijde."""@nl ;
+    firebim:hasOriginalText """Indien de ruimte tussen het plafond en het verlaagd plafond niet is uitgerust met een automatische blusinstallatie, moet deze ruimte worden verdeeld in volumes waarvan de horizontale projectie kan ingeschreven worden in een vierkant van maximum 25 m zijde."""@nl ;
     firebim:hasMember firebim:Member_3_4_2_1_1 .
 
 firebim:Member_3_4_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Indien de ruimte tussen het plafond  en het verlaagd plafond niet is uitgerust met een automatische 
-blusinstallatie, moet  deze ruimte worden verdeeld in volumes  waarvan de horizontale projectie kan 
-ingeschreven worden in een vierkant van maximum 25  m zijde."""@nl .
+    firebim:hasOriginalText """Indien de ruimte tussen het plafond en het verlaagd plafond niet is uitgerust met een automatische blusinstallatie, moet deze ruimte worden verdeeld in volumes waarvan de horizontale projectie kan ingeschreven worden in een vierkant van maximum 25 m zijde."""@nl .
 
 firebim:Article_3_4_2_2 a firebim:Article ;
-    firebim:hasOriginalText """Deze volumes worden gescheiden do or verticale schermen met de volgende kenmerken : 
-- zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;  
-- zij beslaan de gehele ruimte tussen de leidingen ; 
-- zij hebben EI 30."""@nl ;
+    firebim:hasOriginalText """Deze volumes worden gescheiden door verticale schermen met de volgende kenmerken:
+            -    zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;
+            -    zij beslaan de gehele ruimte tussen de leidingen           ;
+            -    zij hebben EI 30."""@nl ;
     firebim:hasMember firebim:Member_3_4_2_2_1, firebim:Member_3_4_2_2_2, firebim:Member_3_4_2_2_3, firebim:Member_3_4_2_2_4 .
 
 firebim:Member_3_4_2_2_1 a firebim:Member ;
-    firebim:hasOriginalText "Deze volumes worden gescheiden do or verticale schermen met de volgende kenmerken :"@nl .
+    firebim:hasOriginalText "Deze volumes worden gescheiden door verticale schermen met de volgende kenmerken:"@nl .
 
 firebim:Member_3_4_2_2_2 a firebim:Member ;
-    firebim:hasOriginalText "- zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;"@nl .
+    firebim:hasOriginalText "zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;"@nl .
 
 firebim:Member_3_4_2_2_3 a firebim:Member ;
-    firebim:hasOriginalText "- zij beslaan de gehele ruimte tussen de leidingen ;"@nl .
+    firebim:hasOriginalText "zij beslaan de gehele ruimte tussen de leidingen           ;"@nl .
 
 firebim:Member_3_4_2_2_4 a firebim:Member ;
-    firebim:hasOriginalText "- zij hebben EI 30."@nl .
+    firebim:hasOriginalText "zij hebben EI 30."@nl .

@@ -11,16 +11,15 @@ firebim:Section_1_2 a firebim:Section ;
     firebim:hasOriginalText "Bijgebouwen"@nl ;
     firebim:hasArticle firebim:Article_1_2_1 .
 
+firebim:RoyalDecree firebim:hasSection firebim:Section_1_2 .
+
 firebim:Article_1_2_1 a firebim:Article ;
-    firebim:hasOriginalText """Bijgebouwen  
-Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen 
-zijn enkel toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers, 
-noch de actie van de brandweer in het gedrang komen."""@nl ;
+    firebim:hasOriginalText """Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen
+            zijn enkel   toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
+            noch de actie van de brandweer in het gedrang komen."""@nl ;
     firebim:hasMember firebim:Member_1_2_1_1 .
 
 firebim:Member_1_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen 
-zijn enkel toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers, 
-noch de actie van de brandweer in het gedrang komen."""@nl .
-
-firebim:RoyalDecree firebim:hasSection firebim:Section_1_2 .
+    firebim:hasOriginalText """Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen
+            zijn enkel   toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
+            noch de actie van de brandweer in het gedrang komen."""@nl .

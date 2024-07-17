@@ -14,31 +14,24 @@ firebim:Section_5_3_2 a firebim:Section ;
 firebim:RoyalDecree firebim:hasSection firebim:Section_5_3_2 .
 
 firebim:Article_5_3_2_1 a firebim:Article ;
-    firebim:hasOriginalText """De wanden die deze lokalen of geheel van lokalen vormen, voldoen niet alleen aan de 
-reglementaire voorschriften die op deze ruimten van toepassing zijn, maar hebben bovendien 
-dezelfde brandweerstand als de wanden van een compartiment ."""@nl ;
+    firebim:hasOriginalText """De  wanden  die  deze  lokalen  of  geheel  van              lokalen  vormen,  voldoen  niet  alleen  aan  de
+reglementaire voorschriften die op deze ruimten van toepassing zijn, maar hebben bovendien
+dezelfde brandweerstand als de wanden van een compartiment."""@nl ;
     firebim:hasMember firebim:Member_5_3_2_1_1 .
 
 firebim:Member_5_3_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De wanden die deze lokalen of geheel van lokalen vormen, voldoen niet alleen aan de 
-reglementaire voorschriften die op deze ruimten van toepassing zijn, maar hebben bovendien 
-dezelfde brandweerstand als de wanden van een compartiment ."""@nl .
+    firebim:hasOriginalText """De  wanden  die  deze  lokalen  of  geheel  van              lokalen  vormen,  voldoen  niet  alleen  aan  de
+reglementaire voorschriften die op deze ruimten van toepassing zijn, maar hebben bovendien
+dezelfde brandweerstand als de wanden van een compartiment."""@nl .
 
 firebim:Article_5_3_2_2 a firebim:Article ;
-    firebim:hasOriginalText """Elke doorgang in de verticale wanden is afgesloten door een zelfsluitende of bij brand 
-Federale Overheidsdienst Binnenlandse Zaken  
-Algemene Directie Civiele Veiligheid – Brandpreventie  
- 
-62/275 
- (v3.0 ) Koninklijk besluit van 7 juli 1994 (gecoördi neerde versie op 20 mei  2022) 
-BIJLAGE 2/1: LAGE GEBOUWEN  
- 
-zelfsluitende deur EI 1 30."""@nl ;
+    firebim:hasOriginalText """Elke  doorgang  in  de  verticale  wanden  is  afgesloten  door  een  zelfsluitende  of  bij  brand
+zelfsluitende deur EI1 30."""@nl ;
     firebim:hasMember firebim:Member_5_3_2_2_1 .
 
 firebim:Member_5_3_2_2_1 a firebim:Member ;
-    firebim:hasOriginalText """Elke doorgang in de verticale wanden is afgesloten door een zelfsluitende of bij brand 
-zelfsluitende deur EI 1 30."""@nl .
+    firebim:hasOriginalText """Elke  doorgang  in  de  verticale  wanden  is  afgesloten  door  een  zelfsluitende  of  bij  brand
+zelfsluitende deur EI1 30."""@nl .
 
 firebim:Article_5_3_2_3 a firebim:Article ;
     firebim:hasOriginalText "Deze deuren draaien open in de vluchtzin."@nl ;

@@ -8,38 +8,40 @@
 
 firebim:Section_5_4 a firebim:Section ;
     firebim:hasID "5_4" ;
-    firebim:hasOriginalText """Winkel - of handelscomplex."""@nl ;
+    firebim:hasOriginalText """Winkel- of handelscomplex."""@nl ;
     firebim:hasArticle firebim:Article_5_4_1, firebim:Article_5_4_2 .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_5_4 .
 
 firebim:Article_5_4_1 a firebim:Article ;
-    firebim:hasOriginalText """De inrichting van winkellokalen die op binnengalerijen uitgeven wordt toegelaten op een 
-evacuatieniveau en op de aangrenzende bouwlagen mits:  
- 
-1. het complex met zijn galerijen van de overige bouwdelen gescheiden is door wanden met 
-EI 60; 
-2. de overige bouwde len hun eigen uitgangen hebben onafhankelijk van de uitgangen van het 
-winkel - of handelscomplex ."""@nl ;
+    firebim:hasOriginalText """De  inrichting  van  winkellokalen  die  op  binnengalerijen  uitgeven  wordt  toegelaten  op  een
+evacuatieniveau en op de aangrenzende bouwlagen mits:
+1.   het complex met zijn galerijen van de overige bouwdelen gescheiden is door wanden met
+     EI 60;
+2.   de overige bouwdelen hun eigen uitgangen hebben onafhankelijk van de uitgangen van het
+     winkel- of handelscomplex."""@nl ;
     firebim:hasMember firebim:Member_5_4_1_1, firebim:Member_5_4_1_2 .
 
 firebim:Member_5_4_1_1 a firebim:Member ;
-    firebim:hasOriginalText """het complex met zijn galerijen van de overige bouwdelen gescheiden is door wanden met 
+    firebim:hasOriginalText """het complex met zijn galerijen van de overige bouwdelen gescheiden is door wanden met
 EI 60;"""@nl .
 
 firebim:Member_5_4_1_2 a firebim:Member ;
-    firebim:hasOriginalText """de overige bouwde len hun eigen uitgangen hebben onafhankelijk van de uitgangen van het 
-winkel - of handelscomplex ."""@nl .
+    firebim:hasOriginalText """de overige bouwdelen hun eigen uitgangen hebben onafhankelijk van de uitgangen van het
+winkel- of handelscomplex."""@nl .
 
 firebim:Article_5_4_2 a firebim:Article ;
-    firebim:hasOriginalText """De scheidingswanden tussen de handelslokalen hebben EI  30 en lopen door in het eventueel 
-verlaagd plafond. Dit laatste voorschrift vervalt indien het winkel - of handelscomplex voorzien is 
-van een automatische blusinstallatie van het type sprinkler die is a angepast aan de aanwezige 
-risico's ."""@nl ;
-    firebim:hasMember firebim:Member_5_4_2_1 .
+    firebim:hasOriginalText """De scheidingswanden tussen de handelslokalen hebben EI 30 en lopen door in het eventueel
+verlaagd plafond. Dit laatste voorschrift vervalt indien het winkel- of handelscomplex voorzien is
+van   een automatische blusinstallatie van het type sprinkler die is aangepast aan de aanwezige
+risico's."""@nl ;
+    firebim:hasMember firebim:Member_5_4_2_1, firebim:Member_5_4_2_2 .
 
 firebim:Member_5_4_2_1 a firebim:Member ;
-    firebim:hasOriginalText """De scheidingswanden tussen de handelslokalen hebben EI  30 en lopen door in het eventueel 
-verlaagd plafond. Dit laatste voorschrift vervalt indien het winkel - of handelscomplex voorzien is 
-van een automatische blusinstallatie van het type sprinkler die is a angepast aan de aanwezige 
-risico's ."""@nl .
+    firebim:hasOriginalText """De scheidingswanden tussen de handelslokalen hebben EI 30 en lopen door in het eventueel
+verlaagd plafond."""@nl .
+
+firebim:Member_5_4_2_2 a firebim:Member ;
+    firebim:hasOriginalText """Dit laatste voorschrift vervalt indien het winkel- of handelscomplex voorzien is
+van   een automatische blusinstallatie van het type sprinkler die is aangepast aan de aanwezige
+risico's."""@nl .

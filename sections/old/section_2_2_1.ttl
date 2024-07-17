@@ -9,39 +9,40 @@
 firebim:Section_2_2_1 a firebim:Section ;
     firebim:hasID "2_2_1" ;
     firebim:hasOriginalText "Aantal uitgangen."@nl ;
-    firebim:hasArticle firebim:Article_2_2_1_1 .
-
-firebim:RoyalDecree firebim:hasSection firebim:Section_2_2_1 .
+    firebim:hasArticle firebim:Article_2_2_1_1, firebim:Article_2_2_1_2, firebim:Article_2_2_1_3 .
 
 firebim:Article_2_2_1_1 a firebim:Article ;
-    firebim:hasOriginalText """Elk compartiment heeft minimum : 
- 
-- één uitgang indien de maximale bezetting minder dan 100 personen bedraagt ; 
- 
-- twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 personen 
-bedraagt ; 
- 
-- 2 + n uitgangen waarbij n het geheel getal is onmiddellijk  groter dan het quotiënt van de deling 
-door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer 
-dan 500 personen bedraagt.  
- 
-Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de 
-bezetting en d e configuratie van de lokalen . 
- 
-Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten."""@nl ;
-    firebim:hasMember firebim:Member_2_2_1_1_1, firebim:Member_2_2_1_1_2, firebim:Member_2_2_1_1_3, firebim:Member_2_2_1_1_4, firebim:Member_2_2_1_1_5 .
+    firebim:hasOriginalText """Elk compartiment heeft minimum:
+            -    één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;
+            -    twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen
+                 bedraagt;
+            -    2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling
+                 door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer
+                 dan 500 personen bedraagt."""@nl ;
+    firebim:hasMember firebim:Member_2_2_1_1_1, firebim:Member_2_2_1_1_2, firebim:Member_2_2_1_1_3 .
+
+firebim:Article_2_2_1_2 a firebim:Article ;
+    firebim:hasOriginalText """Het  minimum  aantal  uitgangen  kan  door  de  brandweer  verhoogd  worden  in  functie  van  de
+            bezetting en de configuratie van de lokalen."""@nl ;
+    firebim:hasMember firebim:Member_2_2_1_2_1 .
+
+firebim:Article_2_2_1_3 a firebim:Article ;
+    firebim:hasOriginalText """Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten."""@nl ;
+    firebim:hasMember firebim:Member_2_2_1_3_1 .
 
 firebim:Member_2_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Elk compartiment heeft minimum : - één uitgang indien de maximale bezetting minder dan 100 personen bedraagt ;"@nl .
+    firebim:hasOriginalText "-    één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;"@nl .
 
 firebim:Member_2_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "- twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt ;"@nl .
+    firebim:hasOriginalText "-    twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen bedraagt;"@nl .
 
 firebim:Member_2_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "- 2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt."@nl .
+    firebim:hasOriginalText "-    2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt."@nl .
 
-firebim:Member_2_2_1_1_4 a firebim:Member ;
-    firebim:hasOriginalText "Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en d e configuratie van de lokalen ."@nl .
+firebim:Member_2_2_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "Het  minimum  aantal  uitgangen  kan  door  de  brandweer  verhoogd  worden  in  functie  van  de bezetting en de configuratie van de lokalen."@nl .
 
-firebim:Member_2_2_1_1_5 a firebim:Member ;
+firebim:Member_2_2_1_3_1 a firebim:Member ;
     firebim:hasOriginalText "Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten."@nl .
+
+firebim:Section_2_2 firebim:hasSection firebim:Section_2_2_1 .

@@ -8,34 +8,26 @@
 
 firebim:Section_0_1 a firebim:Section ;
     firebim:hasID "0_1" ;
-    firebim:hasOriginalText """Doel."""@nl .
+    firebim:hasOriginalText """Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de bouw en de
+inrichting van lage gebouwen (LG) moeten voldoen om:"""@nl .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_0_1 .
 
-firebim:Article_0_1_1 a firebim:Article ;
-    firebim:hasOriginalText """Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de bouw en de 
-inrichting van lage gebouwen (LG) moeten voldoen om : 
-
-- het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;  
-- de veiligheid van de aanwezigen te waarborgen;  
-- preventief het ingrijpen van de brandweer te vergemakkelijken."""@nl .
-
 firebim:Section_0_1 firebim:hasArticle firebim:Article_0_1_1 .
 
+firebim:Article_0_1_1 a firebim:Article ;
+    firebim:hasOriginalText """Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de bouw en de
+inrichting van lage gebouwen (LG) moeten voldoen om:
+-    het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;
+-    de veiligheid van de aanwezigen te waarborgen;
+-    preventief het ingrijpen van de brandweer te vergemakkelijken."""@nl ;
+    firebim:hasMember firebim:Member_0_1_1_1, firebim:Member_0_1_1_2, firebim:Member_0_1_1_3 .
+
 firebim:Member_0_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de bouw en de 
-inrichting van lage gebouwen (LG) moeten voldoen om :"""@nl .
+    firebim:hasOriginalText """-    het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;"""@nl .
 
 firebim:Member_0_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "- het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;"@nl .
+    firebim:hasOriginalText """-    de veiligheid van de aanwezigen te waarborgen;"""@nl .
 
 firebim:Member_0_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "- de veiligheid van de aanwezigen te waarborgen;"@nl .
-
-firebim:Member_0_1_1_4 a firebim:Member ;
-    firebim:hasOriginalText "- preventief het ingrijpen van de brandweer te vergemakkelijken."@nl .
-
-firebim:Article_0_1_1 firebim:hasMember firebim:Member_0_1_1_1 ,
-                                        firebim:Member_0_1_1_2 ,
-                                        firebim:Member_0_1_1_3 ,
-                                        firebim:Member_0_1_1_4 .
+    firebim:hasOriginalText """-    preventief het ingrijpen van de brandweer te vergemakkelijken."""@nl .

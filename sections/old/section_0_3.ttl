@@ -8,22 +8,21 @@
 
 firebim:Section_0_3 a firebim:Section ;
     firebim:hasID "0_3" ;
-    firebim:hasOriginalText "Platen   [De platen zijn opgenomen bij de betreffende tekst]"@nl ;
-    firebim:hasFigure firebim:Figure_2_1, firebim:Figure_2_2 .
+    firebim:hasOriginalText "Platen"@nl ;
+    firebim:hasSection firebim:Section_0_3_1 .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_0_3 .
+firebim:Section_0_3_1 a firebim:Section ;
+    firebim:hasOriginalText """[De platen zijn opgenomen bij de betreffende tekst]
+Plaat 2.1 - Gevels tussen gebouwen
+Plaat 2.2 - Gevels tussen compartimenten"""@nl ;
+    firebim:hasFigure firebim:Figure_2_1, firebim:Figure_2_2 .
 
 firebim:Figure_2_1 a firebim:Figure ;
     firebim:hasID "2.1" ;
-    firebim:hasOriginalText "Plaat 2.1  - Gevels tussen gebouwen"@nl .
+    firebim:hasOriginalText "Plaat 2.1 - Gevels tussen gebouwen"@nl .
 
 firebim:Figure_2_2 a firebim:Figure ;
     firebim:hasID "2.2" ;
-    firebim:hasOriginalText "Plaat 2. 2 - Gevels tussen compartimenten"@nl .
+    firebim:hasOriginalText "Plaat 2.2 - Gevels tussen compartimenten"@nl .
 
-firebim:Section_0_3 firebim:hasMember firebim:Member_0_3_1 .
-
-firebim:Member_0_3_1 a firebim:Member ;
-    firebim:hasOriginalText """Platen   [De platen zijn opgenomen bij de betreffende tekst]  
-Plaat 2.1  - Gevels tussen gebouwen  
-Plaat 2. 2 - Gevels tussen compartimenten"""@nl .
+firebim:RoyalDecree firebim:hasSection firebim:Section_0_3 .

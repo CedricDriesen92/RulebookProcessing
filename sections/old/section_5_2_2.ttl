@@ -14,17 +14,17 @@ firebim:Section_5_2_2 a firebim:Section ;
 firebim:RoyalDecree firebim:hasSection firebim:Section_5_2_2 .
 
 firebim:Article_5_2_2_1 a firebim:Article ;
-    firebim:hasOriginalText """De wanden tussen de parking en de rest van het gebouw hebben EI 60, en de verbinding tussen 
-de parking en de rest van het gebouw wordt verzekerd:  
-- ofwel door een sas met wanden EI 60  en zelfsluitende of bij brand zelfsluitende deuren EI 1 30; 
-- ofwel door een zelfsluitende of bij brand zelfsluitende deur EI 1 60."""@nl ;
+    firebim:hasOriginalText """De wanden tussen de parking en de rest van het gebouw hebben                      EI 60, en de verbinding tussen
+            de parking en de rest van het gebouw wordt verzekerd:
+            -    ofwel door een sas met wanden EI 60 en zelfsluitende of bij brand zelfsluitende deuren EI1 30;
+            -    ofwel door een zelfsluitende of bij brand zelfsluitende deur EI1 60."""@nl ;
     firebim:hasMember firebim:Member_5_2_2_1_1, firebim:Member_5_2_2_1_2, firebim:Member_5_2_2_1_3 .
 
 firebim:Member_5_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "De wanden tussen de parking en de rest van het gebouw hebben EI 60, en de verbinding tussen de parking en de rest van het gebouw wordt verzekerd:"@nl .
+    firebim:hasOriginalText "De wanden tussen de parking en de rest van het gebouw hebben                      EI 60, en de verbinding tussen de parking en de rest van het gebouw wordt verzekerd:"@nl .
 
 firebim:Member_5_2_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText "- ofwel door een sas met wanden EI 60  en zelfsluitende of bij brand zelfsluitende deuren EI 1 30;"@nl .
+    firebim:hasOriginalText "ofwel door een sas met wanden EI 60 en zelfsluitende of bij brand zelfsluitende deuren EI1 30;"@nl .
 
 firebim:Member_5_2_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText "- ofwel door een zelfsluitende of bij brand zelfsluitende deur EI 1 60."@nl .
+    firebim:hasOriginalText "ofwel door een zelfsluitende of bij brand zelfsluitende deur EI1 60."@nl .

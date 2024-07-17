@@ -12,7 +12,11 @@ firebim:Section_5 a firebim:Section ;
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_5 .
 
-firebim:Section_5 firebim:hasMember firebim:Member_5_1 .
+firebim:Section_5 firebim:hasArticle firebim:Article_5_1 .
 
-firebim:Member_5_1 a firebim:Member ;
-    firebim:hasOriginalText "CONSTRUCTIEVOORSCHRIFTEN VOOR SOMMIGE LOKALEN EN TECHNISCHE RUIMTEN."@nl .
+firebim:Article_5_1 a firebim:Article ;
+    firebim:hasOriginalText """CONSTRUCTIEVOORSCHRIFTEN VOOR SOMMIGE LOKALEN EN TECHNISCHE RUIMTEN."""@nl ;
+    firebim:hasMember firebim:Member_5_1_1 .
+
+firebim:Member_5_1_1 a firebim:Member ;
+    firebim:hasOriginalText """CONSTRUCTIEVOORSCHRIFTEN VOOR SOMMIGE LOKALEN EN TECHNISCHE RUIMTEN."""@nl .

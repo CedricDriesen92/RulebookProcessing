@@ -1,0 +1,69 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_5_2 a firebim:Section ;
+    firebim:hasID "6_5_2" ;
+    firebim:hasOriginalText """De elektrische leidingen die installaties of toestellen voeden die bij brand absoluut in dienst
+moeten blijven, worden zodanig geplaatst dat de risico's van algehele buitendienststelling
+gespreid zijn."""@nl ;
+    firebim:hasArticle firebim:Article_6_5_2_1, firebim:Article_6_5_2_2, firebim:Article_6_5_2_3 .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_6_5_2 .
+
+firebim:Article_6_5_2_1 a firebim:Article ;
+    firebim:hasOriginalText """Op hun tracé tot aan het compartiment waar de installatie zich bevindt, hebben de elektrische
+leidingen de volgende brandweerstand:
+a) ofwel een intrinsieke brandweerstand die minimaal
+   - PH 60 bedraagt volgens NBN EN 50200 voor leidingen waarvan de buitendiameter kleiner
+     is dan of gelijk aan 20 mm en waarvan de doorsnede van de geleiders kleiner is dan of
+     gelijk aan 2,5 mm²;
+   - Rf 1 h bedraagt volgens add. 3 van NBN 713-020 voor leidingen waarvan de
+     buitendiameter groter is dan 20 mm of waarvan de doorsnede van de geleiders groter is
+     dan 2,5 mm²;
+b) ofwel Rf 1 h, volgens add. 3 van NBN 713-020, voor leidingen zonder intrinsieke
+   brandweerstand die in kokers zijn geplaatst."""@nl ;
+    firebim:hasMember firebim:Member_6_5_2_1_1, firebim:Member_6_5_2_1_2 .
+
+firebim:Member_6_5_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """a) ofwel een intrinsieke brandweerstand die minimaal
+   - PH 60 bedraagt volgens NBN EN 50200 voor leidingen waarvan de buitendiameter kleiner
+     is dan of gelijk aan 20 mm en waarvan de doorsnede van de geleiders kleiner is dan of
+     gelijk aan 2,5 mm²;
+   - Rf 1 h bedraagt volgens add. 3 van NBN 713-020 voor leidingen waarvan de
+     buitendiameter groter is dan 20 mm of waarvan de doorsnede van de geleiders groter is
+     dan 2,5 mm²;"""@nl .
+
+firebim:Member_6_5_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """b) ofwel Rf 1 h, volgens add. 3 van NBN 713-020, voor leidingen zonder intrinsieke
+   brandweerstand die in kokers zijn geplaatst."""@nl .
+
+firebim:Article_6_5_2_2 a firebim:Article ;
+    firebim:hasOriginalText """Deze vereisten zijn niet van toepassing indien de werking van de installaties of toestellen
+verzekerd blijft zelfs bij het uitvallen van de energievoeding."""@nl ;
+    firebim:hasMember firebim:Member_6_5_2_2_1 .
+
+firebim:Member_6_5_2_2_1 a firebim:Member ;
+    firebim:hasOriginalText """Deze vereisten zijn niet van toepassing indien de werking van de installaties of toestellen
+verzekerd blijft zelfs bij het uitvallen van de energievoeding."""@nl .
+
+firebim:Article_6_5_2_3 a firebim:Article ;
+    firebim:hasOriginalText """De bedoelde installaties of toestellen zijn:
+a) de veiligheidsverlichting en eventueel de vervangingsverlichting;
+b) de installaties voor melding, waarschuwing en alarm;
+c) de installaties voor rookafvoer;
+d) de waterpompen voor de brandbestrijding en eventueel de ledigingspompen;
+e) de speciale liften bedoeld in punt 6.4."""@nl ;
+    firebim:hasMember firebim:Member_6_5_2_3_1 .
+
+firebim:Member_6_5_2_3_1 a firebim:Member ;
+    firebim:hasOriginalText """De bedoelde installaties of toestellen zijn:
+a) de veiligheidsverlichting en eventueel de vervangingsverlichting;
+b) de installaties voor melding, waarschuwing en alarm;
+c) de installaties voor rookafvoer;
+d) de waterpompen voor de brandbestrijding en eventueel de ledigingspompen;
+e) de speciale liften bedoeld in punt 6.4."""@nl .

@@ -8,20 +8,13 @@
 
 firebim:Section_4 a firebim:Section ;
     firebim:hasID "4" ;
-    firebim:hasOriginalText """VOORSCHRIFTEN INZAKE CONSTRUCTIE VAN COMPARTIMENTEN EN 
+    firebim:hasOriginalText """VOORSCHRIFTEN       INZAKE       CONSTRUCTIE       VAN       COMPARTIMENTEN       EN
 EVACUATIERUIMTEN."""@nl .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_4 .
 
-firebim:Section_4 firebim:hasParagraph firebim:Paragraph_4 .
-
-firebim:Paragraph_4 a firebim:Paragraph ;
-    firebim:hasID "4" ;
-    firebim:hasOriginalText """VOORSCHRIFTEN INZAKE CONSTRUCTIE VAN COMPARTIMENTEN EN 
-EVACUATIERUIMTEN."""@nl ;
-    firebim:hasMember firebim:Member_4_1 .
+firebim:Section_4 firebim:hasMember firebim:Member_4_1 .
 
 firebim:Member_4_1 a firebim:Member ;
-    firebim:hasID "4.1" ;
-    firebim:hasOriginalText """VOORSCHRIFTEN INZAKE CONSTRUCTIE VAN COMPARTIMENTEN EN 
+    firebim:hasOriginalText """VOORSCHRIFTEN       INZAKE       CONSTRUCTIE       VAN       COMPARTIMENTEN       EN
 EVACUATIERUIMTEN."""@nl .

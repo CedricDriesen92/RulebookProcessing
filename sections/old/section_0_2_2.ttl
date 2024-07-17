@@ -14,11 +14,11 @@ firebim:Section_0_2_2 a firebim:Section ;
 firebim:RoyalDecree firebim:hasSection firebim:Section_0_2_2 .
 
 firebim:Article_0_2_2_1 a firebim:Article ;
-    firebim:hasOriginalText """Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:  
-1. de industriegebouwen;  
-2. de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner 
-dan of gelijk aan 100 m²;  
-3. de eengezinswoningen."""@nl ;
+    firebim:hasOriginalText """Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:
+1.   de industriegebouwen;
+2.   de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner
+     dan of gelijk aan 100 m²;
+3.   de eengezinswoningen."""@nl ;
     firebim:hasMember firebim:Member_0_2_2_1_1, firebim:Member_0_2_2_1_2, firebim:Member_0_2_2_1_3 .
 
 firebim:Member_0_2_2_1_1 a firebim:Member ;

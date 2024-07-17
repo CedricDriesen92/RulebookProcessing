@@ -8,20 +8,18 @@
 
 firebim:Section_1 a firebim:Section ;
     firebim:hasID "1" ;
-    firebim:hasOriginalText "INPLANTING EN TOEGANGSWEGEN."@nl ;
-    firebim:hasParagraph firebim:Paragraph_1_1 .
+    firebim:hasOriginalText "INPLANTING EN TOEGANGSWEGEN."@nl .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_1 .
 
-firebim:Paragraph_1_1 a firebim:Paragraph ;
-    firebim:hasID "1.1" ;
-    firebim:hasOriginalText """De toegangswegen bedoeld in punt 1.1  worden bepaald in akkoord met de brandweer, volgens de 
-volgende leidraad."""@nl ;
-    firebim:hasMember firebim:Member_1_1_1 .
+firebim:Article_1_1 a firebim:Article ;
+    firebim:hasOriginalText """De toegangswegen bedoeld in punt 1.1 worden bepaald in akkoord met de brandweer, volgens de
+            volgende leidraad."""@nl .
+
+firebim:Section_1 firebim:hasArticle firebim:Article_1_1 .
 
 firebim:Member_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De toegangswegen bedoeld in punt 1.1  worden bepaald in akkoord met de brandweer, volgens de 
-volgende leidraad."""@nl ;
-    firebim:hasBackwardReference firebim:Member_1_1 .
+    firebim:hasOriginalText """De toegangswegen bedoeld in punt 1.1 worden bepaald in akkoord met de brandweer, volgens de
+            volgende leidraad."""@nl .
 
-firebim:Member_1_1 a firebim:Member .
+firebim:Article_1_1 firebim:hasMember firebim:Member_1_1_1 .

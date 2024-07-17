@@ -14,79 +14,61 @@ firebim:Section_4_2_3 a firebim:Section ;
 firebim:RoyalDecree firebim:hasSection firebim:Section_4_2_3 .
 
 firebim:Article_4_2_3_1 a firebim:Article ;
-    firebim:hasID "4_2_3_1" ;
-    firebim:hasOriginalText """Constructiebepalingen.   
- De trappen hebben de volgende kenmerken:"""@nl ;
+    firebim:hasID "4.2.3.1" ;
+    firebim:hasOriginalText """Constructiebepalingen.
+            De trappen hebben de volgende kenmerken:"""@nl ;
     firebim:hasMember firebim:Member_4_2_3_1_1, firebim:Member_4_2_3_1_2, firebim:Member_4_2_3_1_3, firebim:Member_4_2_3_1_4, firebim:Member_4_2_3_1_5, firebim:Member_4_2_3_1_6 .
 
 firebim:Member_4_2_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """1. evenals de overlopen hebben zij R  30 of zijn op dezelfde manier ontworp en als een betonplaat 
-met R  30. 
-Er wordt evenwel geen stabiliteit bij brand vereist voor de trappen en de overlopen die 
-uitsluitend zijn samengesteld uit materialen van klasse A1, met een smelttemperatuur groter 
-dan 727°C (staal voldoet bijvoorbeeld aan deze voorwaarde, aluminium en glas voldoen niet 
-aan deze  voorwaarde);"""@nl .
+    firebim:hasOriginalText """1.   evenals de overlopen hebben zij R 30 of zijn op dezelfde manier ontworpen als een betonplaat
+                 met R 30.
+                 Er wordt evenwel  geen          stabiliteit bij brand vereist  voor de trappen en de overlopen die
+                 uitsluitend zijn samengesteld uit materialen van klasse A1, met een smelttemperatuur groter
+                 dan 727°C (staal voldoet bijvoorbeeld aan deze voorwaarde, aluminium en glas voldoen niet
+                 aan deze voorwaarde);"""@nl .
 
 firebim:Member_4_2_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """2. zij zijn aan beide zijden uitgerust met leuningen . 
-Voor de trappen met een nuttige breedte, kleiner dan 1,20  m, is één leuning voldoende, voor 
-zover er geen gevaar is voor het vallen ;"""@nl .
+    firebim:hasOriginalText """2.   zij zijn aan beide zijden uitgerust met leuningen.
+                 Voor de trappen met een nuttige breedte, kleiner dan 1,20 m, is één leuning voldoende, voor
+                 zover er geen gevaar is voor het vallen;"""@nl .
 
 firebim:Member_4_2_3_1_3 a firebim:Member ;
-    firebim:hasOriginalText "3. de aantrede van de treden is in elk punt ten minste 20  cm;"@nl .
+    firebim:hasOriginalText "3.   de aantrede van de treden is in elk punt ten minste 20 cm;"@nl .
 
 firebim:Member_4_2_3_1_4 a firebim:Member ;
-    firebim:hasOriginalText "4. de optrede van de treden mag niet meer dan 18  cm bedragen ;"@nl .
+    firebim:hasOriginalText "4.   de optrede van de treden mag niet meer dan 18 cm bedragen;"@nl .
 
 firebim:Member_4_2_3_1_5 a firebim:Member ;
-    firebim:hasOriginalText "5. hun helling mag niet meer dan 75 % bedragen (maximale hellingshoek 37°);"@nl .
+    firebim:hasOriginalText "5.   hun helling mag niet meer dan 75 % bedragen (maximale hellingshoek 37°);"@nl .
 
 firebim:Member_4_2_3_1_6 a firebim:Member ;
-    firebim:hasOriginalText """6. zij zijn van het "rechte type".  
-Maar, "wenteltrappen" worden toegestaan zo ze verdreven treden hebben en zo hun treden, 
-naast de hiervoor vermelde vereisten, (met uitzondering van voornoemd punt 3), ten minste 
-24 cm aantrede hebben op de looplijn."""@nl .
+    firebim:hasOriginalText """6.   zij zijn van het "rechte type".
+                 Maar, "wenteltrappen" worden toegestaan zo ze verdreven treden hebben en zo hun treden,
+                 naast de hiervoor vermelde vereisten, (met uitzondering van voornoemd punt 3), ten minste
+                 24 cm aantrede hebben op de looplijn."""@nl .
 
 firebim:Article_4_2_3_2 a firebim:Article ;
-    firebim:hasID "4_2_3_2" ;
-    firebim:hasOriginalText """Nuttige breedte van traparmen, overlopen en sassen.   
- Deze nuttige breedte is ten minste gelijk aan 0,80  m en bereikt ten minste de vereiste nuttige 
-breedte br berekend volgens bijlage 1 "Terminologie".  
-
-De traparmen en de overlopen der trappenhuizen van één zelfde compartiment mogen in hun 
-nuttige breedte niet meer dan één doorgangseenheid verschillen.  
-Federale Overheidsdienst Binnenlandse Zaken  
-Algemene Directie Civiele Veiligheid – Brandpreventie  
- 
-55/275 
- (v3.0 ) Koninklijk besluit van 7 juli 1994 (gecoördi neerde versie op 20 mei  2022) 
-BIJLAGE 2/1: LAGE GEBOUWEN  
- 
- 
-Bevat een compart iment lokalen met speciale bestemming dan wordt de theoretische nuttige 
-trapbreedte (volgens bijlage 1 "Terminologie") op basis van hun aantal gebruikers slechts 
-berekend over de hoogte tussen dit compartiment en het evacuatieniveau."""@nl ;
+    firebim:hasID "4.2.3.2" ;
+    firebim:hasOriginalText """Nuttige breedte van traparmen, overlopen en sassen.
+            Deze nuttige breedte is ten minste gelijk aan 0,80 m en bereikt                   ten minste de vereiste nuttige
+            breedte br berekend volgens bijlage 1 "Terminologie".
+            De traparmen en de overlopen der trappenhuizen van één zelfde compartiment mogen in hun
+            nuttige breedte niet meer dan één doorgangseenheid verschillen.
+            Bevat een compartiment lokalen met speciale bestemming dan wordt de theoretische nuttige
+            trapbreedte  (volgens  bijlage  1  "Terminologie")  op  basis  van  hun  aantal  gebruikers  slechts
+            berekend over de hoogte tussen dit compartiment en het evacuatieniveau."""@nl ;
     firebim:hasMember firebim:Member_4_2_3_2_1 .
 
 firebim:Member_4_2_3_2_1 a firebim:Member ;
-    firebim:hasOriginalText """Deze nuttige breedte is ten minste gelijk aan 0,80  m en bereikt ten minste de vereiste nuttige 
-breedte br berekend volgens bijlage 1 "Terminologie".  
+    firebim:hasOriginalText """Deze nuttige breedte is ten minste gelijk aan 0,80 m en bereikt                   ten minste de vereiste nuttige
+            breedte br berekend volgens bijlage 1 "Terminologie".
+            De traparmen en de overlopen der trappenhuizen van één zelfde compartiment mogen in hun
+            nuttige breedte niet meer dan één doorgangseenheid verschillen.
+            Bevat een compartiment lokalen met speciale bestemming dan wordt de theoretische nuttige
+            trapbreedte  (volgens  bijlage  1  "Terminologie")  op  basis  van  hun  aantal  gebruikers  slechts
+            berekend over de hoogte tussen dit compartiment en het evacuatieniveau."""@nl .
 
-De traparmen en de overlopen der trappenhuizen van één zelfde compartiment mogen in hun 
-nuttige breedte niet meer dan één doorgangseenheid verschillen.  
-Federale Overheidsdienst Binnenlandse Zaken  
-Algemene Directie Civiele Veiligheid – Brandpreventie  
- 
-55/275 
- (v3.0 ) Koninklijk besluit van 7 juli 1994 (gecoördi neerde versie op 20 mei  2022) 
-BIJLAGE 2/1: LAGE GEBOUWEN  
- 
- 
-Bevat een compart iment lokalen met speciale bestemming dan wordt de theoretische nuttige 
-trapbreedte (volgens bijlage 1 "Terminologie") op basis van hun aantal gebruikers slechts 
-berekend over de hoogte tussen dit compartiment en het evacuatieniveau."""@nl .
+firebim:Table_Bijlage1 a firebim:Table ;
+    firebim:hasID "Bijlage1" .
 
-firebim:Table_Terminology a firebim:Table ;
-    firebim:hasID "Terminology" .
-
-firebim:Article_4_2_3_2 firebim:hasReference firebim:Table_Terminology .
+firebim:Member_4_2_3_2_1 firebim:hasReference firebim:Table_Bijlage1 .

@@ -1,0 +1,72 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_2_1 a firebim:Section ;
+    firebim:hasID "6_2_1" ;
+    firebim:hasOriginalText "Deze toestellen hebben hun eigen machinekamers, schachten en bordessen."@nl ;
+    firebim:hasArticle firebim:Article_6_2_1_1, firebim:Article_6_2_1_2, firebim:Article_6_2_1_3, firebim:Article_6_2_1_4, firebim:Article_6_2_1_5, firebim:Article_6_2_1_6 .
+
+firebim:Article_6_2_1_1 a firebim:Article ;
+    firebim:hasOriginalText """De   machinekamers   bevinden   zich   bovenaan   de   schacht.   De   binnenwanden   van   de
+machinekamers en van de schachten hebben EI 60."""@nl ;
+    firebim:hasMember firebim:Member_6_2_1_1_1, firebim:Member_6_2_1_1_2 .
+
+firebim:Member_6_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "De   machinekamers   bevinden   zich   bovenaan   de   schacht."@nl .
+
+firebim:Member_6_2_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "De   binnenwanden   van   de machinekamers en van de schachten hebben EI 60."@nl .
+
+firebim:Article_6_2_1_2 a firebim:Article ;
+    firebim:hasOriginalText "De binnentoegangsdeuren hebben EI1 30."@nl ;
+    firebim:hasMember firebim:Member_6_2_1_2_1 .
+
+firebim:Member_6_2_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "De binnentoegangsdeuren hebben EI1 30."@nl .
+
+firebim:Article_6_2_1_3 a firebim:Article ;
+    firebim:hasOriginalText """De schachtwanden aan de kant van het bordes en de toezichtluiken in deze wanden hebben
+EI 30."""@nl ;
+    firebim:hasMember firebim:Member_6_2_1_3_1 .
+
+firebim:Member_6_2_1_3_1 a firebim:Member ;
+    firebim:hasOriginalText """De schachtwanden aan de kant van het bordes en de toezichtluiken in deze wanden hebben
+EI 30."""@nl .
+
+firebim:Article_6_2_1_4 a firebim:Article ;
+    firebim:hasOriginalText """De schachtdeuren of toegangsluiken van deze toestellen werken automatisch en zijn normaal
+gesloten."""@nl ;
+    firebim:hasMember firebim:Member_6_2_1_4_1 .
+
+firebim:Member_6_2_1_4_1 a firebim:Member ;
+    firebim:hasOriginalText """De schachtdeuren of toegangsluiken van deze toestellen werken automatisch en zijn normaal
+gesloten."""@nl .
+
+firebim:Article_6_2_1_5 a firebim:Article ;
+    firebim:hasOriginalText """Zo de installatie van het containertransport een horizontaal en/of verticaal traject volgt en daarbij
+bouwlagen verdiepingen of compartimenten doorloopt, worden deuren voorzien aan elk van deze
+doorgangen."""@nl ;
+    firebim:hasMember firebim:Member_6_2_1_5_1 .
+
+firebim:Member_6_2_1_5_1 a firebim:Member ;
+    firebim:hasOriginalText """Zo de installatie van het containertransport een horizontaal en/of verticaal traject volgt en daarbij
+bouwlagen verdiepingen of compartimenten doorloopt, worden deuren voorzien aan elk van deze
+doorgangen."""@nl .
+
+firebim:Article_6_2_1_6 a firebim:Article ;
+    firebim:hasOriginalText """Hun luiken en deurtjes hebben E 30. Ze werken automatisch en zijn normaal gesloten.
+Bij brand worden de installaties buiten dienst gesteld."""@nl ;
+    firebim:hasMember firebim:Member_6_2_1_6_1, firebim:Member_6_2_1_6_2 .
+
+firebim:Member_6_2_1_6_1 a firebim:Member ;
+    firebim:hasOriginalText "Hun luiken en deurtjes hebben E 30. Ze werken automatisch en zijn normaal gesloten."@nl .
+
+firebim:Member_6_2_1_6_2 a firebim:Member ;
+    firebim:hasOriginalText "Bij brand worden de installaties buiten dienst gesteld."@nl .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_6_2_1 .

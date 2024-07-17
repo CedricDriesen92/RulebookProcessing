@@ -12,13 +12,7 @@ firebim:Section_3_4 a firebim:Section ;
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_3_4 .
 
-firebim:Section_3_4 firebim:hasParagraph firebim:Paragraph_3_4_1 .
+firebim:Section_3_4 firebim:hasMember firebim:Member_3_4_1 .
 
-firebim:Paragraph_3_4_1 a firebim:Paragraph ;
-    firebim:hasID "3_4_1" ;
-    firebim:hasOriginalText """Plafonds en verlaagde plafonds."""@nl ;
-    firebim:hasMember firebim:Member_3_4_1_1 .
-
-firebim:Member_3_4_1_1 a firebim:Member ;
-    firebim:hasID "3_4_1_1" ;
-    firebim:hasOriginalText """Plafonds en verlaagde plafonds."""@nl .
+firebim:Member_3_4_1 a firebim:Member ;
+    firebim:hasOriginalText "Plafonds en verlaagde plafonds."@nl .

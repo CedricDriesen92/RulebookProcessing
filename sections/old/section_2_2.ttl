@@ -10,15 +10,4 @@ firebim:Section_2_2 a firebim:Section ;
     firebim:hasID "2_2" ;
     firebim:hasOriginalText "Evacuatie van de compartimenten."@nl .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_2_2 .
-
-firebim:Section_2_2 firebim:hasParagraph firebim:Paragraph_2_2_1 .
-
-firebim:Paragraph_2_2_1 a firebim:Paragraph ;
-    firebim:hasID "2_2_1" ;
-    firebim:hasOriginalText """Evacuatie van de compartimenten."""@nl ;
-    firebim:hasMember firebim:Member_2_2_1_1 .
-
-firebim:Member_2_2_1_1 a firebim:Member ;
-    firebim:hasID "2_2_1_1" ;
-    firebim:hasOriginalText """Evacuatie van de compartimenten."""@nl .
+firebim:Section_2 firebim:hasSection firebim:Section_2_2 .

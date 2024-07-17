@@ -9,30 +9,28 @@
 firebim:Section_3_1 a firebim:Section ;
     firebim:hasID "3_1" ;
     firebim:hasOriginalText "Doorvoeringen door wanden."@nl ;
-    firebim:hasArticle firebim:Article_3_1_1, firebim:Article_3_1_2 .
-
-firebim:RoyalDecree firebim:hasSection firebim:Section_3_1 .
+    firebim:hasArticle firebim:Article_3_1_1 .
 
 firebim:Article_3_1_1 a firebim:Article ;
-    firebim:hasOriginalText """Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen 
-van wanden mogen de vereiste brandweerstand van de bouwelementen niet nadelig beïnvloeden."""@nl ;
-    firebim:hasMember firebim:Member_3_1_1_1 .
+    firebim:hasOriginalText """Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen
+            van wanden mogen de vereiste brandweerstand van de bouwelementen niet nadelig beïnvloeden.
+            De bepalingen van bijlage 7 "Gemeenschappelijke bepalingen", hoofdstuk 1, zijn van toepassing."""@nl ;
+    firebim:hasMember firebim:Member_3_1_1_1, firebim:Member_3_1_1_2 .
 
 firebim:Member_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen 
-van wanden mogen de vereiste brandweerstand van de bouwelementen niet nadelig beïnvloeden."""@nl .
+    firebim:hasOriginalText """Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen
+            van wanden mogen de vereiste brandweerstand van de bouwelementen niet nadelig beïnvloeden."""@nl .
 
-firebim:Article_3_1_2 a firebim:Article ;
-    firebim:hasOriginalText "De bepalingen van bijlage 7 \"Gemeenschappelijke bepalingen\", hoofdstuk 1, zijn van toepassing."@nl ;
-    firebim:hasMember firebim:Member_3_1_2_1 .
-
-firebim:Member_3_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "De bepalingen van bijlage 7 \"Gemeenschappelijke bepalingen\", hoofdstuk 1, zijn van toepassing."@nl ;
+firebim:Member_3_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De bepalingen van bijlage 7 "Gemeenschappelijke bepalingen", hoofdstuk 1, zijn van toepassing."""@nl ;
     firebim:hasForwardReference firebim:Appendix_7 .
 
 firebim:Appendix_7 a firebim:Appendix ;
     firebim:hasID "7" ;
+    firebim:hasOriginalText "Gemeenschappelijke bepalingen"@nl ;
     firebim:hasChapter firebim:Chapter_7_1 .
 
 firebim:Chapter_7_1 a firebim:Chapter ;
     firebim:hasID "1" .
+
+firebim:RoyalDecree firebim:hasSection firebim:Section_3_1 .

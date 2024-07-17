@@ -15,7 +15,7 @@ firebim:RoyalDecree firebim:hasSection firebim:Section_5_1_4 .
 
 firebim:Article_5_1_4_1 a firebim:Article ;
     firebim:hasID "5.1.4.1" ;
-    firebim:hasOriginalText "5.1.4.1  Stortkokers zijn verboden."@nl ;
+    firebim:hasOriginalText "5.1.4.1     Stortkokers zijn verboden."@nl ;
     firebim:hasMember firebim:Member_5_1_4_1_1 .
 
 firebim:Member_5_1_4_1_1 a firebim:Member ;
@@ -23,17 +23,16 @@ firebim:Member_5_1_4_1_1 a firebim:Member ;
 
 firebim:Article_5_1_4_2 a firebim:Article ;
     firebim:hasID "5.1.4.2" ;
-    firebim:hasOriginalText """5.1.4.2  Lokaal voor de opslag van het huisvuil.   
- De wanden hebben EI  60. 
- 
-Het lokaal is toegankelijk via een zelfsluitende deur EI 1 30."""@nl ;
+    firebim:hasOriginalText """5.1.4.2     Lokaal voor de opslag van het huisvuil.
+            De wanden hebben EI 60.
+            Het lokaal is toegankelijk via een zelfsluitende deur EI1 30."""@nl ;
     firebim:hasMember firebim:Member_5_1_4_2_1, firebim:Member_5_1_4_2_2, firebim:Member_5_1_4_2_3 .
 
 firebim:Member_5_1_4_2_1 a firebim:Member ;
     firebim:hasOriginalText "Lokaal voor de opslag van het huisvuil."@nl .
 
 firebim:Member_5_1_4_2_2 a firebim:Member ;
-    firebim:hasOriginalText "De wanden hebben EI  60."@nl .
+    firebim:hasOriginalText "De wanden hebben EI 60."@nl .
 
 firebim:Member_5_1_4_2_3 a firebim:Member ;
-    firebim:hasOriginalText "Het lokaal is toegankelijk via een zelfsluitende deur EI 1 30."@nl .
+    firebim:hasOriginalText "Het lokaal is toegankelijk via een zelfsluitende deur EI1 30."@nl .

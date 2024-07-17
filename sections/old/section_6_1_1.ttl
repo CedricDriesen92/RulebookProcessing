@@ -15,40 +15,40 @@ firebim:RoyalDecree firebim:hasSection firebim:Section_6_1_1 .
 
 firebim:Article_6_1_1_1 a firebim:Article ;
     firebim:hasID "6.1.1.1" ;
-    firebim:hasOriginalText """De machine en de bijhor ende onderdelen van een lift of goederenlift  zijn niet toegankelijk, behalve 
-voor het onderhoud, de controle en de noodgevallen. De aandrijving bevindt zich:  
-- ofwel in een machinekamer;  
-- ofwel in de schacht . 
- 
-De controleorganen mogen toegankelijk zijn vanaf het bordes , op voorwaarde dat ze de vereiste  
-brandwerendheid van de bordeswand of de wand van de schacht waarin ze worden geplaatst  niet 
-nadelig beïnvloeden."""@nl ;
-    firebim:hasMember firebim:Member_6_1_1_1_1, firebim:Member_6_1_1_1_2 .
+    firebim:hasOriginalText """De machine en de bijhorende onderdelen van een lift of goederenlift zijn niet toegankelijk, behalve
+            voor het onderhoud, de controle en de noodgevallen. De aandrijving bevindt zich:
+            -    ofwel in een machinekamer;
+            -    ofwel in de schacht.
+            De controleorganen mogen toegankelijk zijn vanaf het bordes, op voorwaarde dat ze de vereiste
+            brandwerendheid van de bordeswand of de wand van de schacht waarin ze worden geplaatst niet
+            nadelig beïnvloeden."""@nl ;
+    firebim:hasMember firebim:Member_6_1_1_1_1, firebim:Member_6_1_1_1_2, firebim:Member_6_1_1_1_3 .
 
 firebim:Member_6_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De machine en de bijhor ende onderdelen van een lift of goederenlift  zijn niet toegankelijk, behalve 
-voor het onderhoud, de controle en de noodgevallen. De aandrijving bevindt zich:  
-- ofwel in een machinekamer;  
-- ofwel in de schacht ."""@nl .
+    firebim:hasOriginalText "De machine en de bijhorende onderdelen van een lift of goederenlift zijn niet toegankelijk, behalve voor het onderhoud, de controle en de noodgevallen."@nl .
 
 firebim:Member_6_1_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De controleorganen mogen toegankelijk zijn vanaf het bordes , op voorwaarde dat ze de vereiste  
-brandwerendheid van de bordeswand of de wand van de schacht waarin ze worden geplaatst  niet 
-nadelig beïnvloeden."""@nl .
+    firebim:hasOriginalText """De aandrijving bevindt zich:
+            -    ofwel in een machinekamer;
+            -    ofwel in de schacht."""@nl .
+
+firebim:Member_6_1_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """De controleorganen mogen toegankelijk zijn vanaf het bordes, op voorwaarde dat ze de vereiste
+            brandwerendheid van de bordeswand of de wand van de schacht waarin ze worden geplaatst niet
+            nadelig beïnvloeden."""@nl .
 
 firebim:Article_6_1_1_2 a firebim:Article ;
     firebim:hasID "6.1.1.2" ;
-    firebim:hasOriginalText """In geval van abnormale stijging van de temperatuur van de machine en/of van de andere 
-elektrische uitrustingen, moeten de liften stop pen op een bordes zodat de passagiers kunnen 
-uitstappen.  
- 
-Een automatische terugkeer naar de normale werking is enkel mogelijk na voldoende afkoeling."""@nl ;
+    firebim:hasOriginalText """In  geval  van  abnormale  stijging  van  de  temperatuur  van  de  machine  en/of  van  de  andere
+            elektrische uitrustingen, moeten de liften stoppen op een bordes zodat de passagiers kunnen
+            uitstappen.
+            Een automatische terugkeer naar de normale werking is enkel mogelijk na voldoende afkoeling."""@nl ;
     firebim:hasMember firebim:Member_6_1_1_2_1, firebim:Member_6_1_1_2_2 .
 
 firebim:Member_6_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText """In geval van abnormale stijging van de temperatuur van de machine en/of van de andere 
-elektrische uitrustingen, moeten de liften stop pen op een bordes zodat de passagiers kunnen 
-uitstappen."""@nl .
+    firebim:hasOriginalText """In  geval  van  abnormale  stijging  van  de  temperatuur  van  de  machine  en/of  van  de  andere
+            elektrische uitrustingen, moeten de liften stoppen op een bordes zodat de passagiers kunnen
+            uitstappen."""@nl .
 
 firebim:Member_6_1_1_2_2 a firebim:Member ;
     firebim:hasOriginalText "Een automatische terugkeer naar de normale werking is enkel mogelijk na voldoende afkoeling."@nl .

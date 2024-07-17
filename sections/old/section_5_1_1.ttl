@@ -14,91 +14,75 @@ firebim:Section_5_1_1 a firebim:Section ;
 firebim:RoyalDecree firebim:hasSection firebim:Section_5_1_1 .
 
 firebim:Article_5_1_1_1 a firebim:Article ;
-    firebim:hasOriginalText """Een technisch lokaal of een geheel van technische lokalen vormt een compartiment. Dit 
+    firebim:hasOriginalText """Een  technisch  lokaal  of  een  geheel  van  technische  lokalen  vormt  een  compartiment.  Dit
 compartiment kan over verscheidene opeenvolgende bouwlagen reiken."""@nl ;
     firebim:hasMember firebim:Member_5_1_1_1_1 .
 
 firebim:Member_5_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Een technisch lokaal of een geheel van technische lokalen vormt een compartiment. Dit 
+    firebim:hasOriginalText """Een  technisch  lokaal  of  een  geheel  van  technische  lokalen  vormt  een  compartiment.  Dit
 compartiment kan over verscheidene opeenvolgende bouwlagen reiken."""@nl .
 
 firebim:Article_5_1_1_2 a firebim:Article ;
-    firebim:hasOriginalText """Voor de technische lokalen gelden de voorschriften inzake de compartimenten mits volgende 
-wijzigingen:  
- 
-1. toegang tot twee uitgangen die leiden:  
- 
-- hetzij naar een aanpalend compartiment via een deur EI 1 30; 
-- hetzij naar een trappenhuis via een deur EI 1 30; 
-- hetzij naar de open lucht , derwijze dat een evacuatieniveau bereikbaar is ;"""@nl ;
+    firebim:hasOriginalText """Voor de technische lokalen gelden de voorschriften inzake de compartimenten mits volgende
+wijzigingen:
+1.   toegang tot twee uitgangen die leiden:
+     -    hetzij naar een aanpalend compartiment via een deur EI1 30;
+     -    hetzij naar een trappenhuis via een deur EI1 30;
+     -    hetzij naar de open lucht, derwijze dat een evacuatieniveau bereikbaar is;"""@nl ;
     firebim:hasMember firebim:Member_5_1_1_2_1 .
 
 firebim:Member_5_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText """Voor de technische lokalen gelden de voorschriften inzake de compartimenten mits volgende 
-wijzigingen:  
- 
-1. toegang tot twee uitgangen die leiden:  
- 
-- hetzij naar een aanpalend compartiment via een deur EI 1 30; 
-- hetzij naar een trappenhuis via een deur EI 1 30; 
-- hetzij naar de open lucht , derwijze dat een evacuatieniveau bereikbaar is ;"""@nl .
+    firebim:hasOriginalText """Voor de technische lokalen gelden de voorschriften inzake de compartimenten mits volgende
+wijzigingen:
+1.   toegang tot twee uitgangen die leiden:
+     -    hetzij naar een aanpalend compartiment via een deur EI1 30;
+     -    hetzij naar een trappenhuis via een deur EI1 30;
+     -    hetzij naar de open lucht, derwijze dat een evacuatieniveau bereikbaar is;"""@nl .
 
 firebim:Article_5_1_1_3 a firebim:Article ;
-    firebim:hasOriginalText """2. afwijkend van 4.4.1 mag geen enkel punt van het compartiment zich verder bevinden dan :  
- 
-- 45 m van de weg die in het technisch compartiment de twee uitgangen verbindt;  
-- 60 m van de dichtstbijzijnde uitg ang; 
-- 100 m van de tweede uitgang;  
- 
-Indien nochtans de oppervlakte van het technische compartiment niet groter is dan 1000  m², 
-volstaat één uitgang naar een trappenhuis, naar buiten of naar een ander compartiment. In dit 
-geval mag de af te leggen weg naar deze uitgang niet groter zijn dan 60  m; 
- 
-3. indien de hoogte van het technisch compartiment over verscheidene opeenvolgende 
-bouwlagen (zie 2.1) reikt en indien het meerdere dienstvloeren omvat die verbonden zijn door 
-trappen of ladders : 
- 
-- indien de compartimen tsoppervlakte kleiner is dan 1000  m², om de twee dienstvloeren, 
-beginnend met de laagste, volstaat één toegang tot een trappenhuis, naar buiten of naar 
-een ander compartiment;  
-- indien de compartimentsoppervlakte groter is dan 1000  m², dan moet elke dienstvloer 
-toegang verlenen tot ten minste één van de twee uitgangen; deze uitgangen wisselen af 
-van vloer tot vloer ;"""@nl ;
+    firebim:hasOriginalText """2.   afwijkend van 4.4.1 mag geen enkel punt van het compartiment zich verder bevinden dan :
+     -    45 m van de weg die in het technisch compartiment de twee uitgangen verbindt;
+     -    60 m van de dichtstbijzijnde uitgang;
+     -    100 m van de tweede uitgang;
+     Indien nochtans de oppervlakte van het technische compartiment niet groter is dan 1000 m²,
+     volstaat één uitgang naar een trappenhuis, naar buiten of naar een ander compartiment. In dit
+     geval mag de af te leggen weg naar deze uitgang niet groter zijn dan 60 m;
+3.   indien  de  hoogte  van  het  technisch  compartiment  over  verscheidene  opeenvolgende
+     bouwlagen (zie 2.1) reikt en indien het meerdere dienstvloeren omvat die verbonden zijn door
+     trappen of ladders:
+     -    indien de compartimentsoppervlakte kleiner is dan 1000 m², om de twee dienstvloeren,
+          beginnend met de laagste, volstaat één toegang tot een trappenhuis, naar buiten of naar
+          een ander compartiment;
+     -    indien de compartimentsoppervlakte groter is dan 1000 m², dan moet elke dienstvloer
+          toegang verlenen tot ten minste één van de twee uitgangen; deze uitgangen wisselen af
+          van vloer tot vloer;"""@nl ;
     firebim:hasMember firebim:Member_5_1_1_3_1, firebim:Member_5_1_1_3_2 .
 
 firebim:Member_5_1_1_3_1 a firebim:Member ;
-    firebim:hasOriginalText """2. afwijkend van 4.4.1 mag geen enkel punt van het compartiment zich verder bevinden dan :  
- 
-- 45 m van de weg die in het technisch compartiment de twee uitgangen verbindt;  
-- 60 m van de dichtstbijzijnde uitg ang; 
-- 100 m van de tweede uitgang;  
- 
-Indien nochtans de oppervlakte van het technische compartiment niet groter is dan 1000  m², 
-volstaat één uitgang naar een trappenhuis, naar buiten of naar een ander compartiment. In dit 
-geval mag de af te leggen weg naar deze uitgang niet groter zijn dan 60  m;"""@nl .
+    firebim:hasOriginalText """2.   afwijkend van 4.4.1 mag geen enkel punt van het compartiment zich verder bevinden dan :
+     -    45 m van de weg die in het technisch compartiment de twee uitgangen verbindt;
+     -    60 m van de dichtstbijzijnde uitgang;
+     -    100 m van de tweede uitgang;
+     Indien nochtans de oppervlakte van het technische compartiment niet groter is dan 1000 m²,
+     volstaat één uitgang naar een trappenhuis, naar buiten of naar een ander compartiment. In dit
+     geval mag de af te leggen weg naar deze uitgang niet groter zijn dan 60 m;"""@nl .
 
 firebim:Member_5_1_1_3_2 a firebim:Member ;
-    firebim:hasOriginalText """3. indien de hoogte van het technisch compartiment over verscheidene opeenvolgende 
-bouwlagen (zie 2.1) reikt en indien het meerdere dienstvloeren omvat die verbonden zijn door 
-trappen of ladders : 
- 
-- indien de compartimen tsoppervlakte kleiner is dan 1000  m², om de twee dienstvloeren, 
-beginnend met de laagste, volstaat één toegang tot een trappenhuis, naar buiten of naar 
-een ander compartiment;  
-- indien de compartimentsoppervlakte groter is dan 1000  m², dan moet elke dienstvloer 
-toegang verlenen tot ten minste één van de twee uitgangen; deze uitgangen wisselen af 
-van vloer tot vloer ;"""@nl .
+    firebim:hasOriginalText """3.   indien  de  hoogte  van  het  technisch  compartiment  over  verscheidene  opeenvolgende
+     bouwlagen (zie 2.1) reikt en indien het meerdere dienstvloeren omvat die verbonden zijn door
+     trappen of ladders:
+     -    indien de compartimentsoppervlakte kleiner is dan 1000 m², om de twee dienstvloeren,
+          beginnend met de laagste, volstaat één toegang tot een trappenhuis, naar buiten of naar
+          een ander compartiment;
+     -    indien de compartimentsoppervlakte groter is dan 1000 m², dan moet elke dienstvloer
+          toegang verlenen tot ten minste één van de twee uitgangen; deze uitgangen wisselen af
+          van vloer tot vloer;"""@nl .
 
 firebim:Article_5_1_1_4 a firebim:Article ;
-    firebim:hasOriginalText """4. de nuttige breedte van evacuatiewegen, traparmen, overlopen en sassen bedraagt ten minste 
-0,80 m."""@nl ;
+    firebim:hasOriginalText """4.   de nuttige breedte van evacuatiewegen, traparmen, overlopen en sassen bedraagt ten minste
+     0,80 m."""@nl ;
     firebim:hasMember firebim:Member_5_1_1_4_1 .
 
 firebim:Member_5_1_1_4_1 a firebim:Member ;
-    firebim:hasOriginalText """4. de nuttige breedte van evacuatiewegen, traparmen, overlopen en sassen bedraagt ten minste 
-0,80 m."""@nl .
-
-firebim:Figure_5_1_1 a firebim:Figure ;
-    firebim:hasID "Figure_5_1_1" .
-
-firebim:Section_5_1_1 firebim:hasFigure firebim:Figure_5_1_1 .
+    firebim:hasOriginalText """4.   de nuttige breedte van evacuatiewegen, traparmen, overlopen en sassen bedraagt ten minste
+     0,80 m."""@nl .

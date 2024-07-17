@@ -8,17 +8,24 @@
 
 firebim:Section_5_2 a firebim:Section ;
     firebim:hasID "5_2" ;
-    firebim:hasOriginalText "Parkings."@nl ;
-    firebim:hasParagraph firebim:Paragraph_5_2_1 .
-
-firebim:Paragraph_5_2_1 a firebim:Paragraph ;
-    firebim:hasID "5_2_1" ;
-    firebim:hasMember firebim:Member_5_2_1_1 .
-
-firebim:Member_5_2_1_1 a firebim:Member ;
-    firebim:hasID "5_2_1_1" ;
-    firebim:hasOriginalText """Bij afwijking van het in punt 2.1 gestelde grondbeginsel kan een parking een compartiment 
-vormen waarvan de oppervlakte niet beperkt is, zelfs wanneer er verscheidene communicerende 
-bouwlagen zijn."""@nl .
+    firebim:hasOriginalText "Parkings."@nl .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_5_2 .
+
+firebim:Section_5_2_1 a firebim:Section ;
+    firebim:hasID "5_2_1" ;
+    firebim:hasOriginalText """Structurele elementen"""@nl .
+
+firebim:Section_5_2 firebim:hasSection firebim:Section_5_2_1 .
+
+firebim:Article_5_2_1_0 a firebim:Article ;
+    firebim:hasID "5_2_1_1" ;
+    firebim:hasOriginalText """Bij afwijking van  het  in  punt 2.1  gestelde  grondbeginsel kan een parking                    een compartiment
+            vormen waarvan de oppervlakte niet beperkt is, zelfs wanneer er verscheidene communicerende
+            bouwlagen zijn."""@nl .
+
+firebim:Section_5_2 firebim:hasArticle firebim:Article_5_2_1_0 .
+
+firebim:Setion_5_2 firebim:hasSection firebim:Section_5_2_1 .
+
+firebim:Article_5_2_1_0 firebim:hasBackwardReference firebim:Member_2_1_1_1 .

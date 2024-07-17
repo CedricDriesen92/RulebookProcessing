@@ -1,0 +1,5 @@
+firebim:Section_2_2 a firebim:Section ;
+    firebim:hasID "2.2" ;
+    firebim:hasOriginalText "Evacuatie van de compartimenten."@nl .
+
+firebim:Section_2 firebim:hasSection firebim:Section_2_2 .

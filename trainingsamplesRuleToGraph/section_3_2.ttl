@@ -1,0 +1,20 @@
+firebim:Section_3_2 a firebim:Section ;
+    firebim:hasID "3.2" ;
+    firebim:hasOriginalText "Structurele elementen."@nl ;
+    firebim:hasArticle firebim:Article_3_2_1 .
+
+firebim:Section_3 firebim:hasSection firebim:Section_3_2 .
+
+firebim:Article_3_2_1 a firebim:Article ;
+    firebim:hasID "A3.2.1" ;
+    firebim:hasOriginalText """De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals
+weergegeven in tabel 2.1, waarin Ei het laagst gelegen evacuatieniveau voorstelt."""@nl ;
+    firebim:hasMember firebim:Member_3_2_1_1 ;
+    firebim:hasTable firebim:Table_2_1 .
+
+firebim:Member_3_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals
+weergegeven in tabel 2.1, waarin Ei het laagst gelegen evacuatieniveau voorstelt."""@nl .
+
+firebim:Table_2_1 a firebim:Table ;
+    firebim:hasID "T2.1" .

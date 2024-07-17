@@ -4,1268 +4,1264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fire Safety Regulations</title>
+    <title>Koninklijk Besluit Brandveiligheid</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
-        h1, h2, h3, h4, h5, h6 { color: #333; cursor: pointer; }
-        .article { margin-left: 20px; border-left: 2px solid #ccc; padding-left: 10px; }
-        .member { margin-left: 20px; }
-        .table, .figure { background-color: #f4f4f4; padding: 10px; margin: 10px 0; text-align: left; }
-        .table img, .figure img { max-width: 100%; height: auto; }
-        pre { white-space: pre-wrap; word-wrap: break-word; }
-        .collapsible:after { content: ' ▼'; font-size: 0.7em; }
-        .collapsed:after { content: ' ►'; }
-        .content { display: block; }
-        .collapsed + .content { display: none; }
-        .references { margin-bottom: 10px; }
-        .references button { margin-right: 5px; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #f5f5f5;
+        }
+        .section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .article {
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            padding: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .article-content {
+            margin-top: 5px;
+        }
+        .toggle-button {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+        }
+        .toggle-button button {
+            background-color: transparent;
+            border: none;
+            color: #007bff;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .toggle-button button:hover {
+            color: #0056b3;
+        }
+        .member {
+            margin-left: 20px;
+            border-left: 2px solid #e0e0e0;
+            padding-left: 10px;
+            margin-top: 8px;
+        }
+        
+        .member .subtle-id {
+            font-size: 0.7em;
+            color: #999;
+            font-weight: normal;
+            top: 4;
+            left: 10px; /* Adjust as needed */
+            line-height: 0.5; /* Ensure it doesn't add extra space */
+        }
+        .member p {
+            margin-top: 0; /* Remove top margin */
+            padding-top: 0em; /* Add padding to make room for the ID */
+            margin-bottom: 2px;
+        }
+        .references {
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        .reference-button {
+            background-color: #e9ecef;
+            border: none;
+            border-radius: 4px;
+            padding: 3px 4px;
+            font-size: 0.8em;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background-color 0.3s;
+            color: #495057;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .reference-button:hover {
+            background-color: #ced4da;
+        }
+        .reference-button.external {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .reference-button.external:hover {
+            background-color: #c3e6cb;
+        }
+        .table, .figure {
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .table img, .figure img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .subsubsection {
+            background-color: #f9f9f9;
+            border-left: 3px solid #999999;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        .subsubsection p {
+            margin: 0;
+            font-size: 1em;
+        }
+        .subsubsection-content {
+            margin-top: 10px;
+        }
+        .collapsible {
+            cursor: pointer;
+        }
+        .collapsible:after {
+            content: ' ▼';
+            font-size: 0.7em;
+            vertical-align: middle;
+        }
+        .collapsed:after {
+            content: ' ►';
+        }
+        .content {
+            display: block;
+        }
+        .collapsed + .content {
+            display: none;
+        }
+        .subtle-id {
+            font-weight: normal;
+            margin-right: 5px;
+            vertical-align: super;
+        }
+        
+        #id-toggle-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
     </style>
     <script>
-        function toggleCollapse(element) {
-            element.classList.toggle('collapsed');
+        function toggleOriginalText(button) {
+            var originalText = button.parentElement.nextElementSibling;
+            if (originalText.style.display === "none") {
+                originalText.style.display = "block";
+                button.textContent = "Hide Original";
+            } else {
+                originalText.style.display = "none";
+                button.textContent = "Show Original";
+            }
         }
         function scrollToElement(id) {
             const element = document.getElementById(id);
             if (element) {
                 element.scrollIntoView({behavior: "smooth", block: "start"});
-                // Expand all parent sections
-                let parent = element.closest('.content');
-                while (parent) {
-                    const header = parent.previousElementSibling;
-                    if (header && header.classList.contains('collapsible')) {
-                        header.classList.remove('collapsed');
-                    }
-                    parent = parent.parentElement.closest('.content');
-                }
+                element.style.backgroundColor = "#e6f2ff";
+                setTimeout(() => {
+                    element.style.transition = "background-color 1s ease";
+                    element.style.backgroundColor = "";
+                }, 50);
+            }
+        }
+        function toggleCollapse(element) {
+            element.classList.toggle('collapsed');
+            var content = element.nextElementSibling;
+            if (content.style.display === "block" || content.style.display === "") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        }
+        function toggleIDs() {
+            var checkbox = document.getElementById('id-toggle');
+            var subtleIDs = document.getElementsByClassName('subtle-id');
+            for (var i = 0; i < subtleIDs.length; i++) {
+                subtleIDs[i].style.display = checkbox.checked ? 'none' : 'inline';
             }
         }
     </script>
 </head>
 <body>
-    <h1>Fire Safety Regulations</h1>
+    <div id="id-toggle-container">
+        <label for="id-toggle">
+            <input type="checkbox" id="id-toggle" onchange="toggleIDs()"> Hide IDs
+        </label>
+    </div>
+    <h1>Koninklijk Besluit Brandveiligheid</h1>
 
-    <div class='section'>
-        <h1 id='0' class='collapsible' onclick='toggleCollapse(this)'>
-            0 ALGEMEEN.
-        </h1>
-        <div class='content'>
+        <div class='section'>
+            <h1 id='0' class='collapsible' onclick='toggleCollapse(this)'>
+                0 ALGEMEEN.
+            </h1>
+            <div class='content'>
+        
+        <div class='section'>
+            <h2 id='0.1' class='collapsible' onclick='toggleCollapse(this)'>
+                0.1 Doel.
+            </h2>
+            <div class='content'>
+        <div class='article' id='A0.1.1'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de bouw en de inrichting van lage gebouwen (LG) moeten voldoen om: - het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen; - de veiligheid van de aanwezigen te waarborgen; - preventief het ingrijpen van de brandweer te vergemakkelijken.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A0.1.1</span>
+    <p>Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de bouw en de inrichting van lage gebouwen (LG) moeten voldoen om: </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.1.1.1</span>
+        <p>- het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.1.1.2</span>
+        <p>- de veiligheid van de aanwezigen te waarborgen;</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.1.1.3</span>
+        <p>- preventief het ingrijpen van de brandweer te vergemakkelijken.</p>
+    </div>
+    <p> </p>
+</div></div>
+</div></div>
+
+        <div class='section'>
+            <h2 id='0.2' class='collapsible' onclick='toggleCollapse(this)'>
+                0.2 Toepassingsgebied.
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='0.2.1'>
+            <p><strong>0.2.1</strong> Deze  bijlage  is  van  toepassing  op  de  volgende  op  te  richten  gebouwen  en  de  volgende uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend vanaf 1 december 2012:</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A0.2.1.1'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Deze bijlage is van toepassing op de volgende op te richten gebouwen en de volgende uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend vanaf 1 december 2012: 1. de lage gebouwen; 2. de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn; 3. de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden: - in het gebouw hoofdzakelijk niet-industriële activiteiten plaats vinden en de totale oppervlakte van de lokalen met industriële activiteit kleiner is dan de overblijvende oppervlakte van het gebouw; - de industriële activiteiten in deze lokalen de niet-industriële activiteiten in hetzelfde compartiment ondersteunen; - er geen lokalen met nachtbezetting zijn in het compartiment waarin er industriële activiteiten plaatsvinden.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A0.2.1.1</span>
+    <p>Deze bijlage is van toepassing op de volgende op te richten gebouwen en de volgende uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend vanaf 1 december 2012: </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.2.1.1.1</span>
+        <p>1. de lage gebouwen;</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.2.1.1.2</span>
+        <p>2. de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.2.1.1.3</span>
+        <p>3. de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden: - in het gebouw hoofdzakelijk niet-industriële activiteiten plaats vinden en de totale oppervlakte van de lokalen met industriële activiteit kleiner is dan de overblijvende oppervlakte van het gebouw; - de industriële activiteiten in deze lokalen de niet-industriële activiteiten in hetzelfde compartiment ondersteunen; - er geen lokalen met nachtbezetting zijn in het compartiment waarin er industriële activiteiten plaatsvinden.</p>
+    </div>
+    <p> </p>
+</div></div>
+</div></div>
+
+        <div class='subsubsection' id='0.2.2'>
+            <p><strong>0.2.2</strong> Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A0.2.2.1'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Uitgesloten van het toepassingsgebied van deze bijlage zijn echter: 1. de industriegebouwen; 2. de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner dan of gelijk aan 100 m²; 3. de eengezinswoningen.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A0.2.2.1</span>
+    <p>Uitgesloten van het toepassingsgebied van deze bijlage zijn echter: </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.2.2.1.1</span>
+        <p>1. de industriegebouwen;</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.2.2.1.2</span>
+        <p>2. de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner dan of gelijk aan 100 m²;</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.2.2.1.3</span>
+        <p>3. de eengezinswoningen.</p>
+    </div>
+    <p> </p>
+</div></div>
+</div></div>
+</div></div>
+
+        <div class='section'>
+            <h2 id='0.3' class='collapsible' onclick='toggleCollapse(this)'>
+                0.3 Platen
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='0.3.1'>
+            <p><strong>0.3.1</strong> [De platen zijn opgenomen bij de betreffende tekst]
+Plaat 2.1 - Gevels tussen gebouwen
+Plaat 2.2 - Gevels tussen compartimenten</p>
+            <div class='subsubsection-content'>
+        <div class='figure' id='F2.1'><img src='figures/F2_1.jpg' alt='figure F2.1'>
+<p>Figure F2.1</p></div>
+<div class='figure' id='F2.2'><img src='figures/F2_2.jpg' alt='figure F2.2'>
+<p>Figure F2.2</p></div>
+</div></div>
+</div></div>
+</div></div>
+
+        <div class='section'>
+            <h1 id='1' class='collapsible' onclick='toggleCollapse(this)'>
+                1 INPLANTING EN TOEGANGSWEGEN.
+            </h1>
+            <div class='content'>
+        <div class='article' id='A1.1'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>De toegangswegen bedoeld in punt 1.1 worden bepaald in akkoord met de brandweer, volgens de volgende leidraad.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A1.1</span>
     
-    <div class='section'>
-        <h2 id='0.1' class='collapsible' onclick='toggleCollapse(this)'>
-            0.1 Doel.
-        </h2>
-        <div class='content'>
-    <div class='article'><div class='member'><p>Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de bouw en de
-inrichting van lage gebouwen (LG) moeten voldoen om:
--    het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;
--    de veiligheid van de aanwezigen te waarborgen;
--    preventief het ingrijpen van de brandweer te vergemakkelijken.</p></div>
-</div>
-</div></div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.1.1</span>
+        <p>De toegangswegen bedoeld in punt 1.1 worden bepaald in akkoord met de brandweer, volgens de volgende leidraad.</p>
+    </div>
+    </div></div>
 
-    <div class='section'>
-        <h2 id='0.2' class='collapsible' onclick='toggleCollapse(this)'>
-            0.2 Toepassingsgebied.
-        </h2>
-        <div class='content'>
+        <div class='section'>
+            <h2 id='1.1' class='collapsible' onclick='toggleCollapse(this)'>
+                1.1 Bereikbaarheid en opstelmogelijkheden brandweer
+            </h2>
+            <div class='content'>
+        <div class='article' id='A1.1.1'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Voor de gebouwen met één bouwlaag moeten de voertuigen van de brandweer ten minste tot op 60 m van een gevel van het gebouw kunnen naderen.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A1.1.1</span>
     
-    <div class='section'>
-        <h3 id='0.2.1' class='collapsible' onclick='toggleCollapse(this)'>
-            0.2.1 Deze  bijlage  is  van  toepassing  op  de  volgende  op  te  richten  gebouwen  en  de  volgende
-uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend
-            vanaf 1 december 2012:
-        </h3>
-        <div class='content'>
-    <div class='article'><p>1.   de lage gebouwen;</p>
-<div class='member'><p>Toepassingsgebied.</p></div>
-</div>
-<div class='article'><p>2. n;</p>
-<div class='member'><p>de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;</p></div>
-</div>
-<div class='article'><p>3. olgende voorwaarden:
- e  overblijvende
-                      oppeeiten  in  hetzelfde
-n  het  compartiment  waarin  er  industriële
-                      activiteiten plaatsvinden.</p>
-<div class='member'><p>de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:</p></div>
-<div class='member'><p>in  het  gebouw  hoofdzakelijk  niet-industriële  activiteiten  plaats  vinden  en  de  totale oppervlakte  van  de  lokalen  met  industriële  activiteit  kleiner  is  dan  de  overblijvende oppervlakte van het gebouw;</p></div>
-<div class='member'><p>de  industriële  activiteiten  in  deze  lokalen  de  niet-industriële  activiteiten  in  hetzelfde compartiment ondersteunen;</p></div>
-<div class='member'><p>er  geen  lokalen  met  nachtbezetting  zijn  in  het  compartiment  waarin  er  industriële activiteiten plaatsvinden.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h3 id='0.2.2' class='collapsible' onclick='toggleCollapse(this)'>
-            0.2.2 Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:
-        </h3>
-        <div class='content'>
-    <div class='article'><p>Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:
-1.en;
-2an 100 m²;
-ngen.</p>
-<div class='member'><p>1.de industriegebouwen;</p></div>
-<div class='member'><p>de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner dan of gelijk aan 100 m²;</p></div>
-<div class='member'><p>de eengezinswoningen.</p></div>
-</div>
-</div></div>
-</div></div>
-
-    <div class='section'>
-        <h2 id='0.3' class='collapsible' onclick='toggleCollapse(this)'>
-            0.3 Platen
-        </h2>
-        <div class='content'>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.1.1.1</span>
+        <p>Voor de gebouwen met één bouwlaag moeten de voertuigen van de brandweer ten minste tot op 60 m van een gevel van het gebouw kunnen naderen.</p>
+    </div>
     </div></div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='0.1' class='collapsible' onclick='toggleCollapse(this)'>
-            0.1 Doel.
-        </h1>
-        <div class='content'>
-    <div class='article'><div class='member'><p>Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de bouw en de
-inrichting van lage gebouwen (LG) moeten voldoen om:
--    het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;
--    de veiligheid van de aanwezigen te waarborgen;
--    preventief het ingrijpen van de brandweer te vergemakkelijken.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='0.2' class='collapsible' onclick='toggleCollapse(this)'>
-            0.2 Toepassingsgebied.
-        </h1>
-        <div class='content'>
+<div class='article' id='A1.1.2'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Voor de gebouwen met meer dan één bouwlaag moeten de voertuigen van de brandweer ten minste in één punt een gevel kunnen bereiken die op herkenbare plaatsen toegang geeft tot iedere bouwlaag.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A1.1.2</span>
     
-    <div class='section'>
-        <h2 id='0.2.1' class='collapsible' onclick='toggleCollapse(this)'>
-            0.2.1 Deze  bijlage  is  van  toepassing  op  de  volgende  op  te  richten  gebouwen  en  de  volgende
-uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend
-            vanaf 1 december 2012:
-        </h2>
-        <div class='content'>
-    <div class='article'><p>1.   de lage gebouwen;</p>
-<div class='member'><p>Toepassingsgebied.</p></div>
-</div>
-<div class='article'><p>2. n;</p>
-<div class='member'><p>de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;</p></div>
-</div>
-<div class='article'><p>3. olgende voorwaarden:
- e  overblijvende
-                      oppeeiten  in  hetzelfde
-n  het  compartiment  waarin  er  industriële
-                      activiteiten plaatsvinden.</p>
-<div class='member'><p>de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:</p></div>
-<div class='member'><p>in  het  gebouw  hoofdzakelijk  niet-industriële  activiteiten  plaats  vinden  en  de  totale oppervlakte  van  de  lokalen  met  industriële  activiteit  kleiner  is  dan  de  overblijvende oppervlakte van het gebouw;</p></div>
-<div class='member'><p>de  industriële  activiteiten  in  deze  lokalen  de  niet-industriële  activiteiten  in  hetzelfde compartiment ondersteunen;</p></div>
-<div class='member'><p>er  geen  lokalen  met  nachtbezetting  zijn  in  het  compartiment  waarin  er  industriële activiteiten plaatsvinden.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h2 id='0.2.2' class='collapsible' onclick='toggleCollapse(this)'>
-            0.2.2 Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:
-        </h2>
-        <div class='content'>
-    <div class='article'><p>Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:
-1.en;
-2an 100 m²;
-ngen.</p>
-<div class='member'><p>1.de industriegebouwen;</p></div>
-<div class='member'><p>de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner dan of gelijk aan 100 m²;</p></div>
-<div class='member'><p>de eengezinswoningen.</p></div>
-</div>
-</div></div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='0.2.1' class='collapsible' onclick='toggleCollapse(this)'>
-            0.2.1 Deze  bijlage  is  van  toepassing  op  de  volgende  op  te  richten  gebouwen  en  de  volgende
-uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend
-            vanaf 1 december 2012:
-        </h1>
-        <div class='content'>
-    <div class='article'><p>1.   de lage gebouwen;</p>
-<div class='member'><p>Toepassingsgebied.</p></div>
-</div>
-<div class='article'><p>2. n;</p>
-<div class='member'><p>de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;</p></div>
-</div>
-<div class='article'><p>3. olgende voorwaarden:
- e  overblijvende
-                      oppeeiten  in  hetzelfde
-n  het  compartiment  waarin  er  industriële
-                      activiteiten plaatsvinden.</p>
-<div class='member'><p>de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:</p></div>
-<div class='member'><p>in  het  gebouw  hoofdzakelijk  niet-industriële  activiteiten  plaats  vinden  en  de  totale oppervlakte  van  de  lokalen  met  industriële  activiteit  kleiner  is  dan  de  overblijvende oppervlakte van het gebouw;</p></div>
-<div class='member'><p>de  industriële  activiteiten  in  deze  lokalen  de  niet-industriële  activiteiten  in  hetzelfde compartiment ondersteunen;</p></div>
-<div class='member'><p>er  geen  lokalen  met  nachtbezetting  zijn  in  het  compartiment  waarin  er  industriële activiteiten plaatsvinden.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='0.2.2' class='collapsible' onclick='toggleCollapse(this)'>
-            0.2.2 Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:
-        </h1>
-        <div class='content'>
-    <div class='article'><p>Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:
-1.en;
-2an 100 m²;
-ngen.</p>
-<div class='member'><p>1.de industriegebouwen;</p></div>
-<div class='member'><p>de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner dan of gelijk aan 100 m²;</p></div>
-<div class='member'><p>de eengezinswoningen.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='0.3' class='collapsible' onclick='toggleCollapse(this)'>
-            0.3 Platen
-        </h1>
-        <div class='content'>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.1.2.1</span>
+        <p>Voor de gebouwen met meer dan één bouwlaag moeten de voertuigen van de brandweer ten minste in één punt een gevel kunnen bereiken die op herkenbare plaatsen toegang geeft tot iedere bouwlaag.</p>
+    </div>
     </div></div>
+<div class='article' id='A1.1.3'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Daartoe moeten de voertuigen beschikken over een toegangsmogelijkheid en een opstelplaats: a) ofwel op de berijdbare rijweg van de openbare weg; b) ofwel op een bijzondere toegangsweg vanaf de berijdbare rijweg van de openbare weg en die de volgende karakteristieken vertoont: - minimale vrije breedte: 4 m; - minimale draaicirkel met draaistraal 11 m (aan de binnenkant) en 15 m (aan de buitenkant); - minimale vrije hoogte: 4 m; - maximale helling: 6%; - draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting van 13t er kunnen rijden en stilstaan, zelfs wanneer ze het terrein vervormen. Voor de kunstwerken welke zich op de toegangswegen bevinden, richt men zich naar NBN B 03-101.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A1.1.3</span>
+    <div class='references'><a href='https://www.google.com/search?q=NBN%20B%2003-101' target='_blank' class='reference-button external'>☆ NBN B 03-101</a></div><p>Daartoe moeten de voertuigen beschikken over een toegangsmogelijkheid en een opstelplaats: </p>
 
-    <div class='section'>
-        <h1 id='1' class='collapsible' onclick='toggleCollapse(this)'>
-            1 INPLANTING EN TOEGANGSWEGEN.
-        </h1>
-        <div class='content'>
-    <div class='article'><div class='member'><p>De toegangswegen bedoeld in punt 1.1 worden bepaald in akkoord met de brandweer, volgens de
-            volgende leidraad.</p></div>
-</div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.1.3.1</span>
+        <p>a) ofwel op de berijdbare rijweg van de openbare weg;</p>
+    </div>
+    <p> </p>
 
-    <div class='section'>
-        <h2 id='1.1' class='collapsible' onclick='toggleCollapse(this)'>
-            1.1 Bereikbaarheid en opstelmogelijkheden brandweer
-        </h2>
-        <div class='content'>
-    <div class='article'><div class='member'><p>Voor de gebouwen met één bouwlaag moeten de voertuigen van de brandweer ten minste tot op
-60 m van een gevel van het gebouw kunnen naderen.</p></div>
-</div>
-<div class='article'><div class='member'><p>Voor de gebouwen met meer dan één bouwlaag moeten de voertuigen van de brandweer ten
-minste in één punt een gevel kunnen bereiken die op herkenbare plaatsen toegang geeft tot
-iedere bouwlaag.</p></div>
-</div>
-<div class='article'><p>
-b101.</p>
-<div class='member'><p>Daartoe moeten de voertuigen beschikken over een toegangsmogelijkheid en een opstelplaats:
-a)   ofwel op de berijdbare rijweg van de openbare weg;</p></div>
-<div class='member'><p>b)   ofwel op een bijzondere toegangsweg vanaf de berijdbare rijweg van de openbare weg en die
-     de volgende karakteristieken vertoont:
-     -    minimale vrije breedte: 4 m;
-     -    minimale  draaicirkel  met  draaistraal  11 m  (aan  de  binnenkant)  en  15 m  (aan  de
-          buitenkant);
-     -    minimale vrije hoogte: 4 m;
-     -    maximale helling: 6%;
-     -    draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting
-          van 13t er kunnen rijden en stilstaan, zelfs wanneer ze het terrein vervormen.
-          Voor de kunstwerken welke zich op de toegangswegen bevinden, richt men zich naar
-          NBN B 03-101.</p></div>
-</div>
-</div></div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.1.3.2</span>
+        <p>b) ofwel op een bijzondere toegangsweg vanaf de berijdbare rijweg van de openbare weg en die de volgende karakteristieken vertoont: - minimale vrije breedte: 4 m; - minimale draaicirkel met draaistraal 11 m (aan de binnenkant) en 15 m (aan de buitenkant); - minimale vrije hoogte: 4 m; - maximale helling: 6%; - draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting van 13t er kunnen rijden en stilstaan, zelfs wanneer ze het terrein vervormen.</p>
+    </div>
+    <p> </p>
 
-    <div class='section'>
-        <h2 id='1.2' class='collapsible' onclick='toggleCollapse(this)'>
-            1.2 Bijgebouwen
-        </h2>
-        <div class='content'>
-    <div class='article'><div class='member'><p>Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen
-            zijn enkel   toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
-            noch de actie van de brandweer in het gedrang komen.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h2 id='1.3' class='collapsible' onclick='toggleCollapse(this)'>
-            1.3 Horizontale afstand tussen gebouwen
-        </h2>
-        <div class='content'>
-    <div class='article'><p> van 6 m voldoende.
-  kW/m² bedrag geval van bra openbaar domein.</p>
-<div class='member'><p>Om te vermijden dat een brand tussen twee gebouwen kan overslaan:
-            a)   ofwel,   als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan
-                 bedraagt de afstand (in m) tussen de geveldelen die niet minstens EI 60 of REI 60 hebben,
-                 ten minste:
-                      h + 10cos   α voor 0° ≤  ≤ 90°
-                       2,5
-                      0 voor 90° &lt; ≤ 180°
-                 waarbij  de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.1).</p></div>
-<div class='figure' id='2.1'><img src='figures/2_1.jpg' alt='figure 2.1'>
-<p>Figure 2.1</p></div>
-<div class='member'><p>Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is
-                 een horizontale afstand tussen de gebouwen van 6 m voldoende.</p></div>
-<div class='member'><p>b)   ofwel mag de straling van        een brand van een gebouw op een tegenoverstaand gebouw, en
-                 omgekeerd, niet meer dan 15 kW/m² bedragen.</p></div>
-<div class='member'><p>De wanden die aangrenzende gebouwen scheiden hebben EI 60, of REI 60 wanneer ze dragend
-            zijn.
-            In  deze  wanden  mag  een  verbinding  tussen  deze  gebouwen                   bestaan  via  een  deur  EI1 30,
-            zelfsluitend of zelfsluitend in geval van brand.</p></div>
-<div class='member'><p>De voorwaarde van de afstand tussen een laag gebouw en een tegenoverstaand gebouw geldt
-            niet  voor  gebouwen  die  van  elkaar  gescheiden  worden  door  bestaande  straten,  wegen,...
-            behorende tot het openbaar domein.</p></div>
-</div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.1.3.3</span>
+        <p>Voor de kunstwerken welke zich op de toegangswegen bevinden, richt men zich naar NBN B 03-101.</p>
+    </div>
+    <p> </p>
 </div></div>
 </div></div>
 
-    <div class='section'>
-        <h1 id='1.1' class='collapsible' onclick='toggleCollapse(this)'>
-            1.1 Bereikbaarheid en opstelmogelijkheden brandweer
-        </h1>
-        <div class='content'>
-    <div class='article'><div class='member'><p>Voor de gebouwen met één bouwlaag moeten de voertuigen van de brandweer ten minste tot op
-60 m van een gevel van het gebouw kunnen naderen.</p></div>
-</div>
-<div class='article'><div class='member'><p>Voor de gebouwen met meer dan één bouwlaag moeten de voertuigen van de brandweer ten
-minste in één punt een gevel kunnen bereiken die op herkenbare plaatsen toegang geeft tot
-iedere bouwlaag.</p></div>
-</div>
-<div class='article'><p>
-b101.</p>
-<div class='member'><p>Daartoe moeten de voertuigen beschikken over een toegangsmogelijkheid en een opstelplaats:
-a)   ofwel op de berijdbare rijweg van de openbare weg;</p></div>
-<div class='member'><p>b)   ofwel op een bijzondere toegangsweg vanaf de berijdbare rijweg van de openbare weg en die
-     de volgende karakteristieken vertoont:
-     -    minimale vrije breedte: 4 m;
-     -    minimale  draaicirkel  met  draaistraal  11 m  (aan  de  binnenkant)  en  15 m  (aan  de
-          buitenkant);
-     -    minimale vrije hoogte: 4 m;
-     -    maximale helling: 6%;
-     -    draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting
-          van 13t er kunnen rijden en stilstaan, zelfs wanneer ze het terrein vervormen.
-          Voor de kunstwerken welke zich op de toegangswegen bevinden, richt men zich naar
-          NBN B 03-101.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='1.2' class='collapsible' onclick='toggleCollapse(this)'>
-            1.2 Bijgebouwen
-        </h1>
-        <div class='content'>
-    <div class='article'><div class='member'><p>Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen
-            zijn enkel   toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
-            noch de actie van de brandweer in het gedrang komen.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='1.3' class='collapsible' onclick='toggleCollapse(this)'>
-            1.3 Horizontale afstand tussen gebouwen
-        </h1>
-        <div class='content'>
-    <div class='article'><p> van 6 m voldoende.
-  kW/m² bedrag geval van bra openbaar domein.</p>
-<div class='member'><p>Om te vermijden dat een brand tussen twee gebouwen kan overslaan:
-            a)   ofwel,   als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan
-                 bedraagt de afstand (in m) tussen de geveldelen die niet minstens EI 60 of REI 60 hebben,
-                 ten minste:
-                      h + 10cos   α voor 0° ≤  ≤ 90°
-                       2,5
-                      0 voor 90° &lt; ≤ 180°
-                 waarbij  de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.1).</p></div>
-<div class='figure' id='2.1'><img src='figures/2_1.jpg' alt='figure 2.1'>
-<p>Figure 2.1</p></div>
-<div class='member'><p>Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is
-                 een horizontale afstand tussen de gebouwen van 6 m voldoende.</p></div>
-<div class='member'><p>b)   ofwel mag de straling van        een brand van een gebouw op een tegenoverstaand gebouw, en
-                 omgekeerd, niet meer dan 15 kW/m² bedragen.</p></div>
-<div class='member'><p>De wanden die aangrenzende gebouwen scheiden hebben EI 60, of REI 60 wanneer ze dragend
-            zijn.
-            In  deze  wanden  mag  een  verbinding  tussen  deze  gebouwen                   bestaan  via  een  deur  EI1 30,
-            zelfsluitend of zelfsluitend in geval van brand.</p></div>
-<div class='member'><p>De voorwaarde van de afstand tussen een laag gebouw en een tegenoverstaand gebouw geldt
-            niet  voor  gebouwen  die  van  elkaar  gescheiden  worden  door  bestaande  straten,  wegen,...
-            behorende tot het openbaar domein.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='2' class='collapsible' onclick='toggleCollapse(this)'>
-            2 COMPARTIMENTERING EN EVACUATIE.
-        </h1>
-        <div class='content'>
+        <div class='section'>
+            <h2 id='1.2' class='collapsible' onclick='toggleCollapse(this)'>
+                1.2 Bijgebouwen
+            </h2>
+            <div class='content'>
+        <div class='article' id='A1.2.1'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen zijn enkel toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers, noch de actie van de brandweer in het gedrang komen.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A1.2.1</span>
     
-    <div class='section'>
-        <h2 id='2.1' class='collapsible' onclick='toggleCollapse(this)'>
-            2.1 Grootte van de compartimenten
-        </h2>
-        <div class='content'>
-    <div class='article'><div class='references'><button onclick='scrollToElement("5.2")'>Forward to 5.2</button></div><div class='references'><button onclick='scrollToElement("5.1.1")'>Forward to 5.1.1</button><button onclick='scrollToElement("5.2")'>Forward to 5.2</button></div><p>Grootte van de compartimenten uitzondering van de parkings (zie 5.2).ment bedraagt niet meer dan 90 m.atie
-            en een rook- en warmteafvoeook- en warmteafvoerinstallatie moet voode hoogte van installatie moeten voldoen.</p>
-<div class='member'><p>Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m², met uitzondering van de parkings (zie 5.2).</p></div>
-<div class='member'><p>De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag 3500 m² bedragen. De lengte van dit compartiment bedraagt niet meer dan 90 m.</p></div>
-<div class='member'><p>m.De maximale oppervlakte van een compartiment mag, respectievelijk, groter dan ofwel 2500 m², ofwel 3500 m² bedragen indien het compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie.</p></div>
-<div class='member'><p>De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de grootte van het compartiment respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden.</p></div>
-<div class='member'><p>De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag.</p></div>
-<div class='member'><p>De volgende uitzonderingen zijn nochtans toegestaan:
-            a)   de parking met bouwlagen (zie 5.2);
-            b)   een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een
-                 binnenverbindingstrap (duplex), indien de gecumuleerde oppervlakte van die bouwlagen niet
-                 groter is dan 2500 m²;
-            c)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over  drie  boven  elkaar  gelegen
-                 bouwlagen met een binnenverbindingstrap (triplex), voor zover de som van hun gecumuleerde
-                 oppervlakte  de  300  m²  niet  overschrijdt,  en  dat  dit  compartiment  is              uitgerust  met  een
-                 automatische branddetectie van het type totale bewaking die automatisch een aanduiding van
-                 de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico&#x27;s;
-            d)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over                verscheidene  boven  elkaar
-                 geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1)                   .
-            e)   de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium)
-                 op voorwaarde:
-                 -    dat dit compartiment is uitgerust         met een automatische blusinstallatie en een rook-               en
-                      warmteafvoerinstallatie. De Minister van Binnenlandse Zaken bepaalt de voorwaarden
-                      waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische
-                      blusinstallatie en een rook- en warmteafvoerinstallatie;
-            De  Minister  van  Binnenlandse  Zaken  bepaalt  de  voorwaarden  waaraan  de  automatische
-            blusinstallatie en rook- en warmteafvoerinstallatie moeten voldoen.</p></div>
-</div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.2.1.1</span>
+        <p>Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen zijn enkel toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers, noch de actie van de brandweer in het gedrang komen.</p>
+    </div>
+    </div></div>
 </div></div>
 
-    <div class='section'>
-        <h2 id='2.2' class='collapsible' onclick='toggleCollapse(this)'>
-            2.2 Evacuatie van de compartimenten.
-        </h2>
-        <div class='content'>
+        <div class='section'>
+            <h2 id='1.3' class='collapsible' onclick='toggleCollapse(this)'>
+                1.3 Horizontale afstand tussen gebouwen
+            </h2>
+            <div class='content'>
+        <div class='article' id='A1.3.1'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Om te vermijden dat een brand tussen twee gebouwen kan overslaan: a) ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de afstand (in m) tussen de geveldelen die niet minstens EI 60 of REI 60 hebben, ten minste: (h + 10)/2.5 cos(α) voor 0° ≤ α ≤ 90° 0 voor 90° &lt; α ≤ 180° waarbij α de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.1). Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is een horizontale afstand tussen de gebouwen van 6 m voldoende. b) ofwel mag de straling van een brand van een gebouw op een tegenoverstaand gebouw, en omgekeerd, niet meer dan 15 kW/m² bedragen.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A1.3.1</span>
+    <p>Om te vermijden dat een brand tussen twee gebouwen kan overslaan: </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.3.1.1</span>
+        <p>a) ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de afstand (in m) tussen de geveldelen die niet minstens EI 60 of REI 60 hebben, ten minste: (h + 10)/2.5 cos(α) voor 0° ≤ α ≤ 90° 0 voor 90° &lt; α ≤ 180° waarbij α de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.1).</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.3.1.2</span>
+        <p>Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is een horizontale afstand tussen de gebouwen van 6 m voldoende.</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.3.1.3</span>
+        <p>b) ofwel mag de straling van een brand van een gebouw op een tegenoverstaand gebouw, en omgekeerd, niet meer dan 15 kW/m² bedragen.</p>
+    </div>
+    <p> </p>
+<div class='figure' id='F2.1'><img src='figures/F2_1.jpg' alt='figure F2.1'>
+<p>Figure F2.1</p></div>
+</div></div>
+<div class='article' id='A1.3.2'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>De wanden die aangrenzende gebouwen scheiden hebben EI 60, of REI 60 wanneer ze dragend zijn. In deze wanden mag een verbinding tussen deze gebouwen bestaan via een deur EI1 30, zelfsluitend of zelfsluitend in geval van brand.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A1.3.2</span>
+    <p></p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.3.2.1</span>
+        <p>De wanden die aangrenzende gebouwen scheiden hebben EI 60, of REI 60 wanneer ze dragend zijn.</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.3.2.2</span>
+        <p>In deze wanden mag een verbinding tussen deze gebouwen bestaan via een deur EI1 30, zelfsluitend of zelfsluitend in geval van brand.</p>
+    </div>
+    <p> </p>
+</div></div>
+<div class='article' id='A1.3.3'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>De voorwaarde van de afstand tussen een laag gebouw en een tegenoverstaand gebouw geldt niet voor gebouwen die van elkaar gescheiden worden door bestaande straten, wegen,... behorende tot het openbaar domein.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A1.3.3</span>
     
-    <div class='section'>
-        <h3 id='2.2.1' class='collapsible' onclick='toggleCollapse(this)'>
-            2.2.1 Aantal uitgangen.
-        </h3>
-        <div class='content'>
-    <div class='article'><p>Aantal uitgangen.onen bedraagt;
-            -    twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen
-                 bedraagt;
-            -    2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling
-                 door 1000 van de maximale bezetting van het comp  de  brandweer  verhoog
-            Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.</p>
-<div class='member'><p>Elk compartiment heeft minimum: -    één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;</p></div>
-<div class='member'><p>Elk compartiment heeft minimum: -    twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen bedraagt;</p></div>
-<div class='member'><p>Elk compartiment heeft minimum: -    2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt.</p></div>
-<div class='member'><p>Het  minimum  aantal  uitgangen  kan  door  de  brandweer  verhoogd  worden  in  functie  van  de bezetting en de configuratie van de lokalen.</p></div>
-<div class='member'><p>Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h3 id='2.2.2' class='collapsible' onclick='toggleCollapse(this)'>
-            2.2.2 De uitgangen.
-        </h3>
-        <div class='content'>
-    <div class='article'><div class='member'><p>De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment.</p></div>
-</div>
-<div class='article'><div class='references'><button onclick='scrollToElement("4.4")'>Forward to 4.4</button></div><div class='member'><p>De evacuatiewegen leiden ofwel:
-            -    naar buiten;
-            -    naar trappenhuizen;
-            -    naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4).</p></div>
-</div>
-<div class='article'><div class='references'><button onclick='scrollToElement("5.2")'>Forward to 5.2</button></div><p>en vervangen.ing: zie 5.2.</p>
-<div class='member'><p>Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen.</p></div>
-<div class='member'><p>Voor de parking: zie 5.2.</p></div>
-</div>
-<div class='article'><div class='references'><button onclick='scrollToElement("4.4")'>Forward to 4.4</button></div><div class='member'><p>Op  een  evacuatieniveau  leidt  iedere  trap  naar  buiten,  hetzij  rechtstreeks,  hetzij  over  een
-            evacuatieweg die beantwoordt aan de voorschriften van 4.4.</p></div>
-</div>
-</div></div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.3.3.1</span>
+        <p>De voorwaarde van de afstand tussen een laag gebouw en een tegenoverstaand gebouw geldt niet voor gebouwen die van elkaar gescheiden worden door bestaande straten, wegen,... behorende tot het openbaar domein.</p>
+    </div>
+    </div></div>
 </div></div>
 </div></div>
 
-    <div class='section'>
-        <h1 id='2.1' class='collapsible' onclick='toggleCollapse(this)'>
-            2.1 Grootte van de compartimenten
-        </h1>
-        <div class='content'>
-    <div class='article'><div class='references'><button onclick='scrollToElement("5.2")'>Forward to 5.2</button></div><div class='references'><button onclick='scrollToElement("5.1.1")'>Forward to 5.1.1</button><button onclick='scrollToElement("5.2")'>Forward to 5.2</button></div><p>Grootte van de compartimenten uitzondering van de parkings (zie 5.2).ment bedraagt niet meer dan 90 m.atie
-            en een rook- en warmteafvoeook- en warmteafvoerinstallatie moet voode hoogte van installatie moeten voldoen.</p>
-<div class='member'><p>Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m², met uitzondering van de parkings (zie 5.2).</p></div>
-<div class='member'><p>De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag 3500 m² bedragen. De lengte van dit compartiment bedraagt niet meer dan 90 m.</p></div>
-<div class='member'><p>m.De maximale oppervlakte van een compartiment mag, respectievelijk, groter dan ofwel 2500 m², ofwel 3500 m² bedragen indien het compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie.</p></div>
-<div class='member'><p>De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de grootte van het compartiment respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden.</p></div>
-<div class='member'><p>De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag.</p></div>
-<div class='member'><p>De volgende uitzonderingen zijn nochtans toegestaan:
-            a)   de parking met bouwlagen (zie 5.2);
-            b)   een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een
-                 binnenverbindingstrap (duplex), indien de gecumuleerde oppervlakte van die bouwlagen niet
-                 groter is dan 2500 m²;
-            c)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over  drie  boven  elkaar  gelegen
-                 bouwlagen met een binnenverbindingstrap (triplex), voor zover de som van hun gecumuleerde
-                 oppervlakte  de  300  m²  niet  overschrijdt,  en  dat  dit  compartiment  is              uitgerust  met  een
-                 automatische branddetectie van het type totale bewaking die automatisch een aanduiding van
-                 de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico&#x27;s;
-            d)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over                verscheidene  boven  elkaar
-                 geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1)                   .
-            e)   de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium)
-                 op voorwaarde:
-                 -    dat dit compartiment is uitgerust         met een automatische blusinstallatie en een rook-               en
-                      warmteafvoerinstallatie. De Minister van Binnenlandse Zaken bepaalt de voorwaarden
-                      waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische
-                      blusinstallatie en een rook- en warmteafvoerinstallatie;
-            De  Minister  van  Binnenlandse  Zaken  bepaalt  de  voorwaarden  waaraan  de  automatische
-            blusinstallatie en rook- en warmteafvoerinstallatie moeten voldoen.</p></div>
-</div>
-</div></div>
+        <div class='section'>
+            <h1 id='2' class='collapsible' onclick='toggleCollapse(this)'>
+                2 COMPARTIMENTERING EN EVACUATIE.
+            </h1>
+            <div class='content'>
+        
+        <div class='section'>
+            <h2 id='2.1' class='collapsible' onclick='toggleCollapse(this)'>
+                2.1 Grootte van de compartimenten
+            </h2>
+            <div class='content'>
+        <div class='article' id='A2.1.1'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m², met uitzondering van de parkings (zie 5.2). De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag 3500 m² bedragen. De lengte van dit compartiment bedraagt niet meer dan 90 m.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.1.1</span>
+    <p></p>
 
-    <div class='section'>
-        <h1 id='2.2' class='collapsible' onclick='toggleCollapse(this)'>
-            2.2 Evacuatie van de compartimenten.
-        </h1>
-        <div class='content'>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.1.1</span>
+        <p>Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m², met uitzondering van de parkings (zie 5.2).</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.1.2</span>
+        <p>De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag 3500 m² bedragen.</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.1.3</span>
+        <p>De lengte van dit compartiment bedraagt niet meer dan 90 m.</p>
+    </div>
+    <p> </p>
+</div></div>
+<div class='article' id='A2.1.2'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>De maximale oppervlakte van een compartiment mag, respectievelijk, groter dan ofwel 2500 m², ofwel 3500 m² bedragen indien het compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.1.2</span>
     
-    <div class='section'>
-        <h2 id='2.2.1' class='collapsible' onclick='toggleCollapse(this)'>
-            2.2.1 Aantal uitgangen.
-        </h2>
-        <div class='content'>
-    <div class='article'><p>Aantal uitgangen.onen bedraagt;
-            -    twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen
-                 bedraagt;
-            -    2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling
-                 door 1000 van de maximale bezetting van het comp  de  brandweer  verhoog
-            Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.</p>
-<div class='member'><p>Elk compartiment heeft minimum: -    één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;</p></div>
-<div class='member'><p>Elk compartiment heeft minimum: -    twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen bedraagt;</p></div>
-<div class='member'><p>Elk compartiment heeft minimum: -    2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt.</p></div>
-<div class='member'><p>Het  minimum  aantal  uitgangen  kan  door  de  brandweer  verhoogd  worden  in  functie  van  de bezetting en de configuratie van de lokalen.</p></div>
-<div class='member'><p>Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h2 id='2.2.2' class='collapsible' onclick='toggleCollapse(this)'>
-            2.2.2 De uitgangen.
-        </h2>
-        <div class='content'>
-    <div class='article'><div class='member'><p>De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment.</p></div>
-</div>
-<div class='article'><div class='references'><button onclick='scrollToElement("4.4")'>Forward to 4.4</button></div><div class='member'><p>De evacuatiewegen leiden ofwel:
-            -    naar buiten;
-            -    naar trappenhuizen;
-            -    naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4).</p></div>
-</div>
-<div class='article'><div class='references'><button onclick='scrollToElement("5.2")'>Forward to 5.2</button></div><p>en vervangen.ing: zie 5.2.</p>
-<div class='member'><p>Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen.</p></div>
-<div class='member'><p>Voor de parking: zie 5.2.</p></div>
-</div>
-<div class='article'><div class='references'><button onclick='scrollToElement("4.4")'>Forward to 4.4</button></div><div class='member'><p>Op  een  evacuatieniveau  leidt  iedere  trap  naar  buiten,  hetzij  rechtstreeks,  hetzij  over  een
-            evacuatieweg die beantwoordt aan de voorschriften van 4.4.</p></div>
-</div>
-</div></div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='2.2.1' class='collapsible' onclick='toggleCollapse(this)'>
-            2.2.1 Aantal uitgangen.
-        </h1>
-        <div class='content'>
-    <div class='article'><p>Aantal uitgangen.onen bedraagt;
-            -    twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen
-                 bedraagt;
-            -    2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling
-                 door 1000 van de maximale bezetting van het comp  de  brandweer  verhoog
-            Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.</p>
-<div class='member'><p>Elk compartiment heeft minimum: -    één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;</p></div>
-<div class='member'><p>Elk compartiment heeft minimum: -    twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen bedraagt;</p></div>
-<div class='member'><p>Elk compartiment heeft minimum: -    2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt.</p></div>
-<div class='member'><p>Het  minimum  aantal  uitgangen  kan  door  de  brandweer  verhoogd  worden  in  functie  van  de bezetting en de configuratie van de lokalen.</p></div>
-<div class='member'><p>Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='2.2.2' class='collapsible' onclick='toggleCollapse(this)'>
-            2.2.2 De uitgangen.
-        </h1>
-        <div class='content'>
-    <div class='article'><div class='member'><p>De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment.</p></div>
-</div>
-<div class='article'><div class='references'><button onclick='scrollToElement("4.4")'>Forward to 4.4</button></div><div class='member'><p>De evacuatiewegen leiden ofwel:
-            -    naar buiten;
-            -    naar trappenhuizen;
-            -    naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4).</p></div>
-</div>
-<div class='article'><div class='references'><button onclick='scrollToElement("5.2")'>Forward to 5.2</button></div><p>en vervangen.ing: zie 5.2.</p>
-<div class='member'><p>Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen.</p></div>
-<div class='member'><p>Voor de parking: zie 5.2.</p></div>
-</div>
-<div class='article'><div class='references'><button onclick='scrollToElement("4.4")'>Forward to 4.4</button></div><div class='member'><p>Op  een  evacuatieniveau  leidt  iedere  trap  naar  buiten,  hetzij  rechtstreeks,  hetzij  over  een
-            evacuatieweg die beantwoordt aan de voorschriften van 4.4.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='3' class='collapsible' onclick='toggleCollapse(this)'>
-            3 VOORSCHRIFTEN VOOR SOMMIGE BOUWELEMENTEN.
-        </h1>
-        <div class='content'>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.2.1</span>
+        <p>De maximale oppervlakte van een compartiment mag, respectievelijk, groter dan ofwel 2500 m², ofwel 3500 m² bedragen indien het compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie.</p>
+    </div>
+    </div></div>
+<div class='article' id='A2.1.3'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de grootte van het compartiment respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.1.3</span>
     
-    <div class='section'>
-        <h2 id='3.1' class='collapsible' onclick='toggleCollapse(this)'>
-            3.1 Doorvoeringen door wanden.
-        </h2>
-        <div class='content'>
-    <div class='article'><div class='references'><button onclick='scrollToElement("7")'>Forward to 7</button></div><p>an toepassing.</p>
-<div class='member'><p>Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen
-            van wanden mogen de vereiste brandweerstand van de bouwelementen niet nadelig beïnvloeden.</p></div>
-<div class='member'><p>De bepalingen van bijlage 7 &quot;Gemeenschappelijke bepalingen&quot;, hoofdstuk 1, zijn van toepassing.</p></div>
-</div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.3.1</span>
+        <p>De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de grootte van het compartiment respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden.</p>
+    </div>
+    </div></div>
+<div class='article' id='A2.1.4'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag. De volgende uitzonderingen zijn nochtans toegestaan: a) de parking met bouwlagen (zie 5.2); b) een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een binnenverbindingstrap (duplex), indien de gecumuleerde oppervlakte van die bouwlagen niet groter is dan 2500 m²; c) de hoogte van een compartiment mag zich uitstrekken over drie boven elkaar gelegen bouwlagen met een binnenverbindingstrap (triplex), voor zover de som van hun gecumuleerde oppervlakte de 300 m² niet overschrijdt, en dat dit compartiment is uitgerust met een automatische branddetectie van het type totale bewaking die automatisch een aanduiding van de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico&#x27;s; d) de hoogte van een compartiment mag zich uitstrekken over verscheidene boven elkaar geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1).</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.1.4</span>
+    <div class='references'><button class='reference-button' onclick='scrollToElement("5.2")'>→ 5.2</button></div><p></p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.4.1</span>
+        <p>De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag.</p>
+    </div>
+    <p> De volgende uitzonderingen zijn nochtans toegestaan: </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.4.2</span>
+        <p>a) de parking met bouwlagen (zie 5.2);</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.4.3</span>
+        <p>b) een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een binnenverbindingstrap (duplex), indien de gecumuleerde oppervlakte van die bouwlagen niet groter is dan 2500 m²;</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.4.4</span>
+        <p>c) de hoogte van een compartiment mag zich uitstrekken over drie boven elkaar gelegen bouwlagen met een binnenverbindingstrap (triplex), voor zover de som van hun gecumuleerde oppervlakte de 300 m² niet overschrijdt, en dat dit compartiment is uitgerust met een automatische branddetectie van het type totale bewaking die automatisch een aanduiding van de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico&#x27;s;</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.4.5</span>
+        <p>d) de hoogte van een compartiment mag zich uitstrekken over verscheidene boven elkaar geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1).</p>
+    </div>
+    <p> </p>
+</div></div>
+<div class='article' id='A2.1.5'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>e) de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium) op voorwaarde: - dat dit compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie. De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische blusinstallatie en een rook- en warmteafvoerinstallatie; De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaraan de automatische blusinstallatie en rook- en warmteafvoerinstallatie moeten voldoen.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.1.5</span>
+    <p></p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.5.1</span>
+        <p>e) de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium) op voorwaarde:</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.5.2</span>
+        <p>- dat dit compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie. De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische blusinstallatie en een rook- en warmteafvoerinstallatie;</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.5.3</span>
+        <p>De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaraan de automatische blusinstallatie en rook- en warmteafvoerinstallatie moeten voldoen.</p>
+    </div>
+    <p> </p>
+</div></div>
 </div></div>
 
-    <div class='section'>
-        <h2 id='3.2' class='collapsible' onclick='toggleCollapse(this)'>
-            3.2 Structurele elementen.
-        </h2>
-        <div class='content'>
-    <div class='article'><div class='member'><p>De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals
-weergegeven in tabel 2.1, waarin Ei het laagst gelegen evacuatieniveau voorstelt.</p></div>
-<div class='table' id='2.1'><img src='tables/2_1.jpg' alt='table 2.1'>
-<p>Table 2.1</p></div>
-</div>
-</div></div>
+        <div class='section'>
+            <h2 id='2.2' class='collapsible' onclick='toggleCollapse(this)'>
+                2.2 Evacuatie van de compartimenten.
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='2.2.1'>
+            <p><strong>2.2.1</strong> Aantal uitgangen.</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.2.1.1'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Elk compartiment heeft minimum: - één uitgang indien de maximale bezetting minder dan 100 personen bedraagt; - twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt; - 2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.2.1.1</span>
+    <p>Elk compartiment heeft minimum: </p>
 
-    <div class='section'>
-        <h2 id='3.3' class='collapsible' onclick='toggleCollapse(this)'>
-            3.3 Verticale binnenwanden en binnendeuren.
-        </h2>
-        <div class='content'>
-    <div class='article'><div class='references'><button onclick='scrollToElement("4.1")'>Forward to 4.1</button><button onclick='scrollToElement("4.4")'>Forward to 4.4</button></div><div class='member'><p>Voor  de  wanden  en  de  deuren,  die  compartimenten  afbakenen,  geldt  4.1;  bakenen  zij
-evacuatiewegen af dan geldt 4.4.</p></div>
-</div>
-<div class='article'><div class='member'><p>De verticale binnenwanden die lokalen of het geheel van lokalen met nachtbezetting afbakenen
-hebben een brandweerstand, aangegeven in tabel 2.2.</p></div>
-<div class='table' id='2.2'><img src='tables/2_2.jpg' alt='table 2.2'>
-<p>Table 2.2</p></div>
-</div>
-<div class='article'><div class='member'><p>De deuren in deze wanden hebben EI1 30.</p></div>
-</div>
-</div></div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.1.1.1</span>
+        <p>- één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;</p>
+    </div>
+    <p> </p>
 
-    <div class='section'>
-        <h2 id='3.4' class='collapsible' onclick='toggleCollapse(this)'>
-            3.4 Plafonds en verlaagde plafonds.
-        </h2>
-        <div class='content'>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.1.1.2</span>
+        <p>- twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt;</p>
+    </div>
+    <p> </p>
+
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.1.1.3</span>
+        <p>- 2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt.</p>
+    </div>
+    <p> </p>
+</div></div>
+<div class='article' id='A2.2.1.2'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en de configuratie van de lokalen.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.2.1.2</span>
     
-    <div class='section'>
-        <h3 id='3.4.1' class='collapsible' onclick='toggleCollapse(this)'>
-            3.4.1 
-        </h3>
-        <div class='content'>
-    <div class='article'><div class='references'><button onclick='scrollToElement("4_4_1_2")'>Forward to 4_4_1_2</button></div><p>risico&#x27;s.</p>
-<div class='member'><p>In  de  evacuatiewegen,  de  voor  het  publiek  toegankelijke  lokalen  en  de  collectieve  keukens
-hebben de verlaagde plafonds EI 30 (ab), EI 30 (ba) of EI 30 (a ↔                     b) volgens NBN EN 13501-
-            2 en NBN EN 1364-2 of hebben een stabiliteit bij brand van een ½ h volgens NBN 713-020.</p></div>
-<div class='member'><p>Deze vereiste is niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de
-            compartimenten die zijn uitgerust met een automat              ische blusinstallatie van het type sprinkler die is
-            aangepast aan de aanwezige risico&#x27;s.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h3 id='3.4.2' class='collapsible' onclick='toggleCollapse(this)'>
-            3.4.2 De wanden waarvoor brandwerendheid vereist is, lopen door in de ruimte tussen het plafond en het verlaagd plafond.
-        </h3>
-        <div class='content'>
-    <div class='article'><div class='member'><p>Indien de ruimte tussen het plafond en het verlaagd plafond niet is uitgerust met een automatische blusinstallatie, moet deze ruimte worden verdeeld in volumes waarvan de horizontale projectie kan ingeschreven worden in een vierkant van maximum 25 m zijde.</p></div>
-</div>
-<div class='article'><p>
-1 en/of A2-s1,d0;dingen         -    zij hebben EI 30.</p>
-<div class='member'><p>Deze volumes worden gescheiden door verticale schermen met de volgende kenmerken:</p></div>
-<div class='member'><p>zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;</p></div>
-<div class='member'><p>zij beslaan de gehele ruimte tussen de leidingen           ;</p></div>
-<div class='member'><p>zij hebben EI 30.</p></div>
-</div>
-</div></div>
-</div></div>
-
-    <div class='section'>
-        <h2 id='3.5' class='collapsible' onclick='toggleCollapse(this)'>
-            3.5 
-        </h2>
-        <div class='content'>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.1.2.1</span>
+        <p>Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en de configuratie van de lokalen.</p>
+    </div>
+    </div></div>
+<div class='article' id='A2.2.1.3'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.2.1.3</span>
     
-    <div class='section'>
-        <h3 id='3.5.1' class='collapsible' onclick='toggleCollapse(this)'>
-            3.5.1 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='3.5.2' class='collapsible' onclick='toggleCollapse(this)'>
-            3.5.2 
-        </h3>
-        <div class='content'>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.1.3.1</span>
+        <p>Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.</p>
+    </div>
     </div></div>
 </div></div>
-</div></div>
 
-    <div class='section'>
-        <h1 id='3.1' class='collapsible' onclick='toggleCollapse(this)'>
-            3.1 Doorvoeringen door wanden.
-        </h1>
-        <div class='content'>
-    <div class='article'><div class='references'><button onclick='scrollToElement("7")'>Forward to 7</button></div><p>an toepassing.</p>
-<div class='member'><p>Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen
-            van wanden mogen de vereiste brandweerstand van de bouwelementen niet nadelig beïnvloeden.</p></div>
-<div class='member'><p>De bepalingen van bijlage 7 &quot;Gemeenschappelijke bepalingen&quot;, hoofdstuk 1, zijn van toepassing.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='3.2' class='collapsible' onclick='toggleCollapse(this)'>
-            3.2 Structurele elementen.
-        </h1>
-        <div class='content'>
-    <div class='article'><div class='member'><p>De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals
-weergegeven in tabel 2.1, waarin Ei het laagst gelegen evacuatieniveau voorstelt.</p></div>
-<div class='table' id='2.1'><img src='tables/2_1.jpg' alt='table 2.1'>
-<p>Table 2.1</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='3.3' class='collapsible' onclick='toggleCollapse(this)'>
-            3.3 Verticale binnenwanden en binnendeuren.
-        </h1>
-        <div class='content'>
-    <div class='article'><div class='references'><button onclick='scrollToElement("4.1")'>Forward to 4.1</button><button onclick='scrollToElement("4.4")'>Forward to 4.4</button></div><div class='member'><p>Voor  de  wanden  en  de  deuren,  die  compartimenten  afbakenen,  geldt  4.1;  bakenen  zij
-evacuatiewegen af dan geldt 4.4.</p></div>
-</div>
-<div class='article'><div class='member'><p>De verticale binnenwanden die lokalen of het geheel van lokalen met nachtbezetting afbakenen
-hebben een brandweerstand, aangegeven in tabel 2.2.</p></div>
-<div class='table' id='2.2'><img src='tables/2_2.jpg' alt='table 2.2'>
-<p>Table 2.2</p></div>
-</div>
-<div class='article'><div class='member'><p>De deuren in deze wanden hebben EI1 30.</p></div>
-</div>
-</div></div>
-
-    <div class='section'>
-        <h1 id='3.4' class='collapsible' onclick='toggleCollapse(this)'>
-            3.4 Plafonds en verlaagde plafonds.
-        </h1>
-        <div class='content'>
+        <div class='subsubsection' id='2.2.2'>
+            <p><strong>2.2.2</strong> De uitgangen.</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.2.2.1'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.2.2.1</span>
     
-    <div class='section'>
-        <h2 id='3.4.1' class='collapsible' onclick='toggleCollapse(this)'>
-            3.4.1 
-        </h2>
-        <div class='content'>
-    <div class='article'><div class='references'><button onclick='scrollToElement("4_4_1_2")'>Forward to 4_4_1_2</button></div><p>risico&#x27;s.</p>
-<div class='member'><p>In  de  evacuatiewegen,  de  voor  het  publiek  toegankelijke  lokalen  en  de  collectieve  keukens
-hebben de verlaagde plafonds EI 30 (ab), EI 30 (ba) of EI 30 (a ↔                     b) volgens NBN EN 13501-
-            2 en NBN EN 1364-2 of hebben een stabiliteit bij brand van een ½ h volgens NBN 713-020.</p></div>
-<div class='member'><p>Deze vereiste is niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de
-            compartimenten die zijn uitgerust met een automat              ische blusinstallatie van het type sprinkler die is
-            aangepast aan de aanwezige risico&#x27;s.</p></div>
-</div>
-</div></div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.1.1</span>
+        <p>De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment.</p>
+    </div>
+    </div></div>
+<div class='article' id='A2.2.2.2'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>De evacuatiewegen leiden ofwel: - naar buiten; - naar trappenhuizen; - naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4).</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.2.2.2</span>
+    <div class='references'><button class='reference-button' onclick='scrollToElement("4.4")'>→ 4.4</button></div><p>De evacuatiewegen leiden ofwel: </p>
 
-    <div class='section'>
-        <h2 id='3.4.2' class='collapsible' onclick='toggleCollapse(this)'>
-            3.4.2 De wanden waarvoor brandwerendheid vereist is, lopen door in de ruimte tussen het plafond en het verlaagd plafond.
-        </h2>
-        <div class='content'>
-    <div class='article'><div class='member'><p>Indien de ruimte tussen het plafond en het verlaagd plafond niet is uitgerust met een automatische blusinstallatie, moet deze ruimte worden verdeeld in volumes waarvan de horizontale projectie kan ingeschreven worden in een vierkant van maximum 25 m zijde.</p></div>
-</div>
-<div class='article'><p>
-1 en/of A2-s1,d0;dingen         -    zij hebben EI 30.</p>
-<div class='member'><p>Deze volumes worden gescheiden door verticale schermen met de volgende kenmerken:</p></div>
-<div class='member'><p>zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;</p></div>
-<div class='member'><p>zij beslaan de gehele ruimte tussen de leidingen           ;</p></div>
-<div class='member'><p>zij hebben EI 30.</p></div>
-</div>
-</div></div>
-</div></div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.2.1</span>
+        <p>- naar buiten;</p>
+    </div>
+    <p> </p>
 
-    <div class='section'>
-        <h1 id='3.4.1' class='collapsible' onclick='toggleCollapse(this)'>
-            3.4.1 
-        </h1>
-        <div class='content'>
-    <div class='article'><div class='references'><button onclick='scrollToElement("4_4_1_2")'>Forward to 4_4_1_2</button></div><p>risico&#x27;s.</p>
-<div class='member'><p>In  de  evacuatiewegen,  de  voor  het  publiek  toegankelijke  lokalen  en  de  collectieve  keukens
-hebben de verlaagde plafonds EI 30 (ab), EI 30 (ba) of EI 30 (a ↔                     b) volgens NBN EN 13501-
-            2 en NBN EN 1364-2 of hebben een stabiliteit bij brand van een ½ h volgens NBN 713-020.</p></div>
-<div class='member'><p>Deze vereiste is niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de
-            compartimenten die zijn uitgerust met een automat              ische blusinstallatie van het type sprinkler die is
-            aangepast aan de aanwezige risico&#x27;s.</p></div>
-</div>
-</div></div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.2.2</span>
+        <p>- naar trappenhuizen;</p>
+    </div>
+    <p> </p>
 
-    <div class='section'>
-        <h1 id='3.4.2' class='collapsible' onclick='toggleCollapse(this)'>
-            3.4.2 De wanden waarvoor brandwerendheid vereist is, lopen door in de ruimte tussen het plafond en het verlaagd plafond.
-        </h1>
-        <div class='content'>
-    <div class='article'><div class='member'><p>Indien de ruimte tussen het plafond en het verlaagd plafond niet is uitgerust met een automatische blusinstallatie, moet deze ruimte worden verdeeld in volumes waarvan de horizontale projectie kan ingeschreven worden in een vierkant van maximum 25 m zijde.</p></div>
-</div>
-<div class='article'><p>
-1 en/of A2-s1,d0;dingen         -    zij hebben EI 30.</p>
-<div class='member'><p>Deze volumes worden gescheiden door verticale schermen met de volgende kenmerken:</p></div>
-<div class='member'><p>zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;</p></div>
-<div class='member'><p>zij beslaan de gehele ruimte tussen de leidingen           ;</p></div>
-<div class='member'><p>zij hebben EI 30.</p></div>
-</div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.2.3</span>
+        <p>- naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4).</p>
+    </div>
+    <p> </p>
 </div></div>
-
-    <div class='section'>
-        <h1 id='4' class='collapsible' onclick='toggleCollapse(this)'>
-            4 
-        </h1>
-        <div class='content'>
+<div class='article' id='A2.2.2.3'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.2.2.3</span>
     
-    <div class='section'>
-        <h2 id='4.1' class='collapsible' onclick='toggleCollapse(this)'>
-            4.1 
-        </h2>
-        <div class='content'>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.3.1</span>
+        <p>Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen.</p>
+    </div>
     </div></div>
-
-    <div class='section'>
-        <h2 id='4.2' class='collapsible' onclick='toggleCollapse(this)'>
-            4.2 
-        </h2>
-        <div class='content'>
-    
-    <div class='section'>
-        <h3 id='4.2.1' class='collapsible' onclick='toggleCollapse(this)'>
-            4.2.1 
-        </h3>
-        <div class='content'>
+<div class='article' id='A2.2.2.4'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Voor de parking: zie 5.2.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.2.2.4</span>
+    <div class='references'><button class='reference-button' onclick='scrollToElement("5.2")'>→ 5.2</button></div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.4.1</span>
+        <p>Voor de parking: zie 5.2.</p>
+    </div>
     </div></div>
-
-    <div class='section'>
-        <h3 id='4.2.2' class='collapsible' onclick='toggleCollapse(this)'>
-            4.2.2 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='4.2.3' class='collapsible' onclick='toggleCollapse(this)'>
-            4.2.3 
-        </h3>
-        <div class='content'>
-    </div></div>
-</div></div>
-
-    <div class='section'>
-        <h2 id='4.3' class='collapsible' onclick='toggleCollapse(this)'>
-            4.3 
-        </h2>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h2 id='4.4' class='collapsible' onclick='toggleCollapse(this)'>
-            4.4 
-        </h2>
-        <div class='content'>
-    
-    <div class='section'>
-        <h3 id='4.4.1' class='collapsible' onclick='toggleCollapse(this)'>
-            4.4.1 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='4.4.2' class='collapsible' onclick='toggleCollapse(this)'>
-            4.4.2 
-        </h3>
-        <div class='content'>
+<div class='article' id='A2.2.2.5'>
+    <div class="toggle-button">
+        <button onclick="toggleOriginalText(this)">Show Original</button>
+    </div>
+    <div class="original-text" style="display:none;">
+        <p>Op een evacuatieniveau leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een evacuatieweg die beantwoordt aan de voorschriften van 4.4.</p>
+    </div>
+    <div class="article-content">
+        <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.2.2.5</span>
+    <div class='references'><button class='reference-button' onclick='scrollToElement("4.4")'>→ 4.4</button></div>
+    <div class='member'>
+        <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.5.1</span>
+        <p>Op een evacuatieniveau leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een evacuatieweg die beantwoordt aan de voorschriften van 4.4.</p>
+    </div>
     </div></div>
 </div></div>
-
-    <div class='section'>
-        <h2 id='4.5' class='collapsible' onclick='toggleCollapse(this)'>
-            4.5 
-        </h2>
-        <div class='content'>
-    </div></div>
+</div></div>
 </div></div>
 
-    <div class='section'>
-        <h1 id='5' class='collapsible' onclick='toggleCollapse(this)'>
-            5 
-        </h1>
-        <div class='content'>
-    
-    <div class='section'>
-        <h2 id='5.1' class='collapsible' onclick='toggleCollapse(this)'>
-            5.1 
-        </h2>
-        <div class='content'>
-    
-    <div class='section'>
-        <h3 id='5.1.1' class='collapsible' onclick='toggleCollapse(this)'>
-            5.1.1 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h1 id='3' class='collapsible' onclick='toggleCollapse(this)'>
+                3 
+            </h1>
+            <div class='content'>
+        
+        <div class='section'>
+            <h2 id='3.1' class='collapsible' onclick='toggleCollapse(this)'>
+                3.1 
+            </h2>
+            <div class='content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='5.1.2' class='collapsible' onclick='toggleCollapse(this)'>
-            5.1.2 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='3.2' class='collapsible' onclick='toggleCollapse(this)'>
+                3.2 
+            </h2>
+            <div class='content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='5.1.3' class='collapsible' onclick='toggleCollapse(this)'>
-            5.1.3 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='3.3' class='collapsible' onclick='toggleCollapse(this)'>
+                3.3 
+            </h2>
+            <div class='content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='5.1.4' class='collapsible' onclick='toggleCollapse(this)'>
-            5.1.4 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='3.4' class='collapsible' onclick='toggleCollapse(this)'>
+                3.4 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='3.4.1'>
+            <p><strong>3.4.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='5.1.5' class='collapsible' onclick='toggleCollapse(this)'>
-            5.1.5 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='3.4.2'>
+            <p><strong>3.4.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 </div></div>
 
-    <div class='section'>
-        <h2 id='5.2' class='collapsible' onclick='toggleCollapse(this)'>
-            5.2 
-        </h2>
-        <div class='content'>
-    
-    <div class='section'>
-        <h3 id='5.2.1' class='collapsible' onclick='toggleCollapse(this)'>
-            5.2.1 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='3.5' class='collapsible' onclick='toggleCollapse(this)'>
+                3.5 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='3.5.1'>
+            <p><strong>3.5.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='5.2.2' class='collapsible' onclick='toggleCollapse(this)'>
-            5.2.2 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='5.2.3' class='collapsible' onclick='toggleCollapse(this)'>
-            5.2.3 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='5.2.4' class='collapsible' onclick='toggleCollapse(this)'>
-            5.2.4 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='5.2.5' class='collapsible' onclick='toggleCollapse(this)'>
-            5.2.5 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='3.5.2'>
+            <p><strong>3.5.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+</div></div>
 </div></div>
 
-    <div class='section'>
-        <h2 id='5.3' class='collapsible' onclick='toggleCollapse(this)'>
-            5.3 
-        </h2>
-        <div class='content'>
-    
-    <div class='section'>
-        <h3 id='5.3.1' class='collapsible' onclick='toggleCollapse(this)'>
-            5.3.1 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h1 id='4' class='collapsible' onclick='toggleCollapse(this)'>
+                4 
+            </h1>
+            <div class='content'>
+        
+        <div class='section'>
+            <h2 id='4.1' class='collapsible' onclick='toggleCollapse(this)'>
+                4.1 
+            </h2>
+            <div class='content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='5.3.2' class='collapsible' onclick='toggleCollapse(this)'>
-            5.3.2 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='4.2' class='collapsible' onclick='toggleCollapse(this)'>
+                4.2 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='4.2.1'>
+            <p><strong>4.2.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='4.2.2'>
+            <p><strong>4.2.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='4.2.3'>
+            <p><strong>4.2.3</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 </div></div>
 
-    <div class='section'>
-        <h2 id='5.4' class='collapsible' onclick='toggleCollapse(this)'>
-            5.4 
-        </h2>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='4.3' class='collapsible' onclick='toggleCollapse(this)'>
+                4.3 
+            </h2>
+            <div class='content'>
+        </div></div>
 
-    <div class='section'>
-        <h2 id='5.5' class='collapsible' onclick='toggleCollapse(this)'>
-            5.5 
-        </h2>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='4.4' class='collapsible' onclick='toggleCollapse(this)'>
+                4.4 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='4.4.1'>
+            <p><strong>4.4.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='4.4.2'>
+            <p><strong>4.4.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 </div></div>
 
-    <div class='section'>
-        <h1 id='6' class='collapsible' onclick='toggleCollapse(this)'>
-            6 
-        </h1>
-        <div class='content'>
-    
-    <div class='section'>
-        <h2 id='6.1' class='collapsible' onclick='toggleCollapse(this)'>
-            6.1 
-        </h2>
-        <div class='content'>
-    
-    <div class='section'>
-        <h3 id='6.1.1' class='collapsible' onclick='toggleCollapse(this)'>
-            6.1.1 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='6.1.2' class='collapsible' onclick='toggleCollapse(this)'>
-            6.1.2 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='6.1.3' class='collapsible' onclick='toggleCollapse(this)'>
-            6.1.3 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='6.1.4' class='collapsible' onclick='toggleCollapse(this)'>
-            6.1.4 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='4.5' class='collapsible' onclick='toggleCollapse(this)'>
+                4.5 
+            </h2>
+            <div class='content'>
+        </div></div>
 </div></div>
 
-    <div class='section'>
-        <h2 id='6.2' class='collapsible' onclick='toggleCollapse(this)'>
-            6.2 
-        </h2>
-        <div class='content'>
-    
-    <div class='section'>
-        <h3 id='6.2.1' class='collapsible' onclick='toggleCollapse(this)'>
-            6.2.1 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h1 id='5' class='collapsible' onclick='toggleCollapse(this)'>
+                5 
+            </h1>
+            <div class='content'>
+        
+        <div class='section'>
+            <h2 id='5.1' class='collapsible' onclick='toggleCollapse(this)'>
+                5.1 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='5.1.1'>
+            <p><strong>5.1.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='6.2.2' class='collapsible' onclick='toggleCollapse(this)'>
-            6.2.2 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='5.1.2'>
+            <p><strong>5.1.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='5.1.3'>
+            <p><strong>5.1.3</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='5.1.4'>
+            <p><strong>5.1.4</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='5.1.5'>
+            <p><strong>5.1.5</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 </div></div>
 
-    <div class='section'>
-        <h2 id='6.3' class='collapsible' onclick='toggleCollapse(this)'>
-            6.3 
-        </h2>
-        <div class='content'>
-    
-    <div class='section'>
-        <h3 id='6.3.1' class='collapsible' onclick='toggleCollapse(this)'>
-            6.3.1 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='5.2' class='collapsible' onclick='toggleCollapse(this)'>
+                5.2 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='5.2.1'>
+            <p><strong>5.2.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='6.3.2' class='collapsible' onclick='toggleCollapse(this)'>
-            6.3.2 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='5.2.2'>
+            <p><strong>5.2.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='6.3.3' class='collapsible' onclick='toggleCollapse(this)'>
-            6.3.3 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='5.2.3'>
+            <p><strong>5.2.3</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='6.3.4' class='collapsible' onclick='toggleCollapse(this)'>
-            6.3.4 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='5.2.4'>
+            <p><strong>5.2.4</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='5.2.5'>
+            <p><strong>5.2.5</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 </div></div>
 
-    <div class='section'>
-        <h2 id='6.4' class='collapsible' onclick='toggleCollapse(this)'>
-            6.4 
-        </h2>
-        <div class='content'>
-    
-    <div class='section'>
-        <h3 id='6.4.1' class='collapsible' onclick='toggleCollapse(this)'>
-            6.4.1 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='5.3' class='collapsible' onclick='toggleCollapse(this)'>
+                5.3 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='5.3.1'>
+            <p><strong>5.3.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='6.4.2' class='collapsible' onclick='toggleCollapse(this)'>
-            6.4.2 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='6.4.3' class='collapsible' onclick='toggleCollapse(this)'>
-            6.4.3 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='5.3.2'>
+            <p><strong>5.3.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 </div></div>
 
-    <div class='section'>
-        <h2 id='6.5' class='collapsible' onclick='toggleCollapse(this)'>
-            6.5 
-        </h2>
-        <div class='content'>
-    
-    <div class='section'>
-        <h3 id='6.5.1' class='collapsible' onclick='toggleCollapse(this)'>
-            6.5.1 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='5.4' class='collapsible' onclick='toggleCollapse(this)'>
+                5.4 
+            </h2>
+            <div class='content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='6.5.2' class='collapsible' onclick='toggleCollapse(this)'>
-            6.5.2 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='6.5.3' class='collapsible' onclick='toggleCollapse(this)'>
-            6.5.3 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='6.5.4' class='collapsible' onclick='toggleCollapse(this)'>
-            6.5.4 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='5.5' class='collapsible' onclick='toggleCollapse(this)'>
+                5.5 
+            </h2>
+            <div class='content'>
+        </div></div>
 </div></div>
 
-    <div class='section'>
-        <h2 id='6.6' class='collapsible' onclick='toggleCollapse(this)'>
-            6.6 
-        </h2>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h1 id='6' class='collapsible' onclick='toggleCollapse(this)'>
+                6 
+            </h1>
+            <div class='content'>
+        
+        <div class='section'>
+            <h2 id='6.1' class='collapsible' onclick='toggleCollapse(this)'>
+                6.1 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='6.1.1'>
+            <p><strong>6.1.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h2 id='6.7' class='collapsible' onclick='toggleCollapse(this)'>
-            6.7 
-        </h2>
-        <div class='content'>
-    
-    <div class='section'>
-        <h3 id='6.7.1' class='collapsible' onclick='toggleCollapse(this)'>
-            6.7.1 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='6.1.2'>
+            <p><strong>6.1.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='6.7.2' class='collapsible' onclick='toggleCollapse(this)'>
-            6.7.2 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='6.1.3'>
+            <p><strong>6.1.3</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='6.7.3' class='collapsible' onclick='toggleCollapse(this)'>
-            6.7.3 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='6.7.4' class='collapsible' onclick='toggleCollapse(this)'>
-            6.7.4 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='6.7.5' class='collapsible' onclick='toggleCollapse(this)'>
-            6.7.5 
-        </h3>
-        <div class='content'>
-    </div></div>
-
-    <div class='section'>
-        <h3 id='6.7.6' class='collapsible' onclick='toggleCollapse(this)'>
-            6.7.6 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='6.1.4'>
+            <p><strong>6.1.4</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 </div></div>
 
-    <div class='section'>
-        <h2 id='6.8' class='collapsible' onclick='toggleCollapse(this)'>
-            6.8 
-        </h2>
-        <div class='content'>
-    
-    <div class='section'>
-        <h3 id='6.8.1' class='collapsible' onclick='toggleCollapse(this)'>
-            6.8.1 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='6.2' class='collapsible' onclick='toggleCollapse(this)'>
+                6.2 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='6.2.1'>
+            <p><strong>6.2.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='6.8.2' class='collapsible' onclick='toggleCollapse(this)'>
-            6.8.2 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='6.2.2'>
+            <p><strong>6.2.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+</div></div>
 
-    <div class='section'>
-        <h3 id='6.8.3' class='collapsible' onclick='toggleCollapse(this)'>
-            6.8.3 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='section'>
+            <h2 id='6.3' class='collapsible' onclick='toggleCollapse(this)'>
+                6.3 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='6.3.1'>
+            <p><strong>6.3.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='6.8.4' class='collapsible' onclick='toggleCollapse(this)'>
-            6.8.4 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='6.3.2'>
+            <p><strong>6.3.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 
-    <div class='section'>
-        <h3 id='6.8.5' class='collapsible' onclick='toggleCollapse(this)'>
-            6.8.5 
-        </h3>
-        <div class='content'>
-    </div></div>
+        <div class='subsubsection' id='6.3.3'>
+            <p><strong>6.3.3</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.3.4'>
+            <p><strong>6.3.4</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+</div></div>
+
+        <div class='section'>
+            <h2 id='6.4' class='collapsible' onclick='toggleCollapse(this)'>
+                6.4 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='6.4.1'>
+            <p><strong>6.4.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.4.2'>
+            <p><strong>6.4.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.4.3'>
+            <p><strong>6.4.3</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+</div></div>
+
+        <div class='section'>
+            <h2 id='6.5' class='collapsible' onclick='toggleCollapse(this)'>
+                6.5 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='6.5.1'>
+            <p><strong>6.5.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.5.2'>
+            <p><strong>6.5.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.5.3'>
+            <p><strong>6.5.3</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.5.4'>
+            <p><strong>6.5.4</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+</div></div>
+
+        <div class='section'>
+            <h2 id='6.6' class='collapsible' onclick='toggleCollapse(this)'>
+                6.6 
+            </h2>
+            <div class='content'>
+        </div></div>
+
+        <div class='section'>
+            <h2 id='6.7' class='collapsible' onclick='toggleCollapse(this)'>
+                6.7 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='6.7.1'>
+            <p><strong>6.7.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.7.2'>
+            <p><strong>6.7.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.7.3'>
+            <p><strong>6.7.3</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.7.4'>
+            <p><strong>6.7.4</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.7.5'>
+            <p><strong>6.7.5</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.7.6'>
+            <p><strong>6.7.6</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+</div></div>
+
+        <div class='section'>
+            <h2 id='6.8' class='collapsible' onclick='toggleCollapse(this)'>
+                6.8 
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='6.8.1'>
+            <p><strong>6.8.1</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.8.2'>
+            <p><strong>6.8.2</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.8.3'>
+            <p><strong>6.8.3</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.8.4'>
+            <p><strong>6.8.4</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='6.8.5'>
+            <p><strong>6.8.5</strong> </p>
+            <div class='subsubsection-content'>
+        </div></div>
 </div></div>
 </div></div>
 

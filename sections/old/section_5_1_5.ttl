@@ -9,130 +9,71 @@
 firebim:Section_5_1_5 a firebim:Section ;
     firebim:hasID "5_1_5" ;
     firebim:hasOriginalText "Leidingenkokers."@nl ;
-    firebim:hasArticle firebim:Article_5_1_5_1, firebim:Article_5_1_5_2 .
+    firebim:hasSubdivision firebim:Article_5_1_5_1, firebim:Article_5_1_5_2 .
 
 firebim:RoyalDecree firebim:hasSection firebim:Section_5_1_5 .
 
 firebim:Article_5_1_5_1 a firebim:Article ;
     firebim:hasID "5_1_5_1" ;
-    firebim:hasOriginalText """Verticale kokers.   
-Wanneer verticale kokers door horizontale wanden dringen waarvoor een brandweerstand vereist 
-is, geldt één van de volgende drie maatregelen:  
-
-1. de wanden van de verticale kokers hebben een brandweerstand EI  60; de valluiken en 
-deurtjes hebben EI 1 30. 
-
-Zij hebben aan hun boveneind een degelijke verluchting.  
-De vrije verluchtingsdoorsnede van de koker is ten minste gelijk aan 10% van de totale 
-horizontale doorsnede van de koker, met een minimum van 4 dm².  
-
-De vrije verluchtingsdoorsnede kan uitgerust worden met gemotoriseerde verluchtingskleppen 
-waarvan de opening als volgt bevolen wordt:  
-- automatisch bij d etectie van een brand in de koker;  
-- automatisch bij de detectie van een brand in het gebouw, indien dit uitgerust is met een 
-algemene branddetectie -installatie;  
-- automatisch bij een defect aan de energiebron, de voeding of de bediening (toestel met 
-positieve  veiligheid);  
-- manueel via een bediening op een evacuatieniveau op een in akkoord met de brandweer 
-bepaalde plaats.  
-Indien de vrije verluchtingsdoorsnede van een koker uitgerust is met een gemotoriseerde 
-verluchtingsklep, moeten de eventuele gasleidingen in  deze koker beantwoorden aan de 
-voorschriften van de  norm  NBN  D 51-003 of van de norm NBN  D 51-006 voor de leidingen en 
-verbindingen in een niet -verluchte technische koker.  
-
-2. ter hoogte van de doorvoering bevindt zich een bouwelement met minstens de vereist e 
-brandweerstand van de horizontale wand ; 
-
-3. de wanden van de verticale kokers hebben EI  30; de valluiken en deurtjes EI 1 30; de verticale 
-kokers worden ter hoogte van elk compartiment onderbroken door horizontale schermen met 
-de volgende kenmerken : 
-
-- zij bestaan uit een materiaal van klasse A1  en/of A2-s1,d0 ; 
-- zij beslaan de gehele ruimte tussen de leidingen ; 
-- zij hebben EI  30. 
-
-In gevallen 2 en 3 moeten de kokers niet verlucht zijn."""@nl ;
+    firebim:hasOriginalText """Verticale kokers.
+Wanneer verticale kokers door horizontale wanden dringen waarvoor een brandweerstand vereist
+is, geldt één van de volgende drie maatregelen:"""@nl ;
     firebim:hasMember firebim:Member_5_1_5_1_1, firebim:Member_5_1_5_1_2, firebim:Member_5_1_5_1_3, firebim:Member_5_1_5_1_4 .
 
 firebim:Member_5_1_5_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Wanneer verticale kokers door horizontale wanden dringen waarvoor een brandweerstand vereist 
-is, geldt één van de volgende drie maatregelen:"""@nl .
+    firebim:hasOriginalText """1.   de  wanden  van  de  verticale  kokers  hebben  een  brandweerstand  EI 60;                    de  valluiken  en
+     deurtjes hebben EI1 30.
+     Zij hebben aan hun boveneind een degelijke verluchting.
+     De vrije verluchtingsdoorsnede van de koker is ten minste gelijk aan 10% van de totale
+     horizontale doorsnede van de koker, met een minimum van 4 dm².
+     De vrije verluchtingsdoorsnede kan uitgerust worden met gemotoriseerde verluchtingskleppen
+     waarvan de opening als volgt bevolen wordt:
+     -   automatisch bij detectie van een brand in de koker;
+     -   automatisch bij de detectie van een brand in het gebouw, indien dit uitgerust is met een
+         algemene branddetectie-installatie;
+     -   automatisch bij een defect aan de energiebron, de voeding of de bediening (toestel met
+         positieve veiligheid);
+     -   manueel via een bediening op een evacuatieniveau op een in akkoord met de brandweer
+         bepaalde plaats.
+     Indien de vrije verluchtingsdoorsnede van een koker uitgerust is met een gemotoriseerde
+     verluchtingsklep, moeten de eventuele gasleidingen in                  deze koker beantwoorden aan de
+     voorschriften van de norm NBN D 51-003 of van de norm NBN D 51-006 voor de leidingen en
+     verbindingen in een niet-verluchte technische koker."""@nl .
 
 firebim:Member_5_1_5_1_2 a firebim:Member ;
-    firebim:hasOriginalText """1. de wanden van de verticale kokers hebben een brandweerstand EI  60; de valluiken en 
-deurtjes hebben EI 1 30. 
-
-Zij hebben aan hun boveneind een degelijke verluchting.  
-De vrije verluchtingsdoorsnede van de koker is ten minste gelijk aan 10% van de totale 
-horizontale doorsnede van de koker, met een minimum van 4 dm².  
-
-De vrije verluchtingsdoorsnede kan uitgerust worden met gemotoriseerde verluchtingskleppen 
-waarvan de opening als volgt bevolen wordt:  
-- automatisch bij d etectie van een brand in de koker;  
-- automatisch bij de detectie van een brand in het gebouw, indien dit uitgerust is met een 
-algemene branddetectie -installatie;  
-- automatisch bij een defect aan de energiebron, de voeding of de bediening (toestel met 
-positieve  veiligheid);  
-- manueel via een bediening op een evacuatieniveau op een in akkoord met de brandweer 
-bepaalde plaats.  
-Indien de vrije verluchtingsdoorsnede van een koker uitgerust is met een gemotoriseerde 
-verluchtingsklep, moeten de eventuele gasleidingen in  deze koker beantwoorden aan de 
-voorschriften van de  norm  NBN  D 51-003 of van de norm NBN  D 51-006 voor de leidingen en 
-verbindingen in een niet -verluchte technische koker."""@nl .
+    firebim:hasOriginalText """2.   ter  hoogte  van de doorvoering bevindt  zich een  bouwelement met minstens  de  vereiste
+     brandweerstand van de horizontale wand;"""@nl .
 
 firebim:Member_5_1_5_1_3 a firebim:Member ;
-    firebim:hasOriginalText """2. ter hoogte van de doorvoering bevindt zich een bouwelement met minstens de vereist e 
-brandweerstand van de horizontale wand ;"""@nl .
+    firebim:hasOriginalText """3.   de wanden van de verticale kokers hebben EI 30; de valluiken en deurtjes EI1 30; de verticale
+     kokers worden ter hoogte van elk compartiment onderbroken door horizontale schermen met
+     de volgende kenmerken:
+     -    zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;
+     -    zij beslaan de gehele ruimte tussen de leidingen           ;
+     -    zij hebben EI 30."""@nl .
 
 firebim:Member_5_1_5_1_4 a firebim:Member ;
-    firebim:hasOriginalText """3. de wanden van de verticale kokers hebben EI  30; de valluiken en deurtjes EI 1 30; de verticale 
-kokers worden ter hoogte van elk compartiment onderbroken door horizontale schermen met 
-de volgende kenmerken : 
-
-- zij bestaan uit een materiaal van klasse A1  en/of A2-s1,d0 ; 
-- zij beslaan de gehele ruimte tussen de leidingen ; 
-- zij hebben EI  30. 
-
-In gevallen 2 en 3 moeten de kokers niet verlucht zijn."""@nl .
+    firebim:hasOriginalText """In gevallen 2 en 3 moeten de kokers niet verlucht zijn."""@nl .
 
 firebim:Article_5_1_5_2 a firebim:Article ;
     firebim:hasID "5_1_5_2" ;
-    firebim:hasOriginalText """Horizontale kokers.   
-Wanneer horizontale kokers door verticale wanden dringen waarvoor een brandweerstand vereist 
-is, geldt één van de volgende drie maatregelen : 
-
-1. de wanden van de horizontale kokers en de valluiken en deurtjes hebben minstens de vereiste 
-brandweerstand van de verticale wand ; 
-
-2. ter hoogte van de doorvoe ring bevindt zich een bouwelement met minstens de vereiste 
-brandweerstand van de verticale wand ; 
-
-3. de wanden van de horizontale kokers hebben EI  30; de valluiken en deurtjes EI 1 30; de kokers 
-worden ter hoogte van elk compartiment onderbroken door verticale  schermen met de 
-volgende kenmerken : 
-
-- ze bestaan uit een materiaal van klasse A1  en/of A2-s1,d0 ; 
-- ze beslaan de gehele ruimte tussen de leidingen ; 
-- ze hebben EI  30."""@nl ;
-    firebim:hasMember firebim:Member_5_1_5_2_1, firebim:Member_5_1_5_2_2, firebim:Member_5_1_5_2_3, firebim:Member_5_1_5_2_4 .
+    firebim:hasOriginalText """Horizontale kokers.
+Wanneer horizontale kokers door verticale wanden dringen waarvoor een brandweerstand vereist
+is, geldt één van de volgende drie maatregelen:"""@nl ;
+    firebim:hasMember firebim:Member_5_1_5_2_1, firebim:Member_5_1_5_2_2, firebim:Member_5_1_5_2_3 .
 
 firebim:Member_5_1_5_2_1 a firebim:Member ;
-    firebim:hasOriginalText """Wanneer horizontale kokers door verticale wanden dringen waarvoor een brandweerstand vereist 
-is, geldt één van de volgende drie maatregelen :"""@nl .
+    firebim:hasOriginalText """1.   de wanden van de horizontale kokers en de valluiken en deurtjes hebben minstens de vereiste
+     brandweerstand van de verticale wand;"""@nl .
 
 firebim:Member_5_1_5_2_2 a firebim:Member ;
-    firebim:hasOriginalText """1. de wanden van de horizontale kokers en de valluiken en deurtjes hebben minstens de vereiste 
-brandweerstand van de verticale wand ;"""@nl .
+    firebim:hasOriginalText """2.   ter  hoogte  van de doorvoering bevindt  zich een  bouwelement met minstens  de  vereiste
+     brandweerstand van de verticale wand;"""@nl .
 
 firebim:Member_5_1_5_2_3 a firebim:Member ;
-    firebim:hasOriginalText """2. ter hoogte van de doorvoe ring bevindt zich een bouwelement met minstens de vereiste 
-brandweerstand van de verticale wand ;"""@nl .
-
-firebim:Member_5_1_5_2_4 a firebim:Member ;
-    firebim:hasOriginalText """3. de wanden van de horizontale kokers hebben EI  30; de valluiken en deurtjes EI 1 30; de kokers 
-worden ter hoogte van elk compartiment onderbroken door verticale  schermen met de 
-volgende kenmerken : 
-
-- ze bestaan uit een materiaal van klasse A1  en/of A2-s1,d0 ; 
-- ze beslaan de gehele ruimte tussen de leidingen ; 
-- ze hebben EI  30."""@nl .
+    firebim:hasOriginalText """3.   de wanden van de horizontale kokers hebben EI 30; de valluiken en deurtjes EI1 30; de kokers
+     worden  ter  hoogte  van  elk  compartiment  onderbroken  door  verticale                   schermen  met  de
+     volgende kenmerken:
+     -    ze bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;
+     -    ze beslaan de gehele ruimte tussen de leidingen;
+     -    ze hebben EI 30."""@nl .

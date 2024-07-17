@@ -7,13 +7,14 @@
 @base <http://example.com/firebim> .
 
 firebim:Section_1_2 a firebim:Section ;
-    firebim:hasID "1_2" ;
+    firebim:hasID "1.2" ;
     firebim:hasOriginalText "Bijgebouwen"@nl ;
     firebim:hasArticle firebim:Article_1_2_1 .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_1_2 .
+firebim:Section_1 firebim:hasSection firebim:Section_1_2 .
 
 firebim:Article_1_2_1 a firebim:Article ;
+    firebim:hasID "A1.2.1" ;
     firebim:hasOriginalText """Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen
             zijn enkel   toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
             noch de actie van de brandweer in het gedrang komen."""@nl ;
