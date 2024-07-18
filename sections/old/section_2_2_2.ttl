@@ -7,52 +7,65 @@
 @base <http://example.com/firebim> .
 
 firebim:Section_2_2_2 a firebim:Section ;
-    firebim:hasID "2_2_2" ;
+    firebim:hasID "2.2.2" ;
     firebim:hasOriginalText "De uitgangen."@nl ;
-    firebim:hasArticle firebim:Article_2_2_2_1, firebim:Article_2_2_2_2, firebim:Article_2_2_2_3, firebim:Article_2_2_2_4 .
+    firebim:hasArticle firebim:Article_2_2_2_1, firebim:Article_2_2_2_2, firebim:Article_2_2_2_3, firebim:Article_2_2_2_4, firebim:Article_2_2_2_5 .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_2_2_2 .
+firebim:Section_2_2 firebim:hasSection firebim:Section_2_2_2 .
 
 firebim:Article_2_2_2_1 a firebim:Article ;
-    firebim:hasOriginalText "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment."@nl ;
+    firebim:hasID "A2.2.2.1" ;
+    firebim:hasOriginalText """De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment."""@nl ;
     firebim:hasMember firebim:Member_2_2_2_1_1 .
 
 firebim:Member_2_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment."@nl .
+    firebim:hasOriginalText """De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment."""@nl .
 
 firebim:Article_2_2_2_2 a firebim:Article ;
+    firebim:hasID "A2.2.2.2" ;
     firebim:hasOriginalText """De evacuatiewegen leiden ofwel:
             -    naar buiten;
             -    naar trappenhuizen;
             -    naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4)."""@nl ;
-    firebim:hasMember firebim:Member_2_2_2_2_1 .
+    firebim:hasMember firebim:Member_2_2_2_2_1, firebim:Member_2_2_2_2_2, firebim:Member_2_2_2_2_3 .
 
 firebim:Member_2_2_2_2_1 a firebim:Member ;
-    firebim:hasOriginalText """De evacuatiewegen leiden ofwel:
-            -    naar buiten;
-            -    naar trappenhuizen;
-            -    naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4)."""@nl ;
-    firebim:hasForwardReference firebim:Section_4_4 .
+    firebim:hasOriginalText "-    naar buiten;"@nl .
+
+firebim:Member_2_2_2_2_2 a firebim:Member ;
+    firebim:hasOriginalText "-    naar trappenhuizen;"@nl .
+
+firebim:Member_2_2_2_2_3 a firebim:Member ;
+    firebim:hasOriginalText "-    naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4)."@nl .
 
 firebim:Article_2_2_2_3 a firebim:Article ;
+    firebim:hasID "A2.2.2.3" ;
     firebim:hasOriginalText """Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met
-            wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen.
-            Voor de parking: zie 5.2."""@nl ;
-    firebim:hasMember firebim:Member_2_2_2_3_1, firebim:Member_2_2_2_3_2 .
+            wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen."""@nl ;
+    firebim:hasMember firebim:Member_2_2_2_3_1 .
 
 firebim:Member_2_2_2_3_1 a firebim:Member ;
-    firebim:hasOriginalText "Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen."@nl .
-
-firebim:Member_2_2_2_3_2 a firebim:Member ;
-    firebim:hasOriginalText "Voor de parking: zie 5.2."@nl ;
-    firebim:hasForwardReference firebim:Section_5_2 .
+    firebim:hasOriginalText """Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met
+            wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen."""@nl .
 
 firebim:Article_2_2_2_4 a firebim:Article ;
-    firebim:hasOriginalText """Op  een  evacuatieniveau  leidt  iedere  trap  naar  buiten,  hetzij  rechtstreeks,  hetzij  over  een
-            evacuatieweg die beantwoordt aan de voorschriften van 4.4."""@nl ;
+    firebim:hasID "A2.2.2.4" ;
+    firebim:hasOriginalText """Voor de parking: zie 5.2."""@nl ;
     firebim:hasMember firebim:Member_2_2_2_4_1 .
 
 firebim:Member_2_2_2_4_1 a firebim:Member ;
+    firebim:hasOriginalText """Voor de parking: zie 5.2."""@nl .
+
+firebim:Article_2_2_2_5 a firebim:Article ;
+    firebim:hasID "A2.2.2.5" ;
     firebim:hasOriginalText """Op  een  evacuatieniveau  leidt  iedere  trap  naar  buiten,  hetzij  rechtstreeks,  hetzij  over  een
             evacuatieweg die beantwoordt aan de voorschriften van 4.4."""@nl ;
-    firebim:hasForwardReference firebim:Section_4_4 .
+    firebim:hasMember firebim:Member_2_2_2_5_1 .
+
+firebim:Member_2_2_2_5_1 a firebim:Member ;
+    firebim:hasOriginalText """Op  een  evacuatieniveau  leidt  iedere  trap  naar  buiten,  hetzij  rechtstreeks,  hetzij  over  een
+            evacuatieweg die beantwoordt aan de voorschriften van 4.4."""@nl .
+
+firebim:Member_2_2_2_2_3 firebim:hasForwardReference firebim:Section_4_4 .
+firebim:Member_2_2_2_4_1 firebim:hasForwardReference firebim:Section_5_2 .
+firebim:Member_2_2_2_5_1 firebim:hasForwardReference firebim:Section_4_4 .

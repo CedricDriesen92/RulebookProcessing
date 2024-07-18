@@ -9,7 +9,3 @@
 firebim:Section_0 a firebim:Section ;
     firebim:hasID "0" ;
     firebim:hasOriginalText "ALGEMEEN."@nl .
-
-firebim:RoyalDecree firebim:hasSection firebim:Section_0 .
-
-firebim:Section_0 firebim:hasSection firebim:Section_0_1 .

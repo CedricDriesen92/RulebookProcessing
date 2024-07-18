@@ -9,68 +9,56 @@
 firebim:Section_1_1 a firebim:Section ;
     firebim:hasID "1.1" ;
     firebim:hasOriginalText "Bereikbaarheid en opstelmogelijkheden brandweer"@nl ;
-    firebim:hasArticle firebim:Article_1_1_1, firebim:Article_1_1_2, firebim:Article_1_1_3 .
+    firebim:hasArticle firebim:Article_1_1_1 .
 
 firebim:Section_1 firebim:hasSection firebim:Section_1_1 .
 
 firebim:Article_1_1_1 a firebim:Article ;
     firebim:hasID "A1.1.1" ;
-    firebim:hasOriginalText """Voor de gebouwen met één bouwlaag moeten de voertuigen van de brandweer ten minste tot op
-60 m van een gevel van het gebouw kunnen naderen."""@nl ;
-    firebim:hasMember firebim:Member_1_1_1_1 .
+    firebim:hasMember firebim:Member_1_1_1_1, firebim:Member_1_1_1_2, firebim:Member_1_1_1_3, firebim:Member_1_1_1_4 .
 
 firebim:Member_1_1_1_1 a firebim:Member ;
     firebim:hasOriginalText """Voor de gebouwen met één bouwlaag moeten de voertuigen van de brandweer ten minste tot op
 60 m van een gevel van het gebouw kunnen naderen."""@nl .
 
-firebim:Article_1_1_2 a firebim:Article ;
-    firebim:hasID "A1.1.2" ;
-    firebim:hasOriginalText """Voor de gebouwen met meer dan één bouwlaag moeten de voertuigen van de brandweer ten
-minste in één punt een gevel kunnen bereiken die op herkenbare plaatsen toegang geeft tot
-iedere bouwlaag."""@nl ;
-    firebim:hasMember firebim:Member_1_1_2_1 .
-
-firebim:Member_1_1_2_1 a firebim:Member ;
+firebim:Member_1_1_1_2 a firebim:Member ;
     firebim:hasOriginalText """Voor de gebouwen met meer dan één bouwlaag moeten de voertuigen van de brandweer ten
 minste in één punt een gevel kunnen bereiken die op herkenbare plaatsen toegang geeft tot
 iedere bouwlaag."""@nl .
 
-firebim:Article_1_1_3 a firebim:Article ;
-    firebim:hasID "A1.1.3" ;
-    firebim:hasOriginalText """Daartoe moeten de voertuigen beschikken over een toegangsmogelijkheid en een opstelplaats:
-a)   ofwel op de berijdbare rijweg van de openbare weg;
-b)   ofwel op een bijzondere toegangsweg vanaf de berijdbare rijweg van de openbare weg en die
-     de volgende karakteristieken vertoont:
-     -    minimale vrije breedte: 4 m;
-     -    minimale  draaicirkel  met  draaistraal  11 m  (aan  de  binnenkant)  en  15 m  (aan  de
-          buitenkant);
-     -    minimale vrije hoogte: 4 m;
-     -    maximale helling: 6%;
-     -    draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting
-          van 13t er kunnen rijden en stilstaan, zelfs wanneer ze het terrein vervormen.
-          Voor de kunstwerken welke zich op de toegangswegen bevinden, richt men zich naar
-          NBN B 03-101."""@nl ;
-    firebim:hasMember firebim:Member_1_1_3_1, firebim:Member_1_1_3_2, firebim:Member_1_1_3_3 .
+firebim:Member_1_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Daartoe moeten de voertuigen beschikken over een toegangsmogelijkheid en een opstelplaats:"""@nl ;
+    firebim:hasMember firebim:Member_1_1_1_3_1, firebim:Member_1_1_1_3_2, firebim:Member_1_1_1_3_3 .
 
-firebim:Member_1_1_3_1 a firebim:Member ;
+firebim:Member_1_1_1_3_1 a firebim:Member ;
     firebim:hasOriginalText "a)   ofwel op de berijdbare rijweg van de openbare weg;"@nl .
 
-firebim:Member_1_1_3_2 a firebim:Member ;
+firebim:Member_1_1_1_3_2 a firebim:Member ;
     firebim:hasOriginalText """b)   ofwel op een bijzondere toegangsweg vanaf de berijdbare rijweg van de openbare weg en die
-     de volgende karakteristieken vertoont:
-     -    minimale vrije breedte: 4 m;
-     -    minimale  draaicirkel  met  draaistraal  11 m  (aan  de  binnenkant)  en  15 m  (aan  de
-          buitenkant);
-     -    minimale vrije hoogte: 4 m;
-     -    maximale helling: 6%;
-     -    draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting
+     de volgende karakteristieken vertoont:"""@nl ;
+    firebim:hasMember firebim:Member_1_1_1_3_2_1, firebim:Member_1_1_1_3_2_2, firebim:Member_1_1_1_3_2_3, firebim:Member_1_1_1_3_2_4, firebim:Member_1_1_1_3_2_5 .
+
+firebim:Member_1_1_1_3_2_1 a firebim:Member ;
+    firebim:hasOriginalText "-    minimale vrije breedte: 4 m;"@nl .
+
+firebim:Member_1_1_1_3_2_2 a firebim:Member ;
+    firebim:hasOriginalText "-    minimale  draaicirkel  met  draaistraal  11 m  (aan  de  binnenkant)  en  15 m  (aan  de  buitenkant);"@nl .
+
+firebim:Member_1_1_1_3_2_3 a firebim:Member ;
+    firebim:hasOriginalText "-    minimale vrije hoogte: 4 m;"@nl .
+
+firebim:Member_1_1_1_3_2_4 a firebim:Member ;
+    firebim:hasOriginalText "-    maximale helling: 6%;"@nl .
+
+firebim:Member_1_1_1_3_2_5 a firebim:Member ;
+    firebim:hasOriginalText """-    draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting
           van 13t er kunnen rijden en stilstaan, zelfs wanneer ze het terrein vervormen."""@nl .
 
-firebim:Member_1_1_3_3 a firebim:Member ;
+firebim:Member_1_1_1_3_3 a firebim:Member ;
     firebim:hasOriginalText """Voor de kunstwerken welke zich op de toegangswegen bevinden, richt men zich naar
           NBN B 03-101."""@nl .
 
-firebim:Member_1_1_3_3 firebim:hasReference firebim:Reference_NBN_B_03_101 .
+firebim:Member_1_1_1_3_3 firebim:hasReference firebim:Reference_NBN_B_03_101 .
 
 firebim:Reference_NBN_B_03_101 a firebim:Reference ;
     firebim:hasID "NBN B 03-101" .

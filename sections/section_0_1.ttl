@@ -14,10 +14,7 @@ firebim:Section_0_1 a firebim:Section ;
 firebim:Article_0_1_1 a firebim:Article ;
     firebim:hasID "A0.1.1" ;
     firebim:hasOriginalText """Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de bouw en de
-inrichting van lage gebouwen (LG) moeten voldoen om:
--    het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;
--    de veiligheid van de aanwezigen te waarborgen;
--    preventief het ingrijpen van de brandweer te vergemakkelijken."""@nl ;
+inrichting van lage gebouwen (LG) moeten voldoen om:"""@nl ;
     firebim:hasMember firebim:Member_0_1_1_1, firebim:Member_0_1_1_2, firebim:Member_0_1_1_3 .
 
 firebim:Member_0_1_1_1 a firebim:Member ;
@@ -28,5 +25,3 @@ firebim:Member_0_1_1_2 a firebim:Member ;
 
 firebim:Member_0_1_1_3 a firebim:Member ;
     firebim:hasOriginalText "-    preventief het ingrijpen van de brandweer te vergemakkelijken."@nl .
-
-firebim:Section_0 firebim:hasSection firebim:Section_0_1 .

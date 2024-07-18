@@ -8,6 +8,13 @@
 
 firebim:Section_2 a firebim:Section ;
     firebim:hasID "2" ;
-    firebim:hasOriginalText "COMPARTIMENTERING EN EVACUATIE."@nl .
+    firebim:hasOriginalText "COMPARTIMENTERING EN EVACUATIE."@nl ;
+    firebim:hasArticle firebim:Article_2_1 .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_2 .
+firebim:Article_2_1 a firebim:Article ;
+    firebim:hasID "A2.1" ;
+    firebim:hasOriginalText "COMPARTIMENTERING EN EVACUATIE."@nl ;
+    firebim:hasMember firebim:Member_2_1_1 .
+
+firebim:Member_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText "COMPARTIMENTERING EN EVACUATIE."@nl .

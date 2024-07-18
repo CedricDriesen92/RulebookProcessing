@@ -74,7 +74,8 @@ firebim:hasForwardReference rdf:type owl:ObjectProperty ;
 ###  http://example.com/firebim#hasMember
 firebim:hasMember rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf firebim:hasSubdivision ;
-                  rdfs:domain firebim:Article ;
+                  rdfs:domain firebim:Article ,
+                              firebim:Member ;
                   rdfs:range firebim:Member ;
                   rdfs:label "has member"@en .
 

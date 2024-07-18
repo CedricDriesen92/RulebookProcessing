@@ -8,4 +8,13 @@
 
 firebim:Section_0 a firebim:Section ;
     firebim:hasID "0" ;
+    firebim:hasOriginalText "ALGEMEEN."@nl ;
+    firebim:hasArticle firebim:Article_0_1 .
+
+firebim:Article_0_1 a firebim:Article ;
+    firebim:hasID "A0.1" ;
+    firebim:hasOriginalText "ALGEMEEN."@nl ;
+    firebim:hasMember firebim:Member_0_1_1 .
+
+firebim:Member_0_1_1 a firebim:Member ;
     firebim:hasOriginalText "ALGEMEEN."@nl .

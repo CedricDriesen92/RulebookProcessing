@@ -1,0 +1,114 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_2_5 a firebim:Section ;
+    firebim:hasID "5.2.5" ;
+    firebim:hasOriginalText "Afwijkende bepalingen."@nl ;
+    firebim:hasArticle firebim:Article_5_2_5_1, firebim:Article_5_2_5_2, firebim:Article_5_2_5_3, firebim:Article_5_2_5_4, firebim:Article_5_2_5_5, firebim:Article_5_2_5_6 .
+
+firebim:Article_5_2_5_1 a firebim:Article ;
+    firebim:hasID "A5.2.5.1" ;
+    firebim:hasOriginalText """De punten 5.2.1 tot 5.2.4 zijn niet van toepassing op de parking van een gebouw waarvoor de
+aanvraag voor de bouw werd ingediend vóór 1 juli 2022 als het voldoet aan de volgende
+voorwaarden."""@nl ;
+    firebim:hasMember firebim:Member_5_2_5_1_1 .
+
+firebim:Member_5_2_5_1_1 a firebim:Member ;
+    firebim:hasOriginalText """In afwijking van het punt 3.2, worden er geen eisen voor brandweerstand gesteld aan de
+structurele elementen van open parkings waarvan de horizontale wanden REI 60 bezitten."""@nl .
+
+firebim:Article_5_2_5_2 a firebim:Article ;
+    firebim:hasID "A5.2.5.2" ;
+    firebim:hasOriginalText "De wanden tussen de parking en de rest van het gebouw hebben EI 60."@nl ;
+    firebim:hasMember firebim:Member_5_2_5_2_1 .
+
+firebim:Member_5_2_5_2_1 a firebim:Member ;
+    firebim:hasOriginalText "De wanden tussen de parking en de rest van het gebouw hebben EI 60."@nl .
+
+firebim:Article_5_2_5_3 a firebim:Article ;
+    firebim:hasID "A5.2.5.3" ;
+    firebim:hasOriginalText """In het parkeercompartiment mogen sommige, niet voor verblijf bestemde lokalen worden
+opgenomen, zoals: transformatorlokalen, bergingen, archieflokalen, technische ruimten …
+De wanden van deze lokalen vertonen EI 60 en de toegang geschiedt door een zelfsluitende of bij
+brand zelfsluitende deur EI1 30."""@nl ;
+    firebim:hasMember firebim:Member_5_2_5_3_1, firebim:Member_5_2_5_3_2 .
+
+firebim:Member_5_2_5_3_1 a firebim:Member ;
+    firebim:hasOriginalText """In het parkeercompartiment mogen sommige, niet voor verblijf bestemde lokalen worden
+opgenomen, zoals: transformatorlokalen, bergingen, archieflokalen, technische ruimten …"""@nl .
+
+firebim:Member_5_2_5_3_2 a firebim:Member ;
+    firebim:hasOriginalText """De wanden van deze lokalen vertonen EI 60 en de toegang geschiedt door een zelfsluitende of bij
+brand zelfsluitende deur EI1 30."""@nl .
+
+firebim:Article_5_2_5_4 a firebim:Article ;
+    firebim:hasID "A5.2.5.4" ;
+    firebim:hasOriginalText """De specifieke voorschriften betreffende de stookafdelingen, de transformatorlokalen en de lokalen
+voor vuilnisopslag blijven van toepassing (cf. respectievelijk de punten 5.1.2, 5.1.3 en 5.1.4)."""@nl ;
+    firebim:hasMember firebim:Member_5_2_5_4_1 .
+
+firebim:Member_5_2_5_4_1 a firebim:Member ;
+    firebim:hasOriginalText """De specifieke voorschriften betreffende de stookafdelingen, de transformatorlokalen en de lokalen
+voor vuilnisopslag blijven van toepassing (cf. respectievelijk de punten 5.1.2, 5.1.3 en 5.1.4)."""@nl .
+
+firebim:Article_5_2_5_5 a firebim:Article ;
+    firebim:hasID "A5.2.5.5" ;
+    firebim:hasOriginalText "Op elke bouwlaag is de evacuatie als volgt geregeld:"@nl ;
+    firebim:hasMember firebim:Member_5_2_5_5_1, firebim:Member_5_2_5_5_2, firebim:Member_5_2_5_5_3, firebim:Member_5_2_5_5_4, firebim:Member_5_2_5_5_5 .
+
+firebim:Member_5_2_5_5_1 a firebim:Member ;
+    firebim:hasOriginalText """-    ten minste twee trappenhuizen of buitentrappen voldoen aan de voorschriften vervat in 4.2 of
+     4.3 en zijn vanuit ieder punt van de bouwlaag toegankelijk; de af te leggen weg naar de
+     dichtstbijzijnde trap mag niet meer dan 45 m bedragen; de minimale nuttige breedte van deze
+     trappen bedraagt 0,80 m;"""@nl .
+
+firebim:Member_5_2_5_5_2 a firebim:Member ;
+    firebim:hasOriginalText """-    zoals gesteld in 2.2.2, derde lid, mag op de beschouwde bouwlaag de vereiste toegang tot
+     één van de twee trappenhuizen vervangen worden door een rechtstreekse uitgang naar de
+     open lucht;"""@nl .
+
+firebim:Member_5_2_5_5_3 a firebim:Member ;
+    firebim:hasOriginalText """-    op de bouwlaag die het dichtst bij het uitritniveau ligt, mag de hellende rijweg één der
+     trappenhuizen of buitentrappen vervangen indien de helling gemeten in haar hartlijn niet meer
+     dan 10 % bedraagt;"""@nl .
+
+firebim:Member_5_2_5_5_4 a firebim:Member ;
+    firebim:hasOriginalText """-    de beperking van de helling tot 10% geldt niet voor de compartimenten waarvan de
+     oppervlakte gelijk of kleiner is dan 500 m², indien evacuatie via de helling mogelijk blijft;"""@nl .
+
+firebim:Member_5_2_5_5_5 a firebim:Member ;
+    firebim:hasOriginalText """-    buiten de signalisatie bepaald in 4.5 worden de evacuatiewegen, op elke bouwlaag, ook nog
+     aangeduid op de vloer of juist erboven."""@nl .
+
+firebim:Article_5_2_5_6 a firebim:Article ;
+    firebim:hasID "A5.2.5.6" ;
+    firebim:hasOriginalText """Eén enkele uitgang per bouwlaag (binnentrappenhuis, buitentrap, rechtstreekse uitgang naar de
+open lucht of hellende rijweg op de bouwlaag die het dichtst bij het uitritniveau ligt) is evenwel
+voldoende op voorwaarde:"""@nl ;
+    firebim:hasMember firebim:Member_5_2_5_6_1, firebim:Member_5_2_5_6_2, firebim:Member_5_2_5_6_3, firebim:Member_5_2_5_6_4, firebim:Member_5_2_5_6_5 .
+
+firebim:Member_5_2_5_6_1 a firebim:Member ;
+    firebim:hasOriginalText "-    dat de parking zich in de hoogte uitstrekt over maximum twee bouwlagen;"@nl .
+
+firebim:Member_5_2_5_6_2 a firebim:Member ;
+    firebim:hasOriginalText """-    dat geen enkele van deze beide bouwlagen zich op meer dan twee bouwlagen boven of onder
+     het uitritniveau voor voertuigen bevindt;"""@nl .
+
+firebim:Member_5_2_5_6_3 a firebim:Member ;
+    firebim:hasOriginalText """-    dat geen enkel punt van de parking zich op een afstand verder dan 15 m van de toegang tot
+     de evacuatieweg naar de uitgang bevindt;"""@nl .
+
+firebim:Member_5_2_5_6_4 a firebim:Member ;
+    firebim:hasOriginalText """-    en dat geen enkel punt van de parking zich op een afstand verder dan 30 m van de toegang
+     tot de uitgang bevindt."""@nl .
+
+firebim:Member_5_2_5_6_5 a firebim:Member ;
+    firebim:hasOriginalText """In de gesloten parkings met een totale oppervlakte groter dan 2500 m², moeten de maatregelen
+genomen worden die noodzakelijk zijn om de verspreiding van rook te voorkomen."""@nl .
+
+firebim:Section_5_2 firebim:hasSection firebim:Section_5_2_5 .

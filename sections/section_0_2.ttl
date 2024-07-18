@@ -9,5 +9,3 @@
 firebim:Section_0_2 a firebim:Section ;
     firebim:hasID "0.2" ;
     firebim:hasOriginalText "Toepassingsgebied."@nl .
-
-firebim:Section_0 firebim:hasSection firebim:Section_0_2 .

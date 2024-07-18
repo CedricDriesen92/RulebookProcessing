@@ -16,11 +16,11 @@ firebim:Section_1 firebim:hasSection firebim:Section_1_2 .
 firebim:Article_1_2_1 a firebim:Article ;
     firebim:hasID "A1.2.1" ;
     firebim:hasOriginalText """Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen
-            zijn enkel   toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
-            noch de actie van de brandweer in het gedrang komen."""@nl ;
+zijn enkel toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
+noch de actie van de brandweer in het gedrang komen."""@nl ;
     firebim:hasMember firebim:Member_1_2_1_1 .
 
 firebim:Member_1_2_1_1 a firebim:Member ;
     firebim:hasOriginalText """Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen
-            zijn enkel   toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
-            noch de actie van de brandweer in het gedrang komen."""@nl .
+zijn enkel toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
+noch de actie van de brandweer in het gedrang komen."""@nl .

@@ -1,0 +1,22 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_3_5 a firebim:Section ;
+    firebim:hasID "3.5" ;
+    firebim:hasOriginalText "Gevels"@nl ;
+    firebim:hasArticle firebim:Article_3_5_1 .
+
+firebim:Article_3_5_1 a firebim:Article ;
+    firebim:hasID "A3.5.1" ;
+    firebim:hasOriginalText "Gevels"@nl ;
+    firebim:hasMember firebim:Member_3_5_1_1 .
+
+firebim:Member_3_5_1_1 a firebim:Member ;
+    firebim:hasOriginalText "Gevels"@nl .
+
+firebim:Section_3 firebim:hasSection firebim:Section_3_5 .

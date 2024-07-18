@@ -1,0 +1,36 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_2_3 a firebim:Section ;
+    firebim:hasID "5.2.3" ;
+    firebim:hasOriginalText "Parking onder verschillende gebouwen."@nl ;
+    firebim:hasArticle firebim:Article_5_2_3_1 .
+
+firebim:Section_5_2 firebim:hasSection firebim:Section_5_2_3 .
+
+firebim:Article_5_2_3_1 a firebim:Article ;
+    firebim:hasID "A5.2.3.1" ;
+    firebim:hasOriginalText """Parking onder verschillende gebouwen.
+In afwijking van het punt 1.3 moeten de parkings van aangrenzende gebouwen niet door een
+wand worden afgescheiden. Die parkings vormen bijgevolg slechts één en dezelfde parking.
+In dat geval hebben de structurele elementen van de gehele parking R 120, met inbegrip van de
+structurele elementen van de open parkeerbouwlagen."""@nl ;
+    firebim:hasMember firebim:Member_5_2_3_1_1, firebim:Member_5_2_3_1_2, firebim:Member_5_2_3_1_3 .
+
+firebim:Member_5_2_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """In afwijking van het punt 1.3 moeten de parkings van aangrenzende gebouwen niet door een
+wand worden afgescheiden."""@nl .
+
+firebim:Member_5_2_3_1_2 a firebim:Member ;
+    firebim:hasOriginalText "Die parkings vormen bijgevolg slechts één en dezelfde parking."@nl .
+
+firebim:Member_5_2_3_1_3 a firebim:Member ;
+    firebim:hasOriginalText """In dat geval hebben de structurele elementen van de gehele parking R 120, met inbegrip van de
+structurele elementen van de open parkeerbouwlagen."""@nl .
+
+firebim:Member_5_2_3_1_1 firebim:hasBackwardReference firebim:Section_1_3 .

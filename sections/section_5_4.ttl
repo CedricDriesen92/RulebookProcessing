@@ -1,0 +1,34 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_4 a firebim:Section ;
+    firebim:hasID "5.4" ;
+    firebim:hasOriginalText "Winkel- of handelscomplex."@nl ;
+    firebim:hasArticle firebim:Article_5_4_1 .
+
+firebim:Section_5 firebim:hasSection firebim:Section_5_4 .
+
+firebim:Article_5_4_1 a firebim:Article ;
+    firebim:hasID "A5.4.1" ;
+    firebim:hasOriginalText """De inrichting van winkellokalen die op binnengalerijen uitgeven wordt toegelaten op een
+evacuatieniveau en op de aangrenzende bouwlagen mits:"""@nl ;
+    firebim:hasMember firebim:Member_5_4_1_1, firebim:Member_5_4_1_2, firebim:Member_5_4_1_3 .
+
+firebim:Member_5_4_1_1 a firebim:Member ;
+    firebim:hasOriginalText """1.   het complex met zijn galerijen van de overige bouwdelen gescheiden is door wanden met
+     EI 60;"""@nl .
+
+firebim:Member_5_4_1_2 a firebim:Member ;
+    firebim:hasOriginalText """2.   de overige bouwdelen hun eigen uitgangen hebben onafhankelijk van de uitgangen van het
+     winkel- of handelscomplex."""@nl .
+
+firebim:Member_5_4_1_3 a firebim:Member ;
+    firebim:hasOriginalText """De scheidingswanden tussen de handelslokalen hebben EI 30 en lopen door in het eventueel
+verlaagd plafond. Dit laatste voorschrift vervalt indien het winkel- of handelscomplex voorzien is
+van een automatische blusinstallatie van het type sprinkler die is aangepast aan de aanwezige
+risico's."""@nl .

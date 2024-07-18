@@ -131,8 +131,7 @@ def load_ontology(file_path):
     with open(file_path, 'r') as file:
         return file.read()
 
-def process_section_to_ttl(section_number, section_text, ontology, training_examples, starting_graph):
-    examples_str = "\n\n".join([f"Input:\n{ex['input']}\n\nExpected output:\n{ex['output']}" for ex in training_examples])
+def process_section_to_ttl(section_number, section_text, ontology, examples_str, starting_graph):
     prompt = f"""
     You are an AI assistant specialized in converting building code rulebook sections into Turtle (.ttl) format following the FireBIM Document Ontology. Here's the complete ontology for your reference:
 
@@ -140,24 +139,24 @@ def process_section_to_ttl(section_number, section_text, ontology, training_exam
     Here is some more info on the firebim ontology and how you should use it:
     
     The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the firebim:Authority (which represents the legal body that publishes and maintains the regulatory document), the firebim:DocumentSubdivision (which represents documents or parts of documents), and the firebim:Reference (which represents references to other representations of the regulation, or similar regulations). The firebim:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
-    The created data graph (not shown here) clearly shows how a document is modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can have references to other members, using the firebim:hasBackwardReference and firebim:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
+    The created data graph (not shown here) clearly shows how a document is modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can contain submembers, or they can have references to other members, using the firebim:hasBackwardReference and firebim:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
     
-    Here are some examples of how to convert sections to Turtle format:
+    Here are some examples of how to convert sections to Turtle format. Note, follow the style used here as a very strong reference, even more so than the instructions. Don't be afraid to nest members where necessary. Examples:
 
     {examples_str}
     
-    Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following this ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text, references, and any specific measurements or conditions mentioned.
+    Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following this ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object it shouldn't be in the originaltext of the parent object etc.), references, and any specific measurements or conditions mentioned.
 
     Section number: {section_number}
     Section text:
     {section_text}
 
-    In your .ttl, if your section is not a base numbered section (i.e. 0, 1, 2...) make a hasSection from the parent section to this section. Make sure the article originaltext has the full text, including text that defines the members. Adding all originaltext from all articles should recreate the rules part of the document. For the section don't include the full originaltext, only the titles. Make everything that includes a subdivision of the title (e.g. 4.3.1.2 if you are doing section 4.3.1) its own section with as originaltext the title attached to the number, with the following text split up in articles, that are split up in members.
+    In your .ttl, if your section is not a base numbered section (i.e. 0, 1, 2...) make a hasSection from the parent section to this section. Make sure the article originaltext has the full text, including text that defines the members. Adding all originaltext from all articles should recreate the rules part of the document. For the section don't include the full originaltext, only the titles. Make everything that includes a subdivision of the title (e.g. 4.3.1.2 if you are doing section 4.3.1) its own section with as originaltext the title attached to the number, with the following text split up in articles, split up in members.
     The subsection parsing goes until level 3 (e.g. 1.3.2), so if you are dealing with section 1.3 do not try to define section 1.3.2, it only complicates things later on.
     Do not include prefix declarations or @base. Start directly with the triples for this section. Ensure the output is valid Turtle syntax that can be parsed when added to an existing graph.
     Depending on the language of the source text, make sure to add language tags where necessary. Do not translate the original text in any way, keep the source perfectly accurate.
     If a figure or table is implied in the text, make sure to declare it and add the required relations/properties. Even if you can't see it, it's still there.
-    Make sure every article consists of AT LEAST 1 member, these are the rule building blocks. However, does not necessarily need an article, since articles are about rules and checks and requirements. 
+    Make sure every article consists of AT LEAST 1 member, these are the rule building blocks. However, not every building part necessarily needs an article, since articles are about rules and checks and requirements. Also, members can have their own members. Articles and members don't necessarily need to have an originaltext if everything is contained in their members, otherwise a text is provided with the members further dividing the requirements.
     For text spanning multiple lines make sure to use triple quotes, as single codes will be invalid there. Also avoid using Paragraph, instead use Section.
     Format text to be logical, don't change the content but fix any obvious formatting errors.
     Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be combined with the .ttl files for the other sections, as well as the base file defining the authority and document this section is from:
@@ -190,7 +189,7 @@ def process_section_to_ttl(section_number, section_text, ontology, training_exam
     full_ttl_content += "firebim:Section_" + str(section_number) +" a " + response.content[0].text.strip()
     return full_ttl_content
 
-def create_and_combine_section_ttl(section_number, section_text, ontology, main_graph, training_examples, starting_graph):
+def create_and_combine_section_ttl(section_number, section_text, ontology, main_graph, examples_str, starting_graph):
     file_name = f"sections/section_{section_number.replace('.', '_')}.ttl"
     
     if os.path.exists(file_name):
@@ -205,7 +204,7 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
     #return False
     for attempt in range(3):
         try:
-            ttl_content = process_section_to_ttl(section_number, section_text, ontology, training_examples, starting_graph)
+            ttl_content = process_section_to_ttl(section_number, section_text, ontology, examples_str, starting_graph)
             section_graph = Graph()
             main_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
             
@@ -243,6 +242,8 @@ def main():
     training_examples = load_training_examples('trainingsamplesRuleToGraph')
     
     main_graph = create_initial_graph()
+    
+    examples_str = "\n\n".join([f"Input:\n{ex['input']}\n\nExpected output:\n{ex['output']}" for ex in training_examples])
     
     # Create section structure
     section_numbers = []
@@ -282,9 +283,9 @@ def main():
         curNum += 1
         if section_number is not None:
             section_number_underscore = section_number.replace('.', '_')
-            if -1 < float(section_number[:3]) < 3:
+            if -1 < float(section_number[:3]) < 6:
                 full_content = f"{section_title}\n{section_content}" if section_title else section_content
-                create_and_combine_section_ttl(section_number_underscore, full_content, ontology, main_graph, training_examples, starting_graph)
+                create_and_combine_section_ttl(section_number_underscore, full_content, ontology, main_graph, examples_str, starting_graph)
                 print("Processed section "+str(section_number) + ", nr. " + str(curNum) + " / " + str(totalNum))
     
     main_graph.serialize("combined_document_data_graph.ttl", format="turtle")

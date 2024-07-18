@@ -7,18 +7,7 @@
 @base <http://example.com/firebim> .
 
 firebim:Section_0_2 a firebim:Section ;
-    firebim:hasID "0_2" ;
+    firebim:hasID "0.2" ;
     firebim:hasOriginalText "Toepassingsgebied."@nl .
 
-firebim:RoyalDecree firebim:hasSection firebim:Section_0_2 .
-
-firebim:Section_0_2 firebim:hasSection firebim:Section_0_2_1 .
-firebim:Section_0_2 firebim:hasSection firebim:Section_0_2_2 .
-
-firebim:Section_0_2_1 a firebim:Section ;
-    firebim:hasID "0_2_1" ;
-    firebim:hasMember firebim:Member_0_2_1_1 .
-
-firebim:Member_0_2_1_1 a firebim:Member ;
-    firebim:hasID "0_2_1_1" ;
-    firebim:hasOriginalText """1. de lage gebouwen;"""@nl .
+firebim:Section_0 firebim:hasSection firebim:Section_0_2 .

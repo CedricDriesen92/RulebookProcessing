@@ -101,61 +101,49 @@ def process_article(article):
         <p>{article_text}</p>
     </div>
     <div class="article-content">
-        <span style="font-size: 26 px; color: grey" class="subtle-id">Article {article_id}</span>
+        <span style="font-size: 26px; color: grey" class="subtle-id">Article {article_id}</span>
     """
     
-    # Process members
-    members = list(g.objects(article, FIREBIM.hasMember))
-    member_texts = []
-    for member in members:
-        member_text = normalize_text(get_text(member))
-        if member_text:
-            member_texts.append((member, member_text))
-
-    # Sort member_texts by their position in the article_text
-    member_texts.sort(key=lambda x: article_text.index(x[1]) if x[1] in article_text else len(article_text))
-
-    # Process article text
-    remaining_text = article_text
-    processed_members = []
-    remaining_text_post = []
-    if len(members) > 1:
-        for member, member_text in member_texts:
-            if member_text in remaining_text:
-                parts = remaining_text.split(member_text, 1)
-                processed_members.append((member, member_text))
-                remaining_text = parts[1]
-                remaining_text_post.append(parts[0])
-            else:
-                processed_members.append((member, member_text))
-
-        # Add member texts
-        for i, (member, member_text) in enumerate(processed_members):
-            html_content += f"<p>{remaining_text_post[i]}</p>\n"
-            html_content += process_member(member, member_text)
-        try:
-            html_content += f"<p>{remaining_text_post[-1]}</p>\n"
-        except:
-            print("nothing left")
-    else:
-        html_content += process_member(members[0], member_texts[0][1])
+    # Process top-level members
+    top_level_members = list(g.objects(article, FIREBIM.hasMember))
+    html_content += process_members(top_level_members)
 
     # Process tables and figures
     html_content += process_tables_and_figures(article)
-    html_content += process_references(article)  # Moved to the end
+    html_content += process_references(article)
     html_content += "</div></div>\n"
     return html_content
 
-def process_member(member, member_text):
-    member_id = get_uri_id(member)
-    html_content = f"""
-    <div class='member'>
-        <span style="font-size: 10px; color: grey"class="subtle-id">Member {member_id}</span>
-        <p>{member_text}</p>
-    """
-    html_content += process_references(member)  # Added references processing
-    html_content += "</div>"
+def process_members(members, level=0):
+    html_content = ""
+    sorted_members = sort_members(members)
+    
+    for member in sorted_members:
+        member_id = get_uri_id(member)
+        member_text = normalize_text(get_text(member))
+        
+        html_content += f"""
+        <div class='member level-{level}'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member {member_id}</span>
+            <p>{member_text}</p>
+        """
+        
+        # Process nested members
+        nested_members = list(g.objects(member, FIREBIM.hasMember))
+        if nested_members:
+            html_content += process_members(nested_members, level + 1)
+        
+        html_content += process_references(member)
+        html_content += "</div>"
+    
     return html_content
+
+def sort_members(members):
+    def get_sort_key(member):
+        member_id = get_uri_id(member)
+        return tuple(int(part) for part in member_id.split('.') if part.isdigit())
+    
+    return sorted(members, key=get_sort_key)
 
 def process_references(entity):
     html_content = ""
