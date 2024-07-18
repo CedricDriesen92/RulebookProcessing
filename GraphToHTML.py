@@ -572,7 +572,6 @@ html_content += """
                 const text = node.textContent.toLowerCase();
                 let index = text.indexOf(searchTerm);
                 while (index !== -1) {
-                    console.log(`Found match in node: "${node.textContent.slice(index, index + searchTerm.length)}"`);
                     // Store the parent element instead of the text node
                     searchResults.push({
                         element: parent,
@@ -593,9 +592,7 @@ html_content += """
     }
 
     function clearHighlights() {
-        console.log("Clearing existing highlights");
         const highlights = document.getElementsByClassName('highlight');
-        console.log(`Found ${highlights.length} highlights to clear`);
         while (highlights.length > 0) {
             const parent = highlights[0].parentNode;
             parent.replaceChild(document.createTextNode(highlights[0].textContent), highlights[0]);
@@ -603,27 +600,22 @@ html_content += """
         }
         
         const highlightedSections = document.getElementsByClassName('highlight-section');
-        console.log(`Found ${highlightedSections.length} highlighted sections to clear`);
         while (highlightedSections.length > 0) {
             highlightedSections[0].classList.remove('highlight-section');
         }
         
         const tocHighlights = document.querySelectorAll('#sidebar .highlight-toc');
         console.log(`Found ${tocHighlights.length} TOC highlights to clear`);
-        tocHighlights.forEach(el => el.classList.remove('highlight-toc'));
     }
 
     function highlightResults() {
-        console.log(`Highlighting ${searchResults.length} results`);
         searchResults.forEach((result, index) => {
             try {
-                console.log(`Highlighting result ${index + 1}: "${result.textContent.slice(result.index, result.index + result.length)}"`);
                 highlightNode(result);
                 
                 // Highlight the containing section
                 let section = findAncestorByClass(result.element, 'section');
                 if (section) {
-                    console.log(`Highlighting section: ${section.id}`);
                     section.classList.add('highlight-section');
                 }
             } catch (e) {
@@ -699,17 +691,14 @@ html_content += """
         
         // First, remove all existing highlight-toc classes
         const existingHighlights = toc.querySelectorAll('.highlight-toc');
-        console.log(`Removing ${existingHighlights.length} existing TOC highlights`);
         existingHighlights.forEach(el => el.classList.remove('highlight-toc'));
         
-        console.log(`Found ${highlightedSections.length} highlighted sections to process for TOC`);
         for (let section of highlightedSections) {
             let currentElement = section;
             while (currentElement && currentElement.id) {
                 const sectionId = currentElement.id;
                 const tocEntry = toc.querySelector(`a[href="#${sectionId}"]`);
                 if (tocEntry) {
-                    console.log(`Highlighting TOC entry for section: ${sectionId}`);
                     tocEntry.classList.add('highlight-toc');
                     // Expand parent lists to make highlighted item visible
                     let parent = tocEntry.closest('ul');
@@ -766,7 +755,7 @@ html_content += """
 
     function goToNextResult() {
         if (searchResults.length === 0) {
-            console.log("No search results to navigate");
+            console.log("No search results.");
             return;
         }
         
