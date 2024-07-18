@@ -10,10 +10,28 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 10px;
-            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            background-color: #C5C5C5;
+        }
+        #sidebar {
+            width: 250px;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: #f0f0f0;
+            padding: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        #main-content {
+            top: 25px;
+            right: 25px;
+            bottom: 25px;
+            margin-left: 290px;
+            padding: 20px;
+            max-width: 9999px;
         }
         .section {
             background-color: #ffffff;
@@ -21,6 +39,12 @@
             margin-bottom: 10px;
             padding: 15px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .section .section {
+            background-color: #e6f2ff;
+        }
+        .section .section .section {
+            background-color: #fff9e6;
         }
         .article {
             background-color: #ffffff;
@@ -55,18 +79,17 @@
             padding-left: 10px;
             margin-top: 8px;
         }
-        
         .member .subtle-id {
             font-size: 0.7em;
             color: #999;
             font-weight: normal;
             top: 4;
-            left: 10px; /* Adjust as needed */
-            line-height: 0.5; /* Ensure it doesn't add extra space */
+            left: 10px;
+            line-height: 0.5;
         }
         .member p {
-            margin-top: 0; /* Remove top margin */
-            padding-top: 0em; /* Add padding to make room for the ID */
+            margin-top: 0;
+            padding-top: 0em;
             margin-bottom: 2px;
         }
         .references {
@@ -142,7 +165,14 @@
             margin-right: 5px;
             vertical-align: super;
         }
-        
+        highlight-toc {
+            background-color: #ffe6b3;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
         #id-toggle-container {
             position: fixed;
             top: 10px;
@@ -151,55 +181,65 @@
             padding: 5px 10px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        #search-container {
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            padding: 0px;
+            margin-bottom: 0px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        #search-input {
+            width: 100%;
+            padding: 0px;
+            font-size: 16px;
+        }
+        #search-results {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        #sidebar > ul {
+            padding-left: 0;
+        }
+        #sidebar li {
+            margin-bottom: 5px;
+        }
+        #sidebar a {
+            text-decoration: none;
+            color: #333;
+        }
+        #sidebar a:hover {
+            text-decoration: underline;
         }
     </style>
-    <script>
-        function toggleOriginalText(button) {
-            var originalText = button.parentElement.nextElementSibling;
-            if (originalText.style.display === "none") {
-                originalText.style.display = "block";
-                button.textContent = "Hide Original";
-            } else {
-                originalText.style.display = "none";
-                button.textContent = "Show Original";
-            }
-        }
-        function scrollToElement(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({behavior: "smooth", block: "start"});
-                element.style.backgroundColor = "#e6f2ff";
-                setTimeout(() => {
-                    element.style.transition = "background-color 1s ease";
-                    element.style.backgroundColor = "";
-                }, 50);
-            }
-        }
-        function toggleCollapse(element) {
-            element.classList.toggle('collapsed');
-            var content = element.nextElementSibling;
-            if (content.style.display === "block" || content.style.display === "") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        }
-        function toggleIDs() {
-            var checkbox = document.getElementById('id-toggle');
-            var subtleIDs = document.getElementsByClassName('subtle-id');
-            for (var i = 0; i < subtleIDs.length; i++) {
-                subtleIDs[i].style.display = checkbox.checked ? 'none' : 'inline';
-            }
-        }
-    </script>
 </head>
 <body>
-    <div id="id-toggle-container">
-        <label for="id-toggle">
-            <input type="checkbox" id="id-toggle" onchange="toggleIDs()"> Hide IDs
-        </label>
+    <div id="sidebar">
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <div id="search-results"></div>
+        </div>
+        <div>
+            <h2>Table of Contents</h2><ul><li><a href='#0' onclick='scrollToElement("0"); return false;'>0 ALGEMEEN.</a><ul><li><a href='#0.1' onclick='scrollToElement("0.1"); return false;'>0.1 Doel.</a></li><li><a href='#0.2' onclick='scrollToElement("0.2"); return false;'>0.2 Toepassingsgebied.</a></li><li><a href='#0.3' onclick='scrollToElement("0.3"); return false;'>0.3 Platen</a></li></ul></li><li><a href='#1' onclick='scrollToElement("1"); return false;'>1 INPLANTING EN TOEGANGSWEGEN.</a><ul><li><a href='#1.1' onclick='scrollToElement("1.1"); return false;'>1.1 Bereikbaarheid en opstelmogelijkheden brandweer</a></li><li><a href='#1.2' onclick='scrollToElement("1.2"); return false;'>1.2 Bijgebouwen</a></li><li><a href='#1.3' onclick='scrollToElement("1.3"); return false;'>1.3 Horizontale afstand tussen gebouwen</a></li></ul></li><li><a href='#2' onclick='scrollToElement("2"); return false;'>2 COMPARTIMENTERING EN EVACUATIE.</a><ul><li><a href='#2.1' onclick='scrollToElement("2.1"); return false;'>2.1 Grootte van de compartimenten</a></li><li><a href='#2.2' onclick='scrollToElement("2.2"); return false;'>2.2 Evacuatie van de compartimenten.</a></li></ul></li><li><a href='#3' onclick='scrollToElement("3"); return false;'>3 </a><ul><li><a href='#3.1' onclick='scrollToElement("3.1"); return false;'>3.1 </a></li><li><a href='#3.2' onclick='scrollToElement("3.2"); return false;'>3.2 </a></li><li><a href='#3.3' onclick='scrollToElement("3.3"); return false;'>3.3 </a></li><li><a href='#3.4' onclick='scrollToElement("3.4"); return false;'>3.4 </a></li><li><a href='#3.5' onclick='scrollToElement("3.5"); return false;'>3.5 </a></li></ul></li><li><a href='#4' onclick='scrollToElement("4"); return false;'>4 </a><ul><li><a href='#4.1' onclick='scrollToElement("4.1"); return false;'>4.1 </a></li><li><a href='#4.2' onclick='scrollToElement("4.2"); return false;'>4.2 </a></li><li><a href='#4.3' onclick='scrollToElement("4.3"); return false;'>4.3 </a></li><li><a href='#4.4' onclick='scrollToElement("4.4"); return false;'>4.4 </a></li><li><a href='#4.5' onclick='scrollToElement("4.5"); return false;'>4.5 </a></li></ul></li><li><a href='#5' onclick='scrollToElement("5"); return false;'>5 </a><ul><li><a href='#5.1' onclick='scrollToElement("5.1"); return false;'>5.1 </a></li><li><a href='#5.2' onclick='scrollToElement("5.2"); return false;'>5.2 </a></li><li><a href='#5.3' onclick='scrollToElement("5.3"); return false;'>5.3 </a></li><li><a href='#5.4' onclick='scrollToElement("5.4"); return false;'>5.4 </a></li><li><a href='#5.5' onclick='scrollToElement("5.5"); return false;'>5.5 </a></li></ul></li><li><a href='#6' onclick='scrollToElement("6"); return false;'>6 </a><ul><li><a href='#6.1' onclick='scrollToElement("6.1"); return false;'>6.1 </a></li><li><a href='#6.2' onclick='scrollToElement("6.2"); return false;'>6.2 </a></li><li><a href='#6.3' onclick='scrollToElement("6.3"); return false;'>6.3 </a></li><li><a href='#6.4' onclick='scrollToElement("6.4"); return false;'>6.4 </a></li><li><a href='#6.5' onclick='scrollToElement("6.5"); return false;'>6.5 </a></li><li><a href='#6.6' onclick='scrollToElement("6.6"); return false;'>6.6 </a></li><li><a href='#6.7' onclick='scrollToElement("6.7"); return false;'>6.7 </a></li><li><a href='#6.8' onclick='scrollToElement("6.8"); return false;'>6.8 </a></li></ul></li></ul>
+        </div>
     </div>
-    <h1>Koninklijk Besluit Brandveiligheid</h1>
+    <div id="main-content">
+        <div id="id-toggle-container">
+            <label for="id-toggle">
+                <input type="checkbox" id="id-toggle" onchange="toggleIDs()"> Hide IDs
+            </label>
+        </div>
+        <h1 style="color: black;">Koninklijk Besluit Brandveiligheid</h1>
 
         <div class='section'>
             <h1 id='0' class='collapsible' onclick='toggleCollapse(this)'>
@@ -226,20 +266,17 @@
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.1.1.1</span>
         <p>- het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.1.1.2</span>
         <p>- de veiligheid van de aanwezigen te waarborgen;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.1.1.3</span>
         <p>- preventief het ingrijpen van de brandweer te vergemakkelijken.</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 </div></div>
 </div></div>
 
@@ -266,20 +303,17 @@
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.2.1.1.1</span>
         <p>1. de lage gebouwen;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.2.1.1.2</span>
         <p>2. de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.2.1.1.3</span>
         <p>3. de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden: - in het gebouw hoofdzakelijk niet-industriële activiteiten plaats vinden en de totale oppervlakte van de lokalen met industriële activiteit kleiner is dan de overblijvende oppervlakte van het gebouw; - de industriële activiteiten in deze lokalen de niet-industriële activiteiten in hetzelfde compartiment ondersteunen; - er geen lokalen met nachtbezetting zijn in het compartiment waarin er industriële activiteiten plaatsvinden.</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 </div></div>
 </div></div>
 
@@ -300,20 +334,17 @@
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.2.2.1.1</span>
         <p>1. de industriegebouwen;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.2.2.1.2</span>
         <p>2. de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner dan of gelijk aan 100 m²;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 0.2.2.1.3</span>
         <p>3. de eengezinswoningen.</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 </div></div>
 </div></div>
 </div></div>
@@ -355,8 +386,7 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.1.1</span>
         <p>De toegangswegen bedoeld in punt 1.1 worden bepaald in akkoord met de brandweer, volgens de volgende leidraad.</p>
-    </div>
-    </div></div>
+    </div></div></div>
 
         <div class='section'>
             <h2 id='1.1' class='collapsible' onclick='toggleCollapse(this)'>
@@ -376,8 +406,7 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.1.1.1</span>
         <p>Voor de gebouwen met één bouwlaag moeten de voertuigen van de brandweer ten minste tot op 60 m van een gevel van het gebouw kunnen naderen.</p>
-    </div>
-    </div></div>
+    </div></div></div>
 <div class='article' id='A1.1.2'>
     <div class="toggle-button">
         <button onclick="toggleOriginalText(this)">Show Original</button>
@@ -391,8 +420,7 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.1.2.1</span>
         <p>Voor de gebouwen met meer dan één bouwlaag moeten de voertuigen van de brandweer ten minste in één punt een gevel kunnen bereiken die op herkenbare plaatsen toegang geeft tot iedere bouwlaag.</p>
-    </div>
-    </div></div>
+    </div></div></div>
 <div class='article' id='A1.1.3'>
     <div class="toggle-button">
         <button onclick="toggleOriginalText(this)">Show Original</button>
@@ -402,25 +430,22 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     </div>
     <div class="article-content">
         <span style="font-size: 26 px; color: grey" class="subtle-id">Article A1.1.3</span>
-    <div class='references'><a href='https://www.google.com/search?q=NBN%20B%2003-101' target='_blank' class='reference-button external'>☆ NBN B 03-101</a></div><p>Daartoe moeten de voertuigen beschikken over een toegangsmogelijkheid en een opstelplaats: </p>
+    <p>Daartoe moeten de voertuigen beschikken over een toegangsmogelijkheid en een opstelplaats: </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.1.3.1</span>
         <p>a) ofwel op de berijdbare rijweg van de openbare weg;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.1.3.2</span>
         <p>b) ofwel op een bijzondere toegangsweg vanaf de berijdbare rijweg van de openbare weg en die de volgende karakteristieken vertoont: - minimale vrije breedte: 4 m; - minimale draaicirkel met draaistraal 11 m (aan de binnenkant) en 15 m (aan de buitenkant); - minimale vrije hoogte: 4 m; - maximale helling: 6%; - draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting van 13t er kunnen rijden en stilstaan, zelfs wanneer ze het terrein vervormen.</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.1.3.3</span>
         <p>Voor de kunstwerken welke zich op de toegangswegen bevinden, richt men zich naar NBN B 03-101.</p>
-    </div>
-    <p> </p>
+    <div class='references'><a href='https://www.google.com/search?q=NBN%20B%2003-101' target='_blank' class='reference-button external'>☆ NBN B 03-101</a></div></div><p> </p>
 </div></div>
 </div></div>
 
@@ -442,8 +467,7 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.2.1.1</span>
         <p>Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen zijn enkel toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers, noch de actie van de brandweer in het gedrang komen.</p>
-    </div>
-    </div></div>
+    </div></div></div>
 </div></div>
 
         <div class='section'>
@@ -465,20 +489,17 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.3.1.1</span>
         <p>a) ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de afstand (in m) tussen de geveldelen die niet minstens EI 60 of REI 60 hebben, ten minste: (h + 10)/2.5 cos(α) voor 0° ≤ α ≤ 90° 0 voor 90° &lt; α ≤ 180° waarbij α de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.1).</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.3.1.2</span>
         <p>Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is een horizontale afstand tussen de gebouwen van 6 m voldoende.</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.3.1.3</span>
         <p>b) ofwel mag de straling van een brand van een gebouw op een tegenoverstaand gebouw, en omgekeerd, niet meer dan 15 kW/m² bedragen.</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 <div class='figure' id='F2.1'><img src='figures/F2_1.jpg' alt='figure F2.1'>
 <p>Figure F2.1</p></div>
 </div></div>
@@ -496,14 +517,12 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.3.2.1</span>
         <p>De wanden die aangrenzende gebouwen scheiden hebben EI 60, of REI 60 wanneer ze dragend zijn.</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.3.2.2</span>
         <p>In deze wanden mag een verbinding tussen deze gebouwen bestaan via een deur EI1 30, zelfsluitend of zelfsluitend in geval van brand.</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 </div></div>
 <div class='article' id='A1.3.3'>
     <div class="toggle-button">
@@ -518,8 +537,7 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 1.3.3.1</span>
         <p>De voorwaarde van de afstand tussen een laag gebouw en een tegenoverstaand gebouw geldt niet voor gebouwen die van elkaar gescheiden worden door bestaande straten, wegen,... behorende tot het openbaar domein.</p>
-    </div>
-    </div></div>
+    </div></div></div>
 </div></div>
 </div></div>
 
@@ -548,20 +566,17 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.1.1</span>
         <p>Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m², met uitzondering van de parkings (zie 5.2).</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.1.2</span>
         <p>De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag 3500 m² bedragen.</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.1.3</span>
         <p>De lengte van dit compartiment bedraagt niet meer dan 90 m.</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 </div></div>
 <div class='article' id='A2.1.2'>
     <div class="toggle-button">
@@ -576,8 +591,7 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.2.1</span>
         <p>De maximale oppervlakte van een compartiment mag, respectievelijk, groter dan ofwel 2500 m², ofwel 3500 m² bedragen indien het compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie.</p>
-    </div>
-    </div></div>
+    </div></div></div>
 <div class='article' id='A2.1.3'>
     <div class="toggle-button">
         <button onclick="toggleOriginalText(this)">Show Original</button>
@@ -591,8 +605,7 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.3.1</span>
         <p>De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de grootte van het compartiment respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden.</p>
-    </div>
-    </div></div>
+    </div></div></div>
 <div class='article' id='A2.1.4'>
     <div class="toggle-button">
         <button onclick="toggleOriginalText(this)">Show Original</button>
@@ -602,37 +615,32 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     </div>
     <div class="article-content">
         <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.1.4</span>
-    <div class='references'><button class='reference-button' onclick='scrollToElement("5.2")'>→ 5.2</button></div><p></p>
+    <p></p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.4.1</span>
         <p>De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag.</p>
-    </div>
-    <p> De volgende uitzonderingen zijn nochtans toegestaan: </p>
+    </div><p> De volgende uitzonderingen zijn nochtans toegestaan: </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.4.2</span>
         <p>a) de parking met bouwlagen (zie 5.2);</p>
-    </div>
-    <p> </p>
+    <div class='references'><button class='reference-button' onclick='scrollToElement("5.2")'>→ 5.2</button></div></div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.4.3</span>
         <p>b) een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een binnenverbindingstrap (duplex), indien de gecumuleerde oppervlakte van die bouwlagen niet groter is dan 2500 m²;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.4.4</span>
         <p>c) de hoogte van een compartiment mag zich uitstrekken over drie boven elkaar gelegen bouwlagen met een binnenverbindingstrap (triplex), voor zover de som van hun gecumuleerde oppervlakte de 300 m² niet overschrijdt, en dat dit compartiment is uitgerust met een automatische branddetectie van het type totale bewaking die automatisch een aanduiding van de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico&#x27;s;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.4.5</span>
         <p>d) de hoogte van een compartiment mag zich uitstrekken over verscheidene boven elkaar geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1).</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 </div></div>
 <div class='article' id='A2.1.5'>
     <div class="toggle-button">
@@ -648,20 +656,17 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.5.1</span>
         <p>e) de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium) op voorwaarde:</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.5.2</span>
         <p>- dat dit compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie. De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische blusinstallatie en een rook- en warmteafvoerinstallatie;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.1.5.3</span>
         <p>De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaraan de automatische blusinstallatie en rook- en warmteafvoerinstallatie moeten voldoen.</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 </div></div>
 </div></div>
 
@@ -688,20 +693,17 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.1.1.1</span>
         <p>- één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.1.1.2</span>
         <p>- twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.1.1.3</span>
         <p>- 2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt.</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 </div></div>
 <div class='article' id='A2.2.1.2'>
     <div class="toggle-button">
@@ -716,8 +718,7 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.1.2.1</span>
         <p>Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en de configuratie van de lokalen.</p>
-    </div>
-    </div></div>
+    </div></div></div>
 <div class='article' id='A2.2.1.3'>
     <div class="toggle-button">
         <button onclick="toggleOriginalText(this)">Show Original</button>
@@ -731,8 +732,7 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.1.3.1</span>
         <p>Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.</p>
-    </div>
-    </div></div>
+    </div></div></div>
 </div></div>
 
         <div class='subsubsection' id='2.2.2'>
@@ -751,8 +751,7 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.1.1</span>
         <p>De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment.</p>
-    </div>
-    </div></div>
+    </div></div></div>
 <div class='article' id='A2.2.2.2'>
     <div class="toggle-button">
         <button onclick="toggleOriginalText(this)">Show Original</button>
@@ -762,25 +761,22 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     </div>
     <div class="article-content">
         <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.2.2.2</span>
-    <div class='references'><button class='reference-button' onclick='scrollToElement("4.4")'>→ 4.4</button></div><p>De evacuatiewegen leiden ofwel: </p>
+    <p>De evacuatiewegen leiden ofwel: </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.2.1</span>
         <p>- naar buiten;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.2.2</span>
         <p>- naar trappenhuizen;</p>
-    </div>
-    <p> </p>
+    </div><p> </p>
 
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.2.3</span>
         <p>- naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4).</p>
-    </div>
-    <p> </p>
+    <div class='references'><button class='reference-button' onclick='scrollToElement("4.4")'>→ 4.4</button></div></div><p> </p>
 </div></div>
 <div class='article' id='A2.2.2.3'>
     <div class="toggle-button">
@@ -795,8 +791,7 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.3.1</span>
         <p>Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen.</p>
-    </div>
-    </div></div>
+    </div></div></div>
 <div class='article' id='A2.2.2.4'>
     <div class="toggle-button">
         <button onclick="toggleOriginalText(this)">Show Original</button>
@@ -806,12 +801,11 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     </div>
     <div class="article-content">
         <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.2.2.4</span>
-    <div class='references'><button class='reference-button' onclick='scrollToElement("5.2")'>→ 5.2</button></div>
+    
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.4.1</span>
         <p>Voor de parking: zie 5.2.</p>
-    </div>
-    </div></div>
+    <div class='references'><button class='reference-button' onclick='scrollToElement("5.2")'>→ 5.2</button></div></div></div></div>
 <div class='article' id='A2.2.2.5'>
     <div class="toggle-button">
         <button onclick="toggleOriginalText(this)">Show Original</button>
@@ -821,12 +815,11 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
     </div>
     <div class="article-content">
         <span style="font-size: 26 px; color: grey" class="subtle-id">Article A2.2.2.5</span>
-    <div class='references'><button class='reference-button' onclick='scrollToElement("4.4")'>→ 4.4</button></div>
+    
     <div class='member'>
         <span style="font-size: 10px; color: grey"class="subtle-id">Member 2.2.2.5.1</span>
         <p>Op een evacuatieniveau leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een evacuatieweg die beantwoordt aan de voorschriften van 4.4.</p>
-    </div>
-    </div></div>
+    <div class='references'><button class='reference-button' onclick='scrollToElement("4.4")'>→ 4.4</button></div></div></div></div>
 </div></div>
 </div></div>
 </div></div>
@@ -1265,5 +1258,336 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
 </div></div>
 </div></div>
 
+<script>
+    function toggleOriginalText(button) {
+        var originalText = button.parentElement.nextElementSibling;
+        if (originalText.style.display === "none") {
+            originalText.style.display = "block";
+            button.textContent = "Hide Original";
+        } else {
+            originalText.style.display = "none";
+            button.textContent = "Show Original";
+        }
+    }
+    
+    function scrollToElement(id) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({behavior: "smooth", block: "start"});
+            element.style.backgroundColor = "#e6f2ff";
+            setTimeout(() => {
+                element.style.transition = "background-color 1s ease";
+                element.style.backgroundColor = "";
+            }, 50);
+        }
+    }
+    
+    function toggleCollapse(element) {
+        element.classList.toggle('collapsed');
+        var content = element.nextElementSibling;
+        if (content.style.display === "block" || content.style.display === "") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    }
+    
+    function toggleIDs() {
+        var checkbox = document.getElementById('id-toggle');
+        var subtleIDs = document.getElementsByClassName('subtle-id');
+        for (var i = 0; i < subtleIDs.length; i++) {
+            subtleIDs[i].style.display = checkbox.checked ? 'none' : 'inline';
+        }
+    }
+    
+    // Search functionality
+    let searchResults = [];
+    let currentResultIndex = -1;
+
+    function resetSearchState() {
+        searchResults = [];
+        currentResultIndex = -1;
+        clearHighlights();
+        document.getElementById('search-results').innerHTML = '';
+    }
+
+    function performSearch() {
+        resetSearchState();
+        
+        const searchTerm = document.getElementById('search-input').value.toLowerCase();
+        console.log(`Performing search for: "${searchTerm}"`);
+        
+        if (searchTerm.length < 2) {
+            return;
+        }
+        
+        const mainContent = document.getElementById('main-content');
+        searchInNode(mainContent, searchTerm);
+        
+        console.log(`Found ${searchResults.length} results`);
+        
+        if (searchResults.length > 0) {
+            highlightResults();
+            highlightTableOfContents();
+            updateSearchResults();
+        } else {
+            updateSearchResults();
+        }
+    }
+
+    function searchInNode(node, searchTerm) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const parent = node.parentElement;
+            if (parent && isVisible(parent)) {
+                const text = node.textContent.toLowerCase();
+                let index = text.indexOf(searchTerm);
+                while (index !== -1) {
+                    console.log(`Found match in node: "${node.textContent.slice(index, index + searchTerm.length)}"`);
+                    // Store the parent element instead of the text node
+                    searchResults.push({
+                        element: parent,
+                        textContent: node.textContent,
+                        index: index,
+                        length: searchTerm.length
+                    });
+                    index = text.indexOf(searchTerm, index + 1);
+                }
+            }
+        } else if (node.nodeType === Node.ELEMENT_NODE && node.nodeName !== 'SCRIPT') {
+            if (isVisible(node)) {
+                for (let child of node.childNodes) {
+                    searchInNode(child, searchTerm);
+                }
+            }
+        }
+    }
+
+    function clearHighlights() {
+        console.log("Clearing existing highlights");
+        const highlights = document.getElementsByClassName('highlight');
+        console.log(`Found ${highlights.length} highlights to clear`);
+        while (highlights.length > 0) {
+            const parent = highlights[0].parentNode;
+            parent.replaceChild(document.createTextNode(highlights[0].textContent), highlights[0]);
+            parent.normalize();
+        }
+        
+        const highlightedSections = document.getElementsByClassName('highlight-section');
+        console.log(`Found ${highlightedSections.length} highlighted sections to clear`);
+        while (highlightedSections.length > 0) {
+            highlightedSections[0].classList.remove('highlight-section');
+        }
+        
+        const tocHighlights = document.querySelectorAll('#sidebar .highlight-toc');
+        console.log(`Found ${tocHighlights.length} TOC highlights to clear`);
+        tocHighlights.forEach(el => el.classList.remove('highlight-toc'));
+    }
+
+    function highlightResults() {
+        console.log(`Highlighting ${searchResults.length} results`);
+        searchResults.forEach((result, index) => {
+            try {
+                console.log(`Highlighting result ${index + 1}: "${result.textContent.slice(result.index, result.index + result.length)}"`);
+                highlightNode(result);
+                
+                // Highlight the containing section
+                let section = findAncestorByClass(result.element, 'section');
+                if (section) {
+                    console.log(`Highlighting section: ${section.id}`);
+                    section.classList.add('highlight-section');
+                }
+            } catch (e) {
+                console.error(`Error highlighting result ${index + 1}:`, e);
+            }
+        });
+    }
+
+    function highlightNode(result) {
+        const element = result.element;
+        const text = result.textContent;
+        const index = result.index;
+        const length = result.length;
+
+        const beforeText = text.slice(0, index);
+        const highlightedText = text.slice(index, index + length);
+        const afterText = text.slice(index + length);
+
+        const span = document.createElement('span');
+        span.className = 'highlight';
+        span.textContent = highlightedText;
+
+        const fragment = document.createDocumentFragment();
+        fragment.appendChild(document.createTextNode(beforeText));
+        fragment.appendChild(span);
+        fragment.appendChild(document.createTextNode(afterText));
+
+        // Replace all child nodes with our new fragment
+        while (element.firstChild) {
+            element.removeChild(element.firstChild);
+        }
+        element.appendChild(fragment);
+    }
+
+    function updateSearchResultsDisplay() {
+        const resultsContainer = document.getElementById('search-results');
+        if (searchResults.length > 0) {
+            resultsContainer.innerHTML = `Showing result ${currentResultIndex + 1} of ${searchResults.length}. Press Enter for next.`;
+        } else {
+            resultsContainer.innerHTML = 'No results found.';
+        }
+    }
+
+    function updateSearchResults() {
+        const resultsContainer = document.getElementById('search-results');
+        if (searchResults.length > 0) {
+            resultsContainer.innerHTML = `Found ${searchResults.length} results. Press Enter to navigate.`;
+        } else {
+            resultsContainer.innerHTML = 'No results found.';
+        }
+    }
+
+    function isVisible(element) {
+        const isVis = !!(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
+        console.log(`Visibility check for ${element.tagName}: ${isVis}`);
+        return isVis;
+    }
+
+    function findAncestorByClass(element, className) {
+        while (element) {
+            if (element.classList && element.classList.contains(className)) {
+                return element;
+            }
+            element = element.parentElement;
+        }
+        return null;
+    }
+    
+    function highlightTableOfContents() {
+        console.log("Highlighting table of contents");
+        const toc = document.getElementById('sidebar');
+        const highlightedSections = document.getElementsByClassName('highlight-section');
+        
+        // First, remove all existing highlight-toc classes
+        const existingHighlights = toc.querySelectorAll('.highlight-toc');
+        console.log(`Removing ${existingHighlights.length} existing TOC highlights`);
+        existingHighlights.forEach(el => el.classList.remove('highlight-toc'));
+        
+        console.log(`Found ${highlightedSections.length} highlighted sections to process for TOC`);
+        for (let section of highlightedSections) {
+            let currentElement = section;
+            while (currentElement && currentElement.id) {
+                const sectionId = currentElement.id;
+                const tocEntry = toc.querySelector(`a[href="#${sectionId}"]`);
+                if (tocEntry) {
+                    console.log(`Highlighting TOC entry for section: ${sectionId}`);
+                    tocEntry.classList.add('highlight-toc');
+                    // Expand parent lists to make highlighted item visible
+                    let parent = tocEntry.closest('ul');
+                    while (parent && parent !== toc) {
+                        parent.style.display = 'block';
+                        parent = parent.parentElement.closest('ul');
+                    }
+                }
+                currentElement = currentElement.parentElement;
+            }
+        }
+    }
+    
+    function findHighlightElement(node) {
+        if (!node) {
+            console.error("Node is null in findHighlightElement");
+            return null;
+        }
+        if (node.nodeType === Node.TEXT_NODE) {
+            return node.parentElement ? node.parentElement.querySelector('.highlight') : null;
+        }
+        return node.querySelector('.highlight');
+    }
+    
+    function findScrollableParent(node) {
+        if (!node) return document.body;
+        
+        // If node is a text node, start from its parent
+        if (node.nodeType === Node.TEXT_NODE) {
+            node = node.parentElement;
+        }
+        
+        if (!node || node === document.body) return document.body;
+        
+        const overflowY = window.getComputedStyle(node).overflowY;
+        if (overflowY === 'auto' || overflowY === 'scroll') return node;
+        
+        return findScrollableParent(node.parentElement);
+    }
+
+    function getNodePosition(node) {
+        if (!node) return null;
+        
+        // If node is a text node, use its parent for getting the position
+        const element = node.nodeType === Node.TEXT_NODE ? node.parentElement : node;
+        if (!element) return null;
+        
+        const rect = element.getBoundingClientRect();
+        return {
+            top: rect.top + window.pageYOffset,
+            left: rect.left + window.pageXOffset
+        };
+    }
+
+    function goToNextResult() {
+        if (searchResults.length === 0) {
+            console.log("No search results to navigate");
+            return;
+        }
+        
+        currentResultIndex = (currentResultIndex + 1) % searchResults.length;
+        const result = searchResults[currentResultIndex];
+        
+        if (result && result.element) {
+            const scrollableParent = findScrollableParent(result.element);
+            const nodePosition = getNodePosition(result.element);
+            
+            if (nodePosition) {
+                if (scrollableParent === document.body) {
+                    window.scrollTo({
+                        top: nodePosition.top - 100,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    scrollableParent.scrollTo({
+                        top: nodePosition.top - scrollableParent.getBoundingClientRect().top - 100,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                console.log(`Scrolled to result ${currentResultIndex + 1}`);
+                
+                // Temporarily highlight the result
+                const highlightElement = result.element;
+                if (highlightElement) {
+                    const originalBackground = highlightElement.style.backgroundColor;
+                    highlightElement.style.backgroundColor = 'yellow';
+                    setTimeout(() => {
+                        highlightElement.style.backgroundColor = originalBackground;
+                    }, 1000);
+                }
+            } else {
+                console.error("Could not determine position for result", result);
+            }
+        } else {
+            console.error("Invalid result at index", currentResultIndex);
+        }
+        
+        updateSearchResultsDisplay();
+    }
+    
+    // Event listeners
+    document.getElementById('search-input').addEventListener('input', performSearch);
+    document.getElementById('search-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && searchResults.length > 0) {
+            goToNextResult();
+        }
+    });
+</script>
 </body>
 </html>
