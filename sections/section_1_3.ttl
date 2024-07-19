@@ -20,7 +20,6 @@ firebim:Article_1_3_1 a firebim:Article ;
     firebim:hasFigure firebim:Figure_2_1 .
 
 firebim:Member_1_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Om te vermijden dat een brand tussen twee gebouwen kan overslaan:"@nl ;
     firebim:hasMember firebim:Member_1_3_1_1_1, firebim:Member_1_3_1_1_2 .
 
 firebim:Member_1_3_1_1_1 a firebim:Member ;

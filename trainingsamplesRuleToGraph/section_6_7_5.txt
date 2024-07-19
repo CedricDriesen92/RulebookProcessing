@@ -1,0 +1,11 @@
+Section number: 6.7.5
+Section text:
+Een rookklep voldoet aan de volgende voorwaarden:
+            1.   de dichtheid van de klep moet één van volgende kwaliteiten hebben:
+                 a)   in gesloten stand en bij een statisch drukverschil van 500 Pa mag het luchtverlies niet
+                      meer bedragen dan 60 l/s.m²;
+                 b)   klasse 3 volgens de norm NBN EN 1751;
+            2.   de pakking die gebruikt wordt om deze dichtheid te bekomen, moet gedurende 2 h bestand
+                 zijn  tegen  temperaturen  die  schommelen  van              -20°C  tot  100°C,  waarna  de  klep  aan  de
+                 bovenvermelde dichtheidsproef nog voldoet;
+            3.   het sluitingssysteem van de rookklep heeft een positieve veiligheid.

@@ -1,0 +1,112 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_4_2 a firebim:Section ;
+    firebim:hasID "6.4.2" ;
+    firebim:hasOriginalText "Liften bestemd voor de brandweer."@nl ;
+    firebim:hasArticle firebim:Article_6_4_2_1 ;
+    firebim:hasSection firebim:Section_6_4_2_1, firebim:Section_6_4_2_2, firebim:Section_6_4_2_3, 
+        firebim:Section_6_4_2_4, firebim:Section_6_4_2_5, firebim:Section_6_4_2_6, firebim:Section_6_4_2_7 .
+
+firebim:Article_6_4_2_1 a firebim:Article ;
+    firebim:hasID "A6.4.2.1" ;
+    firebim:hasMember firebim:Member_6_4_2_1_1 .
+
+firebim:Member_6_4_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Als het gebouw uitgerust is met een of meer liften bestemd voor de brandweer, moet deze
+voldoen aan de volgende voorschriften bovenop de voorschriften opgenomen in punt 6.1."""@nl .
+
+firebim:Section_6_4_2_1 a firebim:Section ;
+    firebim:hasID "6.4.2.1" ;
+    firebim:hasArticle firebim:Article_6_4_2_1_1 .
+
+firebim:Article_6_4_2_1_1 a firebim:Article ;
+    firebim:hasID "A6.4.2.1.1" ;
+    firebim:hasMember firebim:Member_6_4_2_1_1_1 .
+
+firebim:Member_6_4_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De liften bestemd voor de brandweer en de werking ervan in geval van brand beantwoorden aan
+de voorschriften van de norm NBN EN 81-72."""@nl ;
+    firebim:hasReference firebim:Reference_NBN_EN_81_72 .
+
+firebim:Reference_NBN_EN_81_72 a firebim:Reference ;
+    firebim:hasID "NBN EN 81-72" .
+
+firebim:Section_6_4_2_2 a firebim:Section ;
+    firebim:hasID "6.4.2.2" ;
+    firebim:hasArticle firebim:Article_6_4_2_2_1 .
+
+firebim:Article_6_4_2_2_1 a firebim:Article ;
+    firebim:hasID "A6.4.2.2.1" ;
+    firebim:hasMember firebim:Member_6_4_2_2_1_1 .
+
+firebim:Member_6_4_2_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Op alle bouwlagen vormen de liftbordessen een sas dat beantwoordt aan de voorschriften van
+punt 6.1.2.1 waarbij de oppervlakte gelijk is aan of groter is dan de oppervlakte van de liftkooi."""@nl .
+
+firebim:Section_6_4_2_3 a firebim:Section ;
+    firebim:hasID "6.4.2.3" ;
+    firebim:hasArticle firebim:Article_6_4_2_3_1 .
+
+firebim:Article_6_4_2_3_1 a firebim:Article ;
+    firebim:hasID "A6.4.2.3.1" ;
+    firebim:hasMember firebim:Member_6_4_2_3_1_1 .
+
+firebim:Member_6_4_2_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Als er in een liftbatterij geen muur EI 60 is voorzien om de lift bestemd voor de brandweer af te
+scheiden van de andere liften in een dezelfde schacht, dan moeten alle liften en hun elektrische
+uitrusting dezelfde bescherming tegen brand hebben als de lift bestemd voor de brandweer."""@nl .
+
+firebim:Section_6_4_2_4 a firebim:Section ;
+    firebim:hasID "6.4.2.4" ;
+    firebim:hasArticle firebim:Article_6_4_2_4_1 .
+
+firebim:Article_6_4_2_4_1 a firebim:Article ;
+    firebim:hasID "A6.4.2.4.1" ;
+    firebim:hasMember firebim:Member_6_4_2_4_1_1 .
+
+firebim:Member_6_4_2_4_1_1 a firebim:Member ;
+    firebim:hasOriginalText "De minimale afmetingen van de liftkooien zijn 1,1 m (breedte) x 2,1 m (diepte)."@nl .
+
+firebim:Section_6_4_2_5 a firebim:Section ;
+    firebim:hasID "6.4.2.5" ;
+    firebim:hasArticle firebim:Article_6_4_2_5_1 .
+
+firebim:Article_6_4_2_5_1 a firebim:Article ;
+    firebim:hasID "A6.4.2.5.1" ;
+    firebim:hasMember firebim:Member_6_4_2_5_1_1 .
+
+firebim:Member_6_4_2_5_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De schachtdeuren openen en sluiten automatisch en hebben een nuttige breedte van ten minste
+0,80 m."""@nl .
+
+firebim:Section_6_4_2_6 a firebim:Section ;
+    firebim:hasID "6.4.2.6" ;
+    firebim:hasArticle firebim:Article_6_4_2_6_1 .
+
+firebim:Article_6_4_2_6_1 a firebim:Article ;
+    firebim:hasID "A6.4.2.6.1" ;
+    firebim:hasMember firebim:Member_6_4_2_6_1_1 .
+
+firebim:Member_6_4_2_6_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Op het bordes van het toegangsniveau van de brandweer is een schakelaar met
+"brandweersleutel" voorzien die de brandweer toelaat om de bediening van de lift over te nemen."""@nl .
+
+firebim:Section_6_4_2_7 a firebim:Section ;
+    firebim:hasID "6.4.2.7" ;
+    firebim:hasArticle firebim:Article_6_4_2_7_1 .
+
+firebim:Article_6_4_2_7_1 a firebim:Article ;
+    firebim:hasID "A6.4.2.7.1" ;
+    firebim:hasMember firebim:Member_6_4_2_7_1_1 .
+
+firebim:Member_6_4_2_7_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De lift moet de verst van het toegangsniveau van de brandweer gelegen verdieping kunnen
+bereiken in minder dan 60 seconden na het sluiten van de deuren."""@nl .
+
+firebim:Section_6_4 firebim:hasSection firebim:Section_6_4_2 .

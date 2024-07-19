@@ -1,0 +1,399 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/opm#"
+     xml:base="https://w3id.org/opm"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:dce="http://purl.org/dc/elements/1.1/"
+     xmlns:opm="https://w3id.org/opm#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://w3id.org/opm#">
+        <vann:preferredNamespacePrefix>opm</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri rdf:resource="https://w3id.org/opm#"/>
+        <owl:versionInfo>0.1.0</owl:versionInfo>
+        <owl:versionInfo>May 25th 2018</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status"/>
+    
+
+
+    <!-- https://w3id.org/opm#valueAtState -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/opm#valueAtState">
+        <rdfs:comment xml:lang="en">NB! Deprecated: use schema:value instead. Points to a literal with the value of the property at the given state.</rdfs:comment>
+        <rdfs:comment xml:lang="da">NB! Forældet: brug schema:value i stedet. Peger på en tekststreng med værdien af egenskaben ved den givne tilstand.</rdfs:comment>
+        <rdfs:label xml:lang="en">value at state</rdfs:label>
+        <rdfs:label xml:lang="da">værdi ved tilstand</rdfs:label>
+        <rdfs:domain rdf:resource="https://w3id.org/opm#State"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://w3id.org/seas/evaluation -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/seas/evaluation"/>
+    
+
+
+    <!-- http://w3id.org/seas/hasProperty -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/seas/hasProperty"/>
+    
+
+
+    <!-- https://w3id.org/opm#Assumed -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/opm#Assumed">
+        <rdfs:comment xml:lang="en">An assumption is an unconfirmed property. Assumptions enable designers to move on with the design knowing that the assumed property might change as the project progresses.</rdfs:comment>
+        <rdfs:comment xml:lang="da">En antagelse er en ikke-bekræftet egenskab. Antagelser gør det muligt for designere at fortsætte projekteringen velvidende at den antagede værdi muligvis vil ændres som projektet skrider frem.</rdfs:comment>
+        <rdfs:label xml:lang="da">Antaget</rdfs:label>
+        <rdfs:label xml:lang="en">Assumed</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/opm#Calculation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/opm#Calculation"/>
+    
+
+
+    <!-- https://w3id.org/opm#argumentPaths -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/opm#argumentPaths">
+        <rdfs:domain rdf:resource="https://w3id.org/opm#Calculation"/>
+        <rdfs:comment xml:lang="da">Relation mellem en beregning og en liste (RDF collection) med argument-stier. En argument-sti angives i &apos;triples&apos; og indikerer relationen mellem den Feature of Interest (FoI) til hvilken den udledte egenskab skal tilknyttes og den FoI, som indeholder argumentets egenskab.
+Hvis argumentet eksisterer på FoI&apos;en selv kan denne refereres ved ```?foi xx:argProperty ?arg1```. Stien kan være enhver længde, og et andet eksempel kunne være et argument, som eksisterer på oversystemet af en FoI: ```?foi xx:subSystemOf/xx:argProperty ?arg1```.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship between a calculation and a list (RDF collection) of argument paths. An argument path is given in triples and indicates the relationship between the Feature of Interest (FoI) to which the inferred property will be applied and a FoI on which the argument property exists. 
+If the argument exists on the FoI itself it can be referred by ```?foi xx:argProperty ?arg1```. The path can be any length, and another example could be an argument existing on the super-system of a FoI: ```?foi xx:subSystemOf/xx:argProperty ?arg1```.</rdfs:comment>
+        <rdfs:label xml:lang="da">argument-stier</rdfs:label>
+        <rdfs:label xml:lang="en">arument paths</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/opm#documentation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/opm#documentation">
+        <rdfs:domain rdf:resource="https://w3id.org/opm#State"/>
+        <rdfs:comment xml:lang="da">Relation mellem en bekræftet tilstand og en fil, som indeholder dokumentation. Dette kunne være enten en mail, en skannet dokument eller en digital signatur.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship between a confirmed state and a file holding some documentation. This could be either a mail, a scanned document or a digital signature.</rdfs:comment>
+        <rdfs:label xml:lang="en">documentation</rdfs:label>
+        <rdfs:label xml:lang="da">dokumentation</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/opm#hasProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/opm#hasProperty">
+        <rdfs:subPropertyOf rdf:resource="http://w3id.org/seas/hasProperty"/>
+        <rdfs:range rdf:resource="https://w3id.org/opm#Property"/>
+        <rdfs:comment xml:lang="da">Relation mellem en feature af interesse og en egenskab denne har tilknyttet.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship between a feature of interest and a property it has assigned.</rdfs:comment>
+        <rdfs:label xml:lang="da">har egenskab</rdfs:label>
+        <rdfs:label xml:lang="en">has property</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/opm#hasPropertyRequirement -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/opm#hasPropertyRequirement">
+        <rdfs:range rdf:resource="https://w3id.org/opm#Property"/>
+        <rdfs:comment xml:lang="da">Relation mellem en feature af interesse og et egenskabskrav denne har tilknyttet.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship between a feature of interest and a property requirement it has assigned.</rdfs:comment>
+        <rdfs:label xml:lang="da">har egenskabskrav</rdfs:label>
+        <rdfs:label xml:lang="en">has property requirement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/opm#hasState -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/opm#hasState">
+        <rdfs:subPropertyOf rdf:resource="http://w3id.org/seas/evaluation"/>
+        <rdfs:domain rdf:resource="https://w3id.org/opm#Property"/>
+        <rdfs:range rdf:resource="https://w3id.org/opm#State"/>
+        <rdfs:comment xml:lang="da">Relation mellem en egenskab og en af dennes tilstande.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relationship between a property and one of its states.</rdfs:comment>
+        <rdfs:label xml:lang="da">har tilstand</rdfs:label>
+        <rdfs:label xml:lang="en">has state</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/opm#inferredProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/opm#inferredProperty">
+        <rdfs:domain rdf:resource="https://w3id.org/opm#Calculation"/>
+        <rdfs:range rdf:resource="https://w3id.org/opm#Property"/>
+        <rdfs:comment xml:lang="en">Relationship between a calculation and the property kind it will infer.</rdfs:comment>
+        <rdfs:comment xml:lang="da">relation mellem en beregning og den egenskabstype denne vil udlede.</rdfs:comment>
+        <rdfs:label xml:lang="en">inferred property</rdfs:label>
+        <rdfs:label xml:lang="da">udledt egenskab</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- https://w3id.org/opm#expression -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/opm#expression">
+        <rdfs:domain rdf:resource="https://w3id.org/opm#Calculation"/>
+        <rdfs:comment xml:lang="da">Peger på en tekststreng, som indeholder det (matematiske) udtryk, som skal eksekveres med en beregning. Argumenter i udtrykket er givet ved variabler (fx ?arg1), som svarer til dem der benyttes i argument-stierne.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Points to a literal containing the expression to execute with a calculation. Arguments of the expression are defined with vaiables (ie. ?arg1) corresponding to ones used in the argument paths.</rdfs:comment>
+        <rdfs:label xml:lang="en">expression</rdfs:label>
+        <rdfs:label xml:lang="da">udtryk</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/opm#unit -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/opm#unit">
+        <rdfs:domain rdf:resource="https://w3id.org/opm#Calculation"/>
+        <rdfs:comment xml:lang="en">NB! Deprecated: use any preferred unit system (QUDT, OM, schema, CDT UCUM etc.). Points to a literal containing the unit of the inferred property. The unit is applied as a concatenation with the calculation result. If the result is 40 and the unit is &apos;°C&apos;^^cdt:temperature the result will be inferred as &apos;40 °C&apos;^^cdt:temperature.</rdfs:comment>
+        <rdfs:comment xml:lang="da">NB! Forældet: brug et hvert foretrukket enhedssystem (QUDT, OM, schema, CDT UCUM etc.). Peger på en tekststreng, som indeholder enheden for den udledte egenskab. Enheden tilføjes som en sammenkædning med beregningsresultatet. Hvis resultatet er 40 og enheden er &apos;°C&apos;^^cdt:temperature bliver resultatet udledt som &apos;40 °C&apos;^^cdt:temperature.</rdfs:comment>
+        <rdfs:label xml:lang="da">enhed</rdfs:label>
+        <rdfs:label xml:lang="en">unit</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+    <owl:Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
+    
+
+
+    <!-- http://w3id.org/seas/Evaluation -->
+
+    <owl:Class rdf:about="http://w3id.org/seas/Evaluation"/>
+    
+
+
+    <!-- http://w3id.org/seas/Property -->
+
+    <owl:Class rdf:about="http://w3id.org/seas/Property">
+        <owl:equivalentClass rdf:resource="https://w3id.org/opm#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- https://w3id.org/opm#Assumption -->
+
+    <owl:Class rdf:about="https://w3id.org/opm#Assumption">
+        <owl:disjointWith rdf:resource="https://w3id.org/opm#Confirmed"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/opm#Calculation -->
+
+    <owl:Class rdf:about="https://w3id.org/opm#Calculation"/>
+    
+
+
+    <!-- https://w3id.org/opm#Confirmed -->
+
+    <owl:Class rdf:about="https://w3id.org/opm#Confirmed">
+        <rdfs:comment xml:lang="en">A confirmed property is a property that has been validated by an agent who is authorized to do so. A confirmed property should not be changed.</rdfs:comment>
+        <rdfs:comment xml:lang="da">En bekræftet egenskab er en egenskab, der er blevet valideret af en agent, som har autoritet dertil. En bekræftet egenskab bør ikke ændres.</rdfs:comment>
+        <rdfs:label xml:lang="da">Bekræftet</rdfs:label>
+        <rdfs:label xml:lang="en">Confirmed</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/opm#CurrentState -->
+
+    <owl:Class rdf:about="https://w3id.org/opm#CurrentState">
+        <rdfs:comment xml:lang="da">Egenskabsstadet som senest blev defineret klassificeres som opm:CurrentState.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The property state that was most recently defined is an instance of opm:CurrentState.</rdfs:comment>
+        <rdfs:label xml:lang="da">Aktuel tilstand</rdfs:label>
+        <rdfs:label xml:lang="en">Current State</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/opm#Deleted -->
+
+    <owl:Class rdf:about="https://w3id.org/opm#Deleted">
+        <rdfs:comment xml:lang="en">A deleted property is a property that is no longer part of the design. The class enables a user to delete a property without removing it from the dataset.</rdfs:comment>
+        <rdfs:comment xml:lang="da">En slettet egenskab er en egenskab, som ikke længere er en del af designet. Klassen gør det muligt for en bruger at slette en egenskab uden den slettes fra datasættet.</rdfs:comment>
+        <rdfs:label xml:lang="en">Deleted</rdfs:label>
+        <rdfs:label xml:lang="da">Slettet</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/opm#OutdatedState -->
+
+    <owl:Class rdf:about="https://w3id.org/opm#OutdatedState">
+        <rdfs:comment xml:lang="en">Any property state that has been substituted with a new one is an instance of opm:OutdatedState.</rdfs:comment>
+        <rdfs:comment xml:lang="da">Enhver egenskabstilstand som er blevet erstattet af en ny klassificeres som opm:OutdatedState.</rdfs:comment>
+        <rdfs:label xml:lang="da">Forældet tilstand</rdfs:label>
+        <rdfs:label xml:lang="en">Outdated State</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/opm#Property -->
+
+    <owl:Class rdf:about="https://w3id.org/opm#Property">
+        <owl:disjointWith rdf:resource="https://w3id.org/opm#State"/>
+        <rdfs:label xml:lang="da">Egenskab</rdfs:label>
+        <rdfs:label xml:lang="en">Property</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/opm#State -->
+
+    <owl:Class rdf:about="https://w3id.org/opm#State">
+        <rdfs:subClassOf rdf:resource="http://w3id.org/seas/Evaluation"/>
+        <rdfs:comment xml:lang="en">A state is an evaluation holding the value + metadata about a property that was true for the given time.
+Metadata must as a minimum be the time of generation stated by prov:generatedAtTime, but preferably also a prov:wasAttributedTo reference to the agent who created the state.
+Calculated properties are also stored as states as these change when an expression argument changes. Calculations must have an opm:expression and a prov:wasDerivedFrom assigned to them. prov:wasDerivedFrom is stored as a rdf:Seq pointing to the property states that were used for the calculation.</rdfs:comment>
+        <rdfs:comment xml:lang="da">Et stade er en evaluering, der indeholder værdien + metadata omkring en egenskab, som var gældende ved et givent tidspunkt.
+Metadata skal som minimum bestå af oprettelsestidspunktet givet ved prov:generatedAtTime, men helst også af en prov:wasAttributedTo reference til den agent som oprettede tilstanden.
+Beregnede egenskaber lagres også som tilstande da disse ændres når en beregningsparameter ændres. Beregninger skal have en opm:expression og en prov:wasDerivedFrom tilknyttet. prov:wasDerivedFrom lagres som en rdf:Seq, som peger på egenskabstilstandene som blev brugt til beregningen.</rdfs:comment>
+        <rdfs:label xml:lang="da">Stade</rdfs:label>
+        <rdfs:label xml:lang="en">State</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/opm# -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/opm#">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Pieter Pauwels</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Maxime Lefrançois</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Mads Holten Rasmussen</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Mathias Bonduel</foaf:name>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="https://w3id.org/opm#Calculation">
+        <rdfs:comment xml:lang="en">A calculation holds the necessary information to infer derived properties.</rdfs:comment>
+        <rdfs:comment xml:lang="da">En beregning indeholder den nødvendige information til at inferere en afledt egenskab.</rdfs:comment>
+        <rdfs:label xml:lang="da">Beregning</rdfs:label>
+        <rdfs:label xml:lang="en">Calculation</rdfs:label>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

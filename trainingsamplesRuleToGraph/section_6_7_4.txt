@@ -1,0 +1,55 @@
+Section number: 6.7.4
+Section text:
+6.7.4.1     Bediening
+                                                                                                                         71/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                  (v3.0)
+                                                                                   Federale Overheidsdienst Binnenlandse Zaken
+                                                                                Algemene Directie Civiele Veiligheid – Brandpreventie
+                                              BIJLAGE 2/1: LAGE GEBOUWEN
+            Men onderscheidt twee bedieningstypes:
+            Type A :    de klep wordt automatisch gesloten wanneer de temperatuur van de doorstromende
+                        lucht in het kanaal een grenswaarde overschrijdt.
+            Type B :    klep type A die bovendien kan gesloten worden door een afstandsbediening door middel
+                        van een systeem met positieve veiligheid.
+            Het sluiten geschiedt door een systeem dat geen externe energie vraagt                  .
+            Indien een algemene branddetectie-installatie verplicht is, zijn de brandwerende kleppen op de
+            grenzen van de compartimenten van het bedieningstype B.
+            In geval van detectie worden de kleppen van het geteisterde compartiment automatisch gesloten.
+            Onder “grenzen van de compartimenten” wordt bedoeld:
+            -    de scheidingswanden naar andere compartimenten;
+            -    de wanden van leidingenkokers die doorheen het compartiment gaan;
+            -    de wanden tussen het compartiment en de trappenhuizen.
+6.7.4.2     Prestaties van de klep
+            De brandwerende klep geplaatst in de doorgangen van wanden heeft volgende prestaties:
+              Brandweerstand van de wand                 Brandweerstand van de klep
+              EI 60                                      EI 60 (ho i ↔ o ) S
+                                                         EI 60 (ve i ↔ o) S
+              EI 30                                      EI 30 (ho i ↔ o ) S
+                                                         EI 30 (ve i ↔ o) S
+            Tabel 2.4 – Brandwerende kleppen.
+            Bij gebrek aan CE-markering voldoet de klep aan de volgende eisen:
+            a)   na 250 opeenvolgende cyclussen van openen en sluiten mag een klep van dezelfde fabricage
+                 nergens vervormd of beschadigd zijn;
+            b)   de klep weerstaat aan de corrosieve atmosfeer waarin ze geplaatst is;
+            c)   geen enkele periodieke smering is vereist voor de goede werking van de klep;
+            d)   de klepkast bevat aan de bovenzijde een klepstandaanwijzer en een onuitwisbare pijl die de
+                 richting van de luchtstroom aanduidt. Een kenplaat vermeldt de binnenafmetingen van de
+                 klep, de naam van de constructeur, het fabricagenummer en fabricagejaar; ze draagt tevens
+                 een goed zichtbaar en onuitwisbaar merkteken dat een brandbeveiligingstoestel aanduidt;
+            e)   na werking van de klep moet ze terug kunnen uitgeschakeld worden.
+6.7.4.3     Plaatsing van de klep
+            De  klep  wordt      zodanig  in  de  wand  bevestigd  en  vastgezet  dat  de  stabiliteit  van  de  klep
+            gewaarborgd is, onafhankelijk van de twee aansluitkanalen, zelfs indien één van de twee kanalen
+            verdwijnt.
+            Voor het nazicht en onderhoud van de klep wordt een gemakkelijk bereikbaar                       inspectiedeurtje op
+            de klepkast of op de koker in de onmiddellijke nabijheid van de klep geplaatst. Dit deurtje heeft
+            dezelfde brandweerstand als vereist voor het kanaal.
+            Om de lokalisatie van de brandwerende klep te vergemakkelijken wordt een goed zichtb                            aar en
+            onuitwisbaar merkteken aangebracht dat een brandbeveiligingstoestel aanduidt samen met de
+                                                                                                                            72/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                     (v3.0)
+                                                                                    Federale Overheidsdienst Binnenlandse Zaken
+                                                                                Algemene Directie Civiele Veiligheid – Brandpreventie
+                                               BIJLAGE 2/1: LAGE GEBOUWEN
+            woorden  “brandwerende  klep”.  Dit  merkteken  wordt  op  het  inspectiedeurtje  of  in  het  lokaal
+            loodrecht onder de klep geplaatst.

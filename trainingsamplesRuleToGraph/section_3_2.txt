@@ -1,9 +1,22 @@
-3.2 Structurele elementen.   
-De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals weergegeven in tabel 2.1, 
-waarin Ei het laagst gelegen evacuatieniveau voorstelt.     
-
-Structurele elementen van het dak   Overige structurele elementen  Boven de vloer van Ei Eén bouwlaag  Meerdere bouwlagen    
-R 30 (*)  R 30 (*)  R 30  R 60 Onder Ei, met inbegrip van de vloer van Ei  Niet van toepassing   R 60  
-Tabel 2.1 - 
-Brandweerstand van structurele elementen.  
-(*) Geen eisen voor de structurele elementen van het dak indien het aan de binnenkant beschermd is door middel van een bouwelement EI 30.  
+Section number: 3.2
+Section text:
+De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals
+            weergegeven in tabel 2.1, waarin Ei het laagst gelegen evacuatieniveau voorstelt.
+                                                                                                                            48/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                     (v3.0)
+                                                                                    Federale Overheidsdienst Binnenlandse Zaken
+                                                                                Algemene Directie Civiele Veiligheid – Brandpreventie
+                                               BIJLAGE 2/1: LAGE GEBOUWEN
+                                                      Structurele                Overige
+                                                      elementen van het          structurele
+                                                      dak                        elementen
+              Boven de vloer van Ei
+                                 Eén bouwlaag         R 30 (*)                   R 30
+                         Meerdere bouwlagen           R 30 (*)                   R 60
+              Onder E    ,
+                        i                             Niet van                   R 60
+              met inbegrip van de vloer van           toepassing
+              Ei
+            Tabel 2.1 - Brandweerstand van structurele elementen.
+            (*)  Geen  eisen  voor  de  structurele  elementen  van  het  dak  indien  het  aan  de  binnenkant
+                 beschermd is door middel van een bouwelement EI 30.

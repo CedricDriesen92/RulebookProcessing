@@ -1,3 +1,11 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
 firebim:Section_1_1 a firebim:Section ;
     firebim:hasID "1.1" ;
     firebim:hasOriginalText "Bereikbaarheid en opstelmogelijkheden brandweer"@nl ;
@@ -31,19 +39,19 @@ firebim:Member_1_1_1_3_2 a firebim:Member ;
     firebim:hasMember firebim:Member_1_1_1_3_2_1, firebim:Member_1_1_1_3_2_2, firebim:Member_1_1_1_3_2_3, firebim:Member_1_1_1_3_2_4, firebim:Member_1_1_1_3_2_5 .
 
 firebim:Member_1_1_1_3_2_1 a firebim:Member ;
-    firebim:hasOriginalText "-    minimale vrije breedte: 4 m;"@nl .
+    firebim:hasOriginalText "minimale vrije breedte: 4 m;"@nl .
 
 firebim:Member_1_1_1_3_2_2 a firebim:Member ;
-    firebim:hasOriginalText "-    minimale  draaicirkel  met  draaistraal  11 m  (aan  de  binnenkant)  en  15 m  (aan  de  buitenkant);"@nl .
+    firebim:hasOriginalText "minimale  draaicirkel  met  draaistraal  11 m  (aan  de  binnenkant)  en  15 m  (aan  de  buitenkant);"@nl .
 
 firebim:Member_1_1_1_3_2_3 a firebim:Member ;
-    firebim:hasOriginalText "-    minimale vrije hoogte: 4 m;"@nl .
+    firebim:hasOriginalText "minimale vrije hoogte: 4 m;"@nl .
 
 firebim:Member_1_1_1_3_2_4 a firebim:Member ;
-    firebim:hasOriginalText "-    maximale helling: 6%;"@nl .
+    firebim:hasOriginalText "maximale helling: 6%;"@nl .
 
 firebim:Member_1_1_1_3_2_5 a firebim:Member ;
-    firebim:hasOriginalText """-    draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting
+    firebim:hasOriginalText """draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting
           van 13t er kunnen rijden en stilstaan, zelfs wanneer ze het terrein vervormen."""@nl .
 
 firebim:Member_1_1_1_3_3 a firebim:Member ;

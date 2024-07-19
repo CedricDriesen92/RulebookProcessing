@@ -1,0 +1,29 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_7_6 a firebim:Section ;
+    firebim:hasID "6.7.6" ;
+    firebim:hasOriginalText "Bediening bij brand van de aëraulische installaties"@nl ;
+    firebim:hasArticle firebim:Article_6_7_6_1 .
+
+firebim:Section_6_7 firebim:hasSection firebim:Section_6_7_6 .
+
+firebim:Article_6_7_6_1 a firebim:Article ;
+    firebim:hasID "A6.7.6.1" ;
+    firebim:hasMember firebim:Member_6_7_6_1_1, firebim:Member_6_7_6_1_2 .
+
+firebim:Member_6_7_6_1_1 a firebim:Member ;
+    firebim:hasOriginalText """In de zones van het gebouw, die uitgerust zijn met een branddetectie-installatie, worden de
+luchtbehandelingsgroepen die enkel het geteisterde compartiment bedienen, stilgelegd bij detectie
+van brand."""@nl .
+
+firebim:Member_6_7_6_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De plaatsing van een centraal brandbedieningsbord om bepaalde elementen uit de aëraulische
+installaties te bedienen, kan in bijzondere gevallen door de bevoegde brandweerdienst opgelegd
+worden. In dit geval wordt dit bord geplaatst op een punt dat gemakkelijk bereikbaar is voor de
+brandweer en dat gelegen is op het gebruikelijke toegangsniveau."""@nl .

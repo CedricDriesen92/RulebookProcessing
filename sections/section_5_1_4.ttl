@@ -11,8 +11,6 @@ firebim:Section_5_1_4 a firebim:Section ;
     firebim:hasOriginalText "Huisvuilafvoer."@nl ;
     firebim:hasSection firebim:Section_5_1_4_1, firebim:Section_5_1_4_2 .
 
-firebim:Section_5_1 firebim:hasSection firebim:Section_5_1_4 .
-
 firebim:Section_5_1_4_1 a firebim:Section ;
     firebim:hasID "5.1.4.1" ;
     firebim:hasOriginalText "Stortkokers zijn verboden."@nl ;
@@ -20,6 +18,7 @@ firebim:Section_5_1_4_1 a firebim:Section ;
 
 firebim:Article_5_1_4_1_1 a firebim:Article ;
     firebim:hasID "A5.1.4.1.1" ;
+    firebim:hasOriginalText "Stortkokers zijn verboden."@nl ;
     firebim:hasMember firebim:Member_5_1_4_1_1_1 .
 
 firebim:Member_5_1_4_1_1_1 a firebim:Member ;
@@ -42,3 +41,5 @@ firebim:Member_5_1_4_2_1_1 a firebim:Member ;
 
 firebim:Member_5_1_4_2_1_2 a firebim:Member ;
     firebim:hasOriginalText "Het lokaal is toegankelijk via een zelfsluitende deur EI1 30."@nl .
+
+firebim:Section_5_1 firebim:hasSection firebim:Section_5_1_4 .

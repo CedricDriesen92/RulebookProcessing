@@ -1,0 +1,7 @@
+Section number: 6.5.3
+Section text:
+De stroomkringen waarvan sprake in 6.5.2 moeten kunnen gevoed worden door één of meer
+            autonome stroombronnen; het vermogen van die bronnen moet voldoende zijn om gelijktijdig alle
+            aan die stroomkringen aangesloten installaties te voeden.
+            Zodra de normale stroom uitvalt, verzekeren de autonome bronnen automatisch en binnen één
+            minuut, de werking gedurende één uur van de bovenvermelde installaties.

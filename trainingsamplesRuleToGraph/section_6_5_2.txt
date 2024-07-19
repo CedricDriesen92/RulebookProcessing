@@ -1,0 +1,23 @@
+Section number: 6.5.2
+Section text:
+moeten  blijven,  worden  zodanig  geplaatst  dat  de  risico’s  van  algehele  buitendienststelling
+            gespreid zijn.
+            Op hun tracé tot aan het compartiment waar de installatie zich bevindt, hebben de                            elektrische
+            leidingen de volgende brandweerstand:
+            a)   ofwel een intrinsieke brandweerstand die minimaal
+                 -    PH 60 bedraagt volgens NBN EN 50200 voor leidingen waarvan de buitendiameter kleiner
+                      is dan of gelijk aan 20 mm en waarvan de doorsnede van de geleiders kleiner is dan of
+                      gelijk aan 2,5 mm²;
+                 -    Rf 1 h   bedraagt   volgens   add.   3   van   NBN   713-020   voor   leidingen   waarvan   de
+                      buitendiameter groter is dan 20 mm of waarvan de doorsnede van de geleiders groter is
+                      dan 2,5 mm²;
+            b)   ofwel   Rf 1 h,   volgens   add.   3   van   NBN   713-020,             voor   leidingen   zonder   intrinsieke
+                 brandweerstand die in kokers zijn geplaatst.
+            Deze  vereisten  zijn  niet  van  toepassing  indien  de  werking  van  de  installaties  of  toestellen
+            verzekerd blijft zelfs bij het uitvallen van de energievoeding.
+            De bedoelde installaties of toestellen zijn:
+            a)   de veiligheidsverlichting en eventueel de vervangingsverlichting;
+            b)   de installaties voor melding, waarschuwing en alarm;
+            c)   de installaties voor rookafvoer;
+            d)   de waterpompen voor de brandbestrijding en eventueel de ledigingspompen;
+            e)   de speciale liften bedoeld in punt 6.4.

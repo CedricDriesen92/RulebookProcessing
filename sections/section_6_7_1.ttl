@@ -1,0 +1,82 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_7_1 a firebim:Section ;
+    firebim:hasID "6.7.1" ;
+    firebim:hasOriginalText "Opvatting van de installaties"@nl ;
+    firebim:hasSection firebim:Section_6_7_1_1, firebim:Section_6_7_1_2, firebim:Section_6_7_1_3 .
+
+firebim:Section_6_7_1_1 a firebim:Section ;
+    firebim:hasID "6.7.1.1" ;
+    firebim:hasOriginalText "Integratie van lokalen of gesloten ruimten in de lokalen"@nl ;
+    firebim:hasArticle firebim:Article_6_7_1_1_1 .
+
+firebim:Article_6_7_1_1_1 a firebim:Article ;
+    firebim:hasID "A6.7.1.1.1" ;
+    firebim:hasMember firebim:Member_6_7_1_1_1_1 .
+
+firebim:Member_6_7_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Geen enkel lokaal of gesloten ruimte, zelfs niet op een zolder of in een kelder, mag geïntegreerd
+worden in het net van luchtkanalen, tenzij deze ruimten voldoen aan de voorschriften opgelegd
+aan de kanalen."""@nl .
+
+firebim:Section_6_7_1_2 a firebim:Section ;
+    firebim:hasID "6.7.1.2" ;
+    firebim:hasOriginalText "Gebruik van de trappenhuizen voor luchttransport"@nl ;
+    firebim:hasArticle firebim:Article_6_7_1_2_1 .
+
+firebim:Article_6_7_1_2_1 a firebim:Article ;
+    firebim:hasID "A6.7.1.2.1" ;
+    firebim:hasMember firebim:Member_6_7_1_2_1_1 .
+
+firebim:Member_6_7_1_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Geen enkel trappenhuis mag worden gebruikt voor de aanvoer of de afvoer van lucht uit andere
+lokalen."""@nl .
+
+firebim:Section_6_7_1_3 a firebim:Section ;
+    firebim:hasID "6.7.1.3" ;
+    firebim:hasOriginalText "Beperking van het hergebruik van lucht"@nl ;
+    firebim:hasArticle firebim:Article_6_7_1_3_1 .
+
+firebim:Article_6_7_1_3_1 a firebim:Article ;
+    firebim:hasID "A6.7.1.3.1" ;
+    firebim:hasMember firebim:Member_6_7_1_3_1_1, firebim:Member_6_7_1_3_1_2, firebim:Member_6_7_1_3_1_3, firebim:Member_6_7_1_3_1_4 .
+
+firebim:Member_6_7_1_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De lucht afgezogen uit lokalen met een bijzonder brandgevaar, opslagplaats voor ontvlambare
+producten, stookplaats, keuken, garage, parking, transformatorlokaal, lokaal voor de opslag van
+vuilnis, mag niet opnieuw worden rondgestuurd en moet naar buiten worden afgevoerd."""@nl .
+
+firebim:Member_6_7_1_3_1_2 a firebim:Member ;
+    firebim:hasOriginalText "De lucht afgezogen uit andere lokalen mag:"@nl ;
+    firebim:hasMember firebim:Member_6_7_1_3_1_2_1, firebim:Member_6_7_1_3_1_2_2 .
+
+firebim:Member_6_7_1_3_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText """- ofwel  opnieuw  rondgestuurd  worden  naar  dezelfde  lokalen,  op  voorwaarde  dat  in  het
+  recyclagekanaal een rookklep conform punt 6.7.5 wordt geplaatst;"""@nl .
+
+firebim:Member_6_7_1_3_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText """- ofwel ingeblazen worden in nog andere lokalen om er als compensatielucht te dienen voor
+  mechanische extractiesystemen met rechtstreekse afvoer naar buiten, op voorwaarde dat
+  bijkomend een rookklep en een kanaalsysteem voor rechtstreekse afvoer naar buiten van
+  deze recyclagelucht wordt voorzien."""@nl .
+
+firebim:Member_6_7_1_3_1_3 a firebim:Member ;
+    firebim:hasOriginalText """In  beide  gevallen  moet  een  rookdetectie  worden  geïnstalleerd  in  de  recyclagelucht  voor  de
+rookklep. Als er rook wordt gedetecteerd in de recyclagelucht worden de
+luchtbehandelingsgroepen stilgelegd, de rookkleppen afgesloten en, in het tweede geval, wordt
+het kanalenstelsel voor de afvoer naar buiten van de recyclagelucht automatisch geopend en is
+klaar om te werken wanneer de luchtbehandelingsgroepen in werking worden gezet door de
+brandweer."""@nl .
+
+firebim:Member_6_7_1_3_1_4 a firebim:Member ;
+    firebim:hasOriginalText """Bovenvermelde voorzieningen (rookklep op de recyclagelucht en rookdetectie in het
+extractiekanaal) zijn echter niet vereist voor luchtbehandelingsgroepen die slechts één enkel
+lokaal bedienen met een totaal debiet kleiner of gelijk aan 5000 m³/h."""@nl .
+
+firebim:Section_6_7 firebim:hasSection firebim:Section_6_7_1 .

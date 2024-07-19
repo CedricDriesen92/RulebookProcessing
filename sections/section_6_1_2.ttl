@@ -1,0 +1,162 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_1_2 a firebim:Section ;
+    firebim:hasID "6.1.2" ;
+    firebim:hasOriginalText "Opvatting."@nl ;
+    firebim:hasSection firebim:Section_6_1_2_1, firebim:Section_6_1_2_2, firebim:Section_6_1_2_3, firebim:Section_6_1_2_4, firebim:Section_6_1_2_5, firebim:Section_6_1_2_6 .
+
+firebim:Section_6_1 firebim:hasSection firebim:Section_6_1_2 .
+
+firebim:Section_6_1_2_1 a firebim:Section ;
+    firebim:hasID "6.1.2.1" ;
+    firebim:hasArticle firebim:Article_6_1_2_1_1 .
+
+firebim:Article_6_1_2_1_1 a firebim:Article ;
+    firebim:hasID "A6.1.2.1.1" ;
+    firebim:hasMember firebim:Member_6_1_2_1_1_1, firebim:Member_6_1_2_1_1_2, firebim:Member_6_1_2_1_1_3, firebim:Member_6_1_2_1_1_4, firebim:Member_6_1_2_1_1_5 .
+
+firebim:Member_6_1_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Het  geheel  bestaande  uit  één  of  meer  schachten  en  de  eventuele  machinekamer,  alsook
+toegangsbordessen die een sas moeten vormen voor de ondergrondse bouwlagen, is omsloten
+door wanden met EI 60."""@nl .
+
+firebim:Member_6_1_2_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Hun buitenwanden mogen beglaasd zijn indien deze beantwoorden aan de eisen gesteld in punt
+3.5."""@nl ;
+    firebim:hasBackwardReference firebim:Section_3_5 .
+
+firebim:Member_6_1_2_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """De toegangsdeuren tussen het compartiment en het sas hebben EI1 30 en zijn zelfsluitend of
+zelfsluitend bij brand."""@nl .
+
+firebim:Member_6_1_2_1_1_4 a firebim:Member ;
+    firebim:hasOriginalText """Als de oppervlakte van het sas kleiner is dan de oppervlakte van de kooi van de lift of goederenlift,
+is de toegangsdeur tussen het compartiment en het sas, een bij brand zelfsluitend draaideur
+EI1 30 bediend door een branddetectie-installatie die minstens het volgende omvat:"""@nl ;
+    firebim:hasMember firebim:Member_6_1_2_1_1_4_1, firebim:Member_6_1_2_1_1_4_2 .
+
+firebim:Member_6_1_2_1_1_4_1 a firebim:Member ;
+    firebim:hasOriginalText "- een rookdetectie in de schacht;"@nl .
+
+firebim:Member_6_1_2_1_1_4_2 a firebim:Member ;
+    firebim:hasOriginalText "- en een rookdetectie in het compartiment in de omgeving van de toegangsdeur tot het sas."@nl .
+
+firebim:Member_6_1_2_1_1_5 a firebim:Member ;
+    firebim:hasOriginalText "Het toegangsbordes mag deel uitmaken van de evacuatieweg."@nl .
+
+firebim:Section_6_1_2_2 a firebim:Section ;
+    firebim:hasID "6.1.2.2" ;
+    firebim:hasArticle firebim:Article_6_1_2_2_1 .
+
+firebim:Article_6_1_2_2_1 a firebim:Article ;
+    firebim:hasID "A6.1.2.2.1" ;
+    firebim:hasMember firebim:Member_6_1_2_2_1_1, firebim:Member_6_1_2_2_1_2, firebim:Member_6_1_2_2_1_3 .
+
+firebim:Member_6_1_2_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Het geheel van de schachtdeuren van de lift of goederenlift heeft E 30. De brandwerendheid
+volgens de norm NBN EN 81-58, waarbij de bordeswand aan de kant van het bordes aan het vuur
+blootgesteld  wordt.  De  bordeswand  zal  beproefd  worden  met  de  eventuele  bedienings- en
+controleorganen die daarvan deel uitmaken."""@nl .
+
+firebim:Member_6_1_2_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De  volgens  andere  methodes  geteste  schachtdeuren  worden  aanvaard overeenkomstig  het
+koninklijk  besluit  van  12  april  2016  betreffende  het  op  de  markt  brengen  van  liften  en
+veiligheidscomponenten  voor  liften,  op  voorwaarde  dat  ze  ten  minste  dezelfde graad  van
+brandweerstand hebben."""@nl .
+
+firebim:Member_6_1_2_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Deze vereisten zijn niet van toepassing wanneer de lift(en) worden opgesteld in een trappenhuis
+dat de bouwlagen boven een evacuatieniveau bedient, op voorwaarde:"""@nl ;
+    firebim:hasMember firebim:Member_6_1_2_2_1_3_1, firebim:Member_6_1_2_2_1_3_2 .
+
+firebim:Member_6_1_2_2_1_3_1 a firebim:Member ;
+    firebim:hasOriginalText """- dat op alle bouwlagen bediend door dit trappenhuis met lift(en), in elke compartiment, de
+  verbinding naar dit trappenhuis met lift(en) via evacuatiewegen gaat;"""@nl .
+
+firebim:Member_6_1_2_2_1_3_2 a firebim:Member ;
+    firebim:hasOriginalText """- en dat op alle bouwlagen bediend door dit trappenhuis met lift(en), de verbinding tussen deze
+  evacuatieweg en dit trappenhuis met lift(en) verzekerd wordt door een zelfsluitende of bij
+  brand zelfsluitende deur met EI1 30 die toegang geeft tot een overloop in dit trappenhuis met
+  lift(en)."""@nl .
+
+firebim:Section_6_1_2_3 a firebim:Section ;
+    firebim:hasID "6.1.2.3" ;
+    firebim:hasArticle firebim:Article_6_1_2_3_1 .
+
+firebim:Article_6_1_2_3_1 a firebim:Article ;
+    firebim:hasID "A6.1.2.3.1" ;
+    firebim:hasOriginalText "De voorschriften van de punten 6.1.2.1 en 6.1.2.2 zijn niet vereist in de volgende gevallen:"@nl ;
+    firebim:hasMember firebim:Member_6_1_2_3_1_1, firebim:Member_6_1_2_3_1_2, firebim:Member_6_1_2_3_1_3 .
+
+firebim:Member_6_1_2_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """a)   op alle bouwlagen bediend door de lift of goederenlift, indien deze lift of goederenlift de
+     bouwlagen van slechts één compartiment bestaande uit meerdere bouwlagen bedient;"""@nl .
+
+firebim:Member_6_1_2_3_1_2 a firebim:Member ;
+    firebim:hasOriginalText """b)   op   de   bouwla(a)g(en) van  slechts  één  van  de  compartimenten bediend  door  de  lift of
+     goederenlift, op  voorwaarde  dat  dit  compartiment geen  parkeercompartiment of  een
+     appartement is, en dat de opvatting van deze lift of goederenlift op de overige bouwlagen wel
+     voldoet aan de voorschriften van de punten 6.1.2.1 en 6.1.2.2 of aan punt c) hieronder;"""@nl .
+
+firebim:Member_6_1_2_3_1_3 a firebim:Member ;
+    firebim:hasOriginalText """c)   op  de bouwla(a)g(en) waar de lift of goederenlift rechtstreeks in de buitenlucht uitgeeft, op
+     voorwaarde dat de opvatting van deze lift of goederenlift op de overige bouwlagen wel voldoet
+     aan de voorschriften van de punten 6.1.2.1 en 6.1.2.2 of aan punt b) hierboven."""@nl .
+
+firebim:Section_6_1_2_4 a firebim:Section ;
+    firebim:hasID "6.1.2.4" ;
+    firebim:hasOriginalText "Liften en goederenliften waarvan de aandrijving zich in een machinekamer bevindt."@nl ;
+    firebim:hasArticle firebim:Article_6_1_2_4_1 .
+
+firebim:Article_6_1_2_4_1 a firebim:Article ;
+    firebim:hasID "A6.1.2.4.1" ;
+    firebim:hasMember firebim:Member_6_1_2_4_1_1, firebim:Member_6_1_2_4_1_2, firebim:Member_6_1_2_4_1_3 .
+
+firebim:Member_6_1_2_4_1_1 a firebim:Member ;
+    firebim:hasOriginalText "De binnenwanden van de machinekamer die niet uitgeven op de schacht hebben EI 60."@nl .
+
+firebim:Member_6_1_2_4_1_2 a firebim:Member ;
+    firebim:hasOriginalText "De deuren of valluiken in deze wanden hebben EI1 30."@nl .
+
+firebim:Member_6_1_2_4_1_3 a firebim:Member ;
+    firebim:hasOriginalText "De brandweer is verzekerd van de toegang tot de machinekamer."@nl .
+
+firebim:Section_6_1_2_5 a firebim:Section ;
+    firebim:hasID "6.1.2.5" ;
+    firebim:hasOriginalText "Oleohydraulische liften en goederenliften."@nl ;
+    firebim:hasArticle firebim:Article_6_1_2_5_1 .
+
+firebim:Article_6_1_2_5_1 a firebim:Article ;
+    firebim:hasID "A6.1.2.5.1" ;
+    firebim:hasMember firebim:Member_6_1_2_5_1_1, firebim:Member_6_1_2_5_1_2 .
+
+firebim:Member_6_1_2_5_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De ruimte waarin de aandrijving van een oleohydraulische lift of goederenlift is opgesteld, is
+voorzien van een inkuiping die een inhoud heeft die ten minste gelijk is aan 1,2 maal de olie-
+inhoud van de machines en reservoirs."""@nl .
+
+firebim:Member_6_1_2_5_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Indien  de aandrijving  van  een  oleohydraulische  lift  of  goederenlift  in  een  machinekamer  is
+opgesteld, zijn de elektrische apparatuur evenals de elektrische en hydraulische leidingen die van
+de machinekamer naar de liftschacht lopen, hoger aangebracht dan het hoogste peil dat de
+uitgelopen olie in de machinekamer kan bereiken."""@nl .
+
+firebim:Section_6_1_2_6 a firebim:Section ;
+    firebim:hasID "6.1.2.6" ;
+    firebim:hasOriginalText "Liften en roltrappen."@nl ;
+    firebim:hasArticle firebim:Article_6_1_2_6_1 .
+
+firebim:Article_6_1_2_6_1 a firebim:Article ;
+    firebim:hasID "A6.1.2.6.1" ;
+    firebim:hasMember firebim:Member_6_1_2_6_1_1 .
+
+firebim:Member_6_1_2_6_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Het bordes van de lift(en) mag het bordes van een of meerdere roltrappen zijn. Het geheel
+bestaande uit één of meer schachten en de eventuele machinekamer, alsook toegangsbordessen
+van de lift(en) en de roltrap(pen), vormt dan slechts één geheel."""@nl .

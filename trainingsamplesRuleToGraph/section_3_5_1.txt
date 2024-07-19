@@ -1,0 +1,32 @@
+Section number: 3.5.1
+Section text:
+3.5.1.1     Scheiding tussen compartimenten
+            De stijlen van het gordijngevelskelet worden ter hoogte van elke bouwlaag aan het gebouwskelet
+            bevestigd.     Met  uitzondering  van  de  gebouwen  die  uitgerust  zijn  met  een  automatische
+            blusinstallatie,  moeten  deze  bevestigingen  R 60  zijn  ten  opzichte  van  een                     brand  in  een
+            onderliggend en naastgelegen compartiment.
+            De lineaire voeg aan de gevel is dichtgemaakt zodat geen koude rook tussen de gevel en de
+            compartimentswanden kan dringen.
+            Bovendien heeft de aansluiting van de compartimentswanden met de gevel, met                          uitzondering van
+            een beperkte lineaire voeg met een breedte van maximaal 20 mm aan de gevel, minstens EI 60 of
+            EI 60 (i→   o).
+3.5.1.2     Tegenover elkaar staande gevels en gevels die een tweevlakshoek vormen
+            Om te vermijden dat een brand tussen twee compartimenten kan overslaan:
+            a)   ofwel,   als  gevels   tegenover     elkaar staan of een       inspringende      tweevlakshoek vormen, dan
+                 bedraagt de afstand (in m) tussen de geveldelen die niet minstens E 30 of E 30 (o→                      i) hebben,
+                 ten minste:
+                      h + 10cos   α voor 0° ≤  ≤ 90°
+                        2,5
+                      0 voor 90° < ≤ 180°
+                 waarbij  de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.2).
+                                                                                                                             50/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                      (v3.0)
+                                                                                  Federale Overheidsdienst Binnenlandse Zaken
+                                                                              Algemene Directie Civiele Veiligheid – Brandpreventie
+                                              BIJLAGE 2/1: LAGE GEBOUWEN
+                 Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli                       2022, mag
+                 ook de volgende formule worden gebruikt:
+                      h + 5cos  α
+                       2
+            b)   ofwel   mag   de   straling   van   een   brand   tussen   gevels   behorende   tot   verschillende
+                 compartimenten niet meer dan 15 kW/m² bedragen.

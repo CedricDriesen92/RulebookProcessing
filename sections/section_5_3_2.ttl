@@ -15,7 +15,8 @@ firebim:Section_5_3 firebim:hasSection firebim:Section_5_3_2 .
 
 firebim:Article_5_3_2_1 a firebim:Article ;
     firebim:hasID "A5.3.2.1" ;
-    firebim:hasOriginalText """De  wanden  die  deze  lokalen  of  geheel  van              lokalen  vormen,  voldoen  niet  alleen  aan  de
+    firebim:hasOriginalText """Constructie.
+De  wanden  die  deze  lokalen  of  geheel  van lokalen  vormen,  voldoen  niet  alleen  aan  de
 reglementaire voorschriften die op deze ruimten van toepassing zijn, maar hebben bovendien
 dezelfde brandweerstand als de wanden van een compartiment.
 Elke  doorgang  in  de  verticale  wanden  is  afgesloten  door  een  zelfsluitende  of  bij  brand
@@ -25,7 +26,7 @@ Geen enkel voorwerp mag de evacuatie naar de uitgangen hinderen."""@nl ;
     firebim:hasMember firebim:Member_5_3_2_1_1, firebim:Member_5_3_2_1_2, firebim:Member_5_3_2_1_3, firebim:Member_5_3_2_1_4 .
 
 firebim:Member_5_3_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De  wanden  die  deze  lokalen  of  geheel  van              lokalen  vormen,  voldoen  niet  alleen  aan  de
+    firebim:hasOriginalText """De  wanden  die  deze  lokalen  of  geheel  van lokalen  vormen,  voldoen  niet  alleen  aan  de
 reglementaire voorschriften die op deze ruimten van toepassing zijn, maar hebben bovendien
 dezelfde brandweerstand als de wanden van een compartiment."""@nl .
 

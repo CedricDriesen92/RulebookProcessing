@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://example.org/firebim#"
+     xml:base="http://example.org/firebim"
+     xmlns:opm="https://w3id.org/opm#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:geosparql="http://www.opengis.net/ont/geosparql#">
+    <owl:Ontology rdf:about="http://example.org/firebim"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#hasGeometry -->
+
+    <owl:AnnotationProperty rdf:about="http://www.opengis.net/ont/geosparql#hasGeometry">
+        <rdfs:domain rdf:resource="https://w3id.org/bot#Element"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://w3id.org/opm#hasProperty -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/opm#hasProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/firebim#connects -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/firebim#connects">
+        <rdfs:domain rdf:resource="http://example.org/firebim#State"/>
+        <rdfs:range rdf:resource="http://example.org/firebim#Transition"/>
+        <rdfs:comment xml:lang="en">Connects a state to a transition in the IndoorGML model.</rdfs:comment>
+        <rdfs:label xml:lang="en">connects</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/firebim#hasPath -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/firebim#hasPath">
+        <rdfs:domain rdf:resource="http://example.org/firebim#Transition"/>
+        <rdfs:range rdf:resource="http://example.org/firebim#Path"/>
+        <rdfs:comment xml:lang="en">Associates a path with a transition in the IndoorGML model.</rdfs:comment>
+        <rdfs:label xml:lang="en">has path</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/firebim#hasState -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/firebim#hasState">
+        <rdfs:domain rdf:resource="https://w3id.org/bot#Element"/>
+        <rdfs:range rdf:resource="http://example.org/firebim#State"/>
+        <rdfs:comment xml:lang="en">Associates a building element with a state in the IndoorGML model.</rdfs:comment>
+        <rdfs:label xml:lang="en">has state</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://example.org/firebim#hasTransition -->
+
+    <owl:ObjectProperty rdf:about="http://example.org/firebim#hasTransition">
+        <rdfs:domain rdf:resource="https://w3id.org/bot#Element"/>
+        <rdfs:range rdf:resource="http://example.org/firebim#Transition"/>
+        <rdfs:comment xml:lang="en">Associates a building element with a transition in the IndoorGML model.</rdfs:comment>
+        <rdfs:label xml:lang="en">has transition</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bot#containsZone -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bot#containsZone">
+        <rdfs:range rdf:resource="http://example.org/neo#Neighborhood"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/opm#hasSimpleProperty -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/opm#hasSimpleProperty">
+        <rdfs:domain rdf:resource="https://w3id.org/bot#Element"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Associates a building element with a simple property represented as a string.</rdfs:comment>
+        <rdfs:label xml:lang="en">has simple property</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://example.org/firebim#Path -->
+
+    <owl:Class rdf:about="http://example.org/firebim#Path">
+        <rdfs:comment xml:lang="en">A path in the IndoorGML model.</rdfs:comment>
+        <rdfs:label xml:lang="en">Path</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/firebim#State -->
+
+    <owl:Class rdf:about="http://example.org/firebim#State">
+        <rdfs:comment xml:lang="en">A state in the IndoorGML model.</rdfs:comment>
+        <rdfs:label xml:lang="en">State</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/firebim#Transition -->
+
+    <owl:Class rdf:about="http://example.org/firebim#Transition">
+        <rdfs:comment xml:lang="en">A transition between states in the IndoorGML model.</rdfs:comment>
+        <rdfs:label xml:lang="en">Transition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://example.org/neo#Neighborhood -->
+
+    <owl:Class rdf:about="http://example.org/neo#Neighborhood"/>
+    
+
+
+    <!-- http://www.opengis.net/ont/geosparql#Feature -->
+
+    <owl:Class rdf:about="http://www.opengis.net/ont/geosparql#Feature"/>
+    
+
+
+    <!-- https://w3id.org/bot#Element -->
+
+    <owl:Class rdf:about="https://w3id.org/bot#Element">
+        <rdfs:subClassOf rdf:resource="http://www.opengis.net/ont/geosparql#Feature"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#Component"/>
+        <opm:hasProperty rdf:resource="https://w3id.org/opm#Property"/>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#Component -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#Component"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+

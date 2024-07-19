@@ -20,17 +20,13 @@ In afwijking van het punt 1.3 moeten de parkings van aangrenzende gebouwen niet 
 wand worden afgescheiden. Die parkings vormen bijgevolg slechts één en dezelfde parking.
 In dat geval hebben de structurele elementen van de gehele parking R 120, met inbegrip van de
 structurele elementen van de open parkeerbouwlagen."""@nl ;
-    firebim:hasMember firebim:Member_5_2_3_1_1, firebim:Member_5_2_3_1_2, firebim:Member_5_2_3_1_3 .
+    firebim:hasMember firebim:Member_5_2_3_1_1, firebim:Member_5_2_3_1_2 .
 
 firebim:Member_5_2_3_1_1 a firebim:Member ;
     firebim:hasOriginalText """In afwijking van het punt 1.3 moeten de parkings van aangrenzende gebouwen niet door een
-wand worden afgescheiden."""@nl .
+wand worden afgescheiden. Die parkings vormen bijgevolg slechts één en dezelfde parking."""@nl ;
+    firebim:hasBackwardReference firebim:Section_1_3 .
 
 firebim:Member_5_2_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText "Die parkings vormen bijgevolg slechts één en dezelfde parking."@nl .
-
-firebim:Member_5_2_3_1_3 a firebim:Member ;
     firebim:hasOriginalText """In dat geval hebben de structurele elementen van de gehele parking R 120, met inbegrip van de
 structurele elementen van de open parkeerbouwlagen."""@nl .
-
-firebim:Member_5_2_3_1_1 firebim:hasBackwardReference firebim:Section_1_3 .

@@ -1,3 +1,11 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
 firebim:Section_1_3 a firebim:Section ;
     firebim:hasID "1.3" ;
     firebim:hasOriginalText "Horizontale afstand tussen gebouwen"@nl ;
@@ -12,7 +20,6 @@ firebim:Article_1_3_1 a firebim:Article ;
     firebim:hasFigure firebim:Figure_2_1 .
 
 firebim:Member_1_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Om te vermijden dat een brand tussen twee gebouwen kan overslaan:"@nl ;
     firebim:hasMember firebim:Member_1_3_1_1_1, firebim:Member_1_3_1_1_2 .
 
 firebim:Member_1_3_1_1_1 a firebim:Member ;

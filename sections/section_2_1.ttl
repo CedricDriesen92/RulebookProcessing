@@ -15,10 +15,11 @@ firebim:Section_2 firebim:hasSection firebim:Section_2_1 .
 
 firebim:Article_2_1_1 a firebim:Article ;
     firebim:hasID "A2.1.1" ;
-    firebim:hasMember firebim:Member_2_1_1_1, firebim:Member_2_1_1_2, firebim:Member_2_1_1_3, firebim:Member_2_1_1_4, firebim:Member_2_1_1_5 .
+    firebim:hasMember firebim:Member_2_1_1_1, firebim:Member_2_1_1_2, firebim:Member_2_1_1_3, firebim:Member_2_1_1_4 .
 
 firebim:Member_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m², met uitzondering van de parkings (zie 5.2)."@nl .
+    firebim:hasOriginalText "Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m², met uitzondering van de parkings (zie 5.2)."@nl ;
+    firebim:hasForwardReference firebim:Section_5_2.
 
 firebim:Member_2_1_1_2 a firebim:Member ;
     firebim:hasOriginalText "De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag 3500 m² bedragen."@nl .
@@ -29,9 +30,10 @@ firebim:Member_2_1_1_3 a firebim:Member ;
 firebim:Member_2_1_1_4 a firebim:Member ;
     firebim:hasOriginalText """De maximale oppervlakte van een compartiment mag, respectievelijk, groter dan ofwel 2500 m²,
 ofwel 3500 m² bedragen indien het compartiment is uitgerust met een automatische blusinstallatie
-en een rook- en warmteafvoerinstallatie."""@nl .
+en een rook- en warmteafvoerinstallatie."""@nl ;
+    firebim:hasMember firebim:Member_2_1_1_4_1.
 
-firebim:Member_2_1_1_5 a firebim:Member ;
+firebim:Member_2_1_1_4_1 a firebim:Member ;
     firebim:hasOriginalText """De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk
 zijn op de grootte van het compartiment respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat
 een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden."""@nl .
@@ -48,7 +50,8 @@ firebim:Member_2_1_2_2 a firebim:Member ;
     firebim:hasMember firebim:Member_2_1_2_2_1, firebim:Member_2_1_2_2_2, firebim:Member_2_1_2_2_3, firebim:Member_2_1_2_2_4, firebim:Member_2_1_2_2_5 .
 
 firebim:Member_2_1_2_2_1 a firebim:Member ;
-    firebim:hasOriginalText """a)   de parking met bouwlagen (zie 5.2);"""@nl .
+    firebim:hasOriginalText """a)   de parking met bouwlagen (zie 5.2);"""@nl ;
+    firebim:hasForwardReference firebim:Section_5_2.
 
 firebim:Member_2_1_2_2_2 a firebim:Member ;
     firebim:hasOriginalText """b)   een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een
@@ -64,22 +67,24 @@ firebim:Member_2_1_2_2_3 a firebim:Member ;
 
 firebim:Member_2_1_2_2_4 a firebim:Member ;
     firebim:hasOriginalText """d)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over  verscheidene  boven  elkaar
-     geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1)."""@nl .
+     geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1)."""@nl ;
+     firebim:hasForwardReference firebim:Section_5_1_1.
 
 firebim:Member_2_1_2_2_5 a firebim:Member ;
     firebim:hasOriginalText """e)   de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium)
      op voorwaarde:"""@nl ;
-    firebim:hasMember firebim:Member_2_1_2_2_5_1, firebim:Member_2_1_2_2_5_2, firebim:Member_2_1_2_2_5_3 .
+    firebim:hasMember firebim:Member_2_1_2_2_5_1 .
 
 firebim:Member_2_1_2_2_5_1 a firebim:Member ;
-    firebim:hasOriginalText """     -    dat dit compartiment is uitgerust met een automatische blusinstallatie en een rook- en
-          warmteafvoerinstallatie."""@nl .
+    firebim:hasOriginalText """dat dit compartiment is uitgerust met een automatische blusinstallatie en een rook- en
+          warmteafvoerinstallatie."""@nl ;
+    firebim:hasMember firebim:Member_2_1_2_2_5_1_1, firebim:Member_2_1_2_2_5_1_2 .
 
-firebim:Member_2_1_2_2_5_2 a firebim:Member ;
+firebim:Member_2_1_2_2_5_1_1 a firebim:Member ;
     firebim:hasOriginalText """De Minister van Binnenlandse Zaken bepaalt de voorwaarden
           waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische
           blusinstallatie en een rook- en warmteafvoerinstallatie;"""@nl .
 
-firebim:Member_2_1_2_2_5_3 a firebim:Member ;
+firebim:Member_2_1_2_2_5_1_2 a firebim:Member ;
     firebim:hasOriginalText """De  Minister  van  Binnenlandse  Zaken  bepaalt  de  voorwaarden  waaraan  de  automatische
 blusinstallatie en rook- en warmteafvoerinstallatie moeten voldoen."""@nl .

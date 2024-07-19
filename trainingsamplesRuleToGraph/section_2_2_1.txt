@@ -1,6 +1,12 @@
-2.2.1 Aantal uitgangen.   
-
-Elk compartiment heeft minimum:  - één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;  
-- twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt;  
-- 2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt.  Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en de configuratie van de lokalen.  
-Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.  
+Section number: 2.2.1
+Section text:
+Elk compartiment heeft minimum:
+            -    één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;
+            -    twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen
+                 bedraagt;
+            -    2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling
+                 door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer
+                 dan 500 personen bedraagt.
+            Het  minimum  aantal  uitgangen  kan  door  de  brandweer  verhoogd  worden  in  functie  van  de
+            bezetting en de configuratie van de lokalen.
+            Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.

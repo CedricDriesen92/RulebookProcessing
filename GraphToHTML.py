@@ -94,14 +94,11 @@ def process_article(article):
     html_content = f"<div class='article' id='{article_id}'>"
     
     html_content += f"""
-    <div class="toggle-button">
-        <button onclick="toggleOriginalText(this)">Show Original</button>
-    </div>
-    <div class="original-text" style="display:none;">
+    <div class="original-text" style="display:block;">
         <p>{article_text}</p>
     </div>
     <div class="article-content">
-        <span style="font-size: 26px; color: grey" class="subtle-id">Article {article_id}</span>
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article {article_id}</span>
     """
     
     # Process top-level members
@@ -463,7 +460,7 @@ html_content = """
     <div id="main-content">
         <div id="id-toggle-container">
             <label for="id-toggle">
-                <input type="checkbox" id="id-toggle" onchange="toggleIDs()"> Hide IDs
+                <input type="checkbox" id="id-toggle" onchange="toggleIDs()"> Show IDs
             </label>
         </div>
         <h1 style="color: black;">Koninklijk Besluit Brandveiligheid</h1>
@@ -514,9 +511,10 @@ html_content += """
         var checkbox = document.getElementById('id-toggle');
         var subtleIDs = document.getElementsByClassName('subtle-id');
         for (var i = 0; i < subtleIDs.length; i++) {
-            subtleIDs[i].style.display = checkbox.checked ? 'none' : 'inline';
+            subtleIDs[i].style.display = checkbox.checked ? 'inline' : 'none';
         }
     }
+    toggleIDs();
     
     // Search functionality
     let searchResults = [];

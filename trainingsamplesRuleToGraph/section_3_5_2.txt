@@ -1,0 +1,57 @@
+Section number: 3.5.2
+Section text:
+3.5.2.1     Dubbelwandige gevel die onderbroken wordt door een compartimentering.
+            De spouw van de         dubbelwandige gevel wordt in het verlengde van elke compartimentswand
+            onderbroken door een element dat minstens E 60 heeft. Dit element beslaat de volledige ruimte
+            begrepen tussen de twee wanden en heeft een minimale lengte van 60 cm te tellen vanaf de
+            binnenwand van de gevel.
+            Dit element mag openingen bevatten, op voorwaarde dat de continuïteit van de compartimentering
+            door de spouw heen verzekerd wordt door een bij brand zelfsluitende afsluitinrichting met een
+            brandweerstand E 60. Deze inrichting wordt beproefd in zijn dragende constructie, volgens de
+            richting van de compartimentswand; de sluiting ervan wordt bevolen:
+            -    hetzij  door  een  thermische  detectie  ter  hoogte  van  deze  inrichting  die  reageert  bij  een
+                 temperatuur van maximaal 100°C.
+            -    hetzij door een rookdetectie in de spouw of in alle compartimenten langs de gevel, die voldoet
+                 aan de voorwaarden in punt 3.5.2.3.
+            Wanneer er      verluchtingsopeningen        zijn tussen de spouw van de dubbelwandige gevel en de
+            binnenomgeving van het gebouw, is enkel een rookdetectie toegelaten in de spouw of in alle
+            compartimenten langs de gevel. Zij voldoet aan de voorwaarden van punt 3.5.2.3.
+3.5.2.2     Dubbelwandige gevel zonder compartimentering.
+            De dubbelwandige gevels zonder compartimentering moeten in overeenstemming zijn met een
+            van de twee hierna opgenomen mogelijkheden.
+3.5.2.2.1   Dubbelwandige gevel waarvan de binnenwand brandwerend is.
+            De buitenwand van de dubbelwandige gevel bestaat tussen de verdiepingen voor minstens 50%
+                                                                                                                          51/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                   (v3.0)
+                                                                                   Federale Overheidsdienst Binnenlandse Zaken
+                                                                               Algemene Directie Civiele Veiligheid – Brandpreventie
+                                              BIJLAGE 2/1: LAGE GEBOUWEN
+            uit bouwelementen zonder specifieke brandweerstand.
+            De binnenwand heeft:
+            -    hetzij, over de volledige hoogte, minstens een brandweerstand E 30 ( i↔                 o);
+            -    hetzij afwisselend om de twee bouwlagen minstens een brandweerstand EI 30 ( i↔                       o).
+3.5.2.2.2   Dubbelwandige gevel naar buiten toe open.
+            De voorschriften voor enkelwandige gevels mogen toegepast worden op de binnenwand wanneer
+            de buitenwand vaste of mobiele ventilatieopeningen bevat die automatisch openen bij brand.
+            De vaste ventilatieopeningen zijn geplaatst op 30              10 graden naar de buitenkant en naar boven
+            toe ten opzichte van de horizontale, gelijkmatig verdeeld over ten minste 50% van de oppervlakte
+            ervan.
+            De  mobiele  ventilatieopeningen  voldoen,  bij  brand,  aan  dezelfde  voorwaarden  als  de  vaste
+            ventilatieopeningen.
+            De  veiligheidsstand  van  de  mobiele  lamellen  wordt  in  werking  gesteld  door  een  algemene
+            branddetectie-installatie in de compartimenten langs gevels. De automatische bediening moet
+            voldoen aan de voorwaarden voorzien in punt 3.5.2.3.
+3.5.2.3     Automatische sluitings- / openingssystemen.
+3.5.2.3.1   Bediening
+            De sluiting / opening wordt bevolen door een automatische branddetectie                  -installatie.
+            De installatie wordt uitgerust met manuele openings- en sluitingssystemen. De bediening ervan is
+            voorbehouden aan de          brandweer. De plaats ervan moet bepaald worden in akkoord met de
+            brandweer.
+3.5.2.3.2   Bedrijfszekerheid.
+            Bij het uitvallen van de normale energiebron (elektrische energie, persluchtnet), zet de detectie                      -
+            installatie of het bedieningssysteem het sluitings-/openingssysteem in de veiligheidsstand.
+            Elk gebrek aan energiebron, voeding of elektrische of pneumatische bediening moet automatisch
+            gemeld worden aan de detectiecentrale.
+3.5.2.3.3   Werking bij brand in een naburig compartiment.
+            Wanneer de sluitings-        / openingssystemen geen positieve veiligheid hebben, dan moeten de
+            elektrische leidingen die het sluitings-/openingssysteem verbinden, voldoen aan punt 6.5.2.

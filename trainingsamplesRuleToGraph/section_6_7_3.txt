@@ -1,0 +1,40 @@
+Section number: 6.7.3
+Section text:
+6.7.3.1     Algemeen.
+            De wanddoorgangen van luchtkanalen moeten algemeen voldoen aan 3.1.
+            Dit voorschrift geldt niet  voor de doorgang van luchtkanalen door  wanden met EI 30, onder
+            volgende voorwaarden:
+            -    de luchtkanalen zijn vervaardigd uit       materialen van klasse A1 over een afstand van minstens
+                 1 m aan weerszijde van de doorboorde wand;
+            -    de   luchtkanalen   die   op   deze   doorgangen   aansluiten   en   die   doorheen   horizontale
+                 evacuatiewegen lopen, mogen niet aangesloten zijn op de luchtmonden die zich in                            deze
+                 evacuatiewegen bevinden;
+            -    het betreft een compartiment met uitsluitend lokalen met dagbezetting.
+6.7.3.2     Doorgangen met brandwerende kleppen
+            Geen enkel luchtkanaal mag:
+            -    door een wand gaan waarvoor een brandweerstand groter dan of gelijk aan EI 60                             wordt
+                 vereist;
+            -    door een scheidingswand tussen twee compartimenten gaan waarvoor een brandweerstand
+                 groter dan of gelijk aan EI 30 wordt vereist of door een wand van een leidingenkoker gaan
+                 waarvoor een brandweerstand groter dan of gelijk aan EI 30 wordt vereist;
+            tenzij het voldoet aan één van de volgende voorwaarden:
+            a)   een brandwerende klep met dezelfde brandweerstand (EI-S) als vereist voor de doorboorde
+                 wand en die voldoet aan 6.7.4 wordt geplaatst ter hoogte van de wanddoorgang.
+                 Deze klep kan evenwel uit de as van de wand geplaatst worden en door een kanaal met deze
+                 doorvoerde wand verbonden worden voor zover het geheel van kanaal en klep dezelfde
+                 brandweerstand (EI-S) bezit als vereist voor de doorvoerde wand;
+            b)   het kanaal heeft dezelfde brandweerstand EI i↔o als vereist voor de doorboorde wand of is
+                 geplaatst in een koker met dezelfde brandweerstand als vereist voor de doorboorde wand
+                 over de hele lengte van de doorgang doorheen het compartiment of doorheen de beschermde
+                 ruimte. Dit kanaal mag geen opening hebben tenzij voorzien van een klep beschreven in lid a)
+                 hierboven;
+            c)   het kanaal voldoet gelijktijdig aan volgende voorwaarden:
+                 -   de doorsnede van de doorgang is niet groter dan 130 cm²;
+                 -   in de doorgang van de wand is het kanaal uitgerust met een inrichting, die in geval van
+                      brand de doorgang afsluit en daarna dezelfde brandweerstand heeft als vereist voor de
+                      doorboorde wand.
+            De luchtkanalen die zich in uitsluitend voor hen voorbehouden kokers bevinden en aan hun
+            boveneinde uitmonden in een technisch lokaal dat enkel de luchtbehandelingsgroepen bevat die
+            zij verbinden, mogen zonder bijkomende voorzieningen door de wanden van het technisch lokaal
+            gaan.   In dat geval dient de verluchting van de kokers zoals vereist in 5.1.5.1 verwezenlijkt te
+            worden via het technisch lokaal.

@@ -22,9 +22,8 @@ van de bijlage 7."""@nl ;
 
 firebim:Member_5_2_4_1_1 a firebim:Member ;
     firebim:hasOriginalText """Het ontwerp, de bouw en de inrichting van de parking voldoen aan de bepalingen van het punt 3
-van de bijlage 7."""@nl .
+van de bijlage 7."""@nl ;
+    firebim:hasReference firebim:Reference_Bijlage_7 .
 
-firebim:Member_5_2_4_1_1 firebim:hasReference firebim:Reference_Bijlage_7_Punt_3 .
-
-firebim:Reference_Bijlage_7_Punt_3 a firebim:Reference ;
-    firebim:hasID "Bijlage 7 Punt 3" .
+firebim:Reference_Bijlage_7 a firebim:Reference ;
+    firebim:hasID "Bijlage 7" .

@@ -1,0 +1,796 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/bpo#"
+     xml:base="https://w3id.org/bpo"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:dcterms1="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="https://w3id.org/bpo">
+        <vann:preferredNamespacePrefix>bpo</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri rdf:resource="https://w3id.org/bpo#"/>
+        <owl:priorVersion rdf:resource="https://w3id.org/archive/bpo_V1-1"/>
+        <owl:versionInfo>1.2</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespacePrefix -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- http://purl.org/vocab/vann/preferredNamespaceUri -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/vocab/vann/preferredNamespaceUri"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#maxCardinality -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#maxCardinality"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://schema.org/additionalProperty -->
+
+    <owl:ObjectProperty rdf:about="http://schema.org/additionalProperty"/>
+    
+
+
+    <!-- http://schema.org/value -->
+
+    <owl:ObjectProperty rdf:about="http://schema.org/value"/>
+    
+
+
+    <!-- https://w3id.org/bpo#connectsInputOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#connectsInputOf">
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#ComponentConnection"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#Entity"/>
+        <rdfs:comment xml:lang="en">Property between a component connection and its upstream connected entity. This connection would connect to the entity&apos;s input interface (if existing).</rdfs:comment>
+        <rdfs:label xml:lang="en">connects input of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#consistsOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#consistsOf">
+        <owl:inverseOf rdf:resource="https://w3id.org/bpo#isPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Assembly"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#Component"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/bpo#isComposedOfEntity"/>
+            <rdf:Description rdf:about="https://w3id.org/bpo#realisesObject"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Object property to describe an assembly relation between components. Since an assembly can also contain of other assemblies, the range of this property is defined as component, the superclass of both assemblies and elements in this ontology. It can also be inferred by a chain axiom stating that an assembly consists of any component that is realised by an entity that is connected to the considered assembly ([scp:hasObjectWith,scp:realisesObject]).
+Also, this property is transitive, allowing to easily identify every component that is part of a considered assembly.</rdfs:comment>
+        <rdfs:label xml:lang="en">consits of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#describesAttribute -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#describesAttribute">
+        <owl:inverseOf rdf:resource="https://w3id.org/bpo#hasList2D"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#List2D"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#RangedAttribute"/>
+        <rdfs:comment xml:lang="en">Property between a 2D unordered list and the attributes that are described by it.</rdfs:comment>
+        <rdfs:label xml:lang="en">describes attribute</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#describesAttributeFirstValue -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#describesAttributeFirstValue">
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Entry2D"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#RangedAttribute"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/bpo#isPartOfList"/>
+            <rdf:Description rdf:about="https://w3id.org/bpo#describesAttributeInFirstColumn"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Property between a value-value pair and the attribute that is described in its first value. This property can be inferred by its chain axiom that connects any attribute that is described in the value-value pair&apos;s list within the first column ([bpo:isPartOfList, bpo:describesAttributeInFirstColumn])</rdfs:comment>
+        <rdfs:label xml:lang="en">describes attribute at first value</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#describesAttributeInFirstColumn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#describesAttributeInFirstColumn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/bpo#describesAttribute"/>
+        <owl:propertyDisjointWith rdf:resource="https://w3id.org/bpo#describesAttributeInSecondColumn"/>
+        <rdfs:comment xml:lang="en">Property between a 2D unstructured list and the attribute that is represented by the first column/value of the list and its entries. An attribute cannot be described in both the first and second column of a 2D unstructured list.</rdfs:comment>
+        <rdfs:label xml:lang="en">described attribute in first column</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#describesAttributeInSecondColumn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#describesAttributeInSecondColumn">
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/bpo#describesAttribute"/>
+        <rdfs:comment xml:lang="en">Property between a 2D unstructured list and the attribute that is represented by the second column/value of the list and its entries. An attribute cannot be described in both the first and second column of a 2D unstructured list.</rdfs:comment>
+        <rdfs:label xml:lang="en">describes attribute in second column</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#describesAttributeSecondValue -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#describesAttributeSecondValue">
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Entry2D"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#RangedAttribute"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/bpo#isPartOfList"/>
+            <rdf:Description rdf:about="https://w3id.org/bpo#describesAttributeInSecondColumn"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Property between a value-value pair and the attribute that is described in its second value. This property can be inferred by its chain axiom that connects any attribute that is described in the value-value pair&apos;s list within the second column ([bpo:isPartOfList, bpo:describesAttributeInSecondColumn])</rdfs:comment>
+        <rdfs:label xml:lang="en">describes attribute at second value</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#hasAttribute -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#hasAttribute">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/additionalProperty"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/seas/hasProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Component"/>
+        <rdfs:range rdf:resource="http://schema.org/PropertyValue"/>
+        <rdfs:comment xml:lang="en">Property to connect components to their (ranged) attributes. As both the attribute and the ranged attribute are subclasses of schema:PropertyValue, that class is given as range of this property, though this is theoretically already given by inheritance.</rdfs:comment>
+        <rdfs:label xml:lang="en">has attribute</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#hasEntry -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#hasEntry">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/value"/>
+        <owl:inverseOf rdf:resource="https://w3id.org/bpo#isPartOfList"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#List2D"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#Entry2D"/>
+        <rdfs:comment xml:lang="en">Property between a disordered 2D list and its entry (value-value pair).</rdfs:comment>
+        <rdfs:label xml:lang="en">has entry</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#hasInterval -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#hasInterval">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/value"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#RangedAttribute"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#Interval"/>
+        <rdfs:comment xml:lang="en">Property between a ranged attribute and an interval containing possible values for the attribute.</rdfs:comment>
+        <rdfs:label xml:lang="en">has interval</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#hasList2D -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#hasList2D">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/value"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#RangedAttribute"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#List2D"/>
+        <rdfs:comment xml:lang="en">Property between a ranged attribute and a 2D disordered list containing possible values of the attribute. This property is defined to be inverse to the bpo:describesAttribute property, which is the superproperty of bpo:describesAttributeInFirstColumn and bpo:describesAttributeInSecondColumn.</rdfs:comment>
+        <rdfs:label xml:lang="en">has 2D disordered list</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#hasOutgoingConnection -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#hasOutgoingConnection">
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#ComponentConnection"/>
+        <rdfs:comment xml:lang="en">Property between an entity and its component connection that is leading downstream. This connection would connect to the entity&apos;s output interface (if existing).</rdfs:comment>
+        <rdfs:label xml:lang="en">has outgoing connection</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#isComposedOfEntity -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#isComposedOfEntity">
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Assembly"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#Entity"/>
+        <rdfs:comment xml:lang="en">Object Property between an assembly and an entity that is part of the assembly.</rdfs:comment>
+        <rdfs:label xml:lang="en">is composed of entity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#isConnectedFrom -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#isConnectedFrom">
+        <owl:inverseOf rdf:resource="https://w3id.org/bpo#isConnectedTo"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#Entity"/>
+        <rdfs:comment xml:lang="en">Property between two entities where the first (subject) entity is downstream of the second (object) entity. This property can be inferred as the inverse property of the bpo:isConnectedTo property.
+The connection between the two entities can be further defined (e.g. regarding their type, resistance, etc.) using component connections.</rdfs:comment>
+        <rdfs:label xml:lang="en">is connected from</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#isConnectedTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#isConnectedTo">
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#Entity"/>
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://w3id.org/bpo#hasOutgoingConnection"/>
+            <rdf:Description rdf:about="https://w3id.org/bpo#connectsInputOf"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment xml:lang="en">Property between two entities where the first (subject) entity is upstream of the second (object) entity. This property can be inferred by its chain axiom that uses every entity as object if the first entity&apos;s outgoing component connection connects to the second&apos;s input interface ([bpo:hasOutgoingConnection, bpo:connectsInputOf]).
+The connection between the two entities can be further defined (e.g. regarding their type, resistance, etc.) using component connections.</rdfs:comment>
+        <rdfs:label xml:lang="en">is connected to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#isConnectedWith -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#isConnectedWith">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#Entity"/>
+        <rdfs:comment xml:lang="en">Property between two entities that are connected disorderly. Since this property is symmetric, it cannot hold information about the direction of the connection. 
+The connection between the two entities can be further defined (e.g. regarding their type, resistance, etc.) using component connections.</rdfs:comment>
+        <rdfs:label xml:lang="en">is connected with</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#isPartOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#isPartOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Component"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#Assembly"/>
+        <rdfs:comment xml:lang="en">Property between a component and an assembly, where the component is (directly or indirectly) part of the assembly. This property is inverse to the bpo:consistsOf property and transitive. Thus, it also connects components to an assembly that are not directly a part of the assembly, but part of one of its sub(sub,...)assemblies.</rdfs:comment>
+        <rdfs:label xml:lang="en">is part of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#isPartOfList -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#isPartOfList">
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Entry2D"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#List2D"/>
+        <rdfs:comment xml:lang="en">Property between a value-value pair and a list that contains it. This property is inverse of the bpo:hasEntry property.</rdfs:comment>
+        <rdfs:label xml:lang="en">is part of list</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#realisesObject -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/bpo#realisesObject">
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Entity"/>
+        <rdfs:range rdf:resource="https://w3id.org/bpo#Component"/>
+        <rdfs:comment xml:lang="en">Object property between an entity and a component to define the type (component) of the considered instance (entity).</rdfs:comment>
+        <rdfs:label xml:lang="en">realises object</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/seas/hasProperty -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/seas/hasProperty"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://schema.org/additionalType -->
+
+    <owl:DatatypeProperty rdf:about="http://schema.org/additionalType"/>
+    
+
+
+    <!-- http://schema.org/maxValue -->
+
+    <owl:DatatypeProperty rdf:about="http://schema.org/maxValue"/>
+    
+
+
+    <!-- http://schema.org/minValue -->
+
+    <owl:DatatypeProperty rdf:about="http://schema.org/minValue"/>
+    
+
+
+    <!-- https://w3id.org/bpo#hasBSDDGUID -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/bpo#hasBSDDGUID">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/additionalType"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#ClassifiedObject"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Property to add a classified object&apos;s globally unique identifier of the buildingSMART Data Dictionary as string. To translate and read the term, the GUID must be accessed in the bSDD itself (http://bsdd.buildingsmart.org/#concept/search).</rdfs:comment>
+        <rdfs:label xml:lang="en">has bSDD globally unique identifier</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#hasMaxValue -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/bpo#hasMaxValue">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/maxValue"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#RangedAttribute"/>
+        <rdfs:comment xml:lang="en">Property to define a ranged attribute&apos;s maximum value.</rdfs:comment>
+        <rdfs:label xml:lang="en">has maximum value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#hasQuantity -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/bpo#hasQuantity">
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#DynamicEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment xml:lang="en">Property to define the quantity of dynamically placed individuals within one dynamic entity. If the product description is linked with the product&apos;s geometry description, this property might become redundant and thus should be related to the geometric repetition quantity (e.g. via the omg:isExplicitlyDerivedFrom property).</rdfs:comment>
+        <rdfs:label xml:lang="en">has quantity</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#hasValue1 -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/bpo#hasValue1">
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Entry2D"/>
+        <rdfs:comment xml:lang="en">A value-value pair&apos;s first value.</rdfs:comment>
+        <rdfs:label xml:lang="en">has first value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#hasValue2 -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/bpo#hasValue2">
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#Entry2D"/>
+        <rdfs:comment xml:lang="en">A value-value pair&apos;s second value</rdfs:comment>
+        <rdfs:label xml:lang="en">has second value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#minValue -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/bpo#minValue">
+        <rdfs:subPropertyOf rdf:resource="http://schema.org/minValue"/>
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#RangedAttribute"/>
+        <rdfs:comment xml:lang="en">Property to define a ranged attributes minimum value.</rdfs:comment>
+        <rdfs:label xml:lang="en">has minimum value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/bpo#permittedStepSize -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/bpo#permittedStepSize">
+        <rdfs:domain rdf:resource="https://w3id.org/bpo#RangedAttribute"/>
+        <rdfs:comment xml:lang="en">A ranged attribute&apos;s permitted step size to calculate allowed values between the minimum and maximum value by adding / subtracting the step size from the minimum / maximum value. This can be used in cases, where not every value in between min and max is admissible and permitted values are equidistant.</rdfs:comment>
+        <rdfs:label xml:lang="en">permitted step size</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://org.semanticweb.owlapi/error#Error3 -->
+
+    <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error3"/>
+    
+
+
+    <!-- http://org.semanticweb.owlapi/error#Error4 -->
+
+    <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error4"/>
+    
+
+
+    <!-- http://purl.org/goodrelations/v1#ProductOrServiceModel -->
+
+    <owl:Class rdf:about="http://purl.org/goodrelations/v1#ProductOrServiceModel"/>
+    
+
+
+    <!-- http://schema.org/ProductModel -->
+
+    <owl:Class rdf:about="http://schema.org/ProductModel"/>
+    
+
+
+    <!-- http://schema.org/PropertyValue -->
+
+    <owl:Class rdf:about="http://schema.org/PropertyValue"/>
+    
+
+
+    <!-- http://schema.org/StructuredValue -->
+
+    <owl:Class rdf:about="http://schema.org/StructuredValue"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+    
+
+
+    <!-- https://w3id.org/bpo#Assembly -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#Assembly">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/bpo#consistsOf"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/bpo#Element"/>
+        <rdfs:comment xml:lang="en">An assembly is the description of a structure that is composed of (at least two) other components, including other assemblies, elements and products. 
+An assembly can never be an element as well, however it can be a product.</rdfs:comment>
+        <rdfs:label xml:lang="en">assembly</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#Attribute -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#Attribute">
+        <rdfs:subClassOf rdf:resource="http://schema.org/PropertyValue"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#ClassifiedObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://org.semanticweb.owlapi/error#Error3"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://schema.org/value"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/bpo#Component"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/bpo#ComponentConnection"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/bpo#RangedAttribute"/>
+        <rdfs:comment xml:lang="en">Attributes describe components&apos; quantitative and qualitative properties with single point values. Every property holds exactly one value and may be linked to a measurement unit using the QUDT.</rdfs:comment>
+        <rdfs:label xml:lang="en">attribute</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#ClassifiedObject -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#ClassifiedObject">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://schema.org/additionalType"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/bpo#Entity"/>
+        <rdfs:comment xml:lang="en">The ClassifiedObject class groups all classes that should be classified and poses the restriction that every individual of these classes musts have at least one classification using the schema:additionalType property. The restriction is passed on the other classes via inheritance.</rdfs:comment>
+        <rdfs:label xml:lang="en">classified object</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#Component -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#Component">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#ClassifiedObject"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/bpo#ComponentConnection"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/bpo#RangedAttribute"/>
+        <rdfs:comment xml:lang="en">A component represents the description of an object that is part of a product assembly or the product itself. Whenever such an object is modelled, it should ideally be given one of the subclasses of scp:Component to further specialise the object&apos;s characteristics. This class is to be understood as an abstract superclass with the purpose of grouping all product assembly relevant classes. 
+All components may, but do not need to, hold additional information regarding their geometry and material composition.</rdfs:comment>
+        <rdfs:label xml:lang="en">component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#ComponentConnection -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#ComponentConnection">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#ClassifiedObject"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/bpo#RangedAttribute"/>
+        <rdfs:comment xml:lang="en">A component connection defines a connection between two components in more detail. This connection can contain additional information like the type of the connection (electrical, physical, etc.) or resistances and allows the modelling of more complex connections where multiple entities are connected in the same node.</rdfs:comment>
+        <rdfs:label xml:lang="en">component connection</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#DynamicEntity -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#DynamicEntity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#Entity"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/bpo#SingularEntity"/>
+        <rdfs:comment xml:lang="en">A dynamic entity represents a (given) number of instances of one component that can be placed dynamically. However, a differentiation between the instances that are summarised in a dynamic entity is not possible: in the perspective of geometry, they have to be transformed identically in form of repetitions; they must have the same component connections, properties and material derivations.</rdfs:comment>
+        <rdfs:label xml:lang="en">dynamic entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#Element -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#Element">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#Component"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/bpo#consistsOf"/>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">An element is the description of an object that cannot be or is not composed of other components. Elements do not necessarily have to be non decomposable, since in some cases, objects may be simplified. Since this class does not have any predefined connection towards the element&apos;s material, no restriction regarding its material composition is in effect.
+An element can never be an assembly as well, however it can be a product.</rdfs:comment>
+        <rdfs:label xml:lang="en">element</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#Entity -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#Entity">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/bpo#realisesObject"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Entities represent instances of a specific component that are placed within one assembly. Such an entity can be used to differentiate specific instances of a type from the (more generic) type&apos;s description in aspects as geometry (e.g. transformations), component connections, properties, or material structure.
+An entity can only refer to one component.</rdfs:comment>
+        <rdfs:label xml:lang="en">entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#Entry2D -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#Entry2D">
+        <rdfs:subClassOf rdf:resource="http://schema.org/StructuredValue"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/bpo#hasValue1"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/bpo#hasValue2"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/bpo#Interval"/>
+        <owl:disjointWith rdf:resource="https://w3id.org/bpo#List2D"/>
+        <rdfs:comment xml:lang="en">A 2D entry is a value-value pair for property values. Besides the values, the resp. attributes that are described in the pair must be known to the entry.</rdfs:comment>
+        <rdfs:label xml:lang="en">2D entry</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#Interval -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#Interval">
+        <rdfs:subClassOf rdf:resource="http://schema.org/StructuredValue"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://schema.org/value"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="https://w3id.org/bpo#List2D"/>
+        <rdfs:comment xml:lang="en">An interval is an intermediate node between a property and its disordered list of possible values. This may be used when the property&apos;s value range cannot be described using mininum and maximum values (in combination with step sizes). The interval values should be connected via the schema:value property.</rdfs:comment>
+        <rdfs:label xml:lang="en">interval</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#List2D -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#List2D">
+        <rdfs:subClassOf rdf:resource="http://schema.org/StructuredValue"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/bpo#hasEntry"/>
+                        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/bpo#describesAttributeInFirstColumn"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/bpo#describesAttributeInSecondColumn"/>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A 2D list is an disordered list containing value-value pairs. This can be used to describe properties that are dependent on each other and commonly presented in tables. Besides the 2d entries, the attributes that are described by the list must be known.</rdfs:comment>
+        <rdfs:label xml:lang="en">2D list</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#Product -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#Product">
+        <rdfs:subClassOf rdf:resource="http://purl.org/goodrelations/v1#ProductOrServiceModel"/>
+        <rdfs:subClassOf rdf:resource="http://schema.org/ProductModel"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#Component"/>
+        <rdfs:comment xml:lang="en">A product is a description of any item that can be or is offered for sale by vendors or manufacturers. Products can be assembled or modelled as an element. In any case, the product&apos;s structure should be clarified by giving the individual the according type (scp:Assembly or scp:Element) as well.</rdfs:comment>
+        <rdfs:label xml:lang="en">product</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#RangedAttribute -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#RangedAttribute">
+        <rdfs:subClassOf rdf:resource="http://schema.org/PropertyValue"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#ClassifiedObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/seas/Property"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://org.semanticweb.owlapi/error#Error4"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://schema.org/value"/>
+                        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://schema.org/maxValue"/>
+                        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://schema.org/minValue"/>
+                        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="https://w3id.org/bpo#permittedStepSize"/>
+                        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Ranged attributes describe components&apos; quantitative and qualitative properties that have value ranges or multiple values. Value ranges can be defines by their minimal or maximal value and step sizes (in case not every value between the min and max is valid). Additionally, a ranged attribute may be linked to one specific value, which could represent the default value for parametric descriptions. The ranged value can also be linked to a measurement unit by using the QUDT.</rdfs:comment>
+        <rdfs:label xml:lang="en">ranged attribute</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/bpo#SingularEntity -->
+
+    <owl:Class rdf:about="https://w3id.org/bpo#SingularEntity">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#Entity"/>
+        <rdfs:comment xml:lang="en">A singular entity represents one instance of a specific component.</rdfs:comment>
+        <rdfs:label xml:lang="en">singular entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/seas/Property -->
+
+    <owl:Class rdf:about="https://w3id.org/seas/Property"/>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Laura Kristina Moeller</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Anna Wagner</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Christian Eller</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Marouane Boudhaim</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Tillmann E. Kuhn</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Christoph Maurer</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Christian Leifgen</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Johannes Eisenlohr</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Gesa Benndorf</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Tim Rist</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <foaf:name>Wendelin Sprenger</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
