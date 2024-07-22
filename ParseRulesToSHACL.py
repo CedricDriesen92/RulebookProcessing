@@ -2,14 +2,12 @@ import os
 import tempfile
 import rdflib
 from rdflib import Graph
-from owlready2 import *
 import shutil
 
 def convert_ttl_to_xml(input_path, filepath_short, output_format='xml'):
     g = rdflib.Graph()
     try:
         g.parse(input_path, format='turtle')
-        
         # Create a temporary file
         with open(filepath_short + ".xml", mode='w') as temp_file:
             g.serialize(destination=temp_file.name, format=output_format)
@@ -19,49 +17,29 @@ def convert_ttl_to_xml(input_path, filepath_short, output_format='xml'):
         return None
 
 def load_ontologies(uris, local_path):
-    ontologies = []
-    temp_files = []
+    ontologies = ["BOTen", "BPOen", "GEOsparqlen", "OPMen"]
     
     filename_source = "firebimSource.txt"
     if filename_source.endswith('.txt'):
         file_path = os.path.join(local_path, filename_source)
         file_path_short = file_path[:file_path.find(".")]
         try:
-            # Convert TTL to XML
-            xml_path = convert_ttl_to_xml(file_path, file_path_short)
-            #xml_new_path = local_path + "/result/" + "merged_ontology" + ".xml"
-            #shutil.copy2(xml_path, xml_new_path)
-            print(filename_source + " correctly converted.")
             if xml_path:
-                main_onto = get_ontology(f"file://{xml_path}").load()
+                main_onto = rdflib.Graph().parse(file_path, format="turtle")
                 print(f"Loaded ontology from file: {filename_source}")
         except Exception as e:
             print(f"Error loading ontology from file {filename_source}: {str(e)}")
-    
-    # Load ontologies from URIs
-    for uri in uris:
-        try:
-            onto = get_ontology(uri).load()
-            main_onto.imported_ontologies.append(onto)
-            print(f"Loaded ontology from URI: {uri}")
-        except Exception as e:
             print(f"Error loading ontology from URI {uri}: {str(e)}")
     
     # Convert and load ontologies from local text files
-    for filename in os.listdir(local_path):
-        if filename.endswith('.txt'):
-            file_path = os.path.join(local_path, filename)
-            file_path_short = file_path[:file_path.rfind(".")]
-            try:
-                # Convert TTL to XML
-                xml_path = convert_ttl_to_xml(file_path, file_path_short)
-                print(filename + " correctly converted.")
-                if xml_path:
-                    onto = get_ontology(f"file://{xml_path}").load()
-                    main_onto.imported_ontologies.append(onto)
-                    print(f"Loaded ontology from file: {filename}")
-            except Exception as e:
-                print(f"Error loading ontology from file {filename}: {str(e)}")
+    for filename in ontologies:
+        file_path = os.path.join(local_path, filename + ".txt")
+        file_path_short = file_path[:file_path.rfind(".")]
+        try:
+            onto = get_ontology(f"file://{xml_path}").load()
+            main_onto = main_onto + onto
+        except Exception as e:
+            print(f"Error loading ontology from file {filename}: {str(e)}")
     
     return main_onto
 
