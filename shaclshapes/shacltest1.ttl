@@ -1,0 +1,135 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix ex: <http://example.org/> .
+@prefix schema: <http://schema.org/> .
+
+# Shape for validating Building
+ex:BuildingShape a sh:NodeShape ;
+    sh:targetClass bot:Building ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for validating Storey
+ex:StoreyShape a sh:NodeShape ;
+    sh:targetClass bot:Storey ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bot:hasSpace ;
+        sh:minCount 1 ;
+        sh:class bot:Space ;
+    ] ;
+    sh:property [
+        sh:path bot:isPartOf ;
+        sh:minCount 1 ;
+        sh:class bot:Building ;
+    ] .
+
+# Shape for validating Space
+ex:SpaceShape a sh:NodeShape ;
+    sh:targetClass bot:Space ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bot:hasElement ;
+        sh:minCount 1 ;
+        sh:class bot:Element ;
+    ] .
+
+# Shape for validating Fire Door
+ex:FireDoorShape a sh:NodeShape ;
+    sh:targetClass bot:Element ;
+    sh:and (
+        [sh:class bpo:Product]
+    ) ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bot:adjacentElement ;
+        sh:minCount 1 ;
+        sh:class bot:Element ;
+    ] ;
+    sh:property [
+        sh:path firebim:hasState ;
+        sh:minCount 1 ;
+        sh:class firebim:State ;
+    ] ;
+    sh:property [
+        sh:path bpo:hasAttribute ;
+        sh:minCount 2 ;
+        sh:class bpo:Attribute ;
+    ] ;
+    sh:property [
+        sh:path geo:hasGeometry ;
+        sh:minCount 1 ;
+        sh:class geo:Geometry ;
+    ] .
+
+# Shape for validating Fire Door State
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:targetClass firebim:State ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path firebim:currentState ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for validating Fire Door Attributes
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:targetClass bpo:Attribute ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path schema:value ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for validating Fire Door Geometry
+ex:FireDoorGeometryShape a sh:NodeShape ;
+    sh:targetClass geo:Geometry ;
+    sh:property [
+        sh:path geo:asWKT ;
+        sh:datatype geo:wktLiteral ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for validating Property State
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:targetClass opm:PropertyState ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path opm:hasPropertyState ;
+        sh:minCount 1 ;
+        sh:class bpo:Attribute ;
+    ] .
