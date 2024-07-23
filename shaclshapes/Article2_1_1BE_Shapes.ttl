@@ -1,0 +1,201 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix ex: <http://example.org/> .
+@prefix schema: <http://schema.org/> .
+
+# Shape for validating Building
+ex:BuildingShape a sh:NodeShape ;
+    sh:targetClass bot:Building ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for validating Storey
+ex:StoreyShape a sh:NodeShape ;
+    sh:targetClass bot:Storey ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path bot:hasSpace ;
+        sh:minCount 1 ;
+        sh:class bot:Space ;
+    ] .
+
+# Shape for validating Space
+ex:SpaceShape a sh:NodeShape ;
+    sh:targetClass bot:Space ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for validating Fire Door State
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:targetClass firebim:State ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path firebim:currentState ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for validating Fire Door Attributes
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:targetClass bpo:Attribute ;
+    sh:property [
+        sh:path rdfs:label ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path schema:value ;
+        sh:minCount 1 ;
+    ] .
+
+# Shape for calculating Compartment area
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    sh:targetClass firebim:Compartment ;
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes (
+            [ sh:prefix "firebim" ; sh:namespace "http://example.org/firebim#" ]
+            [ sh:prefix "bot" ; sh:namespace "https://w3id.org/bot#" ]
+            [ sh:prefix "rdfs" ; sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ]
+        ) ;
+        sh:construct """
+            CONSTRUCT {
+                $this firebim:calculatedArea ?totalArea .
+                $this firebim:debugAreaCalculation ?debug .
+            }
+            WHERE {
+                {
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)
+                    WHERE {
+                        $this bot:containsZone ?zone .
+                        ?zone firebim:area ?area .
+                        ?zone rdfs:label ?zoneName .
+                    }
+                    GROUP BY $this
+                }
+            }
+        """ ;
+    ] .
+
+# Shape for validating compartment length
+ex:CompartmentLengthValidationShape a sh:NodeShape ;
+    sh:targetClass firebim:Compartment ;
+    sh:property [
+        sh:path firebim:length ;
+        sh:maxInclusive 90 ;
+        sh:message "Compartment length must not exceed 90 m." ;
+    ] .
+
+# Shape for validating compartments
+ex:LargeCompartmentValidationShape a sh:NodeShape ;
+    sh:targetClass firebim:Compartment ;
+    sh:or (
+        [
+            sh:and (
+                [
+                    sh:or (
+                        [
+                            sh:property [
+                                sh:path firebim:calculatedArea ;
+                                sh:minExclusive 0 ;
+                                sh:maxInclusive 3500 ;
+                            ]
+                        ]
+                        [
+                            sh:and ([
+                                sh:property [
+                                    sh:path firebim:hasAutomaticFireExtinguishing ;
+                                    sh:hasValue true ;
+                                ]
+                            ]
+                            [
+                                sh:property [
+                                    sh:path firebim:hasSmokeAndHeatExtraction ;
+                                    sh:hasValue true ;
+                                ]
+                            ]
+                            )
+                        ]
+                    ) 
+                ]
+                [
+                    sh:property [
+                        sh:path firebim:isGroundFloor ;
+                        sh:hasValue true ;
+                    ]
+                ]
+            )
+        ]
+        [
+            sh:and (
+                [
+                    sh:or (
+                        [
+                            sh:property [
+                                sh:path firebim:calculatedArea ;
+                                sh:minExclusive 0 ;
+                                sh:maxInclusive 2500 ;
+                            ]
+                        ]
+                        [
+                            sh:and ([
+                                sh:property [
+                                    sh:path firebim:hasAutomaticFireExtinguishing ;
+                                    sh:hasValue true ;
+                                ]
+                            ]
+                            [
+                                sh:property [
+                                    sh:path firebim:hasSmokeAndHeatExtraction ;
+                                    sh:hasValue true ;
+                                ]
+                            ]
+                            )
+                        ]
+                    ) 
+                ]
+                [
+                    sh:property [
+                        sh:path firebim:isGroundFloor ;
+                        sh:hasValue false ;
+                    ]
+                ]
+            )
+        ]
+    ) ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" .
+
+# Additional debug information for area calculation
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    sh:targetClass firebim:Compartment ;
+    sh:property [
+        sh:path firebim:calculatedArea ;
+        sh:minCount 1 ;
+        sh:message "Calculated area is missing." ;
+    ] ;
+    sh:property [
+        sh:path firebim:debugAreaCalculation ;
+        sh:minCount 1 ;
+        sh:message "Debug information for area calculation is missing." ;
+    ] .

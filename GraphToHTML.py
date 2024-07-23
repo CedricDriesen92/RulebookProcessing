@@ -1,7 +1,4 @@
-import difflib
-import rdflib
 from rdflib import Graph, Namespace, URIRef
-from rdflib.namespace import RDF, RDFS
 import html
 import os
 import re
@@ -15,14 +12,6 @@ g.parse("combined_document_data_graph.ttl", format="turtle")
 
 # Define namespaces
 FIREBIM = Namespace("http://example.com/firebim#")
-
-def fuzzy_find(text, pattern, threshold=0.85):
-    for i in range(len(text)):
-        for j in range(i + 1, len(text) + 1):
-            substring = text[i:j]
-            if len(substring) > 3 and difflib.SequenceMatcher(None, substring, pattern).ratio() > threshold:
-                return i, j
-    return -1, -1
 
 def normalize_text(text):
     # Remove language tags and normalize whitespace
@@ -50,9 +39,6 @@ def get_uri_id(entity):
         if match:
             return match.group(1).replace('_', '.')
     return ""
-
-def clean_text(text):
-    return re.sub(r'\s+', ' ', text.strip())
 
 def process_section(section, level=1):
     section_id = get_id(section)
@@ -94,11 +80,11 @@ def process_article(article):
     html_content = f"<div class='article' id='{article_id}'>"
     
     html_content += f"""
-    <div class="original-text" style="display:block;">
-        <p>{article_text}</p>
-    </div>
     <div class="article-content">
         <span style="font-size: 16px; color: grey" class="subtle-id">Article {article_id}</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p>{article_text}</p>
     """
     
     # Process top-level members

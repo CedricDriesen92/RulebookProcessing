@@ -3,40 +3,24 @@ import tempfile
 import rdflib
 from rdflib import Graph
 import shutil
+from pyshacl import validate
 
-def convert_ttl_to_xml(input_path, filepath_short, output_format='xml'):
-    g = rdflib.Graph()
-    try:
-        g.parse(input_path, format='turtle')
-        # Create a temporary file
-        with open(filepath_short + ".xml", mode='w') as temp_file:
-            g.serialize(destination=temp_file.name, format=output_format)
-            return temp_file.name
-    except Exception as e:
-        print(f"Error converting {input_path}: {str(e)}")
-        return None
-
-def load_ontologies(uris, local_path):
+def load_ontologies(local_path):
     ontologies = ["BOTen", "BPOen", "GEOsparqlen", "OPMen"]
     
-    filename_source = "firebimSource.txt"
-    if filename_source.endswith('.txt'):
-        file_path = os.path.join(local_path, filename_source)
-        file_path_short = file_path[:file_path.find(".")]
-        try:
-            if xml_path:
-                main_onto = rdflib.Graph().parse(file_path, format="turtle")
-                print(f"Loaded ontology from file: {filename_source}")
-        except Exception as e:
-            print(f"Error loading ontology from file {filename_source}: {str(e)}")
-            print(f"Error loading ontology from URI {uri}: {str(e)}")
+    filename_source = "firebimSource.ttl"
+    file_path = os.path.join(local_path, filename_source)
+    try:
+        main_onto = rdflib.Graph().parse(file_path, format="turtle")
+        print(f"Loaded ontology from file: {filename_source}")
+    except Exception as e:
+        print(f"Error loading ontology from file {filename_source}: {str(e)}")
     
     # Convert and load ontologies from local text files
     for filename in ontologies:
-        file_path = os.path.join(local_path, filename + ".txt")
-        file_path_short = file_path[:file_path.rfind(".")]
-        try:
-            onto = get_ontology(f"file://{xml_path}").load()
+        file_path = os.path.join(local_path, filename + ".ttl")
+        try:         
+            onto = rdflib.Graph().parse(file_path, format="turtle")
             main_onto = main_onto + onto
         except Exception as e:
             print(f"Error loading ontology from file {filename}: {str(e)}")
@@ -52,12 +36,6 @@ def save_merged_ontology(merged_onto, output_path):
 
 # Main execution
 if __name__ == "__main__":
-    # List of URIs for ontologies
-    uris = [
-        "https://schemas.opengis.net/indoorgml/1.0/indoorgmlcore.xsd",
-        "https://schemas.opengis.net/indoorgml/1.0/indoorgmlnavi.xsd"
-    ]
-    
     # Path to local directory containing .txt ontology files
     local_path = "buildingontologies/"
     
@@ -65,8 +43,18 @@ if __name__ == "__main__":
     output_path = "buildingontologies/result/merged_ontology.owl"
     
     # Load ontologies
-    merged_ontology = load_ontologies(uris, local_path)
+    merged_ontology = load_ontologies(local_path)
     
     # Save merged ontology
-    if merged_ontology:
-        save_merged_ontology(merged_ontology, output_path)
+    #if merged_ontology:
+        #save_merged_ontology(merged_ontology, output_path)
+    
+    data_graph = rdflib.Graph().parse("buildinggraphs/Article2_1_1BE_Data.ttl", format="turtle")
+    shapes_graph = rdflib.Graph().parse("shaclshapes/Article2_1_1BE_Shapes.ttl", format="turtle")
+    #data_graph.print()
+    #shapes_graph.print()
+    #print(shapes_graph)
+    r = validate(data_graph, shacl_graph=shapes_graph, debug=False, inference="none", advanced=True)
+    conforms, results_graph, results_text = r
+    print(conforms)
+    results_graph.print()
