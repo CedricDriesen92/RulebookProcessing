@@ -1,5 +1,6 @@
 from rdflib import Graph, Namespace, URIRef
 import html
+import rdflib
 import os
 import re
 import urllib.parse
@@ -12,13 +13,28 @@ g.parse("combined_document_data_graph.ttl", format="turtle")
 
 # Define namespaces
 FIREBIM = Namespace("http://example.com/firebim#")
+rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
+sh = Namespace("http://www.w3.org/ns/shacl#")
+
+def load_all_shapes(directory):
+    shapes = {}
+    shapes_graph = Graph()
+    for filename in os.listdir(directory):
+        if filename.endswith(".ttl"):
+            graph = rdflib.Graph()
+            graph.parse(os.path.join(directory, filename), format="turtle")
+            for shape in graph.subjects(rdf.type, sh.NodeShape):
+                shape_id = shape.split('#')[-1]
+                shapes[shape_id] = graph.serialize(format='turtle')
+            shapes_graph += graph
+    #shapes_graph.print()
+    return shapes, shapes_graph
 
 def normalize_text(text):
     # Remove language tags and normalize whitespace
     text = re.sub(r'@\w+$', '', text)
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
-
 
 def get_text(entity):
     text = g.value(entity, FIREBIM.hasOriginalText)
@@ -110,6 +126,16 @@ def process_members(members, level=0):
             <span style="font-size: 10px; color: grey" class="subtle-id">Member {member_id}</span>
             <p>{member_text}</p>
         """
+        
+        # Add button for showing related shape
+        related_shapes = list(shapes_graph.objects(member, FIREBIM.hasRelatedShape))
+        if related_shapes:
+            shape_id = related_shapes[0].split('#')[-1]  # Extract the shape ID from the URI
+            if shape_id in shapes:
+                html_content += f"""
+                <button class='show-shape-button' onclick='showShape("{shape_id}")'>Show Related Shape</button>
+                """
+            print("Related shapes found: " + str(member_id) + "   " + str(shape_id))
         
         # Process nested members
         nested_members = list(g.objects(member, FIREBIM.hasMember))
@@ -206,6 +232,10 @@ def process_toc_section(g, section, level):
     
     html += "</li>"
     return html
+
+
+# Load all shapes
+shapes, shapes_graph = load_all_shapes("shaclshapes")
 
 # Generate HTML content
 html_content = """
@@ -383,6 +413,64 @@ html_content = """
             background-color: yellow;
             font-weight: bold;
         }
+        .shape-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            overflow: auto;
+        }
+
+        .shape-modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .shape-modal-content pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .show-shape-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
         #id-toggle-container {
             position: fixed;
             top: 10px;
@@ -459,7 +547,56 @@ for section in g.objects(document, FIREBIM.hasSection):
         html_content += process_section(section)
 
 html_content += """
-<script>
+    <script>
+
+    const shapes = {
+"""
+
+for shape_id, shape_content in shapes.items():
+    html_content += f"'{shape_id}': `{shape_content}`,\n"
+
+html_content += """
+    };
+
+    function showShape(shapeId) {
+        const shapeContent = shapes[shapeId];
+        if (shapeContent) {
+            const modal = document.createElement('div');
+            modal.className = 'shape-modal';
+            modal.style.display = 'block';
+            modal.innerHTML = `
+                <div class="shape-modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Shape: ${shapeId}</h2>
+                    <pre>${escapeHtml(shapeContent)}</pre>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            const closeButton = modal.querySelector('.close-modal');
+            closeButton.onclick = function() {
+                document.body.removeChild(modal);
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    document.body.removeChild(modal);
+                }
+            }
+        } else {
+            console.error(`Shape with id ${shapeId} not found`);
+        }
+    }
+
+    function escapeHtml(unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
     function toggleOriginalText(button) {
         var originalText = button.parentElement.nextElementSibling;
         if (originalText.style.display === "none") {
@@ -783,6 +920,8 @@ html_content += """
 </body>
 </html>
 """
+
+# Create ToC
 table_of_contents = generate_table_of_contents(g, document)
 html_content = html_content.replace('table_of_contents_location', table_of_contents)
 # Write the HTML content to a file

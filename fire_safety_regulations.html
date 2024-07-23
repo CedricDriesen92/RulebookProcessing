@@ -173,6 +173,64 @@
             background-color: yellow;
             font-weight: bold;
         }
+        .shape-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            overflow: auto;
+        }
+
+        .shape-modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .shape-modal-content pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .show-shape-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
         #id-toggle-container {
             position: fixed;
             top: 10px;
@@ -518,19 +576,27 @@ Plaat 2.2 - Gevels tussen compartimenten</p>
         <div class='member level-0'>
             <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.1.1</span>
             <p>Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m², met uitzondering van de parkings (zie 5.2).</p>
-        <div class='references'><button class='reference-button' onclick='scrollToElement("5.2")'>→ 5.2</button></div></div>
+        
+                <button class='show-shape-button' onclick='showShape("http://example.org/GroundFloorCompartmentAreaShape")'>Show Related Shape</button>
+                <div class='references'><button class='reference-button' onclick='scrollToElement("5.2")'>→ 5.2</button></div></div>
         <div class='member level-0'>
             <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.1.2</span>
             <p>De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag 3500 m² bedragen.</p>
-        </div>
+        
+                <button class='show-shape-button' onclick='showShape("http://example.org/GroundFloorCompartmentAreaShape")'>Show Related Shape</button>
+                </div>
         <div class='member level-0'>
             <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.1.3</span>
             <p>De lengte van dit compartiment bedraagt niet meer dan 90 m.</p>
-        </div>
+        
+                <button class='show-shape-button' onclick='showShape("http://example.org/CompartmentLengthShape")'>Show Related Shape</button>
+                </div>
         <div class='member level-0'>
             <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.1.4</span>
             <p>De maximale oppervlakte van een compartiment mag, respectievelijk, groter dan ofwel 2500 m², ofwel 3500 m² bedragen indien het compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie.</p>
         
+                <button class='show-shape-button' onclick='showShape("http://example.org/LargeCompartmentShape")'>Show Related Shape</button>
+                
         <div class='member level-1'>
             <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.1.4.1</span>
             <p>De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de grootte van het compartiment respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden.</p>
@@ -4186,7 +4252,2168 @@ Tabel 2.4 – Brandwerende kleppen.</pre>
 </div></div>
 </div></div>
 
-<script>
+    <script>
+
+    const shapes = {
+'http://example.org/BuildingShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/StoreyShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/SpaceShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/FireDoorStateShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/FireDoorAttributeShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/CompartmentAreaCalculationShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    rdfs:comment "Ensures that calculated area and debug information are present." ;
+    sh:property [ sh:message "Calculated area is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:calculatedArea ],
+        [ sh:message "Debug information for area calculation is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:debugAreaCalculation ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    rdfs:comment "Calculates the area of a compartment based on its contained spaces." ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """\r
+            CONSTRUCT {\r
+                $this firebim:calculatedArea ?totalArea .\r
+                $this firebim:debugAreaCalculation ?debug .\r
+            }\r
+            WHERE {\r
+                {\r
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)\r
+                    WHERE {\r
+                        $this bot:containsZone ?zone .\r
+                        ?zone firebim:area ?area .\r
+                        ?zone rdfs:label ?zoneName .\r
+                    }\r
+                    GROUP BY $this\r
+                }\r
+            }\r
+        """ ;
+            sh:prefixes ( [ sh:namespace "http://example.com/firebim#" ;
+                        sh:prefix "firebim" ] [ sh:namespace "https://w3id.org/bot#" ;
+                        sh:prefix "bot" ] [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ;
+                        sh:prefix "rdfs" ] ) ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:CompartmentAreaShape a sh:NodeShape ;
+    rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:CompartmentAreaShape ] ;
+    sh:property [ sh:maxInclusive 2500 ;
+            sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
+            sh:path firebim:calculatedArea ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path <http://example.org/firebim#currentState> ] ;
+    sh:targetClass <http://example.org/firebim#State> .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ] ;
+    sh:targetClass bot:Storey .
+
+firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
+
+firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .
+
+ex:CompartmentLengthShape a sh:NodeShape ;
+    rdfs:comment "Validates that compartment length does not exceed 90 m." ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_3 ] ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:maxInclusive 90 ;
+            sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
+            sh:path firebim:length ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:LargeCompartmentShape a sh:NodeShape ;
+    rdfs:comment "Validates that large compartments have necessary fire safety systems." ;
+    sh:and ( [ sh:or ( [ sh:and ( [ sh:property [ sh:maxInclusive 3500 ;
+                                                sh:minExclusive 2500 ;
+                                                sh:path firebim:calculatedArea ] ] [ sh:property [ sh:hasValue false ;
+                                                sh:path firebim:isGroundFloor ] ] ) ] [ sh:property [ sh:minExclusive 3500 ;
+                                    sh:path firebim:calculatedArea ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasAutomaticFireExtinguishing ] ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasSmokeAndHeatExtraction ] ] ) ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_4 ] ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    sh:targetClass firebim:Compartment .
+
+ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
+    rdfs:comment "Validates that ground floor compartment area is less than or equal to 3500 m²." ;
+    sh:and ( [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:isGroundFloor ] ] [ sh:property [ sh:datatype xsd:float ;
+                        sh:maxInclusive 3500 ;
+                        sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
+                        sh:path firebim:calculatedArea ] ] ) ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_2 ] ;
+    sh:targetClass firebim:Compartment .
+
+`,
+'http://example.org/CompartmentAreaShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    rdfs:comment "Ensures that calculated area and debug information are present." ;
+    sh:property [ sh:message "Calculated area is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:calculatedArea ],
+        [ sh:message "Debug information for area calculation is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:debugAreaCalculation ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    rdfs:comment "Calculates the area of a compartment based on its contained spaces." ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """\r
+            CONSTRUCT {\r
+                $this firebim:calculatedArea ?totalArea .\r
+                $this firebim:debugAreaCalculation ?debug .\r
+            }\r
+            WHERE {\r
+                {\r
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)\r
+                    WHERE {\r
+                        $this bot:containsZone ?zone .\r
+                        ?zone firebim:area ?area .\r
+                        ?zone rdfs:label ?zoneName .\r
+                    }\r
+                    GROUP BY $this\r
+                }\r
+            }\r
+        """ ;
+            sh:prefixes ( [ sh:namespace "http://example.com/firebim#" ;
+                        sh:prefix "firebim" ] [ sh:namespace "https://w3id.org/bot#" ;
+                        sh:prefix "bot" ] [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ;
+                        sh:prefix "rdfs" ] ) ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:CompartmentAreaShape a sh:NodeShape ;
+    rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:CompartmentAreaShape ] ;
+    sh:property [ sh:maxInclusive 2500 ;
+            sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
+            sh:path firebim:calculatedArea ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path <http://example.org/firebim#currentState> ] ;
+    sh:targetClass <http://example.org/firebim#State> .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ] ;
+    sh:targetClass bot:Storey .
+
+firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
+
+firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .
+
+ex:CompartmentLengthShape a sh:NodeShape ;
+    rdfs:comment "Validates that compartment length does not exceed 90 m." ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_3 ] ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:maxInclusive 90 ;
+            sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
+            sh:path firebim:length ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:LargeCompartmentShape a sh:NodeShape ;
+    rdfs:comment "Validates that large compartments have necessary fire safety systems." ;
+    sh:and ( [ sh:or ( [ sh:and ( [ sh:property [ sh:maxInclusive 3500 ;
+                                                sh:minExclusive 2500 ;
+                                                sh:path firebim:calculatedArea ] ] [ sh:property [ sh:hasValue false ;
+                                                sh:path firebim:isGroundFloor ] ] ) ] [ sh:property [ sh:minExclusive 3500 ;
+                                    sh:path firebim:calculatedArea ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasAutomaticFireExtinguishing ] ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasSmokeAndHeatExtraction ] ] ) ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_4 ] ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    sh:targetClass firebim:Compartment .
+
+ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
+    rdfs:comment "Validates that ground floor compartment area is less than or equal to 3500 m²." ;
+    sh:and ( [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:isGroundFloor ] ] [ sh:property [ sh:datatype xsd:float ;
+                        sh:maxInclusive 3500 ;
+                        sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
+                        sh:path firebim:calculatedArea ] ] ) ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_2 ] ;
+    sh:targetClass firebim:Compartment .
+
+`,
+'http://example.org/GroundFloorCompartmentAreaShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    rdfs:comment "Ensures that calculated area and debug information are present." ;
+    sh:property [ sh:message "Calculated area is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:calculatedArea ],
+        [ sh:message "Debug information for area calculation is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:debugAreaCalculation ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    rdfs:comment "Calculates the area of a compartment based on its contained spaces." ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """\r
+            CONSTRUCT {\r
+                $this firebim:calculatedArea ?totalArea .\r
+                $this firebim:debugAreaCalculation ?debug .\r
+            }\r
+            WHERE {\r
+                {\r
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)\r
+                    WHERE {\r
+                        $this bot:containsZone ?zone .\r
+                        ?zone firebim:area ?area .\r
+                        ?zone rdfs:label ?zoneName .\r
+                    }\r
+                    GROUP BY $this\r
+                }\r
+            }\r
+        """ ;
+            sh:prefixes ( [ sh:namespace "http://example.com/firebim#" ;
+                        sh:prefix "firebim" ] [ sh:namespace "https://w3id.org/bot#" ;
+                        sh:prefix "bot" ] [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ;
+                        sh:prefix "rdfs" ] ) ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:CompartmentAreaShape a sh:NodeShape ;
+    rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:CompartmentAreaShape ] ;
+    sh:property [ sh:maxInclusive 2500 ;
+            sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
+            sh:path firebim:calculatedArea ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path <http://example.org/firebim#currentState> ] ;
+    sh:targetClass <http://example.org/firebim#State> .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ] ;
+    sh:targetClass bot:Storey .
+
+firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
+
+firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .
+
+ex:CompartmentLengthShape a sh:NodeShape ;
+    rdfs:comment "Validates that compartment length does not exceed 90 m." ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_3 ] ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:maxInclusive 90 ;
+            sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
+            sh:path firebim:length ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:LargeCompartmentShape a sh:NodeShape ;
+    rdfs:comment "Validates that large compartments have necessary fire safety systems." ;
+    sh:and ( [ sh:or ( [ sh:and ( [ sh:property [ sh:maxInclusive 3500 ;
+                                                sh:minExclusive 2500 ;
+                                                sh:path firebim:calculatedArea ] ] [ sh:property [ sh:hasValue false ;
+                                                sh:path firebim:isGroundFloor ] ] ) ] [ sh:property [ sh:minExclusive 3500 ;
+                                    sh:path firebim:calculatedArea ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasAutomaticFireExtinguishing ] ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasSmokeAndHeatExtraction ] ] ) ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_4 ] ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    sh:targetClass firebim:Compartment .
+
+ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
+    rdfs:comment "Validates that ground floor compartment area is less than or equal to 3500 m²." ;
+    sh:and ( [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:isGroundFloor ] ] [ sh:property [ sh:datatype xsd:float ;
+                        sh:maxInclusive 3500 ;
+                        sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
+                        sh:path firebim:calculatedArea ] ] ) ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_2 ] ;
+    sh:targetClass firebim:Compartment .
+
+`,
+'http://example.org/CompartmentLengthShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    rdfs:comment "Ensures that calculated area and debug information are present." ;
+    sh:property [ sh:message "Calculated area is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:calculatedArea ],
+        [ sh:message "Debug information for area calculation is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:debugAreaCalculation ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    rdfs:comment "Calculates the area of a compartment based on its contained spaces." ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """\r
+            CONSTRUCT {\r
+                $this firebim:calculatedArea ?totalArea .\r
+                $this firebim:debugAreaCalculation ?debug .\r
+            }\r
+            WHERE {\r
+                {\r
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)\r
+                    WHERE {\r
+                        $this bot:containsZone ?zone .\r
+                        ?zone firebim:area ?area .\r
+                        ?zone rdfs:label ?zoneName .\r
+                    }\r
+                    GROUP BY $this\r
+                }\r
+            }\r
+        """ ;
+            sh:prefixes ( [ sh:namespace "http://example.com/firebim#" ;
+                        sh:prefix "firebim" ] [ sh:namespace "https://w3id.org/bot#" ;
+                        sh:prefix "bot" ] [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ;
+                        sh:prefix "rdfs" ] ) ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:CompartmentAreaShape a sh:NodeShape ;
+    rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:CompartmentAreaShape ] ;
+    sh:property [ sh:maxInclusive 2500 ;
+            sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
+            sh:path firebim:calculatedArea ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path <http://example.org/firebim#currentState> ] ;
+    sh:targetClass <http://example.org/firebim#State> .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ] ;
+    sh:targetClass bot:Storey .
+
+firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
+
+firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .
+
+ex:CompartmentLengthShape a sh:NodeShape ;
+    rdfs:comment "Validates that compartment length does not exceed 90 m." ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_3 ] ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:maxInclusive 90 ;
+            sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
+            sh:path firebim:length ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:LargeCompartmentShape a sh:NodeShape ;
+    rdfs:comment "Validates that large compartments have necessary fire safety systems." ;
+    sh:and ( [ sh:or ( [ sh:and ( [ sh:property [ sh:maxInclusive 3500 ;
+                                                sh:minExclusive 2500 ;
+                                                sh:path firebim:calculatedArea ] ] [ sh:property [ sh:hasValue false ;
+                                                sh:path firebim:isGroundFloor ] ] ) ] [ sh:property [ sh:minExclusive 3500 ;
+                                    sh:path firebim:calculatedArea ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasAutomaticFireExtinguishing ] ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasSmokeAndHeatExtraction ] ] ) ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_4 ] ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    sh:targetClass firebim:Compartment .
+
+ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
+    rdfs:comment "Validates that ground floor compartment area is less than or equal to 3500 m²." ;
+    sh:and ( [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:isGroundFloor ] ] [ sh:property [ sh:datatype xsd:float ;
+                        sh:maxInclusive 3500 ;
+                        sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
+                        sh:path firebim:calculatedArea ] ] ) ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_2 ] ;
+    sh:targetClass firebim:Compartment .
+
+`,
+'http://example.org/LargeCompartmentShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    rdfs:comment "Ensures that calculated area and debug information are present." ;
+    sh:property [ sh:message "Calculated area is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:calculatedArea ],
+        [ sh:message "Debug information for area calculation is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:debugAreaCalculation ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    rdfs:comment "Calculates the area of a compartment based on its contained spaces." ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """\r
+            CONSTRUCT {\r
+                $this firebim:calculatedArea ?totalArea .\r
+                $this firebim:debugAreaCalculation ?debug .\r
+            }\r
+            WHERE {\r
+                {\r
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)\r
+                    WHERE {\r
+                        $this bot:containsZone ?zone .\r
+                        ?zone firebim:area ?area .\r
+                        ?zone rdfs:label ?zoneName .\r
+                    }\r
+                    GROUP BY $this\r
+                }\r
+            }\r
+        """ ;
+            sh:prefixes ( [ sh:namespace "http://example.com/firebim#" ;
+                        sh:prefix "firebim" ] [ sh:namespace "https://w3id.org/bot#" ;
+                        sh:prefix "bot" ] [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ;
+                        sh:prefix "rdfs" ] ) ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:CompartmentAreaShape a sh:NodeShape ;
+    rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:CompartmentAreaShape ] ;
+    sh:property [ sh:maxInclusive 2500 ;
+            sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
+            sh:path firebim:calculatedArea ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path <http://example.org/firebim#currentState> ] ;
+    sh:targetClass <http://example.org/firebim#State> .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ] ;
+    sh:targetClass bot:Storey .
+
+firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
+
+firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .
+
+ex:CompartmentLengthShape a sh:NodeShape ;
+    rdfs:comment "Validates that compartment length does not exceed 90 m." ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_3 ] ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:maxInclusive 90 ;
+            sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
+            sh:path firebim:length ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:LargeCompartmentShape a sh:NodeShape ;
+    rdfs:comment "Validates that large compartments have necessary fire safety systems." ;
+    sh:and ( [ sh:or ( [ sh:and ( [ sh:property [ sh:maxInclusive 3500 ;
+                                                sh:minExclusive 2500 ;
+                                                sh:path firebim:calculatedArea ] ] [ sh:property [ sh:hasValue false ;
+                                                sh:path firebim:isGroundFloor ] ] ) ] [ sh:property [ sh:minExclusive 3500 ;
+                                    sh:path firebim:calculatedArea ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasAutomaticFireExtinguishing ] ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasSmokeAndHeatExtraction ] ] ) ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_4 ] ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    sh:targetClass firebim:Compartment .
+
+ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
+    rdfs:comment "Validates that ground floor compartment area is less than or equal to 3500 m²." ;
+    sh:and ( [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:isGroundFloor ] ] [ sh:property [ sh:datatype xsd:float ;
+                        sh:maxInclusive 3500 ;
+                        sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
+                        sh:path firebim:calculatedArea ] ] ) ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_2 ] ;
+    sh:targetClass firebim:Compartment .
+
+`,
+'http://example.org/AreaCalculationDebugShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    rdfs:comment "Ensures that calculated area and debug information are present." ;
+    sh:property [ sh:message "Calculated area is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:calculatedArea ],
+        [ sh:message "Debug information for area calculation is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:debugAreaCalculation ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    rdfs:comment "Calculates the area of a compartment based on its contained spaces." ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """\r
+            CONSTRUCT {\r
+                $this firebim:calculatedArea ?totalArea .\r
+                $this firebim:debugAreaCalculation ?debug .\r
+            }\r
+            WHERE {\r
+                {\r
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)\r
+                    WHERE {\r
+                        $this bot:containsZone ?zone .\r
+                        ?zone firebim:area ?area .\r
+                        ?zone rdfs:label ?zoneName .\r
+                    }\r
+                    GROUP BY $this\r
+                }\r
+            }\r
+        """ ;
+            sh:prefixes ( [ sh:namespace "http://example.com/firebim#" ;
+                        sh:prefix "firebim" ] [ sh:namespace "https://w3id.org/bot#" ;
+                        sh:prefix "bot" ] [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ;
+                        sh:prefix "rdfs" ] ) ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:CompartmentAreaShape a sh:NodeShape ;
+    rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:CompartmentAreaShape ] ;
+    sh:property [ sh:maxInclusive 2500 ;
+            sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
+            sh:path firebim:calculatedArea ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path <http://example.org/firebim#currentState> ] ;
+    sh:targetClass <http://example.org/firebim#State> .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ] ;
+    sh:targetClass bot:Storey .
+
+firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
+
+firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .
+
+ex:CompartmentLengthShape a sh:NodeShape ;
+    rdfs:comment "Validates that compartment length does not exceed 90 m." ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_3 ] ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:maxInclusive 90 ;
+            sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
+            sh:path firebim:length ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:LargeCompartmentShape a sh:NodeShape ;
+    rdfs:comment "Validates that large compartments have necessary fire safety systems." ;
+    sh:and ( [ sh:or ( [ sh:and ( [ sh:property [ sh:maxInclusive 3500 ;
+                                                sh:minExclusive 2500 ;
+                                                sh:path firebim:calculatedArea ] ] [ sh:property [ sh:hasValue false ;
+                                                sh:path firebim:isGroundFloor ] ] ) ] [ sh:property [ sh:minExclusive 3500 ;
+                                    sh:path firebim:calculatedArea ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasAutomaticFireExtinguishing ] ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasSmokeAndHeatExtraction ] ] ) ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_4 ] ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    sh:targetClass firebim:Compartment .
+
+ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
+    rdfs:comment "Validates that ground floor compartment area is less than or equal to 3500 m²." ;
+    sh:and ( [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:isGroundFloor ] ] [ sh:property [ sh:datatype xsd:float ;
+                        sh:maxInclusive 3500 ;
+                        sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
+                        sh:path firebim:calculatedArea ] ] ) ;
+    sh:annotationProperty [ a sh:StemNameAnnotation ;
+            sh:name "Article reference" ;
+            sh:value firebim:Member_2_1_1_2 ] ;
+    sh:targetClass firebim:Compartment .
+
+`,
+'http://example.org/FireDoorShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/FireDoorGeometryShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorGeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+`,
+'http://example.org/PropertyStateShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/GeometryShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/WallShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/FloorShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+
+    };
+
+    function showShape(shapeId) {
+        const shapeContent = shapes[shapeId];
+        if (shapeContent) {
+            const modal = document.createElement('div');
+            modal.className = 'shape-modal';
+            modal.style.display = 'block';
+            modal.innerHTML = `
+                <div class="shape-modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Shape: ${shapeId}</h2>
+                    <pre>${escapeHtml(shapeContent)}</pre>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            const closeButton = modal.querySelector('.close-modal');
+            closeButton.onclick = function() {
+                document.body.removeChild(modal);
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    document.body.removeChild(modal);
+                }
+            }
+        } else {
+            console.error(`Shape with id ${shapeId} not found`);
+        }
+    }
+
+    function escapeHtml(unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
     function toggleOriginalText(button) {
         var originalText = button.parentElement.nextElementSibling;
         if (originalText.style.display === "none") {
