@@ -40,6 +40,11 @@ ex:SpaceShape a sh:NodeShape ;
         sh:path rdfs:label ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:severity sh:Info ;
+        sh:path geo:hasGeometry;
+        sh:minCount 1 ;
     ] .
 
 # Shape for validating Fire Door State
@@ -51,6 +56,7 @@ ex:FireDoorStateShape a sh:NodeShape ;
         sh:minCount 1 ;
     ] ;
     sh:property [
+        sh:severity sh:Info ;
         sh:path firebim:currentState ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
@@ -104,6 +110,7 @@ ex:CompartmentAreaShape a sh:NodeShape ;
     sh:targetClass firebim:Compartment ;
     rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
     sh:property [
+        sh:severity sh:Warning ;
         sh:path firebim:calculatedArea ;
         sh:maxInclusive 2500 ;
         sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
@@ -111,7 +118,7 @@ ex:CompartmentAreaShape a sh:NodeShape ;
     ex:validatesMember "2.1.1.1" .
 
 # Add inverse link
-firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:CompartmentAreaShape .
 
 # Validate ground floor compartment area
 ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
@@ -132,7 +139,8 @@ ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
                 sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
             ]
         ]
-    ) .
+    ) ;
+    ex:validatesMember "2.1.1.2" .
 
 # Add inverse link
 firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
@@ -146,7 +154,8 @@ ex:CompartmentLengthShape a sh:NodeShape ;
         sh:datatype xsd:float ;
         sh:maxInclusive 90 ;
         sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
-    ] .
+    ] ;
+    ex:validatesMember "2.1.1.3" .
 
 # Add inverse link
 firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
@@ -196,7 +205,8 @@ ex:LargeCompartmentShape a sh:NodeShape ;
             ]
         ]
     ) ;
-    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" .
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    ex:validatesMember "2.1.1.4" .
 
 # Add inverse link
 firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .

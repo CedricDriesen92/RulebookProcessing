@@ -1,9 +1,15 @@
-from rdflib import Graph, Namespace, URIRef
+from rdflib import Graph, Namespace, URIRef, Literal
+from rdflib.plugins.sparql import prepareQuery
 import html
 import rdflib
 import os
 import re
 import urllib.parse
+
+# Define namespaces
+FIREBIM = Namespace("http://example.com/firebim#")
+rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
+sh = Namespace("http://www.w3.org/ns/shacl#")
 
 # Create a Graph
 g = Graph()
@@ -11,23 +17,26 @@ g = Graph()
 # Parse the TTL file
 g.parse("combined_document_data_graph.ttl", format="turtle")
 
-# Define namespaces
-FIREBIM = Namespace("http://example.com/firebim#")
-rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
-sh = Namespace("http://www.w3.org/ns/shacl#")
 
 def load_all_shapes(directory):
     shapes = {}
     shapes_graph = Graph()
     for filename in os.listdir(directory):
         if filename.endswith(".ttl"):
+            print(f"Loading shape file: {filename}")
             graph = rdflib.Graph()
             graph.parse(os.path.join(directory, filename), format="turtle")
             for shape in graph.subjects(rdf.type, sh.NodeShape):
                 shape_id = shape.split('#')[-1]
                 shapes[shape_id] = graph.serialize(format='turtle')
             shapes_graph += graph
-    #shapes_graph.print()
+    
+    print("Namespaces in shapes graph:")
+    for prefix, namespace in shapes_graph.namespaces():
+        print(f"{prefix}: {namespace}")
+    
+    print("\nTotal triples in shapes graph:", len(shapes_graph))
+    
     return shapes, shapes_graph
 
 def normalize_text(text):
@@ -86,7 +95,7 @@ def process_section(section, level=1):
         html_content += process_section(subsection, level + 1)
 
     html_content += process_tables_and_figures(section)
-    html_content += process_references(section)  # Moved to the end
+    html_content += process_references(section)
     html_content += "</div></div>\n"
     return html_content
 
@@ -117,25 +126,42 @@ def process_members(members, level=0):
     html_content = ""
     sorted_members = sort_members(members)
     
+    # Prepare the SPARQL query
+    query = prepareQuery("""
+        SELECT ?shape
+        WHERE {
+            ?member <http://example.org/firebim#hasRelatedShape> ?shape .
+        }
+    """)
+    
     for member in sorted_members:
         member_id = get_uri_id(member)
         member_text = normalize_text(get_text(member))
         
         html_content += f"""
-        <div class='member level-{level}'>
+        <div class='member level-{level}' id='member-{member_id.replace(".", "-")}'>
             <span style="font-size: 10px; color: grey" class="subtle-id">Member {member_id}</span>
             <p>{member_text}</p>
         """
         
         # Add button for showing related shape
-        related_shapes = list(shapes_graph.objects(member, FIREBIM.hasRelatedShape))
+        member_uri = URIRef(f"http://example.org/firebim#Member_{member_id.replace('.', '_')}")
+        #print(f"Searching for related shapes with member URI: {member_uri}")
+        
+        # Use SPARQL query to find related shapes
+        results = shapes_graph.query(query, initBindings={'member': member_uri})
+        related_shapes = [row.shape for row in results]
+        
+        #print(f"Found related shapes: {related_shapes}")
         if related_shapes:
             shape_id = related_shapes[0].split('#')[-1]  # Extract the shape ID from the URI
             if shape_id in shapes:
                 html_content += f"""
                 <button class='show-shape-button' onclick='showShape("{shape_id}")'>Show Related Shape</button>
                 """
-            print("Related shapes found: " + str(member_id) + "   " + str(shape_id))
+            print(f"Related shapes found: {member_id} -> {shape_id}")
+        #else:
+        #    print(f"No related shapes found for member: {member_id}")
         
         # Process nested members
         nested_members = list(g.objects(member, FIREBIM.hasMember))
