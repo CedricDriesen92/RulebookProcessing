@@ -1,0 +1,1986 @@
+@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix fbb: <http://example.org/firebimbuilding#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fbb:Building_None_1xS3BCk291UvhgP2a6eflK a bot:Building ;
+    bot:hasStorey fbb:Storey_Level_1_1xS3BCk291UvhgP2dvNMKI,
+        fbb:Storey_Level_2_1xS3BCk291UvhgP2dvNMQJ,
+        fbb:Storey_Roof_1xS3BCk291UvhgP2dvNtSE,
+        fbb:Storey_T_FDN_1xS3BCk291UvhgP2dvNsgp .
+
+fbb:Element_Basic_Roof_Live_Roof_over_Wood_Joist_Flat_Roof_184483_3ThA22djr8AQQ9eQMA5s7I a bot:Element ;
+    fbb:hasIfcType "IfcSlab" .
+
+bpo:GSA_Space_Areas_GSA_BIM_Area a bpo:Attribute ;
+    rdfs:label "GSA BIM Area" .
+
+bpo:PSet_Revit_Constraints_Height_Offset_From_Level a bpo:Attribute ;
+    rdfs:label "Height Offset From Level" .
+
+bpo:PSet_Revit_Constraints_Sill_Height a bpo:Attribute ;
+    rdfs:label "Sill Height" .
+
+bpo:PSet_Revit_Constraints_Unconnected_Height a bpo:Attribute ;
+    rdfs:label "Unconnected Height" .
+
+bpo:PSet_Revit_Construction_Fascia_Depth a bpo:Attribute ;
+    rdfs:label "Fascia Depth" .
+
+bpo:PSet_Revit_Construction_Maximum_Ridge_Height a bpo:Attribute ;
+    rdfs:label "Maximum Ridge Height" .
+
+bpo:PSet_Revit_Dimensions_Actual_Riser_Height a bpo:Attribute ;
+    rdfs:label "Actual Riser Height" .
+
+bpo:PSet_Revit_Dimensions_Actual_Tread_Depth a bpo:Attribute ;
+    rdfs:label "Actual Tread Depth" .
+
+bpo:PSet_Revit_Dimensions_Area a bpo:Attribute ;
+    rdfs:label "Area" .
+
+bpo:PSet_Revit_Dimensions_Unbounded_Height a bpo:Attribute ;
+    rdfs:label "Unbounded Height" .
+
+bpo:PSet_Revit_Dimensions_Width a bpo:Attribute ;
+    rdfs:label "Width" .
+
+bpo:PSet_Revit_Other_FireAlarmZoneName a bpo:Attribute ;
+    rdfs:label "FireAlarmZoneName" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:PSet_Revit_Other_Head_Height a bpo:Attribute ;
+    rdfs:label "Head Height" .
+
+bpo:PSet_Revit_Type_Construction_Width a bpo:Attribute ;
+    rdfs:label "Width" .
+
+bpo:PSet_Revit_Type_Dimensions_Automatic_Room_Computation_Height a bpo:Attribute ;
+    rdfs:label "Automatic Room Computation Height" .
+
+bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height a bpo:Attribute ;
+    rdfs:label "Default Sill Height" .
+
+bpo:PSet_Revit_Type_Dimensions_Height a bpo:Attribute ;
+    rdfs:label "Height" .
+
+bpo:PSet_Revit_Type_Dimensions_Rail_Width___Base a bpo:Attribute ;
+    rdfs:label "Rail Width - Base" .
+
+bpo:PSet_Revit_Type_Dimensions_Rail_Width___Top a bpo:Attribute ;
+    rdfs:label "Rail Width - Top" .
+
+bpo:PSet_Revit_Type_Dimensions_Stile_Width___Hinge a bpo:Attribute ;
+    rdfs:label "Stile Width - Hinge" .
+
+bpo:PSet_Revit_Type_Dimensions_Stile_Width___Latch a bpo:Attribute ;
+    rdfs:label "Stile Width - Latch" .
+
+bpo:PSet_Revit_Type_Dimensions_Trim_Width a bpo:Attribute ;
+    rdfs:label "Trim Width" .
+
+bpo:PSet_Revit_Type_Dimensions_Width a bpo:Attribute ;
+    rdfs:label "Width" .
+
+bpo:PSet_Revit_Type_Identity_Data_Fire_Rating a bpo:Attribute ;
+    rdfs:label "Fire Rating" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:PSet_Revit_Type_Other_Area a bpo:Attribute ;
+    rdfs:label "Area" .
+
+bpo:PSet_Revit_Type_Other_FireRating a bpo:Attribute ;
+    rdfs:label "FireRating" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:PSet_Revit_Type_Other_GlazingAreaFraction a bpo:Attribute ;
+    rdfs:label "GlazingAreaFraction" .
+
+bpo:PSet_Revit_Type_Other_IsFireExit a bpo:Attribute ;
+    rdfs:label "IsFireExit" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:PSet_Revit_Type_Other_NominalHeight a bpo:Attribute ;
+    rdfs:label "NominalHeight" .
+
+bpo:PSet_Revit_Type_Other_NominalWidth a bpo:Attribute ;
+    rdfs:label "NominalWidth" .
+
+bpo:PSet_Revit_Type_Risers_Maximum_Riser_Height a bpo:Attribute ;
+    rdfs:label "Maximum Riser Height" .
+
+bpo:PSet_Revit_Type_Stringers_Landing_Carriage_Height a bpo:Attribute ;
+    rdfs:label "Landing Carriage Height" .
+
+bpo:PSet_Revit_Type_Stringers_Stringer_Carriage_Height a bpo:Attribute ;
+    rdfs:label "Stringer Carriage Height" .
+
+bpo:PSet_Revit_Type_Stringers_Stringer_Height a bpo:Attribute ;
+    rdfs:label "Stringer Height" .
+
+bpo:PSet_Revit_Type_Treads_Minimum_Tread_Depth a bpo:Attribute ;
+    rdfs:label "Minimum Tread Depth" .
+
+bpo:Pset_BeamCommon_IsExternal a bpo:Attribute ;
+    rdfs:label "IsExternal" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:Pset_BeamCommon_LoadBearing a bpo:Attribute ;
+    rdfs:label "LoadBearing" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:Pset_DoorCommon_FireRating a bpo:Attribute ;
+    rdfs:label "FireRating" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:Pset_DoorCommon_IsExternal a bpo:Attribute ;
+    rdfs:label "IsExternal" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:Pset_RoofCommon_IsExternal a bpo:Attribute ;
+    rdfs:label "IsExternal" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:Pset_RoofCommon_ProjectedArea a bpo:Attribute ;
+    rdfs:label "ProjectedArea" .
+
+bpo:Pset_RoofCommon_TotalArea a bpo:Attribute ;
+    rdfs:label "TotalArea" .
+
+bpo:Pset_SlabCommon_IsExternal a bpo:Attribute ;
+    rdfs:label "IsExternal" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:Pset_SlabCommon_LoadBearing a bpo:Attribute ;
+    rdfs:label "LoadBearing" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:Pset_StairCommon_IsExternal a bpo:Attribute ;
+    rdfs:label "IsExternal" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:Pset_StairCommon_RiserHeight a bpo:Attribute ;
+    rdfs:label "RiserHeight" .
+
+bpo:Pset_WallCommon_IsExternal a bpo:Attribute ;
+    rdfs:label "IsExternal" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:Pset_WallCommon_LoadBearing a bpo:Attribute ;
+    rdfs:label "LoadBearing" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:Pset_WindowCommon_FireRating a bpo:Attribute ;
+    rdfs:label "FireRating" ;
+    fbb:isFireSafetyProperty true .
+
+bpo:Pset_WindowCommon_IsExternal a bpo:Attribute ;
+    rdfs:label "IsExternal" ;
+    fbb:isFireSafetyProperty true .
+
+fbb:Element_Basic_Roof_Live_Roof_over_Wood_Joist_Flat_Roof_184483_0jf0rYHfX3RAB3bSIRjmxl a bot:Element ;
+    fbb:hasIfcType "IfcRoof" ;
+    bpo:PSet_Revit_Construction_Fascia_Depth 0e+00 ;
+    bpo:PSet_Revit_Construction_Maximum_Ridge_Height 6.457e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.32926e+02 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_RoofCommon_IsExternal false ;
+    bpo:Pset_RoofCommon_ProjectedArea 1.351512e+02 ;
+    bpo:Pset_RoofCommon_TotalArea 1.32926e+02 .
+
+fbb:Element_Basic_Wall_Exterior___Brick_on_Block_138062_2O2Fr_t4X7Zf8NOew3FNtn a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 3.1e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.361184e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Exterior___Brick_on_Block_138157_2O2Fr_t4X7Zf8NOew3FNqI a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 3.1e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 4.97248e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Exterior___Brick_on_Block_138237_2O2Fr_t4X7Zf8NOew3FNr2 a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 3.1e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.231914e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Exterior___Brick_on_Block_138310_2O2Fr_t4X7Zf8NOew3FNhv a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 3.1e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 4.84321e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Exterior___Brick_on_Block_143410_2O2Fr_t4X7Zf8NOew3FLQD a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.690714e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Exterior___Brick_on_Block_143478_2O2Fr_t4X7Zf8NOew3FLR9 a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 4.135714e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Exterior___Brick_on_Block_143534_2O2Fr_t4X7Zf8NOew3FLOH a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.690714e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Exterior___Brick_on_Block_143590_2O2Fr_t4X7Zf8NOew3FLPP a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 4.135714e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Exterior___Brick_on_Block_184944_0jf0rYHfX3RAB3bSIRjmmy a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 6.09e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 5.3592e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Exterior___Brick_on_Block_185014_0jf0rYHfX3RAB3bSIRjmpw a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 6.09e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 1.058625e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Exterior___Brick_on_Block_185064_0jf0rYHfX3RAB3bSIRjmoa a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 6.09e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 5.105247e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Exterior___Brick_on_Block_185101_0jf0rYHfX3RAB3bSIRjmr1 a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 6.09e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 1.033229e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Foundation___Concrete__417mm__140479_2O2Fr_t4X7Zf8NOew3FK80 a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 1.25e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.1e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing true .
+
+fbb:Element_Basic_Wall_Foundation___Concrete__417mm__140520_2O2Fr_t4X7Zf8NOew3FK9N a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 1.25e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 2.172875e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing true .
+
+fbb:Element_Basic_Wall_Foundation___Concrete__417mm__140554_2O2Fr_t4X7Zf8NOew3FKEr a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 1.25e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.047875e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing true .
+
+fbb:Element_Basic_Wall_Foundation___Concrete__417mm__140602_2O2Fr_t4X7Zf8NOew3FKE5 a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 1.25e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 2.12075e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.17e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing true .
+
+fbb:Element_Basic_Wall_Foundation___Concrete__435mm__140913_2O2Fr_t4X7Zf8NOew3FK3E a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 1.25e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 5.250625e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.35e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing true .
+
+fbb:Element_Basic_Wall_Foundation___Concrete__435mm__140987_2O2Fr_t4X7Zf8NOew3FK04 a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 1.25e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 5.250625e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.35e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing true .
+
+fbb:Element_Basic_Wall_Foundation___Concrete__435mm__141018_2O2Fr_t4X7Zf8NOew3FK1b a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 1.123e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.982095e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 4.35e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing true .
+
+fbb:Element_Basic_Wall_Interior___Furring__152_mm_Stud__189074_0iEHWY1_XA8eQeeULq4jZ1 a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 3.1e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.216664e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.52e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__152_mm_Stud__189901_0iEHWY1_XA8eQeeULq4j_U a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 3.1e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 6.6433e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.52e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__152_mm_Stud__190774_0iEHWY1_XA8eQeeULq4jDb a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.795e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 6.414525e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.52e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__152_mm_Stud__190933_0iEHWY1_XA8eQeeULq4jE6 a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.795e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.17418e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.52e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__152_mm_Stud__193247_0dxE1Sy6nDqfpDb5vIMNiA a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.595e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.07952e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.52e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__152_mm_Stud__194166_0dxE1Sy6nDqfpDb5vIMN_Z a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.595e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.07952e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.52e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217414_3Y4YRln2r91vflHcHE5IVS a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.88e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 3.119328e-01 ;
+    bpo:PSet_Revit_Type_Construction_Width 5.4e-02 ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217415_3Y4YRln2r91vflHcHE5IVT a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.88e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 3.269088e-01 ;
+    bpo:PSet_Revit_Type_Construction_Width 5.4e-02 ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217416_3Y4YRln2r91vflHcHE5IVI a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.88e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 3.119328e-01 ;
+    bpo:PSet_Revit_Type_Construction_Width 5.4e-02 ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217417_3Y4YRln2r91vflHcHE5IVJ a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.88e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 3.269088e-01 ;
+    bpo:PSet_Revit_Type_Construction_Width 5.4e-02 ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217577_3Y4YRln2r91vflHcHE5ITp a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.88e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 3.119328e-01 ;
+    bpo:PSet_Revit_Type_Construction_Width 5.4e-02 ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217578_3Y4YRln2r91vflHcHE5ITm a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.88e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 3.269088e-01 ;
+    bpo:PSet_Revit_Type_Construction_Width 5.4e-02 ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217579_3Y4YRln2r91vflHcHE5ITn a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.88e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 3.119328e-01 ;
+    bpo:PSet_Revit_Type_Construction_Width 5.4e-02 ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217580_3Y4YRln2r91vflHcHE5ITs a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.88e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 3.269088e-01 ;
+    bpo:PSet_Revit_Type_Construction_Width 5.4e-02 ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__138584_2O2Fr_t4X7Zf8NOew3FNld a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.795e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.001449e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__139143_2O2Fr_t4X7Zf8NOew3FNau a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.795e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 6.613016e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__139682_2O2Fr_t4X7Zf8NOew3FKST a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.795e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 6.613016e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__139783_2O2Fr_t4X7Zf8NOew3FKIu a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.795e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 4.06952e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__139939_2O2Fr_t4X7Zf8NOew3FKGS a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.795e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.001449e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__143856_2O2Fr_t4X7Zf8NOew3FLTF a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 3.388e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 5.321884e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__143921_2O2Fr_t4X7Zf8NOew3FLIE a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.397395e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__143960_2O2Fr_t4X7Zf8NOew3FLJd a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 3.942852e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__144301_2O2Fr_t4X7Zf8NOew3FLKI a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 4.6951e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__144518_2O2Fr_t4X7Zf8NOew3FL8v a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 3.388e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 5.321884e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__144586_2O2Fr_t4X7Zf8NOew3FL9r a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.397395e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__144633_2O2Fr_t4X7Zf8NOew3FL96 a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 3.942852e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__144684_2O2Fr_t4X7Zf8NOew3FLEJ a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 4.6951e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__190140_0iEHWY1_XA8eQeeULq4jpl a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.795e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 4.06952e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__203347_1aj_VJZFn2TxepZUBcKpvt a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 2.871216e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__203998_1aj_VJZFn2TxepZUBcKpZw a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 2.871216e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__204300_1aj_VJZFn2TxepZUBcKpee a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 4.88e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 1.6958e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__204493_1aj_VJZFn2TxepZUBcKphf a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 4.88e-01 ;
+    bpo:PSet_Revit_Dimensions_Area 1.6958e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.24e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Plumbing__152mm_Stud__144138_2O2Fr_t4X7Zf8NOew3FLMr a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 4.6951e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.84e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Interior___Plumbing__152mm_Stud__144783_2O2Fr_t4X7Zf8NOew3FLCm a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 4.6951e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 1.84e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal false ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Party_Wall___CMU_Residential_Unit_Dimising_Wall_139234_2O2Fr_t4X7Zf8NOew3FNbT a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.795e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.17418e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 5.5e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Party_Wall___CMU_Residential_Unit_Dimising_Wall_139347_2O2Fr_t4X7Zf8NOew3FKRi a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.795e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.17418e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 5.5e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Party_Wall___CMU_Residential_Unit_Dimising_Wall_139374_2O2Fr_t4X7Zf8NOew3FKRH a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.795e+00 ;
+    bpo:PSet_Revit_Type_Construction_Width 5.5e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Basic_Wall_Party_Wall___CMU_Residential_Unit_Dimising_Wall_143239_2O2Fr_t4X7Zf8NOew3FKau a bot:Element ;
+    fbb:hasIfcType "IfcWall" ;
+    bpo:PSet_Revit_Constraints_Unconnected_Height 2.9e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 3.84062e+01 ;
+    bpo:PSet_Revit_Type_Construction_Width 5.5e-01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WallCommon_IsExternal true ;
+    bpo:Pset_WallCommon_LoadBearing false .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187149_3bXiCStxP6Fgxdej_yc5T8 a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 5.703435e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187462_3bXiCStxP6Fgxdej_yc503 a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 3.176448e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187470_3bXiCStxP6Fgxdej_yc50B a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 3.176448e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187483_3bXiCStxP6Fgxdej_yc50U a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 3.367221e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187508_3bXiCStxP6Fgxdej_yc50n a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 5.64575e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187639_3bXiCStxP6Fgxdej_yc52o a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 2.204323e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187649_3bXiCStxP6Fgxdej_yc554 a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 2.204323e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187659_3bXiCStxP6Fgxdej_yc55E a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 6.73504e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187667_3bXiCStxP6Fgxdej_yc55M a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 9.30194e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187675_3bXiCStxP6Fgxdej_yc55U a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 6.73504e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187683_3bXiCStxP6Fgxdej_yc55c a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 9.30194e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187691_3bXiCStxP6Fgxdej_yc55k a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 2.204323e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Compound_Ceiling_Gypsum_Board_187701_3bXiCStxP6Fgxdej_yc55m a bot:Element ;
+    fbb:hasIfcType "IfcCovering" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 2.6e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 2.204323e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" .
+
+fbb:Element_Floor_127mm_Slab_on_Grade_141232_2O2Fr_t4X7Zf8NOew3FK4F a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 0e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 6.477993e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_127mm_Slab_on_Grade_143106_2O2Fr_t4X7Zf8NOew3FKcz a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 0e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 6.490643e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_150mm_Exterior_Slab_on_Grade_216507_1CZILmCaHETO8tf3SgGEWh a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.3e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 2.541986e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_150mm_Exterior_Slab_on_Grade_216552_1CZILmCaHETO8tf3SgGEXu a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.3e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 2.541986e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Ceramic_Tile_169772_2OBrcmyk58NupXoVOHUt2f a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.3e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 6.33984e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Ceramic_Tile_169866_2OBrcmyk58NupXoVOHUt0F a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.3e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 6.33984e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Ceramic_Tile_170785_2OBrcmyk58NupXoVOHUtoa a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.3e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 1.295407e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Ceramic_Tile_171230_2OBrcmyk58NupXoVOHUtjR a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.3e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 3.160976e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Ceramic_Tile_171261_2OBrcmyk58NupXoVOHUtju a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.3e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 3.160976e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Ceramic_Tile_171444_2OBrcmyk58NupXoVOHUten a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.3e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 1.295407e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Wood_169093_2OBrcmyk58NupXoVOHUtC0 a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.9e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 2.204323e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Wood_169188_2OBrcmyk58NupXoVOHUtDX a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.9e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 2.204323e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Wood_169308_2OBrcmyk58NupXoVOHUtBP a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.9e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 2.206914e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Wood_169354_2OBrcmyk58NupXoVOHUt8F a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.9e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 2.204323e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Wood_169395_2OBrcmyk58NupXoVOHUt8s a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.9e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 7.210868e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Wood_169701_2OBrcmyk58NupXoVOHUt5W a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.9e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 7.210868e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Wood_170352_2OBrcmyk58NupXoVOHUtxr a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.9e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 4.714992e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Finish_Floor___Wood_171292_2OBrcmyk58NupXoVOHUtgP a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 1.9e-02 ;
+    bpo:PSet_Revit_Dimensions_Area 4.715013e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Residential___Wood_Joist_with_Subflooring_144800_1hOSvn6df7F8_7GcBWlRqU a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 0e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 5.922902e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_Floor_Residential___Wood_Joist_with_Subflooring_144872_1hOSvn6df7F8_7GcBWlRrM a bot:Element ;
+    fbb:hasIfcType "IfcSlab" ;
+    bpo:PSet_Revit_Constraints_Height_Offset_From_Level 0e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 5.933375e+01 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_SlabCommon_IsExternal false ;
+    bpo:Pset_SlabCommon_LoadBearing true .
+
+fbb:Element_M_Casement_819mm_x_759mm_819mm_x_759mm_148607_1hOSvn6df7F8_7GcBWlSp1 a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 9.255e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 1.6845e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 9.15e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 7.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.19e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Casement_819mm_x_759mm_819mm_x_759mm_149736_1hOSvn6df7F8_7GcBWlS1M a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 9.255e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 1.6845e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 9.15e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 7.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.19e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Casement_819mm_x_759mm_819mm_x_759mm_180994_1l0GAJtRTFv8_zmKJOH4oq a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 9.255e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 1.6845e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 9.15e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 7.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.19e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Casement_819mm_x_759mm_819mm_x_759mm_181548_1l0GAJtRTFv8_zmKJOH4gQ a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 9.255e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 1.6845e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 9.15e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 7.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.19e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_2800mm_x_2410mm_2800mm_x_2410mm_147686_1hOSvn6df7F8_7GcBWlSXO a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 2.51e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.41e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 2.8e+00 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_2800mm_x_2410mm_2800mm_x_2410mm_149278_1hOSvn6df7F8_7GcBWlS_W a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 2.51e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.41e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 2.8e+00 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_2800mm_x_2410mm_2800mm_x_2410mm_180318_1l0GAJtRTFv8_zmKJOH4_e a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 2.51e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.41e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 2.8e+00 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_2800mm_x_2410mm_2800mm_x_2410mm_181096_1l0GAJtRTFv8_zmKJOH4pU a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 2.51e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.41e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 2.8e+00 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_4835mm_x_2420mm_4835mm_x_2420mm_145788_1hOSvn6df7F8_7GcBWlR72 a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 2.52e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.42e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 4.835e+00 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_4835mm_x_2420mm_4835mm_x_2420mm_146016_1hOSvn6df7F8_7GcBWlRBU a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 2.52e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.42e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 4.835e+00 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_750mm_x_2200mm_750mm_x_2200mm_146885_1hOSvn6df7F8_7GcBWlRLx a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 2.3e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.2e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 7.5e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_750mm_x_2200mm_750mm_x_2200mm_147051_1hOSvn6df7F8_7GcBWlRRL a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 2.3e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.2e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 7.5e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_750mm_x_2200mm_750mm_x_2200mm_181930_1l0GAJtRTFv8_zmKJOH4aS a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 2.3e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.2e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 7.5e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_750mm_x_2200mm_750mm_x_2200mm_182101_1l0GAJtRTFv8_zmKJOH4ZZ a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 2.3e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.2e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 7.5e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_147994_1hOSvn6df7F8_7GcBWlSga a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 8.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 7.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.19e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_148722_1hOSvn6df7F8_7GcBWlSnC a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1.751e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.51e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 7.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.19e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_149537_1hOSvn6df7F8_7GcBWlS2V a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 8.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 7.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.19e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_149924_1hOSvn6df7F8_7GcBWlS4Q a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1.751e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.51e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 7.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.19e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_180663_1l0GAJtRTFv8_zmKJOH4u1 a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1.751e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.51e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 7.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.19e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_180864_1l0GAJtRTFv8_zmKJOH4qs a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 8.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 7.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.19e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_181285_1l0GAJtRTFv8_zmKJOH4kJ a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1.751e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.51e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 7.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.19e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_181583_1l0GAJtRTFv8_zmKJOH4hv a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Other_Head_Height 8.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Default_Sill_Height 1e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 7.59e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.19e-01 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal true .
+
+fbb:Element_M_Single_Flush_0762_x_2032mm_0762_x_2032mm_150173_1hOSvn6df7F8_7GcBWlS8Z a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 7.62e-01 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal false .
+
+fbb:Element_M_Single_Flush_0762_x_2032mm_0762_x_2032mm_150257_1hOSvn6df7F8_7GcBWlS9F a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 7.62e-01 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal false .
+
+fbb:Element_M_Single_Flush_0762_x_2032mm_0762_x_2032mm_203720_1aj_VJZFn2TxepZUBcKp_i a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 7.62e-01 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal false .
+
+fbb:Element_M_Single_Flush_0762_x_2032mm_0762_x_2032mm_204034_1aj_VJZFn2TxepZUBcKpac a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 7.62e-01 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal false .
+
+fbb:Element_M_Single_Flush_0864_x_2032mm_0864_x_2032mm_150378_1hOSvn6df7F8_7GcBWlSFK a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.64e-01 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal false .
+
+fbb:Element_M_Single_Flush_0864_x_2032mm_0864_x_2032mm_150478_1hOSvn6df7F8_7GcBWlSDm a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.64e-01 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal false .
+
+fbb:Element_M_Single_Flush_0864_x_2032mm_0864_x_2032mm_159734_2OBrcmyk58NupXoVOHUuXp a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.64e-01 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal false .
+
+fbb:Element_M_Single_Flush_0864_x_2032mm_0864_x_2032mm_159834_2OBrcmyk58NupXoVOHUvVV a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.64e-01 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal false .
+
+fbb:Element_M_Single_Flush_0864_x_2032mm_0864_x_2032mm_160065_2OBrcmyk58NupXoVOHUvR4 a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.64e-01 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal false .
+
+fbb:Element_M_Single_Flush_0864_x_2032mm_0864_x_2032mm_160208_2OBrcmyk58NupXoVOHUvPL a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.032e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.64e-01 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal false .
+
+fbb:Element_M_Single_Flush_1250mm_x_2010mm_1250mm_x_2010mm_146596_1hOSvn6df7F8_7GcBWlRGQ a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.01e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.01e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 1.25e+00 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal true .
+
+fbb:Element_M_Single_Flush_1250mm_x_2010mm_1250mm_x_2010mm_146678_1hOSvn6df7F8_7GcBWlRH8 a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.01e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.01e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 1.25e+00 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal true .
+
+fbb:Element_M_Single_Glass_1_0813_x_2420mm_0813_x_2420mm_171853_1s1jVhK8z0pgKYcr9jt781 a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.42e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.42e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Rail_Width___Base 1.02e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Rail_Width___Top 1.02e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Stile_Width___Hinge 1.02e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Stile_Width___Latch 1.02e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.13e-01 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal true .
+
+fbb:Element_M_Single_Glass_1_0813_x_2420mm_0813_x_2420mm_171975_1s1jVhK8z0pgKYcr9jt7AB a bot:Element ;
+    fbb:hasIfcType "IfcDoor" ;
+    bpo:PSet_Revit_Constraints_Sill_Height 0e+00 ;
+    bpo:PSet_Revit_Other_Head_Height 2.42e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Height 2.42e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Rail_Width___Base 1.02e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Rail_Width___Top 1.02e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Stile_Width___Hinge 1.02e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Stile_Width___Latch 1.02e-01 ;
+    bpo:PSet_Revit_Type_Dimensions_Trim_Width 7.6e-02 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 8.13e-01 ;
+    bpo:PSet_Revit_Type_Identity_Data_Fire_Rating "Fire Rating" ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_IsFireExit "IsFireExit" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_DoorCommon_FireRating "Fire Rating" ;
+    bpo:Pset_DoorCommon_IsExternal true .
+
+fbb:Element_M_Skylight_1180_x_1170mm_1180_x_1170mm_185337_1Eo2_BaHX42AEkDvQQDocD a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Type_Dimensions_Height 1.17e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 1.118e+00 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal false .
+
+fbb:Element_M_Skylight_1180_x_1170mm_1180_x_1170mm_185718_1Eo2_BaHX42AEkDvQQDoy2 a bot:Element ;
+    fbb:hasIfcType "IfcWindow" ;
+    bpo:PSet_Revit_Type_Dimensions_Height 1.17e+00 ;
+    bpo:PSet_Revit_Type_Dimensions_Width 1.118e+00 ;
+    bpo:PSet_Revit_Type_Other_Area "Area" ;
+    bpo:PSet_Revit_Type_Other_FireRating "FireRating" ;
+    bpo:PSet_Revit_Type_Other_GlazingAreaFraction "GlazingAreaFraction" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_WindowCommon_FireRating "FireRating" ;
+    bpo:Pset_WindowCommon_IsExternal false .
+
+fbb:Element_M_W_Wide_Flange_W310X60_W310X60_207325_2OrWItJ6zAwBNp0OUxK_l8 a bot:Element ;
+    fbb:hasIfcType "IfcBeam" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_BeamCommon_IsExternal false ;
+    bpo:Pset_BeamCommon_LoadBearing true .
+
+fbb:Element_M_W_Wide_Flange_W310X60_W310X60_209260_2OrWItJ6zAwBNp0OUxK_Dv a bot:Element ;
+    fbb:hasIfcType "IfcBeam" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_BeamCommon_IsExternal false ;
+    bpo:Pset_BeamCommon_LoadBearing true .
+
+fbb:Element_M_W_Wide_Flange_W410X60_W410X60_208949_2OrWItJ6zAwBNp0OUxK_8W a bot:Element ;
+    fbb:hasIfcType "IfcBeam" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_BeamCommon_IsExternal false ;
+    bpo:Pset_BeamCommon_LoadBearing true .
+
+fbb:Element_M_W_Wide_Flange_W410X60_W410X60_209121_2OrWItJ6zAwBNp0OUxK_Bq a bot:Element ;
+    fbb:hasIfcType "IfcBeam" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_BeamCommon_IsExternal false ;
+    bpo:Pset_BeamCommon_LoadBearing true .
+
+fbb:Element_M_W_Wide_Flange_W410X60_W410X60_209166_2OrWItJ6zAwBNp0OUxK_CR a bot:Element ;
+    fbb:hasIfcType "IfcBeam" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_BeamCommon_IsExternal false ;
+    bpo:Pset_BeamCommon_LoadBearing true .
+
+fbb:Element_M_W_Wide_Flange_W410X60_W410X60_209261_2OrWItJ6zAwBNp0OUxK_Du a bot:Element ;
+    fbb:hasIfcType "IfcBeam" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_BeamCommon_IsExternal false ;
+    bpo:Pset_BeamCommon_LoadBearing true .
+
+fbb:Element_M_W_Wide_Flange_W410X60_W410X60_209262_2OrWItJ6zAwBNp0OUxK_Dx a bot:Element ;
+    fbb:hasIfcType "IfcBeam" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_BeamCommon_IsExternal false ;
+    bpo:Pset_BeamCommon_LoadBearing true .
+
+fbb:Element_M_W_Wide_Flange_W410X60_W410X60_209263_2OrWItJ6zAwBNp0OUxK_Dw a bot:Element ;
+    fbb:hasIfcType "IfcBeam" ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:Pset_BeamCommon_IsExternal false ;
+    bpo:Pset_BeamCommon_LoadBearing true .
+
+fbb:Element_Stair_Residential___200mm_Max_Riser_250mm_Tread_151086_0wkEuT1wr1kOyafLY4v_O1 a bot:Element ;
+    fbb:hasIfcType "IfcStair" ;
+    bpo:PSet_Revit_Dimensions_Actual_Riser_Height 1.9375e-01 ;
+    bpo:PSet_Revit_Dimensions_Actual_Tread_Depth 2.5e-01 ;
+    bpo:PSet_Revit_Dimensions_Width 1e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:PSet_Revit_Type_Risers_Maximum_Riser_Height 2e-01 ;
+    bpo:PSet_Revit_Type_Stringers_Landing_Carriage_Height 3.075635e-01 ;
+    bpo:PSet_Revit_Type_Stringers_Stringer_Carriage_Height 1.52e-01 ;
+    bpo:PSet_Revit_Type_Stringers_Stringer_Height 4e-01 ;
+    bpo:PSet_Revit_Type_Treads_Minimum_Tread_Depth 2.5e-01 ;
+    bpo:Pset_StairCommon_IsExternal false ;
+    bpo:Pset_StairCommon_RiserHeight 1.9375e-01 .
+
+fbb:Element_Stair_Residential___200mm_Max_Riser_250mm_Tread_198878_21ldoMpbP4VfsJ0XGY_34d a bot:Element ;
+    fbb:hasIfcType "IfcStair" ;
+    bpo:PSet_Revit_Dimensions_Actual_Riser_Height 1.9375e-01 ;
+    bpo:PSet_Revit_Dimensions_Actual_Tread_Depth 2.5e-01 ;
+    bpo:PSet_Revit_Dimensions_Width 1e+00 ;
+    bpo:PSet_Revit_Type_Other_NominalHeight "NominalHeight" ;
+    bpo:PSet_Revit_Type_Other_NominalWidth "NominalWidth" ;
+    bpo:PSet_Revit_Type_Risers_Maximum_Riser_Height 2e-01 ;
+    bpo:PSet_Revit_Type_Stringers_Landing_Carriage_Height 3.075635e-01 ;
+    bpo:PSet_Revit_Type_Stringers_Stringer_Carriage_Height 1.52e-01 ;
+    bpo:PSet_Revit_Type_Stringers_Stringer_Height 4e-01 ;
+    bpo:PSet_Revit_Type_Treads_Minimum_Tread_Depth 2.5e-01 ;
+    bpo:Pset_StairCommon_IsExternal false ;
+    bpo:Pset_StairCommon_RiserHeight 1.9375e-01 .
+
+fbb:Space_A101_0BTBFw6f90Nfh9rP1dlXrr a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 1.793624e+01 ;
+    bpo:PSet_Revit_Dimensions_Area 1.793624e+01 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit A FireAlarmZoneName" .
+
+fbb:Space_A102_0BTBFw6f90Nfh9rP1dlXr2 a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 3.014165e+01 ;
+    bpo:PSet_Revit_Dimensions_Area 3.014165e+01 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit A FireAlarmZoneName" .
+
+fbb:Space_A103_0BTBFw6f90Nfh9rP1dlXr_ a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 1.38975e+01 ;
+    bpo:PSet_Revit_Dimensions_Area 1.38975e+01 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit A FireAlarmZoneName" .
+
+fbb:Space_A104_0BTBFw6f90Nfh9rP1dlXru a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 3.997752e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 3.997752e+00 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit A FireAlarmZoneName" .
+
+fbb:Space_A105_10mjSDZJj9gPS2PrQaxa3z a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 4.922173e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 4.922173e+00 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 5.7e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit A FireAlarmZoneName" .
+
+fbb:Space_A201_0BTBFw6f90Nfh9rP1dlXri a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 7.799955e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 7.799955e+00 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.9e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit A FireAlarmZoneName" .
+
+fbb:Space_A202_0BTBFw6f90Nfh9rP1dlXrc a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 2.611931e+01 ;
+    bpo:PSet_Revit_Dimensions_Area 2.611931e+01 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit A FireAlarmZoneName" .
+
+fbb:Space_A203_0BTBFw6f90Nfh9rP1dlXrb a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 2.617799e+01 ;
+    bpo:PSet_Revit_Dimensions_Area 2.617799e+01 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit A FireAlarmZoneName" .
+
+fbb:Space_A204_0BTBFw6f90Nfh9rP1dlXre a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 5.415819e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 5.415819e+00 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit A FireAlarmZoneName" .
+
+fbb:Space_A205_2gRXFgjRn2HPE_YoDLX3FV a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 1.754049e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.754049e+00 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit A FireAlarmZoneName" .
+
+fbb:Space_B101_0BTBFw6f90Nfh9rP1dl_3Q a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 1.793624e+01 ;
+    bpo:PSet_Revit_Dimensions_Area 1.793624e+01 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit B FireAlarmZoneName" .
+
+fbb:Space_B102_0BTBFw6f90Nfh9rP1dl_CZ a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 3.014165e+01 ;
+    bpo:PSet_Revit_Dimensions_Area 3.014165e+01 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit B FireAlarmZoneName" .
+
+fbb:Space_B103_0BTBFw6f90Nfh9rP1dl_3S a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 1.38975e+01 ;
+    bpo:PSet_Revit_Dimensions_Area 1.38975e+01 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit B FireAlarmZoneName" .
+
+fbb:Space_B104_0BTBFw6f90Nfh9rP1dl_3P a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 3.997752e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 3.997752e+00 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit B FireAlarmZoneName" .
+
+fbb:Space_B105_10mjSDZJj9gPS2PrQaxa4o a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 4.922173e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 4.922173e+00 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 5.7e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit B FireAlarmZoneName" .
+
+fbb:Space_B201_0BTBFw6f90Nfh9rP1dl_3G a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 7.799955e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 7.799955e+00 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.9e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit B FireAlarmZoneName" .
+
+fbb:Space_B202_0BTBFw6f90Nfh9rP1dl_3A a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 2.611931e+01 ;
+    bpo:PSet_Revit_Dimensions_Area 2.611931e+01 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit B FireAlarmZoneName" .
+
+fbb:Space_B203_0BTBFw6f90Nfh9rP1dl_39 a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 2.617799e+01 ;
+    bpo:PSet_Revit_Dimensions_Area 2.617799e+01 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit B FireAlarmZoneName" .
+
+fbb:Space_B204_0BTBFw6f90Nfh9rP1dl_3C a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 5.441473e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 5.441473e+00 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit B FireAlarmZoneName" .
+
+fbb:Space_B205_2gRXFgjRn2HPE_YoDLX3FC a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 1.728395e+00 ;
+    bpo:PSet_Revit_Dimensions_Area 1.728395e+00 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 2.6e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Unit B FireAlarmZoneName" .
+
+fbb:Space_R301_0pNy6pOyf7JPmXRLgxs3sW a bot:Space ;
+    bpo:GSA_Space_Areas_GSA_BIM_Area 1.457217e+02 ;
+    bpo:PSet_Revit_Dimensions_Area 1.457217e+02 ;
+    bpo:PSet_Revit_Dimensions_Unbounded_Height 3e+00 ;
+    bpo:PSet_Revit_Other_FireAlarmZoneName "Roof FireAlarmZoneName" .
+
+fbb:Storey_Level_1_1xS3BCk291UvhgP2dvNMKI a bot:Storey ;
+    bot:containsElement fbb:Element_Basic_Wall_Exterior___Brick_on_Block_138062_2O2Fr_t4X7Zf8NOew3FNtn,
+        fbb:Element_Basic_Wall_Exterior___Brick_on_Block_138157_2O2Fr_t4X7Zf8NOew3FNqI,
+        fbb:Element_Basic_Wall_Exterior___Brick_on_Block_138237_2O2Fr_t4X7Zf8NOew3FNr2,
+        fbb:Element_Basic_Wall_Exterior___Brick_on_Block_138310_2O2Fr_t4X7Zf8NOew3FNhv,
+        fbb:Element_Basic_Wall_Interior___Furring__152_mm_Stud__189074_0iEHWY1_XA8eQeeULq4jZ1,
+        fbb:Element_Basic_Wall_Interior___Furring__152_mm_Stud__189901_0iEHWY1_XA8eQeeULq4j_U,
+        fbb:Element_Basic_Wall_Interior___Furring__152_mm_Stud__190774_0iEHWY1_XA8eQeeULq4jDb,
+        fbb:Element_Basic_Wall_Interior___Furring__152_mm_Stud__190933_0iEHWY1_XA8eQeeULq4jE6,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__138584_2O2Fr_t4X7Zf8NOew3FNld,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__139143_2O2Fr_t4X7Zf8NOew3FNau,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__139682_2O2Fr_t4X7Zf8NOew3FKST,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__139783_2O2Fr_t4X7Zf8NOew3FKIu,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__139939_2O2Fr_t4X7Zf8NOew3FKGS,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__143856_2O2Fr_t4X7Zf8NOew3FLTF,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__144518_2O2Fr_t4X7Zf8NOew3FL8v,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__190140_0iEHWY1_XA8eQeeULq4jpl,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__204300_1aj_VJZFn2TxepZUBcKpee,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__204493_1aj_VJZFn2TxepZUBcKphf,
+        fbb:Element_Basic_Wall_Party_Wall___CMU_Residential_Unit_Dimising_Wall_139234_2O2Fr_t4X7Zf8NOew3FNbT,
+        fbb:Element_Basic_Wall_Party_Wall___CMU_Residential_Unit_Dimising_Wall_139347_2O2Fr_t4X7Zf8NOew3FKRi,
+        fbb:Element_Basic_Wall_Party_Wall___CMU_Residential_Unit_Dimising_Wall_139374_2O2Fr_t4X7Zf8NOew3FKRH,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187149_3bXiCStxP6Fgxdej_yc5T8,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187462_3bXiCStxP6Fgxdej_yc503,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187470_3bXiCStxP6Fgxdej_yc50B,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187483_3bXiCStxP6Fgxdej_yc50U,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187508_3bXiCStxP6Fgxdej_yc50n,
+        fbb:Element_Floor_127mm_Slab_on_Grade_141232_2O2Fr_t4X7Zf8NOew3FK4F,
+        fbb:Element_Floor_127mm_Slab_on_Grade_143106_2O2Fr_t4X7Zf8NOew3FKcz,
+        fbb:Element_Floor_150mm_Exterior_Slab_on_Grade_216507_1CZILmCaHETO8tf3SgGEWh,
+        fbb:Element_Floor_150mm_Exterior_Slab_on_Grade_216552_1CZILmCaHETO8tf3SgGEXu,
+        fbb:Element_Floor_Finish_Floor___Ceramic_Tile_170785_2OBrcmyk58NupXoVOHUtoa,
+        fbb:Element_Floor_Finish_Floor___Ceramic_Tile_171230_2OBrcmyk58NupXoVOHUtjR,
+        fbb:Element_Floor_Finish_Floor___Ceramic_Tile_171261_2OBrcmyk58NupXoVOHUtju,
+        fbb:Element_Floor_Finish_Floor___Ceramic_Tile_171444_2OBrcmyk58NupXoVOHUten,
+        fbb:Element_Floor_Finish_Floor___Wood_170352_2OBrcmyk58NupXoVOHUtxr,
+        fbb:Element_Floor_Finish_Floor___Wood_171292_2OBrcmyk58NupXoVOHUtgP,
+        fbb:Element_M_Fixed_4835mm_x_2420mm_4835mm_x_2420mm_145788_1hOSvn6df7F8_7GcBWlR72,
+        fbb:Element_M_Fixed_4835mm_x_2420mm_4835mm_x_2420mm_146016_1hOSvn6df7F8_7GcBWlRBU,
+        fbb:Element_M_Fixed_750mm_x_2200mm_750mm_x_2200mm_146885_1hOSvn6df7F8_7GcBWlRLx,
+        fbb:Element_M_Fixed_750mm_x_2200mm_750mm_x_2200mm_147051_1hOSvn6df7F8_7GcBWlRRL,
+        fbb:Element_M_Single_Flush_0762_x_2032mm_0762_x_2032mm_150173_1hOSvn6df7F8_7GcBWlS8Z,
+        fbb:Element_M_Single_Flush_0762_x_2032mm_0762_x_2032mm_150257_1hOSvn6df7F8_7GcBWlS9F,
+        fbb:Element_M_Single_Flush_1250mm_x_2010mm_1250mm_x_2010mm_146596_1hOSvn6df7F8_7GcBWlRGQ,
+        fbb:Element_M_Single_Flush_1250mm_x_2010mm_1250mm_x_2010mm_146678_1hOSvn6df7F8_7GcBWlRH8,
+        fbb:Element_M_Single_Glass_1_0813_x_2420mm_0813_x_2420mm_171853_1s1jVhK8z0pgKYcr9jt781,
+        fbb:Element_M_Single_Glass_1_0813_x_2420mm_0813_x_2420mm_171975_1s1jVhK8z0pgKYcr9jt7AB,
+        fbb:Element_M_W_Wide_Flange_W310X60_W310X60_207325_2OrWItJ6zAwBNp0OUxK_l8,
+        fbb:Element_M_W_Wide_Flange_W310X60_W310X60_209260_2OrWItJ6zAwBNp0OUxK_Dv,
+        fbb:Element_M_W_Wide_Flange_W410X60_W410X60_208949_2OrWItJ6zAwBNp0OUxK_8W,
+        fbb:Element_M_W_Wide_Flange_W410X60_W410X60_209261_2OrWItJ6zAwBNp0OUxK_Du,
+        fbb:Element_Stair_Residential___200mm_Max_Riser_250mm_Tread_151086_0wkEuT1wr1kOyafLY4v_O1,
+        fbb:Element_Stair_Residential___200mm_Max_Riser_250mm_Tread_198878_21ldoMpbP4VfsJ0XGY_34d ;
+    bot:hasSpace fbb:Space_A101_0BTBFw6f90Nfh9rP1dlXrr,
+        fbb:Space_A102_0BTBFw6f90Nfh9rP1dlXr2,
+        fbb:Space_A103_0BTBFw6f90Nfh9rP1dlXr_,
+        fbb:Space_A104_0BTBFw6f90Nfh9rP1dlXru,
+        fbb:Space_A105_10mjSDZJj9gPS2PrQaxa3z,
+        fbb:Space_B101_0BTBFw6f90Nfh9rP1dl_3Q,
+        fbb:Space_B102_0BTBFw6f90Nfh9rP1dl_CZ,
+        fbb:Space_B103_0BTBFw6f90Nfh9rP1dl_3S,
+        fbb:Space_B104_0BTBFw6f90Nfh9rP1dl_3P,
+        fbb:Space_B105_10mjSDZJj9gPS2PrQaxa4o ;
+    bpo:PSet_Revit_Type_Dimensions_Automatic_Room_Computation_Height true .
+
+fbb:Storey_Level_2_1xS3BCk291UvhgP2dvNMQJ a bot:Storey ;
+    bot:containsElement fbb:Element_Basic_Wall_Exterior___Brick_on_Block_143410_2O2Fr_t4X7Zf8NOew3FLQD,
+        fbb:Element_Basic_Wall_Exterior___Brick_on_Block_143478_2O2Fr_t4X7Zf8NOew3FLR9,
+        fbb:Element_Basic_Wall_Exterior___Brick_on_Block_143534_2O2Fr_t4X7Zf8NOew3FLOH,
+        fbb:Element_Basic_Wall_Exterior___Brick_on_Block_143590_2O2Fr_t4X7Zf8NOew3FLPP,
+        fbb:Element_Basic_Wall_Interior___Furring__152_mm_Stud__193247_0dxE1Sy6nDqfpDb5vIMNiA,
+        fbb:Element_Basic_Wall_Interior___Furring__152_mm_Stud__194166_0dxE1Sy6nDqfpDb5vIMN_Z,
+        fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217414_3Y4YRln2r91vflHcHE5IVS,
+        fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217415_3Y4YRln2r91vflHcHE5IVT,
+        fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217416_3Y4YRln2r91vflHcHE5IVI,
+        fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217417_3Y4YRln2r91vflHcHE5IVJ,
+        fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217577_3Y4YRln2r91vflHcHE5ITp,
+        fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217578_3Y4YRln2r91vflHcHE5ITm,
+        fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217579_3Y4YRln2r91vflHcHE5ITn,
+        fbb:Element_Basic_Wall_Interior___Furring__38_mm_Stud__217580_3Y4YRln2r91vflHcHE5ITs,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__143921_2O2Fr_t4X7Zf8NOew3FLIE,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__143960_2O2Fr_t4X7Zf8NOew3FLJd,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__144301_2O2Fr_t4X7Zf8NOew3FLKI,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__144586_2O2Fr_t4X7Zf8NOew3FL9r,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__144633_2O2Fr_t4X7Zf8NOew3FL96,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__144684_2O2Fr_t4X7Zf8NOew3FLEJ,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__203347_1aj_VJZFn2TxepZUBcKpvt,
+        fbb:Element_Basic_Wall_Interior___Partition__92mm_Stud__203998_1aj_VJZFn2TxepZUBcKpZw,
+        fbb:Element_Basic_Wall_Interior___Plumbing__152mm_Stud__144138_2O2Fr_t4X7Zf8NOew3FLMr,
+        fbb:Element_Basic_Wall_Interior___Plumbing__152mm_Stud__144783_2O2Fr_t4X7Zf8NOew3FLCm,
+        fbb:Element_Basic_Wall_Party_Wall___CMU_Residential_Unit_Dimising_Wall_143239_2O2Fr_t4X7Zf8NOew3FKau,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187639_3bXiCStxP6Fgxdej_yc52o,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187649_3bXiCStxP6Fgxdej_yc554,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187659_3bXiCStxP6Fgxdej_yc55E,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187667_3bXiCStxP6Fgxdej_yc55M,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187675_3bXiCStxP6Fgxdej_yc55U,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187683_3bXiCStxP6Fgxdej_yc55c,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187691_3bXiCStxP6Fgxdej_yc55k,
+        fbb:Element_Compound_Ceiling_Gypsum_Board_187701_3bXiCStxP6Fgxdej_yc55m,
+        fbb:Element_Floor_Finish_Floor___Ceramic_Tile_169772_2OBrcmyk58NupXoVOHUt2f,
+        fbb:Element_Floor_Finish_Floor___Ceramic_Tile_169866_2OBrcmyk58NupXoVOHUt0F,
+        fbb:Element_Floor_Finish_Floor___Wood_169093_2OBrcmyk58NupXoVOHUtC0,
+        fbb:Element_Floor_Finish_Floor___Wood_169188_2OBrcmyk58NupXoVOHUtDX,
+        fbb:Element_Floor_Finish_Floor___Wood_169308_2OBrcmyk58NupXoVOHUtBP,
+        fbb:Element_Floor_Finish_Floor___Wood_169354_2OBrcmyk58NupXoVOHUt8F,
+        fbb:Element_Floor_Finish_Floor___Wood_169395_2OBrcmyk58NupXoVOHUt8s,
+        fbb:Element_Floor_Finish_Floor___Wood_169701_2OBrcmyk58NupXoVOHUt5W,
+        fbb:Element_Floor_Residential___Wood_Joist_with_Subflooring_144800_1hOSvn6df7F8_7GcBWlRqU,
+        fbb:Element_Floor_Residential___Wood_Joist_with_Subflooring_144872_1hOSvn6df7F8_7GcBWlRrM,
+        fbb:Element_M_Casement_819mm_x_759mm_819mm_x_759mm_148607_1hOSvn6df7F8_7GcBWlSp1,
+        fbb:Element_M_Casement_819mm_x_759mm_819mm_x_759mm_149736_1hOSvn6df7F8_7GcBWlS1M,
+        fbb:Element_M_Casement_819mm_x_759mm_819mm_x_759mm_180994_1l0GAJtRTFv8_zmKJOH4oq,
+        fbb:Element_M_Casement_819mm_x_759mm_819mm_x_759mm_181548_1l0GAJtRTFv8_zmKJOH4gQ,
+        fbb:Element_M_Fixed_2800mm_x_2410mm_2800mm_x_2410mm_147686_1hOSvn6df7F8_7GcBWlSXO,
+        fbb:Element_M_Fixed_2800mm_x_2410mm_2800mm_x_2410mm_149278_1hOSvn6df7F8_7GcBWlS_W,
+        fbb:Element_M_Fixed_2800mm_x_2410mm_2800mm_x_2410mm_180318_1l0GAJtRTFv8_zmKJOH4_e,
+        fbb:Element_M_Fixed_2800mm_x_2410mm_2800mm_x_2410mm_181096_1l0GAJtRTFv8_zmKJOH4pU,
+        fbb:Element_M_Fixed_750mm_x_2200mm_750mm_x_2200mm_181930_1l0GAJtRTFv8_zmKJOH4aS,
+        fbb:Element_M_Fixed_750mm_x_2200mm_750mm_x_2200mm_182101_1l0GAJtRTFv8_zmKJOH4ZZ,
+        fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_147994_1hOSvn6df7F8_7GcBWlSga,
+        fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_148722_1hOSvn6df7F8_7GcBWlSnC,
+        fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_149537_1hOSvn6df7F8_7GcBWlS2V,
+        fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_149924_1hOSvn6df7F8_7GcBWlS4Q,
+        fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_180663_1l0GAJtRTFv8_zmKJOH4u1,
+        fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_180864_1l0GAJtRTFv8_zmKJOH4qs,
+        fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_181285_1l0GAJtRTFv8_zmKJOH4kJ,
+        fbb:Element_M_Fixed_819mm_x_759mm_819mm_x_759mm_181583_1l0GAJtRTFv8_zmKJOH4hv,
+        fbb:Element_M_Single_Flush_0762_x_2032mm_0762_x_2032mm_203720_1aj_VJZFn2TxepZUBcKp_i,
+        fbb:Element_M_Single_Flush_0762_x_2032mm_0762_x_2032mm_204034_1aj_VJZFn2TxepZUBcKpac,
+        fbb:Element_M_Single_Flush_0864_x_2032mm_0864_x_2032mm_150378_1hOSvn6df7F8_7GcBWlSFK,
+        fbb:Element_M_Single_Flush_0864_x_2032mm_0864_x_2032mm_150478_1hOSvn6df7F8_7GcBWlSDm,
+        fbb:Element_M_Single_Flush_0864_x_2032mm_0864_x_2032mm_159734_2OBrcmyk58NupXoVOHUuXp,
+        fbb:Element_M_Single_Flush_0864_x_2032mm_0864_x_2032mm_159834_2OBrcmyk58NupXoVOHUvVV,
+        fbb:Element_M_Single_Flush_0864_x_2032mm_0864_x_2032mm_160065_2OBrcmyk58NupXoVOHUvR4,
+        fbb:Element_M_Single_Flush_0864_x_2032mm_0864_x_2032mm_160208_2OBrcmyk58NupXoVOHUvPL,
+        fbb:Element_M_W_Wide_Flange_W410X60_W410X60_209121_2OrWItJ6zAwBNp0OUxK_Bq,
+        fbb:Element_M_W_Wide_Flange_W410X60_W410X60_209166_2OrWItJ6zAwBNp0OUxK_CR,
+        fbb:Element_M_W_Wide_Flange_W410X60_W410X60_209262_2OrWItJ6zAwBNp0OUxK_Dx,
+        fbb:Element_M_W_Wide_Flange_W410X60_W410X60_209263_2OrWItJ6zAwBNp0OUxK_Dw ;
+    bot:hasSpace fbb:Space_A201_0BTBFw6f90Nfh9rP1dlXri,
+        fbb:Space_A202_0BTBFw6f90Nfh9rP1dlXrc,
+        fbb:Space_A203_0BTBFw6f90Nfh9rP1dlXrb,
+        fbb:Space_A204_0BTBFw6f90Nfh9rP1dlXre,
+        fbb:Space_A205_2gRXFgjRn2HPE_YoDLX3FV,
+        fbb:Space_B201_0BTBFw6f90Nfh9rP1dl_3G,
+        fbb:Space_B202_0BTBFw6f90Nfh9rP1dl_3A,
+        fbb:Space_B203_0BTBFw6f90Nfh9rP1dl_39,
+        fbb:Space_B204_0BTBFw6f90Nfh9rP1dl_3C,
+        fbb:Space_B205_2gRXFgjRn2HPE_YoDLX3FC ;
+    bpo:PSet_Revit_Type_Dimensions_Automatic_Room_Computation_Height true .
+
+fbb:Storey_Roof_1xS3BCk291UvhgP2dvNtSE a bot:Storey ;
+    bot:containsElement fbb:Element_Basic_Roof_Live_Roof_over_Wood_Joist_Flat_Roof_184483_0jf0rYHfX3RAB3bSIRjmxl,
+        fbb:Element_Basic_Wall_Exterior___Brick_on_Block_184944_0jf0rYHfX3RAB3bSIRjmmy,
+        fbb:Element_Basic_Wall_Exterior___Brick_on_Block_185014_0jf0rYHfX3RAB3bSIRjmpw,
+        fbb:Element_Basic_Wall_Exterior___Brick_on_Block_185064_0jf0rYHfX3RAB3bSIRjmoa,
+        fbb:Element_Basic_Wall_Exterior___Brick_on_Block_185101_0jf0rYHfX3RAB3bSIRjmr1,
+        fbb:Element_M_Skylight_1180_x_1170mm_1180_x_1170mm_185337_1Eo2_BaHX42AEkDvQQDocD,
+        fbb:Element_M_Skylight_1180_x_1170mm_1180_x_1170mm_185718_1Eo2_BaHX42AEkDvQQDoy2 ;
+    bot:hasSpace fbb:Space_R301_0pNy6pOyf7JPmXRLgxs3sW ;
+    bpo:PSet_Revit_Type_Dimensions_Automatic_Room_Computation_Height true .
+
+fbb:Storey_T_FDN_1xS3BCk291UvhgP2dvNsgp a bot:Storey ;
+    bot:containsElement fbb:Element_Basic_Wall_Foundation___Concrete__417mm__140479_2O2Fr_t4X7Zf8NOew3FK80,
+        fbb:Element_Basic_Wall_Foundation___Concrete__417mm__140520_2O2Fr_t4X7Zf8NOew3FK9N,
+        fbb:Element_Basic_Wall_Foundation___Concrete__417mm__140554_2O2Fr_t4X7Zf8NOew3FKEr,
+        fbb:Element_Basic_Wall_Foundation___Concrete__417mm__140602_2O2Fr_t4X7Zf8NOew3FKE5,
+        fbb:Element_Basic_Wall_Foundation___Concrete__435mm__140913_2O2Fr_t4X7Zf8NOew3FK3E,
+        fbb:Element_Basic_Wall_Foundation___Concrete__435mm__140987_2O2Fr_t4X7Zf8NOew3FK04,
+        fbb:Element_Basic_Wall_Foundation___Concrete__435mm__141018_2O2Fr_t4X7Zf8NOew3FK1b ;
+    bpo:PSet_Revit_Type_Dimensions_Automatic_Room_Computation_Height true .
+
