@@ -59,7 +59,7 @@ class IFCtoFBBConverter:
     def __init__(self, ifc_file_path, output_ttl_path, use_subclasses=False):
         self.ifc_file = ifcopenshell.open(ifc_file_path)
         self.output_ttl_path = output_ttl_path
-        self.g = Graph()
+        self.g = Graph(bind_namespaces="rdflib")
         self.use_subclasses = use_subclasses
 
         # Bind namespaces to the graph
@@ -68,6 +68,7 @@ class IFCtoFBBConverter:
         self.g.bind("bpo", BPO)
         self.g.bind("opm", OPM)
         self.g.bind("ifc", IFC)
+        self.g.bind("rdf", RDF)
 
     def create_uri(self, ns, name):
         sanitized_name = re.sub(r'[^a-zA-Z0-9_]', '_', name)
@@ -160,7 +161,7 @@ class IFCtoFBBConverter:
                         self.g.add((property_uri, FBB.isFireSafetyProperty, Literal(True)))
 
     def save_ttl(self):
-        self.g.serialize(destination=self.output_ttl_path, format="turtle")
+        self.g.serialize(destination=self.output_ttl_path, format="turtle", base=FBB)
 
 def ifc_to_fbb_ttl(ifc_file_path, output_ttl_path, use_subclasses=False):
     converter = IFCtoFBBConverter(ifc_file_path, output_ttl_path, use_subclasses)
