@@ -1,11 +1,12 @@
 import ifcopenshell
 import ifcopenshell.util.element
-import rdflib
 from rdflib import Graph, Namespace, Literal, URIRef
 from rdflib.namespace import RDF, RDFS, OWL, XSD
 import os
 from fuzzywuzzy import fuzz
 import re
+from typing import List, Tuple, Dict
+import unicodedata
 
 # Define namespaces
 FBB = Namespace("http://example.org/firebimbuilding#")
@@ -34,7 +35,8 @@ GENERAL_PROPERTIES = [
     "Width",
     "Height",
     "Depth",
-    "Area"
+    "Area",
+    "Volume"
 ]
 
 FIRE_SAFETY_PROPERTIES = [
@@ -56,120 +58,129 @@ FIRE_SAFETY_PROPERTIES = [
 ]
 
 class IFCtoFBBConverter:
-    def __init__(self, ifc_file_path, output_ttl_path, use_subclasses=False):
+    def __init__(self, ifc_file_path: str, output_ttl_path: str, use_subclasses: bool = False):
         self.ifc_file = ifcopenshell.open(ifc_file_path)
         self.output_ttl_path = output_ttl_path
-        self.g = Graph(bind_namespaces="rdflib")
+        self.g = Graph()
         self.use_subclasses = use_subclasses
+        self._bind_namespaces()
 
-        # Bind namespaces to the graph
-        self.g.bind("fbb", FBB)
-        self.g.bind("bot", BOT)
-        self.g.bind("bpo", BPO)
-        self.g.bind("opm", OPM)
-        self.g.bind("ifc", IFC)
-        self.g.bind("rdf", RDF)
+    def sanitize_name(self, name: str):
+        #name = unicodedata.normalize('NFKD', name).encode('ASCII', 'ignore').decode('ASCII')
+        if name:
+            return re.sub(r'[^a-zA-Z0-9_]', '_', name)
+        return "None"
+    
+    def _bind_namespaces(self) -> None:
+        for prefix, namespace in [("fbb", FBB), ("bot", BOT), ("bpo", BPO), ("opm", OPM), ("ifc", IFC)]:
+            self.g.bind(prefix, namespace)
 
-    def create_uri(self, ns, name):
-        sanitized_name = re.sub(r'[^a-zA-Z0-9_]', '_', name)
-        return ns[sanitized_name]
+    def create_uri(self, ns: Namespace, ifc_type: str, global_id: str) -> URIRef:
+        entity_name = ifc_type[3:] if ifc_type.startswith("Ifc") else ifc_type
+        return ns[f"{self.sanitize_name(entity_name)}_{self.sanitize_name(global_id)}"]
 
-    def is_fire_safety_property(self, prop_name):
-        return any((fuzz.ratio(prop_name.lower(), fs_prop.lower()) > 80 or fs_prop.lower() in prop_name.lower()) for fs_prop in FIRE_SAFETY_PROPERTIES)
+    @staticmethod
+    def is_property_of_type(prop_name: str, property_list: List[str], threshold: int = 80) -> bool:
+        return any((fuzz.ratio(prop_name.lower(), prop.lower()) > threshold or 
+                    prop.lower() in prop_name.lower()) for prop in property_list)
 
-    def is_general_property(self, prop_name):
-        return any((fuzz.ratio(prop_name.lower(), fs_prop.lower()) > 80 or fs_prop.lower() in prop_name.lower()) for fs_prop in GENERAL_PROPERTIES)
-
-    def process_ifc(self):
-        print("Processing building...")
+    def process_ifc(self) -> None:
+        print("Processing IFC file...")
         self.process_building()
         self.process_storeys()
         self.process_spaces()
         self.process_elements()
 
-    def process_building(self):
+    def process_building(self) -> None:
         building = self.ifc_file.by_type("IfcBuilding")[0]
-        building_uri = self.create_uri(FBB, f"Building_{building.Name}_{building.GlobalId}")
+        building_uri = self.create_uri(FBB, "IfcBuilding", building.GlobalId)
         self.g.add((building_uri, RDF.type, IFC_BOT_MAPPING["IfcBuilding"]))
+        self.g.add((building_uri, FBB.name, Literal(self.sanitize_name(building.Name))))
         self.add_properties(building, building_uri)
 
-    def process_storeys(self):
-        building_uri = self.create_uri(FBB, f"Building_{self.ifc_file.by_type('IfcBuilding')[0].Name}_{self.ifc_file.by_type('IfcBuilding')[0].GlobalId}")
+    def process_storeys(self) -> None:
+        building = self.ifc_file.by_type("IfcBuilding")[0]
+        building_uri = self.create_uri(FBB, "IfcBuilding", building.GlobalId)
         storeys = self.ifc_file.by_type("IfcBuildingStorey")
-        for i, storey in enumerate(storeys):
-            print(f"Processing storey {i+1} out of {len(storeys)}...")
-            storey_uri = self.create_uri(FBB, f"Storey_{storey.Name}_{storey.GlobalId}")
+        for i, storey in enumerate(storeys, 1):
+            print(f"Processing storey {i} out of {len(storeys)}...")
+            storey_uri = self.create_uri(FBB, "IfcBuildingStorey", storey.GlobalId)
             self.g.add((storey_uri, RDF.type, IFC_BOT_MAPPING["IfcBuildingStorey"]))
+            self.g.add((storey_uri, FBB.name, Literal(self.sanitize_name(storey.Name))))
             self.g.add((building_uri, BOT.hasStorey, storey_uri))
             self.add_properties(storey, storey_uri)
 
-    def process_spaces(self):
+    def process_spaces(self) -> None:
         spaces = self.ifc_file.by_type("IfcSpace")
-        for i, space in enumerate(spaces):
-            print(f"Processing space {i+1} out of {len(spaces)}...")
-            space_uri = self.create_uri(FBB, f"Space_{space.Name}_{space.GlobalId}")
+        for i, space in enumerate(spaces, 1):
+            print(f"Processing space {i} out of {len(spaces)}...")
+            space_uri = self.create_uri(FBB, "IfcSpace", space.GlobalId)
             self.g.add((space_uri, RDF.type, IFC_BOT_MAPPING["IfcSpace"]))
+            self.g.add((space_uri, FBB.name, Literal(self.sanitize_name(space.Name))))
             if space.Decomposes:
                 storey = space.Decomposes[0].RelatingObject
                 if storey.is_a("IfcBuildingStorey"):
-                    storey_uri = self.create_uri(FBB, f"Storey_{storey.Name}_{storey.GlobalId}")
+                    storey_uri = self.create_uri(FBB, "IfcBuildingStorey", storey.GlobalId)
                     self.g.add((storey_uri, BOT.hasSpace, space_uri))
             self.add_properties(space, space_uri)
 
-    def process_elements(self):
-        for h, element_type in enumerate(IFC_BOT_MAPPING):
-            print(f"Processing element type {h+1} out of {len(IFC_BOT_MAPPING)}...")
+    def process_elements(self) -> None:
+        for h, element_type in enumerate(IFC_BOT_MAPPING, 1):
+            print(f"Processing element type {h} out of {len(IFC_BOT_MAPPING)}...")
             if element_type not in ["IfcBuilding", "IfcBuildingStorey", "IfcSpace"]:
                 elements = self.ifc_file.by_type(element_type)
-                for i, element in enumerate(elements):
-                    element_uri = self.create_uri(FBB, f"Element_{element.Name}_{element.GlobalId}")
-                    
-                    if self.use_subclasses:
-                        element_class_uri = self.create_uri(FBB, element_type)
-                        self.g.add((element_class_uri, RDF.type, OWL.Class))
-                        self.g.add((element_class_uri, RDFS.subClassOf, BOT.Element))
-                        self.g.add((element_uri, RDF.type, element_class_uri))
-                    else:
-                        self.g.add((element_uri, RDF.type, IFC_BOT_MAPPING[element_type]))
-                        self.g.add((element_uri, FBB.hasIfcType, Literal(element_type)))
-                    
-                    if hasattr(element, "ContainedInStructure") and element.ContainedInStructure:
-                        containing_storey = element.ContainedInStructure[0].RelatingStructure
-                        if containing_storey.is_a("IfcBuildingStorey"):
-                            storey_uri = self.create_uri(FBB, f"Storey_{containing_storey.Name}_{containing_storey.GlobalId}")
-                            self.g.add((storey_uri, BOT.containsElement, element_uri))
-                    
-                    self.add_properties(element, element_uri)
+                for element in elements:
+                    self._process_single_element(element, element_type)
 
-    def add_properties(self, ifc_entity, entity_uri):
+    def _process_single_element(self, element, element_type: str) -> None:
+        element_uri = self.create_uri(FBB, element_type, element.GlobalId)
+        
+        if self.use_subclasses:
+            element_class_uri = self.create_uri(FBB, element_type, "Class")
+            self.g.add((element_class_uri, RDF.type, OWL.Class))
+            self.g.add((element_class_uri, RDFS.subClassOf, BOT.Element))
+            self.g.add((element_uri, RDF.type, element_class_uri))
+        else:
+            self.g.add((element_uri, RDF.type, IFC_BOT_MAPPING[element_type]))
+            self.g.add((element_uri, FBB.hasIfcType, Literal(element_type)))
+        
+        self.g.add((element_uri, FBB.name, Literal(element.Name)))
+        
+        if hasattr(element, "ContainedInStructure") and element.ContainedInStructure:
+            containing_storey = element.ContainedInStructure[0].RelatingStructure
+            if containing_storey.is_a("IfcBuildingStorey"):
+                storey_uri = self.create_uri(FBB, "IfcBuildingStorey", containing_storey.GlobalId)
+                self.g.add((storey_uri, BOT.containsElement, element_uri))
+        
+        self.add_properties(element, element_uri)
+
+    def add_properties(self, ifc_entity, entity_uri: URIRef) -> None:
         psets = ifcopenshell.util.element.get_psets(ifc_entity)
         for pset_name, properties in psets.items():
             for prop_name, prop_value in properties.items():
                 if prop_value is not None:
-                    sanitized_prop_name = re.sub(r'[^a-zA-Z0-9_]', '_', prop_name)
-                    if self.is_general_property(prop_name):
-                        property_uri = self.create_uri(BPO, f"{pset_name}_{sanitized_prop_name}")
-                        self.g.add((entity_uri, property_uri, Literal(prop_value)))
-                        self.g.add((property_uri, RDF.type, BPO.Attribute))
-                        self.g.add((property_uri, RDFS.label, Literal(prop_name)))
-                    
-                    elif self.is_fire_safety_property(prop_name):
-                        property_uri = self.create_uri(BPO, f"{pset_name}_{sanitized_prop_name}")
-                        self.g.add((entity_uri, property_uri, Literal(prop_value)))
-                        self.g.add((property_uri, RDF.type, BPO.Attribute))
-                        self.g.add((property_uri, RDFS.label, Literal(prop_name)))
-                        self.g.add((property_uri, FBB.isFireSafetyProperty, Literal(True)))
+                    self._add_single_property(entity_uri, pset_name, prop_name, prop_value)
 
-    def save_ttl(self):
-        self.g.serialize(destination=self.output_ttl_path, format="turtle", base=FBB)
+    def _add_single_property(self, entity_uri: URIRef, pset_name: str, prop_name: str, prop_value) -> None:
+        sanitized_pset_name = self.sanitize_name(pset_name)
+        sanitized_prop_name = self.sanitize_name(prop_name)
+        if self.is_property_of_type(prop_name, GENERAL_PROPERTIES):
+            property_uri = self.create_uri(BPO, f"{sanitized_pset_name}_{sanitized_prop_name}", "Property")
+            self.g.add((entity_uri, property_uri, Literal(prop_value)))
+            self.g.add((property_uri, RDF.type, BPO.Attribute))
+            self.g.add((property_uri, RDFS.label, Literal(prop_name)))
+        
+        if self.is_property_of_type(prop_name, FIRE_SAFETY_PROPERTIES):
+            property_uri = self.create_uri(BPO, f"{sanitized_pset_name}_{sanitized_prop_name}", "Property")
+            self.g.add((entity_uri, property_uri, Literal(prop_value)))
+            self.g.add((property_uri, RDF.type, BPO.Attribute))
+            self.g.add((property_uri, RDFS.label, Literal(prop_name)))
+            self.g.add((property_uri, FBB.isFireSafetyProperty, Literal(True)))
 
-def ifc_to_fbb_ttl(ifc_file_path, output_ttl_path, use_subclasses=False):
-    converter = IFCtoFBBConverter(ifc_file_path, output_ttl_path, use_subclasses)
-    converter.process_ifc()
-    converter.save_ttl()
+    def save_ttl(self) -> None:
+        self.g.serialize(destination=self.output_ttl_path, format="turtle")
 
-
-def get_unit_scale(ifc_file_path):
+def get_unit_scale(ifc_file_path: str) -> float:
     ifc_file = ifcopenshell.open(ifc_file_path)
     project = ifc_file.by_type("IfcProject")[0]
     units = project.UnitsInContext.Units
@@ -183,14 +194,11 @@ def get_unit_scale(ifc_file_path):
                 return 1.0    # Already in meters
     return 1.0  # Default to meters if no unit is found
 
-def test_external_door_width(ttl_file_path, ifc_file_path):
+def test_external_door_width(ttl_file_path: str, ifc_file_path: str) -> List[Tuple[URIRef, float, URIRef]]:
     g = Graph()
     g.parse(ttl_file_path, format="turtle")
 
     unit_scale = get_unit_scale(ifc_file_path)
-
-    FBB = Namespace("http://example.org/firebimbuilding#")
-    BPO = Namespace("https://w3id.org/bpo#")
 
     query = """
     PREFIX fbb: <http://example.org/firebimbuilding#>
@@ -221,21 +229,23 @@ def test_external_door_width(ttl_file_path, ifc_file_path):
             if str(is_external).lower() == 'true' and width <= 0.8:
                 non_compliant_doors.append((door, width, width_prop))
         except Exception as e:
-            print(f"Error: {e}")
+            print(f"Error processing door: {e}")
 
     return non_compliant_doors
 
+def ifc_to_fbb_ttl(ifc_file_path: str, output_ttl_path: str, use_subclasses: bool = False) -> None:
+    converter = IFCtoFBBConverter(ifc_file_path, output_ttl_path, use_subclasses)
+    converter.process_ifc()
+    converter.save_ttl()
 
-
-
-if __name__ == "__main__":
+def main() -> None:
     main_dir = "IFCtoTTLin-outputs/"
     use_subclasses = False
     
     for file in os.listdir(main_dir):
         if file.lower().endswith(".ifc"):
             ifc_file_path = os.path.join(main_dir, file)
-            ttl_file_path = os.path.join(main_dir, file.rsplit(".", 1)[0] + ".ttl")
+            ttl_file_path = os.path.join(main_dir, f"{os.path.splitext(file)[0]}.ttl")
             
             ifc_to_fbb_ttl(ifc_file_path, ttl_file_path, use_subclasses)
             
@@ -253,3 +263,6 @@ if __name__ == "__main__":
                 print("All external doors comply with the width requirement.")
             
             print("\n")
+
+if __name__ == "__main__":
+    main()
