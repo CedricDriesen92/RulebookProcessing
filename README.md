@@ -13,4 +13,4 @@ Output is parsed into validation_report.html with the violation, severity, and n
 
 - IFCtoBuildingTTL.py: turn all .ifc files from the IFCtoTTLin-outputs path into .ttl files according to what should become the firebim building ontology. Includes a simple test for external door width for now.
 
-- DocumentTTLtoSHACL.py: 
+- DocumentTTLtoSHACL.py: automatically creates SHACL shapes from the separate .ttl files in the /sections folder. TODO, and just a POC.
