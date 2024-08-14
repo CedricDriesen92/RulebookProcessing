@@ -9,7 +9,7 @@ Final result (combination of all the .ttl files in 'sections') is stored in comb
 
 - ParseRulesToSHACL.py: in the future should turn the combined document graph into shacl shapes. TODO.
 For now does a simple check using a sample data graph (buildinggraphs/Article2_1_1BE_Data.ttl) and a SHACL representation of Article 2.1.1 (shaclshapes/Article2_1_1BE_Shapes.ttl), both following the firebim building ontology defined in buildingontologies\firebimSource.ttl.
-Output is parsed into validation_report with the violation, severity, and node (entity) in violation. Also given is the original text of the document graph sourcing the rule, as well as a direct link to that text in the html from graphtohtml.py. CREATION OF BOTH GRAPHS WAS DONE BY HAND.
+Output is parsed into validation_report with the violation, severity, and node (entity) in violation. Also given is the original text of the document graph sourcing the rule, as well as a direct link to that text in the html from graphtohtml.py. CREATION OF BOTH DATA AND RULE GRAPHS WAS DONE BY HAND.
 ![validationreport](https://github.com/user-attachments/assets/e8dd0691-8196-417e-b005-7f8407703872)
 
 - IFCtoTTL.py: turn all .ifc files from the IFCtoTTLin-outputs path into .ttl files according to what should become the firebim building ontology. Includes a simple test for external door width for now.
