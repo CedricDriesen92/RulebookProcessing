@@ -1,0 +1,148 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix fbb: <http://example.org/firebimbuilding#> .
+
+firebim:StaircaseShape
+    a sh:NodeShape ;
+    sh:targetClass bot:Space ;
+    sh:property [
+        sh:path firebim:isStaircase ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path firebim:hasInnerWall ;
+        sh:class bot:Element ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path firebim:hasOuterWall ;
+        sh:class bot:Element ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path firebim:hasEvacuationLevelAccess ;
+        sh:hasValue true ;
+    ] ;
+    firebim:rulesource firebim:Article_4_2_2_1_1 .
+
+firebim:StaircaseInnerWallShape
+    a sh:NodeShape ;
+    sh:targetClass bot:Element ;
+    sh:property [
+        sh:path firebim:isInnerWall ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path opm:hasProperty ;
+        sh:class opm:Property ;
+        sh:minCount 1 ;
+        sh:property [
+            sh:path opm:hasSimpleProperty ;
+            sh:hasValue "EI 60" ;
+        ] ;
+    ] ;
+    firebim:rulesource firebim:Article_4_2_2_1_1 .
+
+firebim:StaircaseOuterWallShape
+    a sh:NodeShape ;
+    sh:targetClass bot:Element ;
+    sh:property [
+        sh:path firebim:isOuterWall ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path firebim:hasGlazedOpening ;
+        sh:minCount 0 ;
+    ] ;
+    sh:sparql [
+        sh:message "Glazed openings in outer walls must have E 30 elements on at least 1m to the side" ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this firebim:hasGlazedOpening ?opening .
+                ?opening firebim:hasSideElement ?sideElement .
+                ?sideElement opm:hasProperty ?prop .
+                ?prop opm:hasSimpleProperty "E 30" .
+                ?sideElement firebim:hasWidth ?width .
+                FILTER (?width >= 1)
+            }
+        """ ;
+    ] ;
+    firebim:rulesource firebim:Article_4_2_2_1_1 .
+
+firebim:StaircaseAccessShape
+    a sh:NodeShape ;
+    sh:targetClass bot:Space ;
+    sh:property [
+        sh:path firebim:isStaircase ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path firebim:hasAccessDoor ;
+        sh:class bot:Element ;
+        sh:minCount 1 ;
+    ] ;
+    firebim:rulesource firebim:Article_4_2_2_3_1 .
+
+firebim:StaircaseAccessDoorShape
+    a sh:NodeShape ;
+    sh:targetClass bot:Element ;
+    sh:property [
+        sh:path firebim:isAccessDoor ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path opm:hasProperty ;
+        sh:class opm:Property ;
+        sh:minCount 1 ;
+        sh:property [
+            sh:path opm:hasSimpleProperty ;
+            sh:hasValue "EI1 30" ;
+        ] ;
+    ] ;
+    firebim:rulesource firebim:Article_4_2_2_3_1 .
+
+firebim:StaircaseVentilationShape
+    a sh:NodeShape ;
+    sh:targetClass bot:Space ;
+    sh:property [
+        sh:path firebim:isStaircase ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path firebim:hasVentilationOpening ;
+        sh:class bot:Element ;
+        sh:minCount 1 ;
+    ] ;
+    sh:sparql [
+        sh:message "Staircase must have a ventilation opening of at least 1 m² at the top" ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this firebim:hasVentilationOpening ?opening .
+                ?opening firebim:hasArea ?area .
+                FILTER (?area >= 1)
+            }
+        """ ;
+    ] ;
+    firebim:rulesource firebim:Article_4_2_2_6_1 .
+
+firebim:StaircaseVentilationOpeningShape
+    a sh:NodeShape ;
+    sh:targetClass bot:Element ;
+    sh:property [
+        sh:path firebim:isVentilationOpening ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path firebim:hasManualControl ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path firebim:isVisibleFromEvacuationLevel ;
+        sh:hasValue true ;
+    ] ;
+    firebim:rulesource firebim:Article_4_2_2_6_1 .

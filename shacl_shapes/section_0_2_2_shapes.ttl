@@ -1,0 +1,60 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+firebim:BuildingShape
+    a sh:NodeShape ;
+    sh:targetClass firebim:Building ;
+    sh:property [
+        sh:path firebim:buildingType ;
+        sh:not [
+            sh:in ( "industriegebouw" "eengezinswoning" ) ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path firebim:numberOfFloors ;
+        sh:or (
+            [ sh:minInclusive 3 ]
+            [
+                sh:maxInclusive 2 ;
+                sh:property [
+                    sh:path firebim:totalArea ;
+                    sh:minExclusive 100 ;
+                ]
+            ]
+        ) ;
+    ] ;
+    sh:sparql [
+        sh:message "Building does not meet the criteria for application of this annex." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this firebim:buildingType ?type .
+                $this firebim:numberOfFloors ?floors .
+                $this firebim:totalArea ?area .
+                FILTER (
+                    ?type IN ('industriegebouw', 'eengezinswoning') ||
+                    (?floors <= 2 && ?area <= 100)
+                )
+            }
+        """ ;
+    ] ;
+    firebim:rulesource firebim:Article_0_2_2_1 .
+
+firebim:BuildingAreaShape
+    a sh:NodeShape ;
+    sh:targetClass firebim:Building ;
+    sh:property [
+        sh:path firebim:totalArea ;
+        sh:datatype xsd:decimal ;
+    ] ;
+    sh:pyFn """
+import ifcopenshell
+
+def validate(ifc_file):
+    building = ifc_file.by_type('IfcBuilding')[0]
+    spaces = ifc_file.by_type('IfcSpace')
+    total_area = sum(space.GrossFloorArea for space in spaces if space.GrossFloorArea)
+    return total_area > 100 or len(ifc_file.by_type('IfcBuildingStorey')) > 2
+    """ ;
+    firebim:rulesource firebim:Article_0_2_2_1 .

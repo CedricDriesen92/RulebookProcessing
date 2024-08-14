@@ -1,0 +1,62 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+firebim:PaternosterliftShape
+    a sh:NodeShape ;
+    sh:targetClass firebim:Lift ;
+    sh:property [
+        sh:path firebim:liftType ;
+        sh:hasValue "Paternoster" ;
+        sh:maxCount 0 ;
+    ] ;
+    sh:sparql [
+        sh:message "Paternoster lifts for passenger transport are prohibited." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this firebim:liftType "Paternoster" .
+                $this firebim:purpose "passenger" .
+            }
+        """ ;
+    ] ;
+    firebim:rulesource firebim:Article_6_2_2_1 .
+
+firebim:LiftPurposeShape
+    a sh:NodeShape ;
+    sh:targetClass firebim:Lift ;
+    sh:property [
+        sh:path firebim:purpose ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    firebim:rulesource firebim:Article_6_2_2_1 .
+
+firebim:LiftTypeShape
+    a sh:NodeShape ;
+    sh:targetClass firebim:Lift ;
+    sh:property [
+        sh:path firebim:liftType ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    firebim:rulesource firebim:Article_6_2_2_1 .
+
+firebim:PaternosterliftPythonShape
+    a sh:NodeShape ;
+    sh:targetClass firebim:Lift ;
+    sh:pyFn """
+import ifcopenshell
+
+def validate(inst):
+    if inst.is_a("IfcTransportElement"):
+        predefined_type = inst.PredefinedType
+        object_type = inst.ObjectType
+        if predefined_type == "LIFT" or object_type == "LIFT":
+            if "paternoster" in inst.Name.lower() or "paternoster" in inst.Description.lower():
+                return False
+    return True
+""" ;
+    firebim:rulesource firebim:Article_6_2_2_1 .

@@ -10,7 +10,7 @@ SHACL = Namespace("http://www.w3.org/ns/shacl#")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 
 # Initialize AnthropicVertex client
-client = AnthropicVertex(region="europe-west1", project_id="spatial-conduit-420822")
+client = AnthropicVertex(region="europe-west1", project_id="neat-veld-422214-p1")
 
 def load_ontology(file_path):
     with open(file_path, 'r') as file:
@@ -61,7 +61,7 @@ Start your output with the prefix declarations mentioned above, then provide the
             time.sleep(5)
 
 def main():
-    ontology = load_ontology('firebimSource.ttl')
+    ontology = load_ontology('buildingontologies/firebimSource.ttl')
     input_folder = 'sections'
     output_folder = 'shacl_shapes'
 
@@ -74,16 +74,16 @@ def main():
         if os.path.exists(output_file):
             print(f"SHACL shapes for {base_name} already exist. Skipping.")
             continue
+        if "2_2" in ttl_file:
+            with open(ttl_file, 'r', encoding='utf-8') as f:
+                ttl_content = f.read()
 
-        with open(ttl_file, 'r', encoding='utf-8') as f:
-            ttl_content = f.read()
+            shacl_shapes = process_ttl_to_shacl(ttl_content, ontology)
 
-        shacl_shapes = process_ttl_to_shacl(ttl_content, ontology)
+            with open(output_file, 'w', encoding='utf-8') as f:
+                f.write(shacl_shapes)
 
-        with open(output_file, 'w', encoding='utf-8') as f:
-            f.write(shacl_shapes)
-
-        print(f"Generated SHACL shapes for {base_name}")
+            print(f"Generated SHACL shapes for {base_name}")
 
     print("SHACL shape generation complete.")
 

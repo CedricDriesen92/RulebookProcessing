@@ -1,0 +1,121 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix fbb: <http://example.org/firebimbuilding#> .
+
+firebim:CompartmentExitShape
+    a sh:NodeShape ;
+    sh:targetClass bot:Space ;
+    sh:property [
+        sh:path fbb:hasOccupancy ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasExit ;
+        sh:class bot:Element ;
+        sh:minCount 1 ;
+    ] ;
+    sh:sparql [
+        sh:message "Compartment does not have the required number of exits based on occupancy." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fbb:hasOccupancy ?occupancy .
+                {
+                    FILTER(?occupancy < 100)
+                    FILTER(NOT EXISTS { $this fbb:hasExit ?exit1 })
+                } UNION {
+                    FILTER(?occupancy >= 100 && ?occupancy < 500)
+                    FILTER(NOT EXISTS {
+                        $this fbb:hasExit ?exit1 .
+                        $this fbb:hasExit ?exit2 .
+                        FILTER(?exit1 != ?exit2)
+                    })
+                } UNION {
+                    FILTER(?occupancy >= 500)
+                    BIND(CEIL((?occupancy - 500) / 1000) AS ?n)
+                    BIND(2 + ?n AS ?requiredExits)
+                    {
+                        SELECT $this (COUNT(DISTINCT ?exit) AS ?exitCount)
+                        WHERE {
+                            $this fbb:hasExit ?exit .
+                        }
+                        GROUP BY $this
+                    }
+                    FILTER(?exitCount < ?requiredExits)
+                }
+            }
+        """
+    ] ;
+    firebim:rulesource firebim:Article_2_2_1_1 .
+
+firebim:FloorAndRoomExitShape
+    a sh:NodeShape ;
+    sh:targetClass bot:Storey, bot:Space ;
+    sh:property [
+        sh:path fbb:hasOccupancy ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasExit ;
+        sh:class bot:Element ;
+        sh:minCount 1 ;
+    ] ;
+    sh:sparql [
+        sh:message "Floor or room does not have the required number of exits based on occupancy." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fbb:hasOccupancy ?occupancy .
+                {
+                    FILTER(?occupancy < 100)
+                    FILTER(NOT EXISTS { $this fbb:hasExit ?exit1 })
+                } UNION {
+                    FILTER(?occupancy >= 100 && ?occupancy < 500)
+                    FILTER(NOT EXISTS {
+                        $this fbb:hasExit ?exit1 .
+                        $this fbb:hasExit ?exit2 .
+                        FILTER(?exit1 != ?exit2)
+                    })
+                } UNION {
+                    FILTER(?occupancy >= 500)
+                    BIND(CEIL((?occupancy - 500) / 1000) AS ?n)
+                    BIND(2 + ?n AS ?requiredExits)
+                    {
+                        SELECT $this (COUNT(DISTINCT ?exit) AS ?exitCount)
+                        WHERE {
+                            $this fbb:hasExit ?exit .
+                        }
+                        GROUP BY $this
+                    }
+                    FILTER(?exitCount < ?requiredExits)
+                }
+            }
+        """
+    ] ;
+    firebim:rulesource firebim:Article_2_2_1_1 .
+
+firebim:FireDepartmentExitOverrideShape
+    a sh:NodeShape ;
+    sh:targetClass bot:Space ;
+    sh:property [
+        sh:path fbb:hasFireDepartmentOverride ;
+        sh:datatype xsd:boolean ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:sparql [
+        sh:message "Fire department may increase the number of required exits based on occupancy and configuration." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fbb:hasFireDepartmentOverride true .
+                # Additional logic for fire department override can be added here
+            }
+        """
+    ] ;
+    firebim:rulesource firebim:Article_2_2_1_1 .

@@ -1,0 +1,80 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix fbb: <http://example.org/firebimbuilding#> .
+
+firebim:CompartmentExitShape
+    a sh:NodeShape ;
+    sh:targetClass bot:Space ;
+    firebim:rulesource firebim:Article_2_2_2_1 ;
+    sh:property [
+        sh:path bot:hasElement ;
+        sh:qualifiedValueShape [
+            sh:class fbb:Exit ;
+        ] ;
+        sh:qualifiedMinCount 2 ;
+        sh:message "A compartment must have at least two exits."@en ;
+    ] ;
+    sh:sparql [
+        sh:message "Exits must be located in opposite zones of the compartment."@en ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this bot:hasElement ?exit1, ?exit2 .
+                ?exit1 a fbb:Exit .
+                ?exit2 a fbb:Exit .
+                FILTER(?exit1 != ?exit2)
+                FILTER NOT EXISTS {
+                    ?exit1 fbb:hasState ?state1 .
+                    ?exit2 fbb:hasState ?state2 .
+                    ?state1 fbb:connects ?transition .
+                    ?state2 fbb:connects ?transition .
+                }
+            }
+        """ ;
+    ] .
+
+firebim:EvacuationRouteShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:EvacuationRoute ;
+    firebim:rulesource firebim:Member_2_2_2_1_2 ;
+    sh:property [
+        sh:path fbb:leadsTo ;
+        sh:or (
+            [ sh:class fbb:ExitToOutside ]
+            [ sh:class fbb:Stairwell ]
+            [ sh:class fbb:Stair ]
+        ) ;
+        sh:message "Evacuation routes must lead to either the outside, stairwells, or stairs."@en ;
+    ] .
+
+firebim:UndergroundExitShape
+    a sh:NodeShape ;
+    sh:targetClass bot:Storey ;
+    firebim:rulesource firebim:Member_2_2_2_1_3 ;
+    sh:property [
+        sh:path bot:hasElement ;
+        sh:qualifiedValueShape [
+            sh:class fbb:EvacuationRoute ;
+            sh:property [
+                sh:path fbb:hasFireResistance ;
+                sh:hasValue "EI 30" ;
+            ] ;
+        ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "Underground levels must have at least one evacuation route with EI 30 fire resistance."@en ;
+    ] .
+
+firebim:EvacuationLevelStairShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Stair ;
+    firebim:rulesource firebim:Member_2_2_2_1_5 ;
+    sh:property [
+        sh:path fbb:leadsTo ;
+        sh:or (
+            [ sh:class fbb:ExitToOutside ]
+            [ sh:class fbb:EvacuationRoute ]
+        ) ;
+        sh:message "At the evacuation level, each staircase must lead either directly outside or to an evacuation route."@en ;
+    ] .
