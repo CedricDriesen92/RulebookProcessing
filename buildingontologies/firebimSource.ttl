@@ -6,7 +6,7 @@
 @prefix bot: <https://w3id.org/bot#> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix opm: <https://w3id.org/opm#> .
-@prefix firebim: <http://example.org/firebim#> .
+@prefix fbb: <http://example.org/firebimbuilding#> .
 @prefix neo: <http://example.org/neo#> .
 
 # Connections between BOT and GeoSPARQL
@@ -17,15 +17,15 @@ geo:hasGeometry rdfs:domain bot:Element .
 bot:Element rdfs:subClassOf bpo:Component .
 
 # Connections between BOT and IndoorGML
-firebim:hasState a owl:ObjectProperty ;
+fbb:hasState a owl:ObjectProperty ;
     rdfs:domain bot:Element ;
-    rdfs:range firebim:State ;
+    rdfs:range fbb:State ;
     rdfs:label "has state"@en ;
     rdfs:comment "Associates a building element with a state in the IndoorGML model."@en .
 
-firebim:hasTransition a owl:ObjectProperty ;
+fbb:hasTransition a owl:ObjectProperty ;
     rdfs:domain bot:Element ;
-    rdfs:range firebim:Transition ;
+    rdfs:range fbb:Transition ;
     rdfs:label "has transition"@en ;
     rdfs:comment "Associates a building element with a transition in the IndoorGML model."@en .
 
@@ -42,27 +42,27 @@ opm:hasSimpleProperty a owl:DatatypeProperty ;
 # Connect NEO with BOT
 bot:containsZone rdfs:range neo:Neighborhood .
 
-# IndoorGML definitions since I can't find it
-firebim:State a owl:Class ;
+# Random IndoorGML definitions since I can't find it, TODO
+fbb:State a owl:Class ;
     rdfs:label "State"@en ;
     rdfs:comment "A state in the IndoorGML model."@en .
 
-firebim:Transition a owl:Class ;
+fbb:Transition a owl:Class ;
     rdfs:label "Transition"@en ;
     rdfs:comment "A transition between states in the IndoorGML model."@en .
 
-firebim:Path a owl:Class ;
+fbb:Path a owl:Class ;
     rdfs:label "Path"@en ;
     rdfs:comment "A path in the IndoorGML model."@en .
 
-firebim:connects a owl:ObjectProperty ;
-    rdfs:domain firebim:State ;
-    rdfs:range firebim:Transition ;
+fbb:connects a owl:ObjectProperty ;
+    rdfs:domain fbb:State ;
+    rdfs:range fbb:Transition ;
     rdfs:label "connects"@en ;
     rdfs:comment "Connects a state to a transition in the IndoorGML model."@en .
 
-firebim:hasPath a owl:ObjectProperty ;
-    rdfs:domain firebim:Transition ;
-    rdfs:range firebim:Path ;
+fbb:hasPath a owl:ObjectProperty ;
+    rdfs:domain fbb:Transition ;
+    rdfs:range fbb:Path ;
     rdfs:label "has path"@en ;
     rdfs:comment "Associates a path with a transition in the IndoorGML model."@en .
