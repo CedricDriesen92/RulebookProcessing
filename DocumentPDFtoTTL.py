@@ -103,16 +103,6 @@ Here is some more info on the firebim ontology and how you should use it:
 The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the firebim:Authority (which represents the legal body that publishes and maintains the regulatory document), the firebim:DocumentSubdivision (which represents documents or parts of documents), and the firebim:Reference (which represents references to other representations of the regulation, or similar regulations). The firebim:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
 The created data graph (not shown here) clearly shows how a document is modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can contain submembers, or they can have references to other members, using the firebim:hasBackwardReference and firebim:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
 
-Here are some examples of how to convert sections to Turtle format. Note, follow the style used here as a very strong reference, even more so than the instructions. Don't be afraid to nest members where necessary. Examples:
-
-{examples_str}
-
-Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following this ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object it shouldn't be in the originaltext of the parent object etc.), references, and any specific measurements or conditions mentioned.
-
-Section number: {section_number}
-Section text:
-{section_text}
-
 Not every section needs to have their own sections/articles/members, if the section text is empty no articles are needed...
 In your .ttl, if your section is not a base numbered section (i.e. 0, 1, 2...) make a hasSection from the parent section to this section. Adding all originaltext from all articles should recreate the rules part of the document. For the section don't include the full originaltext, only the titles. Make everything that includes a subdivision of the title (e.g. 4.3.1.2 if you are doing section 4.3.1) its own section with as originaltext the title attached to the number, with the following text split up in articles, split up in members.
 The subsection parsing goes until level 3 (e.g. 1.3.2), so if you are dealing with section 1.3 do not try to define section 1.3.2, it only complicates things later on.
@@ -125,9 +115,23 @@ Format text to be logical, don't change the content but fix any obvious formatti
 Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be combined with the .ttl files for the other sections, as well as the base file defining the authority and document this section is from:
 
 {starting_graph}
+
+Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following this ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object it shouldn't be in the originaltext of the parent object nor any child objects etc.), references, and any specific measurements or conditions mentioned.
 """
+    prompt2 = f"""
+Section number: {section_number}
+Section text:
+{section_text}
+
+Here are some examples of how to convert sections to Turtle format. Note, follow the style used here as a very strong reference, even more so than the instructions. Don't be afraid to nest members where necessary. Examples:
+
+{examples_str}
+"""
+    with open("pdftottl_instructions.txt", 'w', encoding='utf-8') as file:
+        file.write(prompt)
+    prompt = prompt + prompt2
     if float(section_number[:3]) == 0:
-        with open("prompt.txt", "w", encoding="utf-8") as prompt_file:
+        with open("pdftottl_instructions_full.txt", "w", encoding="utf-8") as prompt_file:
             prompt_file.write(prompt)
     while True:
         try:
@@ -205,7 +209,6 @@ def main():
             if not os.path.exists(txt_file_name):
                 with open(txt_file_name, 'w', encoding='utf-8') as f:
                     f.write(f"Section number: {section_number}\nSection text:\n{section_content}")
-    
     training_examples = load_training_examples('trainingsamplesRuleToGraph')
     examples_str = "\n\n".join([f"Input:\n{ex['input']}\n\nExpected output:\n{str(ex['output']).split("@base <http://example.com/firebim> .\n\n", 1)[-1]}\n" for ex in training_examples])
     with open("current_training_total.txt", "w", encoding="utf-8") as f:
