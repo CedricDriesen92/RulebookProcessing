@@ -1,0 +1,22 @@
+graph TD
+    A[Start] --> B{Check <font color='pink'>Building</font> type}
+    B -->|Industrial| C[Industrial building]
+    B -->|Residential| D{Check if single-family house}
+    B -->|Other| E{Check <font color='blue'>Amount of storeys</font>}
+    
+    D -->|Yes| F[Single-family house]
+    D -->|No| E
+    
+    E -->|<= 2| G{Check total <font color='blue'>Area</font>}
+    E -->|> 2| H[Not exempt]
+    
+    G -->|<= 100 m²| I[Exempt building]
+    G -->|> 100 m²| H
+    
+    C --> J[Exempt]
+    F --> J
+    I --> J
+    H --> K[Not exempt]
+    
+    J --> L[End]
+    K --> L

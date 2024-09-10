@@ -1,0 +1,99 @@
+graph TD
+    start([Start]) --> check_stairwell[/"Check each <font color='pink'>Stairwell</font>"/]
+    check_stairwell --> check_inner_walls[/"Check <font color='pink'>Wall</font> with <font color='blue'>Is External?</font> = false"/]
+    check_inner_walls --> check_fire_resistance{{"Is <font color='blue'>Fire resistance</font> >= 60?"}}
+    check_fire_resistance -->|Yes| check_outer_walls[/"Check <font color='pink'>Wall</font> with <font color='blue'>Is External?</font> = true"/]
+    check_fire_resistance -->|No| fail_inner_walls[Fail: Inner walls do not meet fire resistance requirement]
+    check_outer_walls --> is_glazed{{"Is wall glazed?"}}
+    is_glazed -->|Yes| check_side_element[/"Check for side element with <font color='blue'>Fire resistance</font> >= 30 and <font color='blue'>Length</font> >= 1m"/]
+    is_glazed -->|No| check_evacuation_level
+    check_side_element --> has_side_element{{"Side element present?"}}
+    has_side_element -->|Yes| check_evacuation_level
+    has_side_element -->|No| fail_outer_walls[Fail: Glazed outer walls do not have required side element]
+    check_evacuation_level --> has_evacuation_access{{"Does <font color='pink'>Stairwell</font> have access to evacuation level?"}}
+    has_evacuation_access -->|Yes| check_floor_connections[/"Check each <font color='pink'>Storey</font>"/]
+    has_evacuation_access -->|No| fail_evacuation_access[Fail: Stairwell does not have access to evacuation level]
+    check_floor_connections --> check_door[/"Check <font color='pink'>Door</font> between <font color='pink'>Compartment</font> and <font color='pink'>Stairwell</font>"/]
+    check_door --> door_fire_resistance{{"Is <font color='blue'>Fire resistance</font> >= 30?"}}
+    door_fire_resistance -->|Yes| check_duplex
+    door_fire_resistance -->|No| fail_door[Fail: Door does not meet fire resistance requirement]
+    check_duplex --> is_duplex{{"Is it a duplex?"}}
+    is_duplex -->|Yes| check_duplex_area[/"Check <font color='pink'>Compartment</font> <font color='blue'>Area</font>"/]
+    is_duplex -->|No| check_triplex
+    check_duplex_area --> duplex_area_valid{{"Is <font color='blue'>Area</font> <= 300m²?"}}
+    duplex_area_valid -->|Yes| check_non_direct_floor[/"Check non-directly evacuating floor <font color='blue'>Area</font>"/]
+    duplex_area_valid -->|No| fail_duplex_area[Fail: Duplex area exceeds 300m²]
+    check_non_direct_floor --> non_direct_floor_valid{{"Is <font color='blue'>Area</font> <= 150m²?"}}
+    non_direct_floor_valid -->|Yes| check_triplex
+    non_direct_floor_valid -->|No| fail_non_direct_floor[Fail: Non-directly evacuating floor area exceeds 150m²]
+    check_triplex --> is_triplex{{"Is it a triplex?"}}
+    is_triplex -->|Yes| check_triplex_floors[/"Check each floor of triplex"/]
+    is_triplex -->|No| check_multi_compartment
+    check_triplex_floors --> triplex_floor_area{{"Is each non-directly evacuating floor <font color='blue'>Area</font> <= 100m²?"}}
+    triplex_floor_area -->|Yes| check_triplex_connection
+    triplex_floor_area -->|No| fail_triplex_floor[Fail: Triplex non-directly evacuating floor area exceeds 100m²]
+    check_triplex_connection --> is_day_occupancy{{"<font color='blue'>Has nighttime occupancy?</font> = false?"}}
+    is_day_occupancy -->|Yes| check_day_triplex_connection
+    is_day_occupancy -->|No| check_night_triplex_connection
+    check_day_triplex_connection --> day_triplex_valid{{"Connection from evacuation level (E)?"}}
+    day_triplex_valid -->|Yes| check_multi_compartment
+    day_triplex_valid -->|No| fail_day_triplex[Fail: Day triplex connection not from evacuation level]
+    check_night_triplex_connection --> night_triplex_valid{{"Connection from lowest level and one other level?"}}
+    night_triplex_valid -->|Yes| check_multi_compartment
+    night_triplex_valid -->|No| fail_night_triplex[Fail: Night triplex connection invalid]
+    check_multi_compartment --> multiple_compartments{{"Multiple <font color='pink'>Compartment</font>s on same level?"}}
+    multiple_compartments -->|Yes| check_shared_stairwell
+    multiple_compartments -->|No| check_underground_connection
+    check_shared_stairwell --> shared_stairwell_doors[/"Check <font color='pink'>Door</font>s to shared <font color='pink'>Stairwell</font>"/]
+    shared_stairwell_doors --> shared_door_fire_resistance{{"Is <font color='blue'>Fire resistance</font> >= 30?"}}
+    shared_door_fire_resistance -->|Yes| check_door_closing
+    shared_door_fire_resistance -->|No| fail_shared_door[Fail: Shared stairwell door does not meet fire resistance requirement]
+    check_door_closing --> door_self_closing{{"Is <font color='blue'>Self-closing</font> = true?"}}
+    door_self_closing -->|Yes| check_underground_connection
+    door_self_closing -->|No| fail_door_closing[Fail: Shared stairwell door is not self-closing]
+    check_underground_connection --> has_underground{{"<font color='pink'>Building</font> has underground levels?"}}
+    has_underground -->|Yes| check_separation
+    has_underground -->|No| check_ventilation
+    check_separation --> is_separated{{"Underground and above-ground <font color='pink'>Stairwell</font>s separated?"}}
+    is_separated -->|Yes| check_separation_wall[/"Check separation <font color='pink'>Wall</font>"/]
+    is_separated -->|No| fail_separation[Fail: Underground and above-ground stairwells not separated]
+    check_separation_wall --> separation_wall_resistance{{"Is <font color='blue'>Fire resistance</font> >= 60?"}}
+    separation_wall_resistance -->|Yes| check_separation_door[/"Check separation <font color='pink'>Door</font>"/]
+    separation_wall_resistance -->|No| fail_separation_wall[Fail: Separation wall does not meet fire resistance requirement]
+    check_separation_door --> separation_door_resistance{{"Is <font color='blue'>Fire resistance</font> >= 30?"}}
+    separation_door_resistance -->|Yes| check_separation_door_closing
+    separation_door_resistance -->|No| fail_separation_door[Fail: Separation door does not meet fire resistance requirement]
+    check_separation_door_closing --> separation_door_self_closing{{"Is <font color='blue'>Self-closing</font> = true?"}}
+    separation_door_self_closing -->|Yes| check_ventilation
+    separation_door_self_closing -->|No| fail_separation_door_closing[Fail: Separation door is not self-closing]
+    check_ventilation --> is_underground_only{{"<font color='pink'>Stairwell</font> only connects underground levels?"}}
+    is_underground_only -->|Yes| end([End])
+    is_underground_only -->|No| check_floors_served
+    check_floors_served --> floors_count{{"Number of floors served <= 2?"}}
+    floors_count -->|Yes| check_small_floor_area
+    floors_count -->|No| check_large_ventilation
+    check_small_floor_area --> small_area{{"Each floor <font color='blue'>Area</font> <= 300m²?"}}
+    small_area -->|Yes| check_small_ventilation
+    small_area -->|No| check_large_ventilation
+    check_small_ventilation --> has_small_vent{{"Ventilation opening >= 0.5m²?"}}
+    has_small_vent -->|Yes| check_vent_location
+    has_small_vent -->|No| fail_small_vent[Fail: Insufficient ventilation opening for small stairwell]
+    check_large_ventilation --> has_large_vent{{"Ventilation opening >= 1m²?"}}
+    has_large_vent -->|Yes| check_vent_location
+    has_large_vent -->|No| fail_large_vent[Fail: Insufficient ventilation opening for large stairwell]
+    check_vent_location --> vent_to_outside{{"Ventilation opens to outside air?"}}
+    vent_to_outside -->|Yes| check_vent_control
+    vent_to_outside -->|No| fail_vent_location[Fail: Ventilation does not open to outside air]
+    check_vent_control --> has_manual_control{{"Manual control at evacuation level?"}}
+    has_manual_control -->|Yes| check_top_floor_connection
+    has_manual_control -->|No| fail_vent_control[Fail: No manual control for ventilation at evacuation level]
+    check_top_floor_connection --> top_floor_connected{{"Top floor connected to <font color='pink'>Stairwell</font>?"}}
+    top_floor_connected -->|Yes| end
+    top_floor_connected -->|No| check_vent_duct
+    check_vent_duct --> has_vent_duct{{"Ventilation duct to top floor present?"}}
+    has_vent_duct -->|Yes| check_duct_size
+    has_vent_duct -->|No| fail_vent_duct[Fail: No ventilation duct to unconnected top floor]
+    check_duct_size --> duct_size_adequate{{"Duct cross-section >= required ventilation opening size?"}}
+    duct_size_adequate -->|Yes| end
+    duct_size_adequate -->|No| fail_duct_size[Fail: Ventilation duct to top floor too small]
+    end

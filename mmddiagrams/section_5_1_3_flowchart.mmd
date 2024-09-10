@@ -1,0 +1,49 @@
+graph TD
+    start[Start] --> check_walls[Check walls]
+    check_walls --> |For each wall| wall{{"<font color='pink'>Wall</font>"}}
+    wall --> |If not external| check_wall_fire_resistance{"Check <font color='blue'>fire resistance</font>"}
+    check_wall_fire_resistance --> |EI 60| wall_pass[Wall passes]
+    check_wall_fire_resistance --> |Not EI 60| wall_fail[Wall fails]
+    wall --> |If external| external_wall[External wall, no check needed]
+
+    start --> check_doors[Check doors]
+    check_doors --> |For each door| door{{"<font color='pink'>Door</font>"}}
+    door --> check_door_fire_resistance{"Check <font color='blue'>fire resistance</font>"}
+    check_door_fire_resistance --> |EI1 30| door_pass[Door passes]
+    check_door_fire_resistance --> |Not EI1 30| door_fail[Door fails]
+
+    start --> check_water_protection[Check water protection]
+    check_water_protection --> water_protection{"Is there water protection?"}
+    water_protection --> |Yes| water_protection_pass[Water protection passes]
+    water_protection --> |No| water_protection_fail[Water protection fails]
+
+    start --> check_oil_content[Check oil content]
+    check_oil_content --> oil_content{"Is oil content ≥ 50 l?"}
+    oil_content --> |Yes| apply_nbn_c_18_200[Apply NBN C 18-200]
+    oil_content --> |No| no_additional_measures[No additional measures needed]
+
+    start --> check_prefab_post[Check prefab post]
+    check_prefab_post --> prefab_post{"Is it a prefab post?"}
+    prefab_post --> |Yes| check_prefab_room[Check prefab room]
+    prefab_post --> |No| check_onsite_room[Check on-site room]
+
+    check_prefab_room --> prefab_room_walls{"Check <font color='blue'>fire resistance</font> of room walls"}
+    prefab_room_walls --> |EI 60| prefab_room_walls_pass[Room walls pass]
+    prefab_room_walls --> |Not EI 60| prefab_room_walls_fail[Room walls fail]
+
+    check_prefab_room --> prefab_room_door{"Check <font color='blue'>fire resistance</font> of room door"}
+    prefab_room_door --> |EI1 30| prefab_room_door_pass[Room door passes]
+    prefab_room_door --> |Not EI1 30| prefab_room_door_fail[Room door fails]
+
+    check_onsite_room --> onsite_room_walls{"Check <font color='blue'>fire resistance</font> of room walls"}
+    onsite_room_walls --> |EI 60| onsite_room_walls_pass[Room walls pass]
+    onsite_room_walls --> |Not EI 60| onsite_room_walls_fail[Room walls fail]
+
+    check_onsite_room --> onsite_room_door{"Check <font color='blue'>fire resistance</font> of room door"}
+    onsite_room_door --> |EI1 30| onsite_room_door_pass[Room door passes]
+    onsite_room_door --> |Not EI1 30| onsite_room_door_fail[Room door fails]
+
+    classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef property fill:#ADD8E6,stroke:#333,stroke-width:2px;
+    class wall,door object;
+    class fire resistance property;

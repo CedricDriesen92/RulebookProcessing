@@ -1,0 +1,30 @@
+graph TD
+    classDef object fill:#FFC0CB
+    classDef property fill:#ADD8E6
+
+    start[Start] --> check_ceiling{{"Check <span class='object'>Ceiling</span>"}}
+    check_ceiling --> has_lowered{{"Has lowered ceiling?"}}
+    has_lowered -->|Yes| check_sprinkler{{"Check for automatic fire suppression"}}
+    has_lowered -->|No| pass[Pass]
+
+    check_sprinkler --> has_sprinkler{{"<span class='object'>Compartment</span>.<span class='property'>Has active fire protection?</span>"}}
+    has_sprinkler -->|Yes| pass
+    has_sprinkler -->|No| check_space{{"Check space between ceilings"}}
+
+    check_space --> divide_space["Divide space into volumes"]
+    divide_space --> check_volume_size{{"Can volume be inscribed in 25m x 25m square?"}}
+    check_volume_size -->|Yes| check_separators{{"Check vertical separators"}}
+    check_volume_size -->|No| fail[Fail]
+
+    check_separators --> material{{"Separator material class A1 and/or A2-s1,d0?"}}
+    material -->|Yes| coverage{{"Separators cover entire space between pipes?"}}
+    material -->|No| fail
+
+    coverage -->|Yes| fire_resistance{{"Separators have EI 30?"}}
+    coverage -->|No| fail
+
+    fire_resistance -->|Yes| pass
+    fire_resistance -->|No| fail
+
+    pass[Pass]
+    fail[Fail]

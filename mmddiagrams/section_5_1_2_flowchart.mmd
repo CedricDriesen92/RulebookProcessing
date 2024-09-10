@@ -1,0 +1,57 @@
+graph TD
+    classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef property fill:#ADD8E6,stroke:#333,stroke-width:2px;
+
+    start[Start] --> checkCompartment{Check <font color='pink'>Compartment</font>}
+    checkCompartment -->|Is stooklokaal or brandstofopslagruimte| checkVerbrandingsdebiet{Check verbrandingsdebiet}
+    checkVerbrandingsdebiet -->|>= 75 kW| applyRules[Apply rules]
+    checkVerbrandingsdebiet -->|< 75 kW| endNormal[End: Normal rules apply]
+
+    applyRules --> checkSeparateCompartment{Is separate <font color='pink'>Compartment</font>?}
+    checkSeparateCompartment -->|Yes| checkWalls
+    checkSeparateCompartment -->|No| fail[Fail: Must be separate compartment]
+
+    checkWalls{Check <font color='pink'>Wall</font> <font color='blue'>Fire resistance</font>}
+    checkWalls -->|EI 60| checkAccess
+    checkWalls -->|< EI 60| fail[Fail: Walls must have EI 60]
+
+    checkAccess{Check access type}
+    checkAccess -->|Door| checkDoor
+    checkAccess -->|Sas| checkSas
+    checkAccess -->|Open air exit| checkOpenAirExit
+
+    checkDoor{Check <font color='pink'>Door</font>}
+    checkDoor -->|<font color='blue'>Self-closing</font> and <font color='blue'>Fire resistance</font> EI1 60| checkDoorSwing
+    checkDoor -->|Not self-closing or < EI1 60| fail[Fail: Door must be self-closing and EI1 60]
+
+    checkSas{Check Sas}
+    checkSas --> checkSasDoors{Check Sas <font color='pink'>Door</font>s}
+    checkSasDoors -->|<font color='blue'>Self-closing</font> and <font color='blue'>Fire resistance</font> EI1 30| checkSasWalls
+    checkSasDoors -->|Not self-closing or < EI1 30| fail[Fail: Sas doors must be self-closing and EI1 30]
+
+    checkSasWalls{Check Sas <font color='pink'>Wall</font>s}
+    checkSasWalls -->|<font color='blue'>Fire resistance</font> EI 60| checkSasArea
+    checkSasWalls -->|< EI 60| fail[Fail: Sas walls must have EI 60]
+
+    checkSasArea{Check Sas <font color='blue'>Area</font>}
+    checkSasArea -->|>= 2 m²| checkDoorSwing
+    checkSasArea -->|< 2 m²| fail[Fail: Sas area must be at least 2 m²]
+
+    checkOpenAirExit{Check open air exit}
+    checkOpenAirExit -->|Leads to evacuation level| checkDoorSwing
+    checkOpenAirExit -->|Does not lead to evacuation level| fail[Fail: Open air exit must lead to evacuation level]
+
+    checkDoorSwing{Check <font color='pink'>Door</font> swing direction}
+    checkDoorSwing -->|Opens in escape direction| checkDistance
+    checkDoorSwing -->|Does not open in escape direction| fail[Fail: Doors must open in escape direction]
+
+    checkDistance{Check distance to nearest exit}
+    checkDistance -->|<= 15 m| checkFuelStorage
+    checkDistance -->|> 15 m| fail[Fail: No point should be further than 15 m from nearest exit]
+
+    checkFuelStorage{Check fuel storage capacity}
+    checkFuelStorage -->|Total fire load <= 750 GJ| pass[Pass: All rules satisfied]
+    checkFuelStorage -->|Total fire load > 750 GJ| fail[Fail: Fuel storage fire load must not exceed 750 GJ]
+
+    class Compartment,Wall,Door object;
+    class Fire_resistance,Self-closing,Area property;

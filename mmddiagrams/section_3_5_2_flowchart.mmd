@@ -1,0 +1,57 @@
+graph TD
+    classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef property fill:#ADD8E6,stroke:#333,stroke-width:2px;
+
+    start[Start] --> check_wall{{"Check <span class='object'>Wall</span>"}}
+    check_wall -->|Is double-walled| double_wall{{"Is <span class='object'>Wall</span> <span class='property'>Compartmentation</span>?"}}
+    check_wall -->|Is single-walled| single_wall[Apply single-wall regulations]
+
+    double_wall -->|Yes| compartment_wall{{"Check compartment wall extension"}}
+    double_wall -->|No| no_compartment{{"Check <span class='object'>Wall</span> type"}}
+
+    compartment_wall -->|Extends into cavity| check_element{{"Check element in cavity"}}
+    check_element -->|E 60 rating| check_length{{"Check element length"}}
+    check_length -->|Min 60cm from inner wall| check_openings{{"Contains openings?"}}
+    check_openings -->|Yes| check_closure{{"Check closure device"}}
+    check_openings -->|No| pass1[Pass]
+    check_closure -->|E 60 self-closing| check_activation{{"Check activation method"}}
+    check_activation -->|Thermal detection ≤100°C| pass2[Pass]
+    check_activation -->|Smoke detection| check_smoke_detection{{"Check smoke detection"}}
+    check_smoke_detection -->|Meets 3.5.2.3 conditions| pass3[Pass]
+    check_smoke_detection -->|Doesn't meet conditions| fail1[Fail]
+
+    no_compartment -->|Inner wall fire-resistant| check_outer_wall{{"Check outer wall"}}
+    check_outer_wall -->|≥50% non-fire-resistant| check_inner_wall{{"Check inner wall"}}
+    check_inner_wall -->|E 30 full height or EI 30 every 2 floors| pass4[Pass]
+    check_inner_wall -->|Doesn't meet criteria| fail2[Fail]
+
+    no_compartment -->|Open to outside| check_ventilation{{"Check ventilation openings"}}
+    check_ventilation -->|Fixed openings| check_fixed_openings{{"Check fixed opening criteria"}}
+    check_fixed_openings -->|30±10° outward, ≥50% area| pass5[Pass]
+    check_fixed_openings -->|Doesn't meet criteria| fail3[Fail]
+    check_ventilation -->|Mobile openings| check_mobile_openings{{"Check mobile opening criteria"}}
+    check_mobile_openings -->|Same as fixed when open| check_safety_position{{"Check safety position activation"}}
+    check_safety_position -->|General fire detection| check_auto_control{{"Check automatic control"}}
+    check_auto_control -->|Meets 3.5.2.3 conditions| pass6[Pass]
+    check_auto_control -->|Doesn't meet conditions| fail4[Fail]
+
+    subgraph "Automatic Closure/Opening Systems"
+        auto_systems[3.5.2.3 Conditions]
+        auto_systems -->|Control| control{{"Check control system"}}
+        control -->|Automatic fire detection| check_manual{{"Check manual controls"}}
+        check_manual -->|Available for fire department| check_location{{"Check control location"}}
+        check_location -->|Agreed with fire department| pass7[Pass]
+        check_location -->|Not agreed| fail5[Fail]
+
+        auto_systems -->|Reliability| reliability{{"Check power failure behavior"}}
+        reliability -->|Fails to safety position| check_fault_reporting{{"Check fault reporting"}}
+        check_fault_reporting -->|Automatic to detection central| pass8[Pass]
+        check_fault_reporting -->|No automatic reporting| fail6[Fail]
+
+        auto_systems -->|Adjacent fire| adjacent_fire{{"Check wiring for non-positive safety systems"}}
+        adjacent_fire -->|Meets 6.5.2 requirements| pass9[Pass]
+        adjacent_fire -->|Doesn't meet requirements| fail7[Fail]
+    end
+
+    class Wall object;
+    class Compartmentation,IsExternal property;

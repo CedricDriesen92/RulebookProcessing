@@ -1,0 +1,38 @@
+graph TD
+
+classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
+classDef property fill:#ADD8E6,stroke:#333,stroke-width:2px;
+
+A[Start] --> B{For each <font color='pink'>Building</font>}
+B --> C{For each attachment}
+C --> D{Is attachment a bijgebouw?}
+D --> |Yes| E[Check evacuation]
+D --> |No| F{Is attachment an uitspringend dak?}
+F --> |Yes| E
+F --> |No| G{Is attachment a luifel?}
+G --> |Yes| E
+G --> |No| H{Is attachment an uitkragend deel?}
+H --> |Yes| E
+H --> |No| I{Is attachment any other similar addition?}
+I --> |Yes| E
+I --> |No| J[Next attachment]
+J --> C
+
+E --> K{Does attachment hinder evacuation?}
+K --> |Yes| L[Fail]
+K --> |No| M[Check user safety]
+
+M --> N{Does attachment compromise user safety?}
+N --> |Yes| L
+N --> |No| O[Check fire department action]
+
+O --> P{Does attachment hinder fire department action?}
+P --> |Yes| L
+P --> |No| Q[Pass]
+
+Q --> J
+L --> J
+
+B --> R[End]
+
+class B,C object;

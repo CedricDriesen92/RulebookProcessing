@@ -1,0 +1,13 @@
+graph TD
+    start(["Start"])
+    --> check_parking{{"Check <font color='pink'>Parking</font>"}}
+    --> design_check{{"Check design"}}
+    --> construction_check{{"Check construction"}}
+    --> layout_check{{"Check layout"}}
+    --> comply_annex7{{"Comply with Annex 7, point 3?"}}
+    comply_annex7 -->|Yes| pass[/"Pass"/]
+    comply_annex7 -->|No| fail[/"Fail"/]
+
+    classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef property fill:#ADD8E6,stroke:#333,stroke-width:2px;
+    class check_parking object;

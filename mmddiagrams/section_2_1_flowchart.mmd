@@ -1,0 +1,48 @@
+graph TD
+    style Compartment fill:#ffc0cb
+    style Building fill:#ffc0cb
+    style Parking fill:#ffc0cb
+
+    A[Start] --> B{Check <font color='blue'>Compartment.Area</font>}
+    B -->|≤ 2500 m²| C[Pass]
+    B -->|> 2500 m²| D{Is <font color='blue'>Compartment.IsParking?</font>}
+    D -->|Yes| E[Check parking rules]
+    D -->|No| F{Is ground floor?}
+    F -->|Yes| G{Check <font color='blue'>Compartment.Area</font>}
+    G -->|≤ 3500 m²| H{Check <font color='blue'>Compartment.Length</font>}
+    H -->|≤ 90 m| I[Pass]
+    H -->|> 90 m| J[Fail]
+    G -->|> 3500 m²| K{Has automatic fire extinguishing system?}
+    K -->|Yes| L{Has smoke and heat extraction system?}
+    L -->|Yes| M[Pass]
+    L -->|No| N[Fail]
+    K -->|No| O[Fail]
+    F -->|No| P{Has automatic fire extinguishing system?}
+    P -->|Yes| Q{Has smoke and heat extraction system?}
+    Q -->|Yes| R[Pass]
+    Q -->|No| S[Fail]
+    P -->|No| T[Fail]
+
+    U[Check height] --> V{How many floors?}
+    V -->|1 floor| W[Pass]
+    V -->|2 floors| X{Is duplex?}
+    X -->|Yes| Y{Check <font color='blue'>Compartment.Area</font>}
+    Y -->|≤ 2500 m²| Z[Pass]
+    Y -->|> 2500 m²| AA[Fail]
+    X -->|No| AB[Fail]
+    V -->|3 floors| AC{Is triplex?}
+    AC -->|Yes| AD{Check <font color='blue'>Compartment.Area</font>}
+    AD -->|≤ 300 m²| AE{Has automatic fire detection?}
+    AE -->|Yes| AF[Pass]
+    AE -->|No| AG[Fail]
+    AD -->|> 300 m²| AH[Fail]
+    AC -->|No| AI[Fail]
+    V -->|Multiple floors| AJ{Is technical room?}
+    AJ -->|Yes| AK[Pass]
+    AJ -->|No| AL{Is atrium?}
+    AL -->|Yes| AM{Has automatic fire extinguishing system?}
+    AM -->|Yes| AN{Has smoke and heat extraction system?}
+    AN -->|Yes| AO[Pass]
+    AN -->|No| AP[Fail]
+    AM -->|No| AQ[Fail]
+    AL -->|No| AR[Fail]

@@ -1,0 +1,16 @@
+graph TD
+    start([Start]) --> check_evacuation_level{{"Check if on<br/><font color='pink'>Storey</font> with<br/><font color='blue'>Is Fire Exit?</font> == true"}}
+    check_evacuation_level -->|Yes| check_windows{{"Check all <font color='pink'>Window</font><br/>objects on this storey"}}
+    check_evacuation_level -->|No| pass([Pass])
+    check_windows --> check_commercial{{"Is <font color='pink'>Space</font> containing<br/>window commercial?"}}
+    check_commercial -->|Yes| check_fire_resistance{{"Check <font color='pink'>Window</font><br/><font color='blue'>Fire resistance</font>"}}
+    check_commercial -->|No| next_window[/"Next Window"/]
+    check_fire_resistance -->|"< EI 30"| check_evacuation_route{{"Does window open onto<br/><font color='pink'>Evacuation Route</font>?"}}
+    check_fire_resistance -->|">= EI 30"| next_window
+    check_evacuation_route -->|Yes| check_distance{{"Calculate distance from<br/><font color='pink'>Window</font> to public road"}}
+    check_evacuation_route -->|No| next_window
+    check_distance -->|">= 3m"| fail([Fail])
+    check_distance -->|"< 3m"| next_window
+    next_window --> check_more_windows{{"More windows<br/>to check?"}}
+    check_more_windows -->|Yes| check_windows
+    check_more_windows -->|No| pass

@@ -1,0 +1,36 @@
+graph TD
+    classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef property fill:#ADD8E6,stroke:#333,stroke-width:2px;
+
+    start[Start] --> checkParking{Is <font color='pink'>Compartment</font> <font color='blue'>Is Parking?</font>}
+    checkParking -->|Yes| checkStructuralElements{Check <font color='pink'>Beam</font> and <font color='pink'>Column</font>}
+    checkParking -->|No| endNo[End - Not applicable]
+
+    checkStructuralElements -->|"<font color='blue'>Fire resistance</font> >= 120"| checkFloors{Check <font color='pink'>Compartment</font> floors and ramps}
+    checkStructuralElements -->|"<font color='blue'>Fire resistance</font> < 120"| failStructural[Fail - Structural elements don't meet R 120]
+
+    checkFloors -->|"<font color='blue'>Fire resistance</font> >= 120"| checkRoof{Check roof function}
+    checkFloors -->|"<font color='blue'>Fire resistance</font> < 120"| failFloors[Fail - Floors/ramps don't meet R 120]
+
+    checkRoof -->|"Only weather protection"| checkRoofElements{Check roof structural elements}
+    checkRoof -->|"Other function"| endPass[Pass - All requirements met]
+
+    checkRoofElements -->|"<font color='blue'>Fire resistance</font> >= 30"| endPass
+    checkRoofElements -->|"<font color='blue'>Fire resistance</font> < 30"| checkSeparation{Check separation element}
+
+    checkSeparation -->|"EI 30 element present"| endPass
+    checkSeparation -->|"No EI 30 element"| failRoof[Fail - Roof doesn't meet requirements]
+
+    checkOpenParking{Is open parking level?}
+    checkParking -->|Yes| checkOpenParking
+    checkOpenParking -->|Yes| checkOpenFloors{Check open level floors and ramps}
+    checkOpenParking -->|No| checkStructuralElements
+
+    checkOpenFloors -->|"<font color='blue'>Fire resistance</font> >= 60"| checkNoOtherCompartment{Check if supporting other compartments}
+    checkOpenFloors -->|"<font color='blue'>Fire resistance</font> < 60"| failOpenFloors[Fail - Open level floors/ramps don't meet REI 60]
+
+    checkNoOtherCompartment -->|"No other compartment supported"| endPass
+    checkNoOtherCompartment -->|"Supports other compartment"| failOpenStructure[Fail - Open structure supports other compartment]
+
+    class checkParking,checkStructuralElements,checkFloors,checkRoof,checkRoofElements,checkSeparation,checkOpenParking,checkOpenFloors,checkNoOtherCompartment object;
+    class failStructural,failFloors,failRoof,failOpenFloors,failOpenStructure property;

@@ -70,7 +70,7 @@ def split_into_sections(text):
             section_content = section[match.end():].strip()
             final_sections.append((section_number, section_title, section_content))
         else:
-            # If no match, it might be content continuing from the previous section
+            # If no match, content continuing from the previous section
             final_sections.append((None, None, section.strip()))
     
     return final_sections
@@ -95,7 +95,7 @@ def create_initial_graph():
 
 def process_section_to_ttl(section_number, section_text, ontology, examples_str, starting_graph):
     prompt = f"""
-You are an AI assistant specialized in converting building code rulebook sections into Turtle (.ttl) format following the FireBIM Document Ontology. Here's the complete ontology for your reference:
+You are tasked with converting building code rulebook sections into Turtle (.ttl) format following the FireBIM Document Ontology. Here's the complete ontology for your reference:
 
 {ontology}
 Here is some more info on the firebim ontology and how you should use it:
@@ -114,7 +114,7 @@ Section text:
 {section_text}
 
 Not every section needs to have their own sections/articles/members, if the section text is empty no articles are needed...
-In your .ttl, if your section is not a base numbered section (i.e. 0, 1, 2...) make a hasSection from the parent section to this section. Adding all originaltext from all articles should recreate the rules part of the document. For the section don't include the full originaltext, only the titles. Make everything that includes a subdivision of the title (e.g. 4.3.1.2 if you are doing section 4.3.1) its own section with as originaltext the title attached to the number, with the following text split up in articles, split up in members.
+In your .ttl, if your section is not a base numbered section (i.e. 0, 1, 2...) make a hasSection from the parent section to this section. Adding all originaltext from all articles should recreate the rules part of the document. For the section itself don't include the full originaltext, only the titles. Make everything that includes a subdivision of the title (e.g. 4.3.1.2 if you are doing section 4.3.1) its own section with as originaltext the title attached to the number, with the following text split up in articles, split up in members. NEVER repeat text, it should ALWAYS be used only once.
 The subsection parsing goes until level 3 (e.g. 1.3.2), so if you are dealing with section 1.3 do not try to define section 1.3.2, it only complicates things later on.
 Do not include prefix declarations or @base. Start directly with the triples for this section. Ensure the output is valid Turtle syntax that can be parsed when added to an existing graph.
 Depending on the language of the source text, make sure to add language tags where necessary. Do not translate the original text in any way, keep the source perfectly accurate.

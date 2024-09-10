@@ -1,0 +1,47 @@
+graph TD
+    start[Start] --> checkLift{{"Check <font color='pink'>Lift</font>"}}
+    checkLift --> checkAccessibility{{"Is <font color='pink'>Lift</font> machinery accessible?"}}
+    checkAccessibility -->|Yes| checkAccessPurpose{{"Is access for maintenance, control, or emergencies?"}}
+    checkAccessPurpose -->|No| fail1[Fail: Lift machinery should not be accessible except for maintenance, control, or emergencies]
+    checkAccessPurpose -->|Yes| pass1[Pass: Access allowed]
+    checkAccessibility -->|No| pass2[Pass: Lift machinery not accessible]
+
+    checkLift --> checkDriveLocation{{"Check <font color='pink'>Lift</font> drive location"}}
+    checkDriveLocation -->|In machine room| pass3[Pass: Drive in machine room]
+    checkDriveLocation -->|In shaft| pass4[Pass: Drive in shaft]
+    checkDriveLocation -->|Other| fail2[Fail: Drive must be in machine room or shaft]
+
+    checkLift --> checkControlAccess{{"Are control organs accessible from landing?"}}
+    checkControlAccess -->|Yes| checkFireResistance{{"Do control organs affect <font color='blue'>fire resistance</font> of landing wall or shaft wall?"}}
+    checkFireResistance -->|No| pass5[Pass: Control organs accessible and don't affect fire resistance]
+    checkFireResistance -->|Yes| fail3[Fail: Control organs must not affect fire resistance]
+    checkControlAccess -->|No| pass6[Pass: Control organs not accessible from landing]
+
+    checkLift --> checkTemperatureResponse{{"Does <font color='pink'>Lift</font> stop at landing when temperature rises abnormally?"}}
+    checkTemperatureResponse -->|Yes| checkPassengerExit{{"Can passengers exit?"}}
+    checkPassengerExit -->|Yes| checkAutomaticReturn{{"Is automatic return only possible after sufficient cooling?"}}
+    checkAutomaticReturn -->|Yes| pass7[Pass: Lift responds correctly to temperature rise]
+    checkAutomaticReturn -->|No| fail4[Fail: Automatic return should only be possible after sufficient cooling]
+    checkPassengerExit -->|No| fail5[Fail: Passengers must be able to exit when lift stops due to temperature rise]
+    checkTemperatureResponse -->|No| fail6[Fail: Lift must stop at landing when temperature rises abnormally]
+
+    checkLift --> checkShaftExtinguisher{{"Is there a water-based extinguishing device in the <font color='pink'>Lift</font> shaft?"}}
+    checkShaftExtinguisher -->|Yes| fail7[Fail: No water-based extinguishing device allowed in lift shaft]
+    checkShaftExtinguisher -->|No| pass8[Pass: No water-based extinguishing device in lift shaft]
+
+    style start fill:#f9f,stroke:#333,stroke-width:2px
+    style fail1 fill:#f99,stroke:#333,stroke-width:2px
+    style fail2 fill:#f99,stroke:#333,stroke-width:2px
+    style fail3 fill:#f99,stroke:#333,stroke-width:2px
+    style fail4 fill:#f99,stroke:#333,stroke-width:2px
+    style fail5 fill:#f99,stroke:#333,stroke-width:2px
+    style fail6 fill:#f99,stroke:#333,stroke-width:2px
+    style fail7 fill:#f99,stroke:#333,stroke-width:2px
+    style pass1 fill:#9f9,stroke:#333,stroke-width:2px
+    style pass2 fill:#9f9,stroke:#333,stroke-width:2px
+    style pass3 fill:#9f9,stroke:#333,stroke-width:2px
+    style pass4 fill:#9f9,stroke:#333,stroke-width:2px
+    style pass5 fill:#9f9,stroke:#333,stroke-width:2px
+    style pass6 fill:#9f9,stroke:#333,stroke-width:2px
+    style pass7 fill:#9f9,stroke:#333,stroke-width:2px
+    style pass8 fill:#9f9,stroke:#333,stroke-width:2px

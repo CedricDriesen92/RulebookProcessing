@@ -1,0 +1,105 @@
+graph TD
+    classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef property fill:#ADD8E6,stroke:#333,stroke-width:2px;
+
+    start[Start] --> check_compartment[Check <span class='object'>Compartment</span>]
+    check_compartment --> check_occupancy{Check <span class='property'>Has nighttime occupancy?</span>}
+    
+    check_occupancy -->|Yes| night_occupancy[Night Occupancy Rules]
+    check_occupancy -->|No| day_occupancy[Day Occupancy Rules]
+
+    night_occupancy --> check_night_distance1{Check distance to evacuation route}
+    check_night_distance1 -->|≤ 20m| night_pass1[Pass]
+    check_night_distance1 -->|> 20m| night_fail1[Fail]
+
+    night_occupancy --> check_night_distance2{Check distance to nearest exit}
+    check_night_distance2 -->|≤ 30m| night_pass2[Pass]
+    check_night_distance2 -->|> 30m| night_fail2[Fail]
+
+    night_occupancy --> check_night_distance3{Check distance to second exit}
+    check_night_distance3 -->|≤ 60m| night_pass3[Pass]
+    check_night_distance3 -->|> 60m| night_fail3[Fail]
+
+    day_occupancy --> check_day_distance1{Check distance to evacuation route}
+    check_day_distance1 -->|≤ 30m| day_pass1[Pass]
+    check_day_distance1 -->|> 30m| day_fail1[Fail]
+
+    day_occupancy --> check_day_distance2{Check distance to nearest exit}
+    check_day_distance2 -->|≤ 45m| day_pass2[Pass]
+    check_day_distance2 -->|> 45m| day_fail2[Fail]
+
+    day_occupancy --> check_day_distance3{Check distance to second exit}
+    check_day_distance3 -->|≤ 80m| day_pass3[Pass]
+    check_day_distance3 -->|> 80m| day_fail3[Fail]
+
+    check_compartment --> check_dead_end{Check dead-end <span class='object'>Evacuation Route</span>}
+    check_dead_end -->|<span class='property'>Length</span> ≤ 15m| dead_end_pass[Pass]
+    check_dead_end -->|<span class='property'>Length</span> > 15m| dead_end_fail[Fail]
+
+    check_compartment --> check_width{Check <span class='object'>Evacuation Route</span> width}
+    check_width -->|<span class='property'>Useful Width</span> ≥ 0.80m| width_pass[Pass]
+    check_width -->|<span class='property'>Useful Width</span> < 0.80m| width_fail[Fail]
+
+    check_compartment --> check_terrace{Check escape terrace width}
+    check_terrace -->|Width ≥ 0.60m| terrace_pass[Pass]
+    check_terrace -->|Width < 0.60m| terrace_fail[Fail]
+
+    check_compartment --> check_parking{Check if <span class='property'>Is Parking?</span>}
+    check_parking -->|Yes| parking_exemption[Exempt from these rules]
+    check_parking -->|No| continue_checks[Continue checks]
+
+    continue_checks --> check_exit_types[Check exit types]
+    check_exit_types --> internal_staircase{Internal staircase?}
+    internal_staircase -->|Yes| check_internal_staircase[Check compliance with 4.2]
+    internal_staircase -->|No| external_staircase{External staircase?}
+    
+    external_staircase -->|Yes| check_external_staircase[Check compliance with 4.3]
+    external_staircase -->|No| direct_access{Direct access to open air?}
+    
+    direct_access -->|Yes| direct_access_pass[Pass]
+    direct_access -->|No| evacuation_level{Evacuation route on evacuation level?}
+    
+    evacuation_level -->|Yes| check_evacuation_level[Check EI 60 walls and EI1 30 self-closing doors]
+    evacuation_level -->|No| exit_fail[Fail]
+
+    check_compartment --> check_door_locks{Check <span class='object'>Door</span> locks}
+    check_door_locks -->|No evacuation hindrance| door_lock_pass[Pass]
+    check_door_locks -->|Hinders evacuation| door_lock_fail[Fail]
+
+    check_compartment --> check_wall_rating{Check internal vertical walls}
+    check_wall_rating -->|EI 30| wall_pass[Pass]
+    check_wall_rating -->|< EI 30| wall_fail[Fail]
+
+    check_compartment --> check_door_rating{Check access doors}
+    check_door_rating -->|EI1 30| door_rating_pass[Pass]
+    check_door_rating -->|< EI1 30| door_rating_fail[Fail]
+
+    check_compartment --> check_area{Check <span class='property'>Area</span>}
+    check_area -->|< 1250m²| area_exemption[Exempt from wall and door rating requirements]
+    check_area -->|≥ 1250m² and < 2500m²| check_special_conditions[Check special conditions]
+    check_area -->|≥ 2500m²| apply_requirements[Apply wall and door rating requirements]
+
+    check_special_conditions --> check_sprinkler{Automatic sprinkler system?}
+    check_sprinkler -->|Yes| check_detection{Automatic fire detection?}
+    check_sprinkler -->|No| apply_requirements
+
+    check_detection -->|Yes| check_materials{Compliant wall, ceiling, floor materials?}
+    check_detection -->|No| apply_requirements
+
+    check_materials -->|Yes| special_exemption[Exempt from wall and door rating requirements]
+    check_materials -->|No| apply_requirements
+
+    check_compartment --> check_night_evacuation{<span class='property'>Has nighttime occupancy?</span>}
+    check_night_evacuation -->|Yes| night_evacuation_check[Check evacuation routes]
+    check_night_evacuation -->|No| end[End]
+
+    night_evacuation_check --> night_wall_check{Vertical walls EI 30?}
+    night_wall_check -->|Yes| night_door_check{Doors EI1 30?}
+    night_wall_check -->|No| night_evacuation_fail[Fail]
+
+    night_door_check -->|Yes| night_evacuation_pass[Pass]
+    night_door_check -->|No| night_evacuation_fail
+
+    night_evacuation_check --> check_commercial{Commercial function?}
+    check_commercial -->|Yes| commercial_exemption[Exempt from night evacuation requirements]
+    check_commercial -->|No| apply_night_requirements[Apply night evacuation requirements]

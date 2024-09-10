@@ -1,0 +1,36 @@
+graph TD
+
+subgraph Check_Safety_Lighting
+    A[Start] --> B{<font color='pink'>Building</font> has safety lighting?}
+    B -->|Yes| C{Safety lighting meets<br>NBN EN 1838,<br>NBN EN 60598-2-22,<br>NBN EN 50172?}
+    B -->|No| F[Fail: Safety lighting<br>not present]
+    C -->|Yes| D{Normal power source<br>available?}
+    C -->|No| G[Fail: Safety lighting<br>does not meet standards]
+    D -->|Yes| E[Power from normal source]
+    D -->|No| H{Autonomous power<br>source(s) available?}
+    H -->|Yes| I[Power from autonomous<br>source(s)]
+    H -->|No| J{Autonomous lighting<br>fixtures on normal<br>circuit available?}
+    J -->|Yes| K{Autonomous fixtures<br>provide all guarantees<br>for proper operation?}
+    J -->|No| L[Fail: No backup<br>power source]
+    K -->|Yes| M[Use autonomous fixtures<br>on normal circuit]
+    K -->|No| N[Fail: Autonomous fixtures<br>not suitable]
+    E --> O[Pass]
+    I --> O
+    M --> O
+end
+
+style A fill:#f9f,stroke:#333,stroke-width:2px
+style B fill:#f9f,stroke:#333,stroke-width:2px
+style C fill:#f9f,stroke:#333,stroke-width:2px
+style D fill:#f9f,stroke:#333,stroke-width:2px
+style E fill:#f9f,stroke:#333,stroke-width:2px
+style F fill:#f9f,stroke:#333,stroke-width:2px
+style G fill:#f9f,stroke:#333,stroke-width:2px
+style H fill:#f9f,stroke:#333,stroke-width:2px
+style I fill:#f9f,stroke:#333,stroke-width:2px
+style J fill:#f9f,stroke:#333,stroke-width:2px
+style K fill:#f9f,stroke:#333,stroke-width:2px
+style L fill:#f9f,stroke:#333,stroke-width:2px
+style M fill:#f9f,stroke:#333,stroke-width:2px
+style N fill:#f9f,stroke:#333,stroke-width:2px
+style O fill:#f9f,stroke:#333,stroke-width:2px

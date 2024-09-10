@@ -1,0 +1,23 @@
+graph TD
+    start([Start]) --> checkRookklep{{"Check <font color='pink'>Rookklep</font>"}}
+    checkRookklep --> checkDichtheid{"Check <font color='blue'>Dichtheid</font>"}
+    checkDichtheid --> checkOption1{"Option 1: <font color='blue'>Luchtverlies</font> <= 60 l/s.m²<br>at 500 Pa static pressure?"}
+    checkOption1 -->|Yes| checkPakking
+    checkOption1 -->|No| checkOption2{"Option 2: <font color='blue'>Dichtheid</font> class 3<br>according to NBN EN 1751?"}
+    checkOption2 -->|Yes| checkPakking
+    checkOption2 -->|No| fail1[Fail: Dichtheid requirement not met]
+    checkPakking{"Check <font color='blue'>Pakking</font>"}
+    checkPakking --> checkTemperature{"<font color='blue'>Pakking</font> resistant to<br>-20°C to 100°C for 2h?"}
+    checkTemperature -->|Yes| checkDichtheidAfterTemp{"<font color='blue'>Dichtheid</font> still meets<br>requirements after temperature test?"}
+    checkTemperature -->|No| fail2[Fail: Pakking temperature resistance not met]
+    checkDichtheidAfterTemp -->|Yes| checkSluitingssysteem
+    checkDichtheidAfterTemp -->|No| fail3[Fail: Dichtheid after temperature test not met]
+    checkSluitingssysteem{"Check <font color='blue'>Sluitingssysteem</font>"}
+    checkSluitingssysteem --> checkPositieveVeiligheid{"<font color='blue'>Sluitingssysteem</font> has<br>positive safety?"}
+    checkPositieveVeiligheid -->|Yes| pass[Pass: All requirements met]
+    checkPositieveVeiligheid -->|No| fail4[Fail: Sluitingssysteem safety not met]
+    
+    classDef pink fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef blue fill:#ADD8E6,stroke:#333,stroke-width:2px;
+    class checkRookklep pink;
+    class checkDichtheid,checkOption1,checkOption2,checkPakking,checkTemperature,checkDichtheidAfterTemp,checkSluitingssysteem,checkPositieveVeiligheid blue;

@@ -1,0 +1,15 @@
+graph TD
+    start([Start])
+    --> check_storeys[/"For each <font color='pink'>Storey</font> in <font color='pink'>Building</font>"/]
+    check_storeys --> check_number[/"Check if <font color='blue'>Number</font> is clearly displayed on landings and escape areas near staircases and elevators"/]
+    check_number --> number_displayed{Is number displayed?}
+    number_displayed -->|Yes| check_exits[/"Check <font color='pink'>Door</font>s with <font color='blue'>Is Fire Exit?</font> = true"/]
+    number_displayed -->|No| fail_number([Fail: Storey number not clearly displayed])
+    check_exits --> exit_signage{Do exit signs comply with safety and health signage regulations?}
+    exit_signage -->|Yes| pass([Pass: Storey numbering and exit signage compliant])
+    exit_signage -->|No| fail_signage([Fail: Exit signage non-compliant])
+    
+    classDef object fill:#ffc0cb,stroke:#333,stroke-width:2px;
+    classDef property fill:#add8e6,stroke:#333,stroke-width:2px;
+    class Storey,Building,Door object;
+    class Number,Is Fire Exit? property;

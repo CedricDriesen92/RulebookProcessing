@@ -1,0 +1,18 @@
+graph TD
+    start[Start] --> check_stairs[Check all :pink[Stair] objects]
+    check_stairs --> loop{For each :pink[Stair]}
+    loop --> check_compartments[Check if :pink[Stair] connects multiple :pink[Compartment]s]
+    check_compartments --> is_connecting{Does it connect<br>multiple compartments?}
+    is_connecting -->|Yes| check_enclosed[Check if :pink[Stair] is enclosed]
+    is_connecting -->|No| next_stair[Next :pink[Stair]]
+    next_stair --> loop
+    check_enclosed --> is_enclosed{Is :pink[Stair] enclosed?}
+    is_enclosed -->|Yes| apply_principles[Apply principles from<br>Section 2 "Compartimentering<br>en evacuatie"]
+    is_enclosed -->|No| fail[Fail: :pink[Stair] connecting<br>multiple compartments<br>must be enclosed]
+    apply_principles --> next_stair
+    fail --> next_stair
+    loop -->|No more stairs| end[End]
+
+style start fill:#f9f,stroke:#333,stroke-width:2px
+style end fill:#f9f,stroke:#333,stroke-width:2px
+style fail fill:#f99,stroke:#333,stroke-width:2px

@@ -1,0 +1,28 @@
+graph TD
+    start[Start] --> A{Check <font color='pink'>Building</font>}
+    A -->|Yes| B{Check <font color='blue'>Amount of storeys</font>}
+    A -->|No| fail[Fail: Not a building]
+    B -->|≤ 3| C[Low Building]
+    B -->|> 3| fail2[Fail: Not a low building]
+    C --> D{Check fire prevention measures}
+    D --> E{Prevent fire origin}
+    D --> F{Prevent fire development}
+    D --> G{Prevent fire spread}
+    D --> H{Ensure occupant safety}
+    D --> I{Facilitate firefighter intervention}
+    E --> J{Check all potential fire sources}
+    F --> K{Check fire-resistant materials}
+    G --> L{Check fire compartmentation}
+    H --> M{Check evacuation routes}
+    I --> N{Check firefighter access}
+    J --> O{Remove/secure fire hazards}
+    K --> P{Verify fire ratings of materials}
+    L --> Q{Verify fire barriers between spaces}
+    M --> R{Ensure clear and sufficient exit paths}
+    N --> S{Provide access for fire trucks and equipment}
+    O & P & Q & R & S --> pass[Pass: Meets minimum requirements]
+
+    classDef object fill:#ffc0cb,stroke:#333,stroke-width:2px;
+    classDef property fill:#add8e6,stroke:#333,stroke-width:2px;
+    class A,C object;
+    class B property;

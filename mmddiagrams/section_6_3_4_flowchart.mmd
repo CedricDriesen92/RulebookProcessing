@@ -1,0 +1,27 @@
+graph TD
+    start[Start] --> check_roltrap{{"Check <font color='pink'>Roltrap</font>"}}
+    check_roltrap -->|Case a| check_single_compartment{"Does <font color='pink'>Roltrap</font> serve multiple floors<br>of a single <font color='pink'>Compartment</font>?"}
+    check_single_compartment -->|Yes| comply_a["Comply with 6.3.4.a:<br>Serve all floors in the <font color='pink'>Compartment</font>"]
+    check_single_compartment -->|No| check_case_b
+
+    check_case_b{"Check Case b:<br>Does <font color='pink'>Roltrap</font> serve<br>multiple <font color='pink'>Compartment</font>s?"}
+    check_case_b -->|Yes| check_single_non_parking{"Serve floors of only one <font color='pink'>Compartment</font><br>that is not a parking <font color='pink'>Compartment</font>?"}
+    check_single_non_parking -->|Yes| check_other_floors_b{"Do other floors comply<br>with 6.3.1 and 6.3.2<br>or case c?"}
+    check_other_floors_b -->|Yes| comply_b["Comply with 6.3.4.b"]
+    check_other_floors_b -->|No| fail["Fail: Does not comply<br>with 6.3.4"]
+    check_single_non_parking -->|No| check_case_c
+
+    check_case_c{"Check Case c:<br>Does <font color='pink'>Roltrap</font> exit directly<br>to outside on some floors?"}
+    check_case_c -->|Yes| check_other_floors_c{"Do other floors comply<br>with 6.3.1 and 6.3.2<br>or case b?"}
+    check_other_floors_c -->|Yes| comply_c["Comply with 6.3.4.c"]
+    check_other_floors_c -->|No| fail
+    check_case_c -->|No| fail
+
+    comply_a --> end[End]
+    comply_b --> end
+    comply_c --> end
+    fail --> end
+
+    classDef pink fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef blue fill:#ADD8E6,stroke:#333,stroke-width:2px;
+    class Roltrap,Compartment pink;

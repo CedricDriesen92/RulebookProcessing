@@ -1,0 +1,25 @@
+graph TD
+    A["Start: Check <font color='pink'>Compartment</font>"]
+    A --> B{{"Is <font color='pink'>Compartment</font>.<font color='blue'>Is Parking?</font> true?"}}
+    B -->|Yes| C["Get <font color='pink'>Compartment</font>.<font color='blue'>Area</font>"]
+    B -->|No| D["Rule does not apply"]
+    C --> E{"Is <font color='blue'>Area</font> > 40 m²?"}
+    E -->|Yes| F["Check <font color='pink'>Compartment</font>.<font color='blue'>Has active fire protection?</font>"]
+    E -->|No| G["Pass: No active fire protection required"]
+    F -->|True| H["Pass: Active fire protection present"]
+    F -->|False| I["Fail: Active fire protection required but not present"]
+    G --> J["End: Rule check complete"]
+    H --> J
+    I --> J
+    D --> J
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#dfd,stroke:#333,stroke-width:2px
+    style D fill:#dfd,stroke:#333,stroke-width:2px
+    style E fill:#bbf,stroke:#333,stroke-width:2px
+    style F fill:#dfd,stroke:#333,stroke-width:2px
+    style G fill:#dfd,stroke:#333,stroke-width:2px
+    style H fill:#dfd,stroke:#333,stroke-width:2px
+    style I fill:#fdd,stroke:#333,stroke-width:2px
+    style J fill:#f9f,stroke:#333,stroke-width:2px

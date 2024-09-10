@@ -1,0 +1,34 @@
+graph TD
+    start[Start] --> check_walls{{"Check walls between <font color='pink'>Compartment</font>s"}}
+    check_walls --> count_storeys{{"Count <font color='blue'>Amount of storeys</font> in <font color='pink'>Building</font>"}}
+    count_storeys --> one_storey["One storey"]
+    count_storeys --> multiple_storeys["Multiple storeys"]
+    
+    one_storey --> check_wall_resistance_30{{"Check if <font color='blue'>Fire resistance</font> of <font color='pink'>Wall</font> >= EI 30"}}
+    multiple_storeys --> check_wall_resistance_60{{"Check if <font color='blue'>Fire resistance</font> of <font color='pink'>Wall</font> >= EI 60"}}
+    
+    check_wall_resistance_30 --> wall_pass_30[/"Wall passes"/]
+    check_wall_resistance_30 --> wall_fail_30[/"Wall fails"/]
+    check_wall_resistance_60 --> wall_pass_60[/"Wall passes"/]
+    check_wall_resistance_60 --> wall_fail_60[/"Wall fails"/]
+    
+    wall_pass_30 --> check_connection
+    wall_pass_60 --> check_connection
+    wall_fail_30 --> end[End]
+    wall_fail_60 --> end
+    
+    check_connection{{"Check connection between compartments"}}
+    check_connection --> door_present{"Is there a <font color='pink'>Door</font>?"}
+    door_present -->|Yes| check_door_resistance{{"Check if <font color='blue'>Fire resistance</font> of <font color='pink'>Door</font> >= EI1 30"}}
+    door_present -->|No| connection_fail[/"Connection fails"/]
+    
+    check_door_resistance --> door_pass[/"Door passes"/]
+    check_door_resistance --> door_fail[/"Door fails"/]
+    
+    door_pass --> check_self_closing{{"Check if <font color='pink'>Door</font> is <font color='blue'>Self-closing</font> or self-closing in case of fire"}}
+    check_self_closing -->|Yes| connection_pass[/"Connection passes"/]
+    check_self_closing -->|No| connection_fail
+    
+    door_fail --> connection_fail
+    connection_fail --> end
+    connection_pass --> end

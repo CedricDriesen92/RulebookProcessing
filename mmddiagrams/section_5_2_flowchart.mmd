@@ -1,0 +1,19 @@
+graph TD
+    A[Start] --> B{Is <font color='pink'>Compartment</font>}
+    B -->|Yes| C{Is <font color='pink'>Compartment</font> <font color='blue'>Is Parking?</font>}
+    C -->|Yes| D[Allow unlimited <font color='blue'>Area</font>]
+    C -->|No| E[Apply standard <font color='blue'>Area</font> restrictions]
+    B -->|No| F[Not applicable]
+    D --> G[Allow multiple communicating floors]
+    E --> H[End]
+    F --> H
+    G --> H
+
+style A fill:#f9f,stroke:#333,stroke-width:2px
+style B fill:#f9f,stroke:#333,stroke-width:2px
+style C fill:#f9f,stroke:#333,stroke-width:2px
+style D fill:#bbf,stroke:#333,stroke-width:2px
+style E fill:#bbf,stroke:#333,stroke-width:2px
+style F fill:#bbf,stroke:#333,stroke-width:2px
+style G fill:#bbf,stroke:#333,stroke-width:2px
+style H fill:#f9f,stroke:#333,stroke-width:2px

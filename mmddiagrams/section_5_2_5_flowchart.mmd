@@ -1,0 +1,88 @@
+graph TD
+    start([Start]) --> check_building_date{{"Check if <font color='pink'>Building</font>'s construction application date < 2022-07-01"}}
+    check_building_date -->|Yes| check_conditions{{"Check if <font color='pink'>Building</font> meets conditions"}}
+    check_building_date -->|No| apply_521_524[Apply sections 5.2.1 to 5.2.4]
+
+    check_conditions -->|Yes| check_open_parking{{"Is <font color='pink'>Parking</font> open?"}}
+    check_conditions -->|No| apply_521_524
+
+    check_open_parking -->|Yes| check_horizontal_walls{{"Do horizontal walls have <font color='blue'>Fire resistance</font> REI 60?"}}
+    check_open_parking -->|No| check_parking_walls
+
+    check_horizontal_walls -->|Yes| no_fire_resistance[No fire resistance requirements for structural elements]
+    check_horizontal_walls -->|No| apply_521_524
+
+    check_parking_walls{{"Do <font color='pink'>Wall</font>s between <font color='pink'>Parking</font> and rest of <font color='pink'>Building</font> have <font color='blue'>Fire resistance</font> EI 60?"}}
+    check_parking_walls -->|Yes| check_additional_rooms
+    check_parking_walls -->|No| apply_521_524
+
+    check_additional_rooms{{"Are there non-residential rooms in <font color='pink'>Parking</font> compartment?"}}
+    check_additional_rooms -->|Yes| check_room_walls
+    check_additional_rooms -->|No| check_evacuation
+
+    check_room_walls{{"Do <font color='pink'>Wall</font>s of additional rooms have <font color='blue'>Fire resistance</font> EI 60?"}}
+    check_room_walls -->|Yes| check_room_doors
+    check_room_walls -->|No| apply_521_524
+
+    check_room_doors{{"Do doors of additional rooms have <font color='blue'>Self-closing</font> or self-closing in case of fire with <font color='blue'>Fire resistance</font> EI1 30?"}}
+    check_room_doors -->|Yes| check_specific_rooms
+    check_room_doors -->|No| apply_521_524
+
+    check_specific_rooms[Apply specific requirements for heating sections, transformer rooms, and waste collection rooms]
+    check_specific_rooms --> check_evacuation
+
+    check_evacuation{{"Check evacuation requirements for each <font color='pink'>Storey</font>"}}
+    check_evacuation --> check_stairways{{"Are there at least 2 <font color='pink'>Stair</font>wells or external stairs meeting requirements in 4.2 or 4.3?"}}
+    check_stairways -->|Yes| check_stair_access
+    check_stairways -->|No| apply_521_524
+
+    check_stair_access{{"Is each point of the <font color='pink'>Storey</font> within 45m of nearest <font color='pink'>Stair</font>?"}}
+    check_stair_access -->|Yes| check_stair_width
+    check_stair_access -->|No| apply_521_524
+
+    check_stair_width{{"Do <font color='pink'>Stair</font>s have minimum <font color='blue'>Useful Width</font> of 0.80m?"}}
+    check_stair_width -->|Yes| check_direct_exit
+    check_stair_width -->|No| apply_521_524
+
+    check_direct_exit{{"Can one stairway access be replaced by direct exit to open air on the considered floor?"}}
+    check_direct_exit -->|Yes| check_ramp
+    check_direct_exit -->|No| apply_521_524
+
+    check_ramp{{"On floor closest to exit level, can sloped driveway replace one stairway if slope ≤ 10%?"}}
+    check_ramp -->|Yes| check_small_compartment
+    check_ramp -->|No| apply_521_524
+
+    check_small_compartment{{"For compartments ≤ 500m², is evacuation possible via slope > 10%?"}}
+    check_small_compartment -->|Yes| check_signage
+    check_small_compartment -->|No| apply_521_524
+
+    check_signage[Ensure evacuation routes are marked on each floor]
+    check_signage --> check_single_exit
+
+    check_single_exit{{"Check if single exit per floor is sufficient"}}
+    check_single_exit --> check_parking_height{{"Does <font color='pink'>Parking</font> extend max 2 floors in height?"}}
+    check_parking_height -->|Yes| check_exit_level
+    check_parking_height -->|No| check_smoke_prevention
+
+    check_exit_level{{"Are both floors within 2 levels above/below vehicle exit level?"}}
+    check_exit_level -->|Yes| check_distance_15m
+    check_exit_level -->|No| check_smoke_prevention
+
+    check_distance_15m{{"Is every point of <font color='pink'>Parking</font> within 15m of evacuation route access?"}}
+    check_distance_15m -->|Yes| check_distance_30m
+    check_distance_15m -->|No| check_smoke_prevention
+
+    check_distance_30m{{"Is every point of <font color='pink'>Parking</font> within 30m of exit access?"}}
+    check_distance_30m -->|Yes| single_exit_allowed[Single exit per floor allowed]
+    check_distance_30m -->|No| check_smoke_prevention
+
+    check_smoke_prevention{{"Is total <font color='pink'>Parking</font> <font color='blue'>Area</font> > 2500m²?"}}
+    check_smoke_prevention -->|Yes| implement_smoke_prevention[Implement measures to prevent smoke spread]
+    check_smoke_prevention -->|No| end
+
+    implement_smoke_prevention --> end
+    single_exit_allowed --> end
+    no_fire_resistance --> end
+    apply_521_524 --> end
+
+    end([End])

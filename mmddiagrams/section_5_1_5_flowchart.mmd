@@ -1,0 +1,28 @@
+graph TD
+    start[Start] --> check_vertical_shaft{{"Check <font color='pink'>Vertical Shaft</font>"}}
+    check_vertical_shaft -->|Penetrates horizontal wall| check_wall_fire_resistance{{"Check if <font color='blue'>Fire resistance</font> required for horizontal wall"}}
+    check_wall_fire_resistance -->|Yes| choose_measure{{"Choose measure"}}
+    choose_measure -->|1| measure1["<font color='pink'>Vertical Shaft</font> walls: <font color='blue'>Fire resistance</font> EI 60<br><font color='pink'>Door</font>: <font color='blue'>Fire resistance</font> EI1 30<br>Ensure top ventilation"]
+    choose_measure -->|2| measure2["<font color='pink'>Wall</font> element at penetration: <font color='blue'>Fire resistance</font> ≥ required for horizontal wall"]
+    choose_measure -->|3| measure3["<font color='pink'>Vertical Shaft</font> walls: <font color='blue'>Fire resistance</font> EI 30<br><font color='pink'>Door</font>: <font color='blue'>Fire resistance</font> EI1 30<br>Horizontal screens at each compartment"]
+    measure1 --> check_ventilation{{"Check ventilation"}}
+    check_ventilation -->|Manual| ensure_manual_ventilation["Ensure free ventilation area ≥ 10% of shaft cross-section (min 4 dm²)"]
+    check_ventilation -->|Motorized| set_up_motorized_ventilation["Set up motorized ventilation flaps:<br>- Auto open on fire in shaft<br>- Auto open on building fire (if general detection)<br>- Auto open on power/control failure<br>- Manual control at evacuation level"]
+    set_up_motorized_ventilation --> check_gas_pipes{{"Check for gas pipes in shaft"}}
+    check_gas_pipes -->|Present| apply_gas_pipe_standards["Apply NBN D 51-003 or NBN D 51-006 standards"]
+    measure2 --> end[End]
+    measure3 --> set_up_horizontal_screens["Set up horizontal screens:<br>- Material: A1 and/or A2-s1,d0<br>- Cover entire space between pipes<br>- <font color='blue'>Fire resistance</font> EI 30"]
+    ensure_manual_ventilation --> end
+    apply_gas_pipe_standards --> end
+    set_up_horizontal_screens --> end
+
+    start2[Start] --> check_horizontal_shaft{{"Check <font color='pink'>Horizontal Shaft</font>"}}
+    check_horizontal_shaft -->|Penetrates vertical wall| check_vertical_wall_fire_resistance{{"Check if <font color='blue'>Fire resistance</font> required for vertical wall"}}
+    check_vertical_wall_fire_resistance -->|Yes| choose_horizontal_measure{{"Choose measure"}}
+    choose_horizontal_measure -->|1| horizontal_measure1["<font color='pink'>Horizontal Shaft</font> walls and <font color='pink'>Door</font>: <font color='blue'>Fire resistance</font> ≥ required for vertical wall"]
+    choose_horizontal_measure -->|2| horizontal_measure2["<font color='pink'>Wall</font> element at penetration: <font color='blue'>Fire resistance</font> ≥ required for vertical wall"]
+    choose_horizontal_measure -->|3| horizontal_measure3["<font color='pink'>Horizontal Shaft</font> walls: <font color='blue'>Fire resistance</font> EI 30<br><font color='pink'>Door</font>: <font color='blue'>Fire resistance</font> EI1 30<br>Vertical screens at each compartment"]
+    horizontal_measure1 --> end2[End]
+    horizontal_measure2 --> end2
+    horizontal_measure3 --> set_up_vertical_screens["Set up vertical screens:<br>- Material: A1 and/or A2-s1,d0<br>- Cover entire space between pipes<br>- <font color='blue'>Fire resistance</font> EI 30"]
+    set_up_vertical_screens --> end2

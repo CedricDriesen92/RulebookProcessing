@@ -1,0 +1,57 @@
+flowchart TD
+    start([Start]) --> check_building[Check <font color='pink'>Building</font>]
+    check_building --> count_storeys{Count <font color='blue'>Amount of storeys</font>}
+    count_storeys -- If > 1 --> multi_storey[Multi-storey building]
+    count_storeys -- If = 1 --> single_storey[Single-storey building]
+    multi_storey --> check_compartmentation[Check compartmentation requirements]
+    single_storey --> check_single_story_reqs[Check single-storey requirements]
+    check_compartmentation --> for_each_storey[<font color='pink'>For each Storey</font>]
+    for_each_storey --> check_storey_compartments[Check compartments on storey]
+    check_storey_compartments --> for_each_compartment[<font color='pink'>For each Compartment</font>]
+    for_each_compartment --> check_compartment_area{Check <font color='blue'>Area</font>}
+    check_compartment_area -- If > max area --> fail_area[Fail: Compartment too large]
+    check_compartment_area -- If <= max area --> check_compartment_exits{Check <font color='blue'>Number of exits</font>}
+    check_compartment_exits -- If < required --> fail_exits[Fail: Insufficient exits]
+    check_compartment_exits -- If >= required --> check_compartment_occupancy{Check <font color='blue'>Occupancy</font>}
+    check_compartment_occupancy -- If > max --> fail_occupancy[Fail: Occupancy too high]
+    check_compartment_occupancy -- If <= max --> check_fire_protection{Check <font color='blue'>Has active fire protection?</font>}
+    check_fire_protection -- No --> check_passive_protection[Check passive fire protection]
+    check_fire_protection -- Yes --> pass_compartment[Pass: Compartment complies]
+    check_passive_protection --> for_each_wall[<font color='pink'>For each Wall</font>]
+    for_each_wall --> check_wall_fire_resistance{Check <font color='blue'>Fire resistance</font>}
+    check_wall_fire_resistance -- If < required --> fail_wall[Fail: Insufficient wall fire resistance]
+    check_wall_fire_resistance -- If >= required --> check_wall_height{Check <font color='blue'>Height</font>}
+    check_wall_height -- If < required --> fail_wall_height[Fail: Wall height insufficient]
+    check_wall_height -- If >= required --> pass_wall[Pass: Wall complies]
+    pass_wall --> check_doors[Check doors in compartment]
+    check_doors --> for_each_door[<font color='pink'>For each Door</font>]
+    for_each_door --> check_door_fire_resistance{Check <font color='blue'>Fire resistance</font>}
+    check_door_fire_resistance -- If < required --> fail_door[Fail: Insufficient door fire resistance]
+    check_door_fire_resistance -- If >= required --> check_door_self_closing{Is <font color='blue'>Self-closing</font>?}
+    check_door_self_closing -- No --> fail_self_closing[Fail: Door not self-closing]
+    check_door_self_closing -- Yes --> pass_door[Pass: Door complies]
+    pass_door --> check_evacuation_routes[Check evacuation routes]
+    check_evacuation_routes --> for_each_route[<font color='pink'>For each Evacuation Route</font>]
+    for_each_route --> check_route_length{Check <font color='blue'>Length</font>}
+    check_route_length -- If > max --> fail_route_length[Fail: Route too long]
+    check_route_length -- If <= max --> check_route_width{Check <font color='blue'>Useful Width</font>}
+    check_route_width -- If < required --> fail_route_width[Fail: Route too narrow]
+    check_route_width -- If >= required --> pass_route[Pass: Route complies]
+    pass_route --> check_stairs[Check stairs in building]
+    check_stairs --> for_each_stair[<font color='pink'>For each Stair</font>]
+    for_each_stair --> check_stair_fire_resistance{Check <font color='blue'>Fire resistance</font>}
+    check_stair_fire_resistance -- If < required --> fail_stair_resistance[Fail: Insufficient stair fire resistance]
+    check_stair_fire_resistance -- If >= required --> check_stair_width{Check <font color='blue'>Useful Width</font>}
+    check_stair_width -- If < required --> fail_stair_width[Fail: Stair too narrow]
+    check_stair_width -- If >= required --> check_stair_tread{Check <font color='blue'>Tread length</font>}
+    check_stair_tread -- If < min --> fail_stair_tread[Fail: Tread too short]
+    check_stair_tread -- If >= min --> check_stair_riser{Check <font color='blue'>Riser height</font>}
+    check_stair_riser -- If > max --> fail_stair_riser[Fail: Riser too high]
+    check_stair_riser -- If <= max --> check_stair_slope{Check <font color='blue'>Slope</font>}
+    check_stair_slope -- If > max --> fail_stair_slope[Fail: Stair too steep]
+    check_stair_slope -- If <= max --> pass_stair[Pass: Stair complies]
+    pass_stair --> check_building_distance[Check building distance to road]
+    check_building_distance --> measure_distance{Measure <font color='blue'>Distance</font> to nearest <font color='pink'>Road</font>}
+    measure_distance -- If > max --> fail_distance[Fail: Building too far from road]
+    measure_distance -- If <= max --> pass_building[Pass: Building complies with all checks]
+    pass_building --> end([End])

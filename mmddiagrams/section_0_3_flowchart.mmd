@@ -1,0 +1,35 @@
+graph TD
+    A[Start] --> B{Check <font color='pink'>Building</font>}
+    B --> C{For each <font color='pink'>Wall</font> in <font color='pink'>Building</font>}
+    C --> D{Is <font color='blue'>Is External?</font> true?}
+    D -->|Yes| E{Check adjacent <font color='pink'>Building</font>}
+    D -->|No| C
+    E --> F{Calculate distance between buildings}
+    F --> G{Distance < 5m?}
+    G -->|Yes| H{Set <font color='blue'>Fire resistance</font> requirement}
+    G -->|No| I[No special requirement]
+    H --> J{<font color='blue'>Fire resistance</font> >= 60 minutes?}
+    J -->|Yes| K[Pass]
+    J -->|No| L[Fail]
+    I --> C
+    K --> C
+    L --> C
+    C --> M{All <font color='pink'>Walls</font> checked?}
+    M -->|Yes| N[End]
+    M -->|No| C
+    B --> O{For each <font color='pink'>Compartment</font> in <font color='pink'>Building</font>}
+    O --> P{Check adjacent <font color='pink'>Compartment</font>}
+    P --> Q{Are <font color='pink'>Compartments</font> on same floor?}
+    Q -->|Yes| R{Check shared <font color='pink'>Wall</font>}
+    Q -->|No| S{Check vertical separation}
+    R --> T{Set <font color='blue'>Fire resistance</font> requirement}
+    S --> U{Set <font color='blue'>Fire resistance</font> requirement}
+    T --> V{<font color='blue'>Fire resistance</font> >= 60 minutes?}
+    U --> V
+    V -->|Yes| W[Pass]
+    V -->|No| X[Fail]
+    W --> O
+    X --> O
+    O --> Y{All <font color='pink'>Compartments</font> checked?}
+    Y -->|Yes| N
+    Y -->|No| O

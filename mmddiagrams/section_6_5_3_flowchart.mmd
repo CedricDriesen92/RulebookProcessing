@@ -1,0 +1,25 @@
+graph TD
+
+classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
+classDef property fill:#87CEFA,stroke:#333,stroke-width:2px;
+
+A[Start] --> B{Check <font color='pink'>Building</font>}
+B --> C{For each electrical circuit mentioned in 6.5.2}
+C --> D{Check if circuit can be powered by autonomous power source}
+D -->|Yes| E{Check power source capacity}
+D -->|No| F[Fail: Circuit cannot be powered by autonomous source]
+E --> G{Is capacity sufficient for simultaneous operation of all connected installations?}
+G -->|Yes| H{Check automatic activation}
+G -->|No| I[Fail: Insufficient power capacity]
+H --> J{Does source activate automatically within 1 minute of normal power failure?}
+J -->|Yes| K{Check operation duration}
+J -->|No| L[Fail: Automatic activation not within 1 minute]
+K --> M{Can source operate for at least 1 hour?}
+M -->|Yes| N[Pass: Autonomous power source meets all requirements]
+M -->|No| O[Fail: Operation duration less than 1 hour]
+C --> P{All circuits checked?}
+P -->|Yes| Q[End]
+P -->|No| C
+
+class B,C object;
+class D,E,G,H,J,K,M property;

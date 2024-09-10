@@ -1,0 +1,81 @@
+graph TD
+    subgraph Lift_Shaft_and_Machine_Room["<font color='pink'>Lift Shaft and Machine Room</font>"]
+        A[Start] --> B{Check <font color='blue'>walls</font>}
+        B -->|Yes| C[EI 60 walls]
+        B -->|No| D[Fail]
+        C --> E{Check <font color='blue'>exterior_walls</font>}
+        E -->|Glazed| F{Meet requirements in point 3.5?}
+        F -->|Yes| G[Pass]
+        F -->|No| H[Fail]
+        E -->|Not glazed| G
+    end
+
+    subgraph Access_Doors["<font color='pink'>Access Doors</font>"]
+        I[Start] --> J{Check <font color='blue'>fire_resistance</font>}
+        J -->|EI1 30| K{Check <font color='blue'>self_closing</font>}
+        K -->|Yes| L[Pass]
+        K -->|No| M{Check <font color='blue'>self_closing_on_fire</font>}
+        M -->|Yes| L
+        M -->|No| N[Fail]
+        J -->|Not EI1 30| N
+    end
+
+    subgraph Landing["<font color='pink'>Landing</font>"]
+        O[Start] --> P{Check <font color='blue'>area</font>}
+        P -->|Smaller than lift car| Q{Check <font color='blue'>door_type</font>}
+        Q -->|Revolving| R{Check <font color='blue'>fire_resistance</font>}
+        R -->|EI1 30| S{Check <font color='blue'>fire_detection_system</font>}
+        S -->|Present| T[Pass]
+        S -->|Not present| U[Fail]
+        R -->|Not EI1 30| U
+        Q -->|Not revolving| U
+        P -->|Not smaller than lift car| V[Pass]
+    end
+
+    subgraph Lift_Shaft_Doors["<font color='pink'>Lift Shaft Doors</font>"]
+        W[Start] --> X{Check <font color='blue'>fire_resistance</font>}
+        X -->|E 30| Y{Tested according to NBN EN 81-58?}
+        Y -->|Yes| Z[Pass]
+        Y -->|No| AA{Tested by other methods?}
+        AA -->|Yes| AB{Equivalent fire resistance?}
+        AB -->|Yes| Z
+        AB -->|No| AC[Fail]
+        AA -->|No| AC
+        X -->|Not E 30| AC
+    end
+
+    subgraph Exceptions["Exceptions"]
+        AD[Start] --> AE{Check <font color='pink'>Lift</font> serving floors}
+        AE -->|Single compartment| AF[Exception applies]
+        AE -->|Multiple compartments| AG{Check specific floor}
+        AG -->|Not parking or apartment| AH[Exception applies for this floor]
+        AG -->|Parking or apartment| AI[No exception]
+        AE -->|Direct outdoor access| AJ[Exception applies for this floor]
+    end
+
+    subgraph Machine_Room["<font color='pink'>Machine Room</font>"]
+        AK[Start] --> AL{Check <font color='blue'>interior_walls</font>}
+        AL -->|EI 60| AM{Check <font color='blue'>doors_and_hatches</font>}
+        AM -->|EI1 30| AN{Check <font color='blue'>firefighter_access</font>}
+        AN -->|Assured| AO[Pass]
+        AN -->|Not assured| AP[Fail]
+        AM -->|Not EI1 30| AP
+        AL -->|Not EI 60| AP
+    end
+
+    subgraph Hydraulic_Lifts["<font color='pink'>Hydraulic Lifts</font>"]
+        AQ[Start] --> AR{Check <font color='blue'>oil_sump</font>}
+        AR -->|Present| AS{Check <font color='blue'>oil_sump_capacity</font>}
+        AS -->|≥ 1.2 * oil content| AT[Pass]
+        AS -->|< 1.2 * oil content| AU[Fail]
+        AR -->|Not present| AU
+        AT --> AV{Check <font color='blue'>equipment_position</font>}
+        AV -->|Above max oil level| AW[Pass]
+        AV -->|Below max oil level| AX[Fail]
+    end
+
+    subgraph Lifts_and_Escalators["<font color='pink'>Lifts and Escalators</font>"]
+        AY[Start] --> AZ{Check shared landing}
+        AZ -->|Yes| BA[Treat as single unit]
+        AZ -->|No| BB[Separate units]
+    end

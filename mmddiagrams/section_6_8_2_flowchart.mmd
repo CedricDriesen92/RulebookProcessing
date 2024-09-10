@@ -1,0 +1,64 @@
+graph TD
+    start[Start] --> check_extinguishers[Check Fire Extinguishers]
+    
+    subgraph check_extinguishers[Check Fire Extinguishers]
+        ce1[Determine number of extinguishers]
+        ce2[Check distribution]
+        ce3[Check accessibility]
+        ce4[Check signage]
+        
+        ce1 --> ce2 --> ce3 --> ce4
+    end
+    
+    check_extinguishers --> end[End]
+    
+    subgraph ce1[Determine number of extinguishers]
+        ce1_1{"For each <font color='pink'>Compartment</font>"}
+        ce1_2["Consider <font color='blue'>Area</font>, condition, and risk"]
+        ce1_3["Determine adequate number"]
+        
+        ce1_1 --> ce1_2 --> ce1_3
+    end
+    
+    subgraph ce2[Check distribution]
+        ce2_1{"For each <font color='pink'>Compartment</font>"}
+        ce2_2["Check if extinguishers can reach all points"]
+        ce2_3{"Extinguishers well-distributed?"}
+        ce2_4[Pass]
+        ce2_5[Fail]
+        
+        ce2_1 --> ce2_2 --> ce2_3
+        ce2_3 -->|Yes| ce2_4
+        ce2_3 -->|No| ce2_5
+    end
+    
+    subgraph ce3[Check accessibility]
+        ce3_1{"For each extinguisher"}
+        ce3_2{"Is visible or clearly marked?"}
+        ce3_3{"Is freely accessible?"}
+        ce3_4{"Is near exits, landings, corridors?"}
+        ce3_5{"Does not hinder circulation?"}
+        ce3_6{"Is protected from weather (if outside)?"}
+        ce3_7[Pass]
+        ce3_8[Fail]
+        
+        ce3_1 --> ce3_2 --> ce3_3 --> ce3_4 --> ce3_5 --> ce3_6
+        ce3_6 -->|All Yes| ce3_7
+        ce3_6 -->|Any No| ce3_8
+    end
+    
+    subgraph ce4[Check signage]
+        ce4_1["Check if signage complies with current regulations"]
+        ce4_2{"Signage compliant?"}
+        ce4_3[Pass]
+        ce4_4[Fail]
+        
+        ce4_1 --> ce4_2
+        ce4_2 -->|Yes| ce4_3
+        ce4_2 -->|No| ce4_4
+    end
+
+    classDef pink fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef blue fill:#ADD8E6,stroke:#333,stroke-width:2px;
+    class ce1_1,ce2_1 pink;
+    class ce1_2 blue;

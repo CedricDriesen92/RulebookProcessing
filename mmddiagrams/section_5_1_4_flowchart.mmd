@@ -1,0 +1,19 @@
+graph TD
+    start([Start]) --> check_stortkokers{{"Check for <font color='pink'>Compartment</font>"}}
+    check_stortkokers -->|If exists| fail_stortkokers[/"Fail: Stortkokers are forbidden"/]
+    check_stortkokers -->|If not exists| check_huisvuil_lokaal{{"Check for <font color='pink'>Compartment</font> with <font color='blue'>Is Classroom?</font> = false"}}
+    check_huisvuil_lokaal -->|If exists| check_walls{{"Check <font color='pink'>Wall</font> of <font color='pink'>Compartment</font>"}}
+    check_walls -->|For each wall| check_wall_fire_resistance{{"Check <font color='blue'>Fire resistance</font> of <font color='pink'>Wall</font>"}}
+    check_wall_fire_resistance -->|If < 60| fail_wall[/"Fail: Wall fire resistance < EI 60"/]
+    check_wall_fire_resistance -->|If >= 60| check_door{{"Check <font color='pink'>Door</font> of <font color='pink'>Compartment</font>"}}
+    check_door --> check_door_self_closing{{"Check <font color='blue'>Self-closing</font> of <font color='pink'>Door</font>"}}
+    check_door_self_closing -->|If false| fail_door_self_closing[/"Fail: Door is not self-closing"/]
+    check_door_self_closing -->|If true| check_door_fire_resistance{{"Check <font color='blue'>Fire resistance</font> of <font color='pink'>Door</font>"}}
+    check_door_fire_resistance -->|If < 30| fail_door_fire_resistance[/"Fail: Door fire resistance < EI1 30"/]
+    check_door_fire_resistance -->|If >= 30| pass[/"Pass: Huisvuil lokaal complies with requirements"/]
+    check_huisvuil_lokaal -->|If not exists| pass_no_huisvuil[/"Pass: No huisvuil lokaal present"/]
+
+    classDef pink fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef blue fill:#ADD8E6,stroke:#333,stroke-width:2px;
+    class check_stortkokers,check_huisvuil_lokaal,check_walls,check_door pink;
+    class check_wall_fire_resistance,check_door_self_closing,check_door_fire_resistance blue;

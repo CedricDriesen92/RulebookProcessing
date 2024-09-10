@@ -1,0 +1,56 @@
+graph TD
+    start[Start] --> checkType{{"Check <font color='pink'>Compartment</font> type"}}
+    checkType -->|Is regular room| regularRoom[Regular room]
+    checkType -->|Is <font color='blue'>Is Parking?</font>| isParking[Parking]
+    checkType -->|Is <font color='blue'>Is Classroom?</font>| isClassroom[Classroom]
+    checkType -->|Is storage for flammable products| isStorage[Storage]
+    checkType -->|Is boiler room| isBoiler[Boiler room]
+    checkType -->|Is kitchen| isKitchen[Kitchen]
+    checkType -->|Is garage| isGarage[Garage]
+    checkType -->|Is transformer room| isTransformer[Transformer room]
+    checkType -->|Is waste storage| isWaste[Waste storage]
+
+    isParking & isStorage & isBoiler & isKitchen & isGarage & isTransformer & isWaste --> specialRoom[Special fire risk room]
+    
+    specialRoom --> extractOutside["Extract air directly outside
+    <font color='red'>PASS</font>"]
+    
+    regularRoom & isClassroom --> checkRecirculation{{"Check if air is recirculated"}}
+    
+    checkRecirculation -->|Yes| checkRecirculationType{{"Check recirculation type"}}
+    checkRecirculation -->|No| extractOutside
+    
+    checkRecirculationType -->|Same room| sameRoom["Install smoke damper in recirculation duct
+    Install smoke detection before damper"]
+    
+    checkRecirculationType -->|Other rooms| otherRooms["Install smoke damper
+    Install direct outdoor exhaust system
+    Install smoke detection before damper"]
+    
+    sameRoom & otherRooms --> checkAirFlow{{"Check <font color='pink'>Compartment</font> <font color='blue'>Area</font>"}}
+    
+    checkAirFlow -->|Total flow rate > 5000 m³/h| installControls["Install controls:
+    If smoke detected:
+    - Stop air handling units
+    - Close smoke dampers
+    - Open outdoor exhaust system
+    <font color='red'>PASS</font>"]
+    
+    checkAirFlow -->|Total flow rate ≤ 5000 m³/h| noControlsNeeded["No additional controls needed
+    <font color='red'>PASS</font>"]
+    
+    start --> checkStairwell{{"Is <font color='pink'>Stairwell</font>?"}}
+    
+    checkStairwell -->|Yes| noAirTransport["Do not use for air transport
+    <font color='red'>PASS</font>"]
+    
+    checkStairwell -->|No| checkOtherSpaces
+
+    checkOtherSpaces{{"Is other enclosed space (e.g., attic, basement)?"}}
+    checkOtherSpaces -->|Yes| meetsDuctRequirements{{"Meets duct requirements?"}}
+    checkOtherSpaces -->|No| regularRoom
+
+    meetsDuctRequirements -->|Yes| canIntegrate["Can integrate into duct network
+    <font color='red'>PASS</font>"]
+    meetsDuctRequirements -->|No| cannotIntegrate["Cannot integrate into duct network
+    <font color='red'>FAIL</font>"]

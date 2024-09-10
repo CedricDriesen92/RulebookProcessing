@@ -1,0 +1,45 @@
+graph TD
+
+A[Start] --> B{Check <font color='pink'>Building</font>}
+B --> C{<font color='pink'>Building</font> <font color='blue'>Amount of storeys</font> > 2?}
+C -->|Yes| D[Proceed to check compartmentation]
+C -->|No| E[No compartmentation required]
+D --> F{Check all <font color='pink'>Compartment</font>s}
+F --> G{<font color='pink'>Compartment</font> <font color='blue'>Area</font> > 800 m2?}
+G -->|Yes| H[Compartmentation required]
+G -->|No| I[No compartmentation required]
+H --> J{Check <font color='pink'>Wall</font>s and <font color='pink'>Door</font>s}
+J --> K{<font color='pink'>Wall</font> <font color='blue'>Compartmentation</font> == true?}
+K -->|Yes| L[Wall meets compartmentation requirement]
+K -->|No| M[Wall fails compartmentation requirement]
+J --> N{<font color='pink'>Door</font> <font color='blue'>Compartmentation</font> == true?}
+N -->|Yes| O[Door meets compartmentation requirement]
+N -->|No| P[Door fails compartmentation requirement]
+L & O --> Q[Compartmentation requirements met]
+M & P --> R[Compartmentation requirements not met]
+I --> S[No further checks needed]
+E --> T[End]
+Q --> T
+R --> T
+S --> T
+
+style A fill:#f9f,stroke:#333,stroke-width:2px
+style B fill:#bbf,stroke:#333,stroke-width:2px
+style C fill:#bbf,stroke:#333,stroke-width:2px
+style D fill:#bfb,stroke:#333,stroke-width:2px
+style E fill:#bfb,stroke:#333,stroke-width:2px
+style F fill:#bbf,stroke:#333,stroke-width:2px
+style G fill:#bbf,stroke:#333,stroke-width:2px
+style H fill:#bfb,stroke:#333,stroke-width:2px
+style I fill:#bfb,stroke:#333,stroke-width:2px
+style J fill:#bbf,stroke:#333,stroke-width:2px
+style K fill:#bbf,stroke:#333,stroke-width:2px
+style L fill:#bfb,stroke:#333,stroke-width:2px
+style M fill:#fbb,stroke:#333,stroke-width:2px
+style N fill:#bbf,stroke:#333,stroke-width:2px
+style O fill:#bfb,stroke:#333,stroke-width:2px
+style P fill:#fbb,stroke:#333,stroke-width:2px
+style Q fill:#bfb,stroke:#333,stroke-width:2px
+style R fill:#fbb,stroke:#333,stroke-width:2px
+style S fill:#bfb,stroke:#333,stroke-width:2px
+style T fill:#f9f,stroke:#333,stroke-width:2px

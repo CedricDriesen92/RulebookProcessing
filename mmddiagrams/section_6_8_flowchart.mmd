@@ -1,0 +1,13 @@
+graph TD
+    start[Start] --> checkFireDepartmentAgreement{{"Check if <font color='pink'>Building</font> has agreement with fire department"}}
+    checkFireDepartmentAgreement -->|Yes| defineAlarmSystem["Define alarm system according to fire department agreement"]
+    checkFireDepartmentAgreement -->|No| useDefaultGuidelines["Use default guidelines for alarm system"]
+    defineAlarmSystem --> defineWarningSystem["Define warning system according to fire department agreement"]
+    useDefaultGuidelines --> defineWarningSystem
+    defineWarningSystem --> defineNotificationSystem["Define notification system according to fire department agreement"]
+    defineNotificationSystem --> defineFirefightingEquipment["Define firefighting equipment according to fire department agreement"]
+    defineFirefightingEquipment --> end[End]
+
+    classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef property fill:#ADD8E6,stroke:#333,stroke-width:2px;
+    class Building object;

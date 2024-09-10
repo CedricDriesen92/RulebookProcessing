@@ -1,0 +1,44 @@
+graph TD
+    classDef object fill:#FFC0CB
+    classDef property fill:#ADD8E6
+
+    start[Start] --> checkOccupancy[Check Occupancy]
+    checkOccupancy --> |Occupancy > 500| highOccupancy[High Occupancy]
+    checkOccupancy --> |Occupancy <= 500| lowOccupancy[Low Occupancy]
+
+    highOccupancy --> checkFloorLevel1[Check Floor Level]
+    lowOccupancy --> checkFloorLevel2[Check Floor Level]
+
+    checkFloorLevel1 --> |Difference <= 3m| pass1[Pass]
+    checkFloorLevel1 --> |Difference > 3m| fail1[Fail]
+
+    checkFloorLevel2 --> |Difference <= 4m| pass2[Pass]
+    checkFloorLevel2 --> |Difference > 4m| fail2[Fail]
+
+    pass1 --> determineExits[Determine Number of Exits]
+    pass2 --> determineExits
+    fail1 --> end[End]
+    fail2 --> end
+
+    subgraph checkOccupancy["Check:::object Compartment:::property Occupancy"]
+        occupancyCheck[["if :::object Compartment:::property Occupancy > 500
+        then highOccupancy
+        else lowOccupancy"]]
+    end
+
+    subgraph checkFloorLevel1["Check Floor Level (High Occupancy)"]
+        floorCheck1[["if (lowestFloorLevel - nearestEvacuationLevel) <= 3m
+        then pass
+        else fail"]]
+    end
+
+    subgraph checkFloorLevel2["Check Floor Level (Low Occupancy)"]
+        floorCheck2[["if (lowestFloorLevel - averageEvacuationLevel) <= 4m
+        then pass
+        else fail"]]
+    end
+
+    subgraph determineExits["Determine Number of Exits"]
+        exitDetermination[["Determine :::object Compartment:::property Number of exits
+        based on compartment rules"]]
+    end

@@ -1,0 +1,29 @@
+```mermaid
+flowchart TD
+    A[Start] --> B{Check <font color='pink'>Building</font>}
+    B --> C{<font color='blue'>Amount of storeys</font> > 2?}
+    C -->|Yes| D[Apply compartmentation rules]
+    C -->|No| E[No special compartmentation required]
+    D --> F{For each <font color='pink'>Storey</font>}
+    F --> G{Check <font color='pink'>Compartment</font>s}
+    G --> H{<font color='blue'>Area</font> > 800 m2?}
+    H -->|Yes| I[Divide into smaller compartments]
+    H -->|No| J[Compartment size OK]
+    I --> K{Check <font color='pink'>Wall</font>s}
+    J --> K
+    K --> L{<font color='blue'>Fire resistance</font> >= 60 min?}
+    L -->|Yes| M[Wall fire resistance OK]
+    L -->|No| N[Increase wall fire resistance]
+    M --> O{Check <font color='pink'>Door</font>s}
+    N --> O
+    O --> P{<font color='blue'>Fire resistance</font> >= 30 min?}
+    P -->|Yes| Q[Door fire resistance OK]
+    P -->|No| R[Increase door fire resistance]
+    Q --> S{<font color='blue'>Self-closing</font> == true?}
+    R --> S
+    S -->|Yes| T[Door self-closing OK]
+    S -->|No| U[Add self-closing mechanism]
+    T --> V[End]
+    U --> V
+    F --> V
+```

@@ -1,0 +1,41 @@
+graph TD
+    start(["Start: 6.3"])
+    style start fill:#f9f,stroke:#333,stroke-width:2px
+
+    checkStoreys["Check <font color='pink'>Building</font>.<font color='blue'>Amount of storeys</font>"]
+    style checkStoreys fill:#f9f,stroke:#333,stroke-width:2px
+
+    checkStoreys --> |Amount of storeys <= 2| lowRise
+    checkStoreys --> |Amount of storeys > 2| highRise
+
+    lowRise["Low-rise building"]
+    style lowRise fill:#f9f,stroke:#333,stroke-width:2px
+
+    highRise["High-rise building"]
+    style highRise fill:#f9f,stroke:#333,stroke-width:2px
+
+    lowRise --> checkLowRiseCompartments["Check all <font color='pink'>Compartment</font>s"]
+    style checkLowRiseCompartments fill:#f9f,stroke:#333,stroke-width:2px
+
+    highRise --> checkHighRiseCompartments["Check all <font color='pink'>Compartment</font>s"]
+    style checkHighRiseCompartments fill:#f9f,stroke:#333,stroke-width:2px
+
+    checkLowRiseCompartments --> checkLowRiseArea{"<font color='pink'>Compartment</font>.<font color='blue'>Area</font> <= 1200 m²"}
+    style checkLowRiseArea fill:#f9f,stroke:#333,stroke-width:2px
+
+    checkLowRiseArea --> |Yes| lowRisePass["Pass"]
+    checkLowRiseArea --> |No| lowRiseFail["Fail"]
+
+    checkHighRiseCompartments --> checkHighRiseArea{"<font color='pink'>Compartment</font>.<font color='blue'>Area</font> <= 800 m²"}
+    style checkHighRiseArea fill:#f9f,stroke:#333,stroke-width:2px
+
+    checkHighRiseArea --> |Yes| highRisePass["Pass"]
+    checkHighRiseArea --> |No| highRiseFail["Fail"]
+
+    lowRisePass --> endPass["End: Pass"]
+    lowRiseFail --> endFail["End: Fail"]
+    highRisePass --> endPass
+    highRiseFail --> endFail
+
+    style endPass fill:#9f9,stroke:#333,stroke-width:2px
+    style endFail fill:#f99,stroke:#333,stroke-width:2px

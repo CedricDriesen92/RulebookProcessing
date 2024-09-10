@@ -1,0 +1,60 @@
+graph TD
+    classDef object fill:#FFC0CB
+    classDef property fill:#ADD8E6
+
+    start[Start] --> collectiveKitchen[/"Collective Kitchen"/]
+    collectiveKitchen --> checkWalls{{"Check walls"}}
+    checkWalls -->|Yes| checkDoors{{"Check doors"}}
+    checkWalls -->|No| fail[Fail]
+    checkDoors -->|Yes| checkCompartmentation{{"Is kitchen compartmentalized<br>from restaurant?"}}
+    checkDoors -->|No| fail
+    checkCompartmentation -->|Yes| checkTransport{{"Check transport systems"}}
+    checkCompartmentation -->|No| checkFryers{{"Check fryers"}}
+    checkTransport -->|Pass| pass[Pass]
+    checkTransport -->|Fail| fail
+    checkFryers -->|Pass| pass
+    checkFryers -->|Fail| fail
+
+    subgraph checkWalls["Check walls"]
+        walls[["class:object Wall"]] --> wallFireResistance["class:property Fire resistance"]
+        wallFireResistance -->|"== EI 60"| wallsPass[Pass]
+        wallFireResistance -->|"!= EI 60"| wallsFail[Fail]
+    end
+
+    subgraph checkDoors["Check doors"]
+        doors[["class:object Door"]] --> doorFireResistance["class:property Fire resistance"]
+        doors --> doorSelfClosing["class:property Self-closing"]
+        doorFireResistance -->|"== EI1 30"| doorFireResistancePass[Pass]
+        doorFireResistance -->|"!= EI1 30"| doorFireResistanceFail[Fail]
+        doorSelfClosing -->|"== true"| doorSelfClosingPass[Pass]
+        doorSelfClosing -->|"== false"| doorSelfClosingFail[Fail]
+    end
+
+    subgraph checkTransport["Check transport systems"]
+        transportSystem[Transport System] --> checkDucts{{"Check ducts"}}
+        checkDucts -->|Pass| checkClosures{{"Check closures"}}
+        checkDucts -->|Fail| transportFail[Fail]
+        checkClosures -->|Pass| transportPass[Pass]
+        checkClosures -->|Fail| transportFail
+
+        subgraph checkDucts["Check ducts"]
+            ducts[Ducts] --> ductWalls[["class:object Wall"]]
+            ductWalls --> ductWallFireResistance["class:property Fire resistance"]
+            ductWallFireResistance -->|"== EI 60"| ductWallsPass[Pass]
+            ductWallFireResistance -->|"!= EI 60"| ductWallsFail[Fail]
+        end
+
+        subgraph checkClosures["Check closures"]
+            closures[Closures] --> closureFireResistance["class:property Fire resistance"]
+            closureFireResistance -->|"== EI1 60"| closuresPass[Pass]
+            closureFireResistance -->|"!= EI1 60"| closuresFail[Fail]
+        end
+    end
+
+    subgraph checkFryers["Check fryers"]
+        fryers[Fryers] --> hasAutoExtinguish{{"Has automatic<br>extinguishing system?"}}
+        hasAutoExtinguish -->|Yes| checkEnergyShutoff{{"Energy shutoff<br>linked to extinguisher?"}}
+        hasAutoExtinguish -->|No| fryersFail[Fail]
+        checkEnergyShutoff -->|Yes| fryersPass[Pass]
+        checkEnergyShutoff -->|No| fryersFail
+    end

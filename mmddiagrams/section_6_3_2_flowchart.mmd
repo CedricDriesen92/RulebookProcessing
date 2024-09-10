@@ -1,0 +1,12 @@
+graph TD
+    start([Start]) --> checkDoor{Check <font color='pink'>Door</font>}
+    checkDoor --> |Yes| checkSelfClosing{Is <font color='blue'>Self-closing</font>?}
+    checkDoor --> |No| fail([Fail: Not a door])
+    checkSelfClosing --> |Yes| checkFireResistance{Check <font color='blue'>Fire resistance</font>}
+    checkSelfClosing --> |No| fail([Fail: Door not self-closing])
+    checkFireResistance --> |EI1 30| pass([Pass: Door meets requirements])
+    checkFireResistance --> |Other| fail([Fail: Incorrect fire resistance])
+    
+    style start fill:#f9f,stroke:#333,stroke-width:2px
+    style pass fill:#9f9,stroke:#333,stroke-width:2px
+    style fail fill:#f99,stroke:#333,stroke-width:2px

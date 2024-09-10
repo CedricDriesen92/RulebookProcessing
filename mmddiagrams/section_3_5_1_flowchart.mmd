@@ -1,0 +1,32 @@
+graph TD
+    start[Start] --> check_curtain_wall[Check <font color='pink'>Curtain Wall</font>]
+    check_curtain_wall --> check_studs[Are studs of curtain wall skeleton attached to building skeleton at each floor?]
+    check_studs -->|Yes| check_automatic_extinguishing[Does <font color='pink'>Building</font> have automatic extinguishing system?]
+    check_studs -->|No| fail[Fail]
+    check_automatic_extinguishing -->|Yes| check_linear_joint[Check linear joint at facade]
+    check_automatic_extinguishing -->|No| check_attachment_fire_resistance[Do attachments have R 60 fire resistance?]
+    check_attachment_fire_resistance -->|Yes| check_linear_joint[Check linear joint at facade]
+    check_attachment_fire_resistance -->|No| fail
+    check_linear_joint --> is_sealed[Is linear joint sealed to prevent cold smoke penetration?]
+    is_sealed -->|Yes| check_compartment_wall_connection[Check <font color='pink'>Wall</font> connection to facade]
+    is_sealed -->|No| fail
+    check_compartment_wall_connection --> joint_width[Is joint width ≤ 20 mm?]
+    joint_width -->|Yes| check_fire_resistance[Does connection have EI 60 or EI 60 (i→o) fire resistance?]
+    joint_width -->|No| fail
+    check_fire_resistance -->|Yes| check_opposite_facades[Check opposite facades]
+    check_fire_resistance -->|No| fail
+    check_opposite_facades --> are_opposite[Are facades opposite or form two-plane angle?]
+    are_opposite -->|Yes| check_fire_resistance_facades[Do facade parts have at least E 30 or E 30 (o→i) fire resistance?]
+    are_opposite -->|No| pass[Pass]
+    check_fire_resistance_facades -->|Yes| pass
+    check_fire_resistance_facades -->|No| calculate_distance[Calculate required distance]
+    calculate_distance --> angle_check[Is angle α ≤ 90°?]
+    angle_check -->|Yes| calculate_distance_1["Required distance = (h + 10 * cos(α)) / 2.5"]
+    angle_check -->|No| calculate_distance_2[Required distance = 0]
+    calculate_distance_1 --> check_actual_distance[Is actual distance ≥ required distance?]
+    calculate_distance_2 --> check_actual_distance
+    check_actual_distance -->|Yes| pass
+    check_actual_distance -->|No| check_radiation[Check radiation between facades]
+    check_radiation --> radiation_limit[Is radiation ≤ 15 kW/m²?]
+    radiation_limit -->|Yes| pass
+    radiation_limit -->|No| fail

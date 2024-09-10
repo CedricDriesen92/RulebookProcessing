@@ -1,0 +1,41 @@
+graph TD
+    start(["Start"]):::start --> check_wall_type{{"Check <font color='pink'>Wall</font> type"}}
+    check_wall_type -->|EI 30| check_conditions{{"Check conditions"}}
+    check_wall_type -->|Other| apply_general_rule["Apply general rule from 3.1"]
+    
+    check_conditions -->|All met| allow["Allow passage without fire damper"]
+    check_conditions -->|Not all met| apply_general_rule
+    
+    subgraph Conditions
+        cond1["<font color='pink'>Duct</font> made of class A1 materials<br>for 1m on both sides"]
+        cond2["<font color='pink'>Duct</font> not connected to air vents<br>in horizontal evacuation routes"]
+        cond3["<font color='pink'>Compartment</font> with day occupancy only"]
+    end
+    
+    check_wall_fire_resistance{{"Check <font color='pink'>Wall</font> <font color='blue'>fire resistance</font>"}}
+    check_wall_fire_resistance -->|≥ EI 60| check_conditions_2
+    check_wall_fire_resistance -->|≥ EI 30 between compartments<br>or in duct shaft| check_conditions_2
+    check_wall_fire_resistance -->|Other| allow_passage["Allow passage"]
+    
+    check_conditions_2{{"Check if meets any condition"}}
+    check_conditions_2 -->|Condition A| install_fire_damper["Install fire damper with<br>same fire resistance as wall"]
+    check_conditions_2 -->|Condition B| use_fire_resistant_duct["Use duct with same fire<br>resistance as wall or place<br>in fire-resistant shaft"]
+    check_conditions_2 -->|Condition C| check_small_duct_conditions
+    
+    check_small_duct_conditions{{"Check small duct conditions"}}
+    check_small_duct_conditions -->|All met| allow_small_duct["Allow small duct passage"]
+    check_small_duct_conditions -->|Not all met| disallow["Disallow passage"]
+    
+    subgraph Small Duct Conditions
+        small_cond1["Cross-section ≤ 130 cm²"]
+        small_cond2["Equipped with fire-stopping device<br>with same fire resistance as wall"]
+    end
+    
+    special_case{{"Check for special case"}}
+    special_case -->|Duct in dedicated shaft<br>ending in technical room| allow_special_case["Allow passage without<br>additional provisions"]
+    special_case -->|Other| check_wall_fire_resistance
+    
+    classDef start fill:#9f6,stroke:#333,stroke-width:2px;
+    classDef condition fill:#ff9,stroke:#333,stroke-width:2px;
+    style Conditions fill:#f9f,stroke:#333,stroke-width:2px;
+    style Small Duct Conditions fill:#f9f,stroke:#333,stroke-width:2px;

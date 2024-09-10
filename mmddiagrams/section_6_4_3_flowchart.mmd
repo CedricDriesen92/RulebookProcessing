@@ -1,0 +1,25 @@
+graph TD
+    start[Start] --> checkBuildingDate{{"Check <font color='pink'>Building</font> application date"}}
+    checkBuildingDate -->|Before 01/04/2017| preApril2017[Pre-April 2017 rules]
+    checkBuildingDate -->|On or after 01/04/2017| postApril2017[Post-April 2017 rules]
+
+    preApril2017 --> checkLiftDoors[Check lift doors]
+    checkLiftDoors --> doorWidth{{"Is <font color='blue'>Useful Width</font> of lift doors >= 0.80 m?"}}
+    doorWidth -->|Yes| doorAutomatic{{"Do lift doors open and close automatically?"}}
+    doorWidth -->|No| fail1[Fail: Lift door width insufficient]
+    doorAutomatic -->|Yes| pass1[Pass: Lift doors compliant]
+    doorAutomatic -->|No| fail2[Fail: Lift doors not automatic]
+
+    preApril2017 --> checkLiftDesign[Check lift design date]
+    checkLiftDesign --> liftDate{{"Was lift designed or modernized after 31/03/2017?"}}
+    liftDate -->|Yes| applyNewRules[Apply rules 6.4.1.6, 6.4.1.7, 6.4.1.8]
+    liftDate -->|No| skip1[Skip rules 6.4.1.6, 6.4.1.7, 6.4.1.8]
+
+    preApril2017 --> skip2[Skip rule 6.4.2]
+
+    postApril2017 --> applyAllRules[Apply all rules in section 6.4]
+
+    classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef property fill:#ADD8E6,stroke:#333,stroke-width:2px;
+    class Building object;
+    class Useful Width property;

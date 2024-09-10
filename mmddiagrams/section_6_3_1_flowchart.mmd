@@ -1,0 +1,15 @@
+flowchart TD
+    start([Start])
+    --> check_compartment[Check `Compartment`]
+    check_compartment --> check_area{Is `<font color='blue'>Area</font>` > 400 m²?}
+    check_area -->|Yes| check_occupancy{Is `<font color='blue'>Occupancy</font>` > 50?}
+    check_area -->|No| pass([Pass])
+    check_occupancy -->|Yes| check_exits{Is `<font color='blue'>Number of exits</font>` >= 2?}
+    check_occupancy -->|No| pass
+    check_exits -->|Yes| pass
+    check_exits -->|No| fail([Fail])
+    
+    style Compartment fill:#FFC0CB
+    style Area fill:#87CEFA
+    style Occupancy fill:#87CEFA
+    style Number fill:#87CEFA

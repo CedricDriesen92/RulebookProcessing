@@ -1,0 +1,20 @@
+graph TD
+    A[Start] --> B{Check <font color='pink'>Building</font>}
+    B --> C{Get <font color='pink'>Road</font>s}
+    C --> D[For each <font color='pink'>Road</font>]
+    D --> E{Is <font color='pink'>Road</font> an access road?}
+    E -->|Yes| F[Add to list of access roads]
+    E -->|No| G[Skip]
+    F --> H{More <font color='pink'>Road</font>s?}
+    G --> H
+    H -->|Yes| D
+    H -->|No| I[Consult with Fire Department]
+    I --> J{Fire Department approves?}
+    J -->|Yes| K[Access roads determined]
+    J -->|No| L[Revise access roads]
+    L --> I
+    K --> M[End]
+
+classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
+classDef property fill:#ADD8E6,stroke:#333,stroke-width:2px;
+class Building,Road object;

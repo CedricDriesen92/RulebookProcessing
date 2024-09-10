@@ -1,0 +1,76 @@
+graph TD
+    A[Start] --> B{Check <font color='pink'>Building</font>}
+    B --> C{<font color='blue'>Amount of storeys</font> > 1?}
+    C -->|Yes| D[Apply compartmentation rules]
+    C -->|No| E[No compartmentation required]
+    D --> F{Check each <font color='pink'>Storey</font>}
+    F --> G{<font color='blue'>Number of exits</font> >= 2?}
+    G -->|Yes| H[Pass]
+    G -->|No| I[Fail: Insufficient exits]
+    F --> J{Check each <font color='pink'>Compartment</font>}
+    J --> K{<font color='blue'>Area</font> <= 2000 m2?}
+    K -->|Yes| L[Pass]
+    K -->|No| M[Fail: Compartment too large]
+    J --> N{<font color='blue'>Has active fire protection?</font>}
+    N -->|Yes| O[Increase max area to 4000 m2]
+    N -->|No| P[Keep max area at 2000 m2]
+    J --> Q{Check <font color='pink'>Wall</font>s}
+    Q --> R{<font color='blue'>Fire resistance</font> >= 60 min?}
+    R -->|Yes| S[Pass]
+    R -->|No| T[Fail: Insufficient fire resistance]
+    Q --> U{<font color='blue'>Compartmentation</font> == true?}
+    U -->|Yes| V[Pass]
+    U -->|No| W[Fail: Not compartment wall]
+    J --> X{Check <font color='pink'>Door</font>s}
+    X --> Y{<font color='blue'>Fire resistance</font> >= 30 min?}
+    Y -->|Yes| Z[Pass]
+    Y -->|No| AA[Fail: Insufficient fire resistance]
+    X --> AB{<font color='blue'>Self-closing</font> == true?}
+    AB -->|Yes| AC[Pass]
+    AB -->|No| AD[Fail: Not self-closing]
+    J --> AE{<font color='blue'>Number of exits</font> >= 2?}
+    AE -->|Yes| AF[Pass]
+    AE -->|No| AG[Fail: Insufficient exits]
+    J --> AH{<font color='blue'>Has nighttime occupancy?</font>}
+    AH -->|Yes| AI[Apply additional safety measures]
+    AH -->|No| AJ[Standard safety measures]
+    J --> AK{<font color='blue'>Is Classroom?</font>}
+    AK -->|Yes| AL[Apply classroom-specific rules]
+    AK -->|No| AM[Apply standard rules]
+    J --> AN{<font color='blue'>Is Parking?</font>}
+    AN -->|Yes| AO[Apply parking-specific rules]
+    AN -->|No| AP[Apply standard rules]
+    J --> AQ{Check <font color='pink'>Evacuation Route</font>}
+    AQ --> AR{<font color='blue'>Length</font> <= 30 m?}
+    AR -->|Yes| AS[Pass]
+    AR -->|No| AT[Fail: Route too long]
+    AQ --> AU{<font color='blue'>Useful Width</font> >= 1 m?}
+    AU -->|Yes| AV[Pass]
+    AU -->|No| AW[Fail: Route too narrow]
+    E --> AX[End]
+    H --> AX
+    I --> AX
+    L --> AX
+    M --> AX
+    O --> AX
+    P --> AX
+    S --> AX
+    T --> AX
+    V --> AX
+    W --> AX
+    Z --> AX
+    AA --> AX
+    AC --> AX
+    AD --> AX
+    AF --> AX
+    AG --> AX
+    AI --> AX
+    AJ --> AX
+    AL --> AX
+    AM --> AX
+    AO --> AX
+    AP --> AX
+    AS --> AX
+    AT --> AX
+    AV --> AX
+    AW --> AX

@@ -1,0 +1,26 @@
+graph TD
+    A[Start] --> B{Check <font color='pink'>Building</font>}
+    B --> C{<font color='pink'>Building</font> <font color='blue'>Amount of storeys</font> > 1?}
+    C -->|Yes| D[Apply Compartmentation Ruleset]
+    C -->|No| E[No Compartmentation Required]
+    D --> F{For each <font color='pink'>Storey</font>}
+    F --> G{Check <font color='pink'>Compartment</font>s}
+    G --> H{<font color='pink'>Compartment</font> <font color='blue'>Area</font> > 400m2?}
+    H -->|Yes| I[Require Compartmentation]
+    H -->|No| J[No Compartmentation Required]
+    I --> K{Check <font color='pink'>Wall</font>s and <font color='pink'>Door</font>s}
+    K --> L{<font color='pink'>Wall</font> <font color='blue'>Compartmentation</font> == true?}
+    L -->|Yes| M[Pass]
+    L -->|No| N[Fail: Wall not compartmented]
+    K --> O{<font color='pink'>Door</font> <font color='blue'>Compartmentation</font> == true?}
+    O -->|Yes| P[Pass]
+    O -->|No| Q[Fail: Door not compartmented]
+    J --> R[Continue to Next Compartment]
+    F --> S[Continue to Next Storey]
+    E --> T[End]
+    M --> T
+    N --> T
+    P --> T
+    Q --> T
+    R --> G
+    S --> F

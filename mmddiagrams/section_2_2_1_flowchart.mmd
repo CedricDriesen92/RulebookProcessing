@@ -1,0 +1,32 @@
+graph TD
+    style Compartment fill:#ffc0cb,stroke:#333,stroke-width:2px
+    style Door fill:#ffc0cb,stroke:#333,stroke-width:2px
+
+    A[Start] --> B{Check <font color='pink'>Compartment</font>}
+    B --> C{Get <font color='blue'>Occupancy</font>}
+    C --> D{<font color='blue'>Occupancy</font> < 100?}
+    D -->|Yes| E[Require 1 exit]
+    D -->|No| F{100 ≤ <font color='blue'>Occupancy</font> < 500?}
+    F -->|Yes| G[Require 2 exits]
+    F -->|No| H{<font color='blue'>Occupancy</font> ≥ 500?}
+    H -->|Yes| I[Calculate n = ceil(<font color='blue'>Occupancy</font> / 1000)]
+    I --> J[Require 2 + n exits]
+    H -->|No| K[Error: Invalid occupancy]
+
+    E --> L[Check actual <font color='blue'>Number of exits</font>]
+    G --> L
+    J --> L
+
+    L --> M{Actual exits ≥ Required exits?}
+    M -->|Yes| N[Pass]
+    M -->|No| O[Fail]
+
+    P[Note: Fire department may increase required exits]
+
+    Q[Start] --> R{Check each floor and room}
+    R --> S[Apply same exit rules as for compartments]
+
+    T{For each <font color='pink'>Door</font>}
+    T --> U{Is <font color='blue'>Is Fire Exit?</font> true?}
+    U -->|Yes| V[Count as exit]
+    U -->|No| W[Do not count as exit]

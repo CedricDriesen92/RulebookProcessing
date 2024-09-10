@@ -1,0 +1,28 @@
+graph TD
+    start[Start] --> check_walls[Check walls]
+    check_walls --> is_compartment{Is wall part of<br>compartment boundary?}
+    is_compartment -->|Yes| apply_41[Apply rules<br>from section 4.1]
+    is_compartment -->|No| is_evacuation{Is wall part of<br>evacuation route?}
+    is_evacuation -->|Yes| apply_44[Apply rules<br>from section 4.4]
+    is_evacuation -->|No| is_nighttime{Does wall separate<br>areas with nighttime<br>occupancy?}
+    is_nighttime -->|Yes| check_floors{How many floors<br>above floor Ei?}
+    check_floors -->|One floor| set_ei30[Set :::pink<font color="blue">fire resistance</font>:::<br>to EI 30]
+    check_floors -->|Multiple floors| set_ei60[Set :::pink<font color="blue">fire resistance</font>:::<br>to EI 60]
+    is_nighttime -->|No| end[End wall check]
+    set_ei30 --> check_below
+    set_ei60 --> check_below
+    check_below[Check if wall is<br>below floor Ei] --> is_below{Is wall below<br>floor Ei?}
+    is_below -->|Yes| set_ei60_below[Set :::pink<font color="blue">fire resistance</font>:::<br>to EI 60]
+    is_below -->|No| end
+    set_ei60_below --> end
+    end --> check_doors[Check doors]
+    check_doors --> is_in_wall{Is door in a wall<br>with nighttime<br>occupancy separation?}
+    is_in_wall -->|Yes| set_door_ei30[Set door<br>:::pink<font color="blue">fire resistance</font>:::<br>to EI1 30]
+    is_in_wall -->|No| end_door[End door check]
+    set_door_ei30 --> end_door
+    end_door --> final[End of checks]
+
+    classDef pink fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef blue fill:#ADD8E6,stroke:#333,stroke-width:2px;
+    class Wall,Compartment,Door pink;
+    class fire_resistance,Is_External blue;

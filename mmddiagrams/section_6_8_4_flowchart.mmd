@@ -1,0 +1,11 @@
+graph TD
+    start([Start]) --> check_signals[Check warning and alarm signals/messages]
+    check_signals --> can_be_received{Can be received<br>by all involved<br>persons?}
+    can_be_received -->|Yes| not_confused{Can be confused<br>with each other or<br>other signals?}
+    can_be_received -->|No| fail([Fail])
+    not_confused -->|No| pass([Pass])
+    not_confused -->|Yes| fail
+
+    classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
+    classDef property fill:#ADD8E6,stroke:#333,stroke-width:2px;
+    class start,fail,pass object;

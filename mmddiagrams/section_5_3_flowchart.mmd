@@ -1,0 +1,16 @@
+flowchart TD
+    A[Start] --> B{Check <font color='pink'>Building</font>}
+    B --> C{<font color='pink'>Building</font> <font color='blue'>Amount of storeys</font> > 1?}
+    C -->|Yes| D{Check <font color='pink'>Compartment</font>}
+    C -->|No| E[Fail: Building must have more than one storey]
+    D --> F{<font color='pink'>Compartment</font> <font color='blue'>Area</font> <= 800 m2?}
+    F -->|Yes| G{Check <font color='pink'>Wall</font>}
+    F -->|No| H[Fail: Compartment area exceeds 800 m2]
+    G --> I{<font color='pink'>Wall</font> <font color='blue'>Fire resistance</font> >= 60 min?}
+    I -->|Yes| J{Check <font color='pink'>Door</font>}
+    I -->|No| K[Fail: Wall fire resistance less than 60 min]
+    J --> L{<font color='pink'>Door</font> <font color='blue'>Fire resistance</font> >= 60 min?}
+    L -->|Yes| M{<font color='pink'>Door</font> <font color='blue'>Self-closing</font> == true?}
+    L -->|No| N[Fail: Door fire resistance less than 60 min]
+    M -->|Yes| O[Pass: All checks successful]
+    M -->|No| P[Fail: Door is not self-closing]
