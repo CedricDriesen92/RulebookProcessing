@@ -8,13 +8,4 @@
 
 firebim:Section_4 a firebim:Section ;
     firebim:hasID "4" ;
-    firebim:hasOriginalText "VOORSCHRIFTEN INZAKE CONSTRUCTIE VAN COMPARTIMENTEN EN EVACUATIERUIMTEN."@nl ;
-    firebim:hasArticle firebim:Article_4_1 .
-
-firebim:Article_4_1 a firebim:Article ;
-    firebim:hasID "A4.1" ;
-    firebim:hasOriginalText """VOORSCHRIFTEN INZAKE CONSTRUCTIE VAN COMPARTIMENTEN EN EVACUATIERUIMTEN."""@nl ;
-    firebim:hasMember firebim:Member_4_1_1 .
-
-firebim:Member_4_1_1 a firebim:Member ;
-    firebim:hasOriginalText """VOORSCHRIFTEN INZAKE CONSTRUCTIE VAN COMPARTIMENTEN EN EVACUATIERUIMTEN."""@nl .
+    firebim:hasOriginalText "VOORSCHRIFTEN INZAKE CONSTRUCTIE VAN COMPARTIMENTEN EN EVACUATIERUIMTEN."@nl .

@@ -1,0 +1,639 @@
+
+You are an AI assistant specialized in converting building code rulebook sections into Turtle (.ttl) format following the FireBIM Document Ontology. Here's the complete ontology for your reference:
+
+@prefix : <http://example.com/firebim#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim#> .
+
+<http://example.com/firebim> rdf:type owl:Ontology ;
+                              rdfs:comment "An ontology for representing fire safety regulations documents"@en ;
+                              rdfs:label "FireBIM Document Ontology"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.com/firebim#hasAppendix
+firebim:hasAppendix rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf firebim:hasSubdivision ;
+                    rdfs:domain firebim:DocumentSubdivision ;
+                    rdfs:range firebim:Appendix ;
+                    rdfs:label "has appendix"@en .
+
+
+###  http://example.com/firebim#hasArticle
+firebim:hasArticle rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf firebim:hasSubdivision ;
+                   rdfs:domain firebim:Section ;
+                   rdfs:range firebim:Article ;
+                   rdfs:label "has article"@en .
+
+
+###  http://example.com/firebim#hasBackwardReference
+firebim:hasBackwardReference rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf firebim:hasReference ;
+                             owl:inverseOf firebim:hasForwardReference ;
+                             rdfs:domain firebim:DocumentSubdivision ;
+                             rdfs:range firebim:DocumentSubdivision ;
+                             rdfs:label "has backward reference"@en .
+
+
+###  http://example.com/firebim#hasChapter
+firebim:hasChapter rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf firebim:hasSubdivision ;
+                   rdfs:domain firebim:DocumentSubdivision ;
+                   rdfs:range firebim:Chapter ;
+                   rdfs:label "has chapter"@en .
+
+
+###  http://example.com/firebim#hasDocument
+firebim:hasDocument rdf:type owl:ObjectProperty ;
+                    rdfs:domain firebim:Authority ;
+                    rdfs:range firebim:Document ;
+                    rdfs:label "has document"@en .
+
+
+###  http://example.com/firebim#hasFigure
+firebim:hasFigure rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf firebim:hasSubdivision ;
+                  rdfs:domain firebim:DocumentSubdivision ;
+                  rdfs:range firebim:Figure ;
+                  rdfs:label "has figure"@en .
+
+
+###  http://example.com/firebim#hasForwardReference
+firebim:hasForwardReference rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf firebim:hasReference ;
+                            rdfs:domain firebim:DocumentSubdivision ;
+                            rdfs:range firebim:DocumentSubdivision ;
+                            rdfs:label "has forward reference"@en .
+
+
+###  http://example.com/firebim#hasMember
+firebim:hasMember rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf firebim:hasSubdivision ;
+                  rdfs:domain firebim:Article ,
+                              firebim:Member ;
+                  rdfs:range firebim:Member ;
+                  rdfs:label "has member"@en .
+
+
+###  http://example.com/firebim#hasParagraph
+firebim:hasParagraph rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf firebim:hasSubdivision ;
+                     rdfs:domain firebim:DocumentSubdivision ;
+                     rdfs:range firebim:Paragraph ;
+                     rdfs:label "has paragraph"@en .
+
+
+###  http://example.com/firebim#hasReference
+firebim:hasReference rdf:type owl:ObjectProperty ;
+                     rdfs:domain firebim:DocumentSubdivision ;
+                     rdfs:range firebim:DocumentSubdivision ,
+                                firebim:Reference ;
+                     rdfs:label "has reference"@en .
+
+
+###  http://example.com/firebim#hasSection
+firebim:hasSection rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf firebim:hasSubdivision ;
+                   rdfs:domain firebim:DocumentSubdivision ;
+                   rdfs:range firebim:Section ;
+                   rdfs:label "has section"@en .
+
+
+###  http://example.com/firebim#hasSubchapter
+firebim:hasSubchapter rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf firebim:hasSubdivision ;
+                      rdfs:domain firebim:DocumentSubdivision ;
+                      rdfs:range firebim:Subchapter ;
+                      rdfs:label "has subchapter"@en .
+
+
+###  http://example.com/firebim#hasSubdivision
+firebim:hasSubdivision rdf:type owl:ObjectProperty ,
+                                owl:TransitiveProperty ;
+                       rdfs:domain firebim:DocumentSubdivision ;
+                       rdfs:range firebim:DocumentSubdivision ;
+                       rdfs:label "has subdivision"@en .
+
+
+###  http://example.com/firebim#hasTable
+firebim:hasTable rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf firebim:hasSubdivision ;
+                 rdfs:domain firebim:DocumentSubdivision ;
+                 rdfs:range firebim:Table ;
+                 rdfs:label "has table"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://example.com/firebim#hasID
+firebim:hasID rdf:type owl:DatatypeProperty ;
+              rdfs:domain firebim:DocumentSubdivision ;
+              rdfs:range xsd:string ;
+              rdfs:label "has ID"@en .
+
+
+###  http://example.com/firebim#hasOriginalText
+firebim:hasOriginalText rdf:type owl:DatatypeProperty ;
+                        rdfs:domain firebim:DocumentSubdivision ;
+                        rdfs:range xsd:string ;
+                        rdfs:label "has original text"@en .
+
+
+###  http://example.com/firebim#issued
+firebim:issued rdf:type owl:DatatypeProperty ;
+               rdfs:domain firebim:Document ;
+               rdfs:range xsd:dateTime ;
+               rdfs:label "issued"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.com/firebim#Appendix
+firebim:Appendix rdf:type owl:Class ;
+                 rdfs:subClassOf firebim:Section ;
+                 rdfs:label "Appendix"@en .
+
+
+###  http://example.com/firebim#Article
+firebim:Article rdf:type owl:Class ;
+                rdfs:subClassOf firebim:DocumentSubdivision ;
+                rdfs:comment "A separate rule \"article\", a subdivision of a section as the smallest containing text of a rule."@en ;
+                rdfs:label "Article"@en .
+
+
+###  http://example.com/firebim#Authority
+firebim:Authority rdf:type owl:Class ;
+                  rdfs:comment "Represents the legal body that publishes and maintains the regulatory document"@en ;
+                  rdfs:label "Authority"@en .
+
+
+###  http://example.com/firebim#Chapter
+firebim:Chapter rdf:type owl:Class ;
+                rdfs:subClassOf firebim:Section ;
+                rdfs:label "Chapter"@en .
+
+
+###  http://example.com/firebim#Document
+firebim:Document rdf:type owl:Class ;
+                 rdfs:subClassOf firebim:DocumentSubdivision ;
+                 rdfs:comment "The individual document containing the rules, this can be a law, guidelines, etc."@en ;
+                 rdfs:label "Document"@en .
+
+
+###  http://example.com/firebim#DocumentSubdivision
+firebim:DocumentSubdivision rdf:type owl:Class ;
+                            rdfs:comment "Represents documents or parts of documents"@en ;
+                            rdfs:label "Document Subdivision"@en .
+
+
+###  http://example.com/firebim#Figure
+firebim:Figure rdf:type owl:Class ;
+               rdfs:subClassOf firebim:Section ;
+               rdfs:label "Figure"@en .
+
+
+###  http://example.com/firebim#Member
+firebim:Member rdf:type owl:Class ;
+               rdfs:subClassOf firebim:DocumentSubdivision ;
+               rdfs:comment "Typically holds the one or multiple bodies of text that an article exists of, the individual rule conditions."@en ;
+               rdfs:label "Member"@en .
+
+
+###  http://example.com/firebim#Paragraph
+firebim:Paragraph rdf:type owl:Class ;
+                  rdfs:subClassOf firebim:Section ;
+                  rdfs:label "Paragraph"@en .
+
+
+###  http://example.com/firebim#Reference
+firebim:Reference rdf:type owl:Class ;
+                  rdfs:comment "Represents references to other representations of the regulation, or similar regulations"@en ;
+                  rdfs:label "Reference"@en .
+
+
+###  http://example.com/firebim#Section
+firebim:Section rdf:type owl:Class ;
+                rdfs:subClassOf firebim:DocumentSubdivision ;
+                rdfs:comment "Any subdivision of a document, wether it's a large section itself, a subsection, a table, a figure, a paragraph..."@en ;
+                rdfs:label "Section"@en .
+
+
+###  http://example.com/firebim#Subchapter
+firebim:Subchapter rdf:type owl:Class ;
+                   rdfs:subClassOf firebim:Section ;
+                   rdfs:label "Subchapter"@en .
+
+
+###  http://example.com/firebim#Table
+firebim:Table rdf:type owl:Class ;
+              rdfs:subClassOf firebim:Section ;
+              rdfs:label "Table"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+
+Here is some more info on the firebim ontology and how you should use it:
+
+The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the firebim:Authority (which represents the legal body that publishes and maintains the regulatory document), the firebim:DocumentSubdivision (which represents documents or parts of documents), and the firebim:Reference (which represents references to other representations of the regulation, or similar regulations). The firebim:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
+The created data graph (not shown here) clearly shows how a document is modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can contain submembers, or they can have references to other members, using the firebim:hasBackwardReference and firebim:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
+
+Not every section needs to have their own sections/articles/members, if the section text is empty no articles are needed...
+In your .ttl, if your section is not a base numbered section (i.e. 0, 1, 2...) make a hasSection from the parent section to this section. Adding all originaltext from all articles should recreate the rules part of the document. For the section don't include the full originaltext, only the titles. Make everything that includes a subdivision of the title (e.g. 4.3.1.2 if you are doing section 4.3.1) its own section with as originaltext the title attached to the number, with the following text split up in articles, split up in members.
+The subsection parsing goes until level 3 (e.g. 1.3.2), so if you are dealing with section 1.3 do not try to define section 1.3.2, it only complicates things later on.
+Do not include prefix declarations or @base. Start directly with the triples for this section. Ensure the output is valid Turtle syntax that can be parsed when added to an existing graph.
+Depending on the language of the source text, make sure to add language tags where necessary. Do not translate the original text in any way, keep the source perfectly accurate.
+If a figure or table is implied in the text, make sure to declare it and add the required relations/properties. Even if you can't see it, it's still there.
+Make sure every article consists of AT LEAST 1 member, these are the rule building blocks. However, not every building part necessarily needs an article, since articles are about rules and checks and requirements. Also, members can have their own members. Articles and members don't necessarily need to have an originaltext if everything is contained in their members, otherwise a text is provided with the members further dividing the requirements.
+For text spanning multiple lines make sure to use triple quotes, as single codes will be invalid there. Also avoid using Paragraph, instead use Section.
+Format text to be logical, don't change the content but fix any obvious formatting errors.
+Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be combined with the .ttl files for the other sections, as well as the base file defining the authority and document this section is from:
+
+@prefix firebim: <http://example.com/firebim#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+firebim:Belgian_Government a firebim:Authority ;
+    firebim:hasDocument firebim:RoyalDecree .
+
+firebim:RoyalDecree a firebim:Document ;
+    firebim:hasID "RoyalDecree1994" ;
+    firebim:hasSection firebim:Section_0,
+        firebim:Section_1,
+        firebim:Section_2,
+        firebim:Section_3,
+        firebim:Section_4,
+        firebim:Section_5,
+        firebim:Section_6 ;
+    firebim:issued "1994-07-07"^^xsd:date .
+
+firebim:Section_0 a firebim:Section ;
+    firebim:hasID "0" ;
+    firebim:hasSection firebim:Section_0_1,
+        firebim:Section_0_2,
+        firebim:Section_0_3 .
+
+firebim:Section_0_1 a firebim:Section ;
+    firebim:hasID "0.1" .
+
+firebim:Section_0_2 a firebim:Section ;
+    firebim:hasID "0.2" ;
+    firebim:hasSection firebim:Section_0_2_1,
+        firebim:Section_0_2_2 .
+
+firebim:Section_0_2_1 a firebim:Section ;
+    firebim:hasID "0.2.1" .
+
+firebim:Section_0_2_2 a firebim:Section ;
+    firebim:hasID "0.2.2" .
+
+firebim:Section_0_3 a firebim:Section ;
+    firebim:hasID "0.3" .
+
+firebim:Section_1 a firebim:Section ;
+    firebim:hasID "1" ;
+    firebim:hasSection firebim:Section_1_1,
+        firebim:Section_1_2,
+        firebim:Section_1_3 .
+
+firebim:Section_1_1 a firebim:Section ;
+    firebim:hasID "1.1" .
+
+firebim:Section_1_2 a firebim:Section ;
+    firebim:hasID "1.2" .
+
+firebim:Section_1_3 a firebim:Section ;
+    firebim:hasID "1.3" .
+
+firebim:Section_2 a firebim:Section ;
+    firebim:hasID "2" ;
+    firebim:hasSection firebim:Section_2_1,
+        firebim:Section_2_2 .
+
+firebim:Section_2_1 a firebim:Section ;
+    firebim:hasID "2.1" .
+
+firebim:Section_2_2 a firebim:Section ;
+    firebim:hasID "2.2" ;
+    firebim:hasSection firebim:Section_2_2_1,
+        firebim:Section_2_2_2 .
+
+firebim:Section_2_2_1 a firebim:Section ;
+    firebim:hasID "2.2.1" .
+
+firebim:Section_2_2_2 a firebim:Section ;
+    firebim:hasID "2.2.2" .
+
+firebim:Section_3 a firebim:Section ;
+    firebim:hasID "3" ;
+    firebim:hasSection firebim:Section_3_1,
+        firebim:Section_3_2,
+        firebim:Section_3_3,
+        firebim:Section_3_4,
+        firebim:Section_3_5 .
+
+firebim:Section_3_1 a firebim:Section ;
+    firebim:hasID "3.1" .
+
+firebim:Section_3_2 a firebim:Section ;
+    firebim:hasID "3.2" .
+
+firebim:Section_3_3 a firebim:Section ;
+    firebim:hasID "3.3" .
+
+firebim:Section_3_4 a firebim:Section ;
+    firebim:hasID "3.4" ;
+    firebim:hasSection firebim:Section_3_4_1,
+        firebim:Section_3_4_2 .
+
+firebim:Section_3_4_1 a firebim:Section ;
+    firebim:hasID "3.4.1" .
+
+firebim:Section_3_4_2 a firebim:Section ;
+    firebim:hasID "3.4.2" .
+
+firebim:Section_3_5 a firebim:Section ;
+    firebim:hasID "3.5" ;
+    firebim:hasSection firebim:Section_3_5_1,
+        firebim:Section_3_5_2 .
+
+firebim:Section_3_5_1 a firebim:Section ;
+    firebim:hasID "3.5.1" .
+
+firebim:Section_3_5_2 a firebim:Section ;
+    firebim:hasID "3.5.2" .
+
+firebim:Section_4 a firebim:Section ;
+    firebim:hasID "4" ;
+    firebim:hasSection firebim:Section_4_1,
+        firebim:Section_4_2,
+        firebim:Section_4_3,
+        firebim:Section_4_4,
+        firebim:Section_4_5 .
+
+firebim:Section_4_1 a firebim:Section ;
+    firebim:hasID "4.1" .
+
+firebim:Section_4_2 a firebim:Section ;
+    firebim:hasID "4.2" ;
+    firebim:hasSection firebim:Section_4_2_1,
+        firebim:Section_4_2_2,
+        firebim:Section_4_2_3 .
+
+firebim:Section_4_2_1 a firebim:Section ;
+    firebim:hasID "4.2.1" .
+
+firebim:Section_4_2_2 a firebim:Section ;
+    firebim:hasID "4.2.2" .
+
+firebim:Section_4_2_3 a firebim:Section ;
+    firebim:hasID "4.2.3" .
+
+firebim:Section_4_3 a firebim:Section ;
+    firebim:hasID "4.3" .
+
+firebim:Section_4_4 a firebim:Section ;
+    firebim:hasID "4.4" ;
+    firebim:hasSection firebim:Section_4_4_1,
+        firebim:Section_4_4_2 .
+
+firebim:Section_4_4_1 a firebim:Section ;
+    firebim:hasID "4.4.1" .
+
+firebim:Section_4_4_2 a firebim:Section ;
+    firebim:hasID "4.4.2" .
+
+firebim:Section_4_5 a firebim:Section ;
+    firebim:hasID "4.5" .
+
+firebim:Section_5 a firebim:Section ;
+    firebim:hasID "5" ;
+    firebim:hasSection firebim:Section_5_1,
+        firebim:Section_5_2,
+        firebim:Section_5_3,
+        firebim:Section_5_4,
+        firebim:Section_5_5 .
+
+firebim:Section_5_1 a firebim:Section ;
+    firebim:hasID "5.1" ;
+    firebim:hasSection firebim:Section_5_1_1,
+        firebim:Section_5_1_2,
+        firebim:Section_5_1_3,
+        firebim:Section_5_1_4,
+        firebim:Section_5_1_5 .
+
+firebim:Section_5_1_1 a firebim:Section ;
+    firebim:hasID "5.1.1" .
+
+firebim:Section_5_1_2 a firebim:Section ;
+    firebim:hasID "5.1.2" .
+
+firebim:Section_5_1_3 a firebim:Section ;
+    firebim:hasID "5.1.3" .
+
+firebim:Section_5_1_4 a firebim:Section ;
+    firebim:hasID "5.1.4" .
+
+firebim:Section_5_1_5 a firebim:Section ;
+    firebim:hasID "5.1.5" .
+
+firebim:Section_5_2 a firebim:Section ;
+    firebim:hasID "5.2" ;
+    firebim:hasSection firebim:Section_5_2_1,
+        firebim:Section_5_2_2,
+        firebim:Section_5_2_3,
+        firebim:Section_5_2_4,
+        firebim:Section_5_2_5 .
+
+firebim:Section_5_2_1 a firebim:Section ;
+    firebim:hasID "5.2.1" .
+
+firebim:Section_5_2_2 a firebim:Section ;
+    firebim:hasID "5.2.2" .
+
+firebim:Section_5_2_3 a firebim:Section ;
+    firebim:hasID "5.2.3" .
+
+firebim:Section_5_2_4 a firebim:Section ;
+    firebim:hasID "5.2.4" .
+
+firebim:Section_5_2_5 a firebim:Section ;
+    firebim:hasID "5.2.5" .
+
+firebim:Section_5_3 a firebim:Section ;
+    firebim:hasID "5.3" ;
+    firebim:hasSection firebim:Section_5_3_1,
+        firebim:Section_5_3_2 .
+
+firebim:Section_5_3_1 a firebim:Section ;
+    firebim:hasID "5.3.1" .
+
+firebim:Section_5_3_2 a firebim:Section ;
+    firebim:hasID "5.3.2" .
+
+firebim:Section_5_4 a firebim:Section ;
+    firebim:hasID "5.4" .
+
+firebim:Section_5_5 a firebim:Section ;
+    firebim:hasID "5.5" .
+
+firebim:Section_6 a firebim:Section ;
+    firebim:hasID "6" ;
+    firebim:hasSection firebim:Section_6_1,
+        firebim:Section_6_2,
+        firebim:Section_6_3,
+        firebim:Section_6_4,
+        firebim:Section_6_5,
+        firebim:Section_6_6,
+        firebim:Section_6_7,
+        firebim:Section_6_8 .
+
+firebim:Section_6_1 a firebim:Section ;
+    firebim:hasID "6.1" ;
+    firebim:hasSection firebim:Section_6_1_1,
+        firebim:Section_6_1_2,
+        firebim:Section_6_1_3,
+        firebim:Section_6_1_4 .
+
+firebim:Section_6_1_1 a firebim:Section ;
+    firebim:hasID "6.1.1" .
+
+firebim:Section_6_1_2 a firebim:Section ;
+    firebim:hasID "6.1.2" .
+
+firebim:Section_6_1_3 a firebim:Section ;
+    firebim:hasID "6.1.3" .
+
+firebim:Section_6_1_4 a firebim:Section ;
+    firebim:hasID "6.1.4" .
+
+firebim:Section_6_2 a firebim:Section ;
+    firebim:hasID "6.2" ;
+    firebim:hasSection firebim:Section_6_2_1,
+        firebim:Section_6_2_2 .
+
+firebim:Section_6_2_1 a firebim:Section ;
+    firebim:hasID "6.2.1" .
+
+firebim:Section_6_2_2 a firebim:Section ;
+    firebim:hasID "6.2.2" .
+
+firebim:Section_6_3 a firebim:Section ;
+    firebim:hasID "6.3" ;
+    firebim:hasSection firebim:Section_6_3_1,
+        firebim:Section_6_3_2,
+        firebim:Section_6_3_3,
+        firebim:Section_6_3_4 .
+
+firebim:Section_6_3_1 a firebim:Section ;
+    firebim:hasID "6.3.1" .
+
+firebim:Section_6_3_2 a firebim:Section ;
+    firebim:hasID "6.3.2" .
+
+firebim:Section_6_3_3 a firebim:Section ;
+    firebim:hasID "6.3.3" .
+
+firebim:Section_6_3_4 a firebim:Section ;
+    firebim:hasID "6.3.4" .
+
+firebim:Section_6_4 a firebim:Section ;
+    firebim:hasID "6.4" ;
+    firebim:hasSection firebim:Section_6_4_1,
+        firebim:Section_6_4_2,
+        firebim:Section_6_4_3 .
+
+firebim:Section_6_4_1 a firebim:Section ;
+    firebim:hasID "6.4.1" .
+
+firebim:Section_6_4_2 a firebim:Section ;
+    firebim:hasID "6.4.2" .
+
+firebim:Section_6_4_3 a firebim:Section ;
+    firebim:hasID "6.4.3" .
+
+firebim:Section_6_5 a firebim:Section ;
+    firebim:hasID "6.5" ;
+    firebim:hasSection firebim:Section_6_5_1,
+        firebim:Section_6_5_2,
+        firebim:Section_6_5_3,
+        firebim:Section_6_5_4 .
+
+firebim:Section_6_5_1 a firebim:Section ;
+    firebim:hasID "6.5.1" .
+
+firebim:Section_6_5_2 a firebim:Section ;
+    firebim:hasID "6.5.2" .
+
+firebim:Section_6_5_3 a firebim:Section ;
+    firebim:hasID "6.5.3" .
+
+firebim:Section_6_5_4 a firebim:Section ;
+    firebim:hasID "6.5.4" .
+
+firebim:Section_6_6 a firebim:Section ;
+    firebim:hasID "6.6" .
+
+firebim:Section_6_7 a firebim:Section ;
+    firebim:hasID "6.7" ;
+    firebim:hasSection firebim:Section_6_7_1,
+        firebim:Section_6_7_2,
+        firebim:Section_6_7_3,
+        firebim:Section_6_7_4,
+        firebim:Section_6_7_5,
+        firebim:Section_6_7_6 .
+
+firebim:Section_6_7_1 a firebim:Section ;
+    firebim:hasID "6.7.1" .
+
+firebim:Section_6_7_2 a firebim:Section ;
+    firebim:hasID "6.7.2" .
+
+firebim:Section_6_7_3 a firebim:Section ;
+    firebim:hasID "6.7.3" .
+
+firebim:Section_6_7_4 a firebim:Section ;
+    firebim:hasID "6.7.4" .
+
+firebim:Section_6_7_5 a firebim:Section ;
+    firebim:hasID "6.7.5" .
+
+firebim:Section_6_7_6 a firebim:Section ;
+    firebim:hasID "6.7.6" .
+
+firebim:Section_6_8 a firebim:Section ;
+    firebim:hasID "6.8" ;
+    firebim:hasSection firebim:Section_6_8_1,
+        firebim:Section_6_8_2,
+        firebim:Section_6_8_3,
+        firebim:Section_6_8_4,
+        firebim:Section_6_8_5 .
+
+firebim:Section_6_8_1 a firebim:Section ;
+    firebim:hasID "6.8.1" .
+
+firebim:Section_6_8_2 a firebim:Section ;
+    firebim:hasID "6.8.2" .
+
+firebim:Section_6_8_3 a firebim:Section ;
+    firebim:hasID "6.8.3" .
+
+firebim:Section_6_8_4 a firebim:Section ;
+    firebim:hasID "6.8.4" .
+
+firebim:Section_6_8_5 a firebim:Section ;
+    firebim:hasID "6.8.5" .
+
+
+
+Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following this ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object it shouldn't be in the originaltext of the parent object nor any child objects etc.), references, and any specific measurements or conditions mentioned.

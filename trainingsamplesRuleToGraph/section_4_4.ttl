@@ -7,16 +7,6 @@
 @base <http://example.com/firebim> .
 
 firebim:Section_4_4 a firebim:Section ;
-    firebim:hasID "4.4" ;
-    firebim:hasOriginalText "Evacuatiewegen en vluchtterrassen."@nl ;
-    firebim:hasArticle firebim:Article_4_4_1 .
-
-firebim:Article_4_4_1 a firebim:Article ;
-    firebim:hasID "A4.4.1" ;
-    firebim:hasOriginalText "Evacuatiewegen en vluchtterrassen."@nl ;
-    firebim:hasMember firebim:Member_4_4_1_1 .
-
-firebim:Member_4_4_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Evacuatiewegen en vluchtterrassen."@nl .
+    firebim:hasID "4.4" .
 
 firebim:Section_4 firebim:hasSection firebim:Section_4_4 .

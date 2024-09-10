@@ -8,7 +8,6 @@
 
 firebim:Section_4_4_2 a firebim:Section ;
     firebim:hasID "4.4.2" ;
-    firebim:hasOriginalText "Op een evacuatieniveau"@nl ;
     firebim:hasArticle firebim:Article_4_4_2_1 .
 
 firebim:Section_4_4 firebim:hasSection firebim:Section_4_4_2 .
