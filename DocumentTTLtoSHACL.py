@@ -33,7 +33,7 @@ Please output only the SHACL shapes in Turtle format, without any explanations. 
 
 Use the following prefixes:
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fbb: <http://example.com/firebimbuilding#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 Remember to:

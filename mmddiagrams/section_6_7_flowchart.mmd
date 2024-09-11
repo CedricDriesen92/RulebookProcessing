@@ -1,9 +1,0 @@
-graph TD
-    start([Start]) --> check_aeraulic_installation{{"Check if <font color='pink'>Building</font> has aeraulic installation"}}
-    check_aeraulic_installation -->|Yes| check_conditions[/"Check if installation meets following conditions:"/]
-    check_aeraulic_installation -->|No| pass([Pass])
-    check_conditions --> end([End])
-
-    classDef object fill:#FFC0CB,stroke:#333,stroke-width:2px;
-    classDef property fill:#ADD8E6,stroke:#333,stroke-width:2px;
-    class Building object;

@@ -1,24 +1,23 @@
-﻿Name,Property (from Cross-Reference),Notes,Entity (IFC),Articles in Fire Code
-,,,,
-Beam,,,IfcBeam,1.1
-Building,"Distance,Amount of storeys",,IfcBuilding,
-Ceiling,Elevation,,IfcCovering.CEILING,
-Column,,,IfcColumn,
-Compartment,"Area,Occupancy,Number of exits,Has nighttime occupancy?,Is Classroom?,Is Parking?,Is Parking?,Length,Has active fire protection?,Has nighttime occupancy?,Area","Fire Compartment, Fire Cell, ...",IfcSpatialZone.FIRESAFETY,
-Corridor,,,,
-Curtain Wall,,,IfcCurtainWall,
-Door,"Self-closing,Fire resistance,Is Fire Exit?,Useful Width,Compartmentation,Fire resistance",,IfcDoor,
-Evacuation Route,"Length,Useful Width","to nearest exit, to second exit, to evacuation road",,
-Fire Hydrant,,,IfcFireSuppressionTerminal.FIREHYDRANT,
-Parking,,,IfcSpace.PARKING,
-Railing,,,IfcRailing,
-Ramp,,,IfcRamp,
-Road,Distance,,IfcRoad,
-Site,,,IfcSite,
-Skylight,,,IfcWindow.SKYLIGHT,
-Space,Is Classroom?,"Room, Space",IfcSpace,
-Stair,"Fire resistance,Material,Handrail,Useful Width,Tread length,Riser height,Slope",,IfcStair,
-Stairwell,Is External?,Difference between stair and stairwell?,,
-Storey,"Number of exits,Has active fire protection?,Is Fire Exit?",,IfcBuildingStorey,
-Wall,"Fire resistance,Height,Fire resistance,Compartmentation,Is External?,Fire resistance",,IfcWall,
-Window,,,IfcWindow.WINDOW,
+﻿Name:
+Beam
+Building
+Ceiling
+Column
+Compartment
+Corridor
+Curtain Wall
+Door
+Evacuation Route
+Fire Hydrant
+Parking
+Railing
+Ramp
+Road
+Site
+Skylight
+Space
+Stair
+Stairwell
+Storey
+Wall
+Window
