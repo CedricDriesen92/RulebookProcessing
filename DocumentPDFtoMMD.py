@@ -99,7 +99,7 @@ def main():
         base_name = os.path.splitext(os.path.basename(txt_file))[0]
         output_file = os.path.join(output_folder, f"{base_name}.mmd")
 
-        if os.path.exists(output_file) or "2_1" not in base_name:
+        if os.path.exists(output_file) or "3_5_1" not in base_name:
             print(f"MMD for {base_name} already exists. Skipping.")
             continue
         

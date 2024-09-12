@@ -1,4 +1,98 @@
 Input:
+Section number: 2.1
+Section text:
+Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500                           m², met
+            uitzondering van de parkings (zie 5.2).
+            De maximale       oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag
+            3500 m² bedragen. De lengte van dit compartiment bedraagt niet meer dan 90 m.
+            De maximale oppervlakte van een compartiment mag,                   respectievelijk, groter dan ofwel 2500 m²,
+            ofwel 3500 m² bedragen indien het compartiment is uitgerust met een automatische blusinstallatie
+            en een rook- en warmteafvoerinstallatie.
+            De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk
+            zijn op de grootte van het compartiment respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat
+            een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden.
+            De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag.
+            De volgende uitzonderingen zijn nochtans toegestaan:
+            a)   de parking met bouwlagen (zie 5.2);
+            b)   een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een
+                 binnenverbindingstrap (duplex), indien de gecumuleerde oppervlakte van die bouwlagen niet
+                 groter is dan 2500 m²;
+            c)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over  drie  boven  elkaar  gelegen
+                 bouwlagen met een binnenverbindingstrap (triplex), voor zover de som van hun gecumuleerde
+                 oppervlakte  de  300  m²  niet  overschrijdt,  en  dat  dit  compartiment  is              uitgerust  met  een
+                 automatische branddetectie van het type totale bewaking die automatisch een aanduiding van
+                 de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico's;
+            d)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over                verscheidene  boven  elkaar
+                 geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1)                   .
+            e)   de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium)
+                 op voorwaarde:
+                 -    dat dit compartiment is uitgerust         met een automatische blusinstallatie en een rook-               en
+                      warmteafvoerinstallatie. De Minister van Binnenlandse Zaken bepaalt de voorwaarden
+                      waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische
+                      blusinstallatie en een rook- en warmteafvoerinstallatie;
+                                                                                                                          47/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                    (v3.0)
+                                                                                   Federale Overheidsdienst Binnenlandse Zaken
+                                                                                Algemene Directie Civiele Veiligheid – Brandpreventie
+                                              BIJLAGE 2/1: LAGE GEBOUWEN
+            De  Minister  van  Binnenlandse  Zaken  bepaalt  de  voorwaarden  waaraan  de  automatische
+            blusinstallatie en rook- en warmteafvoerinstallatie moeten voldoen.
+
+Expected output:
+flowchart TD
+    S1["Start: Compartment Check"] --> B{"For every&nbsp;<a href="http://example.com/firebimbuilding#Compartment" style="color:pink;">Compartment</a>"}
+    B --> C{"Get <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a>"} & HH{"Get <a href="http://example.com/firebimbuilding#Height" style="color:blue">Height</a>"}
+    C --> D{"<a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> &lt; 2500 m²?"}
+    D -- Yes --> E[/"Pass"/]
+    D -- No --> F{"Is <a href="http://example.com/firebimbuilding#Storey" style="color:pink;">Storey</a> ground floor?"}
+    F -- Yes --> G{"<a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 3500 m²?"}
+    G -- Yes --> H{"Get <a href="http://example.com/firebimbuilding#Length" style="color:blue;">Length</a>"}
+    H --> I{"<a href="http://example.com/firebimbuilding#Length" style="color:blue;">Length</a> ≤ 90 m?"}
+    I -- Yes --> J[/"Pass"/]
+    I -- No --> K[/"Fail"/]
+    HH --> HI["<a href="http://example.com/firebimbuilding#Height" style="color:blue">Height</a> equals height of building layer?"]
+    HI -- Yes --> HJ[/"Pass"/]
+    HI -- No --> HK{"Get compartment type"}
+    HK --> P & S & Y & AF & AI
+    G -- No --> L{"Has automatic fire extinguishing system?"}
+    L -- Yes --> M{"Has smoke and heat evacuation system?"}
+    M -- Yes --> N[/"Pass"/]
+    M -- No --> O[/"Fail"/]
+    L -- No --> O
+    F -- No --> L
+    P{"Is <a href="http://example.com/firebimbuilding#Parking" style="color:pink">Parking</a>?"} --> Q["Refer to section 5.2"]
+    S{"Is Duplex?"} --> T{"Get total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of two floors"}
+    T --> U{"Total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 2500 m²?"}
+    U -- Yes --> V[/"Pass"/]
+    U -- No --> W[/"Fail"/]
+    Y{"Is Triplex?"} --> Z{"Get total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of three floors"}
+    Z --> AA{"Total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 300 m²?"}
+    AA -- Yes --> AB{"Has automatic fire detection system?"}
+    AB -- Yes --> AC[/"Pass"/]
+    AB -- No --> AD[/"Fail"/]
+    AA -- No --> AD
+    AF{"Contains only technical rooms?"} --> AG[/"Pass"/]
+    AI{"Is Atrium?"} --> AJ{"Has automatic fire extinguishing system?"}
+    AJ -- Yes --> AK{"Has smoke and heat evacuation system?"}
+    AK -- Yes --> AL[/"Pass"/]
+    AK -- No --> AM[/"Fail"/]
+    AJ -- No --> AM
+
+    %% Styles
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px;
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px;
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px;
+    classDef redirectClass fill:#ff9,stroke:#333,stroke-width:2px;
+    classDef noteClass fill:#ffd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5;
+
+        %% Applying styles
+    class S1 startClass;
+    class E,J,HJ,N,V,AC,AL,AG passClass;
+    class K,O,W,AD,AM failClass;
+    class Q redirectClass;
+
+
+Input:
 Section number: 2.2.1
 Section text:
 Elk compartiment heeft minimum:

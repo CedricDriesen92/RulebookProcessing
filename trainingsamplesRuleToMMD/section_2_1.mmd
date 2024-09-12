@@ -12,40 +12,47 @@ flowchart TD
     HH --> HI["<a href="http://example.com/firebimbuilding#Height" style="color:blue">Height</a> equals height of building layer?"]
     HI -- Yes --> HJ[/"Pass"/]
     HI -- No --> HK{"Get compartment type"}
-    HK --> P & S & Y & AF & AI
+    HK --> P{"Is <a href="http://example.com/firebimbuilding#Parking" style="color:pink">Parking</a>?"} & S{"Is Duplex?"} & Y{"Is Triplex?"} & AF{"Contains only technical rooms?"} & AI{"Is Atrium?"}
     G -- No --> L{"Has automatic fire extinguishing system?"}
     L -- Yes --> M{"Has smoke and heat evacuation system?"}
     M -- Yes --> N[/"Pass"/]
     M -- No --> O[/"Fail"/]
     L -- No --> O
     F -- No --> L
-    P{"Is <a href="http://example.com/firebimbuilding#Parking" style="color:pink">Parking</a>?"} --> Q["Refer to section 5.2"]
-    S{"Is Duplex?"} --> T{"Get total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of two floors"}
+    P --> Q["Refer to section 5.2"]
+    S --> T{"Get total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of two floors"}
     T --> U{"Total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 2500 m²?"}
     U -- Yes --> V[/"Pass"/]
     U -- No --> W[/"Fail"/]
-    Y{"Is Triplex?"} --> Z{"Get total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of three floors"}
+    Y --> Z{"Get total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of three floors"}
     Z --> AA{"Total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 300 m²?"}
     AA -- Yes --> AB{"Has automatic fire detection system?"}
     AB -- Yes --> AC[/"Pass"/]
     AB -- No --> AD[/"Fail"/]
     AA -- No --> AD
-    AF{"Contains only technical rooms?"} --> AG[/"Pass"/]
-    AI{"Is Atrium?"} --> AJ{"Has automatic fire extinguishing system?"}
+    AF --> AG[/"Pass"/]
+    AI --> AJ{"Has automatic fire extinguishing system?"}
     AJ -- Yes --> AK{"Has smoke and heat evacuation system?"}
     AK -- Yes --> AL[/"Pass"/]
     AK -- No --> AM[/"Fail"/]
     AJ -- No --> AM
-
-    %% Styles
-    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px;
-    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px;
-    classDef failClass fill:#f99,stroke:#333,stroke-width:2px;
-    classDef redirectClass fill:#ff9,stroke:#333,stroke-width:2px;
-    classDef noteClass fill:#ffd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5;
-
-        %% Applying styles
-    class S1 startClass;
-    class E,J,HJ,N,V,AC,AL,AG passClass;
-    class K,O,W,AD,AM failClass;
-    class Q redirectClass;
+     S1:::startClass
+     E:::passClass
+     J:::passClass
+     K:::failClass
+     HJ:::passClass
+     N:::passClass
+     O:::failClass
+     Q:::redirectClass
+     V:::passClass
+     W:::failClass
+     AC:::passClass
+     AD:::failClass
+     AG:::passClass
+     AL:::passClass
+     AM:::failClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+    classDef redirectClass fill:#ff9,stroke:#333,stroke-width:2px
+    classDef noteClass fill:#ffd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
