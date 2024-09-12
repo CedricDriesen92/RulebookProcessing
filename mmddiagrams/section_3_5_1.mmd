@@ -1,0 +1,84 @@
+flowchart TD
+ subgraph Z_sub["Angle Calculation"]
+        Z1["Get IfcCurtainWall.ObjectPlacement for both walls"]
+        Z2["Extract IfcAxis2Placement3D from IfcLocalPlacement"]
+        Z3["Get normal vectors (RefDirection) from IfcAxis2Placement3D"]
+        Z4["Calculate dot product of normal vectors"]
+        Z5["α = arccos(dot product)"]
+  end
+ subgraph AJ_sub["Radiation Calculation"]
+        AJ1["Get IfcCurtainWall.Representation for both walls"]
+        AJ2["Extract IfcProductDefinitionShape"]
+        AJ3["Identify facing IfcFace elements"]
+        AJ4["Calculate surface areas of facing IfcFace"]
+        AJ5["Determine distance between facing surfaces"]
+        AJ6["Calculate view factors"]
+        AJ7["Get IfcMaterial properties for emissivity"]
+        AJ8["Apply Stefan-Boltzmann law"]
+        AJ9["Sum up radiation for all surface pairs"]
+  end
+    S1["Start: Curtain Wall Check"] --> A{"For each <a href="http://example.com/firebimbuilding#CurtainWall" style="color:pink;">Curtain Wall</a>"}
+    A --> B{"Check attachment to building skeleton"} & H{"Check linear joint at facade"} & L{"Check connection of compartment walls with facade"}
+    B --> C{"Is building equipped with automatic fire extinguishing system?"}
+    C -- Yes --> D[/"Pass"/]
+    C -- No --> E{"Attachment has R 60 fire resistance?"}
+    E -- Yes --> F[/"Pass"/]
+    E -- No --> G[/"Fail"/]
+    H --> I{"Is joint sealed against cold smoke?"}
+    I -- Yes --> J[/"Pass"/]
+    I -- No --> K[/"Fail"/]
+    L --> M{"Linear joint width ≤ 20 mm?"}
+    M -- Yes --> N{"Connection has EI 60 or EI 60 (i→o) fire resistance?"}
+    N -- Yes --> O[/"Pass"/]
+    N -- No --> P[/"Fail"/]
+    M -- No --> R[/"Pass"/]
+    T["Start: Opposing Facades Check"] --> U{"For each pair of <a href="http://example.com/firebimbuilding#CurtainWall" style="color:pink;">Curtain Wall</a>s"}
+    U --> V{"Do facades face each other or form a receding dihedral angle?"}
+    V -- Yes --> W{"Do both facades have at least E 30 or E 30 (o→i) fire resistance?"}
+    W -- Yes --> X[/"Pass"/]
+    W -- No --> Z_sub
+    Z_sub --> AA{"Get <a href="http://example.com/firebimbuilding#Height" style="color:blue;">Height</a> h of building"}
+    AA --> AB{"Is 0° ≤ α ≤ 90°?"}
+    AB -- Yes --> AC["Minimum distance = (h + 10 * cos(α)) / 2.5"]
+    AB -- No --> AD{"Is 90° &lt; α ≤ 180°?"}
+    AD -- Yes --> AE["Minimum distance = 0"]
+    AD -- No --> AF[/"Invalid angle"/]
+    AC --> AG{"Is actual distance ≥ minimum distance?"}
+    AE --> AG
+    AG -- Yes --> AH[/"Pass"/]
+    AG -- No --> AI[/"Fail"/]
+    V -- No --> AJ_sub
+    AJ_sub --> AK{"Is radiation ≤ 15 kW/m²?"}
+    AK -- Yes --> AL[/"Pass"/]
+    AK -- No --> AM[/"Fail"/]
+    Z1 --> Z2
+    Z2 --> Z3
+    Z3 --> Z4
+    Z4 --> Z5
+    AJ1 --> AJ2
+    AJ2 --> AJ3
+    AJ3 --> AJ4 & AJ5
+    AJ4 --> AJ6
+    AJ5 --> AJ6
+    AJ6 --> AJ8
+    AJ7 --> AJ8
+    AJ8 --> AJ9
+     S1:::startClass
+     D:::passClass
+     F:::passClass
+     G:::failClass
+     J:::passClass
+     K:::failClass
+     O:::passClass
+     P:::failClass
+     R:::passClass
+     T:::startClass
+     X:::passClass
+     AF:::failClass
+     AH:::passClass
+     AI:::failClass
+     AL:::passClass
+     AM:::failClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px

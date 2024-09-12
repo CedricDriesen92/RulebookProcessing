@@ -1,0 +1,147 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix firebim: <http://example.com/firebim#> .
+
+fbb:CurtainWallShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:CurtainWall ;
+    sh:property [
+        sh:path fbb:attachmentToBuildingSkeleton ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path fbb:linearJointAtFacade ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path fbb:connectionToCompartmentWall ;
+        sh:minCount 1 ;
+    ] ;
+    sh:sparql [
+        sh:message "Curtain wall must meet fire resistance requirements" ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fbb:attachmentToBuildingSkeleton ?attachment .
+                $this fbb:buildingHasAutomaticFireExtinguishingSystem ?hasSystem .
+                FILTER NOT EXISTS {
+                    ?hasSystem fbb:value true .
+                }
+                FILTER NOT EXISTS {
+                    ?attachment fbb:fireResistance ?resistance .
+                    FILTER(?resistance = "R 60")
+                }
+            }
+        """
+    ] ;
+    sh:sparql [
+        sh:message "Linear joint at facade must be sealed against cold smoke" ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fbb:linearJointAtFacade ?joint .
+                FILTER NOT EXISTS {
+                    ?joint fbb:sealedAgainstColdSmoke true .
+                }
+            }
+        """
+    ] ;
+    sh:sparql [
+        sh:message "Connection of compartment walls with facade must meet fire resistance requirements" ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fbb:connectionToCompartmentWall ?connection .
+                ?connection fbb:jointWidth ?width .
+                FILTER(?width <= 20)
+                FILTER NOT EXISTS {
+                    ?connection fbb:fireResistance ?resistance .
+                    FILTER(?resistance = "EI 60" || ?resistance = "EI 60 (i→o)")
+                }
+            }
+        """
+    ] ;
+    firebim:rulesource firebim:CurtainWallRegulation .
+
+fbb:OpposingFacadesShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:CurtainWall ;
+    sh:sparql [
+        sh:message "Opposing facades must meet fire resistance and distance requirements" ;
+        sh:select """
+            SELECT $this ?other
+            WHERE {
+                $this a fbb:CurtainWall .
+                ?other a fbb:CurtainWall .
+                FILTER($this != ?other)
+                FILTER NOT EXISTS {
+                    $this fbb:fireResistance ?resistance1 .
+                    ?other fbb:fireResistance ?resistance2 .
+                    FILTER(?resistance1 IN ("E 30", "E 30 (o→i)") && ?resistance2 IN ("E 30", "E 30 (o→i)"))
+                }
+            }
+        """
+    ] ;
+    sh:pyFn """
+import ifcopenshell
+import math
+
+def validate(data_graph, focus_node):
+    ifc_file = ifcopenshell.open(data_graph.value(focus_node, fbb.ifcFilePath, None))
+    wall1 = ifc_file.by_guid(focus_node)
+    wall2 = ifc_file.by_guid(data_graph.value(focus_node, fbb.opposingWall, None))
+    
+    placement1 = wall1.ObjectPlacement
+    placement2 = wall2.ObjectPlacement
+    axis1 = placement1.RelativePlacement
+    axis2 = placement2.RelativePlacement
+    normal1 = axis1.RefDirection.DirectionRatios
+    normal2 = axis2.RefDirection.DirectionRatios
+    
+    dot_product = sum(a*b for a, b in zip(normal1, normal2))
+    angle = math.acos(dot_product)
+    
+    building_height = data_graph.value(None, fbb.Height, None)
+    
+    if 0 <= angle <= math.pi/2:
+        min_distance = (building_height + 10 * math.cos(angle)) / 2.5
+    elif math.pi/2 < angle <= math.pi:
+        min_distance = 0
+    else:
+        return False
+    
+    actual_distance = math.sqrt(sum((a-b)**2 for a, b in zip(placement1.Location.Coordinates, placement2.Location.Coordinates)))
+    
+    return actual_distance >= min_distance
+    """ ;
+    sh:pyFn """
+import ifcopenshell
+import math
+
+def validate(data_graph, focus_node):
+    ifc_file = ifcopenshell.open(data_graph.value(focus_node, fbb.ifcFilePath, None))
+    wall1 = ifc_file.by_guid(focus_node)
+    wall2 = ifc_file.by_guid(data_graph.value(focus_node, fbb.opposingWall, None))
+    
+    def calculate_radiation(face1, face2, distance):
+        area1 = face1.Area
+        area2 = face2.Area
+        view_factor = area1 / (math.pi * distance**2)
+        emissivity1 = data_graph.value(focus_node, fbb.emissivity, None)
+        emissivity2 = data_graph.value(data_graph.value(focus_node, fbb.opposingWall, None), fbb.emissivity, None)
+        sigma = 5.67e-8  # Stefan-Boltzmann constant
+        temperature1 = data_graph.value(focus_node, fbb.temperature, None)
+        temperature2 = data_graph.value(data_graph.value(focus_node, fbb.opposingWall, None), fbb.temperature, None)
+        return sigma * view_factor * emissivity1 * emissivity2 * (temperature1**4 - temperature2**4)
+    
+    total_radiation = sum(calculate_radiation(face1, face2, distance)
+                          for face1 in wall1.Representation.Representations[0].Items
+                          for face2 in wall2.Representation.Representations[0].Items
+                          for distance in [math.sqrt(sum((a-b)**2 for a, b in zip(face1.OuterBound.Bound.Position.Location.Coordinates,
+                                                                                   face2.OuterBound.Bound.Position.Location.Coordinates)))])
+    
+    return total_radiation <= 15000  # 15 kW/m²
+    """ ;
+    firebim:rulesource firebim:OpposingFacadesRegulation .

@@ -108,8 +108,8 @@ if __name__ == "__main__":
     # Load ontologies
     merged_ontology = load_ontologies(local_path)
     
-    data_graph = rdflib.Graph().parse("buildinggraphs/Article2_1_1BE_Data.ttl", format="turtle")
-    shapes_graph = rdflib.Graph().parse("shaclshapes/Article2_1_1BE_Shapes.ttl", format="turtle")
+    data_graph = rdflib.Graph().parse("buildinggraphs/section_2_1BE_Data.ttl", format="turtle")
+    shapes_graph = rdflib.Graph().parse("shacl_shapes_mmd/section_2_1_shapes.ttl", format="turtle")
     document_graph = load_document_data("combined_document_data_graph.ttl")
 
     member_refs = parse_member_references(shapes_graph)

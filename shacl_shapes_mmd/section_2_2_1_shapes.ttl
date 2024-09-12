@@ -1,0 +1,85 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix firebim: <http://example.com/firebim#> .
+
+fbb:CompartmentShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:Occupancy ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path fbb:NumberOfExits ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:sparql [
+        sh:message "Compartment does not have the required number of exits based on occupancy." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fbb:Occupancy ?occupancy .
+                $this fbb:NumberOfExits ?actualExits .
+                BIND(IF(?occupancy < 100, 1,
+                     IF(?occupancy < 500, 2,
+                     2 + CEIL((?occupancy - 500) / 1000))) AS ?requiredExits)
+                FILTER(?actualExits < ?requiredExits)
+            }
+        """ ;
+    ] ;
+    firebim:rulesource firebim:CompartmentExitRequirement .
+
+fbb:DoorShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Door ;
+    sh:property [
+        sh:path fbb:IsFireExit ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    firebim:rulesource firebim:FireExitDoorRequirement .
+
+fbb:BuildingShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Building ;
+    sh:property [
+        sh:path fbb:hasCompartment ;
+        sh:nodeKind sh:IRI ;
+        sh:class fbb:Compartment ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasDoor ;
+        sh:nodeKind sh:IRI ;
+        sh:class fbb:Door ;
+        sh:minCount 1 ;
+    ] ;
+    sh:sparql [
+        sh:message "Building does not have the correct number of fire exits." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fbb:hasCompartment ?compartment .
+                ?compartment fbb:Occupancy ?totalOccupancy .
+                {
+                    SELECT $this (COUNT(?fireExit) AS ?actualFireExits)
+                    WHERE {
+                        $this fbb:hasDoor ?door .
+                        ?door fbb:IsFireExit true .
+                    }
+                    GROUP BY $this
+                }
+                BIND(IF(?totalOccupancy < 100, 1,
+                     IF(?totalOccupancy < 500, 2,
+                     2 + CEIL((?totalOccupancy - 500) / 1000))) AS ?requiredExits)
+                FILTER(?actualFireExits < ?requiredExits)
+            }
+        """ ;
+    ] ;
+    firebim:rulesource firebim:BuildingFireExitRequirement .

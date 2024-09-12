@@ -1,0 +1,35 @@
+flowchart TD
+    A["Start: Building Assessment"] --> S1["Start: Compartment Check"] & S2["Start: Door Check"]
+    S1 --> B{"Check <a href="http://example.com/firebimbuilding#Compartment" style="color:pink;">Compartment</a>"}
+    B --> C{"Get <a href="http://example.com/firebimbuilding#Occupancy" style="color:blue;">Occupancy</a>"}
+    C --> D{"<a href="http://example.com/firebimbuilding#Occupancy" style="color:blue;">Occupancy</a> &lt; 100?"}
+    D -- Yes --> E["Require 1 exit"]
+    D -- No --> F{"100 ≤ <a href="http://example.com/firebimbuilding#Occupancy" style="color:blue;">Occupancy</a> &lt; 500?"}
+    F -- Yes --> G["Require 2 exits"]
+    F -- No --> I["Calculate n = ceil(<a href="http://example.com/firebimbuilding#Occupancy" style="color:blue;">Occupancy</a> / 1000)"]
+    I --> J["Require 2 + n exits"]
+    E --> L["Check actual <a href="http://example.com/firebimbuilding#NumberOfExits" style="color:blue;">Number of exits</a>"]
+    G --> L
+    J --> L
+    L --> M{"Actual exits ≥ Required exits?"}
+    M -- Yes --> N[/"Pass"/]
+    M -- No --> O[/"Fail"/]
+    S2 --> T{"For each <a href="http://example.com/firebimbuilding#Door" style="color:pink;">Door</a>"}
+    T --> U{"Is <a href="http://example.com/firebimbuilding#IsFireExit" style="color:blue;">Is Fire Exit?</a> true?"}
+    U -- Yes --> V["Count as exit"]
+    U -- No --> W["Do not count as exit"]
+    V --> X{{"Return to main flow"}}
+    W --> X
+    P["Note: Fire department may increase required exits"] ~~~ L
+     A:::startClass
+     S1:::startClass
+     S2:::startClass
+     N:::passClass
+     O:::failClass
+     X:::redirectClass
+     P:::noteClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+    classDef redirectClass fill:#ff9,stroke:#333,stroke-width:2px
+    classDef noteClass fill:#ffd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5

@@ -1,0 +1,129 @@
+@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Building and Storeys
+fbb:Building1 a fbb:Building .
+
+fbb:Storey1 a fbb:Storey ;
+    fbb:isGroundFloor true ;
+    fbb:isPartOf fbb:Building1 .
+
+fbb:Storey2 a fbb:Storey ;
+    fbb:isPartOf fbb:Building1 .
+
+fbb:Storey3 a fbb:Storey ;
+    fbb:isPartOf fbb:Building1 .
+
+# Building Layers
+fbb:Layer1 a fbb:BuildingLayer ;
+    fbb:Height 3.0 .
+
+fbb:Layer2 a fbb:BuildingLayer ;
+    fbb:Height 3.5 .
+
+# Regular Compartments
+fbb:Compartment1 a fbb:Compartment ;
+    fbb:Area 2000.0 ;
+    fbb:Height 3.0 ;
+    fbb:isOnStorey fbb:Storey1 ;
+    fbb:isInBuildingLayer fbb:Layer1 ;
+    fbb:Length 80.0 .
+
+fbb:Compartment2 a fbb:Compartment ;
+    fbb:Area 3000.0 ;
+    fbb:Height 3.0 ;
+    fbb:isOnStorey fbb:Storey1 ;
+    fbb:isInBuildingLayer fbb:Layer1 ;
+    fbb:Length 85.0 .
+
+fbb:Compartment3 a fbb:Compartment ;
+    fbb:Area 3600.0 ;
+    fbb:Height 3.0 ;
+    fbb:isOnStorey fbb:Storey1 ;
+    fbb:isInBuildingLayer fbb:Layer1 ;
+    fbb:Length 95.0 .
+
+fbb:Compartment4 a fbb:Compartment ;
+    fbb:Area 2200.0 ;
+    fbb:Height 3.5 ;
+    fbb:isOnStorey fbb:Storey2 ;
+    fbb:isInBuildingLayer fbb:Layer2 .
+
+fbb:Compartment5 a fbb:Compartment ;
+    fbb:Area 2200.0 ;
+    fbb:Height 3.0 ;
+    fbb:isOnStorey fbb:Storey2 ;
+    fbb:isInBuildingLayer fbb:Layer2 .
+
+# Duplex Compartment
+fbb:DuplexCompartment1 a fbb:Compartment, fbb:Duplex ;
+    fbb:consistsOf fbb:DuplexFloor1, fbb:DuplexFloor2 .
+
+fbb:DuplexFloor1 a fbb:Compartment ;
+    fbb:Area 1200.0 .
+
+fbb:DuplexFloor2 a fbb:Compartment ;
+    fbb:Area 1100.0 .
+
+fbb:DuplexCompartment2 a fbb:Compartment, fbb:Duplex ;
+    fbb:consistsOf fbb:DuplexFloor3, fbb:DuplexFloor4 .
+
+fbb:DuplexFloor3 a fbb:Compartment ;
+    fbb:Area 1400.0 .
+
+fbb:DuplexFloor4 a fbb:Compartment ;
+    fbb:Area 1200.0 .
+
+# Triplex Compartment
+fbb:TriplexCompartment1 a fbb:Compartment, fbb:Triplex ;
+    fbb:consistsOf fbb:TriplexFloor1, fbb:TriplexFloor2, fbb:TriplexFloor3 ;
+    fbb:hasFireDetectionSystem true .
+
+fbb:TriplexFloor1 a fbb:Compartment ;
+    fbb:Area 90.0 .
+
+fbb:TriplexFloor2 a fbb:Compartment ;
+    fbb:Area 100.0 .
+
+fbb:TriplexFloor3 a fbb:Compartment ;
+    fbb:Area 80.0 .
+
+fbb:TriplexCompartment2 a fbb:Compartment, fbb:Triplex ;
+    fbb:consistsOf fbb:TriplexFloor4, fbb:TriplexFloor5, fbb:TriplexFloor6 ;
+    fbb:hasFireDetectionSystem false .
+
+fbb:TriplexFloor4 a fbb:Compartment ;
+    fbb:Area 120.0 .
+
+fbb:TriplexFloor5 a fbb:Compartment ;
+    fbb:Area 110.0 .
+
+fbb:TriplexFloor6 a fbb:Compartment ;
+    fbb:Area 100.0 .
+
+# Atrium
+fbb:Atrium1 a fbb:Compartment, fbb:Atrium ;
+    fbb:hasFireExtinguishingSystem true ;
+    fbb:hasSmokeHeatEvacuationSystem true .
+
+fbb:Atrium2 a fbb:Compartment, fbb:Atrium ;
+    fbb:hasFireExtinguishingSystem true ;
+    fbb:hasSmokeHeatEvacuationSystem false .
+
+# Exempted Compartment
+fbb:ExemptedCompartment1 a fbb:Compartment ;
+    fbb:Area 3000.0 ;
+    fbb:hasFireExtinguishingSystem true ;
+    fbb:hasSmokeHeatEvacuationSystem true .
+
+fbb:ExemptedCompartment2 a fbb:Compartment ;
+    fbb:Area 3200.0 ;
+    fbb:hasFireExtinguishingSystem true ;
+    fbb:hasSmokeHeatEvacuationSystem false .
+
+# Technical Room Compartment
+fbb:TechnicalRoomCompartment1 a fbb:Compartment ;
+    fbb:containsOnlyTechnicalRooms true .
+
+fbb:TechnicalRoomCompartment2 a fbb:Compartment ;
+    fbb:containsOnlyTechnicalRooms false .
