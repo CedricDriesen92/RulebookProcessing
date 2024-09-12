@@ -3,9 +3,10 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix firebim: <http://example.com/firebim#> .
 
-fbb:CompartmentShape
+fbb:CompartmentExitRequirementShape
     a sh:NodeShape ;
     sh:targetClass fbb:Compartment ;
+    firebim:rulesource firebim:Section_2_2_1 ;
     sh:property [
         sh:path fbb:Occupancy ;
         sh:datatype xsd:integer ;
@@ -20,66 +21,60 @@ fbb:CompartmentShape
     ] ;
     sh:sparql [
         sh:message "Compartment does not have the required number of exits based on occupancy." ;
+        sh:prefixes fbb: ;
         sh:select """
-            SELECT $this
+            SELECT $this ?actualExits ?requiredExits
             WHERE {
                 $this fbb:Occupancy ?occupancy .
                 $this fbb:NumberOfExits ?actualExits .
-                BIND(IF(?occupancy < 100, 1,
-                     IF(?occupancy < 500, 2,
-                     2 + CEIL((?occupancy - 500) / 1000))) AS ?requiredExits)
+                BIND(
+                    IF(?occupancy < 100, 1,
+                        IF(?occupancy < 500, 2,
+                            2 + CEIL((?occupancy - 500) / 1000)
+                        )
+                    ) AS ?requiredExits
+                )
                 FILTER(?actualExits < ?requiredExits)
             }
-        """ ;
-    ] ;
-    firebim:rulesource firebim:CompartmentExitRequirement .
+        """
+    ] .
 
-fbb:DoorShape
+fbb:DoorFireExitShape
     a sh:NodeShape ;
     sh:targetClass fbb:Door ;
+    firebim:rulesource firebim:Section_2_2_1 ;
     sh:property [
         sh:path fbb:IsFireExit ;
         sh:datatype xsd:boolean ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
-    ] ;
-    firebim:rulesource firebim:FireExitDoorRequirement .
+    ] .
 
-fbb:BuildingShape
+fbb:BuildingAssessmentShape
     a sh:NodeShape ;
     sh:targetClass fbb:Building ;
-    sh:property [
-        sh:path fbb:hasCompartment ;
-        sh:nodeKind sh:IRI ;
-        sh:class fbb:Compartment ;
-        sh:minCount 1 ;
-    ] ;
-    sh:property [
-        sh:path fbb:hasDoor ;
-        sh:nodeKind sh:IRI ;
-        sh:class fbb:Door ;
-        sh:minCount 1 ;
-    ] ;
+    firebim:rulesource firebim:Section_2_2_1 ;
     sh:sparql [
-        sh:message "Building does not have the correct number of fire exits." ;
+        sh:message "Building does not have the required number of fire exits." ;
+        sh:prefixes fbb: ;
         sh:select """
-            SELECT $this
+            SELECT $this (COUNT(DISTINCT ?door) AS ?fireExits) (SUM(?requiredExits) AS ?totalRequired)
             WHERE {
-                $this fbb:hasCompartment ?compartment .
-                ?compartment fbb:Occupancy ?totalOccupancy .
-                {
-                    SELECT $this (COUNT(?fireExit) AS ?actualFireExits)
-                    WHERE {
-                        $this fbb:hasDoor ?door .
-                        ?door fbb:IsFireExit true .
-                    }
-                    GROUP BY $this
+                $this fbb:containsCompartment ?compartment .
+                ?compartment fbb:Occupancy ?occupancy .
+                BIND(
+                    IF(?occupancy < 100, 1,
+                        IF(?occupancy < 500, 2,
+                            2 + CEIL((?occupancy - 500) / 1000)
+                        )
+                    ) AS ?requiredExits
+                )
+                OPTIONAL {
+                    $this fbb:hasDoor ?door .
+                    ?door fbb:IsFireExit true .
                 }
-                BIND(IF(?totalOccupancy < 100, 1,
-                     IF(?totalOccupancy < 500, 2,
-                     2 + CEIL((?totalOccupancy - 500) / 1000))) AS ?requiredExits)
-                FILTER(?actualFireExits < ?requiredExits)
             }
-        """ ;
-    ] ;
-    firebim:rulesource firebim:BuildingFireExitRequirement .
+            GROUP BY $this
+            HAVING (?fireExits < ?totalRequired)
+        """
+    ] .

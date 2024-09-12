@@ -36,19 +36,42 @@ def get_member_text(document_graph, member_id):
     return str(original_text) if original_text else "Original text not found"
 
 def parse_member_references(shapes_graph):
+    firebim = Namespace("http://example.com/firebim#")
     ex = Namespace("http://example.org/")
     sh = Namespace("http://www.w3.org/ns/shacl#")
     member_refs = {}
     
     for shape, p, o in shapes_graph.triples((None, RDF.type, sh.NodeShape)):
-        member_id = shapes_graph.value(subject=shape, predicate=ex.validatesMember)
-        if member_id:
+        member_id = shapes_graph.value(subject=shape, predicate=firebim.rulesource)
+        if member_id and 'Member' in member_id:
             member_refs[str(shape)] = str(member_id)
             # Also map property shapes to the same member ID
             for prop_shape in shapes_graph.objects(shape, sh.property):
                 member_refs[str(prop_shape)] = str(member_id)
-    
+    print(member_refs)
     return member_refs
+
+def get_section_text(document_graph, section_id):
+    firebim = Namespace("http://example.com/firebim#")
+    section_uri = URIRef(f"http://example.com/firebim#Section_{section_id.replace('.', '_')}")
+    original_text = document_graph.value(subject=section_uri, predicate=firebim.hasOriginalText)
+    return str(original_text) if original_text else "Original text not found"
+
+def parse_section_references(shapes_graph):
+    firebim = Namespace("http://example.com/firebim#")
+    ex = Namespace("http://example.org/")
+    sh = Namespace("http://www.w3.org/ns/shacl#")
+    section_refs = {}
+    
+    for shape, p, o in shapes_graph.triples((None, RDF.type, sh.NodeShape)):
+        section_id = shapes_graph.value(subject=shape, predicate=firebim.rulesource)
+        if section_id and 'Section' in section_id:
+            section_refs[str(shape)] = str(section_id)
+            # Also map property shapes to the same section ID
+            for prop_shape in shapes_graph.objects(shape, sh.property):
+                section_refs[str(prop_shape)] = str(section_id)
+    print(section_refs)
+    return section_refs
 
 def find_parent_shape(results_graph, shape):
     sh = Namespace("http://www.w3.org/ns/shacl#")
@@ -57,7 +80,7 @@ def find_parent_shape(results_graph, shape):
             return parent
     return None
 
-def process_validation_results(results_graph, member_refs, document_graph, html_file_name):
+def process_validation_results(results_graph, member_refs, section_refs, document_graph, html_file_name):
     sh = Namespace("http://www.w3.org/ns/shacl#")
     processed_results = []
     
@@ -73,20 +96,41 @@ def process_validation_results(results_graph, member_refs, document_graph, html_
         if member_id is None:
             parent_shape = find_parent_shape(results_graph, source_shape)
             if parent_shape:
-                member_id = member_refs.get(str(parent_shape), "Unknown")
-            else:
-                member_id = "Unknown"
+                member_id = member_refs.get(str(parent_shape), None)
         
+        # Try to find the section ID directly
+        section_id = section_refs.get(source_shape_str, None)
+
+        # If not found, try to find the parent shape
+        if section_id is None:
+            parent_shape = find_parent_shape(results_graph, source_shape)
+            if parent_shape:
+                section_id = section_refs.get(str(parent_shape), None)
+
+        if member_id is None:
+            member_id = "Unknown"
+        if section_id is None:
+            section_id = "Unknown"
+
         focus_node = results_graph.value(subject=result, predicate=sh.focusNode)
         result_message = results_graph.value(subject=result, predicate=sh.resultMessage)
-        original_text = get_member_text(document_graph, member_id) if member_id != "Unknown" else "Text not found"
         
-        # Create HTML link
-        html_link = f"{html_file_name}#member-{member_id.replace('.', '-')}" if member_id != "Unknown" else ""
+        if member_id != "Unknown":
+            original_text = get_member_text(document_graph, member_id)
+            # Create HTML link for member
+            html_link = f"{html_file_name}#member-{member_id.replace('.', '-')}"
+        elif section_id != "Unknown":
+            original_text = get_section_text(document_graph, section_id)
+            # Create HTML link for section
+            html_link = f"{html_file_name}#section-{section_id.replace('.', '-')}"
+        else:
+            original_text = "Text not found"
+            html_link = ""
         
         processed_results.append({
             "severity": severity,
             "member_id": member_id,
+            "section_id": section_id,
             "focus_node": str(focus_node),
             "message": str(result_message),
             "original_text": original_text,
@@ -113,6 +157,7 @@ if __name__ == "__main__":
     document_graph = load_document_data("combined_document_data_graph.ttl")
 
     member_refs = parse_member_references(shapes_graph)
+    section_refs = parse_section_references(shapes_graph)
     
     r = validate(data_graph, shacl_graph=shapes_graph, debug=False, inference="none", advanced=True)
     conforms, results_graph, results_text = r
@@ -122,9 +167,14 @@ if __name__ == "__main__":
     html_file_name = "fire_safety_regulations.html"
     
     if not conforms:
-        processed_results = process_validation_results(results_graph, member_refs, document_graph, html_file_name)
+        processed_results = process_validation_results(results_graph, member_refs, section_refs, document_graph, html_file_name)
         for result in processed_results:
-            print(f"Member {result['member_id']} validation failed:")
+            if result['member_id'] != "Unknown":
+                print(f"Member {result['member_id']} validation failed:")
+            elif result['section_id'] != "Unknown":
+                print(f"Section {result['section_id']} validation failed:")
+            else:
+                print("Unknown element validation failed:")
             print(f"  Severity: {result['severity']}")
             print(f"  Focus Node: {result['focus_node']}")
     #        print(f"  Message: {result['message']}")
@@ -133,6 +183,7 @@ if __name__ == "__main__":
             if result['html_link']:
                 print(f"  HTML Link: {result['html_link']}")
             print()
+
 
     # Generate a simple HTML report with clickable links
     with open("validation_report.html", "w", encoding="utf-8") as f:
@@ -148,10 +199,11 @@ if __name__ == "__main__":
             f.write(f"<h2 style='color:{violation_color}';>Severity: {result['severity'].split('#')[-1]}</h2>")
             f.write(f"<p>Focus Node: {result['focus_node'].split('/')[-1]}</p>")
             if result['html_link']:
+                f.write(f"<a href='{result['html_link']}'>Rule origin</a>")
+            if result['member_id'] != "Unknown":
                 f.write(f"<p>Member {result['member_id']}</p>")
-                f.write(f"<p>Original Text: {result['original_text']}</p>")
-                f.write(f"<p><a href='{result['html_link']}' target='_blank'>View in Document</a></p>")
-            else:
-                f.write(f"<p>Message: {result['message']}</p>")
+            elif result['section_id'] != "Unknown":
+                f.write(f"<p>Section {result['section_id']}</p>")
+            f.write(f"<p>Original Text: {result['original_text']}</p>")
             f.write("<hr>")
         f.write("</body></html>")

@@ -51,6 +51,7 @@ Important guidelines:
 6. Try to make the flowchart really pseudocode-like, close to the way a real codefile (in Python, or SHACL, or C) would do these checks.
 7. Follow the style guidelines given in the examples very closely.
 8. Make sure that the flowchart is complete, and that it EXACTLY follows the rule as presented in the text. EVERY decision and every action has to be included, and every possible path has to be shown.
+9. For actions that are vague in the text, use subcharts to make a proposal for how this should be checked. Again, see the examples and how they handle this.
 
 Objects table:
 {objects_data}

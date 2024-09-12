@@ -21,7 +21,7 @@ def load_csv(file_path):
     with open(file_path, 'r') as file:
         return list(csv.DictReader(file))
 
-def process_mmd_to_shacl(mmd_content, ontology, objects_data, properties_data):
+def process_mmd_to_shacl(mmd_content, ontology, base_name, objects_data, properties_data):
     prompt = f"""
 You are an AI assistant specialized in converting FireBIM rules represented in Mermaid (.mmd) diagram format into SHACL shapes. Your task is to create SHACL shapes that can be used to validate building graphs following the FireBIM building ontology.
 
@@ -42,16 +42,14 @@ Use the following prefixes:
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 Remember to:
-1. Create a shape for each relevant class or property in the FireBIM ontology.
+1. Make sure the shape(s) defined follow the Mermaid chart completely, making sure that it can be checked first try (this means no placeholder functions, everything should be explicit)
 2. Use sh:property to define property constraints.
 3. Use sh:sparql for complex rules that require SPARQL queries.
 4. Use sh:pyFn for rules that require Python and IfcOpenShell logic (embedding Python code as a string).
 5. Assign meaningful names to your shapes, preferably based on the section or article IDs from the original rules.
-6. Add a link to the document ontology by using sh:yourshape firebim:rulesource (use this exact term: "firebim:rulesource", the yourshape should be replaced by the relevant name) firebim:yoursource (this should link to the article the rule is from originally).
-7. Only use objects and properties from the provided tables.
-8. Use the exact URIs provided in the Mermaid diagram for all relevant entities and properties.
-9. Optimize the SHACL shapes for clarity, conciseness, and effectiveness in rule validation.
-10. Ensure that the SHACL shapes accurately capture all the logic and flow present in the Mermaid diagram.
+6. Add a link to the document ontology by using sh:yourshape firebim:rulesource (use this exact term: "firebim:rulesource", the yourshape should be replaced by the relevant name) firebim:yoursource (this should link to the section the rule is from originally, which is {base_name.capitalize()}).
+7. Use the exact URIs provided in the Mermaid diagram for all relevant entities and properties.
+8. Optimize the SHACL shapes for clarity, conciseness, and effectiveness in rule validation.
 
 Start your output with the prefix declarations mentioned above, then provide the SHACL shapes.
 """
@@ -89,7 +87,7 @@ def main():
         with open(mmd_file, 'r', encoding='utf-8') as f:
             mmd_content = f.read()
 
-        shacl_shapes = process_mmd_to_shacl(mmd_content, ontology, objects_data, properties_data)
+        shacl_shapes = process_mmd_to_shacl(mmd_content, ontology, base_name, objects_data, properties_data)
 
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(shacl_shapes)

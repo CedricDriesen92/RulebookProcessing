@@ -6,111 +6,105 @@
 fbb:CompartmentShape
     a sh:NodeShape ;
     sh:targetClass fbb:Compartment ;
+    firebim:rulesource firebim:Section_2_1 ;
     sh:property [
         sh:path fbb:Area ;
         sh:datatype xsd:decimal ;
-        sh:maxInclusive 2500 ;
     ] ;
     sh:property [
         sh:path fbb:Height ;
         sh:datatype xsd:decimal ;
     ] ;
-    sh:sparql [
-        sh:message "Ground floor compartment area must be <= 3500 m² and length <= 90 m" ;
-        sh:select """
-            SELECT $this
-            WHERE {
-                $this fbb:isOnStorey ?storey .
-                ?storey a fbb:Storey ;
-                        fbb:isGroundFloor true .
-                $this fbb:Area ?area .
-                $this fbb:Length ?length .
-                FILTER (?area > 2500 && (?area > 3500 || ?length > 90))
-            }
-        """ ;
-    ] ;
-    sh:sparql [
-        sh:message "Compartment height must equal building layer height" ;
-        sh:select """
-            SELECT $this
-            WHERE {
-                $this fbb:Height ?compHeight .
-                $this fbb:isInBuildingLayer ?layer .
-                ?layer fbb:Height ?layerHeight .
-                FILTER (?compHeight != ?layerHeight)
-            }
-        """ ;
-    ] ;
-    sh:sparql [
-        sh:message "Duplex compartment total area must be <= 2500 m²" ;
-        sh:select """
-            SELECT $this
-            WHERE {
-                $this a fbb:Duplex .
-                $this fbb:consistsOf ?floor1, ?floor2 .
-                ?floor1 fbb:Area ?area1 .
-                ?floor2 fbb:Area ?area2 .
-                BIND (?area1 + ?area2 AS ?totalArea)
-                FILTER (?totalArea > 2500)
-            }
-        """ ;
-    ] ;
-    sh:sparql [
-        sh:message "Triplex compartment total area must be <= 300 m² and have automatic fire detection" ;
-        sh:select """
-            SELECT $this
-            WHERE {
-                $this a fbb:Triplex .
-                $this fbb:consistsOf ?floor1, ?floor2, ?floor3 .
-                ?floor1 fbb:Area ?area1 .
-                ?floor2 fbb:Area ?area2 .
-                ?floor3 fbb:Area ?area3 .
-                BIND (?area1 + ?area2 + ?area3 AS ?totalArea)
-                FILTER (?totalArea > 300 || NOT EXISTS { $this fbb:hasFireDetectionSystem true })
-            }
-        """ ;
-    ] ;
-    sh:sparql [
-        sh:message "Atrium must have automatic fire extinguishing and smoke/heat evacuation systems" ;
-        sh:select """
-            SELECT $this
-            WHERE {
-                $this a fbb:Atrium .
-                FILTER NOT EXISTS { 
-                    $this fbb:hasFireExtinguishingSystem true ;
-                         fbb:hasSmokeHeatEvacuationSystem true .
-                }
-            }
-        """ ;
-    ] ;
-    firebim:rulesource firebim:compartmentRegulations .
-
-fbb:CompartmentExemptionShape
-    a sh:NodeShape ;
-    sh:targetClass fbb:Compartment ;
     sh:property [
-        sh:path fbb:Area ;
+        sh:path fbb:Length ;
         sh:datatype xsd:decimal ;
-        sh:maxInclusive 3500 ;
     ] ;
-    sh:property [
-        sh:path fbb:hasFireExtinguishingSystem ;
-        sh:datatype xsd:boolean ;
-        sh:hasValue true ;
+    sh:sparql [
+        sh:message "Compartment area or length exceeds limits" ;
+        sh:prefixes fbb: ;
+        sh:select """
+            SELECT $this ?area ?storey ?length ?hasFireExtinguishing ?hasSmokeEvacuation
+            WHERE {
+                $this fbb:Area ?area .
+                OPTIONAL { $this fbb:isOnStorey ?storey . }
+                OPTIONAL { $this fbb:Length ?length . }
+                OPTIONAL { $this fbb:hasAutomaticFireExtinguishingSystem ?hasFireExtinguishing . }
+                OPTIONAL { $this fbb:hasSmokeAndHeatEvacuationSystem ?hasSmokeEvacuation . }
+                FILTER (
+                    ?area > 2500 &&
+                    (
+                        (!BOUND(?storey) || ?storey != fbb:GroundFloor) ||
+                        (
+                            ?storey = fbb:GroundFloor &&
+                            (
+                                ?area > 3500 &&
+                                (?length > 90) ||
+                                ?area <= 3500 && 
+                                ((!BOUND(?hasFireExtinguishing) || !?hasFireExtinguishing) ||
+                                (!BOUND(?hasSmokeEvacuation) || !?hasSmokeEvacuation))
+                            )
+                        )
+                    )
+                )
+            }
+        """ ;
     ] ;
-    sh:property [
-        sh:path fbb:hasSmokeHeatEvacuationSystem ;
-        sh:datatype xsd:boolean ;
-        sh:hasValue true ;
+    sh:sparql [
+        sh:message "Compartment height does not meet requirements" ;
+        sh:prefixes fbb: ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fbb:Height ?height .
+                $this fbb:isInBuilding ?building .
+                ?building fbb:Height ?buildingHeight .
+                FILTER (
+                    ?height != ?buildingHeight &&
+                    NOT EXISTS {
+                        { $this fbb:isParking true }
+                        UNION
+                        { $this fbb:isDuplex true }
+                        UNION
+                        { $this fbb:isTriplex true }
+                        UNION
+                        { $this fbb:containsOnlyTechnicalRooms true }
+                        UNION
+                        {
+                            $this fbb:isAtrium true .
+                            $this fbb:hasAutomaticFireExtinguishingSystem true .
+                            $this fbb:hasSmokeAndHeatEvacuationSystem true .
+                        }
+                    }
+                )
+            }
+        """ ;
     ] ;
-    firebim:rulesource firebim:compartmentExemptions .
-
-fbb:TechnicalRoomCompartmentShape
-    a sh:NodeShape ;
-    sh:targetClass fbb:Compartment ;
-    sh:property [
-        sh:path fbb:containsOnlyTechnicalRooms ;
-        sh:datatype xsd:boolean ;
-        sh:hasValue true ;
+    sh:sparql [
+        sh:message "Duplex compartment area exceeds limits" ;
+        sh:prefixes fbb: ;
+        sh:select """
+            SELECT $this (SUM(?floorArea) AS ?totalArea)
+            WHERE {
+                $this fbb:isDuplex true .
+                $this fbb:hasFloor ?floor .
+                ?floor fbb:Area ?floorArea .
+            }
+            GROUP BY $this
+            HAVING (?totalArea > 2500)
+        """ ;
     ] ;
-    firebim:rulesource firebim:technicalRoomExemptions .
+    sh:sparql [
+        sh:message "Triplex compartment does not meet requirements" ;
+        sh:prefixes fbb: ;
+        sh:select """
+            SELECT $this (SUM(?floorArea) AS ?totalArea)
+            WHERE {
+                $this fbb:isTriplex true .
+                $this fbb:hasFloor ?floor .
+                ?floor fbb:Area ?floorArea .
+                OPTIONAL { $this fbb:hasAutomaticFireDetectionSystem ?hasDetection . }
+            }
+            GROUP BY $this
+            HAVING (?totalArea > 300 || !BOUND(?hasDetection) || !?hasDetection)
+        """ ;
+    ] .

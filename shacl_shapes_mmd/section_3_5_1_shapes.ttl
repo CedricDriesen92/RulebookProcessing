@@ -2,146 +2,226 @@
 @prefix fbb: <http://example.com/firebimbuilding#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix bot: <https://w3id.org/bot#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix firebim: <http://example.org/firebim#> .
 
 fbb:CurtainWallShape
     a sh:NodeShape ;
     sh:targetClass fbb:CurtainWall ;
+    firebim:rulesource firebim:Section_3_5_1 ;
     sh:property [
-        sh:path fbb:attachmentToBuildingSkeleton ;
-        sh:minCount 1 ;
+        sh:path fbb:attachmentToSkeleton ;
+        sh:sparql [
+            sh:message "Curtain wall must be properly attached to building skeleton" ;
+            sh:select """
+                SELECT $this
+                WHERE {
+                    $this fbb:attachmentToSkeleton ?attachment .
+                    {
+                        ?building fbb:hasFireExtinguishingSystem true .
+                    } UNION {
+                        ?attachment fbb:fireResistance ?resistance .
+                        FILTER(?resistance >= "PT3600S"^^xsd:duration)
+                    }
+                }
+            """
+        ]
     ] ;
     sh:property [
         sh:path fbb:linearJointAtFacade ;
-        sh:minCount 1 ;
+        sh:sparql [
+            sh:message "Linear joint at facade must be sealed against cold smoke" ;
+            sh:select """
+                SELECT $this
+                WHERE {
+                    $this fbb:linearJointAtFacade ?joint .
+                    ?joint fbb:sealedAgainstColdSmoke true .
+                }
+            """
+        ]
     ] ;
     sh:property [
         sh:path fbb:connectionToCompartmentWall ;
-        sh:minCount 1 ;
-    ] ;
-    sh:sparql [
-        sh:message "Curtain wall must meet fire resistance requirements" ;
-        sh:select """
-            SELECT $this
-            WHERE {
-                $this fbb:attachmentToBuildingSkeleton ?attachment .
-                $this fbb:buildingHasAutomaticFireExtinguishingSystem ?hasSystem .
-                FILTER NOT EXISTS {
-                    ?hasSystem fbb:value true .
+        sh:sparql [
+            sh:message "Connection of compartment walls with facade must meet fire resistance requirements" ;
+            sh:select """
+                SELECT $this
+                WHERE {
+                    $this fbb:connectionToCompartmentWall ?connection .
+                    {
+                        ?connection fbb:linearJointWidth ?width .
+                        FILTER(?width <= 0.02)
+                        ?connection fbb:fireResistance ?resistance .
+                        FILTER(?resistance = "EI60"^^xsd:string || ?resistance = "EI60(i→o)"^^xsd:string)
+                    } UNION {
+                        ?connection fbb:linearJointWidth ?width .
+                        FILTER(?width > 0.02)
+                    }
                 }
-                FILTER NOT EXISTS {
-                    ?attachment fbb:fireResistance ?resistance .
-                    FILTER(?resistance = "R 60")
-                }
-            }
-        """
-    ] ;
-    sh:sparql [
-        sh:message "Linear joint at facade must be sealed against cold smoke" ;
-        sh:select """
-            SELECT $this
-            WHERE {
-                $this fbb:linearJointAtFacade ?joint .
-                FILTER NOT EXISTS {
-                    ?joint fbb:sealedAgainstColdSmoke true .
-                }
-            }
-        """
-    ] ;
-    sh:sparql [
-        sh:message "Connection of compartment walls with facade must meet fire resistance requirements" ;
-        sh:select """
-            SELECT $this
-            WHERE {
-                $this fbb:connectionToCompartmentWall ?connection .
-                ?connection fbb:jointWidth ?width .
-                FILTER(?width <= 20)
-                FILTER NOT EXISTS {
-                    ?connection fbb:fireResistance ?resistance .
-                    FILTER(?resistance = "EI 60" || ?resistance = "EI 60 (i→o)")
-                }
-            }
-        """
-    ] ;
-    firebim:rulesource firebim:CurtainWallRegulation .
+            """
+        ]
+    ] .
 
 fbb:OpposingFacadesShape
     a sh:NodeShape ;
     sh:targetClass fbb:CurtainWall ;
+    firebim:rulesource firebim:Section_3_5_1 ;
     sh:sparql [
         sh:message "Opposing facades must meet fire resistance and distance requirements" ;
         sh:select """
-            SELECT $this ?other
+            SELECT $this ?otherWall
             WHERE {
                 $this a fbb:CurtainWall .
-                ?other a fbb:CurtainWall .
-                FILTER($this != ?other)
-                FILTER NOT EXISTS {
+                ?otherWall a fbb:CurtainWall .
+                FILTER($this != ?otherWall)
+                $this fbb:facesOrFormsAngleWith ?otherWall .
+                
+                OPTIONAL {
                     $this fbb:fireResistance ?resistance1 .
-                    ?other fbb:fireResistance ?resistance2 .
-                    FILTER(?resistance1 IN ("E 30", "E 30 (o→i)") && ?resistance2 IN ("E 30", "E 30 (o→i)"))
+                    ?otherWall fbb:fireResistance ?resistance2 .
+                    FILTER(?resistance1 IN ("E30", "E30(o→i)") && ?resistance2 IN ("E30", "E30(o→i)"))
                 }
+                
+                BIND(EXISTS { $this fbb:fireResistance ?r1 . ?otherWall fbb:fireResistance ?r2 . 
+                              FILTER(?r1 IN ("E30", "E30(o→i)") && ?r2 IN ("E30", "E30(o→i)")) } AS ?hasRequiredResistance)
+                
+                FILTER(!?hasRequiredResistance)
             }
         """
     ] ;
     sh:pyFn """
-import ifcopenshell
 import math
+import ifcopenshell
 
-def validate(data_graph, focus_node):
-    ifc_file = ifcopenshell.open(data_graph.value(focus_node, fbb.ifcFilePath, None))
-    wall1 = ifc_file.by_guid(focus_node)
-    wall2 = ifc_file.by_guid(data_graph.value(focus_node, fbb.opposingWall, None))
+def validate(data_graph, shacl_graph, focus_node, value_node):
+    ifc_file = ifcopenshell.open("path/to/ifc/file.ifc")  # Replace with actual IFC file path
     
-    placement1 = wall1.ObjectPlacement
-    placement2 = wall2.ObjectPlacement
-    axis1 = placement1.RelativePlacement
-    axis2 = placement2.RelativePlacement
-    normal1 = axis1.RefDirection.DirectionRatios
-    normal2 = axis2.RefDirection.DirectionRatios
+    def get_normal_vector(curtain_wall):
+        placement = curtain_wall.ObjectPlacement
+        if isinstance(placement, ifcopenshell.entity_instance) and placement.is_a("IfcLocalPlacement"):
+            axis2placement3d = placement.RelativePlacement
+            if isinstance(axis2placement3d, ifcopenshell.entity_instance) and axis2placement3d.is_a("IfcAxis2Placement3D"):
+                return axis2placement3d.RefDirection.DirectionRatios
+        return None
+
+    def calculate_angle(v1, v2):
+        dot_product = sum(a*b for a, b in zip(v1, v2))
+        magnitudes = math.sqrt(sum(a*a for a in v1)) * math.sqrt(sum(b*b for b in v2))
+        return math.degrees(math.acos(dot_product / magnitudes))
+
+    def calculate_minimum_distance(height, angle):
+        if 0 <= angle <= 90:
+            return (height + 10 * math.cos(math.radians(angle))) / 2.5
+        elif 90 < angle <= 180:
+            return 0
+        else:
+            return None
+
+    curtain_wall1 = ifc_file.by_guid(focus_node)
+    curtain_wall2 = ifc_file.by_guid(value_node)
     
-    dot_product = sum(a*b for a, b in zip(normal1, normal2))
-    angle = math.acos(dot_product)
-    
-    building_height = data_graph.value(None, fbb.Height, None)
-    
-    if 0 <= angle <= math.pi/2:
-        min_distance = (building_height + 10 * math.cos(angle)) / 2.5
-    elif math.pi/2 < angle <= math.pi:
-        min_distance = 0
-    else:
+    if not (curtain_wall1 and curtain_wall2):
         return False
     
-    actual_distance = math.sqrt(sum((a-b)**2 for a, b in zip(placement1.Location.Coordinates, placement2.Location.Coordinates)))
+    v1 = get_normal_vector(curtain_wall1)
+    v2 = get_normal_vector(curtain_wall2)
     
-    return actual_distance >= min_distance
-    """ ;
-    sh:pyFn """
-import ifcopenshell
-import math
+    if not (v1 and v2):
+        return False
+    
+    angle = calculate_angle(v1, v2)
+    building_height = data_graph.value(None, fbb.Height, None)
+    
+    if not building_height:
+        return False
+    
+    min_distance = calculate_minimum_distance(float(building_height), angle)
+    
+    if min_distance is None:
+        return False
+    
+    actual_distance = data_graph.value(focus_node, fbb.distanceTo, value_node)
+    
+    if not actual_distance:
+        return False
+    
+    return float(actual_distance) >= min_distance
 
-def validate(data_graph, focus_node):
-    ifc_file = ifcopenshell.open(data_graph.value(focus_node, fbb.ifcFilePath, None))
-    wall1 = ifc_file.by_guid(focus_node)
-    wall2 = ifc_file.by_guid(data_graph.value(focus_node, fbb.opposingWall, None))
+return validate(data_graph, shacl_graph, focus_node, value_node)
+"""
+    ] ;
+    sh:pyFn """
+import math
+import ifcopenshell
+
+def validate(data_graph, shacl_graph, focus_node, value_node):
+    ifc_file = ifcopenshell.open("path/to/ifc/file.ifc")  # Replace with actual IFC file path
     
-    def calculate_radiation(face1, face2, distance):
-        area1 = face1.Area
-        area2 = face2.Area
-        view_factor = area1 / (math.pi * distance**2)
-        emissivity1 = data_graph.value(focus_node, fbb.emissivity, None)
-        emissivity2 = data_graph.value(data_graph.value(focus_node, fbb.opposingWall, None), fbb.emissivity, None)
-        sigma = 5.67e-8  # Stefan-Boltzmann constant
-        temperature1 = data_graph.value(focus_node, fbb.temperature, None)
-        temperature2 = data_graph.value(data_graph.value(focus_node, fbb.opposingWall, None), fbb.temperature, None)
-        return sigma * view_factor * emissivity1 * emissivity2 * (temperature1**4 - temperature2**4)
+    def get_facing_surfaces(curtain_wall):
+        shape = curtain_wall.Representation
+        if isinstance(shape, ifcopenshell.entity_instance) and shape.is_a("IfcProductDefinitionShape"):
+            for representation in shape.Representations:
+                if representation.is_a("IfcShapeRepresentation") and representation.RepresentationType == 'Brep':
+                    return [item for item in representation.Items if item.is_a("IfcFacetedBrep")]
+        return []
+
+    def calculate_surface_area(face):
+        # Simplified area calculation, assumes planar surface
+        points = face.Bounds[0].Bound.Polygon
+        if len(points) < 3:
+            return 0
+        area = 0
+        for i in range(len(points)):
+            j = (i + 1) % len(points)
+            area += points[i].X * points[j].Y - points[j].X * points[i].Y
+        return abs(area) / 2
+
+    def calculate_view_factor(area1, area2, distance):
+        return area1 * area2 / (math.pi * distance**2 * (area1 + area2))
+
+    def get_emissivity(material):
+        if material and hasattr(material, 'ThermalProperties'):
+            return material.ThermalProperties.Emissivity
+        return 0.9  # Default emissivity if not specified
+
+    curtain_wall1 = ifc_file.by_guid(focus_node)
+    curtain_wall2 = ifc_file.by_guid(value_node)
     
-    total_radiation = sum(calculate_radiation(face1, face2, distance)
-                          for face1 in wall1.Representation.Representations[0].Items
-                          for face2 in wall2.Representation.Representations[0].Items
-                          for distance in [math.sqrt(sum((a-b)**2 for a, b in zip(face1.OuterBound.Bound.Position.Location.Coordinates,
-                                                                                   face2.OuterBound.Bound.Position.Location.Coordinates)))])
+    if not (curtain_wall1 and curtain_wall2):
+        return False
+    
+    surfaces1 = get_facing_surfaces(curtain_wall1)
+    surfaces2 = get_facing_surfaces(curtain_wall2)
+    
+    total_radiation = 0
+    stefan_boltzmann = 5.67e-8  # W/(m^2·K^4)
+    
+    for surface1 in surfaces1:
+        for surface2 in surfaces2:
+            area1 = calculate_surface_area(surface1)
+            area2 = calculate_surface_area(surface2)
+            distance = data_graph.value(focus_node, fbb.distanceTo, value_node)
+            
+            if not distance:
+                return False
+            
+            view_factor = calculate_view_factor(area1, area2, float(distance))
+            
+            material1 = curtain_wall1.Material
+            material2 = curtain_wall2.Material
+            emissivity1 = get_emissivity(material1)
+            emissivity2 = get_emissivity(material2)
+            
+            temperature1 = data_graph.value(focus_node, fbb.temperature, None)
+            temperature2 = data_graph.value(value_node, fbb.temperature, None)
+            
+            if not (temperature1 and temperature2):
+                return False
+            
+            radiation = stefan_boltzmann * view_factor * emissivity1 * emissivity2 * (float(temperature1)**4 - float(temperature2)**4)
+            total_radiation += radiation
     
     return total_radiation <= 15000  # 15 kW/m²
-    """ ;
-    firebim:rulesource firebim:OpposingFacadesRegulation .
+
+return validate(data_graph, shacl_graph, focus_node, value_node)
+"""
+    ] .
