@@ -1,0 +1,27 @@
+flowchart TD
+    S1["Start: Building Assessment"] --> A{"Is building an extension?"}
+    A -- Yes --> B{"Application submitted after Dec 1, 2012?"}
+    A -- No --> C[/"Not applicable"/]
+    B -- Yes --> D{"Is it a <a href="http://example.com/firebimbuilding#Building" style="color:pink;">Building</a> with low height?"}
+    B -- No --> C
+    D -- Yes --> E[/"Applicable"/]
+    D -- No --> F{"After extension, is it a <a href="http://example.com/firebimbuilding#Building" style="color:pink;">Building</a> with low height?"}
+    F -- Yes --> E
+    F -- No --> G{"Does it contain industrial activity?"}
+    G -- Yes --> H{"Get total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of industrial activity"}
+    G -- No --> C
+    H --> I{"Industrial activity <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 500 m²?"}
+    I -- Yes --> J{"Is industrial activity secondary?"}
+    I -- No --> C
+    J -- Yes --> K{"Do industrial activities support non-industrial activities?"}
+    J -- No --> C
+    K -- Yes --> L{"Any <a href="http://example.com/firebimbuilding#Compartment" style="color:pink;">Compartment</a> with <a href="http://example.com/firebimbuilding#HasNightTimeOccupancy" style="color:blue;">Has nighttime occupancy?</a> in industrial compartment?"}
+    K -- No --> C
+    L -- No --> E
+    L -- Yes --> C
+    S1:::startClass
+    C:::failClass
+    E:::passClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#ff9,stroke:#333,stroke-width:2px

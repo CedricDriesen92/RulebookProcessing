@@ -1,0 +1,68 @@
+flowchart TD
+    S1["Start: Machine Room and Shaft Check"] --> A{"For each <a href='http://example.com/firebimbuilding#Space' style='color:pink;'>Space</a> that is a machine room"}
+    A --> B{"Is machine room located at top of shaft?"}
+    B -- Yes --> C[/"Pass"/]
+    B -- No --> D[/"Fail"/]
+    A --> E{"Check <a href='http://example.com/firebimbuilding#Wall' style='color:pink;'>Wall</a>s of machine room and shaft"}
+    E --> F{"Do interior walls have <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a> EI 60?"}
+    F -- Yes --> G[/"Pass"/]
+    F -- No --> H[/"Fail"/]
+    A --> I{"Check <a href='http://example.com/firebimbuilding#Door' style='color:pink;'>Door</a>s of machine room"}
+    I --> J{"Do interior access doors have <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a> EI1 30?"}
+    J -- Yes --> K[/"Pass"/]
+    J -- No --> L[/"Fail"/]
+    S2["Start: Shaft Wall Check"] --> M{"For each <a href='http://example.com/firebimbuilding#Wall' style='color:pink;'>Wall</a> of shaft"}
+    M --> N{"Is wall facing landing?"}
+    N -- Yes --> O{"Does wall have <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a> EI 30?"}
+    O -- Yes --> P[/"Pass"/]
+    O -- No --> Q[/"Fail"/]
+    N -- No --> R{"Do inspection hatches have <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a> EI 30?"}
+    R -- Yes --> S[/"Pass"/]
+    R -- No --> T[/"Fail"/]
+    S3["Start: Shaft Door Check"] --> U{"For each <a href='http://example.com/firebimbuilding#Door' style='color:pink;'>Door</a> or access hatch of shaft"}
+    U --> V{"Is door/hatch automatic?"}
+    V -- Yes --> W{"Is door/hatch normally closed?"}
+    W -- Yes --> X[/"Pass"/]
+    W -- No --> Y[/"Fail"/]
+    V -- No --> Y
+    S4["Start: Container Transport Check"] --> Z{"For each container transport system"}
+    Z --> AA{"Does system cross building layers, floors, or compartments?"}
+    AA -- Yes --> AB{"Are doors provided at each crossing?"}
+    AB -- Yes --> AC{"Do hatches and small doors have <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a> E 30?"}
+    AC -- Yes --> AD{"Are doors automatic?"}
+    AD -- Yes --> AE{"Are doors normally closed?"}
+    AE -- Yes --> AF[/"Pass"/]
+    AE -- No --> AG[/"Fail"/]
+    AD -- No --> AG
+    AC -- No --> AG
+    AB -- No --> AG
+    AA -- No --> AH[/"Pass"/]
+    S5["Start: Fire Situation Check"] --> AI{"In case of fire"}
+    AI --> AJ{"Are all installations taken out of service?"}
+    AJ -- Yes --> AK[/"Pass"/]
+    AJ -- No --> AL[/"Fail"/]
+    S1:::startClass
+    S2:::startClass
+    S3:::startClass
+    S4:::startClass
+    S5:::startClass
+    C:::passClass
+    D:::failClass
+    G:::passClass
+    H:::failClass
+    K:::passClass
+    L:::failClass
+    P:::passClass
+    Q:::failClass
+    S:::passClass
+    T:::failClass
+    X:::passClass
+    Y:::failClass
+    AF:::passClass
+    AG:::failClass
+    AH:::passClass
+    AK:::passClass
+    AL:::failClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px

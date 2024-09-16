@@ -1,0 +1,49 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix firebim: <http://example.com/firebim#> .
+
+fbb:StairShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Stair ;
+    firebim:rulesource firebim:Section_4_2_1 ;
+    sh:sparql [
+        sh:message "Stair connecting multiple compartments must be enclosed and comply with section 2 principles." ;
+        sh:prefixes fbb: ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this a fbb:Stair .
+                {
+                    SELECT $this (COUNT(DISTINCT ?compartment) AS ?compartmentCount)
+                    WHERE {
+                        $this fbb:connects ?compartment .
+                        ?compartment a fbb:Compartment .
+                    }
+                    GROUP BY $this
+                }
+                FILTER(?compartmentCount > 1)
+                FILTER NOT EXISTS {
+                    $this fbb:isEnclosed true .
+                    $this fbb:compliesWithSection2Principles true .
+                }
+            }
+        """
+    ] ;
+    sh:property [
+        sh:path fbb:isEnclosed ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path fbb:compliesWithSection2Principles ;
+        sh:datatype xsd:boolean ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path fbb:connects ;
+        sh:class fbb:Compartment ;
+        sh:minCount 1 ;
+    ] .

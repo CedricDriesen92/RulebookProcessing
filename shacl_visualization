@@ -1,0 +1,96 @@
+// SHACL Shapes
+digraph {
+	na5564ec7b3cd40999d7ba565ab9cd8ddb13 -> https:"//w3id.org/bot#hasStorey" [label="http://www.w3.org/ns/shacl#path"]
+	http:"//example.com/firebimbuilding#ParkingStructureShape" -> na5564ec7b3cd40999d7ba565ab9cd8ddb1 [label="http://www.w3.org/ns/shacl#property"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb6 -> http:"//www.w3.org/2001/XMLSchema#integer" [label="http://www.w3.org/ns/shacl#datatype"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb15 -> http:"//www.w3.org/2001/XMLSchema#integer" [label="http://www.w3.org/ns/shacl#datatype"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb14 -> na5564ec7b3cd40999d7ba565ab9cd8ddb15 [label="http://www.w3.org/ns/shacl#property"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb13 -> "Open level floors and ramps must have Fire Resistance â‰¥ REI 60" [label="http://www.w3.org/ns/shacl#message"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb11 -> "Roof structural elements must have Fire Resistance â‰¥ R 30 or be separated by EI 30 element" [label="http://www.w3.org/ns/shacl#message"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb2 -> na5564ec7b3cd40999d7ba565ab9cd8ddb3 [label="http://www.w3.org/ns/shacl#property"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb4 -> "Floors and ramps of parking must have Fire Resistance â‰¥ R 120" [label="http://www.w3.org/ns/shacl#message"]
+	http:"//example.com/firebimbuilding#ParkingStructureShape" -> http:"//www.w3.org/ns/shacl#NodeShape" [label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	http:"//example.com/firebimbuilding#RoofShape" -> na5564ec7b3cd40999d7ba565ab9cd8ddb11 [label="http://www.w3.org/ns/shacl#sparql"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb2 -> https:"//w3id.org/bot#Element" [label="http://www.w3.org/ns/shacl#class"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb1 -> 1 [label="http://www.w3.org/ns/shacl#qualifiedMinCount"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb16 -> "
+            SELECT $this
+            WHERE {
+                $this fbb":"isOpenLevel true .
+                $this bot":hasElement ?element .
+                ?element fbb:supportsOtherCompartment true .
+            }
+         [label="http://www.w3.org/ns/shacl#select"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb12 -> http:"//example.com/firebimbuilding#isOpenLevel" [label="http://www.w3.org/ns/shacl#path"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb13 -> na5564ec7b3cd40999d7ba565ab9cd8ddb14 [label="http://www.w3.org/ns/shacl#qualifiedValueShape"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb4 -> https:"//w3id.org/bot#hasStorey" [label="http://www.w3.org/ns/shacl#path"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb14 -> https:"//w3id.org/bot#Storey" [label="http://www.w3.org/ns/shacl#class"]
+	http:"//example.com/firebimbuilding#ParkingStructureShape" -> na5564ec7b3cd40999d7ba565ab9cd8ddb8 [label="http://www.w3.org/ns/shacl#property"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb3 -> 120 [label="http://www.w3.org/ns/shacl#minInclusive"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb3 -> http:"//www.w3.org/2001/XMLSchema#integer" [label="http://www.w3.org/ns/shacl#datatype"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb15 -> 60 [label="http://www.w3.org/ns/shacl#minInclusive"]
+	http:"//example.com/firebimbuilding#OpenLevelParkingShape" -> http:"//example.com/firebimbuilding#Parking" [label="http://www.w3.org/ns/shacl#targetClass"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb16 -> http:"//example.com/firebimbuilding#" [label="http://www.w3.org/ns/shacl#prefixes"]
+	http:"//example.com/firebimbuilding#ParkingStructureShape" -> na5564ec7b3cd40999d7ba565ab9cd8ddb4 [label="http://www.w3.org/ns/shacl#property"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb7 -> 1 [label="http://www.w3.org/ns/shacl#qualifiedMinCount"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb11 -> "
+            SELECT $this
+            WHERE {
+                $this fbb":"protectsOnlyAgainstWeather true .
+                $this bot":hasElement ?element .
+                FILTER NOT EXISTS {
+                    ?element fbb:FireResistance ?resistance .
+                    FILTER (?resistance >= 30)
+                }
+                FILTER NOT EXISTS {
+                    $this fbb:separatedByElement ?separatingElement .
+                    ?separatingElement fbb:FireResistance ?sepResistance .
+                    FILTER (?sepResistance >= 30)
+                }
+            }
+         [label="http://www.w3.org/ns/shacl#select"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb1 -> "Structural elements of parking must have Fire Resistance â‰¥ R 120" [label="http://www.w3.org/ns/shacl#message"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb8 -> http:"//example.com/firebimbuilding#isOpenLevel" [label="http://www.w3.org/ns/shacl#path"]
+	http:"//example.com/firebimbuilding#OpenLevelParkingShape" -> na5564ec7b3cd40999d7ba565ab9cd8ddb16 [label="http://www.w3.org/ns/shacl#sparql"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb16 -> "Structural elements supporting other compartments must follow general building rules" [label="http://www.w3.org/ns/shacl#message"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb7 -> http:"//example.com/firebimbuilding#hasRoof" [label="http://www.w3.org/ns/shacl#path"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb1 -> https:"//w3id.org/bot#hasElement" [label="http://www.w3.org/ns/shacl#path"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb7 -> http:"//example.com/firebimbuilding#RoofShape" [label="http://www.w3.org/ns/shacl#qualifiedValueShape"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb6 -> http:"//example.com/firebimbuilding#FireResistance" [label="http://www.w3.org/ns/shacl#path"]
+	http:"//example.com/firebimbuilding#RoofShape" -> http:"//www.w3.org/ns/shacl#NodeShape" [label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	http:"//example.com/firebimbuilding#OpenLevelParkingShape" -> na5564ec7b3cd40999d7ba565ab9cd8ddb12 [label="http://www.w3.org/ns/shacl#property"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb15 -> http:"//example.com/firebimbuilding#FireResistance" [label="http://www.w3.org/ns/shacl#path"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb10 -> http:"//example.com/firebimbuilding#protectsOnlyAgainstWeather" [label="http://www.w3.org/ns/shacl#path"]
+	http:"//example.com/firebimbuilding#ParkingStructureShape" -> http:"//example.com/firebim#Section_5_2_1" [label="http://example.com/firebim#rulesource"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb1 -> na5564ec7b3cd40999d7ba565ab9cd8ddb2 [label="http://www.w3.org/ns/shacl#qualifiedValueShape"]
+	http:"//example.com/firebimbuilding#ParkingStructureShape" -> na5564ec7b3cd40999d7ba565ab9cd8ddb9 [label="http://www.w3.org/ns/shacl#sparql"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb13 -> 1 [label="http://www.w3.org/ns/shacl#qualifiedMinCount"]
+	http:"//example.com/firebimbuilding#ParkingStructureShape" -> http:"//example.com/firebimbuilding#Parking" [label="http://www.w3.org/ns/shacl#targetClass"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb5 -> na5564ec7b3cd40999d7ba565ab9cd8ddb6 [label="http://www.w3.org/ns/shacl#property"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb12 -> true [label="http://www.w3.org/ns/shacl#hasValue"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb8 -> http:"//www.w3.org/2001/XMLSchema#boolean" [label="http://www.w3.org/ns/shacl#datatype"]
+	http:"//example.com/firebimbuilding#OpenLevelParkingShape" -> http:"//www.w3.org/ns/shacl#NodeShape" [label="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb4 -> 1 [label="http://www.w3.org/ns/shacl#qualifiedMinCount"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb9 -> "Open parking levels must follow specific rules" [label="http://www.w3.org/ns/shacl#message"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb3 -> http:"//example.com/firebimbuilding#FireResistance" [label="http://www.w3.org/ns/shacl#path"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb10 -> http:"//www.w3.org/2001/XMLSchema#boolean" [label="http://www.w3.org/ns/shacl#datatype"]
+	http:"//example.com/firebimbuilding#OpenLevelParkingShape" -> na5564ec7b3cd40999d7ba565ab9cd8ddb13 [label="http://www.w3.org/ns/shacl#property"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb5 -> https:"//w3id.org/bot#Storey" [label="http://www.w3.org/ns/shacl#class"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb6 -> 120 [label="http://www.w3.org/ns/shacl#minInclusive"]
+	http:"//example.com/firebimbuilding#ParkingStructureShape" -> na5564ec7b3cd40999d7ba565ab9cd8ddb7 [label="http://www.w3.org/ns/shacl#property"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb9 -> http:"//example.com/firebimbuilding#" [label="http://www.w3.org/ns/shacl#prefixes"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb9 -> "
+            SELECT $this
+            WHERE {
+                $this fbb":"isOpenLevel true .
+                FILTER NOT EXISTS {
+                    $this bot":hasStorey ?storey .
+                    ?storey fbb:FireResistance ?resistance .
+                    FILTER (?resistance >= 60)
+                }
+            }
+         [label="http://www.w3.org/ns/shacl#select"]
+	http:"//example.com/firebimbuilding#RoofShape" -> na5564ec7b3cd40999d7ba565ab9cd8ddb10 [label="http://www.w3.org/ns/shacl#property"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb4 -> na5564ec7b3cd40999d7ba565ab9cd8ddb5 [label="http://www.w3.org/ns/shacl#qualifiedValueShape"]
+	na5564ec7b3cd40999d7ba565ab9cd8ddb11 -> http:"//example.com/firebimbuilding#" [label="http://www.w3.org/ns/shacl#prefixes"]
+}

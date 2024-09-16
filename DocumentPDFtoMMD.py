@@ -38,7 +38,7 @@ def load_csv(file_path):
 
 def process_ttl_to_mmd(ttl_content, ontology, objects_data, properties_data, examples_str):
     prompt = f"""
-You are an AI assistant specialized in converting rulebook sections represented in text format into Mermaid diagrams. Your task is to create complete Mermaid flowcharts for every object and parameter involved, showing the complete flow an application should follow to check the rule.
+You are specialized in converting rulebook sections represented in text format into Mermaid diagrams. Your task is to create complete Mermaid flowcharts for every object and parameter involved, showing the complete flow an application should follow to check the rule.
 
 Given the following text files representing part of a rule document, create an EXPLICIT mermaid diagram that shows detailed algorithms to solve the rules described. Make sure nothing in this diagram is vague, it has to contain all the info in the text pertaining to rules and rule checking.
 
@@ -68,6 +68,37 @@ That concludes the prompt. Now, for the actual content to be transformed:
 
 {ttl_content}
 """
+    prompt_verify = f"""
+Please make any changes to the mermaid diagram attached. Make sure nothing in this diagram is vague, it has to contain all the info in the original text pertaining to rules and rule checking.
+
+Important guidelines:
+1. Only use objects and properties from the provided tables.
+2. Use markdown to color all object names pink and all property names blue in the Mermaid diagram. Also create an URL following the examples given later in the prompt.
+3. Provide the full, complete pseudocode for each rule.
+4. Ensure the Mermaid syntax is correct and can be directly used in a .mmd file.
+5. Provide clear pass/fail results wherever possible, otherwise make everything as clear as possible as to what should happen.
+6. Try to make the flowchart really pseudocode-like, close to the way a real codefile (in Python, or SHACL, or C) would do these checks.
+7. Follow the style guidelines given in the examples very closely.
+8. Make sure that the flowchart is complete, and that it EXACTLY follows the ALL rules as presented in the text. EVERY decision and every action has to be included, and every possible path has to be shown.
+9. For actions that are vague in the text, use subcharts to make a proposal for how this should be checked. Again, see the examples and how they handle this.
+
+Objects table:
+{objects_data}
+
+Properties table:
+{properties_data}
+
+Training examples, make sure the diagram follows the structure of these diagrams very closely:
+{examples_str}
+
+Please output ONLY the Mermaid diagram, without any explanations, as pure text (not in a code block). Ensure that your output is valid in syntax, and that it contains the appropriate naming conventions and color specifications. Your output will be put directly into a .mmd file, it will not be processed further.
+
+This is the original text:
+
+{ttl_content}
+
+Now, here is the mmd to be checked, again ONLY output the revised mmd file, not in code blocks:
+"""
     while True:
         try:
             response = client.messages.create(
@@ -77,7 +108,14 @@ That concludes the prompt. Now, for the actual content to be transformed:
                 ],
                 model="claude-3-5-sonnet@20240620"
             )
-            return response.content[0].text.strip()
+            final_response = client.messages.create(
+                max_tokens=4096,
+                messages=[
+                    {"role": "user", "content": prompt_verify + "\n" + response.content[0].text.strip()},
+                ],
+                model="claude-3-5-sonnet@20240620"
+            )
+            return final_response.content[0].text.strip()
         except Exception as e:
             print(f"Error in LLM processing: {e}")
             time.sleep(5)
@@ -100,7 +138,7 @@ def main():
         base_name = os.path.splitext(os.path.basename(txt_file))[0]
         output_file = os.path.join(output_folder, f"{base_name}.mmd")
 
-        if os.path.exists(output_file) or "3_5_1" not in base_name:
+        if os.path.exists(output_file) or "2_1" not in base_name:
             print(f"MMD for {base_name} already exists. Skipping.")
             continue
         

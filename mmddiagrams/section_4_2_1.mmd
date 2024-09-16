@@ -1,0 +1,18 @@
+flowchart TD
+    S1["Start: Stair Check"] --> A{"For each <a href='http://example.com/firebimbuilding#Stair' style='color:pink;'>Stair</a>"}
+    A --> B{"Does <a href='http://example.com/firebimbuilding#Stair' style='color:pink;'>Stair</a> connect multiple <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>s?"}
+    B -- Yes --> C{"Is <a href='http://example.com/firebimbuilding#Stair' style='color:pink;'>Stair</a> enclosed?"}
+    C -- Yes --> D{"Apply principles of section 2 'Compartmentation and evacuation'"}
+    D --> E{"Does <a href='http://example.com/firebimbuilding#Stair' style='color:pink;'>Stair</a> comply with section 2 principles?"}
+    E -- Yes --> F[/"Pass"/]
+    E -- No --> G[/"Fail"/]
+    C -- No --> H[/"Fail"/]
+    B -- No --> I[/"Pass (No additional requirements)"/]
+    S1:::startClass
+    F:::passClass
+    G:::failClass
+    H:::failClass
+    I:::passClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px

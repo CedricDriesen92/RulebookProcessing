@@ -1,0 +1,120 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix firebim: <http://example.com/firebim#> .
+
+fbb:ParkingStructureShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Parking ;
+    firebim:rulesource firebim:Section_5_2_1 ;
+    sh:property [
+        sh:path bot:hasElement ;
+        sh:qualifiedValueShape [
+            sh:class bot:Element ;
+            sh:property [
+                sh:path fbb:FireResistance ;
+                sh:minInclusive 120 ;
+                sh:datatype xsd:integer ;
+            ] ;
+        ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "Structural elements of parking must have Fire Resistance ≥ R 120" ;
+    ] ;
+    sh:property [
+        sh:path bot:hasStorey ;
+        sh:qualifiedValueShape [
+            sh:class bot:Storey ;
+            sh:property [
+                sh:path fbb:FireResistance ;
+                sh:minInclusive 120 ;
+                sh:datatype xsd:integer ;
+            ] ;
+        ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "Floors and ramps of parking must have Fire Resistance ≥ R 120" ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasRoof ;
+        sh:qualifiedValueShape fbb:RoofShape ;
+        sh:qualifiedMinCount 1 ;
+    ] ;
+    sh:property [
+        sh:path fbb:isOpenLevel ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    sh:sparql [
+        sh:message "Open parking levels must follow specific rules" ;
+        sh:prefixes fbb: ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fbb:isOpenLevel true .
+                FILTER NOT EXISTS {
+                    $this bot:hasStorey ?storey .
+                    ?storey fbb:FireResistance ?resistance .
+                    FILTER (?resistance >= 60)
+                }
+            }
+        """ ;
+    ] .
+
+fbb:RoofShape
+    a sh:NodeShape ;
+    sh:property [
+        sh:path fbb:protectsOnlyAgainstWeather ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    sh:sparql [
+        sh:message "Roof structural elements must have Fire Resistance ≥ R 30 or be separated by EI 30 element" ;
+        sh:prefixes fbb: ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fbb:protectsOnlyAgainstWeather true .
+                $this bot:hasElement ?element .
+                FILTER NOT EXISTS {
+                    ?element fbb:FireResistance ?resistance .
+                    FILTER (?resistance >= 30)
+                }
+                FILTER NOT EXISTS {
+                    $this fbb:separatedByElement ?separatingElement .
+                    ?separatingElement fbb:FireResistance ?sepResistance .
+                    FILTER (?sepResistance >= 30)
+                }
+            }
+        """ ;
+    ] .
+
+fbb:OpenLevelParkingShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Parking ;
+    sh:property [
+        sh:path fbb:isOpenLevel ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path bot:hasStorey ;
+        sh:qualifiedValueShape [
+            sh:class bot:Storey ;
+            sh:property [
+                sh:path fbb:FireResistance ;
+                sh:minInclusive 60 ;
+                sh:datatype xsd:integer ;
+            ] ;
+        ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "Open level floors and ramps must have Fire Resistance ≥ REI 60" ;
+    ] ;
+    sh:sparql [
+        sh:message "Structural elements supporting other compartments must follow general building rules" ;
+        sh:prefixes fbb: ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fbb:isOpenLevel true .
+                $this bot:hasElement ?element .
+                ?element fbb:supportsOtherCompartment true .
+            }
+        """ ;
+    ] .

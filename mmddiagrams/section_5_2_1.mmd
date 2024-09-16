@@ -1,0 +1,44 @@
+flowchart TD
+    S1["Start: Parking Structure Check"] --> A{"For each <a href='http://example.com/firebimbuilding#Parking' style='color:pink;'>Parking</a>"}
+    A --> B{"Check structural elements"}
+    B --> C{"<a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire Resistance</a> ≥ R 120?"}
+    C -- Yes --> D[/"Pass"/]
+    C -- No --> E[/"Fail"/]
+    A --> F{"Check floors and ramps"}
+    F --> G{"<a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire Resistance</a> ≥ R 120?"}
+    G -- Yes --> H[/"Pass"/]
+    G -- No --> I[/"Fail"/]
+    A --> J{"Check roof"}
+    J --> K{"Does roof only protect against weather?"}
+    K -- Yes --> L{"Check roof structural elements"}
+    L --> M{"<a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire Resistance</a> ≥ R 30?"}
+    M -- Yes --> N[/"Pass"/]
+    M -- No --> O{"Separated from parking by EI 30 element?"}
+    O -- Yes --> P[/"Pass"/]
+    O -- No --> Q[/"Fail"/]
+    K -- No --> R[/"Apply general building rules"/]
+    A --> S{"Is parking level open?"}
+    S -- Yes --> T{"Check open level floors and ramps"}
+    T --> U{"<a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire Resistance</a> ≥ REI 60?"}
+    U -- Yes --> V{"Do structural elements support other compartments?"}
+    V -- No --> W[/"No fire resistance required for structural elements"/]
+    V -- Yes --> X[/"Apply general building rules"/]
+    U -- No --> Y[/"Fail"/]
+    S -- No --> Z[/"Apply rules for enclosed parking levels"/]
+     S1:::startClass
+     D:::passClass
+     E:::failClass
+     H:::passClass
+     I:::failClass
+     N:::passClass
+     P:::passClass
+     Q:::failClass
+     R:::redirectClass
+     W:::passClass
+     X:::redirectClass
+     Y:::failClass
+     Z:::redirectClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+    classDef redirectClass fill:#ff9,stroke:#333,stroke-width:2px

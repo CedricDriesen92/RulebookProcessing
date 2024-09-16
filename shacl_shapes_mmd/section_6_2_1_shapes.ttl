@@ -1,0 +1,132 @@
+Here's the corrected and optimized SHACL file based on the provided Mermaid diagram and text:
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix firebim: <http://example.com/firebim#> .
+
+fbb:MachineRoomAndShaftShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Space ;
+    firebim:rulesource firebim:Section_6_2_1 ;
+    sh:property [
+        sh:path fbb:isMachineRoom ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path fbb:isLocatedAtTopOfShaft ;
+        sh:hasValue true ;
+        sh:message "Machine room must be located at the top of the shaft." ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasWall ;
+        sh:qualifiedValueShape [
+            sh:class fbb:Wall ;
+            sh:property [
+                sh:path fbb:isInteriorWall ;
+                sh:hasValue true ;
+            ] ;
+            sh:property [
+                sh:path fbb:FireResistance ;
+                sh:hasValue "EI 60" ;
+            ] ;
+        ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "Interior walls of machine room and shaft must have EI 60 fire resistance." ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasInteriorDoor ;
+        sh:qualifiedValueShape [
+            sh:class fbb:Door ;
+            sh:property [
+                sh:path fbb:FireResistance ;
+                sh:hasValue "EI1 30" ;
+            ] ;
+        ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "Interior access doors must have EI1 30 fire resistance." ;
+    ] .
+
+fbb:ShaftWallShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Wall ;
+    firebim:rulesource firebim:Section_6_2_1 ;
+    sh:property [
+        sh:path fbb:isShaftWall ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path fbb:isFacingLanding ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path fbb:FireResistance ;
+        sh:hasValue "EI 30" ;
+        sh:message "Shaft walls facing landing must have EI 30 fire resistance." ;
+    ] .
+
+fbb:InspectionHatchShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:InspectionHatch ;
+    firebim:rulesource firebim:Section_6_2_1 ;
+    sh:property [
+        sh:path fbb:FireResistance ;
+        sh:hasValue "EI 30" ;
+        sh:message "Inspection hatches must have EI 30 fire resistance." ;
+    ] .
+
+fbb:ShaftDoorShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Door ;
+    firebim:rulesource firebim:Section_6_2_1 ;
+    sh:property [
+        sh:path fbb:isShaftDoor ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path fbb:isAutomatic ;
+        sh:hasValue true ;
+        sh:message "Shaft doors or access hatches must be automatic." ;
+    ] ;
+    sh:property [
+        sh:path fbb:isNormallyClosed ;
+        sh:hasValue true ;
+        sh:message "Shaft doors or access hatches must be normally closed." ;
+    ] .
+
+fbb:ContainerTransportShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:ContainerTransportSystem ;
+    firebim:rulesource firebim:Section_6_2_1 ;
+    sh:sparql [
+        sh:message "Container transport systems crossing building layers, floors, or compartments must have doors at each crossing with E 30 fire resistance, and must be automatic and normally closed." ;
+        sh:select """
+            SELECT $this ?crossing
+            WHERE {
+                $this fbb:crossesBuildingElement ?crossing .
+                FILTER NOT EXISTS {
+                    ?crossing fbb:hasDoor ?door .
+                    ?door fbb:FireResistance "E 30" ;
+                          fbb:isAutomatic true ;
+                          fbb:isNormallyClosed true .
+                }
+            }
+        """
+    ] .
+
+fbb:FireSituationShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Building ;
+    firebim:rulesource firebim:Section_6_2_1 ;
+    sh:property [
+        sh:path fbb:hasFireSituation ;
+        sh:qualifiedValueShape [
+            sh:class fbb:FireSituation ;
+            sh:property [
+                sh:path fbb:allInstallationsOutOfService ;
+                sh:hasValue true ;
+                sh:message "In case of fire, all installations must be taken out of service." ;
+            ] ;
+        ] ;
+        sh:qualifiedMinCount 1 ;
+    ] .
