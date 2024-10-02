@@ -1,37 +1,47 @@
 flowchart TD
-    A["Start: Building Assessment"] --> S1["Start: Compartment Check"] & S2["Start: Door Check"]
-    S1 --> B{"Check <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"}
+    A["Start: Building Assessment"] --> S1["Start: Compartment Check"] & S2["Start: Building Layer Check"] & S3["Start: Space Check"]
+    S1 --> B{"For each <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"}
     B --> C{"Get <a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a>"}
-    C --> D{"<a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> &lt; 100?"}
-    D -- Yes --> E["Require 1 exit"]
-    D -- No --> F{"100 ≤ <a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> &lt; 500?"}
-    F -- Yes --> G["Require 2 exits"]
-    F -- No --> I["Calculate n = ceil(<a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> / 1000)"]
-    I --> J["Require 2 + n exits"]
-    E --> L["Check actual <a href='http://example.com/firebimbuilding#NumberOfExits' style='color:blue;'>Number of exits</a>"]
-    G --> L
-    J --> L
+    C --> D{"<a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> < 100?"}
+    D -- Yes --> E["Required exits = 1"]
+    D -- No --> F{"100 ≤ <a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> < 500?"}
+    F -- Yes --> G["Required exits = 2"]
+    F -- No --> H{"<a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> ≥ 500?"}
+    H -- Yes --> I["Calculate n = ceil(<a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> / 1000)"]
+    I --> J["Required exits = 2 + n"]
+    H -- No --> K[/"Invalid occupancy"/]
+    E & G & J --> L["Get actual <a href='http://example.com/firebimbuilding#IsNumberOfExits' style='color:blue;'>Is number of exits</a>"]
     L --> M{"Actual exits ≥ Required exits?"}
     M -- Yes --> N[/"Pass"/]
     M -- No --> O[/"Fail"/]
-    S2 --> T{"For each <a href='http://example.com/firebimbuilding#Door' style='color:pink;'>Door</a>"}
-    T --> U{"Is <a href='http://example.com/firebimbuilding#IsFireExit' style='color:blue;'>Is Fire Exit?</a> true?"}
-    U -- Yes --> V["Count as exit"]
-    U -- No --> W["Do not count as exit"]
-    V --> X{{"Return to main flow"}}
-    W --> X
-    P["Note: Fire department may increase required exits"] ~~~ L
-    Q["Note: Number of exits for building layers and rooms is determined as for compartments"] ~~~ A
+    S2 --> P{"For each <a href='http://example.com/firebimbuilding#Storey' style='color:pink;'>Storey</a>"}
+    P --> Q{"Get <a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a>"}
+    Q --> R{"Calculate required exits (same as compartment)"}
+    R --> S["Get actual <a href='http://example.com/firebimbuilding#IsNumberOfExits' style='color:blue;'>Is number of exits</a>"]
+    S --> T{"Actual exits ≥ Required exits?"}
+    T -- Yes --> U[/"Pass"/]
+    T -- No --> V[/"Fail"/]
+    S3 --> W{"For each <a href='http://example.com/firebimbuilding#Space' style='color:pink;'>Space</a>"}
+    W --> X{"Get <a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a>"}
+    X --> Y{"Calculate required exits (same as compartment)"}
+    Y --> Z["Get actual <a href='http://example.com/firebimbuilding#IsNumberOfExits' style='color:blue;'>Is number of exits</a>"]
+    Z --> AA{"Actual exits ≥ Required exits?"}
+    AA -- Yes --> AB[/"Pass"/]
+    AA -- No --> AC[/"Fail"/]
+    AD["Note: Fire department may increase required exits"] ~~~ L & S & Z
      A:::startClass
      S1:::startClass
      S2:::startClass
+     S3:::startClass
      N:::passClass
      O:::failClass
-     X:::redirectClass
-     P:::noteClass
-     Q:::noteClass
+     U:::passClass
+     V:::failClass
+     AB:::passClass
+     AC:::failClass
+     K:::failClass
+     AD:::noteClass
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
-    classDef redirectClass fill:#ff9,stroke:#333,stroke-width:2px
     classDef noteClass fill:#ffd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5

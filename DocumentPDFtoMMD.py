@@ -43,13 +43,13 @@ You are specialized in converting rulebook sections represented in text format i
 Given the following text files representing part of a rule document, create an EXPLICIT mermaid diagram that shows detailed algorithms to solve the rules described. Make sure nothing in this diagram is vague, it has to contain all the info in the text pertaining to rules and rule checking.
 
 Important guidelines:
-1. Only use objects and properties from the provided tables.
+1. Only use objects and properties from the provided tables!! If, for some reason, a new object or property needs to be defined first think if it can be replaced by one from the tables, and if not mark it in red for a new object and purple for a new property!
 2. Use markdown to color all object names pink and all property names blue in the Mermaid diagram. Also create an URL following the examples given later in the prompt.
 3. Provide the full, complete pseudocode for each rule.
 4. Ensure the Mermaid syntax is correct and can be directly used in a .mmd file.
 5. Provide clear pass/fail results wherever possible, otherwise make everything as clear as possible as to what should happen.
 6. Try to make the flowchart really pseudocode-like, close to the way a real codefile (in Python, or SHACL, or C) would do these checks.
-7. Follow the style guidelines given in the examples very closely.
+7. Follow the style guidelines given in the examples very closely. Be aware that the objects and properties in the examples might NOT be the same as the ones given to you, ALWAYS use the ones from the tables given earlier.
 8. Make sure that the flowchart is complete, and that it EXACTLY follows the rule as presented in the text. EVERY decision and every action has to be included, and every possible path has to be shown.
 9. For actions that are vague in the text, use subcharts to make a proposal for how this should be checked. Again, see the examples and how they handle this.
 
@@ -72,13 +72,13 @@ That concludes the prompt. Now, for the actual content to be transformed:
 Please make any changes to the mermaid diagram attached. Make sure nothing in this diagram is vague, it has to contain all the info in the original text pertaining to rules and rule checking.
 
 Important guidelines:
-1. Only use objects and properties from the provided tables.
+1. Make sure only objects/properties from the provided tables are used!!! If, for some reason, a new object or property is defined first think if it can be replaced by one from the tables, and if not make sure it's in red for a new object and purple for a new property!
 2. Use markdown to color all object names pink and all property names blue in the Mermaid diagram. Also create an URL following the examples given later in the prompt.
 3. Provide the full, complete pseudocode for each rule.
 4. Ensure the Mermaid syntax is correct and can be directly used in a .mmd file.
 5. Provide clear pass/fail results wherever possible, otherwise make everything as clear as possible as to what should happen.
 6. Try to make the flowchart really pseudocode-like, close to the way a real codefile (in Python, or SHACL, or C) would do these checks.
-7. Follow the style guidelines given in the examples very closely.
+7. Make sure the STYLE of the examples is followed very closely. Be aware that the objects and properties in the examples might NOT be the same as the ones in the tables, ALWAYS use the ones from the tables given earlier.
 8. Make sure that the flowchart is complete, and that it EXACTLY follows the ALL rules as presented in the text. EVERY decision and every action has to be included, and every possible path has to be shown.
 9. For actions that are vague in the text, use subcharts to make a proposal for how this should be checked. Again, see the examples and how they handle this.
 
@@ -138,7 +138,7 @@ def main():
         base_name = os.path.splitext(os.path.basename(txt_file))[0]
         output_file = os.path.join(output_folder, f"{base_name}.mmd")
 
-        if os.path.exists(output_file) or "2_1" not in base_name:
+        if os.path.exists(output_file) or "4_2" not in base_name:
             print(f"MMD for {base_name} already exists. Skipping.")
             continue
         

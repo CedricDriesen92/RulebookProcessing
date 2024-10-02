@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ids xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/0.9.7/ids.xsd" 
+     xmlns="http://standards.buildingsmart.org/IDS">
+    <info>
+        <title>FireBIM Building Validation</title>
+        <copyright>buildingSMART</copyright>
+        <version>1.0</version>
+        <description>IDS for validating FireBIM building requirements</description>
+        <author>AI Assistant</author>
+        <date>2023-06-14</date>
+        <purpose>Validate fire safety requirements</purpose>
+    </info>
+    
+    <specifications>
+        <!-- Compartment Entity -->
+        <specification name="Compartment" ifcVersion="IFC4" minOccurs="0" maxOccurs="unbounded">
+            <applicability>
+                <entity>
+                    <name>
+                        <simpleValue>IFCSPACE</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements>
+                <property minOccurs="1" maxOccurs="1">
+                    <propertySet>
+                        <simpleValue>Pset_SpaceCommon</simpleValue>
+                    </propertySet>
+                    <name>
+                        <simpleValue>Occupancy</simpleValue>
+                    </name>
+                    <value>
+                        <xs:restriction base="xs:integer"/>
+                    </value>
+                </property>
+                <property minOccurs="1" maxOccurs="1">
+                    <propertySet>
+                        <simpleValue>Pset_SpaceFireSafetyRequirements</simpleValue>
+                    </propertySet>
+                    <name>
+                        <simpleValue>NumberOfExits</simpleValue>
+                    </name>
+                    <value>
+                        <xs:restriction base="xs:integer"/>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+
+        <!-- Door Entity -->
+        <specification name="Door" ifcVersion="IFC4" minOccurs="0" maxOccurs="unbounded">
+            <applicability>
+                <entity>
+                    <name>
+                        <simpleValue>IFCDOOR</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements>
+                <property minOccurs="1" maxOccurs="1">
+                    <propertySet>
+                        <simpleValue>Pset_DoorCommon</simpleValue>
+                    </propertySet>
+                    <name>
+                        <simpleValue>IsFireExit</simpleValue>
+                    </name>
+                    <value>
+                        <xs:restriction base="xs:boolean"/>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+
+        <!-- Building Entity -->
+        <specification name="Building" ifcVersion="IFC4" minOccurs="1" maxOccurs="1">
+            <applicability>
+                <entity>
+                    <name>
+                        <simpleValue>IFCBUILDING</simpleValue>
+                    </name>
+                </entity>
+            </applicability>
+            <requirements>
+                <!-- No specific properties required for building -->
+            </requirements>
+        </specification>
+    </specifications>
+</ids>

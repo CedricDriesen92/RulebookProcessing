@@ -1,0 +1,29 @@
+flowchart TD
+    S1["Start: Suspended Ceiling Check"] --> A{"For each <a href='http://example.com/firebimbuilding#Ceiling' style='color:pink;'>Ceiling</a>"}
+    A --> B{"Is suspended?"}
+    B -- Yes --> C{"Check <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a>"}
+    C --> D{"EI 30 (ab)?"}
+    D -- Yes --> E[/"Pass"/]
+    D -- No --> F{"EI 30 (ba)?"}
+    F -- Yes --> E
+    F -- No --> G{"EI 30 (a↔b)?"}
+    G -- Yes --> E
+    G -- No --> H{"Stability in fire ≥ 30 minutes?"}
+    H -- Yes --> E
+    H -- No --> I{"Check exceptions"}
+    I --> J{"Is in section 4.4.1.2 exceptions?"}
+    J -- Yes --> E
+    J -- No --> K{"Compartment has automatic sprinkler system?"}
+    K -- Yes --> L{"Sprinkler system adapted to present risks?"}
+    L -- Yes --> E
+    L -- No --> M[/"Fail"/]
+    K -- No --> M
+    B -- No --> N[/"Not applicable"/]
+    S1:::startClass
+    E:::passClass
+    M:::failClass
+    N:::noteClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+    classDef noteClass fill:#ffd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5

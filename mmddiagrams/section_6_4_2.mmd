@@ -1,0 +1,39 @@
+flowchart TD
+    S1["Start: Firefighter Elevator Check"] --> A{"Does <a href='http://example.com/firebimbuilding#Building' style='color:pink;'>Building</a> have firefighter elevator?"}
+    A -- Yes --> B{"Check compliance with NBN EN 81-72"}
+    B -- Compliant --> C{"Check elevator landing on each <a href='http://example.com/firebimbuilding#Storey' style='color:pink;'>Storey</a>"}
+    B -- Non-compliant --> Z[/"Fail"/]
+    C --> D{"Is there an <a href='http://example.com/firebimbuilding#Airlock' style='color:pink;'>Airlock</a>?"}
+    D -- Yes --> E{"<a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> ≥ elevator car <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a>?"}
+    D -- No --> Z
+    E -- Yes --> F{"Check elevator battery"}
+    E -- No --> Z
+    F --> G{"Is there an EI 60 wall separating firefighter elevator?"}
+    G -- Yes --> H{"Check elevator car dimensions"}
+    G -- No --> I{"Do all elevators and electrical equipment have same fire protection as firefighter elevator?"}
+    I -- Yes --> H
+    I -- No --> Z
+    H --> J{"<a href='http://example.com/firebimbuilding#Width' style='color:blue;'>Width</a> ≥ 1.1 m?"}
+    J -- Yes --> K{"<a href='http://example.com/firebimbuilding#Length' style='color:blue;'>Length</a> ≥ 2.1 m?"}
+    J -- No --> Z
+    K -- Yes --> L{"Check shaft doors"}
+    K -- No --> Z
+    L --> M{"Do doors open and close automatically?"}
+    M -- Yes --> N{"<a href='http://example.com/firebimbuilding#Width' style='color:blue;'>Width</a> ≥ 0.80 m?"}
+    M -- No --> Z
+    N -- Yes --> O{"Check firefighter switch"}
+    N -- No --> Z
+    O --> P{"Is there a firefighter key switch on ground floor landing?"}
+    P -- Yes --> Q{"Check elevator speed"}
+    P -- No --> Z
+    Q --> R{"Can reach farthest floor in < 60 seconds?"}
+    R -- Yes --> S[/"Pass"/]
+    R -- No --> Z
+    A -- No --> T[/"Pass"/]
+    S1:::startClass
+    S:::passClass
+    T:::passClass
+    Z:::failClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px

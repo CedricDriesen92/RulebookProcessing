@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ids xmlns="http://standards.buildingsmart.org/IDS" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://standards.buildingsmart.org/IDS/ids_09.xsd">
+    <info>
+        <title>FireBIM Building Extension Specification</title>
+        <copyright>BuildingSmart</copyright>
+        <version>1.0</version>
+        <description>IDS for FireBIM Building Extension requirements</description>
+        <author>AI Assistant</author>
+        <date>2023-11-29</date>
+    </info>
+    <specifications>
+        <specification name="BuildingExtension" ifcVersion="IFC4" minOccurs="1" maxOccurs="unbounded">
+            <applicability>
+                <entity>
+                    <name>IFCBUILDING</name>
+                </entity>
+            </applicability>
+            <requirements>
+                <property minOccurs="1" maxOccurs="1">
+                    <propertySet>
+                        <simpleValue>Pset_BuildingCommon</simpleValue>
+                    </propertySet>
+                    <name>
+                        <simpleValue>IsExtension</simpleValue>
+                    </name>
+                    <value>
+                        <simpleValue>TRUE</simpleValue>
+                    </value>
+                </property>
+                <property minOccurs="1" maxOccurs="1">
+                    <propertySet>
+                        <simpleValue>Pset_BuildingCommon</simpleValue>
+                    </propertySet>
+                    <name>
+                        <simpleValue>ApplicationDate</simpleValue>
+                    </name>
+                    <value>
+                        <xs:restriction base="xs:date">
+                            <xs:minInclusive value="2012-12-01"/>
+                        </xs:restriction>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="LowHeightBuilding" ifcVersion="IFC4" minOccurs="0" maxOccurs="unbounded">
+            <applicability>
+                <entity>
+                    <name>IFCBUILDING</name>
+                </entity>
+            </applicability>
+            <requirements>
+                <property minOccurs="1" maxOccurs="1">
+                    <propertySet>
+                        <simpleValue>Pset_BuildingCommon</simpleValue>
+                    </propertySet>
+                    <name>
+                        <simpleValue>BuildingHeight</simpleValue>
+                    </name>
+                    <value>
+                        <xs:restriction base="xs:decimal">
+                            <xs:maxInclusive value="10"/>
+                        </xs:restriction>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+        <specification name="IndustrialActivity" ifcVersion="IFC4" minOccurs="0" maxOccurs="unbounded">
+            <applicability>
+                <entity>
+                    <name>IFCBUILDING</name>
+                </entity>
+            </applicability>
+            <requirements>
+                <property minOccurs="1" maxOccurs="1">
+                    <propertySet>
+                        <simpleValue>Pset_BuildingUse</simpleValue>
+                    </propertySet>
+                    <name>
+                        <simpleValue>HasIndustrialActivity</simpleValue>
+                    </name>
+                    <value>
+                        <simpleValue>TRUE</simpleValue>
+                    </value>
+                </property>
+                <property minOccurs="1" maxOccurs="1">
+                    <propertySet>
+                        <simpleValue>Pset_BuildingUse</simpleValue>
+                    </propertySet>
+                    <name>
+                        <simpleValue>IndustrialActivityArea</simpleValue>
+                    </name>
+                    <value>
+                        <xs:restriction base="xs:decimal">
+                            <xs:maxInclusive value="500"/>
+                        </xs:restriction>
+                    </value>
+                </property>
+                <property minOccurs="1" maxOccurs="1">
+                    <propertySet>
+                        <simpleValue>Pset_BuildingUse</simpleValue>
+                    </propertySet>
+                    <name>
+                        <simpleValue>IsIndustrialActivitySecondary</simpleValue>
+                    </name>
+                    <value>
+                        <simpleValue>TRUE</simpleValue>
+                    </value>
+                </property>
+                <property minOccurs="1" maxOccurs="1">
+                    <propertySet>
+                        <simpleValue>Pset_BuildingUse</simpleValue>
+                    </propertySet>
+                    <name>
+                        <simpleValue>IndustrialActivitiesSupportNonIndustrial</simpleValue>
+                    </name>
+                    <value>
+                        <simpleValue>TRUE</simpleValue>
+                    </value>
+                </property>
+            </requirements>
+        </specification>
+    </specifications>
+</ids>

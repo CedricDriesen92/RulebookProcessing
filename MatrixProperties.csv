@@ -1,30 +1,46 @@
-﻿Name,Type:
-Amount of storeys,Numeric
-Area,Numeric
-Compartmentation,Boolean
-Distance,Numeric
-Elevation,Numeric
-Fire reaction,Numeric
-Fire resistance,Numeric
-Handrail,Reference
-Has active fire protection?,Boolean
-Has nighttime occupancy?,Boolean
-Height,Numeric
-Height of building
-Is Classroom?,Boolean
-Is External?,Boolean
-Is Fire Exit?,Boolean
-Is Load Bearing?,Boolean
-Is Parking?,Boolean
-Length,Numeric
-Material,Reference
-Number of exits,Numeric
-Occupancy,Numeric
-Riser height,Numeric
-Self-closing,Boolean
-Slope,Numeric
-Swing Direction,Enumeration
-Tread length,Numeric
-Useful Width,Numeric
-Volume,Numeric
-Width,Numeric
+﻿Height of building
+Type of building
+Surface
+Number of occupants
+Building layer
+Is publicly accessible
+Is duplex
+Is triplex
+Is number of exits
+Is compartment wall
+Is number of floors within the compartment
+Has nighttime occupancy
+Has daytime occupancy
+Is self-reliant
+Is non-self-reliant
+Is atrium
+Has only technical rooms
+Is evacuation level
+Is lowest evacuation level
+Is highest evacuation level
+Is self-closing
+Is self-closing in case of fire
+Amount of storeys
+Area
+Distance
+Elevation
+Fire reaction
+Fire resistance
+Handrail
+Has active fire protection
+Height
+Is classroom
+Is external
+Is fire exit
+Is load bearing
+Is parking
+Length
+Material
+Occupancy
+Riser height
+Slope
+Swing direction
+Tread length
+Useful width
+Volume
+Width

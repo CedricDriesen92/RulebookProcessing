@@ -1,0 +1,74 @@
+flowchart TD
+    S1["Start: Evacuation Lift Check"] --> A{"For each <a href="http://example.com/firebimbuilding#Elevator" style="color:pink;">Elevator</a> for persons with limited mobility"}
+    A --> B{"Check design and construction"}
+    B --> C{"Is access and use unhindered for persons with limited mobility?"}
+    C -- Yes --> D[/"Pass"/]
+    C -- No --> E[/"Fail"/]
+    A --> F{"Check elevator landings"}
+    F --> G{"Do landings form an airlock?"}
+    G -- Yes --> H{"Is airlock area ≥ elevator car area?"}
+    H -- Yes --> I[/"Pass"/]
+    H -- No --> J[/"Fail"/]
+    G -- No --> J
+    A --> K{"Check elevator car dimensions"}
+    K --> L{"Is <a href="http://example.com/firebimbuilding#Width" style="color:blue;">Width</a> ≥ 1.1 m?"}
+    L -- Yes --> M{"Is <a href="http://example.com/firebimbuilding#Length" style="color:blue;">Length</a> ≥ 1.4 m?"}
+    M -- Yes --> N[/"Pass"/]
+    M -- No --> O[/"Fail"/]
+    L -- No --> O
+    A --> P{"Check shaft doors"}
+    P --> Q{"Do doors open and close automatically?"}
+    Q -- Yes --> R{"Is <a href="http://example.com/firebimbuilding#UsefulWidth" style="color:blue;">Useful width</a> ≥ 0.90 m?"}
+    R -- Yes --> S[/"Pass"/]
+    R -- No --> T[/"Fail"/]
+    Q -- No --> T
+    A --> U{"Check evacuation control"}
+    U --> V{"Is there an 'evacuation key' switch?"}
+    V -- Yes --> W[/"Pass"/]
+    V -- No --> X[/"Fail"/]
+    A --> Y{"Check signage"}
+    Y --> Z{"Is there clear and recognizable signage?"}
+    Z -- Yes --> AA[/"Pass"/]
+    Z -- No --> AB[/"Fail"/]
+    A --> AC{"Check communication system"}
+    AC --> AD{"Is there a two-way intercom system?"}
+    AD -- Yes --> AE{"Does it allow communication between car, evacuation level, and machine room?"}
+    AE -- Yes --> AF{"Does it use built-in microphone and speaker (not handset)?"}
+    AF -- Yes --> AG[/"Pass"/]
+    AF -- No --> AH[/"Fail"/]
+    AE -- No --> AH
+    AD -- No --> AH
+    A --> AI{"Check landing communication system"}
+    AI --> AJ{"Does the elevator serve more than two floors?"}
+    AJ -- Yes --> AK{"Is there a two-way intercom system on each landing?"}
+    AK -- Yes --> AL{"Does it allow communication between each landing, evacuation level, and machine room?"}
+    AL -- Yes --> AM{"Does it use built-in microphone and speaker (not handset)?"}
+    AM -- Yes --> AN{"Does it function independently of the car communication system?"}
+    AN -- Yes --> AO[/"Pass"/]
+    AN -- No --> AP[/"Fail"/]
+    AM -- No --> AP
+    AL -- No --> AP
+    AK -- No --> AP
+    AJ -- No --> AQ[/"Not applicable"/]
+     S1:::startClass
+     D:::passClass
+     E:::failClass
+     I:::passClass
+     J:::failClass
+     N:::passClass
+     O:::failClass
+     S:::passClass
+     T:::failClass
+     W:::passClass
+     X:::failClass
+     AA:::passClass
+     AB:::failClass
+     AG:::passClass
+     AH:::failClass
+     AO:::passClass
+     AP:::failClass
+     AQ:::noteClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+    classDef noteClass fill:#ffd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5

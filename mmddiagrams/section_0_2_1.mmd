@@ -1,27 +1,29 @@
 flowchart TD
-    S1["Start: Building Assessment"] --> A{"Is building an extension?"}
-    A -- Yes --> B{"Application submitted after Dec 1, 2012?"}
-    A -- No --> C[/"Not applicable"/]
-    B -- Yes --> D{"Is it a <a href="http://example.com/firebimbuilding#Building" style="color:pink;">Building</a> with low height?"}
-    B -- No --> C
-    D -- Yes --> E[/"Applicable"/]
-    D -- No --> F{"After extension, is it a <a href="http://example.com/firebimbuilding#Building" style="color:pink;">Building</a> with low height?"}
+    S1["Start: Building Classification Check"] --> A{"Is building an extension?"}
+    A -- Yes --> B{"Application submitted after 1 December 2012?"}
+    A -- No --> C{"Is <a href='http://example.com/firebimbuilding#Building' style='color:pink;'>Building</a> low-rise?"}
+    B -- Yes --> C
+    B -- No --> D[/"Not applicable"/]
+    C -- Yes --> E[/"Applicable"/]
+    C -- No --> F{"Will extension result in a low-rise <a href='http://example.com/firebimbuilding#Building' style='color:pink;'>Building</a>?"}
     F -- Yes --> E
-    F -- No --> G{"Does it contain industrial activity?"}
-    G -- Yes --> H{"Get total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of industrial activity"}
-    G -- No --> C
-    H --> I{"Industrial activity <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 500 m²?"}
-    I -- Yes --> J{"Is industrial activity secondary?"}
-    I -- No --> C
-    J -- Yes --> K{"Do industrial activities support non-industrial activities?"}
-    J -- No --> C
-    K -- Yes --> L{"Any <a href="http://example.com/firebimbuilding#Compartment" style="color:pink;">Compartment</a> with <a href="http://example.com/firebimbuilding#HasNightTimeOccupancy" style="color:blue;">Has nighttime occupancy?</a> in industrial compartment?"}
-    K -- No --> C
-    L -- No --> E
-    L -- Yes --> C
+    F -- No --> G{"Does <a href='http://example.com/firebimbuilding#Building' style='color:pink;'>Building</a> contain industrial activity?"}
+    G -- Yes --> H{"Get total <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> of industrial activity"}
+    G -- No --> E
+    H --> I{"Industrial <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> ≤ 500 m²?"}
+    I -- Yes --> J{"Is main activity non-industrial?"}
+    I -- No --> D
+    J -- Yes --> K{"Industrial <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> < Non-industrial <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a>?"}
+    J -- No --> D
+    K -- Yes --> L{"Do industrial activities support non-industrial activities in same compartment?"}
+    K -- No --> D
+    L -- Yes --> M{"Are there rooms with <a href='http://example.com/firebimbuilding#HasNighttimeOccupancy' style='color:blue;'>nighttime occupancy</a> in the industrial compartment?"}
+    L -- No --> D
+    M -- No --> E
+    M -- Yes --> D
     S1:::startClass
-    C:::failClass
+    D:::failClass
     E:::passClass
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
-    classDef failClass fill:#ff9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px

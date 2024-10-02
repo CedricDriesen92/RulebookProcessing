@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ids xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://standards.buildingsmart.org/IDS http://standards.buildingsmart.org/IDS/0.9.7/ids.xsd"
+     xmlns="http://standards.buildingsmart.org/IDS">
+
+  <info>
+    <title>FireBIM Compartment Requirements</title>
+    <copyright>Example Organization</copyright>
+    <version>1.0</version>
+    <description>IDS definition for FireBIM Compartment requirements</description>
+    <author>AI Assistant</author>
+    <date>2023-06-14</date>
+  </info>
+
+  <specifications>
+    <specification name="Compartment Properties" ifcVersion="IFC4" minOccurs="1" maxOccurs="unbounded">
+      <applicability>
+        <entity>
+          <name>IFCSPACE</name>
+        </entity>
+        <classification>
+          <value>Compartment</value>
+        </classification>
+      </applicability>
+      <requirements>
+        <property minOccurs="1" maxOccurs="1">
+          <propertyset>FireBIM</propertyset>
+          <name>Area</name>
+          <datatype>
+            <simpleType>
+              <xs:restriction base="xs:decimal"/>
+            </simpleType>
+          </datatype>
+        </property>
+        <property minOccurs="1" maxOccurs="1">
+          <propertyset>FireBIM</propertyset>
+          <name>Height</name>
+          <datatype>
+            <simpleType>
+              <xs:restriction base="xs:decimal"/>
+            </simpleType>
+          </datatype>
+        </property>
+        <property minOccurs="1" maxOccurs="1">
+          <propertyset>FireBIM</propertyset>
+          <name>Length</name>
+          <datatype>
+            <simpleType>
+              <xs:restriction base="xs:decimal"/>
+            </simpleType>
+          </datatype>
+        </property>
+      </requirements>
+    </specification>
+
+    <specification name="Compartment Area Limits" ifcVersion="IFC4" minOccurs="1" maxOccurs="unbounded">
+      <applicability>
+        <entity>
+          <name>IFCSPACE</name>
+        </entity>
+        <classification>
+          <value>Compartment</value>
+        </classification>
+        <property>
+          <propertyset>FireBIM</propertyset>
+          <name>Area</name>
+          <value>
+            <simpleValue>
+              <xs:restriction base="xs:decimal">
+                <xs:maxExclusive value="2500"/>
+              </xs:restriction>
+            </simpleValue>
+          </value>
+        </property>
+      </applicability>
+    </specification>
+
+    <specification name="Ground Floor Compartment Requirements" ifcVersion="IFC4" minOccurs="0" maxOccurs="unbounded">
+      <applicability>
+        <entity>
+          <name>IFCSPACE</name>
+        </entity>
+        <classification>
+          <value>Compartment</value>
+        </classification>
+        <property>
+          <propertyset>FireBIM</propertyset>
+          <name>isOnStorey</name>
+          <value>
+            <simpleValue>GroundFloor</simpleValue>
+          </value>
+        </property>
+      </applicability>
+      <requirements>
+        <property minOccurs="1" maxOccurs="1">
+          <propertyset>FireBIM</propertyset>
+          <name>Area</name>
+          <value>
+            <simpleValue>
+              <xs:restriction base="xs:decimal">
+                <xs:maxInclusive value="3500"/>
+              </xs:restriction>
+            </simpleValue>
+          </value>
+        </property>
+        <property minOccurs="1" maxOccurs="1">
+          <propertyset>FireBIM</propertyset>
+          <name>Length</name>
+          <value>
+            <simpleValue>
+              <xs:restriction base="xs:decimal">
+                <xs:maxInclusive value="90"/>
+              </xs:restriction>
+            </simpleValue>
+          </value>
+        </property>
+      </requirements>
+    </specification>
+
+    <specification name="Compartment Height Requirements" ifcVersion="IFC4" minOccurs="1" maxOccurs="unbounded">
+      <applicability>
+        <entity>
+          <name>IFCSPACE</name>
+        </entity>
+        <classification>
+          <value>Compartment</value>
+        </classification>
+      </applicability>
+      <requirements>
+        <property minOccurs="1" maxOccurs="1">
+          <propertyset>FireBIM</propertyset>
+          <name>Height</name>
+        </property>
+      </requirements>
+    </specification>
+
+    <specification name="Duplex Compartment Area Limit" ifcVersion="IFC4" minOccurs="0" maxOccurs="unbounded">
+      <applicability>
+        <entity>
+          <name>IFCSPACE</name>
+        </entity>
+        <classification>
+          <value>Compartment</value>
+        </classification>
+        <property>
+          <propertyset>FireBIM</propertyset>
+          <name>isDuplex</name>
+          <value>
+            <simpleValue>true</simpleValue>
+          </value>
+        </property>
+      </applicability>
+      <requirements>
+        <property minOccurs="1" maxOccurs="1">
+          <propertyset>FireBIM</propertyset>
+          <name>Area</name>
+          <value>
+            <simpleValue>
+              <xs:restriction base="xs:decimal">
+                <xs:maxInclusive value="2500"/>
+              </xs:restriction>
+            </simpleValue>
+          </value>
+        </property>
+      </requirements>
+    </specification>
+
+    <specification name="Triplex Compartment Requirements" ifcVersion="IFC4" minOccurs="0" maxOccurs="unbounded">
+      <applicability>
+        <entity>
+          <name>IFCSPACE</name>
+        </entity>
+        <classification>
+          <value>Compartment</value>
+        </classification>
+        <property>
+          <propertyset>FireBIM</propertyset>
+          <name>isTriplex</name>
+          <value>
+            <simpleValue>true</simpleValue>
+          </value>
+        </property>
+      </applicability>
+      <requirements>
+        <property minOccurs="1" maxOccurs="1">
+          <propertyset>FireBIM</propertyset>
+          <name>Area</name>
+          <value>
+            <simpleValue>
+              <xs:restriction base="xs:decimal">
+                <xs:maxInclusive value="300"/>
+              </xs:restriction>
+            </simpleValue>
+          </value>
+        </property>
+        <property minOccurs="1" maxOccurs="1">
+          <propertyset>FireBIM</propertyset>
+          <name>hasAutomaticFireDetectionSystem</name>
+          <value>
+            <simpleValue>true</simpleValue>
+          </value>
+        </property>
+      </requirements>
+    </specification>
+  </specifications>
+</ids>

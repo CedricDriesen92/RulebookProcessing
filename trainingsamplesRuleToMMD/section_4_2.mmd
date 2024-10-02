@@ -1,0 +1,40 @@
+flowchart TD
+    S1["Start: Evacuation Path Check"] --> A{"For each <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink;">Evacuation path</a>"}
+    A --> B{"Is <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink;">Evacuation path</a> through a <a href="http://example.com/firebimbuilding#Staircase" style="color:pink">Staircase</a>?"} & I{"For every&nbsp;<a href="http://example.com/firebimbuilding#Door" style="color:pink">Door</a>&nbsp;on <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink">Evacuation path</a>"} & N{"Ends on&nbsp;<a href="http://example.com/firebimbuilding#EscapeTerrace" style="color:pink">Escape terrace</a>"} & V{"Passes&nbsp;<a href="http://example.com/firebimbuilding#Airlock" style="color:pink">Airlock</a>"}
+    B -- Yes --> C{"For each <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink;">Evacuation path</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a> and each <a href="http://example.com/firebimbuilding#Staircase" style="color:pink">Staircase</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>"}
+    B -- No --> D{"For each <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink;">Evacuation path</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>"}
+    C --> F{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue">Fire resistance</a> ≥ EI 30?"}
+    F -- Yes --> G[/"Pass"/]
+    F -- No --> H[/"Fail"/]
+    K{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI1 30?"} -- Yes --> L[/"Pass"/]
+    K -- No --> M[/"Fail"/]
+    R{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI 60?"} -- Yes --> S[/"Pass"/]
+    R -- No --> T[/"Fail"/]
+    N -- No --> U[/"Pass"/]
+    Z{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI 60?"} -- Yes --> AA[/"Pass"/]
+    Z -- No --> AB[/"Fail"/]
+    V -- No --> AC[/"Pass"/]
+    D --> F
+    I --> K
+    N -- Yes --> P{"For each <a href="http://example.com/firebimbuilding#EscapeTerrace" style="color:pink;">Escape terrace</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>"}
+    X{"For each <a href="http://example.com/firebimbuilding#Airlock" style="color:pink;">Airlock</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>"} --> Z
+    P --> R
+    V -- Yes --> X
+
+     S1:::startClass
+     G:::passClass
+     H:::failClass
+     L:::passClass
+     M:::failClass
+     S:::passClass
+     T:::failClass
+     U:::passClass
+     AA:::passClass
+     AB:::failClass
+     AC:::passClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+    classDef continueClass fill:#FFD600,stroke:#333,stroke-width:2px
+
+

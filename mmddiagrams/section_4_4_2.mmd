@@ -1,0 +1,22 @@
+flowchart TD
+    S1["Start: Display Window Check"] --> A{"For each <a href='http://example.com/firebimbuilding#Window' style='color:pink;'>Window</a> on <a href='http://example.com/firebimbuilding#Storey' style='color:pink;'>Storey</a>"}
+    A --> B{"Is <a href='http://example.com/firebimbuilding#Storey' style='color:pink;'>Storey</a> an <a href='http://example.com/firebimbuilding#IsEvacuationLevel' style='color:blue;'>evacuation level</a>?"}
+    B -- No --> C[/"Pass"/]
+    B -- Yes --> D{"Is <a href='http://example.com/firebimbuilding#Window' style='color:pink;'>Window</a> a display window?"}
+    D -- No --> C
+    D -- Yes --> E{"Does <a href='http://example.com/firebimbuilding#Window' style='color:pink;'>Window</a> belong to a commercial function?"}
+    E -- No --> C
+    E -- Yes --> F{"Get <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a> of <a href='http://example.com/firebimbuilding#Window' style='color:pink;'>Window</a>"}
+    F --> G{"<a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a> ≥ EI 30?"}
+    G -- Yes --> C
+    G -- No --> H{"Does <a href='http://example.com/firebimbuilding#Window' style='color:pink;'>Window</a> open onto evacuation route?"}
+    H -- No --> C
+    H -- Yes --> I{"Is <a href='http://example.com/firebimbuilding#Window' style='color:pink;'>Window</a> within last 3m of evacuation route?"}
+    I -- Yes --> C
+    I -- No --> J[/"Fail"/]
+    S1:::startClass
+    C:::passClass
+    J:::failClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px

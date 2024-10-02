@@ -1,5 +1,5 @@
 flowchart TD
-    S1["Start: Compartment Check"] --> B{"For every <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"}
+    S1["Start: Compartment Check"] --> B{"For every&nbsp;<a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"}
     B --> C{"Get <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a>"} & HH{"Get <a href='http://example.com/firebimbuilding#Height' style='color:blue'>Height</a>"}
     C --> D{"<a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> < 2500 m²?"}
     D -- Yes --> E[/"Pass"/]
@@ -9,16 +9,16 @@ flowchart TD
     H --> I{"<a href='http://example.com/firebimbuilding#Length' style='color:blue;'>Length</a> ≤ 90 m?"}
     I -- Yes --> J[/"Pass"/]
     I -- No --> K[/"Fail"/]
-    G -- No --> L{"Has automatic fire extinguishing system?"}
+    HH --> HI{"<a href='http://example.com/firebimbuilding#Height' style='color:blue'>Height</a> equals height of building layer?"}
+    HI -- Yes --> HJ[/"Pass"/]
+    HI -- No --> HK{"Get compartment type"}
+    HK --> P{"Is <a href='http://example.com/firebimbuilding#Parking' style='color:pink'>Parking</a>?"} & S{"Is Duplex?"} & Y{"Is Triplex?"} & AF{"Contains only technical rooms?"} & AI{"Is Atrium?"}
+    G -- No --> L{"Has <a href='http://example.com/firebimbuilding#AutomaticExtinguishingSystem' style='color:pink'>Automatic extinguishing system</a>?"}
     L -- Yes --> M{"Has smoke and heat evacuation system?"}
     M -- Yes --> N[/"Pass"/]
     M -- No --> O[/"Fail"/]
     L -- No --> O
     F -- No --> L
-    HH --> HI{"<a href='http://example.com/firebimbuilding#Height' style='color:blue'>Height</a> equals height of one building layer?"}
-    HI -- Yes --> HJ[/"Pass"/]
-    HI -- No --> HK{"Get compartment type"}
-    HK --> P{"Is <a href='http://example.com/firebimbuilding#Parking' style='color:pink'>Parking</a>?"} & S{"Is Duplex?"} & Y{"Is Triplex?"} & AF{"Contains only technical rooms?"} & AI{"Is Atrium?"}
     P --> Q["Refer to section 5.2"]
     S --> T{"Get total <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> of two floors"}
     T --> U{"Total <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> ≤ 2500 m²?"}
@@ -27,36 +27,30 @@ flowchart TD
     Y --> Z{"Get total <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> of three floors"}
     Z --> AA{"Total <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> ≤ 300 m²?"}
     AA -- Yes --> AB{"Has automatic fire detection system?"}
-    AB -- Yes --> AC{"Is it total surveillance type?"}
-    AC -- Yes --> AD{"Does it automatically indicate fire alarm?"}
-    AD -- Yes --> AE{"Are detectors adapted to present risks?"}
-    AE -- Yes --> AEE[/"Pass"/]
-    AE -- No --> AFF[/"Fail"/]
-    AD -- No --> AFF
-    AC -- No --> AFF
-    AB -- No --> AFF
-    AA -- No --> AFF
+    AB -- Yes --> AC[/"Pass"/]
+    AB -- No --> AD[/"Fail"/]
+    AA -- No --> AD
     AF --> AG[/"Pass"/]
-    AI --> AJ{"Has automatic fire extinguishing system?"}
+    AI --> AJ{"Has <a href='http://example.com/firebimbuilding#AutomaticExtinguishingSystem' style='color:pink'>Automatic extinguishing system</a>?"}
     AJ -- Yes --> AK{"Has smoke and heat evacuation system?"}
     AK -- Yes --> AL[/"Pass"/]
     AK -- No --> AM[/"Fail"/]
     AJ -- No --> AM
-    S1:::startClass
-    E:::passClass
-    J:::passClass
-    K:::failClass
-    HJ:::passClass
-    N:::passClass
-    O:::failClass
-    Q:::redirectClass
-    V:::passClass
-    W:::failClass
-    AEE:::passClass
-    AFF:::failClass
-    AG:::passClass
-    AL:::passClass
-    AM:::failClass
+     S1:::startClass
+     E:::passClass
+     J:::passClass
+     K:::failClass
+     HJ:::passClass
+     N:::passClass
+     O:::failClass
+     Q:::redirectClass
+     V:::passClass
+     W:::failClass
+     AC:::passClass
+     AD:::failClass
+     AG:::passClass
+     AL:::passClass
+     AM:::failClass
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px

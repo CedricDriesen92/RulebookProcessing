@@ -270,3 +270,56 @@ flowchart TD
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+
+
+Input:
+Section number: 4.1
+Section text:
+De wanden tussen compartimenten hebben minstens de brandweerstand aangegeven in tabel
+            2.3.
+                                                                                                                           52/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                    (v3.0)
+                                                                                   Federale Overheidsdienst Binnenlandse Zaken
+                                                                               Algemene Directie Civiele Veiligheid – Brandpreventie
+                                              BIJLAGE 2/1: LAGE GEBOUWEN
+                                                     Wanden
+              Boven de vloer van Ei
+                                 Eén bouwlaag        EI 30
+                         Meerdere bouwlagen          EI 60
+              Onder Ei,
+              met inbegrip van de vloer van          EI 60
+              Ei
+            Tabel 2.3 – Brandweerstand van wanden tussen compartimenten.
+            De verbinding tussen twee compartimenten is slechts toegestaan indien zij geschiedt via een
+            zelfsluitende of bij brand zelfsluitende deur EI1 30.
+
+Expected output:
+flowchart TD
+    S1["Start: Compartment Wall Check"] --> A{"For each <a href="http://example.com/firebimbuilding#Wall" style="color:pink;">Wall</a> between compartments"} & B{"For each <a href="http://example.com/firebimbuilding#Connection" style="color:red;">Connection</a> between compartments"}
+    A --> C{"Get <a href="http://example.com/firebimbuilding#Wall" style="color:pink;">Wall</a> <a href="http://example.com/firebimbuilding#Elevation" style="color:blue">Elevation</a> relative to <a href="http://example.com/firebimbuilding#FireResistance" style="color:pink">Lowest evacuation level</a>"}
+    C -- Above --> D{"How many <a href="http://example.com/firebimbuilding#Storey" style="color:pink;">Storey</a>s above?"}
+    C -- Below or including --> G{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue">Fire resistance</a> ≥ EI 60?"}
+    D -- 1 --> F{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI 30?"}
+    D -- &gt;1 --> G
+    F -- Yes --> H[/"Pass"/]
+    F -- No --> I[/"Fail"/]
+    G -- Yes --> J[/"Pass"/]
+    G -- No --> K[/"Fail"/]
+    B --> N{"Is connection via <a href="http://example.com/firebimbuilding#Door" style="color:pink;">Door</a>?"}
+    N -- Yes --> O{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI1 30?"}
+    O -- Yes --> P{"Is <a href="http://example.com/firebimbuilding#SelfClosing" style="color:blue;">Self-closing</a> or <a href="http://example.com/firebimbuilding#SelfClosingInCaseOfFire" style="color:blue">Self-closing in case of fire</a>?"}
+    P -- Yes --> Q[/"Pass"/]
+    P -- No --> R[/"Fail"/]
+    N -- No --> R
+    O -- No --> R
+
+     S1:::startClass
+     H:::passClass
+     I:::failClass
+     J:::passClass
+     K:::failClass
+     Q:::passClass
+     R:::failClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px

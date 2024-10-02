@@ -34,6 +34,7 @@ def load_training_examples(folder_path):
 def extract_text_from_pdf(pdf_path: str) -> str:
     with open(pdf_path, 'rb') as file:
         reader = pypdf.PdfReader(file)
+        
         text = ""
         for page in reader.pages:
             text += page.extract_text(extraction_mode="layout", layout_mode_space_vertically=False) + "\n"
