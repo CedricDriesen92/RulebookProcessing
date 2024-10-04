@@ -1,0 +1,46 @@
+Name,IFC_Mapping,Section
+Building,IfcBuilding,section_0_1
+BuildingStorey,IfcBuildingStorey,section_0_2
+Storey,IfcBuildingStorey,section_0_2
+Wall,IfcWall,section_0_3
+FireCompartment,IfcSpace,section_0_3
+Facade,IfcWall,section_1_1
+AccessRoad,IfcRoad,section_1_1
+Outbuilding,IfcBuilding,section_1_2
+Projecting Roof,IfcRoof,section_1_2
+Canopy,IfcRoof,section_1_2
+Cantilever,IfcBuildingElement,section_1_2
+Door,IfcDoor,section_1_3
+Compartment,IfcSpace,section_2_1
+Parking,IfcSpace,section_2_1
+Floor,IfcBuildingStorey,section_2_1
+Staircase,IfcStair,section_2_1
+Technical Room,IfcSpace,section_2_1
+Atrium,IfcSpace,section_2_1
+Space,IfcSpace,section_2_2
+Stair,IfcStair,section_2_2
+Handrail,IfcRailing,section_2_2
+FireAlarm,IfcAlarm,section_2_2
+Sprinkler,IfcFireSuppressionTerminal,section_2_2
+Room,IfcSpace,section_2_2
+Pipe,IfcFlowSegment,section_3_1
+Electrical Conduit,IfcCableCarrierSegment,section_3_1
+Expansion Joint,IfcRelConnectsElements,section_3_1
+StructuralElement,IfcStructuralMember,section_3_2
+Roof,IfcRoof,section_3_2
+Floor,IfcSlab,section_3_2
+Evacuation Route,IfcSpace,section_3_3
+Suspended Ceiling,IfcCovering,section_3_4
+Ceiling Void,IfcSpace,section_3_4
+Vertical Screen,IfcCurtainWall,section_3_4
+Curtain Wall,IfcCurtainWall,section_3_5
+Building Frame,IfcBuilding,section_3_5
+Compartment Wall,IfcWall,section_3_5
+Double-skinned facade,IfcWall,section_3_5
+Compartment wall,IfcWall,section_3_5
+Smoke detector,IfcSensorType.SMOKEDETECTOR,section_3_5
+Ventilation opening,IfcOpeningElement,section_3_5
+Fire detection system,IfcAlarmType.FIRE_DETECTION,section_3_5
+Manual control system,IfcController,section_3_5
+Electrical wiring,IfcCableSegment,section_3_5
+EvacuationSpace,IfcSpace,section_4
