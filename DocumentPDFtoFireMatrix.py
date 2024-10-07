@@ -12,7 +12,7 @@ def extract_objects_properties(text_content, section_number):
 Analyze the following text from a rulebook section and extract all BIM-compatible objects and properties that are required for rule checking. The objects and properties should be relevant to IFC (Industry Foundation Classes) concepts, and be able to be mapped to it. If no immediate mapping is available, define your own.
 Make sure to make sure that IFC best practices are adhered to. Always use the English definition, try to translate it as closely as possible.
 Prioritize properties over objects, as it's easier to define new properties and a lot harder. Really AVOID creating new objects...
-When defining new properties, use the 'firebim' property set and propose a property name.
+When defining new properties, use the 'firebim' property set and propose a property name. Do not put spaces in the name of objects or properties.
 
 For each object and property, provide:
 1. The type of object or property (Object or Property only!)

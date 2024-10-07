@@ -1,46 +1,140 @@
-Name,IFC_Mapping,Section
-Building,IfcBuilding,section_0_1
-BuildingStorey,IfcBuildingStorey,section_0_2
-Storey,IfcBuildingStorey,section_0_2
-Wall,IfcWall,section_0_3
-FireCompartment,IfcSpace,section_0_3
-Facade,IfcWall,section_1_1
-AccessRoad,IfcRoad,section_1_1
-Outbuilding,IfcBuilding,section_1_2
-Projecting Roof,IfcRoof,section_1_2
-Canopy,IfcRoof,section_1_2
-Cantilever,IfcBuildingElement,section_1_2
-Door,IfcDoor,section_1_3
-Compartment,IfcSpace,section_2_1
-Parking,IfcSpace,section_2_1
-Floor,IfcBuildingStorey,section_2_1
-Staircase,IfcStair,section_2_1
-Technical Room,IfcSpace,section_2_1
-Atrium,IfcSpace,section_2_1
-Space,IfcSpace,section_2_2
-Stair,IfcStair,section_2_2
-Handrail,IfcRailing,section_2_2
-FireAlarm,IfcAlarm,section_2_2
-Sprinkler,IfcFireSuppressionTerminal,section_2_2
-Room,IfcSpace,section_2_2
-Pipe,IfcFlowSegment,section_3_1
-Electrical Conduit,IfcCableCarrierSegment,section_3_1
-Expansion Joint,IfcRelConnectsElements,section_3_1
-StructuralElement,IfcStructuralMember,section_3_2
-Roof,IfcRoof,section_3_2
-Floor,IfcSlab,section_3_2
-Evacuation Route,IfcSpace,section_3_3
-Suspended Ceiling,IfcCovering,section_3_4
-Ceiling Void,IfcSpace,section_3_4
-Vertical Screen,IfcCurtainWall,section_3_4
-Curtain Wall,IfcCurtainWall,section_3_5
-Building Frame,IfcBuilding,section_3_5
-Compartment Wall,IfcWall,section_3_5
-Double-skinned facade,IfcWall,section_3_5
-Compartment wall,IfcWall,section_3_5
-Smoke detector,IfcSensorType.SMOKEDETECTOR,section_3_5
-Ventilation opening,IfcOpeningElement,section_3_5
-Fire detection system,IfcAlarmType.FIRE_DETECTION,section_3_5
-Manual control system,IfcController,section_3_5
-Electrical wiring,IfcCableSegment,section_3_5
-EvacuationSpace,IfcSpace,section_4
+Name;IFC_Mapping;Section
+Aandrijving;IfcDistributionElement;section_6_1
+AboveGroundLevel;IfcBuildingStorey;section_4_2
+AccessRoad;IfcRoad;section_1_1
+AdjacentStory;IfcBuildingStorey;section_5_4
+AirDuct;IfcFlowSegment;section_6_7
+AirDuct;IfcDuctSegment;section_6_7
+AirHandlingUnit;IfcUnitaryEquipment;section_6_7
+Airlock;IfcSpace;section_5_2
+Annex;IfcBuilding;section_1_2
+Atrium;IfcSpace;section_2_1
+Attic;IfcSpace;section_6_7
+Basement;IfcSpace;section_6_7
+BoilerRoom;IfcSpace;section_5_1
+Bordes;IfcSlab;section_6_1
+Building;IfcBuilding;section_0_1
+BuildingElement;IfcBuildingElement;section_3_5
+BuildingStorey;IfcBuildingStorey;section_3_2
+BuildingZone;IfcZone;section_6_7
+Canopy;IfcRoof;section_1_2
+CantileveredPart;IfcBuildingElement;section_1_2
+CeilingCavity;IfcSpace;section_3_4
+CeilingSuspended;IfcCovering;section_5_4
+CentralFireControlPanel;IfcDistributionControlElement;section_6_7
+ClosureDevice;IfcDoor;section_3_5
+CollectiveKitchen;IfcSpace;section_6_7
+CommercialSpace;IfcSpace;section_4_4
+Compartment;IfcSpace;section_2_1
+Compartment;IfcSpatialZone;section_5_1
+CompartmentDivider;IfcWall;section_3_4
+CompartmentWall;IfcWall;section_3_5
+Controleorganen;IfcBuildingElementProxy;section_6_1
+Corridor;IfcSpace;section_6_8
+Curtain Wall;IfcCurtainWall;section_3_5
+DisplayWindow;IfcWindow;section_4_4
+Door;IfcDoor;section_1_3
+DoorSet;IfcDoorStyle;section_3_5
+DoubleWallFacade;IfcWall;section_3_5
+Duct;IfcDuctSegment;section_4_2
+Duct;IfcFlowSegment;section_5_5
+Duplex;IfcSpace;section_4_2
+ElectricalConduit;IfcElectricalElement;section_3_1
+ElectricalRoom;IfcSpace;section_5_1
+Elevator;IfcTransportElement;section_4_5
+ElevatorCar;IfcTransportElement;section_6_4
+ElevatorDoor;IfcDoor;section_6_4
+ElevatorLanding;IfcSpace;section_6_1
+ElevatorLobby;IfcSpace;section_6_4
+ElevatorMachineRoom;IfcSpace;section_6_1
+ElevatorShaft;IfcBuildingElementProxy;section_6_1
+EmergencyExit;IfcDoor;section_4_5
+Escalator;IfcTransportElement;section_6_1
+EscapeBalcony;IfcSlab;section_4_3
+EscapeTerrace;IfcSlab;section_4_4
+EvacuationGroup;IfcGroup;section_6_8
+EvacuationLevel;IfcBuildingStorey;section_2_2
+EvacuationRoute;IfcSpace;section_2_2
+Exit;IfcDoor;section_2_2
+ExpansionJoint;IfcBuildingElementProxy;section_3_1
+ExternalStair;IfcStair;section_4_3
+FireAlarmDevice;IfcAlarmType;section_6_8
+FireDamper;IfcFlowController;section_6_7
+FireDamper;IfcDamper;section_6_7
+FireDetectionSystem;IfcSystem;section_3_5
+FireDetectionSystem;IfcAlarm;section_6_7
+FireExtinguisher;IfcFireSuppressionTerminal;section_6_8
+FirefighterSwitch;IfcBuildingElementProxy;section_6_4
+Floor;IfcBuildingStorey;section_2_1
+Floor;IfcSlab;section_3_2
+FreightElevator;IfcTransportElement;section_6_1
+Fryer;IfcFlowTerminal;section_5_5
+Gallery;IfcSpace;section_5_4
+Garage;IfcSpace;section_6_7
+GasInstallation;IfcDistributionSystem;section_6_6
+GasPipe;IfcPipeSegment;section_5_1
+GoederenLift;IfcTransportElement;section_6_1
+Guide;IfcActor;section_6_8
+HorizontalShaft;IfcSpace;section_5_1
+HoseReel;IfcFireSuppressionTerminal;section_6_8
+Hydrant;IfcFireSuppressionTerminal;section_6_8
+HydraulicElevator;IfcTransportElement;section_6_1
+HydraulicFreightElevator;IfcTransportElement;section_6_1
+InspectionHatch;IfcOpeningElement;section_6_2
+Kitchen;IfcSpace;section_5_5
+Landing;IfcStair;section_4_2
+Landing;IfcBuildingElementProxy;section_6_8
+LandingDoor;IfcDoor;section_6_1
+Lift;IfcTransportElement;section_6_1
+LiftDoor;IfcDoor;section_6_4
+Lobby;IfcSpace;section_4_2
+Machinekamer;IfcSpace;section_6_1
+MachineRoom;IfcSpace;section_6_1
+ManualControlSystem;IfcSystem;section_3_5
+OpenParkingLevel;IfcBuildingStorey;section_5_2
+Parking;IfcSpace;section_2_1
+Parking;IfcBuilding;section_5_2
+Parking;IfcBuildingStorey;section_5_2
+ParkingCompartment;IfcSpatialZone;section_6_3
+ParkingStructure;IfcBuilding;section_5_2
+Pipe;IfcFlowSegment;section_3_1
+ProjectingRoof;IfcRoof;section_1_2
+PublicRoad;IfcSpace;section_4_4
+Ramp;IfcRamp;section_5_2
+Restaurant;IfcSpace;section_5_5
+RetractableStair;IfcStair;section_4_3
+RiserPipe;IfcPipeSegment;section_6_8
+Roof;IfcRoof;section_3_2
+Room;IfcSpace;section_2_2
+SafetyLighting;IfcElectricalDevice;section_6_5
+Schacht;IfcTransportElement;section_6_1
+Screen;IfcCovering;section_5_1
+Shaft;IfcTransportElement;section_6_1
+Shaft;IfcSpace;section_6_2
+ShopComplex;IfcBuilding;section_5_4
+ShopUnit;IfcSpace;section_5_4
+SmokeControl;IfcDamper;section_6_7
+SmokeDetector;IfcSensor;section_3_5
+SmokeValve;IfcFlowController;section_6_7
+Space;IfcSpace;section_0_2
+SprinklerSystem;IfcFireSuppressionTerminal;section_5_4
+Stair;IfcStair;section_4_2
+Staircase;IfcStair;section_2_2
+Stairwell;IfcStair;section_6_1
+Storey;IfcBuildingStorey;section_0_2
+StructuralElement;IfcStructuralMember;section_3_2
+SuspendedCeiling;IfcCovering;section_3_4
+TechnicalRoom;IfcSpace;section_2_1
+TechnicalShaft;IfcSpace;section_6_7
+ThermalDetector;IfcSensor;section_3_5
+TransformerRoom;IfcSpace;section_5_1
+TransportSystem;IfcTransportElement;section_5_5
+Trapdoor;IfcDoor;section_5_1
+Triplex;IfcSpace;section_4_2
+UndergroundLevel;IfcBuildingStorey;section_4_2
+VentilationFlap;IfcFlowController;section_5_1
+VentilationOpening;IfcOpeningElement;section_3_5
+VerticalShaft;IfcSpace;section_5_1
+Wall;IfcWall;section_0_3
+WasteDisposalChute;IfcBuildingElement;section_5_1
+WasteStorageRoom;IfcSpace;section_5_1
