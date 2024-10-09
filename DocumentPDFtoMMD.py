@@ -34,13 +34,15 @@ def load_ontology(file_path):
 
 def load_csv(file_path):
     with open(file_path, 'r') as file:
-        return list(csv.DictReader(file))
+        reader = csv.reader(file)
+        next(reader)  # Skip header row
+        return [row[0] for row in reader]
 
 def process_ttl_to_mmd(ttl_content, ontology, objects_data, properties_data, examples_str):
     prompt = f"""
 You are specialized in converting rulebook sections represented in text format into Mermaid diagrams. Your task is to create complete Mermaid flowcharts for every object and parameter involved, showing the complete flow an application should follow to check the rule.
 
-Given the following text files representing part of a rule document, create an EXPLICIT mermaid diagram that shows detailed algorithms to solve the rules described. Make sure nothing in this diagram is vague, it has to contain all the info in the text pertaining to rules and rule checking.
+Given the following text files representing part of a rule document, create an EXPLICIT mermaid diagram that shows detailed algorithms to solve the rules described. Make sure nothing in this diagram is vague, it has to contain all the info in the text pertaining to rules and rule checking, and that everything that could be objects or properties mentioned are from the tables you will receive and have the correct URI attached.
 
 Important guidelines:
 1. Only use objects and properties from the provided tables!! If, for some reason, a new object or property needs to be defined first think if it can be replaced by one from the tables, and if not mark it in red for a new object and purple for a new property!
@@ -59,7 +61,7 @@ Objects table:
 Properties table:
 {properties_data}
 
-Training examples, follow these examples closely:
+Training examples, follow these examples closely. Note that these examples might be incomplete and lack object/property matching:
 {examples_str}
 
 Please output ONLY the Mermaid diagram, without any explanations, as pure text (not in a code block). Ensure that your output is valid in syntax, and that it contains the appropriate naming conventions and color specifications. Your output will be put directly into a .mmd file, it will not be processed further.
@@ -69,10 +71,10 @@ That concludes the prompt. Now, for the actual content to be transformed:
 {ttl_content}
 """
     prompt_verify = f"""
-Please make any changes to the mermaid diagram attached. Make sure nothing in this diagram is vague, it has to contain all the info in the original text pertaining to rules and rule checking.
+Please make any changes to the mermaid diagram attached. Make sure nothing in this diagram is vague, it has to contain all the info in the original text pertaining to rules and rule checking, and that everything that could be objects or properties mentioned are from the tables you will receive and have the correct URI attached.
 
 Important guidelines:
-1. Make sure only objects/properties from the provided tables are used!!! If, for some reason, a new object or property is defined first think if it can be replaced by one from the tables, and if not make sure it's in red for a new object and purple for a new property!
+1. Make sure only objects/properties from the provided tables are used in the flowchart!!! If, for some reason, a new object or property is defined first think if it can be replaced by one from the tables, and if not make sure it's in red for a new object and purple for a new property!
 2. Use markdown to color all object names pink and all property names blue in the Mermaid diagram. Also create an URL following the examples given later in the prompt.
 3. Provide the full, complete pseudocode for each rule.
 4. Ensure the Mermaid syntax is correct and can be directly used in a .mmd file.
@@ -88,7 +90,7 @@ Objects table:
 Properties table:
 {properties_data}
 
-Training examples, make sure the diagram follows the structure of these diagrams very closely:
+Training examples, make sure the diagram follows the structure of these diagrams very closely. Note that these examples might be incomplete and lack object/property matching:
 {examples_str}
 
 Please output ONLY the Mermaid diagram, without any explanations, as pure text (not in a code block). Ensure that your output is valid in syntax, and that it contains the appropriate naming conventions and color specifications. Your output will be put directly into a .mmd file, it will not be processed further.
@@ -122,8 +124,8 @@ Now, here is the mmd to be checked, again ONLY output the revised mmd file, not 
 
 def main():
     ontology = load_ontology('FireBIM_Document_Ontology.ttl')
-    objects_data = load_csv('MatrixObjects.csv')
-    properties_data = load_csv('MatrixProperties.csv')
+    objects_data = load_csv('MatrixObjects_auto.csv')
+    properties_data = load_csv('MatrixProperties_auto.csv')
     input_folder = 'trainingsamplesRuleToGraph'
     training_folder = 'trainingsamplesRuleToMMD'
     output_folder = 'mmddiagrams'

@@ -1,22 +1,21 @@
 flowchart TD
-    S1["Start: Display Window Check"] --> A{"For each <a href='http://example.com/firebimbuilding#Window' style='color:pink;'>Window</a> on <a href='http://example.com/firebimbuilding#Storey' style='color:pink;'>Storey</a>"}
-    A --> B{"Is <a href='http://example.com/firebimbuilding#Storey' style='color:pink;'>Storey</a> an <a href='http://example.com/firebimbuilding#IsEvacuationLevel' style='color:blue;'>evacuation level</a>?"}
-    B -- No --> C[/"Pass"/]
-    B -- Yes --> D{"Is <a href='http://example.com/firebimbuilding#Window' style='color:pink;'>Window</a> a display window?"}
-    D -- No --> C
-    D -- Yes --> E{"Does <a href='http://example.com/firebimbuilding#Window' style='color:pink;'>Window</a> belong to a commercial function?"}
-    E -- No --> C
-    E -- Yes --> F{"Get <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a> of <a href='http://example.com/firebimbuilding#Window' style='color:pink;'>Window</a>"}
-    F --> G{"<a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a> ≥ EI 30?"}
-    G -- Yes --> C
-    G -- No --> H{"Does <a href='http://example.com/firebimbuilding#Window' style='color:pink;'>Window</a> open onto evacuation route?"}
-    H -- No --> C
-    H -- Yes --> I{"Is <a href='http://example.com/firebimbuilding#Window' style='color:pink;'>Window</a> within last 3m of evacuation route?"}
-    I -- Yes --> C
-    I -- No --> J[/"Fail"/]
+    S1["Start: Display Window Check"] --> A{"For each <a href='http://example.com/firebimbuilding#DisplayWindow' style='color:pink;'>DisplayWindow</a>"}
+    A --> B{"Is <a href='http://example.com/firebimbuilding#DisplayWindow' style='color:pink;'>DisplayWindow</a> on <a href='http://example.com/firebimbuilding#EvacuationLevel' style='color:pink;'>EvacuationLevel</a>?"}
+    B -- Yes --> C{"Does <a href='http://example.com/firebimbuilding#DisplayWindow' style='color:pink;'>DisplayWindow</a> belong to <a href='http://example.com/firebimbuilding#BuildingPart' style='color:pink;'>BuildingPart</a> with <a href='http://example.com/firebimbuilding#CommercialFunction' style='color:blue;'>CommercialFunction</a>?"}
+    C -- Yes --> D{"Does <a href='http://example.com/firebimbuilding#DisplayWindow' style='color:pink;'>DisplayWindow</a> have <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>FireResistance</a> ≥ EI 30?"}
+    D -- Yes --> E[/"Pass"/]
+    D -- No --> F{"Does <a href='http://example.com/firebimbuilding#DisplayWindow' style='color:pink;'>DisplayWindow</a> face <a href='http://example.com/firebimbuilding#EvacuationRoute' style='color:pink;'>EvacuationRoute</a>?"}
+    F -- Yes --> G{"Is <a href='http://example.com/firebimbuilding#DisplayWindow' style='color:pink;'>DisplayWindow</a> within last 3m of <a href='http://example.com/firebimbuilding#EvacuationRoute' style='color:pink;'>EvacuationRoute</a> to <a href='http://example.com/firebimbuilding#PublicWay' style='color:pink;'>PublicWay</a>?"}
+    G -- Yes --> E
+    G -- No --> H[/"Fail"/]
+    F -- No --> E
+    C -- No --> E
+    B -- No --> E
+
     S1:::startClass
-    C:::passClass
-    J:::failClass
+    E:::passClass
+    H:::failClass
+
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px

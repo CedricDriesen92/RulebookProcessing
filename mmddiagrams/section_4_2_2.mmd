@@ -1,93 +1,61 @@
 flowchart TD
     S1["Start: Staircase Check"] --> A{"For each <a href="http://example.com/firebimbuilding#Staircase" style="color:pink;">Staircase</a>"}
-    A --> B{"Check interior walls"} & C{"Check exterior walls"} & D{"Check access to evacuation level"} & E{"Check doors to compartments"} & F{"Check ventilation opening"} & G{"Check separation of underground and above-ground staircases"}
-    B --> H{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI 60?"}
-    H -- Yes --> I[/"Pass"/]
-    H -- No --> J[/"Fail"/]
-    C --> K{"Are there glazed openings?"}
-    K -- Yes --> L{"Glazed openings set off laterally by E 30 element for at least 1 m?"}
+    A --> O{"For each <a href="http://example.com/firebimbuilding#Storey" style="color:pink">Storey</a>"} & Y{"Are shared staircases accessible via <a href="http://example.com/firebimbuilding#Door" style="color:pink">Door</a>s with <a href="http://example.com/firebimbuilding#FireResistance" style="color:blue">Fire resistance</a> ≥ EI1 30 and <a href="http://example.com/firebimbuilding#SelfClosing" style="color:blue">Self-closing</a> or <a href="http://example.com/firebimbuilding#SelfClosingInCaseOfFire" style="color:blue">Self-closing in case of fire</a>?"} & AB{"Are underground and above-ground staircases separated?"} & AF{"Is there a <a href="http://example.com/firebimbuilding#VentilationOpening" style="color:blue">Ventilation opening</a> of ≥ 1 m² at the top?"} & H{"Are inner <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>s <a href="http://example.com/firebimbuilding#FireResistance" style="color:blue">Fire resistance</a> ≥ EI 60?"} & L{"Does <a href="http://example.com/firebimbuilding#Staircase" style="color:pink;">Staircase</a> give access to <a href="http://example.com/firebimbuilding#EvacuationLevel" style="color:pink">Evacuation level</a>?"}
+    H -- Yes --> I{"Are outer <a href="http://example.com/firebimbuilding#Wall" style="color:pink;">Wall</a>s with openings protected by E 30 element for at least 1m sideways?"}
+    I -- Yes --> J[/"Pass"/]
+    I -- No --> K[/"Fail"/]
+    H -- No --> K
     L -- Yes --> M[/"Pass"/]
     L -- No --> N[/"Fail"/]
-    K -- No --> M
-    D --> O{"Does <a href="http://example.com/firebimbuilding#Staircase" style="color:pink;">Staircase</a> provide access to evacuation level?"}
-    O -- Yes --> P[/"Pass"/]
-    O -- No --> Q[/"Fail"/]
-    E --> R{"For each <a href="http://example.com/firebimbuilding#Storey" style="color:pink;">Storey</a>"}
-    R --> S{"Is <a href="http://example.com/firebimbuilding#Storey" style="color:pink;">Storey</a> part of a duplex?"}
-    S -- Yes --> T{"<a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of duplex compartment ≤ 300 m²?"}
-    T -- Yes --> U{"<a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of non-directly evacuating floor ≤ 150 m²?"}
-    U -- Yes --> V[/"Pass"/]
-    U -- No --> W[/"Fail"/]
-    T -- No --> W
-    S -- No --> X{"Is <a href="http://example.com/firebimbuilding#Storey" style="color:pink;">Storey</a> part of a triplex?"}
-    X -- Yes --> Y{"<a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of each non-directly evacuating floor ≤ 100 m²?"}
-    Y -- Yes --> Z{"Check triplex connection"}
-    Z --> AA{"Is it a day-use triplex on E, E+1, E-1?"}
-    AA -- Yes --> AB{"Connection from evacuation level?"}
-    AA -- No --> AC{"Connection from lowest level and one other level?"}
-    AB -- Yes --> AD[/"Pass"/]
-    AB -- No --> AE[/"Fail"/]
-    AC -- Yes --> AD
-    AC -- No --> AE
-    Y -- No --> AE
-    X -- No --> AF{"<a href="http://example.com/firebimbuilding#Door" style="color:pink;">Door</a> to <a href="http://example.com/firebimbuilding#Staircase" style="color:pink;">Staircase</a> has <a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI1 30?"}
-    AF -- Yes --> AG{"Is <a href="http://example.com/firebimbuilding#SelfClosing" style="color:blue;">Self-closing</a> or <a href="http://example.com/firebimbuilding#SelfClosingInCaseOfFire" style="color:blue;">Self-closing in case of fire</a>?"}
+    O --> P{"Is there a <a href="http://example.com/firebimbuilding#Door" style="color:pink;">Door</a> with <a href="http://example.com/firebimbuilding#FireResistance" style="color:blue">Fire resistance</a> ≥ EI1 30 to <a href="http://example.com/firebimbuilding#Staircase" style="color:pink">Staircase</a>?"}
+    P -- Yes --> Q[/"Pass"/]
+    P -- No --> R{"Is it a <a href="http://example.com/firebimbuilding#Duplex" style="color:blue;">Duplex</a> or <a href="http://example.com/firebimbuilding#Triplex" style="color:blue;">Triplex</a>?"}
+    R -- Duplex --> S{"<a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 300 m² AND non-direct evacuation floor <a href="http://example.com/firebimbuilding#Area" style="color:blue">Area</a> ≤ 150 m²?"}
+    R -- Triplex --> T{"Each non-direct evacuation floor <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 100 m² AND correct connection?"}
+    S -- Yes --> U[/"Pass"/]
+    S -- No --> V[/"Fail"/]
+    T -- Yes --> W[/"Pass"/]
+    T -- No --> X[/"Fail"/]
+    R -- No --> V
+    Y -- Yes --> Z[/"Pass"/]
+    Y -- No --> AA[/"Fail"/]
+    AB -- Yes --> AC{"Separating <a href="http://example.com/firebimbuilding#Wall" style="color:pink;">Wall</a>s <a href="http://example.com/firebimbuilding#FireResistance" style="color:blue">Fire resistance</a> ≥ EI 60 and access via <a href="http://example.com/firebimbuilding#Door" style="color:pink">Door</a>s with <a href="http://example.com/firebimbuilding#FireResistance" style="color:blue">Fire resistance</a> ≥ EI1 30 and <a href="http://example.com/firebimbuilding#SelfClosing" style="color:blue">Self-closing</a> or <a href="http://example.com/firebimbuilding#SelfClosingInCaseOfFire" style="color:blue">Self-closing in case of fire</a>?"}
+    AC -- Yes --> AD[/"Pass"/]
+    AC -- No --> AE[/"Fail"/]
+    AB -- No --> AE
+    AF -- Yes --> AG{"Is it normally closed with visible manual control at evacuation level?"}
     AG -- Yes --> AH[/"Pass"/]
     AG -- No --> AI[/"Fail"/]
-    AF -- No --> AI
-    F --> AJ{"Is <a href="http://example.com/firebimbuilding#Staircase" style="color:pink;">Staircase</a> between evacuation level and underground floors?"}
-    AJ -- Yes --> AK[/"No ventilation opening required"/]
-    AJ -- No --> AL{"How many floors above ground does <a href="http://example.com/firebimbuilding#Staircase" style="color:pink;">Staircase</a> serve?"}
-    AL -- "≤2" --> AM{"Total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 300 m²?"}
-    AM -- Yes --> AN{"Ventilation opening ≥ 0.5 m²?"}
-    AM -- No --> AO{"Ventilation opening ≥ 1 m²?"}
-    AL -- "&gt;2" --> AO
-    AN -- Yes --> AP{"Manually operable from evacuation level?"}
-    AN -- No --> AQ[/"Fail"/]
-    AO -- Yes --> AP
-    AO -- No --> AQ
-    AP -- Yes --> AR[/"Pass"/]
-    AP -- No --> AS[/"Fail"/]
-    AT{"Is there a duplex at the top of the building?"}
-    AT -- Yes --> AU{"Ventilation opening connected to <a href="http://example.com/firebimbuiluild#Staircase" style="color:pink;">Staircase</a> via duct?"}
-    AU -- Yes --> AV{"Duct cross-section ≥ required ventilation opening area?"}
-    AV -- Yes --> AW[/"Pass"/]
-    AV -- No --> AX[/"Fail"/]
-    AU -- No --> AX
-    AT -- No --> AY[/"No additional requirements"/]
-    G --> AZ{"Are underground and above-ground staircases separate?"}
-    AZ -- Yes --> BA{"Check separation walls"}
-    BA --> BB{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI 60?"}
-    BB -- Yes --> BC{"Check access doors"}
-    BC --> BD{"<a href="http://example.com/firebimbuilding#Door" style="color:pink;">Door</a> has <a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI1 30?"}
-    BD -- Yes --> BE{"Is <a href="http://example.com/firebimbuilding#SelfClosing" style="color:blue;">Self-closing</a> or <a href="http://example.com/firebimbuilding#SelfClosingInCaseOfFire" style="color:blue;">Self-closing in case of fire</a>?"}
-    BE -- Yes --> BF[/"Pass"/]
-    BE -- No --> BG[/"Fail"/]
-    BD -- No --> BG
-    BB -- No --> BG
-    AZ -- No --> BH[/"Fail"/]
+    AF -- No --> AJ{"Is it between evacuation level and underground floors?"}
+    AJ -- Yes --> AK[/"Pass (exemption)"/]
+    AJ -- No --> AL{"Does it connect max 2 floors above ground, <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 300 m², with <a href="http://example.com/firebimbuilding#VentilationOpening" style="color:blue">Ventilation opening</a> ≥ 0.5 m²?"}
+    AL -- Yes --> AM[/"Pass"/]
+    AL -- No --> AN{"Is there a duplex at the top with a connecting shaft ≥ required ventilation area?"}
+    AN -- Yes --> AO[/"Pass"/]
+    AN -- No --> AP[/"Fail"/]
+
      S1:::startClass
-     I:::passClass
-     J:::failClass
+     J:::passClass
+     K:::failClass
      M:::passClass
      N:::failClass
-     P:::passClass
-     Q:::failClass
-     V:::passClass
-     W:::failClass
+     Q:::passClass
+     U:::passClass
+     V:::failClass
+     W:::passClass
+     X:::failClass
+     Z:::passClass
+     AA:::failClass
      AD:::passClass
      AE:::failClass
      AH:::passClass
      AI:::failClass
      AK:::passClass
-     AR:::passClass
-     AS:::failClass
-     AW:::passClass
-     AX:::failClass
-     AY:::passClass
-     BF:::passClass
-     BG:::failClass
-     BH:::failClass
+     AM:::passClass
+     AO:::passClass
+     AP:::failClass
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+
+

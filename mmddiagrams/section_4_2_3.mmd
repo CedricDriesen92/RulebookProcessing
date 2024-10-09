@@ -1,84 +1,61 @@
 flowchart TD
-    S1["Start: Staircase Check"] --> A{"For each <a href='http://example.com/firebimbuilding#Stair' style='color:pink;'>Stair</a>"}
-    A --> B{"Check <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a>"} & C{"Check handrails"} & D{"Check step dimensions"} & E{"Check inclination"} & F{"Check stair type"} & G{"Check useful width"}
-    
-    B --> H{"<a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a> ≥ R 30?"}
-    H -- Yes --> I[/"Pass"/]
-    H -- No --> J{"Is stair made of class A1 materials?"}
-    J -- Yes --> K{"Melting temperature > 727°C?"}
-    K -- Yes --> L[/"Pass"/]
-    K -- No --> M[/"Fail"/]
-    J -- No --> M
-    
-    C --> N{"Get <a href='http://example.com/firebimbuilding#UsefulWidth' style='color:blue;'>Useful width</a>"}
-    N --> O{"<a href='http://example.com/firebimbuilding#UsefulWidth' style='color:blue;'>Useful width</a> < 1.20 m?"}
-    O -- Yes --> P{"Has at least one handrail?"}
-    O -- No --> Q{"Has handrails on both sides?"}
-    P -- Yes --> R[/"Pass"/]
-    P -- No --> S[/"Fail"/]
-    Q -- Yes --> R
-    Q -- No --> S
-    
-    D --> T{"Get <a href='http://example.com/firebimbuilding#TreadLength' style='color:blue;'>Tread length</a>"} & U{"Get <a href='http://example.com/firebimbuilding#RiserHeight' style='color:blue;'>Riser height</a>"}
-    T --> V{"<a href='http://example.com/firebimbuilding#TreadLength' style='color:blue;'>Tread length</a> ≥ 20 cm at every point?"}
-    U --> W{"<a href='http://example.com/firebimbuilding#RiserHeight' style='color:blue;'>Riser height</a> ≤ 18 cm?"}
-    V -- Yes --> X[/"Pass"/]
-    V -- No --> Y[/"Fail"/]
-    W -- Yes --> Z[/"Pass"/]
-    W -- No --> AA[/"Fail"/]
-    
-    E --> AB{"Get <a href='http://example.com/firebimbuilding#Slope' style='color:blue;'>Slope</a>"}
-    AB --> AC{"<a href='http://example.com/firebimbuilding#Slope' style='color:blue;'>Slope</a> ≤ 75% (37°)?"}
-    AC -- Yes --> AD[/"Pass"/]
-    AC -- No --> AE[/"Fail"/]
-    
-    F --> AF{"Is stair straight?"}
-    AF -- Yes --> AG[/"Pass"/]
-    AF -- No --> AH{"Is stair spiral?"}
-    AH -- Yes --> AI{"Has deflected steps?"}
-    AI -- Yes --> AJ{"<a href='http://example.com/firebimbuilding#TreadLength' style='color:blue;'>Tread length</a> ≥ 24 cm on walking line?"}
-    AJ -- Yes --> AK[/"Pass"/]
-    AJ -- No --> AL[/"Fail"/]
-    AI -- No --> AL
-    AH -- No --> AL
-    
-    G --> AM{"Get <a href='http://example.com/firebimbuilding#UsefulWidth' style='color:blue;'>Useful width</a>"}
-    AM --> AN{"<a href='http://example.com/firebimbuilding#UsefulWidth' style='color:blue;'>Useful width</a> ≥ 0.80 m?"}
-    AN -- Yes --> AO{"<a href='http://example.com/firebimbuilding#UsefulWidth' style='color:blue;'>Useful width</a> ≥ required width br?"}
-    AO -- Yes --> AP[/"Pass"/]
-    AO -- No --> AQ[/"Fail"/]
-    AN -- No --> AQ
-    
-    AR{"For each pair of stair flights and landings in same compartment"}
-    AR --> AS{"Difference in <a href='http://example.com/firebimbuilding#UsefulWidth' style='color:blue;'>Useful width</a> ≤ 1 passage unit?"}
-    AS -- Yes --> AT[/"Pass"/]
-    AS -- No --> AU[/"Fail"/]
-    
-    AV{"For compartments with special purpose rooms"}
-    AV --> AW["Calculate theoretical useful stair width only for height between compartment and evacuation level"]
-    AW --> AX[/"Note: Special calculation"/]
-    
+    S1["Start: Staircase Check"] --> A{"For each <a href='http://example.com/firebimbuilding#Staircase' style='color:pink;'>Staircase</a>"}
+    A --> B{"Check <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a>"} & C{"Check <a href='http://example.com/firebimbuilding#Handrail' style='color:blue;'>Handrails</a>"} & D{"Check <a href='http://example.com/firebimbuilding#TreadDepth' style='color:blue;'>Tread depth</a>"} & E{"Check <a href='http://example.com/firebimbuilding#RiserHeight' style='color:blue;'>Riser height</a>"} & F{"Check <a href='http://example.com/firebimbuilding#Inclination' style='color:blue;'>Inclination</a>"} & G{"Check <a href='http://example.com/firebimbuilding#StairType' style='color:blue;'>Stair type</a>"} & H{"Check <a href='http://example.com/firebimbuilding#UsableWidth' style='color:blue;'>Usable width</a>"}
+    B --> B1{"<a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a> ≥ R 30?"}
+    B1 -- Yes --> B2[/"Pass"/]
+    B1 -- No --> B3{"Made entirely of class A1 materials?"}
+    B3 -- Yes --> B4{"Melting temperature > 727°C?"}
+    B4 -- Yes --> B2
+    B4 -- No --> B5[/"Fail"/]
+    B3 -- No --> B5
+    C --> C1{"<a href='http://example.com/firebimbuilding#UsableWidth' style='color:blue;'>Usable width</a> < 1.20 m?"}
+    C1 -- Yes --> C2{"At least one <a href='http://example.com/firebimbuilding#Handrail' style='color:blue;'>Handrail</a>?"}
+    C1 -- No --> C3{"<a href='http://example.com/firebimbuilding#Handrail' style='color:blue;'>Handrails</a> on both sides?"}
+    C2 -- Yes --> C4[/"Pass"/]
+    C2 -- No --> C5[/"Fail"/]
+    C3 -- Yes --> C4
+    C3 -- No --> C5
+    D --> D1{"<a href='http://example.com/firebimbuilding#TreadDepth' style='color:blue;'>Tread depth</a> ≥ 20 cm at every point?"}
+    D1 -- Yes --> D2[/"Pass"/]
+    D1 -- No --> D3[/"Fail"/]
+    E --> E1{"<a href='http://example.com/firebimbuilding#RiserHeight' style='color:blue;'>Riser height</a> ≤ 18 cm?"}
+    E1 -- Yes --> E2[/"Pass"/]
+    E1 -- No --> E3[/"Fail"/]
+    F --> F1{"<a href='http://example.com/firebimbuilding#Inclination' style='color:blue;'>Inclination</a> ≤ 75% (37°)?"}
+    F1 -- Yes --> F2[/"Pass"/]
+    F1 -- No --> F3[/"Fail"/]
+    G --> G1{"Is <a href='http://example.com/firebimbuilding#StairType' style='color:blue;'>Stair type</a> straight?"}
+    G1 -- Yes --> G2[/"Pass"/]
+    G1 -- No --> G3{"Is <a href='http://example.com/firebimbuilding#StairType' style='color:blue;'>Stair type</a> spiral?"}
+    G3 -- Yes --> G4{"Has winder steps?"}
+    G4 -- Yes --> G5{"<a href='http://example.com/firebimbuilding#TreadDepth' style='color:blue;'>Tread depth</a> ≥ 24 cm on walking line?"}
+    G5 -- Yes --> G2
+    G5 -- No --> G6[/"Fail"/]
+    G4 -- No --> G6
+    G3 -- No --> G6
+    H --> H1{"<a href='http://example.com/firebimbuilding#UsableWidth' style='color:blue;'>Usable width</a> ≥ 0.80 m?"}
+    H1 -- Yes --> H2{"<a href='http://example.com/firebimbuilding#UsableWidth' style='color:blue;'>Usable width</a> ≥ required width br?"}
+    H2 -- Yes --> H3{"Difference in <a href='http://example.com/firebimbuilding#UsableWidth' style='color:blue;'>Usable width</a> within compartment ≤ 1 passage unit?"}
+    H3 -- Yes --> H4[/"Pass"/]
+    H3 -- No --> H5[/"Fail"/]
+    H2 -- No --> H5
+    H1 -- No --> H5
+    I["Note: For compartments with special purpose rooms, calculate theoretical stair width only for height between compartment and evacuation level"]:::noteClass
     S1:::startClass
-    I:::passClass
-    L:::passClass
-    M:::failClass
-    R:::passClass
-    S:::failClass
-    X:::passClass
-    Y:::failClass
-    Z:::passClass
-    AA:::failClass
-    AD:::passClass
-    AE:::failClass
-    AG:::passClass
-    AK:::passClass
-    AL:::failClass
-    AP:::passClass
-    AQ:::failClass
-    AT:::passClass
-    AU:::failClass
-    AX:::noteClass
-    
+    B2:::passClass
+    B5:::failClass
+    C4:::passClass
+    C5:::failClass
+    D2:::passClass
+    D3:::failClass
+    E2:::passClass
+    E3:::failClass
+    F2:::passClass
+    F3:::failClass
+    G2:::passClass
+    G6:::failClass
+    H4:::passClass
+    H5:::failClass
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
