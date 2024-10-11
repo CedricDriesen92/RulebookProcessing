@@ -1,58 +1,59 @@
 flowchart TD
-    S1["Start: Compartment Check"] --> B{"For every&nbsp;<a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"}
-    B --> C{"Get <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a>"} & HH{"Get <a href='http://example.com/firebimbuilding#Height' style='color:blue'>Height</a>"}
-    C --> D{"<a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> < 2500 m²?"}
-    D -- Yes --> E[/"Pass"/]
-    D -- No --> F{"Is <a href='http://example.com/firebimbuilding#Storey' style='color:pink;'>Storey</a> ground floor?"}
-    F -- Yes --> G{"<a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> ≤ 3500 m²?"}
-    G -- Yes --> H{"Get <a href='http://example.com/firebimbuilding#Length' style='color:blue;'>Length</a>"}
-    H --> I{"<a href='http://example.com/firebimbuilding#Length' style='color:blue;'>Length</a> ≤ 90 m?"}
-    I -- Yes --> J[/"Pass"/]
-    I -- No --> K[/"Fail"/]
-    HH --> HI{"<a href='http://example.com/firebimbuilding#Height' style='color:blue'>Height</a> equals height of building layer?"}
-    HI -- Yes --> HJ[/"Pass"/]
-    HI -- No --> HK{"Get compartment type"}
-    HK --> P{"Is <a href='http://example.com/firebimbuilding#Parking' style='color:pink'>Parking</a>?"} & S{"Is Duplex?"} & Y{"Is Triplex?"} & AF{"Contains only technical rooms?"} & AI{"Is Atrium?"}
-    G -- No --> L{"Has <a href='http://example.com/firebimbuilding#AutomaticExtinguishingSystem' style='color:pink'>Automatic extinguishing system</a>?"}
-    L -- Yes --> M{"Has smoke and heat evacuation system?"}
-    M -- Yes --> N[/"Pass"/]
-    M -- No --> O[/"Fail"/]
-    L -- No --> O
-    F -- No --> L
-    P --> Q["Refer to section 5.2"]
-    S --> T{"Get total <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> of two floors"}
-    T --> U{"Total <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> ≤ 2500 m²?"}
-    U -- Yes --> V[/"Pass"/]
-    U -- No --> W[/"Fail"/]
-    Y --> Z{"Get total <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> of three floors"}
-    Z --> AA{"Total <a href='http://example.com/firebimbuilding#Area' style='color:blue;'>Area</a> ≤ 300 m²?"}
-    AA -- Yes --> AB{"Has automatic fire detection system?"}
-    AB -- Yes --> AC[/"Pass"/]
-    AB -- No --> AD[/"Fail"/]
-    AA -- No --> AD
-    AF --> AG[/"Pass"/]
-    AI --> AJ{"Has <a href='http://example.com/firebimbuilding#AutomaticExtinguishingSystem' style='color:pink'>Automatic extinguishing system</a>?"}
-    AJ -- Yes --> AK{"Has smoke and heat evacuation system?"}
-    AK -- Yes --> AL[/"Pass"/]
-    AK -- No --> AM[/"Fail"/]
-    AJ -- No --> AM
-     S1:::startClass
-     E:::passClass
-     J:::passClass
-     K:::failClass
-     HJ:::passClass
-     N:::passClass
-     O:::failClass
-     Q:::redirectClass
-     V:::passClass
-     W:::failClass
-     AC:::passClass
-     AD:::failClass
-     AG:::passClass
-     AL:::passClass
-     AM:::failClass
+    S1["Start: Compartment Check"] --> A["For each <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"]
+    A --> B["Is <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a> a <a href='http://example.com/firebimbuilding#Parking' style='color:pink;'>Parking</a>?"]
+    B -- Yes --> C["Check Parking rules (see 5.2)"]
+    B -- No --> D["Is <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a> on ground floor?"]
+    D -- Yes --> E["<a href='http://example.com/firebimbuilding#CompartmentArea' style='color:blue;'>CompartmentArea</a> ≤ 3500 m²?"]
+    D -- No --> F["<a href='http://example.com/firebimbuilding#CompartmentArea' style='color:blue;'>CompartmentArea</a> ≤ 2500 m²?"]
+    E -- Yes --> G["<a href='http://example.com/firebimbuilding#CompartmentLength' style='color:blue;'>CompartmentLength</a> ≤ 90 m?"]
+    E -- No --> H["Has <a href='http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem' style='color:blue;'>HasAutomaticFireExtinguishingSystem</a>?"]
+    F -- Yes --> I[/"Pass"/]
+    F -- No --> H
+    G -- Yes --> I
+    G -- No --> J[/"Fail"/]
+    H -- Yes --> K["Has <a href='http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem' style='color:blue;'>HasSmokeAndHeatExhaustSystem</a>?"]
+    H -- No --> L["Exception granted by Minister?"]
+    K -- Yes --> I
+    K -- No --> L
+    L -- Yes --> I
+    L -- No --> J
+    A --> M["<a href='http://example.com/firebimbuilding#NumberOfFloors' style='color:blue;'>NumberOfFloors</a> in <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>?"]
+    M -- 1 --> N[/"Pass"/]
+    M -- 2 --> O["<a href='http://example.com/firebimbuilding#IsDuplex' style='color:blue;'>IsDuplex</a>?"]
+    M -- 3 --> P["<a href='http://example.com/firebimbuilding#IsTriplex' style='color:blue;'>IsTriplex</a>?"]
+    M -- "More than 3" --> Q["<a href='http://example.com/firebimbuilding#ContainsTechnicalRooms' style='color:blue;'>ContainsTechnicalRooms</a>?"]
+    O -- Yes --> R["<a href='http://example.com/firebimbuilding#CompartmentArea' style='color:blue;'>CompartmentArea</a> ≤ 2500 m²?"]
+    O -- No --> J
+    P -- Yes --> S["<a href='http://example.com/firebimbuilding#CompartmentArea' style='color:blue;'>CompartmentArea</a> ≤ 300 m²?"]
+    P -- No --> J
+    Q -- Yes --> T[/"Pass"/]
+    Q -- No --> U["<a href='http://example.com/firebimbuilding#IsAtrium' style='color:blue;'>IsAtrium</a>?"]
+    R -- Yes --> N
+    R -- No --> J
+    S -- Yes --> V["Has <a href='http://example.com/firebimbuilding#HasAutomaticFireDetectionSystem' style='color:blue;'>HasAutomaticFireDetectionSystem</a>?"]
+    S -- No --> J
+    U -- Yes --> W["Has <a href='http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem' style='color:blue;'>HasAutomaticFireExtinguishingSystem</a>?"]
+    U -- No --> J
+    V -- Yes --> X["<a href='http://example.com/firebimbuilding#FireDetectionCoverage' style='color:blue;'>FireDetectionCoverage</a> = 'Total'?"]
+    V -- No --> J
+    W -- Yes --> Y["Has <a href='http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem' style='color:blue;'>HasSmokeAndHeatExhaustSystem</a>?"]
+    W -- No --> Z["Exception granted by Minister?"]
+    X -- Yes --> AA["Detectors adapted to present risks?"]
+    X -- No --> J
+    Y -- Yes --> AB[/"Pass"/]
+    Y -- No --> Z
+    Z -- Yes --> AB
+    Z -- No --> J
+    AA -- Yes --> AB
+    AA -- No --> J
+
+    S1:::startClass
+    I:::passClass
+    J:::failClass
+    N:::passClass
+    T:::passClass
+    AB:::passClass
+
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
-    classDef redirectClass fill:#ff9,stroke:#333,stroke-width:2px
-    classDef noteClass fill:#ffd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5

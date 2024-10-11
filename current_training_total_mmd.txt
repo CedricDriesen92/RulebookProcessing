@@ -40,63 +40,78 @@ Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2
 
 Expected output:
 flowchart TD
-    S1["Start: Compartment Check"] --> B{"For every&nbsp;<a href="http://example.com/firebimbuilding#Compartment" style="color:pink;">Compartment</a>"}
-    B --> C{"Get <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a>"} & HH{"Get <a href="http://example.com/firebimbuilding#Height" style="color:blue">Height</a>"}
-    C --> D{"<a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> &lt; 2500 m²?"}
-    D -- Yes --> E[/"Pass"/]
-    D -- No --> F{"Is <a href="http://example.com/firebimbuilding#Storey" style="color:pink;">Storey</a> ground floor?"}
-    F -- Yes --> G{"<a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 3500 m²?"}
-    G -- Yes --> H{"Get <a href="http://example.com/firebimbuilding#Length" style="color:blue;">Length</a>"}
-    H --> I{"<a href="http://example.com/firebimbuilding#Length" style="color:blue;">Length</a> ≤ 90 m?"}
-    I -- Yes --> J[/"Pass"/]
-    I -- No --> K[/"Fail"/]
-    HH --> HI["<a href="http://example.com/firebimbuilding#Height" style="color:blue">Height</a> equals height of building layer?"]
-    HI -- Yes --> HJ[/"Pass"/]
-    HI -- No --> HK{"Get compartment type"}
-    HK --> P{"Is <a href="http://example.com/firebimbuilding#Parking" style="color:pink">Parking</a>?"} & S{"Is Duplex?"} & Y{"Is Triplex?"} & AF{"Contains only technical rooms?"} & AI{"Is Atrium?"}
-    G -- No --> L{"Has automatic fire extinguishing system?"}
-    L -- Yes --> M{"Has smoke and heat evacuation system?"}
-    M -- Yes --> N[/"Pass"/]
-    M -- No --> O[/"Fail"/]
-    L -- No --> O
-    F -- No --> L
-    P --> Q["Refer to section 5.2"]
-    S --> T{"Get total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of two floors"}
-    T --> U{"Total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 2500 m²?"}
-    U -- Yes --> V[/"Pass"/]
-    U -- No --> W[/"Fail"/]
-    Y --> Z{"Get total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> of three floors"}
-    Z --> AA{"Total <a href="http://example.com/firebimbuilding#Area" style="color:blue;">Area</a> ≤ 300 m²?"}
-    AA -- Yes --> AB{"Has automatic fire detection system?"}
-    AB -- Yes --> AC[/"Pass"/]
-    AB -- No --> AD[/"Fail"/]
-    AA -- No --> AD
-    AF --> AG[/"Pass"/]
-    AI --> AJ{"Has automatic fire extinguishing system?"}
-    AJ -- Yes --> AK{"Has smoke and heat evacuation system?"}
-    AK -- Yes --> AL[/"Pass"/]
-    AK -- No --> AM[/"Fail"/]
-    AJ -- No --> AM
+    S1["Start: Compartment Check"] --> A["For each <a href="http://example.com/firebimbuilding#Compartment" style="color:pink;">Compartment</a>"]
+    A --> B["<a href="http://example.com/firebimbuilding#Compartment" style="color:pink;">Compartment</a> <a href="http://example.com/firebimbuilding#IsParking" style="color:blue">IsParking</a>?"] & M["<a href="http://example.com/firebimbuilding#NumberOfFloors" style="color:blue">NumberOfFloors</a> in <a href="http://example.com/firebimbuilding#Compartment" style="color:pink">Compartment</a>?"]
+    B -- Yes --> C["Check Parking rules (see 5.2)"]
+    B -- No --> D["<a href="http://example.com/firebimbuilding#Compartment" style="color:pink;">Compartment</a> <a href="http://example.com/firebimbuilding#IsGroundFloor" style="color:blue">IsGroundFloor</a>?"]
+    D -- Yes --> E["<a href="http://example.com/firebimbuilding#CompartmentArea" style="color:blue;">CompartmentArea</a> ≤ 3500 m²?"]
+    D -- No --> F["<a href="http://example.com/firebimbuilding#CompartmentArea" style="color:blue;">CompartmentArea</a> ≤ 2500 m²?"]
+    E -- Yes --> G["<a href="http://example.com/firebimbuilding#CompartmentLength" style="color:blue;">CompartmentLength</a> ≤ 90 m?"]
+    E -- No --> H["<a href="http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem" style="color:blue;">HasAutomaticFireExtinguishingSystem</a>&nbsp;and&nbsp;<a href="http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem" style="color:blue">HasSmokeAndHeatExhaustSystem</a>"]
+    F -- Yes --> I[/"Pass"/]
+    F -- No --> H
+    G -- Yes --> IA[/"Pass"/]
+    G -- No --> J[/"Fail"/]
+    H -- No --> L["Exception granted by Minister?"]
+    L -- Yes --> IC[/"Pass"/]
+    L -- No --> JA[/"Fail"/]
+    M -- 1 --> N[/"Pass"/]
+    M -- 2 --> O["<a href="http://example.com/firebimbuilding#IsDuplex" style="color:blue;">IsDuplex</a>?"]
+    M -- 3 --> P["<a href="http://example.com/firebimbuilding#IsTriplex" style="color:blue;">IsTriplex</a>?"]
+    M -- &gt;3 --> Q["<a href="http://example.com/firebimbuilding#ContainsTechnicalRooms" style="color:blue;">ContainsTechnicalRooms</a>?"]
+    O -- Yes --> R["<a href="http://example.com/firebimbuilding#CompartmentArea" style="color:blue;">CompartmentArea</a> ≤ 2500 m²?"]
+    O -- No --> JB[/"Fail"/]
+    P -- Yes --> S["<a href="http://example.com/firebimbuilding#CompartmentArea" style="color:blue;">CompartmentArea</a> ≤ 300 m²?"]
+    P -- No --> JC[/"Fail"/]
+    Q -- Yes --> T[/"Pass"/]
+    Q -- No --> U["<a href="http://example.com/firebimbuilding#IsAtrium" style="color:blue;">IsAtrium</a>?"]
+    R -- Yes --> NA[/"Pass"/]
+    R -- No --> JD[/"Fail"/]
+    S -- Yes --> V["<a href="http://example.com/firebimbuilding#HasAutomaticFireDetectionSystem" style="color:blue;">HasAutomaticFireDetectionSystem</a>?"]
+    S -- No --> JE[/"Fail"/]
+    U -- Yes --> W["<a href="http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem" style="color:blue;">HasAutomaticFireExtinguishingSystem</a>?"]
+    U -- No --> JF[/"Fail"/]
+    V -- Yes --> X["<a href="http://example.com/firebimbuilding#FireDetectionCoverage" style="color:blue;">FireDetectionCoverage</a> = 'Total'?"]
+    V -- No --> JG[/"Fail"/]
+    W -- Yes --> Y["<a href="http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem" style="color:blue;">HasSmokeAndHeatExhaustSystem</a>?"]
+    W -- No --> Z["Exception granted by Minister?"]
+    X -- Yes --> AA["Detectors adapted to present risks?"]
+    X -- No --> JH[/"Fail"/]
+    Y -- Yes --> AB[/"Pass"/]
+    Y -- No --> Z
+    Z -- Yes --> AC[/"Pass"/]
+    Z -- No --> JI[/"Fail"/]
+    AA -- Yes --> AD[/"Pass"/]
+    AA -- No --> JJ[/"Fail"/]
+    H --> IB[/"Pass"/]
+
+    C@{ shape: hex}
      S1:::startClass
-     E:::passClass
-     J:::passClass
-     K:::failClass
-     HJ:::passClass
+     I:::passClass
+     IA:::passClass
+     J:::failClass
+     IC:::passClass
+     JA:::failClass
      N:::passClass
-     O:::failClass
-     Q:::redirectClass
-     V:::passClass
-     W:::failClass
+     JB:::failClass
+     JC:::failClass
+     T:::passClass
+     NA:::passClass
+     JD:::failClass
+     JE:::failClass
+     JF:::failClass
+     JG:::failClass
+     JH:::failClass
+     AB:::passClass
      AC:::passClass
-     AD:::failClass
-     AG:::passClass
-     AL:::passClass
-     AM:::failClass
+     JI:::failClass
+     AD:::passClass
+     JJ:::failClass
+     IB:::passClass
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
-    classDef redirectClass fill:#ff9,stroke:#333,stroke-width:2px
-    classDef noteClass fill:#ffd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
+    style C stroke:#000000,stroke-width:1px,stroke-dasharray: 0,fill:#FFD600
 
 
 Input:
@@ -115,158 +130,38 @@ Elk compartiment heeft minimum:
 
 Expected output:
 flowchart TD
-    A["Start: Building Assessment"] --> S1["Start: Compartment Check"] & S2["Start: Door Check"]
-    S1 --> B{"Check <a href="http://example.com/firebimbuilding#Compartment" style="color:pink;">Compartment</a>"}
-    B --> C{"Get <a href="http://example.com/firebimbuilding#Occupancy" style="color:blue;">Occupancy</a>"}
-    C --> D{"<a href="http://example.com/firebimbuilding#Occupancy" style="color:blue;">Occupancy</a> &lt; 100?"}
-    D -- Yes --> E["Require 1 exit"]
-    D -- No --> F{"100 ≤ <a href="http://example.com/firebimbuilding#Occupancy" style="color:blue;">Occupancy</a> &lt; 500?"}
-    F -- Yes --> G["Require 2 exits"]
-    F -- No --> I["Calculate n = ceil(<a href="http://example.com/firebimbuilding#Occupancy" style="color:blue;">Occupancy</a> / 1000)"]
-    I --> J["Require 2 + n exits"]
-    E --> L["Check actual <a href="http://example.com/firebimbuilding#NumberOfExits" style="color:blue;">Number of exits</a>"]
-    G --> L
-    J --> L
-    L --> M{"Actual exits ≥ Required exits?"}
-    M -- Yes --> N[/"Pass"/]
-    M -- No --> O[/"Fail"/]
-    S2 --> T{"For each <a href="http://example.com/firebimbuilding#Door" style="color:pink;">Door</a>"}
-    T --> U{"Is <a href="http://example.com/firebimbuilding#IsFireExit" style="color:blue;">Is Fire Exit?</a> true?"}
-    U -- Yes --> V["Count as exit"]
-    U -- No --> W["Do not count as exit"]
-    V --> X{{"Return to main flow"}}
-    W --> X
-    P["Note: Fire department may increase required exits"] ~~~ L
-     A:::startClass
-     S1:::startClass
-     S2:::startClass
-     N:::passClass
-     O:::failClass
-     X:::redirectClass
-     P:::noteClass
-    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
-    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
-    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
-    classDef redirectClass fill:#ff9,stroke:#333,stroke-width:2px
-    classDef noteClass fill:#ffd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5
-
-
-Input:
-Section number: 3.5.1
-Section text:
-3.5.1.1     Scheiding tussen compartimenten
-            De stijlen van het gordijngevelskelet worden ter hoogte van elke bouwlaag aan het gebouwskelet
-            bevestigd.     Met  uitzondering  van  de  gebouwen  die  uitgerust  zijn  met  een  automatische
-            blusinstallatie,  moeten  deze  bevestigingen  R 60  zijn  ten  opzichte  van  een                     brand  in  een
-            onderliggend en naastgelegen compartiment.
-            De lineaire voeg aan de gevel is dichtgemaakt zodat geen koude rook tussen de gevel en de
-            compartimentswanden kan dringen.
-            Bovendien heeft de aansluiting van de compartimentswanden met de gevel, met                          uitzondering van
-            een beperkte lineaire voeg met een breedte van maximaal 20 mm aan de gevel, minstens EI 60 of
-            EI 60 (i→   o).
-3.5.1.2     Tegenover elkaar staande gevels en gevels die een tweevlakshoek vormen
-            Om te vermijden dat een brand tussen twee compartimenten kan overslaan:
-            a)   ofwel,   als  gevels   tegenover     elkaar staan of een       inspringende      tweevlakshoek vormen, dan
-                 bedraagt de afstand (in m) tussen de geveldelen die niet minstens E 30 of E 30 (o→                      i) hebben,
-                 ten minste:
-                      h + 10cos   α voor 0° ≤  ≤ 90°
-                        2,5
-                      0 voor 90° < ≤ 180°
-                 waarbij  de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.2).
-                                                                                                                             50/275
- Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                      (v3.0)
-                                                                                  Federale Overheidsdienst Binnenlandse Zaken
-                                                                              Algemene Directie Civiele Veiligheid – Brandpreventie
-                                              BIJLAGE 2/1: LAGE GEBOUWEN
-                 Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli                       2022, mag
-                 ook de volgende formule worden gebruikt:
-                      h + 5cos  α
-                       2
-            b)   ofwel   mag   de   straling   van   een   brand   tussen   gevels   behorende   tot   verschillende
-                 compartimenten niet meer dan 15 kW/m² bedragen.
-
-Expected output:
-flowchart TD
- subgraph Z_sub["Angle Calculation"]
-        Z1["Get IfcCurtainWall.ObjectPlacement for both walls"]
-        Z2["Extract IfcAxis2Placement3D from IfcLocalPlacement"]
-        Z3["Get normal vectors (RefDirection) from IfcAxis2Placement3D"]
-        Z4["Calculate dot product of normal vectors"]
-        Z5["α = arccos(dot product)"]
-  end
- subgraph AJ_sub["Radiation Calculation"]
-        AJ1["Get IfcCurtainWall.Representation for both walls"]
-        AJ2["Extract IfcProductDefinitionShape"]
-        AJ3["Identify facing IfcFace elements"]
-        AJ4["Calculate surface areas of facing IfcFace"]
-        AJ5["Determine distance between facing surfaces"]
-        AJ6["Calculate view factors"]
-        AJ7["Get IfcMaterial properties for emissivity"]
-        AJ8["Apply Stefan-Boltzmann law"]
-        AJ9["Sum up radiation for all surface pairs"]
-  end
-    S1["Start: Curtain Wall Check"] --> A{"For each <a href="http://example.com/firebimbuilding#CurtainWall" style="color:pink;">Curtain Wall</a>"}
-    A --> B{"Check attachment to building skeleton"} & H{"Check linear joint at facade"} & L{"Check connection of compartment walls with facade"}
-    B --> C{"Is building equipped with automatic fire extinguishing system?"}
-    C -- Yes --> D[/"Pass"/]
-    C -- No --> E{"Attachment has R 60 fire resistance?"}
-    E -- Yes --> F[/"Pass"/]
-    E -- No --> G[/"Fail"/]
-    H --> I{"Is joint sealed against cold smoke?"}
-    I -- Yes --> J[/"Pass"/]
-    I -- No --> K[/"Fail"/]
-    L --> M{"Linear joint width ≤ 20 mm?"}
-    M -- Yes --> N{"Connection has EI 60 or EI 60 (i→o) fire resistance?"}
-    N -- Yes --> O[/"Pass"/]
-    N -- No --> P[/"Fail"/]
+    S1["Start: Compartment Exit Check"] --> A["For each <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"]
+    A --> B["Get <a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a>"]
+    B --> C["<a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> < 100?"]
+    C -- Yes --> D["<a href='http://example.com/firebimbuilding#MinimumNumberOfExits' style='color:blue;'>MinimumNumberOfExits</a> = 1"]
+    C -- No --> E["100 ≤ <a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> < 500?"]
+    E -- Yes --> F["<a href='http://example.com/firebimbuilding#MinimumNumberOfExits' style='color:blue;'>MinimumNumberOfExits</a> = 2"]
+    E -- No --> G["Calculate n = ceiling(<a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> / 1000)"]
+    G --> H["<a href='http://example.com/firebimbuilding#MinimumNumberOfExits' style='color:blue;'>MinimumNumberOfExits</a> = 2 + n"]
+    D & F & H --> I["Get actual <a href='http://example.com/firebimbuilding#Exits' style='color:blue;'>Exits</a>"]
+    I --> J["Actual <a href='http://example.com/firebimbuilding#Exits' style='color:blue;'>Exits</a> ≥ <a href='http://example.com/firebimbuilding#MinimumNumberOfExits' style='color:blue;'>MinimumNumberOfExits</a>?"]
+    J -- Yes --> K["Check with fire department for <a href='http://example.com/firebimbuilding#AdditionalExitsRequired' style='color:blue;'>AdditionalExitsRequired</a>"]
+    J -- No --> L[/"Fail"/]
+    K --> M["<a href='http://example.com/firebimbuilding#AdditionalExitsRequired' style='color:blue;'>AdditionalExitsRequired</a> > 0?"]
+    M -- Yes --> N["Update <a href='http://example.com/firebimbuilding#MinimumNumberOfExits' style='color:blue;'>MinimumNumberOfExits</a>"]
+    N --> O["Actual <a href='http://example.com/firebimbuilding#Exits' style='color:blue;'>Exits</a> ≥ Updated <a href='http://example.com/firebimbuilding#MinimumNumberOfExits' style='color:blue;'>MinimumNumberOfExits</a>?"]
+    O -- Yes --> P[/"Pass"/]
+    O -- No --> Q[/"Fail"/]
     M -- No --> R[/"Pass"/]
-    T["Start: Opposing Facades Check"] --> U{"For each pair of <a href="http://example.com/firebimbuilding#CurtainWall" style="color:pink;">Curtain Wall</a>s"}
-    U --> V{"Do facades face each other or form a receding dihedral angle?"}
-    V -- Yes --> W{"Do both facades have at least E 30 or E 30 (o→i) fire resistance?"}
-    W -- Yes --> X[/"Pass"/]
-    W -- No --> Z_sub
-    Z_sub --> AA{"Get <a href="http://example.com/firebimbuilding#Height" style="color:blue;">Height</a> h of building"}
-    AA --> AB{"Is 0° ≤ α ≤ 90°?"}
-    AB -- Yes --> AC["Minimum distance = (h + 10 * cos(α)) / 2.5"]
-    AB -- No --> AD{"Is 90° &lt; α ≤ 180°?"}
-    AD -- Yes --> AE["Minimum distance = 0"]
-    AD -- No --> AF[/"Invalid angle"/]
-    AC --> AG{"Is actual distance ≥ minimum distance?"}
-    AE --> AG
-    AG -- Yes --> AH[/"Pass"/]
-    AG -- No --> AI[/"Fail"/]
-    V -- No --> AJ_sub
-    AJ_sub --> AK{"Is radiation ≤ 15 kW/m²?"}
-    AK -- Yes --> AL[/"Pass"/]
-    AK -- No --> AM[/"Fail"/]
-    Z1 --> Z2
-    Z2 --> Z3
-    Z3 --> Z4
-    Z4 --> Z5
-    AJ1 --> AJ2
-    AJ2 --> AJ3
-    AJ3 --> AJ4 & AJ5
-    AJ4 --> AJ6
-    AJ5 --> AJ6
-    AJ6 --> AJ8
-    AJ7 --> AJ8
-    AJ8 --> AJ9
-     S1:::startClass
-     D:::passClass
-     F:::passClass
-     G:::failClass
-     J:::passClass
-     K:::failClass
-     O:::passClass
-     P:::failClass
-     R:::passClass
-     T:::startClass
-     X:::passClass
-     AF:::failClass
-     AH:::passClass
-     AI:::failClass
-     AL:::passClass
-     AM:::failClass
+    S1 --> S["For each <a href='http://example.com/firebimbuilding#Storey' style='color:pink;'>Storey</a> and <a href='http://example.com/firebimbuilding#Room' style='color:pink;'>Room</a>"]
+    S --> T["Apply same exit calculation as for <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"]
+    T --> U["Actual <a href='http://example.com/firebimbuilding#Exits' style='color:blue;'>Exits</a> ≥ Updated <a href='http://example.com/firebimbuilding#MinimumNumberOfExits' style='color:blue;'>MinimumNumberOfExits</a>?"]
+    U -- Yes --> V[/"Pass"/]
+    U -- No --> W[/"Fail"/]
+
+    S1:::startClass
+    L:::failClass
+    P:::passClass
+    Q:::failClass
+    R:::passClass
+    V:::passClass
+    W:::failClass
+
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
@@ -295,31 +190,29 @@ De wanden tussen compartimenten hebben minstens de brandweerstand aangegeven in 
 
 Expected output:
 flowchart TD
-    S1["Start: Compartment Wall Check"] --> A{"For each <a href="http://example.com/firebimbuilding#Wall" style="color:pink;">Wall</a> between compartments"} & B{"For each <a href="http://example.com/firebimbuilding#Connection" style="color:red;">Connection</a> between compartments"}
-    A --> C{"Get <a href="http://example.com/firebimbuilding#Wall" style="color:pink;">Wall</a> <a href="http://example.com/firebimbuilding#Elevation" style="color:blue">Elevation</a> relative to <a href="http://example.com/firebimbuilding#FireResistance" style="color:pink">Lowest evacuation level</a>"}
-    C -- Above --> D{"How many <a href="http://example.com/firebimbuilding#Storey" style="color:pink;">Storey</a>s above?"}
-    C -- Below or including --> G{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue">Fire resistance</a> ≥ EI 60?"}
-    D -- 1 --> F{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI 30?"}
+    S1["Start: Compartment Wall Check"] --> A["For each <a href="http://example.com/firebimbuilding#Wall" style="color:pink;">Wall</a> between <a href="http://example.com/firebimbuilding#Compartment" style="color:pink;">Compartments</a>"] & B["For each <a href="http://example.com/firebimbuilding#Door" style="color:pink;">Door</a> between <a href="http://example.com/firebimbuilding#Compartment" style="color:pink">Compartments</a>"]
+    A --> C["Get <a href="http://example.com/firebimbuilding#Wall" style="color:pink;">Wall</a> <a href="http://example.com/firebimbuilding#Location" style="color:blue;">Location</a> relative to <a href="http://example.com/firebimbuilding#EvacuationLevel" style="color:pink">Evacuation Level</a>"]
+    C -- Above --> D["How many <a href="http://example.com/firebimbuilding#Storey" style="color:pink;">Storeys</a> above?"]
+    C -- Below or including --> G["<a href="http://example.com/firebimbuilding#FireResistanceRating" style="color:blue;">FireResistanceRating</a> ≥ EI 60?"]
+    D -- 1 --> F["<a href="http://example.com/firebimbuilding#FireResistanceRating" style="color:blue;">FireResistanceRating</a> ≥ EI 30?"]
     D -- &gt;1 --> G
     F -- Yes --> H[/"Pass"/]
     F -- No --> I[/"Fail"/]
     G -- Yes --> J[/"Pass"/]
     G -- No --> K[/"Fail"/]
-    B --> N{"Is connection via <a href="http://example.com/firebimbuilding#Door" style="color:pink;">Door</a>?"}
-    N -- Yes --> O{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI1 30?"}
-    O -- Yes --> P{"Is <a href="http://example.com/firebimbuilding#SelfClosing" style="color:blue;">Self-closing</a> or <a href="http://example.com/firebimbuilding#SelfClosingInCaseOfFire" style="color:blue">Self-closing in case of fire</a>?"}
-    P -- Yes --> Q[/"Pass"/]
-    P -- No --> R[/"Fail"/]
-    N -- No --> R
-    O -- No --> R
+    B --> N["<a href="http://example.com/firebimbuilding#FireResistanceRating" style="color:blue;">FireResistanceRating</a> ≥ EI1 30?"]
+    N -- Yes --> O["Is <a href="http://example.com/firebimbuilding#IsSelfClosing" style="color:blue;">IsSelfClosing</a> or <a href="http://example.com/firebimbuilding#IsFireActivatedClosing" style="color:blue">IsFireActivatedClosing</a> true?"]
+    O -- Yes --> P[/"Pass"/]
+    O -- No --> Q[/"Fail"/]
+    N -- No --> Q
 
      S1:::startClass
      H:::passClass
      I:::failClass
      J:::passClass
      K:::failClass
-     Q:::passClass
-     R:::failClass
+     P:::passClass
+     Q:::failClass
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
@@ -331,25 +224,25 @@ Section text:
 
 Expected output:
 flowchart TD
-    S1["Start: Evacuation Path Check"] --> A{"For each <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink;">Evacuation path</a>"}
-    A --> B{"Is <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink;">Evacuation path</a> through a <a href="http://example.com/firebimbuilding#Staircase" style="color:pink">Staircase</a>?"} & I{"For every&nbsp;<a href="http://example.com/firebimbuilding#Door" style="color:pink">Door</a>&nbsp;on <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink">Evacuation path</a>"} & N{"Ends on&nbsp;<a href="http://example.com/firebimbuilding#EscapeTerrace" style="color:pink">Escape terrace</a>"} & V{"Passes&nbsp;<a href="http://example.com/firebimbuilding#Airlock" style="color:pink">Airlock</a>"}
-    B -- Yes --> C{"For each <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink;">Evacuation path</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a> and each <a href="http://example.com/firebimbuilding#Staircase" style="color:pink">Staircase</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>"}
-    B -- No --> D{"For each <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink;">Evacuation path</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>"}
-    C --> F{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue">Fire resistance</a> ≥ EI 30?"}
+    S1["Start: Evacuation Path Check"] --> A["For each <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink;">Evacuation path</a>"]
+    A --> B["Is <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink;">Evacuation path</a> through a <a href="http://example.com/firebimbuilding#Staircase" style="color:pink">Staircase</a>?"] & I["For every&nbsp;<a href="http://example.com/firebimbuilding#Door" style="color:pink">Door</a>&nbsp;on <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink">Evacuation path</a>"] & N["Ends on&nbsp;<a href="http://example.com/firebimbuilding#EscapeTerrace" style="color:pink">Escape terrace</a>"] & V["Passes&nbsp;<a href="http://example.com/firebimbuilding#Airlock" style="color:pink">Airlock</a>"]
+    B -- Yes --> C["For each <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink;">Evacuation path</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a> and each <a href="http://example.com/firebimbuilding#Staircase" style="color:pink">Staircase</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>"]
+    B -- No --> D["For each <a href="http://example.com/firebimbuilding#EvacuationPath" style="color:pink;">Evacuation path</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>"]
+    C --> F["<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue">Fire resistance</a> ≥ EI 30?"]
     F -- Yes --> G[/"Pass"/]
     F -- No --> H[/"Fail"/]
-    K{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI1 30?"} -- Yes --> L[/"Pass"/]
+    K["<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI1 30?"] -- Yes --> L[/"Pass"/]
     K -- No --> M[/"Fail"/]
-    R{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI 60?"} -- Yes --> S[/"Pass"/]
+    R["<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI 60?"] -- Yes --> S[/"Pass"/]
     R -- No --> T[/"Fail"/]
     N -- No --> U[/"Pass"/]
-    Z{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI 60?"} -- Yes --> AA[/"Pass"/]
+    Z["<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI 60?"] -- Yes --> AA[/"Pass"/]
     Z -- No --> AB[/"Fail"/]
     V -- No --> AC[/"Pass"/]
     D --> F
     I --> K
-    N -- Yes --> P{"For each <a href="http://example.com/firebimbuilding#EscapeTerrace" style="color:pink;">Escape terrace</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>"}
-    X{"For each <a href="http://example.com/firebimbuilding#Airlock" style="color:pink;">Airlock</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>"} --> Z
+    N -- Yes --> P["For each <a href="http://example.com/firebimbuilding#EscapeTerrace" style="color:pink;">Escape terrace</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>"]
+    X["For each <a href="http://example.com/firebimbuilding#Airlock" style="color:pink;">Airlock</a> <a href="http://example.com/firebimbuilding#Wall" style="color:pink">Wall</a>"] --> Z
     P --> R
     V -- Yes --> X
 
@@ -368,32 +261,3 @@ flowchart TD
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
     classDef continueClass fill:#FFD600,stroke:#333,stroke-width:2px
-
-
-Input:
-Section number: 4.2.1
-Section text:
-De trappen die verscheidene compartimenten verbinden zijn omsloten. De grondbeginselen van 2
-            "Compartimentering en evacuatie" zijn erop van toepassing.
-
-Expected output:
-flowchart TD
-    S1["Start: Staircase Check"] --> A{"For each <a href='http://example.com/firebimbuilding#Staircase' style='color:pink;'>Staircase</a>"}
-    A --> B{"Does <a href='http://example.com/firebimbuilding#Staircase' style='color:pink;'>Staircase</a> connect multiple <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartments</a>?"}
-    B -- Yes --> C{"Is <a href='http://example.com/firebimbuilding#Staircase' style='color:pink;'>Staircase</a> enclosed?"}
-    C -- Yes --> D{"Check compliance with Section 2 principles"}
-    D --> E{"Are all principles from Section 2 applied?"}
-    E -- Yes --> F[/"Pass"/]
-    E -- No --> G[/"Fail"/]
-    C -- No --> G
-    B -- No --> H[/"Not applicable"/]
-
-    S1:::startClass
-    F:::passClass
-    G:::failClass
-    H:::noteClass
-
-    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
-    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
-    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
-    classDef noteClass fill:#ffd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5

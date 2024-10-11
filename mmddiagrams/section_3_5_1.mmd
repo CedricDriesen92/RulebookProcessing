@@ -1,0 +1,48 @@
+flowchart TD
+    S1["Start: Curtain Wall Check"] --> A["For each <a href='http://example.com/firebimbuilding#CurtainWall' style='color:pink;'>CurtainWall</a>"]
+    A --> B["Check <a href='http://example.com/firebimbuilding#Building' style='color:pink;'>Building</a> <a href='http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem' style='color:blue;'>HasAutomaticFireExtinguishingSystem</a>"]
+    B -- No --> C["Check <a href='http://example.com/firebimbuilding#CurtainWall' style='color:pink;'>CurtainWall</a> frame attachments"]
+    C --> D["<a href='http://example.com/firebimbuilding#FireResistanceRating' style='color:blue;'>FireResistanceRating</a> ≥ R 60?"]
+    D -- Yes --> E[/"Pass frame attachment check"/]
+    D -- No --> F[/"Fail frame attachment check"/]
+    B -- Yes --> E
+    A --> G["Check linear joint at facade"]
+    G --> H["Is joint sealed against cold smoke?"]
+    H -- Yes --> I[/"Pass joint sealing check"/]
+    H -- No --> J[/"Fail joint sealing check"/]
+    A --> K["Check <a href='http://example.com/firebimbuilding#Wall' style='color:pink;'>Wall</a> to facade connection"]
+    K --> L["<a href='http://example.com/firebimbuilding#LinearJointSeal' style='color:blue;'>LinearJointSeal</a> width ≤ 20 mm?"]
+    L -- Yes --> M["<a href='http://example.com/firebimbuilding#FireResistanceRating' style='color:blue;'>FireResistanceRating</a> ≥ EI 60 or EI 60 (i→o)?"]
+    L -- No --> N[/"Fail wall-facade connection check"/]
+    M -- Yes --> O[/"Pass wall-facade connection check"/]
+    M -- No --> N
+    A --> P["Check opposing facades"]
+    P --> Q["<a href='http://example.com/firebimbuilding#FireResistanceRating' style='color:blue;'>FireResistanceRating</a> ≥ E 30 or E 30 (o→i)?"]
+    Q -- Yes --> R[/"Pass opposing facades check"/]
+    Q -- No --> S["Calculate minimum distance"]
+    S --> T[["Calculate: d = (h + 10 * cos(α)) / 2.5 for 0° ≤ α ≤ 90°<br>d = 0 for 90° < α ≤ 180°<br>Where:<br>d = minimum distance<br>h = <a href='http://example.com/firebimbuilding#BuildingHeight' style='color:blue;'>BuildingHeight</a><br>α = <a href='http://example.com/firebimbuilding#Angle' style='color:blue;'>Angle</a> between facades"]]
+    T --> U["Actual <a href='http://example.com/firebimbuilding#DistanceToOpposingFacade' style='color:blue;'>DistanceToOpposingFacade</a> ≥ calculated d?"]
+    U -- Yes --> V[/"Pass opposing facades distance check"/]
+    U -- No --> W[/"Fail opposing facades distance check"/]
+    A --> X["Check radiation between facades"]
+    X --> Y["<a href='http://example.com/firebimbuilding#MaximumRadiationBetweenFacades' style='color:blue;'>MaximumRadiationBetweenFacades</a> ≤ 15 kW/m²?"]
+    Y -- Yes --> Z[/"Pass radiation check"/]
+    Y -- No --> AA[/"Fail radiation check"/]
+
+    S1:::startClass
+    E:::passClass
+    F:::failClass
+    I:::passClass
+    J:::failClass
+    N:::failClass
+    O:::passClass
+    R:::passClass
+    V:::passClass
+    W:::failClass
+    Z:::passClass
+    AA:::failClass
+
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+    style T fill:#f0f0f0,stroke:#333,stroke-width:1px

@@ -1,29 +1,25 @@
 flowchart TD
-    S1["Start: Suspended Ceiling Check"] --> A{"For each <a href='http://example.com/firebimbuilding#Ceiling' style='color:pink;'>Ceiling</a>"}
-    A --> B{"Is suspended?"}
-    B -- Yes --> C{"Check <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>Fire resistance</a>"}
-    C --> D{"EI 30 (ab)?"}
+    S1["Start: Suspended Ceiling Check"] --> A["For each <a href='http://example.com/firebimbuilding#SuspendedCeiling' style='color:pink;'>SuspendedCeiling</a>"]
+    A --> B["<a href='http://example.com/firebimbuilding#SuspendedCeilingFireResistance' style='color:blue;'>SuspendedCeilingFireResistance</a> ≥ EI 30 (ab), EI 30 (ba), or EI 30 (a ↔ b)?"]
+    B -- Yes --> C[/"Pass"/]
+    B -- No --> D["<a href='http://example.com/firebimbuilding#FireStability' style='color:blue;'>FireStability</a> ≥ 30 minutes?"]
     D -- Yes --> E[/"Pass"/]
-    D -- No --> F{"EI 30 (ba)?"}
-    F -- Yes --> E
-    F -- No --> G{"EI 30 (a↔b)?"}
-    G -- Yes --> E
-    G -- No --> H{"Stability in fire ≥ 30 minutes?"}
-    H -- Yes --> E
-    H -- No --> I{"Check exceptions"}
-    I --> J{"Is in section 4.4.1.2 exceptions?"}
-    J -- Yes --> E
-    J -- No --> K{"Compartment has automatic sprinkler system?"}
-    K -- Yes --> L{"Sprinkler system adapted to present risks?"}
-    L -- Yes --> E
-    L -- No --> M[/"Fail"/]
-    K -- No --> M
-    B -- No --> N[/"Not applicable"/]
+    D -- No --> F["Exception under point 4.4.1.2?"]
+    F -- Yes --> G[/"Pass"/]
+    F -- No --> H["<a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a> has <a href='http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem' style='color:blue;'>HasAutomaticFireExtinguishingSystem</a> of type sprinkler?"]
+    H -- Yes --> I["Sprinkler system adapted to present risks?"]
+    H -- No --> J[/"Fail"/]
+    I -- Yes --> K[/"Pass"/]
+    I -- No --> L[/"Fail"/]
+
     S1:::startClass
+    C:::passClass
     E:::passClass
-    M:::failClass
-    N:::noteClass
+    G:::passClass
+    J:::failClass
+    K:::passClass
+    L:::failClass
+
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
-    classDef noteClass fill:#ffd,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5

@@ -1,29 +1,27 @@
 flowchart TD
-    S1["Start: Compartment Wall Check"] --> A{"For each <a href="http://example.com/firebimbuilding#Wall" style="color:pink;">Wall</a> between compartments"} & B{"For each <a href="http://example.com/firebimbuilding#Connection" style="color:red;">Connection</a> between compartments"}
-    A --> C{"Get <a href="http://example.com/firebimbuilding#Wall" style="color:pink;">Wall</a> <a href="http://example.com/firebimbuilding#Elevation" style="color:blue">Elevation</a> relative to <a href="http://example.com/firebimbuilding#FireResistance" style="color:pink">Lowest evacuation level</a>"}
-    C -- Above --> D{"How many <a href="http://example.com/firebimbuilding#Storey" style="color:pink;">Storey</a>s above?"}
-    C -- Below or including --> G{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue">Fire resistance</a> ≥ EI 60?"}
-    D -- 1 --> F{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI 30?"}
+    S1["Start: Compartment Wall Check"] --> A["For each <a href="http://example.com/firebimbuilding#Wall" style="color:pink;">Wall</a> between <a href="http://example.com/firebimbuilding#Compartment" style="color:pink;">Compartments</a>"] & B["For each <a href="http://example.com/firebimbuilding#Door" style="color:pink;">Door</a> between <a href="http://example.com/firebimbuilding#Compartment" style="color:pink">Compartments</a>"]
+    A --> C["Get <a href="http://example.com/firebimbuilding#Wall" style="color:pink;">Wall</a> <a href="http://example.com/firebimbuilding#Location" style="color:blue;">Location</a> relative to <a href="http://example.com/firebimbuilding#EvacuationLevel" style="color:pink">Evacuation Level</a>"]
+    C -- Above --> D["How many <a href="http://example.com/firebimbuilding#Storey" style="color:pink;">Storeys</a> above?"]
+    C -- Below or including --> G["<a href="http://example.com/firebimbuilding#FireResistanceRating" style="color:blue;">FireResistanceRating</a> ≥ EI 60?"]
+    D -- 1 --> F["<a href="http://example.com/firebimbuilding#FireResistanceRating" style="color:blue;">FireResistanceRating</a> ≥ EI 30?"]
     D -- &gt;1 --> G
     F -- Yes --> H[/"Pass"/]
     F -- No --> I[/"Fail"/]
     G -- Yes --> J[/"Pass"/]
     G -- No --> K[/"Fail"/]
-    B --> N{"Is connection via <a href="http://example.com/firebimbuilding#Door" style="color:pink;">Door</a>?"}
-    N -- Yes --> O{"<a href="http://example.com/firebimbuilding#FireResistance" style="color:blue;">Fire resistance</a> ≥ EI1 30?"}
-    O -- Yes --> P{"Is <a href="http://example.com/firebimbuilding#SelfClosing" style="color:blue;">Self-closing</a> or <a href="http://example.com/firebimbuilding#SelfClosingInCaseOfFire" style="color:blue">Self-closing in case of fire</a>?"}
-    P -- Yes --> Q[/"Pass"/]
-    P -- No --> R[/"Fail"/]
-    N -- No --> R
-    O -- No --> R
+    B --> N["<a href="http://example.com/firebimbuilding#FireResistanceRating" style="color:blue;">FireResistanceRating</a> ≥ EI1 30?"]
+    N -- Yes --> O["Is <a href="http://example.com/firebimbuilding#IsSelfClosing" style="color:blue;">IsSelfClosing</a> or <a href="http://example.com/firebimbuilding#IsFireActivatedClosing" style="color:blue">IsFireActivatedClosing</a> true?"]
+    O -- Yes --> P[/"Pass"/]
+    O -- No --> Q[/"Fail"/]
+    N -- No --> Q
 
      S1:::startClass
      H:::passClass
      I:::failClass
      J:::passClass
      K:::failClass
-     Q:::passClass
-     R:::failClass
+     P:::passClass
+     Q:::failClass
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
