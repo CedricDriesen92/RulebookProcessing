@@ -1,0 +1,37 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_2_2_1_5 a firebim:Section ;
+    firebim:hasID "2.2.1.5" ;
+    firebim:hasOriginalText "REACTION AU FEU"@fr ;
+    firebim:hasArticle firebim:Article_2_2_1_5_1 .
+
+firebim:Article_2_2_1_5_1 a firebim:Article ;
+    firebim:hasID "A2.2.1.5.1" ;
+    firebim:hasMember firebim:Member_2_2_1_5_1_1, firebim:Member_2_2_1_5_1_2 .
+
+firebim:Member_2_2_1_5_1_1 a firebim:Member ;
+    firebim:hasOriginalText """La réaction au feu d'un matériau de construction est l'ensemble de ses propriétés qui ont un rapport avec l'influence qu'il peut avoir sur la naissance et le développement d'un incendie."""@fr .
+
+firebim:Member_2_2_1_5_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Outre la classe des matériaux ininflammables A0 (plâtre, béton, maçonnerie), on distingue quatre classes de réaction au feu :"""@fr ;
+    firebim:hasMember firebim:Member_2_2_1_5_1_2_1, firebim:Member_2_2_1_5_1_2_2, firebim:Member_2_2_1_5_1_2_3, firebim:Member_2_2_1_5_1_2_4 .
+
+firebim:Member_2_2_1_5_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "- A1 : difficilement inflammable"@fr .
+
+firebim:Member_2_2_1_5_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText "- A2 : moyennement inflammable"@fr .
+
+firebim:Member_2_2_1_5_1_2_3 a firebim:Member ;
+    firebim:hasOriginalText "- A3 : inflammable"@fr .
+
+firebim:Member_2_2_1_5_1_2_4 a firebim:Member ;
+    firebim:hasOriginalText "- A4 : facilement inflammable"@fr .
+
+firebim:Section_2_2_1 firebim:hasSection firebim:Section_2_2_1_5 .

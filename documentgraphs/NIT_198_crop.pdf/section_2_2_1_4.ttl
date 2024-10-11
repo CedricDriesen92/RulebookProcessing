@@ -1,0 +1,32 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_2_2_1_4 a firebim:Section ;
+    firebim:hasID "2.2.1.4" ;
+    firebim:hasOriginalText "RESISTANCE AU FEU"@fr ;
+    firebim:hasArticle firebim:Article_2_2_1_4_1 .
+
+firebim:Article_2_2_1_4_1 a firebim:Article ;
+    firebim:hasID "A2.2.1.4.1" ;
+    firebim:hasMember firebim:Member_2_2_1_4_1_1, firebim:Member_2_2_1_4_1_2 .
+
+firebim:Member_2_2_1_4_1_1 a firebim:Member ;
+    firebim:hasOriginalText """La resistance au feu d'un element de construction est le temps durant lequel il satisfait simultanement aux criteres de stabilite, d'etancheite aux flammes et d'isolation thermique. La resistance au feu d'un element de construction est testee conformement à la norme NBN 713-020 [24]."""@fr ;
+    firebim:hasReference firebim:Reference_NBN_713_020 .
+
+firebim:Reference_NBN_713_020 a firebim:Reference ;
+    firebim:hasID "NBN 713-020" .
+
+firebim:Member_2_2_1_4_1_2 a firebim:Member ;
+    firebim:hasOriginalText """En ce qui concerne les elements ne remplissant pas une fonction separative, tels les escaliers, seul le critere de stabilite au feu est pris en compte (voir tableau 4, p. 28)."""@fr ;
+    firebim:hasReference firebim:Reference_Table_4 .
+
+firebim:Reference_Table_4 a firebim:Reference ;
+    firebim:hasID "Tableau 4" .
+
+firebim:Section_2_2_1 firebim:hasSection firebim:Section_2_2_1_4 .

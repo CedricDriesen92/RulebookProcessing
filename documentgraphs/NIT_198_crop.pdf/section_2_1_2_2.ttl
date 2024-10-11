@@ -28,3 +28,5 @@ firebim:Reference_STS_54 a firebim:Reference ;
 
 firebim:Reference_NIT_196 a firebim:Reference ;
     firebim:hasID "NIT 196" .
+
+firebim:Section_2_1_2 firebim:hasSection firebim:Section_2_1_2_2 .

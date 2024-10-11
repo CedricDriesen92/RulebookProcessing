@@ -1,0 +1,3395 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document graph</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #C5C5C5;
+        }
+        #sidebar {
+            width: 250px;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: #f0f0f0;
+            padding: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        #main-content {
+            top: 25px;
+            right: 25px;
+            bottom: 25px;
+            margin-left: 290px;
+            padding: 20px;
+            max-width: 9999px;
+        }
+        .section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .section .section {
+            background-color: #e6f2ff;
+        }
+        .section .section .section {
+            background-color: #fff9e6;
+        }
+        .article {
+            background-color: #ffffff;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            padding: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .article-content {
+            margin-top: 5px;
+        }
+        .toggle-button {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+        }
+        .toggle-button button {
+            background-color: transparent;
+            border: none;
+            color: #007bff;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .toggle-button button:hover {
+            color: #0056b3;
+        }
+        .member {
+            margin-left: 20px;
+            border-left: 2px solid #e0e0e0;
+            padding-left: 10px;
+            margin-top: 8px;
+        }
+        .member .subtle-id {
+            font-size: 0.7em;
+            color: #999;
+            font-weight: normal;
+            top: 4;
+            left: 10px;
+            line-height: 0.5;
+        }
+        .member p {
+            margin-top: 0;
+            padding-top: 0em;
+            margin-bottom: 2px;
+        }
+        .references {
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        .reference-button {
+            background-color: #e9ecef;
+            border: none;
+            border-radius: 4px;
+            padding: 3px 4px;
+            font-size: 0.8em;
+            cursor: pointer;
+            margin-top: 5px;
+            transition: background-color 0.3s;
+            color: #495057;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .reference-button:hover {
+            background-color: #ced4da;
+        }
+        .reference-button.external {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .reference-button.external:hover {
+            background-color: #c3e6cb;
+        }
+        .table, .figure {
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .table img, .figure img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .subsubsection {
+            background-color: #f9f9f9;
+            border-left: 3px solid #999999;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        .subsubsection p {
+            margin: 0;
+            font-size: 1em;
+        }
+        .subsubsection-content {
+            margin-top: 10px;
+        }
+        .collapsible {
+            cursor: pointer;
+        }
+        .collapsible:after {
+            content: ' ▼';
+            font-size: 0.7em;
+            vertical-align: middle;
+        }
+        .collapsed:after {
+            content: ' ►';
+        }
+        .content {
+            display: block;
+        }
+        .collapsed + .content {
+            display: none;
+        }
+        .subtle-id {
+            font-weight: normal;
+            margin-right: 5px;
+            vertical-align: super;
+        }
+        highlight-toc {
+            background-color: #ffe6b3;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .shape-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            overflow: auto;
+        }
+
+        .shape-modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .shape-modal-content pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .show-shape-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        #id-toggle-container {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        #search-container {
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            padding: 0px;
+            margin-bottom: 0px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        #search-input {
+            width: 100%;
+            padding: 0px;
+            font-size: 16px;
+        }
+        #search-results {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+        #sidebar ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        #sidebar > ul {
+            padding-left: 0;
+        }
+        #sidebar li {
+            margin-bottom: 5px;
+        }
+        #sidebar a {
+            text-decoration: none;
+            color: #333;
+        }
+        #sidebar a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="Search...">
+            <div id="search-results"></div>
+        </div>
+        <div>
+            <h2>Table of Contents</h2><ul><li><a href='#2' onclick='scrollToElement("2"); return false;'>2 EXIGENCES ESSENTIELLES</a><ul><li><a href='#2.1' onclick='scrollToElement("2.1"); return false;'>2.1 RESISTANCE MECANIQUE ET STABILITE</a></li><li><a href='#2.2' onclick='scrollToElement("2.2"); return false;'>2.2 SECURITÉ EN CAS D&#x27;INCENDIE</a></li><li><a href='#2.3' onclick='scrollToElement("2.3"); return false;'>2.3 HYGIENE, SANTE ET ENVIRONNEMENT</a></li><li><a href='#2.4' onclick='scrollToElement("2.4"); return false;'>2.4 SÉCURITÉ D&#x27;UTILISATION</a></li><li><a href='#2.5' onclick='scrollToElement("2.5"); return false;'>2.5 PROTECTION CONTRE LE BRUIT</a></li></ul></li></ul>
+        </div>
+    </div>
+    <div id="main-content">
+        <div id="id-toggle-container">
+            <label for="id-toggle">
+                <input type="checkbox" id="id-toggle" onchange="toggleIDs()"> Show IDs
+            </label>
+        </div>
+        <h1 style="color: black;">Koninklijk Besluit Brandveiligheid</h1>
+
+        <div class='section'>
+            <h1 id='2' class='collapsible' onclick='toggleCollapse(this)'>
+                2 EXIGENCES ESSENTIELLES
+            </h1>
+            <div class='content'>
+        
+        <div class='section'>
+            <h2 id='2.1' class='collapsible' onclick='toggleCollapse(this)'>
+                2.1 RESISTANCE MECANIQUE ET STABILITE
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='2.1.1'>
+            <p><strong>2.1.1</strong> ENONCE DU PROBLEME</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.1.1.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.1.1.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-1-1-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.1.1.1</span>
+            <p>Comme nous P&#x27;avons souligne en introduction; la resistance mecanique et la stabilite sont des exigences essentielles auxquelles doivent satisfaire les escaliers d&#x27;un batiment, selon les dispositions de la directive europeenne &quot;Produits de construction&quot; et ses commentaires.</p>
+        </div>
+        <div class='member level-0' id='member-2-1-1-1-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.1.1.2</span>
+            <p>Il convient de distinguer:</p>
+        
+        <div class='member level-1' id='member-2-1-1-1-2-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.1.1.2.1</span>
+            <p>- la stabilite de l&#x27;ensemble et la resistance mecanique de chacun des elements constitutifs de l&#x27;escalier</p>
+        </div>
+        <div class='member level-1' id='member-2-1-1-1-2-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.1.1.2.2</span>
+            <p>- la resistance des elements de l&#x27;escalier aux chocs d&#x27;objets durs et d&#x27;objets mous</p>
+        </div>
+        <div class='member level-1' id='member-2-1-1-1-2-3'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.1.1.2.3</span>
+            <p>- la resistance aux rayures et à l&#x27;usure des surfaces de circulation en bois</p>
+        </div>
+        <div class='member level-1' id='member-2-1-1-1-2-4'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.1.1.2.4</span>
+            <p>- les aspects de durabilite qui concernent la resistance mecanique et la stabilite.</p>
+        </div></div></div></div>
+</div></div>
+
+        <div class='subsubsection' id='2.1.2'>
+            <p><strong>2.1.2</strong> PRESCRIPTIONS</p>
+            <div class='subsubsection-content'>
+        
+        <div class='subsubsection' id='2.1.2.1'>
+            <p><strong>2.1.2.1</strong> STABILITE DE L&#x27;ENSEMBLE ET RESISTANCE MECANIQUE</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.1.2.1.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.1.2.1.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-1-2-1-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.1.1.1</span>
+            <p>La structure portante doit avoir une stabilite et une resistance mecanique lui permettant de resister, sans effets dommageables, aux actions qu&#x27;elle peut subir durant sa construction et son utilisation; que ce soit directement ou indirectement (par exemple, par l&#x27;intermediaire des garde-corps). On se refera à cet effet aux prescriptions applicables aux constructions portantes et aux garde-corps, enoncees dans la Note d&#x27;information technique n° 196 relative aux balcons [7].</p>
+        </div>
+        <div class='member level-0' id='member-2-1-2-1-1-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.1.1.2</span>
+            <p>Dans un escalier, la structure portante est constituee par les limons et les paliers : ceux-ci transmettent le poids propre de l&#x27;escalier et les charges d&#x27;exploitation, exercees sur les marches et les garde-corps, aux appuis de depart et d&#x27;arrivee de l&#x27;escalier ainsi qu&#x27;aux ancrages muraux.</p>
+        </div>
+        <div class='member level-0' id='member-2-1-2-1-1-3'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.1.1.3</span>
+            <p>En ce qui concerne la structure portante, on tient compte de la pente de l&#x27;escalier : plus celle-ci est raide, plus la composante perpendiculaire aux limons augmente et plus la composante parallele aux limons diminue (figure 17).</p>
+        </div>
+        <div class='member level-0' id='member-2-1-2-1-1-4'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.1.1.4</span>
+            <p>Les appuis et les ancrages des limons doivent reporter correctement les efforts de réaction des planchers des étages et sur les murs.</p>
+        </div>
+        <div class='member level-0' id='member-2-1-2-1-1-5'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.1.1.5</span>
+            <p>Pour la structure portante de l&#x27;escalier Il y a lieu de tenir compte des sollicitations suivantes : - actions permanentes dues au poids propre (voir la norme NBN B 03-102 [17]) - charges d&#x27;exploitation (norme NBN B 03-103 [18], savoir charges uniformément réparties, selon la destination de l&#x27;ouvrage :</p>
+        <div class='references'><a href='https://www.google.com/search?q=NBN%20B%2003-102' target='_blank' class='reference-button external'>☆ NBN B 03-102</a><a href='https://www.google.com/search?q=NBN%20B%2003-103' target='_blank' class='reference-button external'>☆ NBN B 03-103</a></div></div>
+        <div class='member level-0' id='member-2-1-2-1-1-6'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.1.1.6</span>
+            <p>Le garde-corps doit résister aux sollicitations définies par les STS 54 [12] [37]; le lecteur se référera à ce sujet à la NIT 196 déjà citée (8 2.1.2.1 B) [7].</p>
+        <div class='references'><a href='https://www.google.com/search?q=NIT%20196' target='_blank' class='reference-button external'>☆ NIT 196</a><a href='https://www.google.com/search?q=STS%2054' target='_blank' class='reference-button external'>☆ STS 54</a></div></div>
+        <div class='member level-0' id='member-2-1-2-1-1-7'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.1.1.7</span>
+            <p>Les assemblages garde-corps/limon et/ou garde-corps/surface de circulation en particulier seront exécutés de manière à ce qu&#x27;ils puissent reprendre les sollicitations.</p>
+        </div>
+        <div class='member level-0' id='member-2-1-2-1-1-8'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.1.1.8</span>
+            <p>Plusieurs modes de fixation sont envisageables (figure 18, p 22). Dans les escaliers où les marches sont encastrées dans les limons, les balustres sont fixés dans les limons. Dans le cas de limons sciés en crémaillère ou de limons libres, les garde-corps sont fixés sur la face supérieure des marches ou sur la face latérale des limons. Dans un escalier suspendu, le système de suspension fait souvent office de garde-corps.</p>
+        </div>
+        <div class='member level-0' id='member-2-1-2-1-1-9'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.1.1.9</span>
+            <p>Une solution qui s&#x27;écarte de la pratique courante fera l&#x27;objet d&#x27;une étude particulière. Pour la mise en œuvre, on se reportera au chapitre 4 (p. 52) du présent document.</p>
+        </div><div class='table' id='T2.1.2.1.1'><pre>SURFACE DE CIRCULATION
+|LONGUEUR DE LA MARCHE (m)|EPAISSEUR DE LA MARCHE (mm)|
+|---|---|
+|jusqu&#x27;à 0,8|35|
+|jusqu&#x27;à 1,0|40|
+|jusqu&#x27;à 1,2|45|</pre>
+<p>Table T2.1.2.1.1</p></div>
+<div class='table' id='T2.1.2.1.2'><pre>GARDE-CORPS</pre>
+<p>Table T2.1.2.1.2</p></div>
+<div class='figure' id='F17'><pre>Fig. 17 Composantes de la charge en fonction de la pente de l&#x27;escalier.</pre>
+<p>Figure F17</p></div>
+</div></div>
+</div></div>
+
+        <div class='subsubsection' id='2.1.2.2'>
+            <p><strong>2.1.2.2</strong> RESISTANCE AUX CHOCS DE CORPS DURS ET DE CORPS MOUS</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.1.2.2.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.1.2.2.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-1-2-2-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.2.1.1</span>
+            <p>Les elements de l&#x27;escalier (limons, marches, garde-corps, et leurs fixations doivent resister aux charges dynamiques de securite (chocs) conformement aux STS 54 (8 12.22) [37].</p>
+        <div class='references'><a href='https://www.google.com/search?q=STS%2054' target='_blank' class='reference-button external'>☆ STS 54</a></div></div>
+        <div class='member level-0' id='member-2-1-2-2-1-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.2.1.2</span>
+            <p>Pour plus de details, on se refera au § 2.1.2.2 de la NIT 196 [7].</p>
+        <div class='references'><a href='https://www.google.com/search?q=NIT%20196' target='_blank' class='reference-button external'>☆ NIT 196</a></div></div></div></div>
+</div></div>
+
+        <div class='subsubsection' id='2.1.2.3'>
+            <p><strong>2.1.2.3</strong> RESISTANCE DES SURFACES DE CIRCULATION A LA RAYURE ET A L&#x27;USURE</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.1.2.3.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.1.2.3.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-1-2-3-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.3.1.1</span>
+            <p>La resistance aux rayures et à l&#x27;usure des surfaces de circulation en bois (marches, paliers) est essentiellement determinee par celle de la finition appliquee et par la durete superficielle des surfaces sous-jacentes en bois.</p>
+        </div>
+        <div class='member level-0' id='member-2-1-2-3-1-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.3.1.2</span>
+            <p>La masse volumique moyenne est un critere indicatif de la durete superficielle du bois. Les bois couramment utilises dans les escaliers sont repris au tableau &amp; (p. 48). La durete augmente pour une masse volumique croissante.</p>
+        </div><div class='table' id='T2.1.2.3.1'><pre></pre>
+<p>Table T2.1.2.3.1</p></div>
+</div></div>
+</div></div>
+
+        <div class='subsubsection' id='2.1.2.4'>
+            <p><strong>2.1.2.4</strong> DURABILITE EN RAPPORT AVEC LA RESISTANCE MECANIQUE ET LA STABILITE</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.1.2.4.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.1.2.4.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-1-2-4-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.4.1.1</span>
+            <p>Escaliers exterieurs posseder une durabilite suffisante vis-à-vis du climat exterieur et des attaques eventuelles. Tous les materiaux exposes à l&#x27;air libre doivent etre resistants au gel; ils doivent en outre posseder une resistance contre les champignons et les insectes. Les recommandations en la matiere sont decrites en detail au § 2.1.2.3 de la NIT 196 [7].</p>
+        <div class='references'><a href='https://www.google.com/search?q=NIT%20196' target='_blank' class='reference-button external'>☆ NIT 196</a></div></div></div></div>
+<div class='article' id='A2.1.2.4.2'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.1.2.4.2</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-1-2-4-2-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.4.2.1</span>
+            <p>Lorsque la menuiserie interieure est susceptible d&#x27;etre attaquee par des insectes, il convient de traiter le bois au moyen d&#x27;un procede de preservation B, ce qui implique l&#x27;emploi d&#x27;un produit B homologue (ABPB, Association belge pour la protection du bois).</p>
+        </div>
+        <div class='member level-0' id='member-2-1-2-4-2-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.4.2.2</span>
+            <p>En ce qui concerne les escaliers, une attaque par des insectes n&#x27;est à craindre que dans certains cas. Le lyctus (Lyctus spp.) peut attaquer l&#x27;aubier de certains feuillus (tels le chêne, l&#x27;orme, le meranti ou le lauan) contenant de grandes quantités d&#x27;amidon et dont le diamètre des vaisseaux est assez grand; les couches d&#x27;aubier présentes dans du multiplex peuvent également être attaquées par cet insecte.</p>
+        </div>
+        <div class='member level-0' id='member-2-1-2-4-2-3'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.4.2.3</span>
+            <p>La petite vrillette (Anobium punctatum) s&#x27;attaque surtout à l&#x27;aubier des résineux et des essences feuillues d&#x27;Europe; en général, le duramen n&#x27;est susceptible d&#x27;être attaqué que si le bois a été préalablement contaminé par un champignon; comme par exemple dans le cas de meubles, lambris et éléments anciens en contact avec des murs humides ou dans les endroits où l&#x27;air ambiant est humide en permanence.</p>
+        </div>
+        <div class='member level-0' id='member-2-1-2-4-2-4'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.1.2.4.2.4</span>
+            <p>Le Ptilinus pectinicornis est un coléoptère relativement rare, connu pour creuser ses galeries dans du bois humide provenant de certains arbres indigènes comme le hêtre, l&#x27;orme, le charme ou l&#x27;érable; il s&#x27;attaque aux troncs abattus et au bois mis en œuvre en milieu humide. Dès que le bois est sec, tout danger d&#x27;une nouvelle attaque est écarté, les conditions étant devenues défavorables au développement de l&#x27;insecte.</p>
+        </div></div></div>
+</div></div>
+</div></div>
+</div></div>
+
+        <div class='section'>
+            <h2 id='2.2' class='collapsible' onclick='toggleCollapse(this)'>
+                2.2 SECURITÉ EN CAS D&#x27;INCENDIE
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='2.2.1'>
+            <p><strong>2.2.1</strong> ENONCE DU PROBLEME</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.2.1.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.2.1.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-2-1-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.1.1</span>
+            <p>L&#x27;auteur de projet prend les mesures nécessaires en vue d&#x27;assurer la sécurité du bâtiment applicables en la matière. Ces dispositions consistent à prévoir des possibilités d&#x27;évacuation en cas d&#x27;incendie et ce, en fonction de la hauteur de l&#x27;immeuble et des dispositions judicieux.</p>
+        </div>
+        <div class='member level-0' id='member-2-2-1-1-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.1.2</span>
+            <p>De telles mesures sont nécessaires pour permettre en cas d&#x27;incendie :</p>
+        
+        <div class='member level-1' id='member-2-2-1-1-2-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.1.2.1</span>
+            <p>- d&#x27;évacuer le bâtiment dans les meilleurs délais</p>
+        </div>
+        <div class='member level-1' id='member-2-2-1-1-2-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.1.2.2</span>
+            <p>- de limiter les dégâts matériels</p>
+        </div>
+        <div class='member level-1' id='member-2-2-1-1-2-3'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.1.2.3</span>
+            <p>- d&#x27;assurer aux services d&#x27;incendie une intervention efficace et sans danger</p>
+        </div></div></div></div>
+
+        <div class='subsubsection' id='2.2.1.1'>
+            <p><strong>2.2.1.1</strong> HAUTEUR &#x27;H&#x27; D&#x27;UN IMEUBLE</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.2.1.1.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.2.1.1.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-2-1-1-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.1.1.1</span>
+            <p>La hauteur &#x27;h&#x27; d&#x27;un immeuble est définie conventionnellement comme la distance entre le niveau fini du plancher de l&#x27;étage le plus élevé et le niveau le plus bas des voies entourant le bâtiment et utilisables par les véhicules des services d&#x27;incendie (figure 19-24).</p>
+        </div>
+        <div class='member level-0' id='member-2-2-1-1-1-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.1.1.2</span>
+            <p>Lorsque la toiture ne comprend que des locaux à usage technique, ce niveau n&#x27;intervient pas dans le calcul de la hauteur.</p>
+        </div><div class='figure' id='F19-24'><pre></pre>
+<p>Figure F19-24</p></div>
+</div></div>
+</div></div>
+
+        <div class='subsubsection' id='2.2.1.2'>
+            <p><strong>2.2.1.2</strong> EVACUATION</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.2.1.2.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.2.1.2.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-2-1-2-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.2.1.1</span>
+            <p>L&#x27;évacuation d&#x27;un bâtiment peut se faire par les voies prévues à cet effet, telles que couloirs, escaliers, paliers, sas, terrasses d&#x27;évacuation, portes, etc.</p>
+        </div>
+        <div class='member level-0' id='member-2-2-1-2-1-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.2.1.2</span>
+            <p>Un chemin d&#x27;évacuation est une voie située à l&#x27;intérieur d&#x27;un bâtiment, présentant une pente de 10 % au maximum et donnant accès à une issue, une cage d&#x27;escalier ou une terrasse d&#x27;évacuation.</p>
+        </div>
+        <div class='member level-0' id='member-2-2-1-2-1-3'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.2.1.3</span>
+            <p>Une terrasse d&#x27;évacuation est une voie située à l&#x27;extérieur du bâtiment, présentant une pente de 10 % au maximum et donnant accès à un escalier.</p>
+        </div></div></div>
+</div></div>
+
+        <div class='subsubsection' id='2.2.1.3'>
+            <p><strong>2.2.1.3</strong> ESCALIERS</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.2.1.3.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.2.1.3.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-2-1-3-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.3.1.1</span>
+            <p>Les escaliers faisant dans certains cas fonction de voies d&#x27;évacuation; ils constituent un élément essentiel de la protection contre l&#x27;incendie.</p>
+        </div>
+        <div class='member level-0' id='member-2-2-1-3-1-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.3.1.2</span>
+            <p>De ce point de vue, les caractéristiques suivantes peuvent revêtir une certaine importance : largeur utile requise, hauteur des marches, giron et/ou pente de l&#x27;escalier; réaction au feu des matériaux mis en œuvre (voir § 2.2.1.5) et stabilité au feu de l&#x27;escalier (voir § 2.2.1.4).</p>
+        <div class='references'><button class='reference-button' onclick='scrollToElement("2.2.1.4")'>→ 2.2.1.4</button><button class='reference-button' onclick='scrollToElement("2.2.1.5")'>→ 2.2.1.5</button></div></div>
+        <div class='member level-0' id='member-2-2-1-3-1-3'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.3.1.3</span>
+            <p>L&#x27;unité de passage est la largeur minimale requise pour le passage d&#x27;une personne. Elle est fixée par convention à 0,60 m. La largeur utile d&#x27;un chemin d&#x27;évacuation est la largeur libre de tout obstacle jusqu&#x27;à une hauteur d&#x27;au moins 2 m. On ne tient pas compte toutefois des saillies formées sur les murs par les plinthes, les limons et les socles lorsqu&#x27;elles ne dépassent pas 0,10 m et qu&#x27;elles ne surplombent pas les marches ou le plancher de plus de 1 m. La même règle s&#x27;applique aux garde-corps.</p>
+        </div>
+        <div class='member level-0' id='member-2-2-1-3-1-4'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.3.1.4</span>
+            <p>Remarque : il convient de faire la distinction entre la notion de largeur utile définie par la norme belge NBN S 21-201 [23] et la largeur libre &#x27;b&#x27; telle que définie par la norme NBN NEN 3509 [25], d&#x27;autre part (voir § titre 24 NIT 198 décembre 1995).</p>
+        <div class='references'><a href='https://www.google.com/search?q=NBN%20NEN%203509' target='_blank' class='reference-button external'>☆ NBN NEN 3509</a><a href='https://www.google.com/search?q=NBN%20S%2021-201' target='_blank' class='reference-button external'>☆ NBN S 21-201</a><a href='https://www.google.com/search?q=NIT%20198' target='_blank' class='reference-button external'>☆ NIT 198</a></div></div>
+        <div class='member level-0' id='member-2-2-1-3-1-5'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.3.1.5</span>
+            <p>Largeur utile théorique d&#x27;un chemin d&#x27;évacuation La largeur utile théorique b&#x27; (en m) d&#x27;un chemin d&#x27;évacuation est définie par la relation : b&#x27; = a max (m) dans laquelle : - n est le nombre d&#x27;utilisateurs d&#x27;un compartiment quelconque desservi par le chemin d&#x27;évacuation - n est le nombre de cages d&#x27;escaliers ou d&#x27;escaliers donnant accès à un compartiment - max est la valeur maximale de n compte tenu de tous les compartiments d&#x27;un même étage desservis par le chemin d&#x27;évacuation - a est un coefficient fictif de passage dépendant de la nature du chemin d&#x27;évacuation (voir tableau 3). La largeur utile requise b&#x27; est calculée à l&#x27;aide de la formule suivante : b&#x27; = int 0,60 + 1/x0,60 (m) dans laquelle le terme int b représente la valeur de 0,60 arrondie à l&#x27;unité inférieure. La largeur utile requise pour les chemins d&#x27;évacuation est au minimum de 0,80 m (voir § 2.2.2.2, p. 27).</p>
+        <div class='references'><button class='reference-button' onclick='scrollToElement("2.2.2.2")'>→ 2.2.2.2</button></div></div>
+        <div class='member level-0' id='member-2-2-1-3-1-6'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.3.1.6</span>
+            <p>Niveau d&#x27;évacuation Un niveau d&#x27;évacuation ou niveau E comporte une ou plusieurs issues permettant une évacuation à l&#x27;extérieur : Les issues en question débouchent sur la voie publique ou sur un lieu donnant accès à la voie publique. Dans un bâtiment comportant plusieurs niveaux d&#x27;évacuation, on a : - Es, le niveau d&#x27;évacuation inférieur - Es, le niveau d&#x27;évacuation supérieur La largeur totale de la voie publique et/ou du lieu d&#x27;évacuation communiquant avec les chemins d&#x27;évacuation du bâtiment ne peut être inférieure à la largeur utile totale requise pour les chemins d&#x27;évacuation.</p>
+        </div>
+        <div class='member level-0' id='member-2-2-1-3-1-7'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.3.1.7</span>
+            <p>Exemple Un des étages d&#x27;un immeuble de bureaux comporte quatre compartiments d&#x27;une surface S&#x27; desservis par deux cages d&#x27;escaliers permettant de descendre vers les issues (voir figure 20), l&#x27;un des compartiments (n° 1) étant un local à destination particulière (salle de réunion de 100 personnes, n = 100); pour les autres compartiments, n = 10.</p>
+        </div>
+        <div class='member level-0' id='member-2-2-1-3-1-8'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.3.1.8</span>
+            <p>Calculons la largeur utile requise b&#x27; b1 = amax (m) b = 50 x 0,0125 m b1 = 0,625 m b1 = Xint (m) 0,60 0,625 = 1,040,60 Xint 0,60_ b Xint 0,625 + 1X x 0,60 0,60 b_ 1,20 m- Cette largeur utile requise *b1* est indiquee à la figure 21, parallelement à la largeur libre &#x27;v&#x27; telle que definie par la norme NBN NEN 3509 [25]</p>
+        <div class='references'><a href='https://www.google.com/search?q=NBN%20NEN%203509' target='_blank' class='reference-button external'>☆ NBN NEN 3509</a></div></div><div class='table' id='T2'><pre>Tableau 2 Classement des bâtiments selon leur hauteur:
+
+|TYPE DE BATIMENT|HAUTEUR DU BATIMENT|
+|---|---|
+|Batiments élevés (BE)|h &gt; 25 m|
+|Batiments moyens (BM)|10 m &lt; h &lt; 25 m|
+|Batiments bas (BB)|h &lt; 10 m|</pre>
+<p>Table T2</p></div>
+<div class='table' id='T3'><pre>COMPARTIMENT
+
+|Surface totale|S (m²)|maximum|50| | |
+|---|---|---|---|---|---|
+| |400|100|50| | |
+| |400|40|40| | |
+| |50| |2,5| | |
+| | | |50| | |</pre>
+<p>Table T3</p></div>
+</div></div>
+</div></div>
+
+        <div class='subsubsection' id='2.2.1.4'>
+            <p><strong>2.2.1.4</strong> RESISTANCE AU FEU</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.2.1.4.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.2.1.4.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-2-1-4-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.4.1.1</span>
+            <p>La resistance au feu d&#x27;un element de construction est le temps durant lequel il satisfait simultanement aux criteres de stabilite, d&#x27;etancheite aux flammes et d&#x27;isolation thermique. La resistance au feu d&#x27;un element de construction est testee conformement à la norme NBN 713-020 [24].</p>
+        <div class='references'><a href='https://www.google.com/search?q=NBN%20713-020' target='_blank' class='reference-button external'>☆ NBN 713-020</a></div></div>
+        <div class='member level-0' id='member-2-2-1-4-1-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.4.1.2</span>
+            <p>En ce qui concerne les elements ne remplissant pas une fonction separative, tels les escaliers, seul le critere de stabilite au feu est pris en compte (voir tableau 4, p. 28).</p>
+        <div class='references'><a href='https://www.google.com/search?q=Tableau%204' target='_blank' class='reference-button external'>☆ Tableau 4</a></div></div></div></div>
+</div></div>
+
+        <div class='subsubsection' id='2.2.1.5'>
+            <p><strong>2.2.1.5</strong> REACTION AU FEU</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.2.1.5.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.2.1.5.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-2-1-5-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.5.1.1</span>
+            <p>La réaction au feu d&#x27;un matériau de construction est l&#x27;ensemble de ses propriétés qui ont un rapport avec l&#x27;influence qu&#x27;il peut avoir sur la naissance et le développement d&#x27;un incendie.</p>
+        </div>
+        <div class='member level-0' id='member-2-2-1-5-1-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.5.1.2</span>
+            <p>Outre la classe des matériaux ininflammables A0 (plâtre, béton, maçonnerie), on distingue quatre classes de réaction au feu :</p>
+        
+        <div class='member level-1' id='member-2-2-1-5-1-2-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.5.1.2.1</span>
+            <p>- A1 : difficilement inflammable</p>
+        </div>
+        <div class='member level-1' id='member-2-2-1-5-1-2-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.5.1.2.2</span>
+            <p>- A2 : moyennement inflammable</p>
+        </div>
+        <div class='member level-1' id='member-2-2-1-5-1-2-3'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.5.1.2.3</span>
+            <p>- A3 : inflammable</p>
+        </div>
+        <div class='member level-1' id='member-2-2-1-5-1-2-4'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.1.5.1.2.4</span>
+            <p>- A4 : facilement inflammable</p>
+        </div></div></div></div>
+</div></div>
+</div></div>
+
+        <div class='subsubsection' id='2.2.2'>
+            <p><strong>2.2.2</strong> PRESCRIPTIONS</p>
+            <div class='subsubsection-content'>
+        
+        <div class='subsubsection' id='2.2.2.1'>
+            <p><strong>2.2.2.1</strong> REGLES DE BASE</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.2.2.1.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.2.2.1.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-2-2-1-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.2.1.1.1</span>
+            <p>L&#x27;arrêté royal du 7 juillet 1994 [33] définit les règles de base en matière de prévention des incendies et des explosions dans les nouveaux bâtiments. Dans certains cas, ces prescriptions sont complétées par des dispositions communautaires et/ou régionales et éventuellement par des règlements communaux.</p>
+        <div class='references'><a href='https://www.google.com/search?q=33' target='_blank' class='reference-button external'>☆ 33</a></div></div>
+        <div class='member level-0' id='member-2-2-2-1-1-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.2.1.1.2</span>
+            <p>Les annexes techniques de l&#x27;arrêté sont essentiellement basées sur les normes en vigueur de la série NBN S 21 [22]. Les textes ayant été dépouillés des prescriptions spécifiques applicables à certaines catégories de bâtiments (immeubles de bureaux, immeubles appartements, etc.), l&#x27;arrêté définit un cadre général auquel tous les bâtiments doivent satisfaire. Il inclut en outre, dans la réglementation, les bâtiments bas (h &lt; 10 m).</p>
+        <div class='references'><a href='https://www.google.com/search?q=22' target='_blank' class='reference-button external'>☆ 22</a></div></div>
+        <div class='member level-0' id='member-2-2-2-1-1-3'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.2.1.1.3</span>
+            <p>L&#x27;arrêté s&#x27;applique à tous les immeubles neufs quelle que soit leur destination, à l&#x27;exception toutefois de ceux qui présentent un risque d&#x27;incendie réduit ; notamment les maisons unifamiliales.</p>
+        </div></div></div>
+</div></div>
+
+        <div class='subsubsection' id='2.2.2.2'>
+            <p><strong>2.2.2.2</strong> SYNTHESE DES PRESCRIPTIONS APPLICABLES AUX ESCALIERS INTERIEURS</p>
+            <div class='subsubsection-content'>
+        <div class='article' id='A2.2.2.2.1'>
+    <div class="article-content">
+        <span style="font-size: 16px; color: grey" class="subtle-id">Article A2.2.2.2.1</span>
+    </div>
+    <div class="original-text" style="display:block;">
+        <p></p>
+    
+        <div class='member level-0' id='member-2-2-2-2-1-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.2.2.1.1</span>
+            <p>Le tableau 4 (p: 28) donne un bref aperçu des dispositions applicables aux escaliers intérieurs faisant fonction de chemins d&#x27;évacuation en cas d&#x27;incendie. Les prescriptions sont valables pour tous les bâtiments, à l&#x27;exception des maisons unifamiliales.</p>
+        </div>
+        <div class='member level-0' id='member-2-2-2-2-1-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.2.2.1.2</span>
+            <p>La conception et la mise en œuvre des escaliers intérieurs doivent en outre répondre à un certain nombre d&#x27;exigences minimales complémentaires, à savoir :</p>
+        
+        <div class='member level-1' id='member-2-2-2-2-1-2-1'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.2.2.1.2.1</span>
+            <p>- giron : G = 200 mm minimum en tout point</p>
+        </div>
+        <div class='member level-1' id='member-2-2-2-2-1-2-2'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.2.2.1.2.2</span>
+            <p>- hauteur des marches : H = 180 mm maximum</p>
+        </div>
+        <div class='member level-1' id='member-2-2-2-2-1-2-3'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.2.2.1.2.3</span>
+            <p>- pente : maximum 75 % (angle maximum d&#x27;inclinaison &amp; = 37°)</p>
+        </div>
+        <div class='member level-1' id='member-2-2-2-2-1-2-4'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.2.2.1.2.4</span>
+            <p>- largeur utile : au moins 0,8 m, sans être inférieure à la largeur utile requise calculée selon l&#x27;annexe technique n° 1 de l&#x27;AR du 07/07/1994.</p>
+        </div>
+        <div class='member level-1' id='member-2-2-2-2-1-2-5'>
+            <span style="font-size: 10px; color: grey" class="subtle-id">Member 2.2.2.2.1.2.5</span>
+            <p>La largeur utile des volées d&#x27;escaliers et des paliers de la cage d&#x27;escalier d&#x27;un même compartiment ne peut s&#x27;écarter de plus d&#x27;une unité de passage. Les escaliers sont pourvus de garde-corps de part et d&#x27;autre. Toutefois, un seul garde-corps peut suffire dans les escaliers dont la largeur utile est inférieure à 1,2 m, pour autant qu&#x27;il n&#x27;y ait aucun risque de chute.</p>
+        </div></div><div class='table' id='T4'><pre>Dispositions applicables, selon la hauteur du bâtiment, aux escaliers intérieurs laissant fonction de chemins d&#x27;évacuation en cas d&#x27;incendie
+
+|CRITERE|BATIMENT BAS|BATIMENT MOYEN (10 &lt; h ≤ 25 m)|BATIMENT ELEVE (h &gt; 25 m)|
+|---|---|---|---|
+|Stabilité au Feu|1/2 h|1 h|1 h|
+|Contremarches|massives|massives|massives|
+|Type|escalier droit|escalier droit|escalier droit|
+|escalier|escalier tournant à marches balancées avec G = 240 mm min.|escalier tournant à marches balancées avec G = 240 mm min.|200 mm minimum en tout autre point|
+|Palier|L&#x27;ouverture de la porte ne peut pas réduire la largeur utile|L&#x27;ouverture de la porte ne peut pas réduire la largeur utile|L&#x27;ouverture de la porte ne peut pas réduire la largeur utile|
+|Réaction au feu du revêtement de sol|A2|A2|A2|
+|Réaction au feu des revêtements muraux|AI|AI|AI|</pre>
+<p>Table T4</p></div>
+<div class='table' id='T5'><pre>Module du pas &#x27;M&#x27; (en mm) en fonction de &#x27;H&#x27;, compte tenu des critères imposés
+
+|H|G = 180 mm|G = 175 mm|G = 170 mm|G = 165 mm|G = 160 mm|G = 155 mm|G = 150 mm|
+|---|---|---|---|---|---|---|---|
+|Imml|230|235|240|245|250|255|260|
+|180|600|605|610|615|620|625|630|
+|175|585|590|595|600|605|610|615|
+|170|570|575|580|585|590|595|600|
+|165| |570|575|580|585|590|595|
+|160| | |570|575|580|585|590|
+|155| | | |570|575|580|585|
+|150| | | | |570|575|580|</pre>
+<p>Table T5</p></div>
+</div></div>
+</div></div>
+</div></div>
+</div></div>
+
+        <div class='section'>
+            <h2 id='2.3' class='collapsible' onclick='toggleCollapse(this)'>
+                2.3 HYGIENE, SANTE ET ENVIRONNEMENT
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='2.3.1'>
+            <p><strong>2.3.1</strong> ENONCE DU PROBLEME</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.3.2'>
+            <p><strong>2.3.2</strong> PRESCRIPTIONS</p>
+            <div class='subsubsection-content'>
+        </div></div>
+</div></div>
+
+        <div class='section'>
+            <h2 id='2.4' class='collapsible' onclick='toggleCollapse(this)'>
+                2.4 SÉCURITÉ D&#x27;UTILISATION
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='2.4.1'>
+            <p><strong>2.4.1</strong> ÉNONCÉ DU PROBLÈME</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2'>
+            <p><strong>2.4.2</strong> PRESCRIPTIONS</p>
+            <div class='subsubsection-content'>
+        
+        <div class='subsubsection' id='2.4.2.1'>
+            <p><strong>2.4.2.1</strong> IMPLANTATION DE L&#x27;ESCALIER DANS LE BATIMENT ET GEOMETRIE DE L&#x27;ESCALIER</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2.10'>
+            <p><strong>2.4.2.10</strong> EMMARCHEMENT OU LARGEUR LIBRE</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2.11'>
+            <p><strong>2.4.2.11</strong> ECHAPPEE</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2.12'>
+            <p><strong>2.4.2.12</strong> PALIER</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2.13'>
+            <p><strong>2.4.2.13</strong> PARACHEVEMENT DU PIAN DE MARCHE</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2.14'>
+            <p><strong>2.4.2.14</strong> SYNTHESE</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2.3'>
+            <p><strong>2.4.2.3</strong> MODULE DU PAS</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2.4'>
+            <p><strong>2.4.2.4</strong> DETERMINATION DE LA HAUTEUR DES MARCHES ET DE LEUR GIRON</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2.5'>
+            <p><strong>2.4.2.5</strong> NEZ DES MARCHES</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2.6'>
+            <p><strong>2.4.2.6</strong> LIGNE DE FOULEE</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2.7'>
+            <p><strong>2.4.2.7</strong> BALANCEMENT DES MARCHES</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2.8'>
+            <p><strong>2.4.2.8</strong> PENTE DE L&#x27;ESCALIER</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.4.2.9'>
+            <p><strong>2.4.2.9</strong> GARDE CORPS</p>
+            <div class='subsubsection-content'>
+        </div></div>
+</div></div>
+</div></div>
+
+        <div class='section'>
+            <h2 id='2.5' class='collapsible' onclick='toggleCollapse(this)'>
+                2.5 PROTECTION CONTRE LE BRUIT
+            </h2>
+            <div class='content'>
+        
+        <div class='subsubsection' id='2.5.1'>
+            <p><strong>2.5.1</strong> ENONCE DU PROBLEME</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.5.2'>
+            <p><strong>2.5.2</strong> PRESCRIPTIONS</p>
+            <div class='subsubsection-content'>
+        
+        <div class='subsubsection' id='2.5.2.1'>
+            <p><strong>2.5.2.1</strong> CRAQUEMENT DES MARCHES</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.5.2.2'>
+            <p><strong>2.5.2.2</strong> BRUITS DE CHOC</p>
+            <div class='subsubsection-content'>
+        </div></div>
+
+        <div class='subsubsection' id='2.5.2.3'>
+            <p><strong>2.5.2.3</strong> RESONANCE</p>
+            <div class='subsubsection-content'>
+        </div></div>
+</div></div>
+</div></div>
+</div></div>
+
+    <script>
+
+    const shapes = {
+'http://example.org/BuildingShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/StoreyShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/SpaceShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/FireDoorStateShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/FireDoorAttributeShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/CompartmentAreaCalculationShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    rdfs:comment "Ensures that calculated area and debug information are present." ;
+    sh:property [ sh:message "Calculated area is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:calculatedArea ],
+        [ sh:message "Debug information for area calculation is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:debugAreaCalculation ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    rdfs:comment "Calculates the area of a compartment based on its contained spaces." ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """\r
+            CONSTRUCT {\r
+                $this firebim:calculatedArea ?totalArea .\r
+                $this firebim:debugAreaCalculation ?debug .\r
+            }\r
+            WHERE {\r
+                {\r
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)\r
+                    WHERE {\r
+                        $this bot:containsZone ?zone .\r
+                        ?zone firebim:area ?area .\r
+                        ?zone rdfs:label ?zoneName .\r
+                    }\r
+                    GROUP BY $this\r
+                }\r
+            }\r
+        """ ;
+            sh:prefixes ( [ sh:namespace "http://example.com/firebim#" ;
+                        sh:prefix "firebim" ] [ sh:namespace "https://w3id.org/bot#" ;
+                        sh:prefix "bot" ] [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ;
+                        sh:prefix "rdfs" ] ) ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ;
+            sh:severity sh:Info ] ;
+    sh:targetClass firebim:State .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path geo:hasGeometry ;
+            sh:severity sh:Info ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ] ;
+    sh:targetClass bot:Storey .
+
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:CompartmentAreaShape .
+
+firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
+
+firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .
+
+ex:CompartmentAreaShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.1" ;
+    rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
+    sh:property [ sh:maxInclusive 2500 ;
+            sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
+            sh:path firebim:calculatedArea ;
+            sh:severity sh:Warning ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:CompartmentLengthShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.3" ;
+    rdfs:comment "Validates that compartment length does not exceed 90 m." ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:maxInclusive 90 ;
+            sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
+            sh:path firebim:length ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.2" ;
+    rdfs:comment "Validates that ground floor compartment area is less than or equal to 3500 m²." ;
+    sh:and ( [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:isGroundFloor ] ] [ sh:property [ sh:datatype xsd:float ;
+                        sh:maxInclusive 3500 ;
+                        sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
+                        sh:path firebim:calculatedArea ] ] ) ;
+    sh:targetClass firebim:Compartment .
+
+ex:LargeCompartmentShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.4" ;
+    rdfs:comment "Validates that large compartments have necessary fire safety systems." ;
+    sh:and ( [ sh:or ( [ sh:and ( [ sh:property [ sh:maxInclusive 3500 ;
+                                                sh:minExclusive 2500 ;
+                                                sh:path firebim:calculatedArea ] ] [ sh:property [ sh:hasValue false ;
+                                                sh:path firebim:isGroundFloor ] ] ) ] [ sh:property [ sh:minExclusive 3500 ;
+                                    sh:path firebim:calculatedArea ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasAutomaticFireExtinguishing ] ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasSmokeAndHeatExtraction ] ] ) ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    sh:targetClass firebim:Compartment .
+
+`,
+'http://example.org/CompartmentAreaShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    rdfs:comment "Ensures that calculated area and debug information are present." ;
+    sh:property [ sh:message "Calculated area is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:calculatedArea ],
+        [ sh:message "Debug information for area calculation is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:debugAreaCalculation ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    rdfs:comment "Calculates the area of a compartment based on its contained spaces." ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """\r
+            CONSTRUCT {\r
+                $this firebim:calculatedArea ?totalArea .\r
+                $this firebim:debugAreaCalculation ?debug .\r
+            }\r
+            WHERE {\r
+                {\r
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)\r
+                    WHERE {\r
+                        $this bot:containsZone ?zone .\r
+                        ?zone firebim:area ?area .\r
+                        ?zone rdfs:label ?zoneName .\r
+                    }\r
+                    GROUP BY $this\r
+                }\r
+            }\r
+        """ ;
+            sh:prefixes ( [ sh:namespace "http://example.com/firebim#" ;
+                        sh:prefix "firebim" ] [ sh:namespace "https://w3id.org/bot#" ;
+                        sh:prefix "bot" ] [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ;
+                        sh:prefix "rdfs" ] ) ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ;
+            sh:severity sh:Info ] ;
+    sh:targetClass firebim:State .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path geo:hasGeometry ;
+            sh:severity sh:Info ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ] ;
+    sh:targetClass bot:Storey .
+
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:CompartmentAreaShape .
+
+firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
+
+firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .
+
+ex:CompartmentAreaShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.1" ;
+    rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
+    sh:property [ sh:maxInclusive 2500 ;
+            sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
+            sh:path firebim:calculatedArea ;
+            sh:severity sh:Warning ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:CompartmentLengthShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.3" ;
+    rdfs:comment "Validates that compartment length does not exceed 90 m." ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:maxInclusive 90 ;
+            sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
+            sh:path firebim:length ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.2" ;
+    rdfs:comment "Validates that ground floor compartment area is less than or equal to 3500 m²." ;
+    sh:and ( [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:isGroundFloor ] ] [ sh:property [ sh:datatype xsd:float ;
+                        sh:maxInclusive 3500 ;
+                        sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
+                        sh:path firebim:calculatedArea ] ] ) ;
+    sh:targetClass firebim:Compartment .
+
+ex:LargeCompartmentShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.4" ;
+    rdfs:comment "Validates that large compartments have necessary fire safety systems." ;
+    sh:and ( [ sh:or ( [ sh:and ( [ sh:property [ sh:maxInclusive 3500 ;
+                                                sh:minExclusive 2500 ;
+                                                sh:path firebim:calculatedArea ] ] [ sh:property [ sh:hasValue false ;
+                                                sh:path firebim:isGroundFloor ] ] ) ] [ sh:property [ sh:minExclusive 3500 ;
+                                    sh:path firebim:calculatedArea ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasAutomaticFireExtinguishing ] ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasSmokeAndHeatExtraction ] ] ) ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    sh:targetClass firebim:Compartment .
+
+`,
+'http://example.org/GroundFloorCompartmentAreaShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    rdfs:comment "Ensures that calculated area and debug information are present." ;
+    sh:property [ sh:message "Calculated area is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:calculatedArea ],
+        [ sh:message "Debug information for area calculation is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:debugAreaCalculation ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    rdfs:comment "Calculates the area of a compartment based on its contained spaces." ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """\r
+            CONSTRUCT {\r
+                $this firebim:calculatedArea ?totalArea .\r
+                $this firebim:debugAreaCalculation ?debug .\r
+            }\r
+            WHERE {\r
+                {\r
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)\r
+                    WHERE {\r
+                        $this bot:containsZone ?zone .\r
+                        ?zone firebim:area ?area .\r
+                        ?zone rdfs:label ?zoneName .\r
+                    }\r
+                    GROUP BY $this\r
+                }\r
+            }\r
+        """ ;
+            sh:prefixes ( [ sh:namespace "http://example.com/firebim#" ;
+                        sh:prefix "firebim" ] [ sh:namespace "https://w3id.org/bot#" ;
+                        sh:prefix "bot" ] [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ;
+                        sh:prefix "rdfs" ] ) ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ;
+            sh:severity sh:Info ] ;
+    sh:targetClass firebim:State .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path geo:hasGeometry ;
+            sh:severity sh:Info ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ] ;
+    sh:targetClass bot:Storey .
+
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:CompartmentAreaShape .
+
+firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
+
+firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .
+
+ex:CompartmentAreaShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.1" ;
+    rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
+    sh:property [ sh:maxInclusive 2500 ;
+            sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
+            sh:path firebim:calculatedArea ;
+            sh:severity sh:Warning ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:CompartmentLengthShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.3" ;
+    rdfs:comment "Validates that compartment length does not exceed 90 m." ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:maxInclusive 90 ;
+            sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
+            sh:path firebim:length ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.2" ;
+    rdfs:comment "Validates that ground floor compartment area is less than or equal to 3500 m²." ;
+    sh:and ( [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:isGroundFloor ] ] [ sh:property [ sh:datatype xsd:float ;
+                        sh:maxInclusive 3500 ;
+                        sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
+                        sh:path firebim:calculatedArea ] ] ) ;
+    sh:targetClass firebim:Compartment .
+
+ex:LargeCompartmentShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.4" ;
+    rdfs:comment "Validates that large compartments have necessary fire safety systems." ;
+    sh:and ( [ sh:or ( [ sh:and ( [ sh:property [ sh:maxInclusive 3500 ;
+                                                sh:minExclusive 2500 ;
+                                                sh:path firebim:calculatedArea ] ] [ sh:property [ sh:hasValue false ;
+                                                sh:path firebim:isGroundFloor ] ] ) ] [ sh:property [ sh:minExclusive 3500 ;
+                                    sh:path firebim:calculatedArea ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasAutomaticFireExtinguishing ] ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasSmokeAndHeatExtraction ] ] ) ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    sh:targetClass firebim:Compartment .
+
+`,
+'http://example.org/CompartmentLengthShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    rdfs:comment "Ensures that calculated area and debug information are present." ;
+    sh:property [ sh:message "Calculated area is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:calculatedArea ],
+        [ sh:message "Debug information for area calculation is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:debugAreaCalculation ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    rdfs:comment "Calculates the area of a compartment based on its contained spaces." ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """\r
+            CONSTRUCT {\r
+                $this firebim:calculatedArea ?totalArea .\r
+                $this firebim:debugAreaCalculation ?debug .\r
+            }\r
+            WHERE {\r
+                {\r
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)\r
+                    WHERE {\r
+                        $this bot:containsZone ?zone .\r
+                        ?zone firebim:area ?area .\r
+                        ?zone rdfs:label ?zoneName .\r
+                    }\r
+                    GROUP BY $this\r
+                }\r
+            }\r
+        """ ;
+            sh:prefixes ( [ sh:namespace "http://example.com/firebim#" ;
+                        sh:prefix "firebim" ] [ sh:namespace "https://w3id.org/bot#" ;
+                        sh:prefix "bot" ] [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ;
+                        sh:prefix "rdfs" ] ) ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ;
+            sh:severity sh:Info ] ;
+    sh:targetClass firebim:State .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path geo:hasGeometry ;
+            sh:severity sh:Info ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ] ;
+    sh:targetClass bot:Storey .
+
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:CompartmentAreaShape .
+
+firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
+
+firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .
+
+ex:CompartmentAreaShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.1" ;
+    rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
+    sh:property [ sh:maxInclusive 2500 ;
+            sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
+            sh:path firebim:calculatedArea ;
+            sh:severity sh:Warning ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:CompartmentLengthShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.3" ;
+    rdfs:comment "Validates that compartment length does not exceed 90 m." ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:maxInclusive 90 ;
+            sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
+            sh:path firebim:length ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.2" ;
+    rdfs:comment "Validates that ground floor compartment area is less than or equal to 3500 m²." ;
+    sh:and ( [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:isGroundFloor ] ] [ sh:property [ sh:datatype xsd:float ;
+                        sh:maxInclusive 3500 ;
+                        sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
+                        sh:path firebim:calculatedArea ] ] ) ;
+    sh:targetClass firebim:Compartment .
+
+ex:LargeCompartmentShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.4" ;
+    rdfs:comment "Validates that large compartments have necessary fire safety systems." ;
+    sh:and ( [ sh:or ( [ sh:and ( [ sh:property [ sh:maxInclusive 3500 ;
+                                                sh:minExclusive 2500 ;
+                                                sh:path firebim:calculatedArea ] ] [ sh:property [ sh:hasValue false ;
+                                                sh:path firebim:isGroundFloor ] ] ) ] [ sh:property [ sh:minExclusive 3500 ;
+                                    sh:path firebim:calculatedArea ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasAutomaticFireExtinguishing ] ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasSmokeAndHeatExtraction ] ] ) ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    sh:targetClass firebim:Compartment .
+
+`,
+'http://example.org/LargeCompartmentShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    rdfs:comment "Ensures that calculated area and debug information are present." ;
+    sh:property [ sh:message "Calculated area is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:calculatedArea ],
+        [ sh:message "Debug information for area calculation is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:debugAreaCalculation ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    rdfs:comment "Calculates the area of a compartment based on its contained spaces." ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """\r
+            CONSTRUCT {\r
+                $this firebim:calculatedArea ?totalArea .\r
+                $this firebim:debugAreaCalculation ?debug .\r
+            }\r
+            WHERE {\r
+                {\r
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)\r
+                    WHERE {\r
+                        $this bot:containsZone ?zone .\r
+                        ?zone firebim:area ?area .\r
+                        ?zone rdfs:label ?zoneName .\r
+                    }\r
+                    GROUP BY $this\r
+                }\r
+            }\r
+        """ ;
+            sh:prefixes ( [ sh:namespace "http://example.com/firebim#" ;
+                        sh:prefix "firebim" ] [ sh:namespace "https://w3id.org/bot#" ;
+                        sh:prefix "bot" ] [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ;
+                        sh:prefix "rdfs" ] ) ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ;
+            sh:severity sh:Info ] ;
+    sh:targetClass firebim:State .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path geo:hasGeometry ;
+            sh:severity sh:Info ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ] ;
+    sh:targetClass bot:Storey .
+
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:CompartmentAreaShape .
+
+firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
+
+firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .
+
+ex:CompartmentAreaShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.1" ;
+    rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
+    sh:property [ sh:maxInclusive 2500 ;
+            sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
+            sh:path firebim:calculatedArea ;
+            sh:severity sh:Warning ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:CompartmentLengthShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.3" ;
+    rdfs:comment "Validates that compartment length does not exceed 90 m." ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:maxInclusive 90 ;
+            sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
+            sh:path firebim:length ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.2" ;
+    rdfs:comment "Validates that ground floor compartment area is less than or equal to 3500 m²." ;
+    sh:and ( [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:isGroundFloor ] ] [ sh:property [ sh:datatype xsd:float ;
+                        sh:maxInclusive 3500 ;
+                        sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
+                        sh:path firebim:calculatedArea ] ] ) ;
+    sh:targetClass firebim:Compartment .
+
+ex:LargeCompartmentShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.4" ;
+    rdfs:comment "Validates that large compartments have necessary fire safety systems." ;
+    sh:and ( [ sh:or ( [ sh:and ( [ sh:property [ sh:maxInclusive 3500 ;
+                                                sh:minExclusive 2500 ;
+                                                sh:path firebim:calculatedArea ] ] [ sh:property [ sh:hasValue false ;
+                                                sh:path firebim:isGroundFloor ] ] ) ] [ sh:property [ sh:minExclusive 3500 ;
+                                    sh:path firebim:calculatedArea ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasAutomaticFireExtinguishing ] ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasSmokeAndHeatExtraction ] ] ) ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    sh:targetClass firebim:Compartment .
+
+`,
+'http://example.org/AreaCalculationDebugShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:AreaCalculationDebugShape a sh:NodeShape ;
+    rdfs:comment "Ensures that calculated area and debug information are present." ;
+    sh:property [ sh:message "Calculated area is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:calculatedArea ],
+        [ sh:message "Debug information for area calculation is missing." ;
+            sh:minCount 1 ;
+            sh:path firebim:debugAreaCalculation ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:CompartmentAreaCalculationShape a sh:NodeShape ;
+    rdfs:comment "Calculates the area of a compartment based on its contained spaces." ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:construct """\r
+            CONSTRUCT {\r
+                $this firebim:calculatedArea ?totalArea .\r
+                $this firebim:debugAreaCalculation ?debug .\r
+            }\r
+            WHERE {\r
+                {\r
+                    SELECT $this (SUM(?area) AS ?totalArea) (GROUP_CONCAT(CONCAT(?zoneName, ': ', STR(?area)); SEPARATOR=', ') AS ?debug)\r
+                    WHERE {\r
+                        $this bot:containsZone ?zone .\r
+                        ?zone firebim:area ?area .\r
+                        ?zone rdfs:label ?zoneName .\r
+                    }\r
+                    GROUP BY $this\r
+                }\r
+            }\r
+        """ ;
+            sh:prefixes ( [ sh:namespace "http://example.com/firebim#" ;
+                        sh:prefix "firebim" ] [ sh:namespace "https://w3id.org/bot#" ;
+                        sh:prefix "bot" ] [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#" ;
+                        sh:prefix "rdfs" ] ) ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ;
+            sh:severity sh:Info ] ;
+    sh:targetClass firebim:State .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path geo:hasGeometry ;
+            sh:severity sh:Info ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ] ;
+    sh:targetClass bot:Storey .
+
+firebim:Member_2_1_1_1 firebim:hasRelatedShape ex:CompartmentAreaShape .
+
+firebim:Member_2_1_1_2 firebim:hasRelatedShape ex:GroundFloorCompartmentAreaShape .
+
+firebim:Member_2_1_1_3 firebim:hasRelatedShape ex:CompartmentLengthShape .
+
+firebim:Member_2_1_1_4 firebim:hasRelatedShape ex:LargeCompartmentShape .
+
+ex:CompartmentAreaShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.1" ;
+    rdfs:comment "Validates that compartment area is less than or equal to 2500 m², unless exceptions apply." ;
+    sh:property [ sh:maxInclusive 2500 ;
+            sh:message "Compartment area must be less than or equal to 2500 m², unless exceptions apply. Actual value: {$value}" ;
+            sh:path firebim:calculatedArea ;
+            sh:severity sh:Warning ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:CompartmentLengthShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.3" ;
+    rdfs:comment "Validates that compartment length does not exceed 90 m." ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:maxInclusive 90 ;
+            sh:message "Compartment length must not exceed 90 m. Actual value: {$value}" ;
+            sh:path firebim:length ] ;
+    sh:targetClass firebim:Compartment .
+
+ex:GroundFloorCompartmentAreaShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.2" ;
+    rdfs:comment "Validates that ground floor compartment area is less than or equal to 3500 m²." ;
+    sh:and ( [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:isGroundFloor ] ] [ sh:property [ sh:datatype xsd:float ;
+                        sh:maxInclusive 3500 ;
+                        sh:message "Ground floor compartment area must be less than or equal to 3500 m². Actual value: {$value}" ;
+                        sh:path firebim:calculatedArea ] ] ) ;
+    sh:targetClass firebim:Compartment .
+
+ex:LargeCompartmentShape a sh:NodeShape ;
+    ex:validatesMember "2.1.1.4" ;
+    rdfs:comment "Validates that large compartments have necessary fire safety systems." ;
+    sh:and ( [ sh:or ( [ sh:and ( [ sh:property [ sh:maxInclusive 3500 ;
+                                                sh:minExclusive 2500 ;
+                                                sh:path firebim:calculatedArea ] ] [ sh:property [ sh:hasValue false ;
+                                                sh:path firebim:isGroundFloor ] ] ) ] [ sh:property [ sh:minExclusive 3500 ;
+                                    sh:path firebim:calculatedArea ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasAutomaticFireExtinguishing ] ] [ sh:property [ sh:hasValue true ;
+                        sh:path firebim:hasSmokeAndHeatExtraction ] ] ) ;
+    sh:message "Large compartments (>2500 m² for non-ground floor, or >3500 m²) must have automatic fire extinguishing and smoke/heat extraction systems. Calculated area: {$calculatedArea}" ;
+    sh:targetClass firebim:Compartment .
+
+`,
+'http://example.org/FireDoorShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/FireDoorGeometryShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorGeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+`,
+'http://example.org/PropertyStateShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/GeometryShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/WallShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+'http://example.org/FloorShape': `@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix ex: <http://example.org/> .
+@prefix firebim: <http://example.org/firebim#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:BuildingShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Building .
+
+ex:FireDoorAttributeShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:minCount 1 ;
+            sh:path schema1:value ] ;
+    sh:targetClass bpo:Attribute .
+
+ex:FireDoorShape a sh:NodeShape ;
+    sh:and ( [ sh:class bpo:Product ] ) ;
+    sh:property [ sh:class bot:Element ;
+            sh:minCount 1 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class firebim:State ;
+            sh:minCount 1 ;
+            sh:path firebim:hasState ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 2 ;
+            sh:path bpo:hasAttribute ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ] ;
+    sh:targetClass bot:Element .
+
+ex:FireDoorStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path firebim:currentState ] ;
+    sh:targetClass firebim:State .
+
+ex:FloorShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Floor" ],
+        [ sh:class bot:Element ;
+            sh:minCount 4 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+ex:GeometryShape a sh:NodeShape ;
+    sh:property [ sh:datatype geo:wktLiteral ;
+            sh:minCount 1 ;
+            sh:path geo:asWKT ] ;
+    sh:targetClass geo:Geometry .
+
+ex:PropertyStateShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bpo:Attribute ;
+            sh:minCount 1 ;
+            sh:path opm:hasPropertyState ] ;
+    sh:targetClass opm:PropertyState .
+
+ex:SpaceShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Element ;
+            sh:minCount 6 ;
+            sh:path bot:hasElement ] ;
+    sh:targetClass bot:Space .
+
+ex:StoreyShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ],
+        [ sh:class bot:Space ;
+            sh:minCount 1 ;
+            sh:path bot:hasSpace ],
+        [ sh:class bot:Building ;
+            sh:minCount 1 ;
+            sh:path bot:isPartOf ] ;
+    sh:targetClass bot:Storey .
+
+ex:WallShape a sh:NodeShape ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:minCount 1 ;
+            sh:path rdfs:label ;
+            sh:pattern "^Wall" ],
+        [ sh:class bot:Element ;
+            sh:maxCount 4 ;
+            sh:minCount 3 ;
+            sh:path bot:adjacentElement ],
+        [ sh:class geo:Geometry ;
+            sh:minCount 1 ;
+            sh:path geo:hasGeometry ] ;
+    sh:targetClass bot:Element .
+
+`,
+
+    };
+
+    function showShape(shapeId) {
+        const shapeContent = shapes[shapeId];
+        if (shapeContent) {
+            const modal = document.createElement('div');
+            modal.className = 'shape-modal';
+            modal.style.display = 'block';
+            modal.innerHTML = `
+                <div class="shape-modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h2>Shape: ${shapeId}</h2>
+                    <pre>${escapeHtml(shapeContent)}</pre>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            const closeButton = modal.querySelector('.close-modal');
+            closeButton.onclick = function() {
+                document.body.removeChild(modal);
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    document.body.removeChild(modal);
+                }
+            }
+        } else {
+            console.error(`Shape with id ${shapeId} not found`);
+        }
+    }
+
+    function escapeHtml(unsafe) {
+        return unsafe
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    function toggleOriginalText(button) {
+        var originalText = button.parentElement.nextElementSibling;
+        if (originalText.style.display === "none") {
+            originalText.style.display = "block";
+            button.textContent = "Hide Original";
+        } else {
+            originalText.style.display = "none";
+            button.textContent = "Show Original";
+        }
+    }
+    
+    function scrollToElement(id) {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({behavior: "smooth", block: "start"});
+            element.style.backgroundColor = "#e6f2ff";
+            setTimeout(() => {
+                element.style.transition = "background-color 1s ease";
+                element.style.backgroundColor = "";
+            }, 50);
+        }
+    }
+    
+    function toggleCollapse(element) {
+        element.classList.toggle('collapsed');
+        var content = element.nextElementSibling;
+        if (content.style.display === "block" || content.style.display === "") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    }
+    
+    function toggleIDs() {
+        var checkbox = document.getElementById('id-toggle');
+        var subtleIDs = document.getElementsByClassName('subtle-id');
+        for (var i = 0; i < subtleIDs.length; i++) {
+            subtleIDs[i].style.display = checkbox.checked ? 'inline' : 'none';
+        }
+    }
+    toggleIDs();
+    
+    // Search functionality
+    let searchResults = [];
+    let currentResultIndex = -1;
+
+    function resetSearchState() {
+        searchResults = [];
+        currentResultIndex = -1;
+        clearHighlights();
+        document.getElementById('search-results').innerHTML = '';
+    }
+
+    function performSearch() {
+        resetSearchState();
+        
+        const searchTerm = document.getElementById('search-input').value.toLowerCase();
+        console.log(`Performing search for: "${searchTerm}"`);
+        
+        if (searchTerm.length < 2) {
+            return;
+        }
+        
+        const mainContent = document.getElementById('main-content');
+        searchInNode(mainContent, searchTerm);
+        
+        console.log(`Found ${searchResults.length} results`);
+        
+        if (searchResults.length > 0) {
+            highlightResults();
+            highlightTableOfContents();
+            updateSearchResults();
+        } else {
+            updateSearchResults();
+        }
+    }
+
+    function searchInNode(node, searchTerm) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const parent = node.parentElement;
+            if (parent && isVisible(parent)) {
+                const text = node.textContent.toLowerCase();
+                let index = text.indexOf(searchTerm);
+                while (index !== -1) {
+                    // Store the parent element instead of the text node
+                    searchResults.push({
+                        element: parent,
+                        textContent: node.textContent,
+                        index: index,
+                        length: searchTerm.length
+                    });
+                    index = text.indexOf(searchTerm, index + 1);
+                }
+            }
+        } else if (node.nodeType === Node.ELEMENT_NODE && node.nodeName !== 'SCRIPT') {
+            if (isVisible(node)) {
+                for (let child of node.childNodes) {
+                    searchInNode(child, searchTerm);
+                }
+            }
+        }
+    }
+
+    function clearHighlights() {
+        const highlights = document.getElementsByClassName('highlight');
+        while (highlights.length > 0) {
+            const parent = highlights[0].parentNode;
+            parent.replaceChild(document.createTextNode(highlights[0].textContent), highlights[0]);
+            parent.normalize();
+        }
+        
+        const highlightedSections = document.getElementsByClassName('highlight-section');
+        while (highlightedSections.length > 0) {
+            highlightedSections[0].classList.remove('highlight-section');
+        }
+        
+        const tocHighlights = document.querySelectorAll('#sidebar .highlight-toc');
+        console.log(`Found ${tocHighlights.length} TOC highlights to clear`);
+    }
+
+    function highlightResults() {
+        searchResults.forEach((result, index) => {
+            try {
+                highlightNode(result);
+                
+                // Highlight the containing section
+                let section = findAncestorByClass(result.element, 'section');
+                if (section) {
+                    section.classList.add('highlight-section');
+                }
+            } catch (e) {
+                console.error(`Error highlighting result ${index + 1}:`, e);
+            }
+        });
+    }
+
+    function highlightNode(result) {
+        const element = result.element;
+        const text = result.textContent;
+        const index = result.index;
+        const length = result.length;
+
+        const beforeText = text.slice(0, index);
+        const highlightedText = text.slice(index, index + length);
+        const afterText = text.slice(index + length);
+
+        const span = document.createElement('span');
+        span.className = 'highlight';
+        span.textContent = highlightedText;
+
+        const fragment = document.createDocumentFragment();
+        fragment.appendChild(document.createTextNode(beforeText));
+        fragment.appendChild(span);
+        fragment.appendChild(document.createTextNode(afterText));
+
+        // Replace all child nodes with our new fragment
+        while (element.firstChild) {
+            element.removeChild(element.firstChild);
+        }
+        element.appendChild(fragment);
+    }
+
+    function updateSearchResultsDisplay() {
+        const resultsContainer = document.getElementById('search-results');
+        if (searchResults.length > 0) {
+            resultsContainer.innerHTML = `Showing result ${currentResultIndex + 1} of ${searchResults.length}. Press Enter for next.`;
+        } else {
+            resultsContainer.innerHTML = 'No results found.';
+        }
+    }
+
+    function updateSearchResults() {
+        const resultsContainer = document.getElementById('search-results');
+        if (searchResults.length > 0) {
+            resultsContainer.innerHTML = `Found ${searchResults.length} results. Press Enter to navigate.`;
+        } else {
+            resultsContainer.innerHTML = 'No results found.';
+        }
+    }
+
+    function isVisible(element) {
+        const isVis = !!(element.offsetWidth || element.offsetHeight || element.getClientRects().length);
+        console.log(`Visibility check for ${element.tagName}: ${isVis}`);
+        return isVis;
+    }
+
+    function findAncestorByClass(element, className) {
+        while (element) {
+            if (element.classList && element.classList.contains(className)) {
+                return element;
+            }
+            element = element.parentElement;
+        }
+        return null;
+    }
+    
+    function highlightTableOfContents() {
+        console.log("Highlighting table of contents");
+        const toc = document.getElementById('sidebar');
+        const highlightedSections = document.getElementsByClassName('highlight-section');
+        
+        // First, remove all existing highlight-toc classes
+        const existingHighlights = toc.querySelectorAll('.highlight-toc');
+        existingHighlights.forEach(el => el.classList.remove('highlight-toc'));
+        
+        for (let section of highlightedSections) {
+            let currentElement = section;
+            while (currentElement && currentElement.id) {
+                const sectionId = currentElement.id;
+                const tocEntry = toc.querySelector(`a[href="#${sectionId}"]`);
+                if (tocEntry) {
+                    tocEntry.classList.add('highlight-toc');
+                    // Expand parent lists to make highlighted item visible
+                    let parent = tocEntry.closest('ul');
+                    while (parent && parent !== toc) {
+                        parent.style.display = 'block';
+                        parent = parent.parentElement.closest('ul');
+                    }
+                }
+                currentElement = currentElement.parentElement;
+            }
+        }
+    }
+    
+    function findHighlightElement(node) {
+        if (!node) {
+            console.error("Node is null in findHighlightElement");
+            return null;
+        }
+        if (node.nodeType === Node.TEXT_NODE) {
+            return node.parentElement ? node.parentElement.querySelector('.highlight') : null;
+        }
+        return node.querySelector('.highlight');
+    }
+    
+    function findScrollableParent(node) {
+        if (!node) return document.body;
+        
+        // If node is a text node, start from its parent
+        if (node.nodeType === Node.TEXT_NODE) {
+            node = node.parentElement;
+        }
+        
+        if (!node || node === document.body) return document.body;
+        
+        const overflowY = window.getComputedStyle(node).overflowY;
+        if (overflowY === 'auto' || overflowY === 'scroll') return node;
+        
+        return findScrollableParent(node.parentElement);
+    }
+
+    function getNodePosition(node) {
+        if (!node) return null;
+        
+        // If node is a text node, use its parent for getting the position
+        const element = node.nodeType === Node.TEXT_NODE ? node.parentElement : node;
+        if (!element) return null;
+        
+        const rect = element.getBoundingClientRect();
+        return {
+            top: rect.top + window.pageYOffset,
+            left: rect.left + window.pageXOffset
+        };
+    }
+
+    function goToNextResult() {
+        if (searchResults.length === 0) {
+            console.log("No search results.");
+            return;
+        }
+        
+        currentResultIndex = (currentResultIndex + 1) % searchResults.length;
+        const result = searchResults[currentResultIndex];
+        
+        if (result && result.element) {
+            const scrollableParent = findScrollableParent(result.element);
+            const nodePosition = getNodePosition(result.element);
+            
+            if (nodePosition) {
+                if (scrollableParent === document.body) {
+                    window.scrollTo({
+                        top: nodePosition.top - 100,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    scrollableParent.scrollTo({
+                        top: nodePosition.top - scrollableParent.getBoundingClientRect().top - 100,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                console.log(`Scrolled to result ${currentResultIndex + 1}`);
+                
+                // Temporarily highlight the result
+                const highlightElement = result.element;
+                if (highlightElement) {
+                    const originalBackground = highlightElement.style.backgroundColor;
+                    highlightElement.style.backgroundColor = 'yellow';
+                    setTimeout(() => {
+                        highlightElement.style.backgroundColor = originalBackground;
+                    }, 1000);
+                }
+            } else {
+                console.error("Could not determine position for result", result);
+            }
+        } else {
+            console.error("Invalid result at index", currentResultIndex);
+        }
+        
+        updateSearchResultsDisplay();
+    }
+    
+    // Event listeners
+    document.getElementById('search-input').addEventListener('input', performSearch);
+    document.getElementById('search-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && searchResults.length > 0) {
+            goToNextResult();
+        }
+    });
+</script>
+</body>
+</html>

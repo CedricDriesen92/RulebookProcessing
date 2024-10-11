@@ -23,7 +23,6 @@ firebim:Member_2_1_2_3_1_2 a firebim:Member ;
     firebim:hasOriginalText """La masse volumique moyenne est un critere indicatif de la durete superficielle du bois. Les bois couramment utilises dans les escaliers sont repris au tableau & (p. 48). La durete augmente pour une masse volumique croissante."""@fr .
 
 firebim:Table_2_1_2_3_1 a firebim:Table ;
-    firebim:hasID "T2.1.2.3.1" ;
-    firebim:hasOriginalText "tableau & (p. 48)"@fr .
+    firebim:hasID "T2.1.2.3.1" .
 
 firebim:Section_2_1_2 firebim:hasSection firebim:Section_2_1_2_3 .

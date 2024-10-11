@@ -268,24 +268,12 @@ firebim:Belgian_Government a firebim:Authority ;
 
 firebim:RoyalDecree a firebim:Document ;
     firebim:hasID "RoyalDecree1994" ;
-    firebim:hasSection firebim:Section_1,
-        firebim:Section_2,
-        firebim:Section_3 ;
+    firebim:hasSection firebim:Section_2 ;
     firebim:issued "1994-07-07"^^xsd:date .
-
-firebim:Section_1 a firebim:Section ;
-    firebim:hasID "1" ;
-    firebim:hasSection firebim:Section_1_1,
-        firebim:Section_1_2 .
-
-firebim:Section_1_1 a firebim:Section ;
-    firebim:hasID "1.1" .
-
-firebim:Section_1_2 a firebim:Section ;
-    firebim:hasID "1.2" .
 
 firebim:Section_2 a firebim:Section ;
     firebim:hasID "2" ;
+    firebim:hasOriginalText "EXIGENCES ESSENTIELLES" ;
     firebim:hasSection firebim:Section_2_1,
         firebim:Section_2_2,
         firebim:Section_2_3,
@@ -294,38 +282,47 @@ firebim:Section_2 a firebim:Section ;
 
 firebim:Section_2_1 a firebim:Section ;
     firebim:hasID "2.1" ;
+    firebim:hasOriginalText "RESISTANCE MECANIQUE ET STABILITE" ;
     firebim:hasSection firebim:Section_2_1_1,
         firebim:Section_2_1_2 .
 
 firebim:Section_2_1_1 a firebim:Section ;
-    firebim:hasID "2.1.1" .
+    firebim:hasID "2.1.1" ;
+    firebim:hasOriginalText "ENONCE DU PROBLEME" .
 
 firebim:Section_2_1_2 a firebim:Section ;
     firebim:hasID "2.1.2" ;
+    firebim:hasOriginalText "PRESCRIPTIONS" ;
     firebim:hasSection firebim:Section_2_1_2_1,
         firebim:Section_2_1_2_2,
         firebim:Section_2_1_2_3,
         firebim:Section_2_1_2_4 .
 
 firebim:Section_2_1_2_1 a firebim:Section ;
-    firebim:hasID "2.1.2.1" .
+    firebim:hasID "2.1.2.1" ;
+    firebim:hasOriginalText "STABILITE DE L'ENSEMBLE ET RESISTANCE MECANIQUE" .
 
 firebim:Section_2_1_2_2 a firebim:Section ;
-    firebim:hasID "2.1.2.2" .
+    firebim:hasID "2.1.2.2" ;
+    firebim:hasOriginalText "RESISTANCE AUX CHOCS DE CORPS DURS ET DE CORPS MOUS" .
 
 firebim:Section_2_1_2_3 a firebim:Section ;
-    firebim:hasID "2.1.2.3" .
+    firebim:hasID "2.1.2.3" ;
+    firebim:hasOriginalText "RESISTANCE DES SURFACES DE CIRCULATION A LA RAYURE ET A L'USURE" .
 
 firebim:Section_2_1_2_4 a firebim:Section ;
-    firebim:hasID "2.1.2.4" .
+    firebim:hasID "2.1.2.4" ;
+    firebim:hasOriginalText "DURABILITE EN RAPPORT AVEC LA RESISTANCE MECANIQUE ET LA STABILITE" .
 
 firebim:Section_2_2 a firebim:Section ;
     firebim:hasID "2.2" ;
+    firebim:hasOriginalText "SECURITÃ‰ EN CAS D'INCENDIE" ;
     firebim:hasSection firebim:Section_2_2_1,
         firebim:Section_2_2_2 .
 
 firebim:Section_2_2_1 a firebim:Section ;
     firebim:hasID "2.2.1" ;
+    firebim:hasOriginalText "ENONCE DU PROBLEME" ;
     firebim:hasSection firebim:Section_2_2_1_1,
         firebim:Section_2_2_1_2,
         firebim:Section_2_2_1_3,
@@ -333,52 +330,66 @@ firebim:Section_2_2_1 a firebim:Section ;
         firebim:Section_2_2_1_5 .
 
 firebim:Section_2_2_1_1 a firebim:Section ;
-    firebim:hasID "2.2.1.1" .
+    firebim:hasID "2.2.1.1" ;
+    firebim:hasOriginalText "HAUTEUR 'H' D'UN IMEUBLE" .
 
 firebim:Section_2_2_1_2 a firebim:Section ;
-    firebim:hasID "2.2.1.2" .
+    firebim:hasID "2.2.1.2" ;
+    firebim:hasOriginalText "EVACUATION" .
 
 firebim:Section_2_2_1_3 a firebim:Section ;
-    firebim:hasID "2.2.1.3" .
+    firebim:hasID "2.2.1.3" ;
+    firebim:hasOriginalText "ESCALIERS" .
 
 firebim:Section_2_2_1_4 a firebim:Section ;
-    firebim:hasID "2.2.1.4" .
+    firebim:hasID "2.2.1.4" ;
+    firebim:hasOriginalText "RESISTANCE AU FEU" .
 
 firebim:Section_2_2_1_5 a firebim:Section ;
-    firebim:hasID "2.2.1.5" .
+    firebim:hasID "2.2.1.5" ;
+    firebim:hasOriginalText "REACTION AU FEU" .
 
 firebim:Section_2_2_2 a firebim:Section ;
     firebim:hasID "2.2.2" ;
+    firebim:hasOriginalText "PRESCRIPTIONS" ;
     firebim:hasSection firebim:Section_2_2_2_1,
         firebim:Section_2_2_2_2 .
 
 firebim:Section_2_2_2_1 a firebim:Section ;
-    firebim:hasID "2.2.2.1" .
+    firebim:hasID "2.2.2.1" ;
+    firebim:hasOriginalText "REGLES DE BASE" .
 
 firebim:Section_2_2_2_2 a firebim:Section ;
-    firebim:hasID "2.2.2.2" .
+    firebim:hasID "2.2.2.2" ;
+    firebim:hasOriginalText "SYNTHESE DES PRESCRIPTIONS APPLICABLES AUX ESCALIERS INTERIEURS" .
 
 firebim:Section_2_3 a firebim:Section ;
     firebim:hasID "2.3" ;
+    firebim:hasOriginalText "HYGIENE, SANTE ET ENVIRONNEMENT" ;
     firebim:hasSection firebim:Section_2_3_1,
         firebim:Section_2_3_2 .
 
 firebim:Section_2_3_1 a firebim:Section ;
-    firebim:hasID "2.3.1" .
+    firebim:hasID "2.3.1" ;
+    firebim:hasOriginalText "ENONCE DU PROBLEME" .
 
 firebim:Section_2_3_2 a firebim:Section ;
-    firebim:hasID "2.3.2" .
+    firebim:hasID "2.3.2" ;
+    firebim:hasOriginalText "PRESCRIPTIONS" .
 
 firebim:Section_2_4 a firebim:Section ;
     firebim:hasID "2.4" ;
+    firebim:hasOriginalText "SÃ‰CURITÃ‰ D'UTILISATION" ;
     firebim:hasSection firebim:Section_2_4_1,
         firebim:Section_2_4_2 .
 
 firebim:Section_2_4_1 a firebim:Section ;
-    firebim:hasID "2.4.1" .
+    firebim:hasID "2.4.1" ;
+    firebim:hasOriginalText "Ã‰NONCÃ‰ DU PROBLÃˆME" .
 
 firebim:Section_2_4_2 a firebim:Section ;
     firebim:hasID "2.4.2" ;
+    firebim:hasOriginalText "PRESCRIPTIONS" ;
     firebim:hasSection firebim:Section_2_4_2_1,
         firebim:Section_2_4_2_10,
         firebim:Section_2_4_2_11,
@@ -394,93 +405,85 @@ firebim:Section_2_4_2 a firebim:Section ;
         firebim:Section_2_4_2_9 .
 
 firebim:Section_2_4_2_1 a firebim:Section ;
-    firebim:hasID "2.4.2.1" .
+    firebim:hasID "2.4.2.1" ;
+    firebim:hasOriginalText "IMPLANTATION DE L'ESCALIER DANS LE BATIMENT ET GEOMETRIE DE L'ESCALIER" .
 
 firebim:Section_2_4_2_10 a firebim:Section ;
-    firebim:hasID "2.4.2.10" .
+    firebim:hasID "2.4.2.10" ;
+    firebim:hasOriginalText "EMMARCHEMENT OU LARGEUR LIBRE" .
 
 firebim:Section_2_4_2_11 a firebim:Section ;
-    firebim:hasID "2.4.2.11" .
+    firebim:hasID "2.4.2.11" ;
+    firebim:hasOriginalText "ECHAPPEE" .
 
 firebim:Section_2_4_2_12 a firebim:Section ;
-    firebim:hasID "2.4.2.12" .
+    firebim:hasID "2.4.2.12" ;
+    firebim:hasOriginalText "PALIER" .
 
 firebim:Section_2_4_2_13 a firebim:Section ;
-    firebim:hasID "2.4.2.13" .
+    firebim:hasID "2.4.2.13" ;
+    firebim:hasOriginalText "PARACHEVEMENT DU PIAN DE MARCHE" .
 
 firebim:Section_2_4_2_14 a firebim:Section ;
-    firebim:hasID "2.4.2.14" .
+    firebim:hasID "2.4.2.14" ;
+    firebim:hasOriginalText "SYNTHESE" .
 
 firebim:Section_2_4_2_3 a firebim:Section ;
-    firebim:hasID "2.4.2.3" .
+    firebim:hasID "2.4.2.3" ;
+    firebim:hasOriginalText "MODULE DU PAS" .
 
 firebim:Section_2_4_2_4 a firebim:Section ;
-    firebim:hasID "2.4.2.4" .
+    firebim:hasID "2.4.2.4" ;
+    firebim:hasOriginalText "DETERMINATION DE LA HAUTEUR DES MARCHES ET DE LEUR GIRON" .
 
 firebim:Section_2_4_2_5 a firebim:Section ;
-    firebim:hasID "2.4.2.5" .
+    firebim:hasID "2.4.2.5" ;
+    firebim:hasOriginalText "NEZ DES MARCHES" .
 
 firebim:Section_2_4_2_6 a firebim:Section ;
-    firebim:hasID "2.4.2.6" .
+    firebim:hasID "2.4.2.6" ;
+    firebim:hasOriginalText "LIGNE DE FOULEE" .
 
 firebim:Section_2_4_2_7 a firebim:Section ;
-    firebim:hasID "2.4.2.7" .
+    firebim:hasID "2.4.2.7" ;
+    firebim:hasOriginalText "BALANCEMENT DES MARCHES" .
 
 firebim:Section_2_4_2_8 a firebim:Section ;
-    firebim:hasID "2.4.2.8" .
+    firebim:hasID "2.4.2.8" ;
+    firebim:hasOriginalText "PENTE DE L'ESCALIER" .
 
 firebim:Section_2_4_2_9 a firebim:Section ;
-    firebim:hasID "2.4.2.9" .
+    firebim:hasID "2.4.2.9" ;
+    firebim:hasOriginalText "GARDE CORPS" .
 
 firebim:Section_2_5 a firebim:Section ;
     firebim:hasID "2.5" ;
+    firebim:hasOriginalText "PROTECTION CONTRE LE BRUIT" ;
     firebim:hasSection firebim:Section_2_5_1,
         firebim:Section_2_5_2 .
 
 firebim:Section_2_5_1 a firebim:Section ;
-    firebim:hasID "2.5.1" .
+    firebim:hasID "2.5.1" ;
+    firebim:hasOriginalText "ENONCE DU PROBLEME" .
 
 firebim:Section_2_5_2 a firebim:Section ;
     firebim:hasID "2.5.2" ;
+    firebim:hasOriginalText "PRESCRIPTIONS" ;
     firebim:hasSection firebim:Section_2_5_2_1,
         firebim:Section_2_5_2_2,
         firebim:Section_2_5_2_3 .
 
 firebim:Section_2_5_2_1 a firebim:Section ;
-    firebim:hasID "2.5.2.1" .
+    firebim:hasID "2.5.2.1" ;
+    firebim:hasOriginalText "CRAQUEMENT DES MARCHES" .
 
 firebim:Section_2_5_2_2 a firebim:Section ;
-    firebim:hasID "2.5.2.2" .
+    firebim:hasID "2.5.2.2" ;
+    firebim:hasOriginalText "BRUITS DE CHOC" .
 
 firebim:Section_2_5_2_3 a firebim:Section ;
-    firebim:hasID "2.5.2.3" .
-
-firebim:Section_3 a firebim:Section ;
-    firebim:hasID "3" ;
-    firebim:hasSection firebim:Section_3_1,
-        firebim:Section_3_2 .
-
-firebim:Section_3_1 a firebim:Section ;
-    firebim:hasID "3.1" ;
-    firebim:hasSection firebim:Section_3_1_1,
-        firebim:Section_3_1_2,
-        firebim:Section_3_1_4 .
-
-firebim:Section_3_1_1 a firebim:Section ;
-    firebim:hasID "3.1.1" .
-
-firebim:Section_3_1_2 a firebim:Section ;
-    firebim:hasID "3.1.2" .
-
-firebim:Section_3_1_4 a firebim:Section ;
-    firebim:hasID "3.1.4" .
-
-firebim:Section_3_2 a firebim:Section ;
-    firebim:hasID "3.2" ;
-    firebim:hasSection firebim:Section_3_2_1 .
-
-firebim:Section_3_2_1 a firebim:Section ;
-    firebim:hasID "3.2.1" .
+    firebim:hasID "2.5.2.3" ;
+    firebim:hasOriginalText "RESONANCE" .
 
 
 

@@ -1,0 +1,70 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_2_2_2_2 a firebim:Section ;
+    firebim:hasID "2.2.2.2" ;
+    firebim:hasOriginalText "SYNTHESE DES PRESCRIPTIONS APPLICABLES AUX ESCALIERS INTERIEURS"@fr ;
+    firebim:hasArticle firebim:Article_2_2_2_2_1 .
+
+firebim:Article_2_2_2_2_1 a firebim:Article ;
+    firebim:hasID "A2.2.2.2.1" ;
+    firebim:hasMember firebim:Member_2_2_2_2_1_1, firebim:Member_2_2_2_2_1_2 ;
+    firebim:hasTable firebim:Table_4, firebim:Table_5 .
+
+firebim:Member_2_2_2_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Le tableau 4 (p: 28) donne un bref aperçu des dispositions applicables aux escaliers intérieurs faisant fonction de chemins d'évacuation en cas d'incendie. Les prescriptions sont valables pour tous les bâtiments, à l'exception des maisons unifamiliales."""@fr .
+
+firebim:Member_2_2_2_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """La conception et la mise en œuvre des escaliers intérieurs doivent en outre répondre à un certain nombre d'exigences minimales complémentaires, à savoir :"""@fr ;
+    firebim:hasMember firebim:Member_2_2_2_2_1_2_1, firebim:Member_2_2_2_2_1_2_2, firebim:Member_2_2_2_2_1_2_3, firebim:Member_2_2_2_2_1_2_4, firebim:Member_2_2_2_2_1_2_5 .
+
+firebim:Member_2_2_2_2_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "- giron : G = 200 mm minimum en tout point"@fr .
+
+firebim:Member_2_2_2_2_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText "- hauteur des marches : H = 180 mm maximum"@fr .
+
+firebim:Member_2_2_2_2_1_2_3 a firebim:Member ;
+    firebim:hasOriginalText "- pente : maximum 75 % (angle maximum d'inclinaison & = 37°)"@fr .
+
+firebim:Member_2_2_2_2_1_2_4 a firebim:Member ;
+    firebim:hasOriginalText "- largeur utile : au moins 0,8 m, sans être inférieure à la largeur utile requise calculée selon l'annexe technique n° 1 de l'AR du 07/07/1994."@fr .
+
+firebim:Member_2_2_2_2_1_2_5 a firebim:Member ;
+    firebim:hasOriginalText """La largeur utile des volées d'escaliers et des paliers de la cage d'escalier d'un même compartiment ne peut s'écarter de plus d'une unité de passage. Les escaliers sont pourvus de garde-corps de part et d'autre. Toutefois, un seul garde-corps peut suffire dans les escaliers dont la largeur utile est inférieure à 1,2 m, pour autant qu'il n'y ait aucun risque de chute."""@fr .
+
+firebim:Table_4 a firebim:Table ;
+    firebim:hasID "T4" ;
+    firebim:hasOriginalText """Dispositions applicables, selon la hauteur du bâtiment, aux escaliers intérieurs laissant fonction de chemins d'évacuation en cas d'incendie
+
+|CRITERE|BATIMENT BAS|BATIMENT MOYEN (10 < h ≤ 25 m)|BATIMENT ELEVE (h > 25 m)|
+|---|---|---|---|
+|Stabilité au Feu|1/2 h|1 h|1 h|
+|Contremarches|massives|massives|massives|
+|Type|escalier droit|escalier droit|escalier droit|
+|escalier|escalier tournant à marches balancées avec G = 240 mm min.|escalier tournant à marches balancées avec G = 240 mm min.|200 mm minimum en tout autre point|
+|Palier|L'ouverture de la porte ne peut pas réduire la largeur utile|L'ouverture de la porte ne peut pas réduire la largeur utile|L'ouverture de la porte ne peut pas réduire la largeur utile|
+|Réaction au feu du revêtement de sol|A2|A2|A2|
+|Réaction au feu des revêtements muraux|AI|AI|AI|"""@fr .
+
+firebim:Table_5 a firebim:Table ;
+    firebim:hasID "T5" ;
+    firebim:hasOriginalText """Module du pas 'M' (en mm) en fonction de 'H', compte tenu des critères imposés
+
+|H|G = 180 mm|G = 175 mm|G = 170 mm|G = 165 mm|G = 160 mm|G = 155 mm|G = 150 mm|
+|---|---|---|---|---|---|---|---|
+|Imml|230|235|240|245|250|255|260|
+|180|600|605|610|615|620|625|630|
+|175|585|590|595|600|605|610|615|
+|170|570|575|580|585|590|595|600|
+|165| |570|575|580|585|590|595|
+|160| | |570|575|580|585|590|
+|155| | | |570|575|580|585|
+|150| | | | |570|575|580|"""@fr .
+
+firebim:Section_2_2_2 firebim:hasSection firebim:Section_2_2_2_2 .

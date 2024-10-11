@@ -177,7 +177,7 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
         except Exception as e:
             print(f"Error loading existing section {section_number}: {e}")
     
-    #return False # Keeps the code from engaging the AI.
+    return False # Keeps the code from engaging the AI.
     for attempt in range(3):
         try:
             ttl_content = process_section_to_ttl(section_number, section_text, ontology, examples_str, starting_graph)
@@ -203,6 +203,11 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
     
     return False
 
+def compare_section_numbers(a, b):
+    a_parts = [int(n) for n in a.split('.')]
+    b_parts = [int(n) for n in b.split('.')]
+    return (a_parts > b_parts) - (a_parts < b_parts)
+    
 def main():
     ontology = load_ontology('FireBIM_Document_Ontology.ttl')
     pdf_filename = 'NIT_198_crop.pdf'
@@ -220,16 +225,32 @@ def main():
     
     # Create section structure
     section_numbers = [section_number for section_number, _, _ in sections]
+    section_titles = [section_title for _, section_title, _ in sections]
     
     document = URIRef(FIREBIM.RoyalDecree)
     
-    # Sort section numbers to ensure parent sections are created before child sections
-    section_numbers.sort(key=lambda x: [int(n) for n in x.split('.')])
+    # Preprocess sections to combine non-section content with previous sections
+    processed_sections = []
+    for i, (section_number, section_title, section_content) in enumerate(sections):
+        if i == 0 or compare_section_numbers(section_number, processed_sections[-1][0]) > 0:
+            processed_sections.append((section_number, section_title, section_content))
+        else:
+            # This is not a real section, add its content to the previous section
+            prev_section_number, prev_section_title, prev_section_content = processed_sections[-1]
+            combined_content = f"{prev_section_content}\n\n{section_title}\n{section_content}"
+            processed_sections[-1] = (prev_section_number, prev_section_title, combined_content)
     
-    for section_number in section_numbers:
+    sections = processed_sections
+    section_numbers = [section_number for section_number, _, _ in sections]
+    section_titles = [section_title for _, section_title, _ in sections]
+
+    print(f"Number of processed sections: {len(sections)}")
+    
+    for i, section_number in enumerate(section_numbers):
         section_uri = URIRef(FIREBIM['Section_' + section_number.replace('.', '_')])
         main_graph.add((section_uri, RDF.type, FIREBIM.Section))
         main_graph.add((section_uri, FIREBIM.hasID, Literal(section_number)))
+        main_graph.add((section_uri, FIREBIM.hasOriginalText, Literal(section_titles[i].upper())))
         
         # Link top-level sections to the document
         if '.' not in section_number:
@@ -273,7 +294,7 @@ def main():
         
         print(f"Processed section {section_number}, nr. {curNum} / {totalNum}")
     
-    main_graph.serialize("combined_document_data_graph.ttl", format="turtle")
+    main_graph.serialize(f"{output_folder}/combined_document_data_graph.ttl", format="turtle")
 
 if __name__ == "__main__":
     main()

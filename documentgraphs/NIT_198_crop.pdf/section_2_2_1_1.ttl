@@ -1,0 +1,28 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_2_2_1_1 a firebim:Section ;
+    firebim:hasID "2.2.1.1" ;
+    firebim:hasOriginalText "HAUTEUR 'h' D'UN IMEUBLE"@fr ;
+    firebim:hasArticle firebim:Article_2_2_1_1_1 .
+
+firebim:Article_2_2_1_1_1 a firebim:Article ;
+    firebim:hasID "A2.2.1.1.1" ;
+    firebim:hasMember firebim:Member_2_2_1_1_1_1, firebim:Member_2_2_1_1_1_2 ;
+    firebim:hasFigure firebim:Figure_19_24 .
+
+firebim:Member_2_2_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """La hauteur 'h' d'un immeuble est définie conventionnellement comme la distance entre le niveau fini du plancher de l'étage le plus élevé et le niveau le plus bas des voies entourant le bâtiment et utilisables par les véhicules des services d'incendie (figure 19-24)."""@fr .
+
+firebim:Member_2_2_1_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Lorsque la toiture ne comprend que des locaux à usage technique, ce niveau n'intervient pas dans le calcul de la hauteur."""@fr .
+
+firebim:Figure_19_24 a firebim:Figure ;
+    firebim:hasID "F19-24" .
+
+firebim:Section_2_2_1 firebim:hasSection firebim:Section_2_2_1_1 .

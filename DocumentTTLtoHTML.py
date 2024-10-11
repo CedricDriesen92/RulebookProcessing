@@ -15,7 +15,8 @@ sh = Namespace("http://www.w3.org/ns/shacl#")
 g = Graph()
 
 # Parse the TTL file
-g.parse("combined_document_data_graph.ttl", format="turtle")
+filename = "NIT_198_crop"
+g.parse("documentgraphs/"+filename+".pdf/combined_document_data_graph.ttl", format="turtle")
 
 
 def load_all_shapes(directory):
@@ -270,7 +271,7 @@ html_content = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koninklijk Besluit Brandveiligheid</title>
+    <title>Document graph</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -951,7 +952,7 @@ html_content += """
 table_of_contents = generate_table_of_contents(g, document)
 html_content = html_content.replace('table_of_contents_location', table_of_contents)
 # Write the HTML content to a file
-with open("fire_safety_regulations.html", "w", encoding="utf-8") as f:
+with open(filename+".html", "w", encoding="utf-8") as f:
     f.write(html_content)
 
-print("HTML file 'fire_safety_regulations.html' has been generated.")
+print("HTML file '"+filename+".html' has been generated.")
