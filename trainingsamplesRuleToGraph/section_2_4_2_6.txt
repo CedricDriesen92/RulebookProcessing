@@ -1,0 +1,12 @@
+Section number: 2.4.2.6
+Section text:
+La position de la ligne de foulée est mesurée à partir du bord intérieur de la zone de rampe
+(ou à partir du noyau pour les escaliers à noyau). Dans un escalier comportant deux
+rampes principales, la ligne de foulée se situe au centre de l’escalier, quelle que soit sa
+forme (escalier droit, tournant ou à noyau). Lorsqu’il n’y a qu’une seule rampe principale,
+la position de la ligne de foulée dépend de la forme et de la largeur de l’escalier :
+N au centre, dans les escaliers droits ou obliques, quelle que soit leur largeur
+N dans les escaliers à noyau, les escaliers tournants et les escaliers à quart ou demi-
+   tournant, à 0,4 m minimum et 0,6 m maximum du bord intérieur de la zone de rampe
+  ou du noyau, et à 0,35 m minimum des rives extérieures des marches. Dans un escalier
+  de moins de 0,75 m de large, la ligne de foulée se trouve au centre.

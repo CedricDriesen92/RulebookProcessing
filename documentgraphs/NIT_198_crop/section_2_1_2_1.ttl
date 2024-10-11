@@ -1,0 +1,78 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_2_1_2_1 a firebim:Section ;
+    firebim:hasID "2.1.2.1" ;
+    firebim:hasOriginalText "STABILITE DE L'ENSEMBLE ET RESISTANCE MECANIQUE"@fr ;
+    firebim:hasArticle firebim:Article_2_1_2_1_1 .
+
+firebim:Article_2_1_2_1_1 a firebim:Article ;
+    firebim:hasID "A2.1.2.1.1" ;
+    firebim:hasMember firebim:Member_2_1_2_1_1_1, firebim:Member_2_1_2_1_1_2, firebim:Member_2_1_2_1_1_3, firebim:Member_2_1_2_1_1_4, firebim:Member_2_1_2_1_1_5, firebim:Member_2_1_2_1_1_6 ;
+    firebim:hasFigure firebim:Figure_17 .
+
+firebim:Member_2_1_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """La structure portante doit avoir une stabilite et une resistance mecanique lui permettant de resister, sans effets dommageables, aux actions qu'elle peut subir durant sa construction et son utilisation; que ce soit directement ou indirectement (par exemple, par l'intermediaire des garde-corps). On se refera à cet effet aux prescriptions applicables aux constructions portantes et aux garde-corps, enoncees dans la Note d'information technique n° 196 relative aux balcons [7]."""@fr .
+
+firebim:Member_2_1_2_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Dans un escalier, la structure portante est constituee par les limons et les paliers : ceux-ci transmettent le poids propre de l'escalier et les charges d'exploitation, exercees sur les marches et les garde-corps, aux appuis de depart et d'arrivee de l'escalier ainsi qu'aux ancrages muraux."""@fr .
+
+firebim:Member_2_1_2_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """En ce qui concerne la structure portante, on tient compte de la pente de l'escalier : plus celle-ci est raide, plus la composante perpendiculaire aux limons augmente et plus la composante parallele aux limons diminue (figure 17)."""@fr .
+
+firebim:Member_2_1_2_1_1_4 a firebim:Member ;
+    firebim:hasOriginalText "Les appuis et les ancrages des limons doivent reporter correctement les efforts de réaction des planchers des étages et sur les murs."@fr .
+
+firebim:Member_2_1_2_1_1_5 a firebim:Member ;
+    firebim:hasOriginalText """Pour la structure portante de l'escalier
+
+Il y a lieu de tenir compte des sollicitations suivantes :
+
+- actions permanentes dues au poids propre (voir la norme NBN B 03-102 [17])
+- charges d'exploitation (norme NBN B 03-103 [18], savoir charges uniformément réparties, selon la destination de l'ouvrage :"""@fr ;
+    firebim:hasReference firebim:Reference_NBN_B_03_102, firebim:Reference_NBN_B_03_103 .
+
+firebim:Member_2_1_2_1_1_6 a firebim:Member ;
+    firebim:hasOriginalText """Le garde-corps doit résister aux sollicitations définies par les STS 54 [12] [37]; le lecteur se référera à ce sujet à la NIT 196 déjà citée (8 2.1.2.1 B) [7].
+
+Les assemblages garde-corps/limon et/ou garde-corps/surface de circulation en particulier seront exécutés de manière à ce qu'ils puissent reprendre les sollicitations.
+
+Plusieurs modes de fixation sont envisageables (figure 18, p 22). Dans les escaliers où les marches sont encastrées dans les limons, les balustres sont fixés dans les limons. Dans le cas de limons sciés en crémaillère ou de limons libres, les garde-corps sont fixés sur la face supérieure des marches ou sur la face latérale des limons. Dans un escalier suspendu, le système de suspension fait souvent office de garde-corps.
+
+Une solution qui s'écarte de la pratique courante fera l'objet d'une étude particulière.
+
+Pour la mise en œuvre, on se reportera au chapitre 4 (p. 52) du présent document."""@fr ;
+    firebim:hasReference firebim:Reference_STS_54, firebim:Reference_NIT_196 .
+
+firebim:Figure_17 a firebim:Figure ;
+    firebim:hasID "F17" ;
+    firebim:hasOriginalText "Fig. 17 Composantes de la charge en fonction de la pente de l'escalier."@fr .
+
+firebim:Reference_NBN_B_03_102 a firebim:Reference ;
+    firebim:hasID "NBN B 03-102" .
+
+firebim:Reference_NBN_B_03_103 a firebim:Reference ;
+    firebim:hasID "NBN B 03-103" .
+
+firebim:Reference_STS_54 a firebim:Reference ;
+    firebim:hasID "STS 54" .
+
+firebim:Reference_NIT_196 a firebim:Reference ;
+    firebim:hasID "NIT 196" .
+
+firebim:Article_2_1_2_1_1 firebim:hasTable firebim:Table_1 .
+
+firebim:Table_1 a firebim:Table ;
+    firebim:hasID "T1" ;
+    firebim:hasOriginalText """SURFACE DE CIRCULATION
+
+|LONGUEUR DE LA MARCHE (m)|EPAISSEUR DE LA MARCHE (mm)|
+|---|---|
+|jusqu'à 0,8|35|
+|jusqu'à 1,0|40|
+|jusqu'à 1,2|45|"""@fr .

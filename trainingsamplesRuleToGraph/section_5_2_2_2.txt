@@ -1,0 +1,43 @@
+Section number: 5.2.2.2
+Section text:
+PREMIÈRE ET À LA DERNIÈRE MARCHE
+
+Si l’on a un noyau rectangulaire dont les côtés les plus longs sont parallèles au nez de la
+première et de la dernière marche, on utilise deux arcs en forme de quart de cercle. Les
+nez des marches sont tangents à ces arcs.
+
+Pour trouver les centres ‘M’ et ‘N’ ainsi que les rayons ‘R’ et ‘S’ correspondant aux arcs
+de cercle, on procède comme suit (figure 95) : on soustrait ± 30 mm de chaque côté de
+la longueur du noyau, de sorte qu’il reste la distance ‘X’. A chaque extrémité de ‘X’, on
+trace une perpendiculaire au noyau. On déplace le nez de la première et de la dernière
+marche d’environ 15 mm à partir de la face avant du noyau; le point d’intersection des
+perpendiculaires au noyau et des droites prolongeant le nez de la première et de la
+dernière marche donne les points de tangence entre les arcs de cercle et le prolongement
+du nez des marches précitées. La distance ‘X’ du côté de la marche supérieure, diminuée
+de la dimension du nez ‘W’, est divisée en son centre pour obtenir le point ‘Y’, d’où part
+une perpenpendiculaire au noyau; cette perpendiculaire est tangente aux deux quarts de
+cercle. Ainsi, on a déterminé le rayon ‘R’ du quart de cercle de centre ‘M’ et le rayon ‘S’
+du quart de cercle de centre ‘N’.
+
+A partir des points de division de la ligne de foulée, on trace alors des lignes tangentes à
+l’un des deux arcs de cercle et l’on obtient ainsi les nez des marches.
+
+
+
+
+
+                                    90   NIT 198 – décembre 1995
+                                                              Fig. 95 Balancement des
+       3    4     5     6    7     8      9                 marches d’un escalier à noyau
+                                              10                                                                           rectangulaire dont le côté long
+      2                                                                  est parallèle à la première et                                              11
+                                                  15 mm       à la dernière marche.
+      1                                       12
+
+      15 mm
+
+                                  S            30 mm    R                                             30 mm            3  4 5 6 7 8  9
+                                                       2              10
+        M                N                       R          R   W                 1              11
+                                                                      12
+                             X

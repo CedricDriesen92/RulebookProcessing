@@ -1,0 +1,30 @@
+Section number: 5.2.2.1
+Section text:
+Si l’on a un noyau carré, rond ou octogonal, les marches sont balancées vers un “cercle
+de nez” dessiné au cœur du noyau (figure 94).
+
+
+
+
+                                    89  NIT 198 – décembre 1995
+Ce cercle a comme diamètre la largeur du nez de chaque marche. Le nez de la marche est
+une ligne tangente à ce cercle, tracée à partir de la ligne de foulée. Ainsi, le nez des
+marches et les contremarches viennent se placer dans la partie avant du noyau, ce qui
+permet d’éviter l’apparition d’angles trop aigus.
+
+
+
+
+
+                                                                5  6                                                             4         7
+                                                           3              8
+                                                         2                 9
+                                                        1                   10
+                                                                             11
+                                                           ≥ 350   400 à
+                                             mm    600 mm
+                             d
+
+
+Fig. 94 Balancement des marches d’un escalier à noyau carré, rond ou octogonal.
+d : diamètre du cercle de nez

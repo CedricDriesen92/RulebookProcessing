@@ -1,0 +1,551 @@
+Section number: 5.2.3.7
+Section text:
+Cette méthode consiste à adapter, au moyen d’un diagramme, le collet des marches, de
+façon à concevoir des limons de forme harmonieuse.
+
+Elle peut être utilisée pour le balancement des escaliers à quartier tournant et des escaliers
+tournants à limons courbes ou à crosses. Elle s’applique de façon générale à tous les
+escaliers à limons ou à rampes continus ou lorsqu’on est confronté à un problème de
+raccord entre des éléments de limons ou de rampes.
+
+La figure 104 illustre l’application de la méthode dans un escalier à quartier tournant.
+
+Sur la vue en plan, on dessine l’escalier et les marches non balancées du quartier tournant.
+Dans un diagramme cartésien, on indique en abscisse la dimension du collet des marches
+(au droit du limon de jour) et en ordonnée la hauteur des marches. En reliant les différents
+points, on obtient une ligne brisée au niveau du quartier tournant.
+
+Cette cassure est éliminée du diagramme en traçant une nouvelle courbe ‘pqr’ qui permet
+de redimensionner le collet des marches sur l’axe ZZ’. Le limon prend ainsi un développé
+plus régulier. Le positionnement correct des points ‘p, q et r’ déterminera l’aspect du
+limon de jour; il exigera donc une certaine expérience.
+
+En principe, le nombre de marches concernées par le balancement doit être limité (par
+exemple, 10 marches comme à la figure 104, soit les marches 4 à 13 incluse). Cette
+méthode donne en général de bons résultats et est assez rapide.
+
+
+
+
+
+                                    98   NIT 198 – décembre 1995
+Fig. 104 Méthode de balancement par développement.
+
+         A. AVANT LE BALANCEMENT                                  B. APRÈS LE BALANCEMENT
+
+
+
+                                15                                          15
+             10  11  12  13  14                          10  11  12  13  14
+          9                                           9
+
+       8                                           8
+
+       7                                           7
+
+       6                                           6
+
+       5                                           5
+
+       4                                           4
+
+       3                                           3
+
+       2                                           2
+
+       1                                           1
+
+
+
+                              z'                                             z
+                                 10
+                   15 14  13 12 11  9 8 7 6  5   4   3   2   1
+                 y 15   n
+                14             r
+                13
+                12
+                11            m
+                10                 q
+                 9
+                 8                                               l
+                 7
+                 6
+                 5                             p
+                 4
+                 3
+                 2
+                 1                                                       k
+
+                  15  14  13  12 11 9 7   6   5   4   3   2   1
+                                 10 8                                                                           x
+
+
+
+
+
+                                 99  NIT 198 – décembre 1995
+          LEXIQUE
+   FRANÇAIS–NÉERLANDAIS
+
+
+                                                             Page
+A
+Arrondir                           Afschuinen                            63
+
+B
+Balancer, balancement des marches   Verdrijven                               9, 37, 86
+Balustrade                            voir Garde-corps
+Balustre                               Baluster, stijl                                5, 75
+Barreau                               voir Balustre
+Biseauter                          Afschuinen                            57
+Blochet en queue d’aronde           Zwaluwstaartlat                        70
+Blondel (formule de)                  voir Module du pas
+Bourdon                               voir Poteau
+
+C
+Chanfreiner                          Afsnuiten, afknotten                    66
+Chemin d’escalier                   Traploper                               43, 45
+Coin coupé                      Lepe hoek                              9
+Collet                              Smalste kant van een trede                5
+Colonne                               Spil                                   5
+Contremarche                        Stootbord, konkel, tegentrede               5, 62
+Courbe                          Wrongstuk                                   7, 63
+Crosse                             Kuipstuk                                     7, 63
+Cul-de-marche                      Breedste kant van een trede
+
+D
+Démaigrir                             voir Chanfreiner
+
+E
+Echappée                             Vrije hoogte                                 9, 42
+Echelle de meunier biaise           Scheve steektrap                       10
+Echelle de meunier droite            Rechte steektrap (+ voir escalier droit)     10
+Emmarchement                       Vrije trapbreedte                            9, 41
+Entaille                               voir Logement de marche
+Entailler                              Infrezen                               5
+
+
+                                   100  NIT 198 – décembre 1995
+                                                               Page
+Escalier                             Trap
+  – à crémaillère                     – met uitgezaagde wangen           13
+  – à gradins                              voir escalier à limon de jour
+                                    à crémaillère
+  – à la française                          voir escalier à limons entaillés
+  – à l’anglaise                            voir escalier à crémaillère
+  – à limon central                    – met central wang                 73
+  – à limon de jour à crémaillère        – met uitgezaagde binnenwang     13, 71
+  – à limons entaillés                  – met ingefreesde wangen           13
+  – à limons libres                    – met vrije wangen                 13
+  – à noyau                                voir escalier à vis
+  – à palier intermédiaire                  rechte bordes–                     10
+  – à pas japonais                        spaar–                            85
+  – à quartier tournant                    kwartdraai–                    10, 31, 92
+  – à quartier tournant à gauche            linkse –                          10
+  – à quartier tournant à droite             rechtse –                         10
+  – à quartier tournant et palier de repos  – met kwartbordes                  10
+  – à quart ou demi-tournant               spilsteek–                         10
+  – à redans                               voir escalier à limon de jour
+                                    à crémaillère
+  – à vis                                    spil–                               10, 89
+  – de grenier                             zoldertrap                          13, 82
+  – droit                                   rechte –, steek–                    10
+  – droit à palier de repos              – met halve wenteling               10
+  – droit biais                             voir Echelle de meunier biaise
+  – en colimaçon                          voir escalier à vis
+  – escamotable                           zoldertrap                         83
+  – hélicoïdal                              voir escalier tournant
+  – lent (à faible pente)                     luie –                            42
+  – oblique                            scheluwe –                     10, 31, 88
+     – oblique double                     dubbel scheluwe –                10
+     – oblique simple                      enkel scheluwe –                 10
+  – ouvert                            open –                             13, 72
+  – suspendu                         – met hangende treden              13
+  – tournant                                draai–, wentel–                     10, 92
+Etendue de l’escalier                    Traplengte, sprong                    9, 52, 55
+Evidement                               voir Logement de marche
+
+F
+Faux limon                      Muurwang                            39, 67
+Fuseau                                  voir Balustre
+
+
+
+                                   101  NIT 198 – décembre 1995
+                                                              Page
+G
+Garde-carreau                            Stoottrede, bistrede                    7
+Garde-corps                          Leuning, borstwering,
+                                         balustrade                         5, 38, 44, 74
+Giron                                Aantrede                              7, 33, 55
+
+H
+Hauteur de marche                    Optrede                               7, 33, 55
+Hauteur de passage                      Vrije hoogte                         34
+Hauteur d’étage                       Verdiepingshoogte                        9, 56
+
+J
+Jour d’escalier                          Doorzicht, schalmgat, dagkant
+                                   van de trap                                 5, 9
+
+L
+Ligne de foulée                        Looplijn                               8, 37, 55
+Ligne de giron                           voir Ligne de foulée
+Ligne de pente                         Klimlijn                             8
+Limon                           Wang, boom                              5, 63
+Limon courbe                            voir Courbe
+Limon de jour                       Binnenwang, dagwang                   7, 68
+Limon de mur                           voir Faux limon
+Limon traînant                       Leiwang, slepende wang                 7, 70
+Listel                                 Neuslat                                    5, 65
+Logement de marche                    Nest, inkrozing                           5, 65
+
+M
+Main courante                      Handgreep                            5, 39, 75
+Marche                             Trede                                      5, 60
+Marche de départ                       Bloktrede, eerste trede                    5, 81
+Marche palière                      Welstuk                                   7, 61
+Marche royale                          Bloktrede, eerste trede                  5
+Module du pas                       Stapmodulus                              7, 33
+
+N
+Nez de marche                        Tredeneus, wel                            5, 35
+Noyau central                           voir Colonne
+
+
+
+
+
+                                   102  NIT 198 – décembre 1995
+                                                               Page
+P
+Palier                                 Bordes, overloop                     7, 42, 78
+Palier de repos                          voir Palier
+Palier intermédiaire                   Tussenbordes                        42
+Pas                                   Tredebreedte                          7
+Pente de l’escalier                       Traphelling, stijgingsverhouding         8, 37
+Plan de marche                       Tredevlak                            5
+Plaquette d’arrivée                      voir Marche palière
+Poteau                                 Trappaal, kolom                          5, 76
+Poteau de départ                       Hoofdtrappaal                         5
+Première marche                        voir Marche de départ
+Puits                                     voir Jour d’escalier
+
+Q
+Quartier tournant                       Kwart(slag)
+
+R
+Rampe                               Leuning, balustrade
+                                 (+ voir Garde-corps)                  44
+Rampe murale                       Muurleuning                              5, 78
+Rampe principale                     Hoofdleuning                             5, 40
+Reculement                           Insprong                                   9, 59
+
+S
+Sens de la montée                      Looprichting                          8
+Surface de circulation                Loopvlak                           43
+
+T
+Tapis d’escalier                         voir Chemin d’escalier
+Trapan (haut de l’escalier)            Bovenaan de trap                     67
+Trappe d’accès                       Luik                               82
+Trémie                                 Trapgat, trapopening                  53
+
+V
+Valeur du pas                           voir Module du pas
+Volée d’escalier                     Traparm                             7
+
+Z
+Zone de rampe                       Leuningzone                          9
+
+
+
+
+
+                                   103  NIT 198 – décembre 1995
+       BIBLIOGRAPHIE
+
+
+
+1.  Association française de normalisation
+  NF P 01-011 Escaliers droits en maçonnerie. Paris, AFNOR, mai 1945 (confirmé en
+    août 1974).
+
+2.  Association ouvrière des compagnons du devoir
+   Encyclopédie des métiers. La charpente et la construction en bois. Paris, Librairie du
+   Compagnonnage, 1985.
+
+3.  Centrale Marketinggesellschaft der deutschen Agrarwirtschaft mbH
+    Innentreppen aus Holz. Düsseldorf, CMA, 1984.
+
+4.  Centre interfédéral d’informations sur le bois
+    Escaliers en bois ... au goût de chacun. Bruxelles, Centre interfédéral d’informations
+    sur le bois, Courrier du bois, n° 75, décembre 1986.
+
+5.  Centre interfédéral d’informations sur le bois
+    Escaliers – Tableau synoptique bois. Bruxelles, Centre interfédéral d’informations
+    sur le bois, Courrier du bois, n° 91, décembre 1990.
+
+6.  Centre scientifique et technique de la construction
+   Code de bonne pratique des travaux de peinturage (bâtiment et génie civil). Subjectiles,
+   systèmes et travaux de peinture. Bruxelles, CSTC, Note d’information technique,
+   n° 159, juin 1985.
+
+7.  Centre scientifique et technique de la construction
+   Les balcons. Bruxelles, CSTC, Note d’information technique, n° 196, juin 1995.
+
+8.  Centre scientifique et technique de la construction
+   Les escaliers en bois : chronique bibliographique. Bruxelles, CSTC, CSTC-Maga-
+    zine, n° 3, 1994.
+
+9.  Centre scientifique et technique de la construction
+   Le vitrage en toiture. Bruxelles, CSTC, Note d’information technique, n° 176, juin
+   1989.
+
+10. Centre scientifique et technique de la construction
+   Menuiseries intérieures en bois. Code de bonne pratique pour la mise en œuvre,
+   compte tenu des conditions hygrothermiques. Bruxelles, CSTC, Note d’information
+    technique, n° 166, décembre 1986.
+
+11. Centrum Hout
+   Houten trappen. Kluwer techniek, Houtdokumentatie, avril 1994.
+
+
+
+
+                                   104  NIT 198 – décembre 1995
+12. Dietens M.
+    Constructie van gebouwen. Deel 2. Gand, E. Story-Scientia, 2e édition, 1982.
+
+13. Entwicklungsgemeinschaft Holzbau (EGH) in der Deutschen Gesellschaft für Holz-
+   forschung
+   Handwerkliche Holztreppen. Planung/Ausführung. Munich, EGH – Bund Deutscher
+   Zimmermeister im ZDB – Arbeitsgemeinschaft Holz e.V., novembre 1987.
+
+14. Fonds de formation professionnelle de la construction
+   Technologie du gros œuvre. Tome 3.6 : Méthodes de construction. Les escaliers.
+    Bruxelles, Fonds de formation professionnelle de la construction, 1982.
+
+15. Haak A.J.H., Leever-Van Der Burgh D.
+   De menselijke maat. Delft, Sektie Interieur van de afdeling Bouwkunde der T.H.D.,
+   septembre 1973.
+
+16. Institut belge de normalisation
+  EN 301 Adhésifs de nature phénolique et aminoplaste pour structures portantes en
+    bois. Classification et exigences de performance. Bruxelles, IBN, 1992.
+
+17. Institut belge de normalisation
+  NBN B 03-102 Actions sur les constructions – Actions directes – Charges permanentes
+   dues au poids propre. Bruxelles, IBN, 1976.
+
+18. Institut belge de normalisation
+  NBN B 03-103 Actions sur les constructions – Actions directes – Charges d’exploi-
+    tation des bâtiments. Bruxelles, IBN, 1976.
+
+19. Institut belge de normalisation
+  NBN B 15 Série de normes sur le béton. Bruxelles, IBN, différentes dates.
+
+20. Institut belge de normalisation
+  NBN S 01-400 Acoustique – Critères de l’isolation acoustique. Bruxelles, IBN,
+    2e édition, 1977.
+
+21. Institut belge de normalisation
+  NBN S 01-401 Acoustique – Valeurs limites des niveaux de bruit en vue d’éviter
+    l’inconfort dans les bâtiments. Bruxelles, IBN, 2e édition, 1987.
+
+22. Institut belge de normalisation
+  NBN S 21 Série de normes sur le feu. Bruxelles, IBN, différentes dates.
+
+23. Institut belge de normalisation
+  NBN S 21-201 Protection contre l’incendie dans les bâtiments – Terminologie. Bru-
+    xelles, IBN, 2e édition, 1980.
+
+24. Institut belge de normalisation
+  NBN 713-020 Protection contre l’incendie – Comportement au feu des matériaux et
+   éléments de construction – Résistance au feu des éléments de construction. Bruxelles,
+   IBN, 1968.
+
+                                   105  NIT 198 – décembre 1995
+25. Institut belge de normalisation
+  NBN NEN 3509 Escaliers à l’intérieur d’habitations et d’immeubles d’habitation –
+    Définitions et dimensions. Bruxelles, IBN, 1995.
+
+26. Longépé E.
+    Architecture et construction des escaliers en bois. Paris, Editions H. Vial, 1985.
+
+27. Mannes W.
+    Gestaltete Treppen. Werkstoffe. Formen. Konstruktionen. Stuttgart, Deutsche Ver-
+    lag-Anstalt, 2e édition, 1978.
+
+28. Martin J.
+    L’escalier en bois. Dourdan, Vial Editeur, 4e édition, s.d.
+
+29. Meyer-Bohe W.
+    Escaliers. 1ère partie. Bruxelles, Centre interfédéral d’informations sur le bois, Courrier
+   du bois, n° 82, septembre 1988.
+
+30. Meyer-Bohe W.
+    Escaliers. 2e partie : Les escaliers tournants. Bruxelles, Centre interfédéral d’informa-
+    tions sur le bois, Courrier du bois, n° 83, décembre 1988.
+
+31. Meyer-Bohe W.
+    Escaliers. 3e partie. Bruxelles, Centre interfédéral d’informations sur le bois, Courrier
+   du bois, n° 84, mars 1989.
+
+32. Ministère de l’Emploi et du Travail
+   Règlement général pour la protection du travail (RGPT). Bruxelles, MET, 5e édition
+   avec mises à jour.
+
+33. Ministère de l’Intérieur et de la Fonction publique
+    Arrêté royal du 7 juillet 1994 fixant les normes de base en matière de prévention
+    contre l’incendie et l’explosion, auxquelles les bâtiments nouveaux doivent satisfaire.
+    Bruxelles, Moniteur Belge, 26 avril 1995.
+
+34. Ministère des Communications et de l’Infrastructure
+   STS 04 Bois et panneaux à base de bois. Bruxelles, MCI, Spécifications techniques
+    unifiées, décembre 1990.
+
+35. Ministère des Communications et de l’Infrastructure
+   STS 38 Vitrerie. Bruxelles, MCI, Spécifications techniques unifiées, 1980.
+
+36. Ministère des Communications et de l’Infrastructure
+   STS 53 Portes. Bruxelles, MCI, Spécifications techniques unifiées, 1990.
+
+37. Ministère des Communications et de l’Infrastructure
+   STS 54 Garde-corps. Bruxelles, MCI, Spécifications techniques unifiées, 1994.
+
+
+
+
+                                   106  NIT 198 – décembre 1995
+38. Mittag M.
+    Baukonstruktionslehre. Gütersloh, C. Bertelsmann Verlag.
+
+39. Neufert E.
+    Bauentwurfslehre. Berlin, Druckhaus Tempelhof, 1950.
+
+40. Neufert E.
+   Les éléments des projets de construction (traduction et adaptation de “Bauentwurfslehre
+    [39] par Rodé O.). Paris, Dunod, 1958.
+
+41. Reitmayer U.
+   Holztreppen in handwerklicher Konstruktion. Stuttgart, Julius Hoffmann Verlag, 1953.
+
+42. Schuster F.
+   Treppen. Entwurf, Konstruktion und Gestaltung von grossen und kleinen Treppenan-
+    lagen. Stuttgart, Julius Hoffmann, 1964.
+
+43. Steinhöfel O.
+    Holztreppen. Handbuch für den Bau von Holztreppen. Münich, Verlag Georg D.W.
+   Callwey, 1960.
+
+44. Vandeweyer P.
+   Moderne houtbewerking. Deel 4 : Trappen. Anvers, Standaard uitgeverij, 8e édition,
+   1978.
+
+45. Verhoeven F.
+   Cursus Trappen. Alost, Vrij Technisch Instituut, afdeling Hout, s.d.
+
+46. Vieuxbled
+   Dessin de bâtiment. Paris, Bordas-Dunod, 1976.
+
+
+
+
+
+                                   107  NIT 198 – décembre 1995
+éditeur responsable : Carlo De Pauw
+    CSTC, rue de la Violette 21-23
+       1000    BRUXELLES
+
+
+
+
+
+                                              imprimerie : Puvrez SA
+                                               lay out : Meersman I.D.
+
+
+            108  NIT 198 – décembre 1995
+B R U X E  L  L E S
+           Siège social
+                   Rue de la Violette 21  - 23
+                  B-1000   Bruxelles
+
+                direction générale
+               02/502 66 90
+               02/502 81 80
+               publications
+               02/511 33 14
+               02/511 09 00
+
+
+Z A V E N T E M
+          Bureaux
+                    Lozenberg I, 7
+                  B-1932  Sint-Stevens-Woluwe
+                     (Zaventem)
+               02/716 42 11
+               02/725 32 12
+
+                avis techniques
+             développement & innovation
+               techniques d’organisation
+            banques de données
+
+
+L   I M E  L E T T E
+            Station expérimentale
+                   Avenue Pierre Holoffe 21
+                  B-1342  Limelette
+               02/653 88 01
+               02/653 07 29
+
+              recherche
+                laboratoires
+               formation
+              documentation
+               bibliothèque
+
+                                         Après plus d’un demi-siècle d’existence, le Centre scientifique
+                                                  et technique de la construction (CSTC) fait désormais place à
+                                               Buildwise. Ce nouveau nom porte en lui une orientation nouvelle,
+                                          davantage axée sur l’innovation, sur la collaboration et sur une
+                                        approche pluridisciplinaire plus intégrée. Buildwise étant principa­
+                                          lement financé par les redevances de quelque 100.000 entreprises
+                                      de construction belges, celles-ci contribuent ainsi à motiver son
+                                                  action, notamment en définissant ses priorités et en pilotant ses
+                                               travaux par le biais des Comités techniques.
+
+
+                                      Votre centre de recherche devient centre d’innovation
+
+                                               Fort des connaissances qu’il a acquises au fil des années, Build­Buildwise Zaventem                                          wise s’est imposé comme le centre de référence et d’expertise du
+Siège social et bureaux                                            secteur de la construction. Buildwise se tient aux côtés de tous les
+Kleine Kloosterstraat 23                           acteurs impliqués dans l’acte de bâtir. Notre objectif ? Transmettre
+B-1932 Zaventem                            des connaissances qui améliorent réellement la qualité, la produc­Tél. 02/716 42 11
+E-mail : info@buildwise.be                                  tivité et la durabilité, et ouvrir la voie à l’innovation sur chantier et
+Site Internet : buildwise.be                      dans l’entreprise.
+• Avis techniques – Publications
+• Gestion – Qualité – Techniques de
+  l’information
+• Développement – Valorisation
+• Agréments techniques –                   Dynamiser le partage des connaissances et les inter­
+  Normalisation                         connexions
+
+Buildwise Limelette                     Compte tenu de la grande complexité et de la forte fragmentation
+Avenue Pierre Holoffe 21                      du processus de construction, Buildwise se doit de renforcer son
+B-1342 Limelette                                    rôle fédérateur. Nous ne pourrons relever les défis sectoriels et
+Tél. 02/655 77 11                                sociétaux qu’en mobilisant le secteur tout entier et en repensant
+• Recherche et innovation                      nos modèles d’entreprise et notre façon de collaborer.• Formation
+• Bibliothèque
+
+Buildwise Brussels                De la multidisciplinarité à la transdisciplinarité
+Rue Dieudonné Lefèvre 17
+B-1020 Bruxelles
+Tél. 02/233 81 00                              Notre spécificité tient à notre approche pragmatique et multidis­
+                                                       ciplinaire. Pour trouver des solutions solides,  il faut une straté­
+                                               gie globale et intégrée. C’est pourquoi nos ambitions s’articulent
+                                            autour de trois piliers : les technologies numériques, la durabilité
+                                                  et le métier (représenté par les entrepreneurs au sein des Comités
+                                               techniques).

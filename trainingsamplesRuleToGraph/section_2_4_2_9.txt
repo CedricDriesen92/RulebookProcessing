@@ -1,0 +1,172 @@
+Section number: 2.4.2.9
+Section text:
+De par sa solidité et sa géométrie, le garde-corps assure généralement la sécurité des
+personnes contre les risques de chute. En ce qui concerne les exigences mécaniques
+posées au garde-corps, le lecteur se référera utilement à la Note d’information techni-
+que 196 [7].
+
+Nous présentons ci-après un aperçu des principales spécifications applicables au garde-
+corps.
+
+
+HAUTEUR ET FORME
+
+Selon les dispositions des STS 54, la hauteur minimale               Lh
+de protection ‘Lh’ du garde-corps dans une volée d’esca-
+lier, mesurée à l’aplomb du nez de marche jusqu’à la face
+supérieure de la main courante, s’élève à 0,90 m. Si le
+RGPT cite une hauteur minimale de 0,75 m pour la main
+courante, la dimension couramment rencontrée dans la
+pratique est de 0,80 m (figure 28).     AAAAAAA
+            AAAAAAALa norme NBN NEN 3509 stipule qu’une balustrade lon-
+geant le jour de l’escalier doit se situer à 1 m au moins du AAAAAAA
+niveau fini du plancher. A notre avis, il convient cepen- AAAAAAAdant de retenir la valeur de 0,90 m fixée par les STS 54
+pour les garde-corps dans les volées d’escalier. On évite            AAAAAAA
+ainsi des problèmes éventuels lors de l’assemblage des
+mains courantes à la jonction entre la volée d’escalier et AAAAAAA
+le palier, et vice-versa.                                       Fig. 28 Hauteur minimale du
+                                                                        garde-corps.
+Les STS 54 précisent également que, dans les cas où l’on
+peut craindre des chutes de plus de 6 m dans le vide, la balustrade doit avoir une hauteur
+d’au moins 1,2 m. La norme NBN NEN 3509 prévoit la même hauteur du garde-corps
+pour des risques de chute d’une hauteur d’au moins 10 m.
+
+Le garde-corps sera conçu de façon à empêcher que les enfants ne s’y coincent la tête ou
+n’escaladent la rambarde trop facilement (figure 29). C’est pourquoi l’ouverture maxi-
+male entre deux barreaux verticaux et entre éléments parallèles à la pente, mesurée
+perpendiculairement à cette dernière, est limitée à 110 mm.
+
+Lorsque les éléments de remplissage du garde-corps ne sont pas situés dans le même plan
+que les montants ou dans le cas d’un garde-corps en fer forgé ou de forme complexe, les
+ouvertures entre éléments ne peuvent laisser passer une sphère de 110 mm de diamètre.
+
+Remarque : les dimensions exigées dans la norme NBN NEN 3509 – ouvertures maxima-
+les de 100 mm dans la balustrade – nous semblent exagérées.
+
+
+
+
+
+                                    38   NIT 198 – décembre 1995
+        Fig. 29 Règles de sécurité
+                (dimensions en mm).
+
+                                   < 110
+
+                                  < 110
+
+                 A. PROTECTION VISANT À              H
+              EMPÊCHER LE BLOCAGE
+                    DE LA TÊTE
+
+
+                                       ≤ 110
+
+
+
+
+
+                e
+
+
+               e
+
+                      Lh              < 110               e
+                                     e
+
+               e
+
+                                                                                               B. PROTECTION
+                                                                           VISANT À EMPÊCHER  AAAAAAAA                                                                                   L’ESCALADE
+  AAAAAAAA e
+  AAAAAAAA          ≤ 50
+  AAAAAAAA AA              e < 110 mm
+  AAAAAAAA ≤ 50 AA A
+  AAAAAAAA AA
+  AAAAAAAA
+Pour empêcher le blocage des pieds, l’ouverture entre le limon et la lisse inférieure du
+garde-corps ne peut excéder 50 mm. La distance horizontale entre la partie la plus sail-
+lante de la volée d’escalier ou du palier et la lisse inférieure du garde-corps ne peut
+dépasser 50 mm (figure 29B).
+
+En outre, l’espace libre entre le faux limon et le mur ne peut être supérieur à 50 mm.
+
+
+MAIN COURANTE
+
+Une main courante offrant une bonne prise diminue le risque d’accidents dans l’escalier.
+Selon la norme NBN NEN 3509, la largeur de la main courante ne peut dépasser 60 mm,
+le rayon de courbure de sa surface ne pouvant être inférieur à 7 mm. La figure 30 illustre
+quelques modèles qui répondent à ces exigences.
+
+
+
+                                    39  NIT 198 – décembre 1995
+Fig. 30 Quelques profils de mains courantes.
+
+       60
+
+                                      ≥ 7
+
+
+                             15
+                             54
+
+
+
+
+      33                  38
+
+
+         ≥ 7
+                           ≥ 7
+
+      15
+
+
+
+                      15
+
+
+
+
+
+RAMPE PRINCIPALE                                                       40 mm
+                                                                                           Fig. 31
+                                                               main courante                   Emplacement
+La rampe principale est placée du côté du jour de                               de la main
+l’escalier. Lorsqu’elle est fixée au mur, il y a lieu de                                           courante.
+ménager un espace d’au moins 40 mm entre la main
+courante et le parachèvement de la paroi, afin de     zone de
+permettre le passage libre de la main (figure 31).      rampe               mur avec
+                                                                                       sa finition
+Pour la même raison, on laissera un espace suffisant
+dans les escaliers semi-tournants ou au droit d’un
+limon traînant.
+
+
+SECONDE RAMPE
+
+Le RGPT et l’arrêté royal du 07/07/94 prévoient la
+pose d’une seconde rampe, notamment dans les escaliers d’une largeur supérieure à
+1,2 m. Un escalier suspendu ou présentant un risque de chute de part et d’autre de
+l’ouvrage est toujours pourvu de deux rampes principales.
+
+Dans les immeubles commerciaux, les escaliers de plus de 2,40 m de large sont en outre
+scindés en deux parties ou plus, par une ou plusieurs rampes, de telle façon que la largeur
+de chacune des parties ne dépasse pas 2,40 m, sans être inférieure à 0,8 m [32].
+
+
+
+
+
+                                    40   NIT 198 – décembre 1995
+Une seconde rampe est parfois souhaitable en fonction du type d’utilisateurs (personnes
+âgées ou handicapées). Dans ce cas, elle est prévue dès le stade du projet.
+
+Dans un escalier de moins de 5 marches, le garde-corps n’est pas réellement indispensa-
+ble mais néanmoins conseillé.
+
+Le cas échéant, on peut placer, du côté du mur, une rampe adaptée à la taille des enfants;
+il s’agit dans ce cas d’une rampe supplémentaire de hauteur moindre que les autres (par
+exemple, 0,6 m au-dessus du nez des marches).

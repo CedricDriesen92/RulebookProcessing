@@ -1,0 +1,42 @@
+Section number: 011
+Section text:
+angle un peu différent : l’écart ne peut s’élever à plus de 6 mm et ne peut en outre
+dépasser 3 mm entre deux marches successives.
+
+Selon la norme NBN NEN 3509, toutes les marches d’un escalier doivent avoir le même
+giron et la même hauteur, avec une tolérance de 2 mm maximum.
+
+On peut considérer que le choix de la hauteur des marches, du giron, du nombre de
+marches, de la largeur de l’escalier, de sa géométrie et des paliers à prévoir éventuelle-
+ment (voir § 2.4.2.12, p. 42) dépendra des facteurs suivants :
+N la hauteur d’étage à franchir (d’un plancher à l’autre), c’est-à-dire la somme des
+   hauteurs de marches ou hauteur totale
+N l’espace disponible : longueur disponible (étendue de l’escalier) et hauteur de passage
+   (ou échappée); la formule de calcul du module de pas n’est applicable que si l’espace
+   disponible est suffisant; dans le cas contraire, il y a lieu d’utiliser des valeurs aussi
+   proches que possible de cette relation. Les escaliers à vis, c’est-à-dire les moins encom-
+   brants, ont un giron d’au moins 100 mm à une distance de 150 mm du noyau
+N la destination du bâtiment : dans les bâtiments publics, par exemple, les escaliers sont
+   souvent moins raides que dans les habitations. Le RGPT [32] prévoit une hauteur de
+  marche de 170 mm au maximum, pour une largeur d’au moins 300 mm; étant donné
+  que le nez des marches ne peut dépasser 50 mm (voir § 2.4.2.5, p. 35), cela signifie que
+   le giron doit avoir au moins 250 mm pour un nez de 50 mm
+N l’utilisation de l’escalier comme voie d’évacuation en cas d’incendie : comme précisé
+  au § 2.2 (p. 23), dans tous les bâtiments, sauf les maisons unifamiliales, la hauteur des
+  marches ne peut dépasser 180 mm et leur giron ne peut en aucun point de la marche
+   être inférieur à 200 mm; de plus, l’angle d’inclinaison maximum autorisé de 37° limite
+   encore davantage la gamme des combinaisons possibles entre la hauteur des marches
+   et leur giron (cf. tableau 5, p. 28).
+
+Le tableau 6 indique quelques dimensions courantes pour la hauteur des marches et leur
+giron, en fonction de la destination du bâtiment et de l’utilisation de l’escalier.
+
+Pour des maisons d’habitation dis-   Tableau 6 Dimensions courantes pour la hauteur des marches
+                                          et le giron (en mm).posant de peu d’espace pour le
+passage de l’escalier, les dimen-               TYPE D’ESCALIER         HAUTEUR DE    GIRON
+sions courantes de la hauteur des                               MARCHE
+marches et du giron sont, par      Escalier de bâtiments publics      160 - 170   250 - 280
+exemple, de 175/240 ou 185/220.      Escalier central d’un immeuble    170 - 190   200 - 260
+Les escaliers à vis possèdent géné-      d’habitation
+ralement entre 12 et 20 marches                                                   Escalier de cave ou de comble    180 - 200   180 - 240
+ayant une hauteur de 180  à

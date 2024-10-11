@@ -1,5 +1,5 @@
 
-You are an AI assistant specialized in converting building code rulebook sections into Turtle (.ttl) format following the FireBIM Document Ontology. Here's the complete ontology for your reference:
+You are tasked with converting building code rulebook sections into Turtle (.ttl) format following the FireBIM Document Ontology. Here's the complete ontology for your reference:
 
 @prefix : <http://example.com/firebim#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -247,15 +247,15 @@ firebim:Table rdf:type owl:Class ;
 Here is some more info on the firebim ontology and how you should use it:
 
 The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the firebim:Authority (which represents the legal body that publishes and maintains the regulatory document), the firebim:DocumentSubdivision (which represents documents or parts of documents), and the firebim:Reference (which represents references to other representations of the regulation, or similar regulations). The firebim:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
-The created data graph (not shown here) clearly shows how a document is modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can contain submembers, or they can have references to other members, using the firebim:hasBackwardReference and firebim:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
+The created data graph should be modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can contain submembers, or they can have references to other members, using the firebim:hasBackwardReference and firebim:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
 
 Not every section needs to have their own sections/articles/members, if the section text is empty no articles are needed...
-In your .ttl, if your section is not a base numbered section (i.e. 0, 1, 2...) make a hasSection from the parent section to this section. Adding all originaltext from all articles should recreate the rules part of the document. For the section don't include the full originaltext, only the titles. Make everything that includes a subdivision of the title (e.g. 4.3.1.2 if you are doing section 4.3.1) its own section with as originaltext the title attached to the number, with the following text split up in articles, split up in members.
+In your .ttl, if your section is not a base numbered section (i.e. 0, 1, 2...) make a hasSection from the parent section to this section. Adding all originaltext, in order, from all DocumentSubdivisions should recreate the rules part of the document. For the section itself don't include the full originaltext, only the titles. Make everything that includes a subdivision of the title (e.g. 4.3.1.2 if you are doing section 4.3.1) its own section with as originaltext the title attached to the number, with the following text split up in articles, split up in members. NEVER repeat text, it should ALWAYS be used only once, ALL originaltext will be added automatically so any doubles ruin the format.
 The subsection parsing goes until level 3 (e.g. 1.3.2), so if you are dealing with section 1.3 do not try to define section 1.3.2, it only complicates things later on.
 Do not include prefix declarations or @base. Start directly with the triples for this section. Ensure the output is valid Turtle syntax that can be parsed when added to an existing graph.
 Depending on the language of the source text, make sure to add language tags where necessary. Do not translate the original text in any way, keep the source perfectly accurate.
 If a figure or table is implied in the text, make sure to declare it and add the required relations/properties. Even if you can't see it, it's still there.
-Make sure every article consists of AT LEAST 1 member, these are the rule building blocks. However, not every building part necessarily needs an article, since articles are about rules and checks and requirements. Also, members can have their own members. Articles and members don't necessarily need to have an originaltext if everything is contained in their members, otherwise a text is provided with the members further dividing the requirements.
+Make sure every article consists of AT LEAST 1 member, these are the rule building blocks. However, not every higher-level document subdivision necessarily needs an article, since articles are about rules and checks and requirements. Also, members can have their own members. Articles and members don't necessarily need to have an originaltext, otherwise a text is provided with the members further dividing the requirements.
 For text spanning multiple lines make sure to use triple quotes, as single codes will be invalid there. Also avoid using Paragraph, instead use Section.
 Format text to be logical, don't change the content but fix any obvious formatting errors.
 Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be combined with the .ttl files for the other sections, as well as the base file defining the authority and document this section is from:
@@ -268,43 +268,15 @@ firebim:Belgian_Government a firebim:Authority ;
 
 firebim:RoyalDecree a firebim:Document ;
     firebim:hasID "RoyalDecree1994" ;
-    firebim:hasSection firebim:Section_0,
-        firebim:Section_1,
+    firebim:hasSection firebim:Section_1,
         firebim:Section_2,
-        firebim:Section_3,
-        firebim:Section_4,
-        firebim:Section_5,
-        firebim:Section_6 ;
+        firebim:Section_3 ;
     firebim:issued "1994-07-07"^^xsd:date .
-
-firebim:Section_0 a firebim:Section ;
-    firebim:hasID "0" ;
-    firebim:hasSection firebim:Section_0_1,
-        firebim:Section_0_2,
-        firebim:Section_0_3 .
-
-firebim:Section_0_1 a firebim:Section ;
-    firebim:hasID "0.1" .
-
-firebim:Section_0_2 a firebim:Section ;
-    firebim:hasID "0.2" ;
-    firebim:hasSection firebim:Section_0_2_1,
-        firebim:Section_0_2_2 .
-
-firebim:Section_0_2_1 a firebim:Section ;
-    firebim:hasID "0.2.1" .
-
-firebim:Section_0_2_2 a firebim:Section ;
-    firebim:hasID "0.2.2" .
-
-firebim:Section_0_3 a firebim:Section ;
-    firebim:hasID "0.3" .
 
 firebim:Section_1 a firebim:Section ;
     firebim:hasID "1" ;
     firebim:hasSection firebim:Section_1_1,
-        firebim:Section_1_2,
-        firebim:Section_1_3 .
+        firebim:Section_1_2 .
 
 firebim:Section_1_1 a firebim:Section ;
     firebim:hasID "1.1" .
@@ -312,16 +284,40 @@ firebim:Section_1_1 a firebim:Section ;
 firebim:Section_1_2 a firebim:Section ;
     firebim:hasID "1.2" .
 
-firebim:Section_1_3 a firebim:Section ;
-    firebim:hasID "1.3" .
-
 firebim:Section_2 a firebim:Section ;
     firebim:hasID "2" ;
     firebim:hasSection firebim:Section_2_1,
-        firebim:Section_2_2 .
+        firebim:Section_2_2,
+        firebim:Section_2_3,
+        firebim:Section_2_4,
+        firebim:Section_2_5 .
 
 firebim:Section_2_1 a firebim:Section ;
-    firebim:hasID "2.1" .
+    firebim:hasID "2.1" ;
+    firebim:hasSection firebim:Section_2_1_1,
+        firebim:Section_2_1_2 .
+
+firebim:Section_2_1_1 a firebim:Section ;
+    firebim:hasID "2.1.1" .
+
+firebim:Section_2_1_2 a firebim:Section ;
+    firebim:hasID "2.1.2" ;
+    firebim:hasSection firebim:Section_2_1_2_1,
+        firebim:Section_2_1_2_2,
+        firebim:Section_2_1_2_3,
+        firebim:Section_2_1_2_4 .
+
+firebim:Section_2_1_2_1 a firebim:Section ;
+    firebim:hasID "2.1.2.1" .
+
+firebim:Section_2_1_2_2 a firebim:Section ;
+    firebim:hasID "2.1.2.2" .
+
+firebim:Section_2_1_2_3 a firebim:Section ;
+    firebim:hasID "2.1.2.3" .
+
+firebim:Section_2_1_2_4 a firebim:Section ;
+    firebim:hasID "2.1.2.4" .
 
 firebim:Section_2_2 a firebim:Section ;
     firebim:hasID "2.2" ;
@@ -329,311 +325,163 @@ firebim:Section_2_2 a firebim:Section ;
         firebim:Section_2_2_2 .
 
 firebim:Section_2_2_1 a firebim:Section ;
-    firebim:hasID "2.2.1" .
+    firebim:hasID "2.2.1" ;
+    firebim:hasSection firebim:Section_2_2_1_1,
+        firebim:Section_2_2_1_2,
+        firebim:Section_2_2_1_3,
+        firebim:Section_2_2_1_4,
+        firebim:Section_2_2_1_5 .
+
+firebim:Section_2_2_1_1 a firebim:Section ;
+    firebim:hasID "2.2.1.1" .
+
+firebim:Section_2_2_1_2 a firebim:Section ;
+    firebim:hasID "2.2.1.2" .
+
+firebim:Section_2_2_1_3 a firebim:Section ;
+    firebim:hasID "2.2.1.3" .
+
+firebim:Section_2_2_1_4 a firebim:Section ;
+    firebim:hasID "2.2.1.4" .
+
+firebim:Section_2_2_1_5 a firebim:Section ;
+    firebim:hasID "2.2.1.5" .
 
 firebim:Section_2_2_2 a firebim:Section ;
-    firebim:hasID "2.2.2" .
+    firebim:hasID "2.2.2" ;
+    firebim:hasSection firebim:Section_2_2_2_1,
+        firebim:Section_2_2_2_2 .
+
+firebim:Section_2_2_2_1 a firebim:Section ;
+    firebim:hasID "2.2.2.1" .
+
+firebim:Section_2_2_2_2 a firebim:Section ;
+    firebim:hasID "2.2.2.2" .
+
+firebim:Section_2_3 a firebim:Section ;
+    firebim:hasID "2.3" ;
+    firebim:hasSection firebim:Section_2_3_1,
+        firebim:Section_2_3_2 .
+
+firebim:Section_2_3_1 a firebim:Section ;
+    firebim:hasID "2.3.1" .
+
+firebim:Section_2_3_2 a firebim:Section ;
+    firebim:hasID "2.3.2" .
+
+firebim:Section_2_4 a firebim:Section ;
+    firebim:hasID "2.4" ;
+    firebim:hasSection firebim:Section_2_4_1,
+        firebim:Section_2_4_2 .
+
+firebim:Section_2_4_1 a firebim:Section ;
+    firebim:hasID "2.4.1" .
+
+firebim:Section_2_4_2 a firebim:Section ;
+    firebim:hasID "2.4.2" ;
+    firebim:hasSection firebim:Section_2_4_2_1,
+        firebim:Section_2_4_2_10,
+        firebim:Section_2_4_2_11,
+        firebim:Section_2_4_2_12,
+        firebim:Section_2_4_2_13,
+        firebim:Section_2_4_2_14,
+        firebim:Section_2_4_2_3,
+        firebim:Section_2_4_2_4,
+        firebim:Section_2_4_2_5,
+        firebim:Section_2_4_2_6,
+        firebim:Section_2_4_2_7,
+        firebim:Section_2_4_2_8,
+        firebim:Section_2_4_2_9 .
+
+firebim:Section_2_4_2_1 a firebim:Section ;
+    firebim:hasID "2.4.2.1" .
+
+firebim:Section_2_4_2_10 a firebim:Section ;
+    firebim:hasID "2.4.2.10" .
+
+firebim:Section_2_4_2_11 a firebim:Section ;
+    firebim:hasID "2.4.2.11" .
+
+firebim:Section_2_4_2_12 a firebim:Section ;
+    firebim:hasID "2.4.2.12" .
+
+firebim:Section_2_4_2_13 a firebim:Section ;
+    firebim:hasID "2.4.2.13" .
+
+firebim:Section_2_4_2_14 a firebim:Section ;
+    firebim:hasID "2.4.2.14" .
+
+firebim:Section_2_4_2_3 a firebim:Section ;
+    firebim:hasID "2.4.2.3" .
+
+firebim:Section_2_4_2_4 a firebim:Section ;
+    firebim:hasID "2.4.2.4" .
+
+firebim:Section_2_4_2_5 a firebim:Section ;
+    firebim:hasID "2.4.2.5" .
+
+firebim:Section_2_4_2_6 a firebim:Section ;
+    firebim:hasID "2.4.2.6" .
+
+firebim:Section_2_4_2_7 a firebim:Section ;
+    firebim:hasID "2.4.2.7" .
+
+firebim:Section_2_4_2_8 a firebim:Section ;
+    firebim:hasID "2.4.2.8" .
+
+firebim:Section_2_4_2_9 a firebim:Section ;
+    firebim:hasID "2.4.2.9" .
+
+firebim:Section_2_5 a firebim:Section ;
+    firebim:hasID "2.5" ;
+    firebim:hasSection firebim:Section_2_5_1,
+        firebim:Section_2_5_2 .
+
+firebim:Section_2_5_1 a firebim:Section ;
+    firebim:hasID "2.5.1" .
+
+firebim:Section_2_5_2 a firebim:Section ;
+    firebim:hasID "2.5.2" ;
+    firebim:hasSection firebim:Section_2_5_2_1,
+        firebim:Section_2_5_2_2,
+        firebim:Section_2_5_2_3 .
+
+firebim:Section_2_5_2_1 a firebim:Section ;
+    firebim:hasID "2.5.2.1" .
+
+firebim:Section_2_5_2_2 a firebim:Section ;
+    firebim:hasID "2.5.2.2" .
+
+firebim:Section_2_5_2_3 a firebim:Section ;
+    firebim:hasID "2.5.2.3" .
 
 firebim:Section_3 a firebim:Section ;
     firebim:hasID "3" ;
     firebim:hasSection firebim:Section_3_1,
-        firebim:Section_3_2,
-        firebim:Section_3_3,
-        firebim:Section_3_4,
-        firebim:Section_3_5 .
+        firebim:Section_3_2 .
 
 firebim:Section_3_1 a firebim:Section ;
-    firebim:hasID "3.1" .
+    firebim:hasID "3.1" ;
+    firebim:hasSection firebim:Section_3_1_1,
+        firebim:Section_3_1_2,
+        firebim:Section_3_1_4 .
+
+firebim:Section_3_1_1 a firebim:Section ;
+    firebim:hasID "3.1.1" .
+
+firebim:Section_3_1_2 a firebim:Section ;
+    firebim:hasID "3.1.2" .
+
+firebim:Section_3_1_4 a firebim:Section ;
+    firebim:hasID "3.1.4" .
 
 firebim:Section_3_2 a firebim:Section ;
-    firebim:hasID "3.2" .
+    firebim:hasID "3.2" ;
+    firebim:hasSection firebim:Section_3_2_1 .
 
-firebim:Section_3_3 a firebim:Section ;
-    firebim:hasID "3.3" .
+firebim:Section_3_2_1 a firebim:Section ;
+    firebim:hasID "3.2.1" .
 
-firebim:Section_3_4 a firebim:Section ;
-    firebim:hasID "3.4" ;
-    firebim:hasSection firebim:Section_3_4_1,
-        firebim:Section_3_4_2 .
 
-firebim:Section_3_4_1 a firebim:Section ;
-    firebim:hasID "3.4.1" .
 
-firebim:Section_3_4_2 a firebim:Section ;
-    firebim:hasID "3.4.2" .
-
-firebim:Section_3_5 a firebim:Section ;
-    firebim:hasID "3.5" ;
-    firebim:hasSection firebim:Section_3_5_1,
-        firebim:Section_3_5_2 .
-
-firebim:Section_3_5_1 a firebim:Section ;
-    firebim:hasID "3.5.1" .
-
-firebim:Section_3_5_2 a firebim:Section ;
-    firebim:hasID "3.5.2" .
-
-firebim:Section_4 a firebim:Section ;
-    firebim:hasID "4" ;
-    firebim:hasSection firebim:Section_4_1,
-        firebim:Section_4_2,
-        firebim:Section_4_3,
-        firebim:Section_4_4,
-        firebim:Section_4_5 .
-
-firebim:Section_4_1 a firebim:Section ;
-    firebim:hasID "4.1" .
-
-firebim:Section_4_2 a firebim:Section ;
-    firebim:hasID "4.2" ;
-    firebim:hasSection firebim:Section_4_2_1,
-        firebim:Section_4_2_2,
-        firebim:Section_4_2_3 .
-
-firebim:Section_4_2_1 a firebim:Section ;
-    firebim:hasID "4.2.1" .
-
-firebim:Section_4_2_2 a firebim:Section ;
-    firebim:hasID "4.2.2" .
-
-firebim:Section_4_2_3 a firebim:Section ;
-    firebim:hasID "4.2.3" .
-
-firebim:Section_4_3 a firebim:Section ;
-    firebim:hasID "4.3" .
-
-firebim:Section_4_4 a firebim:Section ;
-    firebim:hasID "4.4" ;
-    firebim:hasSection firebim:Section_4_4_1,
-        firebim:Section_4_4_2 .
-
-firebim:Section_4_4_1 a firebim:Section ;
-    firebim:hasID "4.4.1" .
-
-firebim:Section_4_4_2 a firebim:Section ;
-    firebim:hasID "4.4.2" .
-
-firebim:Section_4_5 a firebim:Section ;
-    firebim:hasID "4.5" .
-
-firebim:Section_5 a firebim:Section ;
-    firebim:hasID "5" ;
-    firebim:hasSection firebim:Section_5_1,
-        firebim:Section_5_2,
-        firebim:Section_5_3,
-        firebim:Section_5_4,
-        firebim:Section_5_5 .
-
-firebim:Section_5_1 a firebim:Section ;
-    firebim:hasID "5.1" ;
-    firebim:hasSection firebim:Section_5_1_1,
-        firebim:Section_5_1_2,
-        firebim:Section_5_1_3,
-        firebim:Section_5_1_4,
-        firebim:Section_5_1_5 .
-
-firebim:Section_5_1_1 a firebim:Section ;
-    firebim:hasID "5.1.1" .
-
-firebim:Section_5_1_2 a firebim:Section ;
-    firebim:hasID "5.1.2" .
-
-firebim:Section_5_1_3 a firebim:Section ;
-    firebim:hasID "5.1.3" .
-
-firebim:Section_5_1_4 a firebim:Section ;
-    firebim:hasID "5.1.4" .
-
-firebim:Section_5_1_5 a firebim:Section ;
-    firebim:hasID "5.1.5" .
-
-firebim:Section_5_2 a firebim:Section ;
-    firebim:hasID "5.2" ;
-    firebim:hasSection firebim:Section_5_2_1,
-        firebim:Section_5_2_2,
-        firebim:Section_5_2_3,
-        firebim:Section_5_2_4,
-        firebim:Section_5_2_5 .
-
-firebim:Section_5_2_1 a firebim:Section ;
-    firebim:hasID "5.2.1" .
-
-firebim:Section_5_2_2 a firebim:Section ;
-    firebim:hasID "5.2.2" .
-
-firebim:Section_5_2_3 a firebim:Section ;
-    firebim:hasID "5.2.3" .
-
-firebim:Section_5_2_4 a firebim:Section ;
-    firebim:hasID "5.2.4" .
-
-firebim:Section_5_2_5 a firebim:Section ;
-    firebim:hasID "5.2.5" .
-
-firebim:Section_5_3 a firebim:Section ;
-    firebim:hasID "5.3" ;
-    firebim:hasSection firebim:Section_5_3_1,
-        firebim:Section_5_3_2 .
-
-firebim:Section_5_3_1 a firebim:Section ;
-    firebim:hasID "5.3.1" .
-
-firebim:Section_5_3_2 a firebim:Section ;
-    firebim:hasID "5.3.2" .
-
-firebim:Section_5_4 a firebim:Section ;
-    firebim:hasID "5.4" .
-
-firebim:Section_5_5 a firebim:Section ;
-    firebim:hasID "5.5" .
-
-firebim:Section_6 a firebim:Section ;
-    firebim:hasID "6" ;
-    firebim:hasSection firebim:Section_6_1,
-        firebim:Section_6_2,
-        firebim:Section_6_3,
-        firebim:Section_6_4,
-        firebim:Section_6_5,
-        firebim:Section_6_6,
-        firebim:Section_6_7,
-        firebim:Section_6_8 .
-
-firebim:Section_6_1 a firebim:Section ;
-    firebim:hasID "6.1" ;
-    firebim:hasSection firebim:Section_6_1_1,
-        firebim:Section_6_1_2,
-        firebim:Section_6_1_3,
-        firebim:Section_6_1_4 .
-
-firebim:Section_6_1_1 a firebim:Section ;
-    firebim:hasID "6.1.1" .
-
-firebim:Section_6_1_2 a firebim:Section ;
-    firebim:hasID "6.1.2" .
-
-firebim:Section_6_1_3 a firebim:Section ;
-    firebim:hasID "6.1.3" .
-
-firebim:Section_6_1_4 a firebim:Section ;
-    firebim:hasID "6.1.4" .
-
-firebim:Section_6_2 a firebim:Section ;
-    firebim:hasID "6.2" ;
-    firebim:hasSection firebim:Section_6_2_1,
-        firebim:Section_6_2_2 .
-
-firebim:Section_6_2_1 a firebim:Section ;
-    firebim:hasID "6.2.1" .
-
-firebim:Section_6_2_2 a firebim:Section ;
-    firebim:hasID "6.2.2" .
-
-firebim:Section_6_3 a firebim:Section ;
-    firebim:hasID "6.3" ;
-    firebim:hasSection firebim:Section_6_3_1,
-        firebim:Section_6_3_2,
-        firebim:Section_6_3_3,
-        firebim:Section_6_3_4 .
-
-firebim:Section_6_3_1 a firebim:Section ;
-    firebim:hasID "6.3.1" .
-
-firebim:Section_6_3_2 a firebim:Section ;
-    firebim:hasID "6.3.2" .
-
-firebim:Section_6_3_3 a firebim:Section ;
-    firebim:hasID "6.3.3" .
-
-firebim:Section_6_3_4 a firebim:Section ;
-    firebim:hasID "6.3.4" .
-
-firebim:Section_6_4 a firebim:Section ;
-    firebim:hasID "6.4" ;
-    firebim:hasSection firebim:Section_6_4_1,
-        firebim:Section_6_4_2,
-        firebim:Section_6_4_3 .
-
-firebim:Section_6_4_1 a firebim:Section ;
-    firebim:hasID "6.4.1" .
-
-firebim:Section_6_4_2 a firebim:Section ;
-    firebim:hasID "6.4.2" .
-
-firebim:Section_6_4_3 a firebim:Section ;
-    firebim:hasID "6.4.3" .
-
-firebim:Section_6_5 a firebim:Section ;
-    firebim:hasID "6.5" ;
-    firebim:hasSection firebim:Section_6_5_1,
-        firebim:Section_6_5_2,
-        firebim:Section_6_5_3,
-        firebim:Section_6_5_4 .
-
-firebim:Section_6_5_1 a firebim:Section ;
-    firebim:hasID "6.5.1" .
-
-firebim:Section_6_5_2 a firebim:Section ;
-    firebim:hasID "6.5.2" .
-
-firebim:Section_6_5_3 a firebim:Section ;
-    firebim:hasID "6.5.3" .
-
-firebim:Section_6_5_4 a firebim:Section ;
-    firebim:hasID "6.5.4" .
-
-firebim:Section_6_6 a firebim:Section ;
-    firebim:hasID "6.6" .
-
-firebim:Section_6_7 a firebim:Section ;
-    firebim:hasID "6.7" ;
-    firebim:hasSection firebim:Section_6_7_1,
-        firebim:Section_6_7_2,
-        firebim:Section_6_7_3,
-        firebim:Section_6_7_4,
-        firebim:Section_6_7_5,
-        firebim:Section_6_7_6 .
-
-firebim:Section_6_7_1 a firebim:Section ;
-    firebim:hasID "6.7.1" .
-
-firebim:Section_6_7_2 a firebim:Section ;
-    firebim:hasID "6.7.2" .
-
-firebim:Section_6_7_3 a firebim:Section ;
-    firebim:hasID "6.7.3" .
-
-firebim:Section_6_7_4 a firebim:Section ;
-    firebim:hasID "6.7.4" .
-
-firebim:Section_6_7_5 a firebim:Section ;
-    firebim:hasID "6.7.5" .
-
-firebim:Section_6_7_6 a firebim:Section ;
-    firebim:hasID "6.7.6" .
-
-firebim:Section_6_8 a firebim:Section ;
-    firebim:hasID "6.8" ;
-    firebim:hasSection firebim:Section_6_8_1,
-        firebim:Section_6_8_2,
-        firebim:Section_6_8_3,
-        firebim:Section_6_8_4,
-        firebim:Section_6_8_5 .
-
-firebim:Section_6_8_1 a firebim:Section ;
-    firebim:hasID "6.8.1" .
-
-firebim:Section_6_8_2 a firebim:Section ;
-    firebim:hasID "6.8.2" .
-
-firebim:Section_6_8_3 a firebim:Section ;
-    firebim:hasID "6.8.3" .
-
-firebim:Section_6_8_4 a firebim:Section ;
-    firebim:hasID "6.8.4" .
-
-firebim:Section_6_8_5 a firebim:Section ;
-    firebim:hasID "6.8.5" .
-
-
-
-Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following this ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object it shouldn't be in the originaltext of the parent object nor any child objects etc.), references, and any specific measurements or conditions mentioned.
+Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following this ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned.

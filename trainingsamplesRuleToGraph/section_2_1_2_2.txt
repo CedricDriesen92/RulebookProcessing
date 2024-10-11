@@ -1,0 +1,5 @@
+Section number: 2.1.2.2
+Section text:
+Les éléments de l’escalier (limons, marches, garde-corps, ...) et leurs fixations doivent
+résister aux charges dynamiques de sécurité (chocs) conformément aux STS 54 (§ 12.22)
+[37]. Pour plus de détails, on se référera au § 2.1.2.2 de la NIT 196 [7].

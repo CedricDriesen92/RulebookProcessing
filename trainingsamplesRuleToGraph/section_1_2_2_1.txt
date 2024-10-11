@@ -1,0 +1,49 @@
+Section number: 1.2.2.1
+Section text:
+DE L’ESCALIER (FIGURE 2)
+
+La hauteur de la marche (H en mm) est la distance verticale qui sépare la surface de deux
+marches consécutives. Le giron (G en mm) est la distance horizontale entre deux contre-
+marches consécutives ou entre le nez de deux marches successives. Il est mesuré sur la
+ligne de foulée (voir § 1.2.2.2).
+
+Le module du pas (M en mm) est une dimension importante pour la conception de
+l’escalier; il représente la longueur d’un pas humain nécessaire pour gravir une marche,
+
+
+                                    7   NIT 198 – décembre 1995
+                                                                4Fig. 2 Hauteur de la marche, giron, nez, pas,
+pente de l’escalier et ligne de pente.
+H : hauteur de la marche
+G : giron
+α : pente de l’escalier, exprimée
+    en degrés        AAAAAA AAAAAA1. Nez de marche                                       G
+2. Pas        AAAAAA AAAAAA H3. Pente de l’escalier
+4. Ligne de pente        AAAAAA AAAAAA
+                                                                          1
+                                                       1        AAAAAA AAAAAA
+        AAAAAA AAAAAA α          3
+        AAAAAA AAAAAA 2
+        AAAAAA AAAAAA
+
+soit environ 0,6 m. Le module est déterminé par la formule suivante :
+                 M = 2 H + G.
+
+Cette expression signifie qu’à module constant, l’augmentation de la hauteur de marche
+d’une unité entraîne une diminution du giron de deux unités. Inversement, l’augmentation
+du giron d’une unité aura pour effet de diminuer la hauteur de marche d’une demi-unité
+pour un module identique.
+
+Le nez de marche (1) est la distance horizontale entre l’avant d’une marche et la face
+avant de la contremarche inférieure ou, à défaut de contremarche, la partie arrière de la
+marche inférieure. On mesure le nez à l’aplomb de l’avant de la marche.
+
+Le pas (2) est la profondeur de la surface d’appui du pied sur la marche, autrement dit la
+somme de son giron et du nez.
+
+La pente de l’escalier (α en °) (3) est fonction de la hauteur de la marche et de son giron;
+elle détermine donc l’inclinaison de l’escalier sur la ligne de foulée et est définie par la
+formule suivante :
+                       α = arc tg (H                                          G).
+
+La ligne de pente (4) est l’axe imaginaire le long duquel on mesure la pente de l’escalier.

@@ -1,0 +1,37 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_2_1_1 a firebim:Section ;
+    firebim:hasID "2.1.1" ;
+    firebim:hasOriginalText "ENONCE DU PROBLEME"@fr ;
+    firebim:hasArticle firebim:Article_2_1_1_1 .
+
+firebim:Article_2_1_1_1 a firebim:Article ;
+    firebim:hasID "A2.1.1.1" ;
+    firebim:hasMember firebim:Member_2_1_1_1_1, firebim:Member_2_1_1_1_2 .
+
+firebim:Member_2_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Comme nous P'avons souligne en introduction; la resistance mecanique et la stabilite sont des exigences essentielles auxquelles doivent satisfaire les escaliers d'un batiment, selon les dispositions de la directive europeenne "Produits de construction" et ses commentaires."""@fr .
+
+firebim:Member_2_1_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "Il convient de distinguer:"@fr ;
+    firebim:hasMember firebim:Member_2_1_1_1_2_1, firebim:Member_2_1_1_1_2_2, firebim:Member_2_1_1_1_2_3, firebim:Member_2_1_1_1_2_4 .
+
+firebim:Member_2_1_1_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "- la stabilite de l'ensemble et la resistance mecanique de chacun des elements constitutifs de l'escalier"@fr .
+
+firebim:Member_2_1_1_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText "- la resistance des elements de l'escalier aux chocs d'objets durs et d'objets mous"@fr .
+
+firebim:Member_2_1_1_1_2_3 a firebim:Member ;
+    firebim:hasOriginalText "- la resistance aux rayures et à l'usure des surfaces de circulation en bois"@fr .
+
+firebim:Member_2_1_1_1_2_4 a firebim:Member ;
+    firebim:hasOriginalText "- les aspects de durabilite qui concernent la resistance mecanique et la stabilite."@fr .
+
+firebim:Section_2_1 firebim:hasSection firebim:Section_2_1_1 .

@@ -1,4 +1,6 @@
 import pypdf
+import pymupdf
+from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 import rdflib
 import json
 from anthropic import AnthropicVertex
@@ -9,8 +11,10 @@ from rdflib.namespace import RDF, RDFS, XSD
 import os
 import glob
 import time
+from llama_parse import LlamaParse
 
-client = AnthropicVertex(region="europe-west1", project_id="spatial-conduit-420822", )
+os.environ["LLAMA_CLOUD_API_KEY"] = "llx-SbQRnu1gMsOiKK7KKS12D9bV3Ccvc2xZ6a7YauCOycd4YmK1"
+client = AnthropicVertex(region="europe-west1", project_id="neat-veld-422214-p1")
 
 def load_ontology(file_path):
     with open(file_path, 'r') as file:
@@ -32,48 +36,63 @@ def load_training_examples(folder_path):
     return examples
 
 def extract_text_from_pdf(pdf_path: str) -> str:
-    with open(pdf_path, 'rb') as file:
-        reader = pypdf.PdfReader(file)
+    text = ""
+    #with open(pdf_path, 'rb') as file:
+        #reader = pypdf.PdfReader(file)
         
-        text = ""
-        for page in reader.pages:
-            text += page.extract_text(extraction_mode="layout", layout_mode_space_vertically=False) + "\n"
+        #for page in reader.pages:
+        #    text += page.extract_text(extraction_mode="layout", layout_mode_space_vertically=False) + "\n"
+    text = LlamaParse(result_type="text").load_data(pdf_path)
+    print(text[0].text[:1000])
     return text
 
 def split_into_sections(text):
-    # Looks for main section headers like "0 GENERAL", "1 IMPLANTATION AND ACCESS ROADS", etc.
-    main_pattern = r'\n(?=\d+(?:\.\d+)*\s+[A-Z][A-Z\s]+)'
-    main_sections = re.split(main_pattern, text)
+    # Pattern for sections: number(s) followed by any amount of spaces and a word
+    section_pattern = r'\n(?=(?:\d+\.)*\d+\s+\S)'
+    sections = re.split(section_pattern, text)
     
     # Remove any empty sections and strip whitespace
-    main_sections = [section.strip() for section in main_sections if section.strip()]
+    sections = [section.strip() for section in sections if section.strip()]
     
-    detailed_sections = []
-    for main_section in main_sections:
-        # Split into subsections
-        subsection_pattern = r'\n(?=\d+\.\d+\s+)'
-        subsections = re.split(subsection_pattern, main_section)
-        
-        for subsection in subsections:
-            # Split into subsubsections
-            subsubsection_pattern = r'\n(?=\d+\.\d+\.\d+\s+)'
-            subsubsections = re.split(subsubsection_pattern, subsection)
-            
-            detailed_sections.extend(subsubsections)
+    print("Initial sections:", [s[:50] + "..." for s in sections])
+    print("Number of sections found:", len(sections))
     
-    # Further clean up and identify sections
     final_sections = []
-    for section in detailed_sections:
-        match = re.match(r'(\d+(?:\.\d+)*)\s+(.*?)(?:\n|$)', section)
+    current_main_section = None
+    current_subsection = None
+    
+    for section in sections:
+        # Try to match section number and title
+        match = re.match(r'((?:\d+\.)*\d+)\s+(.*?)(?:\n|$)', section, re.DOTALL)
         if match:
             section_number = match.group(1)
-            section_title = match.group(2)
+            section_title = match.group(2).strip()
             section_content = section[match.end():].strip()
+            
+            # Determine the section level
+            level = section_number.count('.') + 1
+            
+            if level == 1:
+                current_main_section = section_number
+                current_subsection = None
+            elif level == 2:
+                current_subsection = section_number
+            
+            # Add the section to final_sections
             final_sections.append((section_number, section_title, section_content))
+            print(f"Matched section: {section_number} - {section_title[:30]}...")
         else:
-            # If no match, content continuing from the previous section
-            final_sections.append((None, None, section.strip()))
+            # If no match, it's likely content continuing from the previous section
+            if final_sections:
+                prev_number, prev_title, prev_content = final_sections[-1]
+                final_sections[-1] = (prev_number, prev_title, prev_content + "\n" + section.strip())
+                print(f"Appended content to previous section: {prev_number}")
+            else:
+                # If it's the first section and doesn't match the pattern, add it as is
+                final_sections.append((None, None, section.strip()))
+                print("Added unmatched content as first section")
     
+    print("Final sections:", final_sections)
     return final_sections
 
 FIREBIM = Namespace("http://example.com/firebim#")
@@ -158,8 +177,8 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
     full_ttl_content += "firebim:Section_" + str(section_number) +" a " + response.content[0].text.strip()
     return full_ttl_content
 
-def create_and_combine_section_ttl(section_number, section_text, ontology, main_graph, examples_str, starting_graph):
-    file_name = f"sections/section_{section_number.replace('.', '_')}.ttl"
+def create_and_combine_section_ttl(section_number, section_text, ontology, main_graph, examples_str, starting_graph, output_folder):
+    file_name = os.path.join(output_folder, f"section_{section_number.replace('.', '_')}.ttl")
     
     if os.path.exists(file_name):
         try:
@@ -174,7 +193,7 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
             ttl_content = process_section_to_ttl(section_number, section_text, ontology, examples_str, starting_graph)
             main_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
             
-            os.makedirs("sections", exist_ok=True)
+            os.makedirs(output_folder, exist_ok=True)
             with open(file_name, 'w', encoding='utf-8') as f:
                 f.write(ttl_content)
             
@@ -196,7 +215,8 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
 
 def main():
     ontology = load_ontology('FireBIM_Document_Ontology.ttl')
-    rulebook_text = extract_text_from_pdf('BasisnormenLG_cropped.pdf')
+    pdf_filename = 'NIT_198.pdf'#'BasisnormenLG_cropped.pdf'
+    rulebook_text = extract_text_from_pdf(pdf_filename)
     sections = split_into_sections(rulebook_text)
     
     main_graph = create_initial_graph()
@@ -237,8 +257,10 @@ def main():
             main_graph.add((parent_uri, FIREBIM.hasSection, section_uri))
     
     # Serialize the initial structure
-    main_graph.serialize("sections/document.ttl", format="turtle")
-    starting_graph = load_ontology("sections/document.ttl")
+    output_folder = f"documentgraphs/{os.path.splitext(pdf_filename)[0]}"
+    os.makedirs(output_folder, exist_ok=True)
+    main_graph.serialize(f"{output_folder}/document.ttl", format="turtle")
+    starting_graph = load_ontology(f"{output_folder}/document.ttl")
     
     # Process sections
     curNum = 0
@@ -249,10 +271,9 @@ def main():
             section_number_underscore = section_number.replace('.', '_')
             if -1 < float(section_number[:3]) < 60:
                 full_content = f"{section_title}\n{section_content}" if section_title else section_content
-                create_and_combine_section_ttl(section_number_underscore, full_content, ontology, main_graph, examples_str, starting_graph)
+                create_and_combine_section_ttl(section_number_underscore, full_content, ontology, main_graph, examples_str, starting_graph, output_folder)
                 print("Processed section "+str(section_number) + ", nr. " + str(curNum) + " / " + str(totalNum))
     
     main_graph.serialize("combined_document_data_graph.ttl", format="turtle")
-
 if __name__ == "__main__":
     main()

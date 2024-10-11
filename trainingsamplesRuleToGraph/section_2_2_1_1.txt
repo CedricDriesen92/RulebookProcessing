@@ -1,0 +1,32 @@
+Section number: 2.2.1.1
+Section text:
+La hauteur ‘h’ d’un immeuble est définie conventionnellement comme la distance entre
+le niveau fini du plancher de l’étage le plus élevé et le niveau le plus bas des voies
+entourant le bâtiment et utilisables par les véhicules des services d’incendie (figure 19,
+p. 24). Lorsque la toiture ne comprend que des locaux à usage technique, ce niveau
+n’intervient pas dans le calcul de la hauteur.
+
+Les bâtiments sont classés d’après leur hauteur comme indiqué au tableau 2. La plupart
+des maisons unifamiliales appartiennent à la catégorie des bâtiments bas.
+
+
+
+                                    23  NIT 198 – décembre 1995
+Tableau 2 Classement des bâtiments selon leur hauteur.
+
+       TYPE DE BÂTIMENT          HAUTEUR DU BÂTIMENT
+
+  Bâtiments élevés (BE)                 h > 25 m
+  Bâtiments moyens (BM)           10 m ≤ h ≤ 25 m
+  Bâtiments bas (BB)                   h < 10 m
+
+
+       Fig. 19             BÂTIMENT ÉLEVÉ (BE)                     BÂTIMENT MOYEN (BM)
+     Hauteur ‘h’
+  d’un bâtiment.
+                                                                                              h
+                                                      h
+
+                                                                   BÂTIMENT BAS (BB)
+
+                                                                                              h

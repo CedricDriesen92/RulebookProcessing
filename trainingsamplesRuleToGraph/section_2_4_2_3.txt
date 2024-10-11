@@ -1,0 +1,37 @@
+Section number: 2.4.2.3
+Section text:
+Les dimensions des différents éléments d’un escalier ne sont pas choisies au hasard, mais
+résultent d’un calcul visant à garantir à l’utilisateur un maximum de confort et de sécurité.
+
+Les pas d’une personne normale circulant sur une surface horizontale ont une longueur
+d’environ 0,60 m. Plus la surface tend à s’incliner, plus la longueur des pas diminue.
+
+Ces principes sont à la base du rapport entre la hauteur de marche (H) et le giron (G),
+préconisé pour la conception d’un escalier facilement praticable, soit :
+
+                         2 H + G = 600 ± 30 mm.
+
+Ce rapport, parfois appelé module ou valeur du pas (M), varie donc en principe entre 570
+et 630 mm. Il permet de définir, pour une hauteur d’étage et un nombre de marches
+déterminés, la hauteur des marches, le giron et la pente de l’escalier. A module de pas
+égal, lorsque le giron diminue, la hauteur de la marche augmente et vice-versa.
+
+ Dans la mesure du possible, l’escaliéteur tiendra compte, dans ses plans d’exécution,
+ du module de pas idéal défini plus haut. Le choix de la hauteur et du nombre de
+ marches ainsi que du module de pas détermine en effet l’espace que l’escalier occupera
+ dans le bâtiment.
+
+ En l’absence de telles données, l’exécutant à pied d’œuvre se verra forcé de s’adapter
+ tant bien que mal à la situation des lieux, au risque parfois de ne pouvoir respecter les
+ proportions idéales et de devoir appliquer des règles de calcul hors normes pour aboutir
+ à une solution correcte dans le contexte qui lui est imposé. En tout état de cause, la
+ hauteur de marche et le giron auront une valeur aussi proche que possible du module
+ idéal. Le giron est mesuré sur la ligne de foulée. Si l’escalier comporte plusieurs volées,
+ ceci s’applique également à chacune d’entre elles.
+
+Dans le cas d’un escalier peu utilisé, le module du pas pourra s’écarter davantage des
+valeurs recommandées ci-avant. Ainsi, l’escalier d’un grenier, par exemple, aura un giron
+plus court et sera plus raide qu’un escalier assurant une fonction centrale dans le bâtiment.
+
+Enfin, pour des raisons de sécurité, les escaliers servant de voies d’évacuation font l’objet
+de certaines restrictions (cf. § 2.2.2, p. 27).

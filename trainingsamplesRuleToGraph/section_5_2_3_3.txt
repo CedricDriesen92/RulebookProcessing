@@ -1,0 +1,85 @@
+Section number: 5.2.3.3
+Section text:
+3
+C’est une méthode très simple, qui         2
+est fort utilisée pour la conception
+des ouvrages de construction. Pour        1                         S
+en faire le dessin, il faut cependant                          G
+disposer d’une grande surface de      ≥ 350 400 à 600                         2' G
+tracé.                               mm    mm                             3'
+                                                  G
+                                                                                                         4'
+Sur le plan de l’escalier, on indique                          G
+les données suivantes  : largeur de                                                     5'                                                 G
+l’escalier, limons, noyau et ligne de                                                     6'
+foulée (figure 100). On calcule la                          G                                                                                                         7'
+hauteur des marches et leur giron,    Fig. 100 Méthode de           G
+puis on divise la ligne de foulée en    balancement dite à l’infini.                8'
+autant de parties qu’il y a de girons.
+
+A partir d’une marche déterminée (dans ce cas-ci, la neuvième marche), les marches
+restent droites; elles ne sont donc plus balancées. Sur le prolongement de la neuvième
+marche, on reporte, à partir du point d’intersection avec le prolongement de la face avant
+de la première marche (point S), autant de fois le giron qu’il y a de marches à balancer
+
+
+                                    95  NIT 198 – décembre 1995
+      (dans ce cas, sept). Ces points sont reliés aux points de division de la ligne de foulée, ce
+       qui permet d’obtenir le nez des marches.
+
+
+       5.2.3.4    MÉTHODE DE TRACÉ POUR OBTENIR UN LIMON DE JOUR DROIT, LES MARCHES
+                BALANCÉES SE TROUVANT SEULEMENT DANS LE QUARTIER DE DÉPART OU D’ARRIVÉE
+
+     On utilisera de préférence un noyau (co-                                                  Fig. 101
+                                                           13   14 15                         Méthode de
+       lonne) rectangulaire, de façon à offrir un      12                                               tracé pour
+      appui suffisant aux marches à balancer (fi-                                                           obtenir un                                                                                     15
+      gure 101). Sur la vue en plan de l’escalier,      11                     14                 limon de                                                                                                                        jour droit,
+      on choisit un point ‘P’ (centre de courbure)                                                      10                                                 les marches
+      en dehors du noyau à l’intersection de la                                                    balancées
+                                                      9                  13                   se trouvant       droite passant par le nez de la marche d’an-                                                      8                                              seulement
+       gle (marche 12) et de la droite passant par                                               dans le                                                      7                 12        le nez de la marche palière (marche 15).                                                                quartier de
+                                                      6                                            départ ou
+                                                                                                                              d’arrivée.
+     On obtient ainsi la possibilité de balancer       5                 11
+      cinq marches (vers le point ‘P’) de telle       4                              mm                                                                                                  P
+      façon qu’elles reposent dans le noyau. Le       3                 10                 100
+       reste de l’escalier est exécuté comme un       2
+       escalier droit à nez de marches parallèles.       1
+     On peut même balancer les premières mar-
+      ches et les voiler pour obtenir un escalier à l’abord élégant.
+
+
+       5.2.3.5   MÉTHODE DE TRACÉ POUR OBTENIR UN LIMON DE JOUR DROIT, EN
+             COMBINANT UN QUARTIER TOURNANT ET UN ESCALIER OBLIQUE
+
+     En dessinant la vue en plan de cet escalier, on doit balancer les marches situées avant
+       l’angle des faux limons vers le centre du noyau ou de la colonne (figure 102). A cet effet,
+        les contremarches des marches 1, 2 et 3 sont orientées vers le centre de la colonne. On
+       trace ensuite le bord du nez des marches parallèlement aux contremarches, en partant des
+       points de division sur la ligne de foulée.
+
+     Le côté intérieur du limon se prolonge jusqu’au bord du nez de la marche 3 (point A),
+       tandis que la contremarche de la marche 4 s’étend jusqu’au limon (point B). La largeur
+      de la marche 4 (BC), reportée sur le limon, équivaut à 1,5 à 2 fois celle de la marche 3.
+     La marche 4 forme ainsi une transition entre les marches 3 et 5.
+
+
+Fig. 102 Méthode de tracé pour obtenir un limon de jour droit, en combinant un quartier tournant et un escalier oblique.
+              x   x   x   x   x   x   x   x   x   x   x                         5         6         7
+                                                            4
+                                                                         350 mm         4  5  6  7  8  9  10 11 12 13 14 15 16                                                         3                        ≥     3
+                                                                         600
+   2                      à                                                        2     A       B     C                                                  mm
+             B C                                               400    1   1
+          A      z  z  z  z  z  z  z  z  z  z  z                                           z          z
+
+
+                                          96   NIT 198 – décembre 1995
+Lorsque le quartier est balancé, le limon de jour est divisé en autant de parties égales qu’il
+reste de marches à balancer. Les points de division ainsi obtenus sont reliés aux points
+correspondants sur la ligne de foulée et ces lignes indiquent la face avant des marches. De
+ce fait, le limon de jour est droit, de même que la rampe. Dans un quartier placé au départ
+de l’escalier, le faux limon court devient convexe et le faux limon long est d’abord
+concave, puis droit.

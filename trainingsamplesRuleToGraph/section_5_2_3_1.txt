@@ -1,0 +1,161 @@
+Section number: 5.2.3.1
+Section text:
+On peut appliquer cette méthode à l’ensemble de l’escalier ou uniquement à la partie
+comportant un noyau, ou bien encore à la portion intermédiaire entre la partie à noyau et
+la partie droite de l’escalier.
+
+Cette dernière pratique est la plus courante. Elle consiste à balancer toutes les marches du
+quartier tournant, en plus de trois ou quatre marches de la partie droite de l’escalier. La
+troisième marche, généralement dans l’angle, est placée de telle manière que son centre
+coïncide à peu près avec l’angle formé par les deux faux limons. On obtient ainsi une
+construction d’angle plus solide et on évite la formation d’angles trop aigus et difficiles
+à entretenir.
+
+Cette méthode permet, selon la structure de l’escalier, de balancer aussi bien le nez des
+marches que la face avant des contremarches. Les deux procédures aboutissent pratique-
+ment au même résultat.
+
+A la figure 97, la face avant des contremarches est balancée de la deuxième à la neuvième
+marche comprise. Les contremarches 1 et 2 sont dirigées vers le centre du noyau – ou de
+la colonne – (point A), tandis que la contremarche 10 est perpendiculaire au limon
+(point B). Les marches 2 à 9 comprise (soit huit marches) doivent être réparties sur la
+droite A-B. La distribution s’opère conformément au schéma de la figure 97.
+
+Si le nombre de marches à balancer est égal à huit (marches 2 à 9 comprise), on reporte huit
+distances égales sur une droite quelconque E-F. Aux extrémités des segments (neuf au total,
+numérotées 2, 3, 4, 5, 6, 7, 8, 9 et 10), on élève des perpendiculaires. Sur la perpendiculaire
+en 10 (qui correspond à la première marche non balancée), on reporte à partir de la droite
+E-F une distance égale au giron, comme celle reportée sur la ligne de foulée.
+
+
+                                    92   NIT 198 – décembre 1995
+Fig. 97 Méthode de balancement traditionnelle.
+
+                                       A. DANS UN QUARTIER TOURNANT
+
+
+
+
+
+                             A −B
+                              8             x'                                           x                                                       giron G
+                             E                  F                             2 3 4 5 6 7 8 9 10
+
+
+                3    4   5  6  7  8  9  10 11 12 13 14 15 16  ≥ 350 mm
+
+              2
+                                                               400 à 600 mm
+             1
+                     A              B
+
+
+                                            B. DANS UN ESCALIER TOURNANT
+
+
+
+
+
+                             7  8 9 10
+                          6                                     11                             BC
+                         5   B   A    12                                                                 7
+                         4                                      13                                 AB
+                         3                                      14                    1 2  3 4 5 6 7  8
+                                                                 16 15 14 13 12 11 10 9                         2
+                                      15
+                         1                                      16
+                   C            17
+
+
+
+
+
+                                    93  NIT 198 – décembre 1995
+         La distance entre les huit points restants (de 2 à 9) est divisée en deux parties égales. En
+          ce nouveau point de division (situé, dans ce cas, entre les points 5 et 6), on élève une
+           perpendiculaire, sur laquelle on reporte une distance égale à la largeur moyenne des
+          marches à balancer sur la droite A-B, soit 1/8 (A-B).
+
+         La droite qui relie les extrémités x et x’ de ces deux perpendiculaires détermine mainte-
+           nant sur les perpendiculaires 2, 3, 4, 5, 6, 7, 8 et 9 des segments qui seront reportés
+          successivement sur la droite A-B. Ces points sont reliés aux points correspondants sur la
+            ligne de foulée et indiquent la face avant des contremarches. L’arête supérieure du limon
+          de jour sera convexe.
+
+         La méthode de balancement traditionnelle peut aussi être appliquée à l’ensemble des mar-
+            ches. L’escalier tournant représenté à la figure 97B comporte 16 marches balancées sur le
+          limon courbe. Le nez des marches 8 et 9 est tracé à l’aide d’une droite partant de la ligne de
+           foulée et aboutissant au centre de la courbe. Il est à noter que la distance A-B est utilisée
+          dans l’échelle de division et que celle-ci peut servir pour les deux moitiés de l’escalier.
+
+
+           5.2.3.2   MÉTHODE HARMONIQUE
+
+          Tout comme pour la méthode précédente, la variante la plus courante de la méthode
+          harmonique consiste à balancer les marches de la portion intermédiaire entre la partie à
+         noyau et la partie droite de l’escalier. Avec la méthode harmonique, on balance le bord
+         du nez des marches ou la face avant des contremarches.
+
+          Sur l’escalier représenté à la figure 98, le nez des marches est balancé et la répartition
+           s’opère sur l’axe du limon de jour. La contremarche 2 est dirigée vers le centre du noyau
+           (colonne), de sorte qu’il reste encore huit marches à balancer (marches 2 à 9 incluse). La
+         marche 10 est la première marche non balancée.
+
+        On répartit les faces avant des contremarches sur la ligne de foulée et on trace la droite
+        A-B (cf. méthode traditionnelle).
+
+       A partir du point C, qui est le point d’intersection de la droite A-B et de la contremarche
+          de la marche 10, on trace une droite quelconque C-D. Sur cette droite, on reporte autant de
+            distances quelconques, mais égales, qu’il y a de marches à balancer. Dans le cas illustré, la
+          contremarche de la première marche n’est pas balancée.
+
+   Fig. 98
+                                   0                                                          mm   Méthode
+harmonique.                                                                                           15     350
+                               4     5    6     7     8     9    10    11    12    13   14   ≥
+                          3                                                                                             mm
+                      2                                                                                                           600
+
+                                               à
+                    1                                                                                                              400                                                          B   C
+
+                                                                                    9‘  10‘
+                                                                               8‘
+                          A                          6‘   7‘
+                                                                5‘                                                           4‘
+                            D  2‘  3‘
+
+                                             94   NIT 198 – décembre 1995
+On relie le premier point de division (9’) de la droite C-D au point B et le dernier point (2’)
+au centre du noyau (point A). Les deux droites ainsi obtenues sont prolongées jusqu’à leur
+point d’intersection O. Chaque point de division de la droite C-D est ensuite relié au point O;
+les points d’intersection avec la droite A-B donnent la répartition voulue des marches.
+
+Les points d’intersection obtenus sur la droite A-B sont ensuite reliés aux points de
+division de la ligne de foulée et les bords des nez de marches sont tracés parallèlement
+aux contremarches.
+
+La figure 99 illustre la méthode harmonique appliquée à un escalier à quartier tournant et
+à noyau rectangulaire, où l’on a rabattu les faces avant des contremarches. Dans ce cas
+également, huit marches seront balancées (marches 1 à 8).
+
+
+                                                           Fig. 99 Méthode harmoni-
+                                     0                 que appliquée à un escalier à
+                                                        noyau (colonne) rectangulaire.                                 5          9     8     7     6
+                                       4
+
+                                            3
+
+
+                                              2
+           B
+     C                    A               9'                                   1
+                    8'
+                         7'
+                              6'
+                                   5'
+                                        4'
+                                             3'
+                                                  2'
+                                                      1' D

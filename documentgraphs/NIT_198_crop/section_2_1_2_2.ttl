@@ -1,0 +1,30 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_2_1_2_2 a firebim:Section ;
+    firebim:hasID "2.1.2.2" ;
+    firebim:hasOriginalText "RESISTANCE AUX CHOCS DE CORPS DURS ET DE CORPS MOUS"@fr ;
+    firebim:hasArticle firebim:Article_2_1_2_2_1 .
+
+firebim:Article_2_1_2_2_1 a firebim:Article ;
+    firebim:hasID "A2.1.2.2.1" ;
+    firebim:hasMember firebim:Member_2_1_2_2_1_1, firebim:Member_2_1_2_2_1_2 .
+
+firebim:Member_2_1_2_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Les elements de l'escalier (limons, marches, garde-corps, et leurs fixations doivent resister aux charges dynamiques de securite (chocs) conformement aux STS 54 (8 12.22) [37]."""@fr ;
+    firebim:hasReference firebim:Reference_STS_54 .
+
+firebim:Member_2_1_2_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Pour plus de details, on se refera au § 2.1.2.2 de la NIT 196 [7]."""@fr ;
+    firebim:hasReference firebim:Reference_NIT_196 .
+
+firebim:Reference_STS_54 a firebim:Reference ;
+    firebim:hasID "STS 54" .
+
+firebim:Reference_NIT_196 a firebim:Reference ;
+    firebim:hasID "NIT 196" .

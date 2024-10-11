@@ -1,0 +1,12 @@
+Section number: 2.2.1.5
+Section text:
+La réaction au feu d’un matériau de construction est l’ensemble de ses propriétés qui ont
+un rapport avec l’influence qu’il peut avoir sur la naissance et le développement d’un
+incendie.
+
+Outre la classe des matériaux ininflammables A0 (plâtre, béton, maçonnerie,  ...), on
+distingue quatre classes de réaction au feu :
+N A1 : difficilement inflammable
+N A2 : moyennement inflammable
+N A3 : inflammable
+N A4 : facilement inflammable.

@@ -1,0 +1,43 @@
+Section number: 4.1.4.3
+Section text:
+Le reculement ‘i’ (en m) peut être déduit de la longueur minimum de la trémie.
+
+Il ressort de la figure 45 que :
+                                                     i = T - (t - s3).
+
+
+
+
+
+                                    59  NIT 198 – décembre 1995
+Si l’on se réfère aux données reprises aux §§ 4.1.4.1 et 4.1.4.2, on a :
+                                                               ( v+d )                                     i =  ( n−1 )G+s1 +s2 −n.G      −s1                             V
+                                  ou
+                             V                           n(M − 2  )(v + d)                   V                                          n                  i = (n − 1)(M − 2   ) −                  + s2                           n         V
+
+Dans notre exemple, le reculement s’élève à :
+i = 3,387 - (3,051 - 0,02)
+i = 0,356 m.
+
+Le tableau 9 indique quelques valeurs de ‘T’, ‘t’ et ‘i’ pour une hauteur d’étage ‘V’, un
+nombre de marches ‘n’ et un module du pas ‘M’ différents de ceux proposés dans
+l’exemple.
+
+Il est à noter que l’échappée ‘v’, l’épaisseur ‘d’ du plancher d’étage (niveau fini) et les
+données techniques s1, s2 et s3 sont des valeurs fixes.
+
+Les valeurs estimées obtenues dans l’exemple ci-avant peuvent être calculées par
+interpolation des valeurs de ‘t’ et de ‘i’ pour une hauteur d’étage comprise entre V =
+2,7 m et V = 2,8 m (voir tableau 9).
+
+Il convient en outre de prévoir par un calcul approximatif un certain nombre de girons
+libres dans la trémie, en fonction notamment de l’échappée ‘v’ (en m) et de la hauteur des
+marches ‘H’ (en mm) :
+N v = 1,8 m; H = 175-185 mm → on prévoit en général 12 girons libres
+N v = 2,0 m; H = 175-185 mm → on prévoit en général 13 girons libres
+N v = 2,1 m; H = 175-180 mm → on prévoit en général 14 girons libres
+N v = 2,1 m; H = 180-185 mm → on prévoit en général 13 girons libres.
+
+
+
+        RÉALISATION DES ÉLÉMENTS4.2

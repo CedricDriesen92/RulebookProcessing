@@ -1,0 +1,41 @@
+Section number: 5.2.2.3
+Section text:
+PERPENDICULAIRE À LA PREMIÈRE ET À LA DERNIÈRE MARCHE
+
+On peut aussi placer le côté le plus long d’un noyau rectangulaire perpendiculairement à
+la première et à la dernière marche. La ligne de foulée suit ici un parcours en demi-cercle
+dont le début et la fin sont reliés par des parties droites. Pour le balancement, on part à
+nouveau du bord des nez de marches, qui sont tangents à deux quarts de cercle.
+
+On trouve le centre de ces cercles en déterminant l’emplacement et la largeur du nez de
+la première et de la dernière marche (figure 96). Sur la face opposée du noyau, on dessine
+également la largeur du nez au milieu du noyau. On obtient ainsi le point ‘X’, qui
+représente l’extrémité des arcs de cercle, où les nez des marches sont tracés à partir des
+points de division de la ligne de foulée.
+
+
+
+         4       5    6   7   8      9
+
+                                         10
+                                                           4   5   6  7  8    9
+      3                           X
+           R1   W                          R2                 3                    10
+
+                                          11              2                    11
+      2
+                                                          1                    12
+                                                                               13                                          12
+      1
+                                                             ± 350 mm 400 à 600 mm
+   W                 W
+              ± 15 mm                                          13
+
+   Fig. 96 Balancement d’un escalier à noyau rectangulaire dont le côté long est perpendiculaire à la
+   première et à la dernière marche.
+
+
+
+
+
+                                    91  NIT 198 – décembre 1995

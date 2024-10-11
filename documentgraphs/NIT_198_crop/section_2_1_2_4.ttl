@@ -1,0 +1,50 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_2_1_2_4 a firebim:Section ;
+    firebim:hasID "2.1.2.4" ;
+    firebim:hasOriginalText "DURABILITE EN RAPPORT AVEC LA RESISTANCE MECANIQUE ET LA STABILITE"@fr ;
+    firebim:hasArticle firebim:Article_2_1_2_4_1 .
+
+firebim:Article_2_1_2_4_1 a firebim:Article ;
+    firebim:hasID "A2.1.2.4.1" ;
+    firebim:hasMember firebim:Member_2_1_2_4_1_1, firebim:Member_2_1_2_4_1_2 .
+
+firebim:Member_2_1_2_4_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Escaliers exterieurs posseder une durabilite suffisante vis-à-vis du climat exterieur et des attaques eventuelles. Tous les materiaux exposes à l'air libre doivent etre resistants au gel; ils doivent en outre posseder une resistance contre les champignons et les insectes. Les recommandations en la matiere sont decrites en detail au § 2.1.2.3 de la NIT 196 [7]."""@fr ;
+    firebim:hasReference firebim:Reference_NIT_196 .
+
+firebim:Reference_NIT_196 a firebim:Reference ;
+    firebim:hasID "NIT 196" .
+
+firebim:Member_2_1_2_4_1_2 a firebim:Member ;
+    firebim:hasOriginalText """22 NIT 198 decembre 1995"""@fr ;
+    firebim:hasReference firebim:Reference_NIT_198 .
+
+firebim:Reference_NIT_198 a firebim:Reference ;
+    firebim:hasID "NIT 198" .
+
+firebim:Section_2_1_2_4 firebim:hasSection firebim:Section_2_1_2_4_1 .
+
+firebim:Section_2_1_2_4_1 a firebim:Section ;
+    firebim:hasID "2.1.2.4.1" ;
+    firebim:hasOriginalText "ESCALERS INTERIEURS"@fr ;
+    firebim:hasArticle firebim:Article_2_1_2_4_1_1 .
+
+firebim:Article_2_1_2_4_1_1 a firebim:Article ;
+    firebim:hasID "A2.1.2.4.1.1" ;
+    firebim:hasMember firebim:Member_2_1_2_4_1_1_1, firebim:Member_2_1_2_4_1_1_2, firebim:Member_2_1_2_4_1_1_3 .
+
+firebim:Member_2_1_2_4_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Lorsque la menuiserie interieure est susceptible d'etre attaquee par des insectes, il convient de traiter le bois au moyen d'un procede de preservation B, ce qui implique l'emploi d'un produit B homologue (ABPB, Association belge pour la protection du bois). En ce qui concerne les escaliers, une attaque par des insectes n'est à craindre que dans certains cas. Le lyctus (Lyctus spp.) peut attaquer l'aubier de certains feuillus (tels le chêne, l'orme, le meranti ou le lauan) contenant de grandes quantités d'amidon et dont le diamètre des vaisseaux est assez grand; les couches d'aubier présentes dans du multiplex peuvent également être attaquées par cet insecte."""@fr .
+
+firebim:Member_2_1_2_4_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """La petite vrillette (Anobium punctatum) s'attaque surtout à l'aubier des résineux et des essences feuillues d'Europe; en général, le duramen n'est susceptible d'être attaqué que si le bois a été préalablement contaminé par un champignon; comme par exemple dans le cas de meubles, lambris et éléments anciens en contact avec des murs humides ou dans les endroits où l'air ambiant est humide en permanence."""@fr .
+
+firebim:Member_2_1_2_4_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Le Ptilinus pectinicornis est un coléoptère relativement rare, connu pour creuser ses galeries dans du bois humide provenant de certains arbres indigènes comme le hêtre, l'orme, le charme ou l'érable; il s'attaque aux troncs abattus et au bois mis en œuvre en milieu humide. Dès que le bois est sec, tout danger d'une nouvelle attaque est écarté, les conditions étant devenues défavorables au développement de l'insecte."""@fr .

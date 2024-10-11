@@ -1,0 +1,96 @@
+Section number: 2.4.2.10
+Section text:
+Pour des raisons de sécurité en cas d’incendie, les escaliers qui font partie des voies
+d’évacuation du bâtiment doivent avoir une largeur minimum calculée en fonction de
+l’occupation de l’immeuble (cf. § 2.2.2, p. 27). Une largeur utile requise ‘br’ de 0,80 m
+est un minimum absolu.
+
+L’emmarchement (ou largeur libre) nécessaire au passage d’une personne est de 0,55 à
+0,6 m, de façon à ce que les rampes puissent être atteintes aisément, même en cas de
+chute. Si l’escalier est plus large, les utilisateurs auront tendance à s’éloigner des rampes.
+
+Dans une habitation, la largeur de l’escalier est généralement de 0,8 à 1 m; elle peut être
+moindre pour un escalier peu fréquenté, comme celui menant à la cave ou au grenier. Les
+escaliers étroits présentent évidemment l’inconvénient de rendre malaisé le transport
+d’objets encombrants.
+
+Lorsque l’escalier est conçu pour un grand nombre d’utilisateurs, il y a lieu d’augmenter
+l’emmarchement, de façon à permettre le passage simultané de plusieurs personnes : un
+emmarchement de 1,2 m permet le passage aisé de deux personnes à la fois (figure 32).
+
+
+
+                 0,8 m             1,2 m                     1,8 m
+
+
+
+
+
+             Fig. 32 Emmarchement selon le nombre d’utilisateurs (d’après Neufert) [40].
+
+
+
+                                    41  NIT 198 – décembre 1995
+                                                                                 150 mm
+    2.4.2.11   ECHAPPÉE                                                                       Fig. 33
+                                                                                                      Descente
+                                                                                                         aisée d’un
+    Pour éviter que les utilisateurs ne se heurtent aux                                                     escalier.
+    éléments situés dans la partie supérieure de l’esca-
+      lier, surtout lors de la descente, on prévoit une
+    hauteur de passage minimale appelée échappée.
+   Une descente aisée n’est possible que si le corps
+    peut se mouvoir sans entrave au-dessus d’un plan
+    déterminé par des lignes parallèles au nez des
+    marches à une distance horizontale d’au moins
+    150 mm (figure 33). En principe, l’échappée doit
+     être de l’ordre de 2,1 m au moins.
+
+
+    2.4.2.12    PALIER
+
+    Pour pouvoir monter un escalier sans fatigue, on
+     limite en général une volée à 17 marches au maxi-
+   mum [32]. Les escaliers comptant plus de 17 mar-
+    ches sont interrompus, selon le cas, par un ou plu-
+     sieurs paliers. Les escaliers ‘lents’ (à faible pente),
+    où les marches sont basses et profondes (comme dans les bâtiments publics, par exem-
+     ple), peuvent comporter un plus grand nombre de marches par volée.
+
+    L’escalier classique possède de 15 à 17 marches pour une hauteur d’étage d’environ
+    2,70 m (d’un plancher à l’autre). Lorsque la hauteur entre étages est plus élevée, on
+    prévoit habituellement un palier, dont l’emplacement dépendra de l’espace disponible
+     (figure 34) et du nombre total de marches.
+
+   Dans l’escalier à paliers intermédiaires (figure 7E, p. 11), on prévoit en général toutes les
+    10 à 12 marches un palier dont la longueur correspond au minimum à 3 fois le giron ou,
+    mieux encore, à 2 hauteurs de marche et 2 girons. De plus, chaque volée possède un nombre
+    de marches identique, de préférence pair, de façon à alterner l’usage des deux pieds à
+    chaque départ; le fait de démarrer systématiquement du même pied, après chaque palier,
+    peut être source de fatigue et donc de danger lorsque l’escalier compte plusieurs volées.
+
+   Dans l’escalier à quartier tournant et palier de repos, la largeur du palier est égale à la
+    largeur de l’escalier, augmentée de 100 à 250 mm. De plus, sa forme sera fonction de la
+    position des marches et de la ligne de foulée (figure 35).
+
+
+
+         A. PALIER AU DÉBUT                  B. PALIER DANS LA DERNIÈRE PARTIE              C. PALIER À MI-NIVEAU
+
+
+
+
+
+Fig. 34 Escaliers à palier.
+
+
+
+                                       42   NIT 198 – décembre 1995
+Fig. 35 Forme du palier.
+
+
+
+
+
+Selon le RGPT, la profondeur minimale d’un palier s’élève à 1 m, qu’il s’agisse d’un
+escalier à quartier tournant et palier de repos ou d’un escalier demi-tournant.

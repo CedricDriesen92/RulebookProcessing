@@ -1,0 +1,77 @@
+Section number: 2.2.2.2
+Section text:
+Le tableau 4 (p. 28) donne un bref aperçu des dispositions applicables aux escaliers
+intérieurs faisant fonction de chemins d’évacuation en cas d’incendie. Les prescriptions
+sont valables pour tous les bâtiments, à l’exception des maisons unifamiliales.
+
+La conception et la mise en œuvre des escaliers intérieurs doivent en outre répondre à un
+certain nombre d’exigences minimales complémentaires, à savoir :
+N giron : G = 200 mm minimum en tout point
+N hauteur des marches : H = 180 mm maximum
+N pente : maximum 75 % (angle maximum d’inclinaison α = 37°)
+N largeur utile : au moins 0,8 m, sans être inférieure à la largeur utile requise calculée
+   selon l’annexe technique n° 1 de l’AR du 07/07/1994.
+
+
+
+
+                                    27  NIT 198 – décembre 1995
+Tableau 4 Dispositions applicables, selon la hauteur du bâtiment, aux escaliers intérieurs faisant fonction de
+chemins d’évacuation en cas d’incendie.
+
+                         BÂTIMENT BAS           BÂTIMENT MOYEN           BÂTIMENT ÉLEVÉ        CRITÈRE                            h < 10 m            10 ≤ h ≤ 25 m               h > 25 m
+
+  Stabilité au feu             1/2 h                  1 h                   1 h
+
+ Contremarches                 –                       massives                   massives
+
+ Type               –  escalier droit            –  escalier droit               escalier droit
+  d’escalier           –  escalier tournant à       –  escalier tournant à
+                      marches balancées         marches balancées
+                       avec G = 240 mm min.     avec G = 240 mm min.
+                           sur la ligne de foulée et      sur la ligne de foulée et
+                    200 mm minimum en      200 mm minimum en
+                             tout autre point                tout autre point
+
+  Palier                         –                 l’ouverture de la porte ne    l’ouverture de la porte ne
+                                                   peut pas réduire la          peut pas réduire la
+                                                    largeur utile                 largeur utile
+
+  Réaction au feu du              –                  A2                  A2
+  revêtement de sol
+
+  Réaction au feu des             –                  A1                 A1
+  revêtements muraux
+
+
+La largeur utile des volées d’escaliers et des paliers de la cage d’escalier d’un même
+compartiment ne peut s’écarter de plus d’une unité de passage. Les escaliers sont pourvus
+de garde-corps de part et d’autre. Toutefois, un seul garde-corps peut suffire dans les
+escaliers dont la largeur utile est inférieure à 1,2 m, pour autant qu’il n’y ait aucun risque
+de chute.
+
+Les exigences relatives à la hauteur des marches, au giron et à la pente de l’escalier
+imposent des restrictions quant au choix de ces paramètres. Le tableau 5 illustre les
+combinaisons possibles entre hauteur de marche (H) et giron (G), compte tenu des critères
+imposés et de l’exigence 570 ≤ M ≤ 630 mm (voir § 2.4.2.3, p. 33).
+
+Tableau 5 Module du pas ‘M’ (en mm) en fonction de ‘H’ et de ‘G’, compte tenu des critères imposés [33] :
+H ≤180 mm, G ≥ 200 mm, angle d’inclinaison α ≤ 37°.
+
+                             G (mm)  H
+ (mm)      230  235  240  245  250  255  260  265  270  275  280  285  290  295  300
+
+ 180    –     –   600  605  610  615  620  625  630    –     –     –     –     –     –
+ 175    –   585  590  595  600  605  610  615  620  625  630    –     –     –     –
+ 170  570  575  580  585  590  595  600  605  610  615  620  625  630    –     –
+ 165    –     –   570  575  580  585  590  595  600  605  610  615  620  625  630
+ 160    –     –     –     –   570  575  580  585  590  595  600  605  610  615  620
+ 155    –     –     –     –     –     –   570  575  580  585  590  595  600  605  610
+ 150    –     –     –     –     –     –     –     –   570  575  580  585  590  595  600
+
+
+
+
+
+                                    28   NIT 198 – décembre 1995
+        HYGIÈNE, SANTÉ ET ENVIRONNEMENT2.3

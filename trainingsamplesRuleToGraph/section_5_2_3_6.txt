@@ -1,0 +1,67 @@
+Section number: 5.2.3.6
+Section text:
+Sur la vue en plan, on dessine la largeur de l’escalier, les limons, le noyau et la ligne de
+foulée (figure 103). On calcule la hauteur des marches et leur giron, puis on divise la ligne
+de foulée en autant de parties qu’il y a de girons.
+
+On trace ensuite la diagonale B-D du quartier; celle-ci coupe la ligne de foulée au
+point ‘M’.
+
+Le balancement peut être appliqué à douze marches, soit six marches de part et d’autre de
+la diagonale. On procède comme suit :
+
+N balancement des six marches situées avant le point ‘M’ (figure 103A) : le balancement
+   est déterminé sur la base d’une esquisse composée de deux droites se coupant
+   perpendiculairement. On reporte sur la ligne horizontale un segment A1-B1 égal à A-B
+    et, sur la ligne verticale, un segment A1-M1 équivalant à 5 fois le giron; on obtient ainsi
+   les points 7 à 11. On relie ces points au point B1 et on emploie A1 comme centre d’un
+   arc de cercle qui coupe la droite B1-M1 au point M2.
+
+                                                        Fig. 103 Balancement par la herse [46].
+
+
+
+       M
+                  12   13   14   15   16   17
+              11
+                 B
+            10
+                                                        j      i    h   g   C                                               f
+            9        e  k
+
+            8       d         A. BALANCEMENT DES 6 MARCHES    B. BALANCEMENT DES 6 MARCHES
+                                        SITUÉES AVANT LE POINT M           SITUÉES APRÈS LE POINT M
+                        c
+            7                                                          M1                         M1                    b
+            6
+                             11                                                12
+                  A
+            5                       N2                            G
+                             10                                 M2         13
+                                                                                        f                                          k
+                                                       G            4                          e                                                                                 j
+                              9                                                14
+                                    d                                                                                     i      G            3
+                              8     c                                           h   15
+                                                       G            2                                                             g                              7   b                                           16
+                                                       G
+            1
+                                                                               17
+                                 A1                         B1  B1                   C1
+
+                                    97  NIT 198 – décembre 1995
+  On trace ensuite la droite A1-M2 et on définit les points d’intersection ‘b, c, d, e et f’
+   entre le faisceau de droites et B1.
+
+  Les segments A1b, bc, cd, etc. sont reportés sur l’axe du limon de jour et ces points sont
+   reliés aux points de division sur la ligne de foulée
+
+N balancement des six marches situées après le point ‘M’ (figure 103B) : on se sert d’une
+   esquisse identique à celle décrite ci-avant. On reporte sur la ligne horizontale un
+  segment C1-B1 égal à C-B et, sur la ligne verticale, un segment C1-M1 équivalant à
+  5 fois le giron; on obtient ainsi les points 12 à 16.
+
+  On définit les points ‘g, h, i, j et k’ de la même manière que précédemment.
+
+  Les segments C1g, gh, hi, etc. sont ensuite reportés sur l’axe du limon de jour et ces
+   points sont reliés aux points de division sur la ligne de foulée.

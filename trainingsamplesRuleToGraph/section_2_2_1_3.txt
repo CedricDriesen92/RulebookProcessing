@@ -1,0 +1,97 @@
+Section number: 2.2.1.3
+Section text:
+Les escaliers faisant dans certains cas fonction de voies d’évacuation, ils constituent un
+élément essentiel de la protection contre l’incendie.
+
+De ce point de vue, les caractéristiques suivantes peuvent revêtir une certaine importan-
+ce : largeur utile requise, hauteur des marches, giron et/ou pente de l’escalier, réaction au
+feu des matériaux mis en œuvre (§ 2.2.1.5) et stabilité au feu de l’escalier (voir § 2.2.1.4).
+
+L’unité de passage est la largeur minimale requise pour le passage d’une personne. Elle
+est fixée par convention à 0,60 m. La largeur utile ‘br’ d’un chemin d’évacuation est la
+largeur libre de tout obstacle jusqu’à une hauteur d’au moins 2 m. On ne tient pas compte
+toutefois des saillies formées sur les murs par les plinthes, les limons et les socles lors-
+qu’elles ne dépassent pas 0,10 m et qu’elles ne surplombent pas les marches ou le
+plancher de plus de 1 m. La même règle s’applique aux garde-corps.
+
+Remarque : il convient de faire la distinction entre la notion de largeur utile ‘br’ définie
+par la norme belge NBN S 21-201 [23] et l’AR du 7/7/94 [33], d’une part, et la largeur
+libre ‘bv’ telle que définie par la norme NBN NEN 3509 [25], d’autre part (voir à titre
+d’exemple la figure 21, p. 26, et la définition, p. 9).
+
+
+
+
+
+                                    24   NIT 198 – décembre 1995
+La largeur utile théorique ‘bt’ (en m) d’un chemin d’évacuation est définie par la relation :
+                                       np                                   bt =a              (m)                                                                             n max.
+dans laquelle
+N ‘np’ est le nombre d’utilisateurs d’un compartiment quelconque desservi par le chemin
+   d’évacuation
+N ‘n’ est le nombre de cages d’escaliers ou d’escaliers donnant accès au compartiment
+    np                               npN             est la valeur maximale de      , compte tenu de tous les compartiments d’un                                 n       n max.
+  même étage desservis par le chemin d’évacuation
+N ‘a’ est un coefficient fictif de passage dépendant de la nature du chemin d’évacuation
+   (voir tableau 3).
+
+La largeur utile requise ‘br’ est calcu-  Tableau 3 Valeurs de ‘a’ selon la nature du chemin
+lée à l’aide de la formule suivante :     d’évacuation.
+                                            NATURE DU CHEMIN D’ÉVACUATION      a (en m)
+           bt      br =  int          x0,60   (m)      Chemin d’évacuation, porte, terrasse          0,01                       0,60 +1                        d’évacuation et chemin d’accès en pente
+
+                                                       Escalier descendant vers les issues          0,0125                          bt   dans laquelle le terme  int                                0,60        Escalier montant vers les issues               0,02                           
+                            btreprésente la valeur de      arrondie
+                     0,60
+à l’unité inférieure.
+
+La largeur utile requise pour les chemins d’évacuation est au minimum de 0,80 m (voir
+§ 2.2.2.2, p. 27).
+
+Un niveau d’évacuation ou niveau E comporte une ou plusieurs issues permettant une
+évacuation à l’extérieur. Les issues en question débouchent sur la voie publique ou sur un
+lieu donnant accès à la voie publique. Dans un bâtiment comportant plusieurs niveaux
+d’évacuation, on a :
+N Ei, le niveau d’évacuation inférieur
+N Es, le niveau d’évacuation supérieur.
+
+La largeur totale de la voie publique et/ou du lieu d’évacuation communiquant avec les
+chemins d’évacuation du bâtiment ne peut être inférieure à la largeur utile totale requise
+pour les chemins d’évacuation.
+
+
+EXEMPLE
+
+Un des étages d’un immeuble de bureaux comporte quatre compartiments d’une surface
+‘S’, desservis par deux cages d’escaliers permettant de descendre vers les issues (voir
+figure 20), l’un des compartiments (n° 1) étant un local à destination particulière (salle de
+                                                      S
+réunion de 100 personnes, nr = 100); pour les autres compartiments, np =      :                                                            10
+
+
+                                    25  NIT 198 – décembre 1995
+                                                                                                          np               COMPARTIMENT    S (m2)            np           n
+                                                                            n
+                    1          400          nr = 100       2         50
+
+                   2          400        40         1         40
+
+                   3          50         5          2           2,5
+
+                   4           50         5          1          5
+
+                   Surface totale :     900                maximum =      50
+
+Calculons la largeur utile requise ‘br’ :               Fig. 20 Vue en plan de l’étage.
+       np                                                                                                          brbt =a             (m)                                                      1             n max.                                                                 3
+bt = 50 x 0,0125 m                                                                                            br
+bt = 0,625 m                                           2          4
+
+          bt    br =  int          x0,60   (m)           Fig. 21 Largeur utile requise ‘br’ et largeur libre ‘bv’.         0,60 +1            
+  bt    0,625    =      =1,040,60    0,60
+      bt  int         0,60 =1
+         0,625   br =  int           x0,60          0,60 +1            
+br = 1,20 m.
+
+Cette largeur utile requise ‘br’ est indiquée à la figure 21, parallèlement à la largeur libre
+‘bv’ telle que définie par la norme NBN NEN 3509 [25].

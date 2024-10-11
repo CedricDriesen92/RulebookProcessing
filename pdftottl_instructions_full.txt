@@ -1,0 +1,2385 @@
+
+You are tasked with converting building code rulebook sections into Turtle (.ttl) format following the FireBIM Document Ontology. Here's the complete ontology for your reference:
+
+@prefix : <http://example.com/firebim#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim#> .
+
+<http://example.com/firebim> rdf:type owl:Ontology ;
+                              rdfs:comment "An ontology for representing fire safety regulations documents"@en ;
+                              rdfs:label "FireBIM Document Ontology"@en .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.com/firebim#hasAppendix
+firebim:hasAppendix rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf firebim:hasSubdivision ;
+                    rdfs:domain firebim:DocumentSubdivision ;
+                    rdfs:range firebim:Appendix ;
+                    rdfs:label "has appendix"@en .
+
+
+###  http://example.com/firebim#hasArticle
+firebim:hasArticle rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf firebim:hasSubdivision ;
+                   rdfs:domain firebim:Section ;
+                   rdfs:range firebim:Article ;
+                   rdfs:label "has article"@en .
+
+
+###  http://example.com/firebim#hasBackwardReference
+firebim:hasBackwardReference rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf firebim:hasReference ;
+                             owl:inverseOf firebim:hasForwardReference ;
+                             rdfs:domain firebim:DocumentSubdivision ;
+                             rdfs:range firebim:DocumentSubdivision ;
+                             rdfs:label "has backward reference"@en .
+
+
+###  http://example.com/firebim#hasChapter
+firebim:hasChapter rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf firebim:hasSubdivision ;
+                   rdfs:domain firebim:DocumentSubdivision ;
+                   rdfs:range firebim:Chapter ;
+                   rdfs:label "has chapter"@en .
+
+
+###  http://example.com/firebim#hasDocument
+firebim:hasDocument rdf:type owl:ObjectProperty ;
+                    rdfs:domain firebim:Authority ;
+                    rdfs:range firebim:Document ;
+                    rdfs:label "has document"@en .
+
+
+###  http://example.com/firebim#hasFigure
+firebim:hasFigure rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf firebim:hasSubdivision ;
+                  rdfs:domain firebim:DocumentSubdivision ;
+                  rdfs:range firebim:Figure ;
+                  rdfs:label "has figure"@en .
+
+
+###  http://example.com/firebim#hasForwardReference
+firebim:hasForwardReference rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf firebim:hasReference ;
+                            rdfs:domain firebim:DocumentSubdivision ;
+                            rdfs:range firebim:DocumentSubdivision ;
+                            rdfs:label "has forward reference"@en .
+
+
+###  http://example.com/firebim#hasMember
+firebim:hasMember rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf firebim:hasSubdivision ;
+                  rdfs:domain firebim:Article ,
+                              firebim:Member ;
+                  rdfs:range firebim:Member ;
+                  rdfs:label "has member"@en .
+
+
+###  http://example.com/firebim#hasParagraph
+firebim:hasParagraph rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf firebim:hasSubdivision ;
+                     rdfs:domain firebim:DocumentSubdivision ;
+                     rdfs:range firebim:Paragraph ;
+                     rdfs:label "has paragraph"@en .
+
+
+###  http://example.com/firebim#hasReference
+firebim:hasReference rdf:type owl:ObjectProperty ;
+                     rdfs:domain firebim:DocumentSubdivision ;
+                     rdfs:range firebim:DocumentSubdivision ,
+                                firebim:Reference ;
+                     rdfs:label "has reference"@en .
+
+
+###  http://example.com/firebim#hasSection
+firebim:hasSection rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf firebim:hasSubdivision ;
+                   rdfs:domain firebim:DocumentSubdivision ;
+                   rdfs:range firebim:Section ;
+                   rdfs:label "has section"@en .
+
+
+###  http://example.com/firebim#hasSubchapter
+firebim:hasSubchapter rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf firebim:hasSubdivision ;
+                      rdfs:domain firebim:DocumentSubdivision ;
+                      rdfs:range firebim:Subchapter ;
+                      rdfs:label "has subchapter"@en .
+
+
+###  http://example.com/firebim#hasSubdivision
+firebim:hasSubdivision rdf:type owl:ObjectProperty ,
+                                owl:TransitiveProperty ;
+                       rdfs:domain firebim:DocumentSubdivision ;
+                       rdfs:range firebim:DocumentSubdivision ;
+                       rdfs:label "has subdivision"@en .
+
+
+###  http://example.com/firebim#hasTable
+firebim:hasTable rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf firebim:hasSubdivision ;
+                 rdfs:domain firebim:DocumentSubdivision ;
+                 rdfs:range firebim:Table ;
+                 rdfs:label "has table"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://example.com/firebim#hasID
+firebim:hasID rdf:type owl:DatatypeProperty ;
+              rdfs:domain firebim:DocumentSubdivision ;
+              rdfs:range xsd:string ;
+              rdfs:label "has ID"@en .
+
+
+###  http://example.com/firebim#hasOriginalText
+firebim:hasOriginalText rdf:type owl:DatatypeProperty ;
+                        rdfs:domain firebim:DocumentSubdivision ;
+                        rdfs:range xsd:string ;
+                        rdfs:label "has original text"@en .
+
+
+###  http://example.com/firebim#issued
+firebim:issued rdf:type owl:DatatypeProperty ;
+               rdfs:domain firebim:Document ;
+               rdfs:range xsd:dateTime ;
+               rdfs:label "issued"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.com/firebim#Appendix
+firebim:Appendix rdf:type owl:Class ;
+                 rdfs:subClassOf firebim:Section ;
+                 rdfs:label "Appendix"@en .
+
+
+###  http://example.com/firebim#Article
+firebim:Article rdf:type owl:Class ;
+                rdfs:subClassOf firebim:DocumentSubdivision ;
+                rdfs:comment "A separate rule \"article\", a subdivision of a section as the smallest containing text of a rule."@en ;
+                rdfs:label "Article"@en .
+
+
+###  http://example.com/firebim#Authority
+firebim:Authority rdf:type owl:Class ;
+                  rdfs:comment "Represents the legal body that publishes and maintains the regulatory document"@en ;
+                  rdfs:label "Authority"@en .
+
+
+###  http://example.com/firebim#Chapter
+firebim:Chapter rdf:type owl:Class ;
+                rdfs:subClassOf firebim:Section ;
+                rdfs:label "Chapter"@en .
+
+
+###  http://example.com/firebim#Document
+firebim:Document rdf:type owl:Class ;
+                 rdfs:subClassOf firebim:DocumentSubdivision ;
+                 rdfs:comment "The individual document containing the rules, this can be a law, guidelines, etc."@en ;
+                 rdfs:label "Document"@en .
+
+
+###  http://example.com/firebim#DocumentSubdivision
+firebim:DocumentSubdivision rdf:type owl:Class ;
+                            rdfs:comment "Represents documents or parts of documents"@en ;
+                            rdfs:label "Document Subdivision"@en .
+
+
+###  http://example.com/firebim#Figure
+firebim:Figure rdf:type owl:Class ;
+               rdfs:subClassOf firebim:Section ;
+               rdfs:label "Figure"@en .
+
+
+###  http://example.com/firebim#Member
+firebim:Member rdf:type owl:Class ;
+               rdfs:subClassOf firebim:DocumentSubdivision ;
+               rdfs:comment "Typically holds the one or multiple bodies of text that an article exists of, the individual rule conditions."@en ;
+               rdfs:label "Member"@en .
+
+
+###  http://example.com/firebim#Paragraph
+firebim:Paragraph rdf:type owl:Class ;
+                  rdfs:subClassOf firebim:Section ;
+                  rdfs:label "Paragraph"@en .
+
+
+###  http://example.com/firebim#Reference
+firebim:Reference rdf:type owl:Class ;
+                  rdfs:comment "Represents references to other representations of the regulation, or similar regulations"@en ;
+                  rdfs:label "Reference"@en .
+
+
+###  http://example.com/firebim#Section
+firebim:Section rdf:type owl:Class ;
+                rdfs:subClassOf firebim:DocumentSubdivision ;
+                rdfs:comment "Any subdivision of a document, wether it's a large section itself, a subsection, a table, a figure, a paragraph..."@en ;
+                rdfs:label "Section"@en .
+
+
+###  http://example.com/firebim#Subchapter
+firebim:Subchapter rdf:type owl:Class ;
+                   rdfs:subClassOf firebim:Section ;
+                   rdfs:label "Subchapter"@en .
+
+
+###  http://example.com/firebim#Table
+firebim:Table rdf:type owl:Class ;
+              rdfs:subClassOf firebim:Section ;
+              rdfs:label "Table"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
+
+Here is some more info on the firebim ontology and how you should use it:
+
+The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the firebim:Authority (which represents the legal body that publishes and maintains the regulatory document), the firebim:DocumentSubdivision (which represents documents or parts of documents), and the firebim:Reference (which represents references to other representations of the regulation, or similar regulations). The firebim:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
+The created data graph should be modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can contain submembers, or they can have references to other members, using the firebim:hasBackwardReference and firebim:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
+
+Not every section needs to have their own sections/articles/members, if the section text is empty no articles are needed...
+In your .ttl, if your section is not a base numbered section (i.e. 0, 1, 2...) make a hasSection from the parent section to this section. Adding all originaltext, in order, from all DocumentSubdivisions should recreate the rules part of the document. For the section itself don't include the full originaltext, only the titles. Make everything that includes a subdivision of the title (e.g. 4.3.1.2 if you are doing section 4.3.1) its own section with as originaltext the title attached to the number, with the following text split up in articles, split up in members. NEVER repeat text, it should ALWAYS be used only once, ALL originaltext will be added automatically so any doubles ruin the format.
+The subsection parsing goes until level 3 (e.g. 1.3.2), so if you are dealing with section 1.3 do not try to define section 1.3.2, it only complicates things later on.
+Do not include prefix declarations or @base. Start directly with the triples for this section. Ensure the output is valid Turtle syntax that can be parsed when added to an existing graph.
+Depending on the language of the source text, make sure to add language tags where necessary. Do not translate the original text in any way, keep the source perfectly accurate.
+If a figure or table is implied in the text, make sure to declare it and add the required relations/properties. Even if you can't see it, it's still there.
+Make sure every article consists of AT LEAST 1 member, these are the rule building blocks. However, not every higher-level document subdivision necessarily needs an article, since articles are about rules and checks and requirements. Also, members can have their own members. Articles and members don't necessarily need to have an originaltext, otherwise a text is provided with the members further dividing the requirements.
+For text spanning multiple lines make sure to use triple quotes, as single codes will be invalid there. Also avoid using Paragraph, instead use Section.
+Format text to be logical, don't change the content but fix any obvious formatting errors.
+Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be combined with the .ttl files for the other sections, as well as the base file defining the authority and document this section is from:
+
+@prefix firebim: <http://example.com/firebim#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+firebim:Belgian_Government a firebim:Authority ;
+    firebim:hasDocument firebim:RoyalDecree .
+
+firebim:RoyalDecree a firebim:Document ;
+    firebim:hasID "RoyalDecree1994" ;
+    firebim:hasSection firebim:Section_0,
+        firebim:Section_1,
+        firebim:Section_2,
+        firebim:Section_3,
+        firebim:Section_4,
+        firebim:Section_5,
+        firebim:Section_6 ;
+    firebim:issued "1994-07-07"^^xsd:date .
+
+firebim:Section_0 a firebim:Section ;
+    firebim:hasID "0" ;
+    firebim:hasSection firebim:Section_0_1,
+        firebim:Section_0_2,
+        firebim:Section_0_3 .
+
+firebim:Section_0_1 a firebim:Section ;
+    firebim:hasID "0.1" .
+
+firebim:Section_0_2 a firebim:Section ;
+    firebim:hasID "0.2" ;
+    firebim:hasSection firebim:Section_0_2_1,
+        firebim:Section_0_2_2 .
+
+firebim:Section_0_2_1 a firebim:Section ;
+    firebim:hasID "0.2.1" .
+
+firebim:Section_0_2_2 a firebim:Section ;
+    firebim:hasID "0.2.2" .
+
+firebim:Section_0_3 a firebim:Section ;
+    firebim:hasID "0.3" .
+
+firebim:Section_1 a firebim:Section ;
+    firebim:hasID "1" ;
+    firebim:hasSection firebim:Section_1_1,
+        firebim:Section_1_2,
+        firebim:Section_1_3 .
+
+firebim:Section_1_1 a firebim:Section ;
+    firebim:hasID "1.1" .
+
+firebim:Section_1_2 a firebim:Section ;
+    firebim:hasID "1.2" .
+
+firebim:Section_1_3 a firebim:Section ;
+    firebim:hasID "1.3" .
+
+firebim:Section_2 a firebim:Section ;
+    firebim:hasID "2" ;
+    firebim:hasSection firebim:Section_2_1,
+        firebim:Section_2_2 .
+
+firebim:Section_2_1 a firebim:Section ;
+    firebim:hasID "2.1" .
+
+firebim:Section_2_2 a firebim:Section ;
+    firebim:hasID "2.2" ;
+    firebim:hasSection firebim:Section_2_2_1,
+        firebim:Section_2_2_2 .
+
+firebim:Section_2_2_1 a firebim:Section ;
+    firebim:hasID "2.2.1" .
+
+firebim:Section_2_2_2 a firebim:Section ;
+    firebim:hasID "2.2.2" .
+
+firebim:Section_3 a firebim:Section ;
+    firebim:hasID "3" ;
+    firebim:hasSection firebim:Section_3_1,
+        firebim:Section_3_2,
+        firebim:Section_3_3,
+        firebim:Section_3_4,
+        firebim:Section_3_5 .
+
+firebim:Section_3_1 a firebim:Section ;
+    firebim:hasID "3.1" .
+
+firebim:Section_3_2 a firebim:Section ;
+    firebim:hasID "3.2" .
+
+firebim:Section_3_3 a firebim:Section ;
+    firebim:hasID "3.3" .
+
+firebim:Section_3_4 a firebim:Section ;
+    firebim:hasID "3.4" ;
+    firebim:hasSection firebim:Section_3_4_1,
+        firebim:Section_3_4_2 .
+
+firebim:Section_3_4_1 a firebim:Section ;
+    firebim:hasID "3.4.1" .
+
+firebim:Section_3_4_2 a firebim:Section ;
+    firebim:hasID "3.4.2" .
+
+firebim:Section_3_5 a firebim:Section ;
+    firebim:hasID "3.5" ;
+    firebim:hasSection firebim:Section_3_5_1,
+        firebim:Section_3_5_2 .
+
+firebim:Section_3_5_1 a firebim:Section ;
+    firebim:hasID "3.5.1" .
+
+firebim:Section_3_5_2 a firebim:Section ;
+    firebim:hasID "3.5.2" .
+
+firebim:Section_4 a firebim:Section ;
+    firebim:hasID "4" ;
+    firebim:hasSection firebim:Section_4_1,
+        firebim:Section_4_2,
+        firebim:Section_4_3,
+        firebim:Section_4_4,
+        firebim:Section_4_5 .
+
+firebim:Section_4_1 a firebim:Section ;
+    firebim:hasID "4.1" .
+
+firebim:Section_4_2 a firebim:Section ;
+    firebim:hasID "4.2" ;
+    firebim:hasSection firebim:Section_4_2_1,
+        firebim:Section_4_2_2,
+        firebim:Section_4_2_3 .
+
+firebim:Section_4_2_1 a firebim:Section ;
+    firebim:hasID "4.2.1" .
+
+firebim:Section_4_2_2 a firebim:Section ;
+    firebim:hasID "4.2.2" .
+
+firebim:Section_4_2_3 a firebim:Section ;
+    firebim:hasID "4.2.3" .
+
+firebim:Section_4_3 a firebim:Section ;
+    firebim:hasID "4.3" .
+
+firebim:Section_4_4 a firebim:Section ;
+    firebim:hasID "4.4" ;
+    firebim:hasSection firebim:Section_4_4_1,
+        firebim:Section_4_4_2 .
+
+firebim:Section_4_4_1 a firebim:Section ;
+    firebim:hasID "4.4.1" .
+
+firebim:Section_4_4_2 a firebim:Section ;
+    firebim:hasID "4.4.2" .
+
+firebim:Section_4_5 a firebim:Section ;
+    firebim:hasID "4.5" .
+
+firebim:Section_5 a firebim:Section ;
+    firebim:hasID "5" ;
+    firebim:hasSection firebim:Section_5_1,
+        firebim:Section_5_2,
+        firebim:Section_5_3,
+        firebim:Section_5_4,
+        firebim:Section_5_5 .
+
+firebim:Section_5_1 a firebim:Section ;
+    firebim:hasID "5.1" ;
+    firebim:hasSection firebim:Section_5_1_1,
+        firebim:Section_5_1_2,
+        firebim:Section_5_1_3,
+        firebim:Section_5_1_4,
+        firebim:Section_5_1_5 .
+
+firebim:Section_5_1_1 a firebim:Section ;
+    firebim:hasID "5.1.1" .
+
+firebim:Section_5_1_2 a firebim:Section ;
+    firebim:hasID "5.1.2" .
+
+firebim:Section_5_1_3 a firebim:Section ;
+    firebim:hasID "5.1.3" .
+
+firebim:Section_5_1_4 a firebim:Section ;
+    firebim:hasID "5.1.4" .
+
+firebim:Section_5_1_5 a firebim:Section ;
+    firebim:hasID "5.1.5" .
+
+firebim:Section_5_2 a firebim:Section ;
+    firebim:hasID "5.2" ;
+    firebim:hasSection firebim:Section_5_2_1,
+        firebim:Section_5_2_2,
+        firebim:Section_5_2_3,
+        firebim:Section_5_2_4,
+        firebim:Section_5_2_5 .
+
+firebim:Section_5_2_1 a firebim:Section ;
+    firebim:hasID "5.2.1" .
+
+firebim:Section_5_2_2 a firebim:Section ;
+    firebim:hasID "5.2.2" .
+
+firebim:Section_5_2_3 a firebim:Section ;
+    firebim:hasID "5.2.3" .
+
+firebim:Section_5_2_4 a firebim:Section ;
+    firebim:hasID "5.2.4" .
+
+firebim:Section_5_2_5 a firebim:Section ;
+    firebim:hasID "5.2.5" .
+
+firebim:Section_5_3 a firebim:Section ;
+    firebim:hasID "5.3" ;
+    firebim:hasSection firebim:Section_5_3_1,
+        firebim:Section_5_3_2 .
+
+firebim:Section_5_3_1 a firebim:Section ;
+    firebim:hasID "5.3.1" .
+
+firebim:Section_5_3_2 a firebim:Section ;
+    firebim:hasID "5.3.2" .
+
+firebim:Section_5_4 a firebim:Section ;
+    firebim:hasID "5.4" .
+
+firebim:Section_5_5 a firebim:Section ;
+    firebim:hasID "5.5" .
+
+firebim:Section_6 a firebim:Section ;
+    firebim:hasID "6" ;
+    firebim:hasSection firebim:Section_6_1,
+        firebim:Section_6_2,
+        firebim:Section_6_3,
+        firebim:Section_6_4,
+        firebim:Section_6_5,
+        firebim:Section_6_6,
+        firebim:Section_6_7,
+        firebim:Section_6_8 .
+
+firebim:Section_6_1 a firebim:Section ;
+    firebim:hasID "6.1" ;
+    firebim:hasSection firebim:Section_6_1_1,
+        firebim:Section_6_1_2,
+        firebim:Section_6_1_3,
+        firebim:Section_6_1_4 .
+
+firebim:Section_6_1_1 a firebim:Section ;
+    firebim:hasID "6.1.1" .
+
+firebim:Section_6_1_2 a firebim:Section ;
+    firebim:hasID "6.1.2" .
+
+firebim:Section_6_1_3 a firebim:Section ;
+    firebim:hasID "6.1.3" .
+
+firebim:Section_6_1_4 a firebim:Section ;
+    firebim:hasID "6.1.4" .
+
+firebim:Section_6_2 a firebim:Section ;
+    firebim:hasID "6.2" ;
+    firebim:hasSection firebim:Section_6_2_1,
+        firebim:Section_6_2_2 .
+
+firebim:Section_6_2_1 a firebim:Section ;
+    firebim:hasID "6.2.1" .
+
+firebim:Section_6_2_2 a firebim:Section ;
+    firebim:hasID "6.2.2" .
+
+firebim:Section_6_3 a firebim:Section ;
+    firebim:hasID "6.3" ;
+    firebim:hasSection firebim:Section_6_3_1,
+        firebim:Section_6_3_2,
+        firebim:Section_6_3_3,
+        firebim:Section_6_3_4 .
+
+firebim:Section_6_3_1 a firebim:Section ;
+    firebim:hasID "6.3.1" .
+
+firebim:Section_6_3_2 a firebim:Section ;
+    firebim:hasID "6.3.2" .
+
+firebim:Section_6_3_3 a firebim:Section ;
+    firebim:hasID "6.3.3" .
+
+firebim:Section_6_3_4 a firebim:Section ;
+    firebim:hasID "6.3.4" .
+
+firebim:Section_6_4 a firebim:Section ;
+    firebim:hasID "6.4" ;
+    firebim:hasSection firebim:Section_6_4_1,
+        firebim:Section_6_4_2,
+        firebim:Section_6_4_3 .
+
+firebim:Section_6_4_1 a firebim:Section ;
+    firebim:hasID "6.4.1" .
+
+firebim:Section_6_4_2 a firebim:Section ;
+    firebim:hasID "6.4.2" .
+
+firebim:Section_6_4_3 a firebim:Section ;
+    firebim:hasID "6.4.3" .
+
+firebim:Section_6_5 a firebim:Section ;
+    firebim:hasID "6.5" ;
+    firebim:hasSection firebim:Section_6_5_1,
+        firebim:Section_6_5_2,
+        firebim:Section_6_5_3,
+        firebim:Section_6_5_4 .
+
+firebim:Section_6_5_1 a firebim:Section ;
+    firebim:hasID "6.5.1" .
+
+firebim:Section_6_5_2 a firebim:Section ;
+    firebim:hasID "6.5.2" .
+
+firebim:Section_6_5_3 a firebim:Section ;
+    firebim:hasID "6.5.3" .
+
+firebim:Section_6_5_4 a firebim:Section ;
+    firebim:hasID "6.5.4" .
+
+firebim:Section_6_6 a firebim:Section ;
+    firebim:hasID "6.6" .
+
+firebim:Section_6_7 a firebim:Section ;
+    firebim:hasID "6.7" ;
+    firebim:hasSection firebim:Section_6_7_1,
+        firebim:Section_6_7_2,
+        firebim:Section_6_7_3,
+        firebim:Section_6_7_4,
+        firebim:Section_6_7_5,
+        firebim:Section_6_7_6 .
+
+firebim:Section_6_7_1 a firebim:Section ;
+    firebim:hasID "6.7.1" .
+
+firebim:Section_6_7_2 a firebim:Section ;
+    firebim:hasID "6.7.2" .
+
+firebim:Section_6_7_3 a firebim:Section ;
+    firebim:hasID "6.7.3" .
+
+firebim:Section_6_7_4 a firebim:Section ;
+    firebim:hasID "6.7.4" .
+
+firebim:Section_6_7_5 a firebim:Section ;
+    firebim:hasID "6.7.5" .
+
+firebim:Section_6_7_6 a firebim:Section ;
+    firebim:hasID "6.7.6" .
+
+firebim:Section_6_8 a firebim:Section ;
+    firebim:hasID "6.8" ;
+    firebim:hasSection firebim:Section_6_8_1,
+        firebim:Section_6_8_2,
+        firebim:Section_6_8_3,
+        firebim:Section_6_8_4,
+        firebim:Section_6_8_5 .
+
+firebim:Section_6_8_1 a firebim:Section ;
+    firebim:hasID "6.8.1" .
+
+firebim:Section_6_8_2 a firebim:Section ;
+    firebim:hasID "6.8.2" .
+
+firebim:Section_6_8_3 a firebim:Section ;
+    firebim:hasID "6.8.3" .
+
+firebim:Section_6_8_4 a firebim:Section ;
+    firebim:hasID "6.8.4" .
+
+firebim:Section_6_8_5 a firebim:Section ;
+    firebim:hasID "6.8.5" .
+
+
+
+Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following this ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned.
+
+Section number: 0
+Section text:
+ALGEMEEN.
+
+
+Here are some examples of how to convert sections to Turtle format. Note, follow the style used here as a very strong reference. Don't be afraid to nest members where necessary. Examples:
+
+Input:
+Section number: 0
+Section text:
+
+Expected output:
+firebim:Section_0 a firebim:Section ;
+    firebim:hasID "0" ;
+    firebim:hasOriginalText "ALGEMEEN."@nl .
+
+
+Input:
+Section number: 0.1
+Section text:
+Deze basisreglementering bepaalt de              minimale eisen waaraan de opvatting, de bouw en de
+            inrichting van lage gebouwen (LG) moeten voldoen om:
+            -    het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;
+            -    de veiligheid van de aanwezigen te waarborgen;
+            -    preventief het ingrijpen van de brandweer te vergemakkelijken.
+
+Expected output:
+firebim:Section_0_1 a firebim:Section ;
+    firebim:hasID "0.1" ;
+    firebim:hasOriginalText "Doel."@nl ;
+    firebim:hasArticle firebim:Article_0_1_1 .
+
+firebim:Article_0_1_1 a firebim:Article ;
+    firebim:hasID "A0.1.1" ;
+    firebim:hasOriginalText """Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de bouw en de
+inrichting van lage gebouwen (LG) moeten voldoen om:"""@nl ;
+    firebim:hasMember firebim:Member_0_1_1_1, firebim:Member_0_1_1_2, firebim:Member_0_1_1_3 .
+
+firebim:Member_0_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;"@nl .
+
+firebim:Member_0_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "de veiligheid van de aanwezigen te waarborgen;"@nl .
+
+firebim:Member_0_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText "preventief het ingrijpen van de brandweer te vergemakkelijken."@nl .
+
+
+Input:
+Section number: 0.2
+Section text:
+
+Expected output:
+firebim:Section_0_2 a firebim:Section ;
+    firebim:hasID "0.2" ;
+    firebim:hasOriginalText "Toepassingsgebied."@nl .
+
+
+Input:
+Section number: 0.2.1
+Section text:
+uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend
+            vanaf 1 december 2012:
+            1.   de lage gebouwen;
+            2.   de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;
+            3.   de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan
+                 de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:
+                 -    in  het  gebouw  hoofdzakelijk  niet-industriële  activiteiten  plaats  vinden  en  de  totale
+                      oppervlakte  van  de  lokalen  met  industriële  activiteit  kleiner  is  dan  de  overblijvende
+                      oppervlakte van het gebouw;
+                 -    de  industriële  activiteiten  in  deze  lokalen  de  niet-industriële  activiteiten  in  hetzelfde
+                      compartiment ondersteunen;
+                 -    er  geen  lokalen  met  nachtbezetting  zijn  in  het  compartiment  waarin  er  industriële
+                      activiteiten plaatsvinden.
+
+Expected output:
+firebim:Section_0_2_1 a firebim:Section ;
+    firebim:hasID "0.2.1" ;
+    firebim:hasArticle firebim:Article_0_2_1_1 .
+
+firebim:Article_0_2_1_1 a firebim:Article ;
+    firebim:hasID "A0.2.1.1" ;
+    firebim:hasOriginalText """Deze bijlage is van toepassing op de volgende op te richten gebouwen en de volgende
+uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend
+vanaf 1 december 2012:"""@nl ;
+    firebim:hasMember firebim:Member_0_2_1_1_1, firebim:Member_0_2_1_1_2, firebim:Member_0_2_1_1_3 .
+
+firebim:Member_0_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "1.   de lage gebouwen;"@nl .
+
+firebim:Member_0_2_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "2.   de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;"@nl .
+
+firebim:Member_0_2_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """3.   de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan
+     de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:"""@nl ;
+    firebim:hasMember firebim:Member_0_2_1_1_3_1, firebim:Member_0_2_1_1_3_2, firebim:Member_0_2_1_1_3_3 .
+
+firebim:Member_0_2_1_1_3_1 a firebim:Member ;
+    firebim:hasOriginalText """in het gebouw hoofdzakelijk niet-industriële activiteiten plaats vinden en de totale
+          oppervlakte van de lokalen met industriële activiteit kleiner is dan de overblijvende
+          oppervlakte van het gebouw;"""@nl .
+
+firebim:Member_0_2_1_1_3_2 a firebim:Member ;
+    firebim:hasOriginalText """de industriële activiteiten in deze lokalen de niet-industriële activiteiten in hetzelfde
+          compartiment ondersteunen;"""@nl .
+
+firebim:Member_0_2_1_1_3_3 a firebim:Member ;
+    firebim:hasOriginalText """er geen lokalen met nachtbezetting zijn in het compartiment waarin er industriële
+          activiteiten plaatsvinden."""@nl .
+
+firebim:Section_0_2 firebim:hasSection firebim:Section_0_2_1 .
+
+
+Input:
+Section number: 0.2.2
+Section text:
+1.   de industriegebouwen;
+            2.   de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner
+                 dan of gelijk aan 100 m²;
+            3.   de eengezinswoningen.
+
+Expected output:
+firebim:Section_0_2_2 a firebim:Section ;
+    firebim:hasID "0.2.2" ;
+    firebim:hasArticle firebim:Article_0_2_2_1 .
+
+firebim:Article_0_2_2_1 a firebim:Article ;
+    firebim:hasID "A0.2.2.1" ;
+    firebim:hasOriginalText """Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:"""@nl ;
+    firebim:hasMember firebim:Member_0_2_2_1_1, firebim:Member_0_2_2_1_2, firebim:Member_0_2_2_1_3 .
+
+firebim:Member_0_2_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText "1.   de industriegebouwen;"@nl .
+
+firebim:Member_0_2_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """2.   de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner
+                 dan of gelijk aan 100 m²;"""@nl .
+
+firebim:Member_0_2_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText "3.   de eengezinswoningen."@nl .
+
+firebim:Section_0_2 firebim:hasSection firebim:Section_0_2_2 .
+
+
+Input:
+Section number: 0.3
+Section text:
+Plaat 2.1 - Gevels tussen gebouwen
+            Plaat 2.2 - Gevels tussen compartimenten
+
+Expected output:
+firebim:Section_0_3 a firebim:Section ;
+    firebim:hasID "0.3" ;
+    firebim:hasOriginalText "Platen"@nl ;
+    firebim:hasSection firebim:Section_0_3_1 .
+
+firebim:Section_0_3_1 a firebim:Section ;
+    firebim:hasID "0.3.1" ;
+    firebim:hasOriginalText """[De platen zijn opgenomen bij de betreffende tekst]
+Plaat 2.1 - Gevels tussen gebouwen
+Plaat 2.2 - Gevels tussen compartimenten"""@nl ;
+    firebim:hasFigure firebim:Figure_2_1, firebim:Figure_2_2 .
+
+firebim:Figure_2_1 a firebim:Figure ;
+    firebim:hasID "F2.1" ;
+    firebim:hasOriginalText "Plaat 2.1 - Gevels tussen gebouwen"@nl .
+
+firebim:Figure_2_2 a firebim:Figure ;
+    firebim:hasID "F2.2" ;
+    firebim:hasOriginalText "Plaat 2.2 - Gevels tussen compartimenten"@nl .
+
+firebim:Section_0 firebim:hasSection firebim:Section_0_3 .
+
+
+Input:
+Section number: 1
+Section text:
+De toegangswegen bedoeld in punt 1.1 worden bepaald in akkoord met de brandweer, volgens de
+            volgende leidraad.
+
+Expected output:
+firebim:Section_1 a firebim:Section ;
+    firebim:hasID "1" ;
+    firebim:hasOriginalText "INPLANTING EN TOEGANGSWEGEN."@nl ;
+    firebim:hasArticle firebim:Article_1_1 .
+
+firebim:Article_1_1 a firebim:Article ;
+    firebim:hasID "A1.1" ;
+    firebim:hasMember firebim:Member_1_1_1 .
+
+firebim:Member_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De toegangswegen bedoeld in punt 1.1 worden bepaald in akkoord met de brandweer, volgens de
+volgende leidraad."""@nl .
+
+
+Input:
+Section number: 1.1
+Section text:
+Voor de gebouwen met één bouwlaag moeten de voertuigen van de brandweer ten minste tot op
+            60 m van een gevel van het gebouw kunnen naderen.
+            Voor de gebouwen met meer dan één bouwlaag moeten de voertuigen van de brandweer ten
+            minste in één punt een gevel kunnen bereiken die op herkenbare plaatsen toegang geeft tot
+                                                                                                                            45/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                     (v3.0)
+                                                                                   Federale Overheidsdienst Binnenlandse Zaken
+                                                                               Algemene Directie Civiele Veiligheid – Brandpreventie
+                                              BIJLAGE 2/1: LAGE GEBOUWEN
+            iedere bouwlaag.
+            Daartoe moeten de voertuigen beschikken over een toegangsmogelijkheid en een opstelplaats:
+            a)   ofwel op de berijdbare rijweg van de openbare weg;
+            b)   ofwel op een bijzondere toegangsweg vanaf de berijdbare rijweg van de openbare weg en die
+                 de volgende karakteristieken vertoont:
+                 -    minimale vrije breedte: 4 m;
+                 -    minimale  draaicirkel  met  draaistraal  11 m  (aan  de  binnenkant)  en  15 m  (aan  de
+                      buitenkant);
+                 -    minimale vrije hoogte: 4 m;
+                 -    maximale helling: 6%;
+                 -    draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting
+                      van 13t er kunnen rijden en stilstaan, zelfs wanneer ze het terrein vervormen.
+                      Voor de kunstwerken welke zich op de toegangswegen bevinden, richt men zich naar
+                      NBN B 03-101.
+
+Expected output:
+firebim:Section_1_1 a firebim:Section ;
+    firebim:hasID "1.1" ;
+    firebim:hasOriginalText "Bereikbaarheid en opstelmogelijkheden brandweer"@nl ;
+    firebim:hasArticle firebim:Article_1_1_1 .
+
+firebim:Section_1 firebim:hasSection firebim:Section_1_1 .
+
+firebim:Article_1_1_1 a firebim:Article ;
+    firebim:hasID "A1.1.1" ;
+    firebim:hasMember firebim:Member_1_1_1_1, firebim:Member_1_1_1_2, firebim:Member_1_1_1_3, firebim:Member_1_1_1_4 .
+
+firebim:Member_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Voor de gebouwen met één bouwlaag moeten de voertuigen van de brandweer ten minste tot op
+60 m van een gevel van het gebouw kunnen naderen."""@nl .
+
+firebim:Member_1_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Voor de gebouwen met meer dan één bouwlaag moeten de voertuigen van de brandweer ten
+minste in één punt een gevel kunnen bereiken die op herkenbare plaatsen toegang geeft tot
+iedere bouwlaag."""@nl .
+
+firebim:Member_1_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Daartoe moeten de voertuigen beschikken over een toegangsmogelijkheid en een opstelplaats:"""@nl ;
+    firebim:hasMember firebim:Member_1_1_1_3_1, firebim:Member_1_1_1_3_2, firebim:Member_1_1_1_3_3 .
+
+firebim:Member_1_1_1_3_1 a firebim:Member ;
+    firebim:hasOriginalText "a)   ofwel op de berijdbare rijweg van de openbare weg;"@nl .
+
+firebim:Member_1_1_1_3_2 a firebim:Member ;
+    firebim:hasOriginalText """b)   ofwel op een bijzondere toegangsweg vanaf de berijdbare rijweg van de openbare weg en die
+     de volgende karakteristieken vertoont:"""@nl ;
+    firebim:hasMember firebim:Member_1_1_1_3_2_1, firebim:Member_1_1_1_3_2_2, firebim:Member_1_1_1_3_2_3, firebim:Member_1_1_1_3_2_4, firebim:Member_1_1_1_3_2_5 .
+
+firebim:Member_1_1_1_3_2_1 a firebim:Member ;
+    firebim:hasOriginalText "minimale vrije breedte: 4 m;"@nl .
+
+firebim:Member_1_1_1_3_2_2 a firebim:Member ;
+    firebim:hasOriginalText "minimale  draaicirkel  met  draaistraal  11 m  (aan  de  binnenkant)  en  15 m  (aan  de  buitenkant);"@nl .
+
+firebim:Member_1_1_1_3_2_3 a firebim:Member ;
+    firebim:hasOriginalText "minimale vrije hoogte: 4 m;"@nl .
+
+firebim:Member_1_1_1_3_2_4 a firebim:Member ;
+    firebim:hasOriginalText "maximale helling: 6%;"@nl .
+
+firebim:Member_1_1_1_3_2_5 a firebim:Member ;
+    firebim:hasOriginalText """draagvermogen: derwijze dat voertuigen, zonder verzinken, met een maximale asbelasting
+          van 13t er kunnen rijden en stilstaan, zelfs wanneer ze het terrein vervormen."""@nl .
+
+firebim:Member_1_1_1_3_3 a firebim:Member ;
+    firebim:hasOriginalText """Voor de kunstwerken welke zich op de toegangswegen bevinden, richt men zich naar
+          NBN B 03-101."""@nl .
+
+firebim:Member_1_1_1_3_3 firebim:hasReference firebim:Reference_NBN_B_03_101 .
+
+firebim:Reference_NBN_B_03_101 a firebim:Reference ;
+    firebim:hasID "NBN B 03-101" .
+
+
+Input:
+Section number: 1.2
+Section text:
+Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen
+            zijn enkel   toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
+            noch de actie van de brandweer in het gedrang komen.
+
+Expected output:
+firebim:Section_1_2 a firebim:Section ;
+    firebim:hasID "1.2" ;
+    firebim:hasOriginalText "Bijgebouwen"@nl ;
+    firebim:hasArticle firebim:Article_1_2_1 .
+
+firebim:Section_1 firebim:hasSection firebim:Section_1_2 .
+
+firebim:Article_1_2_1 a firebim:Article ;
+    firebim:hasID "A1.2.1" ;
+    firebim:hasMember firebim:Member_1_2_1_1 .
+
+firebim:Member_1_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen
+zijn enkel toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
+noch de actie van de brandweer in het gedrang komen."""@nl .
+
+
+Input:
+Section number: 1.3
+Section text:
+Om te vermijden dat een brand tussen twee gebouwen kan overslaan:
+            a)   ofwel,   als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan
+                 bedraagt de afstand (in m) tussen de geveldelen die niet minstens EI 60 of REI 60 hebben,
+                 ten minste:
+                      h + 10cos   α voor 0° ≤  ≤ 90°
+                       2,5
+                      0 voor 90° < ≤ 180°
+                 waarbij  de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.1).
+                 Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is
+                                                                                                                            46/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                     (v3.0)
+                                                                                  Federale Overheidsdienst Binnenlandse Zaken
+                                                                               Algemene Directie Civiele Veiligheid – Brandpreventie
+                                              BIJLAGE 2/1: LAGE GEBOUWEN
+                 een horizontale afstand tussen de gebouwen van 6 m voldoende.
+            b)   ofwel mag de straling van        een brand van een gebouw op een tegenoverstaand gebouw, en
+                 omgekeerd, niet meer dan 15 kW/m² bedragen.
+            De wanden die aangrenzende gebouwen scheiden hebben EI 60, of REI 60 wanneer ze dragend
+            zijn.
+            In  deze  wanden  mag  een  verbinding  tussen  deze  gebouwen                   bestaan  via  een  deur  EI1 30,
+            zelfsluitend of zelfsluitend in geval van brand.
+            De voorwaarde van de afstand tussen een laag gebouw en een tegenoverstaand gebouw geldt
+            niet  voor  gebouwen  die  van  elkaar  gescheiden  worden  door  bestaande  straten,  wegen,...
+            behorende tot het openbaar domein.
+
+Expected output:
+firebim:Section_1_3 a firebim:Section ;
+    firebim:hasID "1.3" ;
+    firebim:hasOriginalText "Horizontale afstand tussen gebouwen"@nl ;
+    firebim:hasArticle firebim:Article_1_3_1.
+
+firebim:Section_1 firebim:hasSection firebim:Section_1_3 .
+
+firebim:Article_1_3_1 a firebim:Article ;
+    firebim:hasID "A1.3.1" ;
+    firebim:hasOriginalText "Om te vermijden dat een brand tussen twee gebouwen kan overslaan:"@nl ;
+    firebim:hasMember firebim:Member_1_3_1_1, firebim:Member_1_3_1_2 , firebim:Member_1_3_1_3 ;
+    firebim:hasFigure firebim:Figure_2_1 .
+
+firebim:Member_1_3_1_1 a firebim:Member ;
+    firebim:hasMember firebim:Member_1_3_1_1_1, firebim:Member_1_3_1_1_2 .
+
+firebim:Member_1_3_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """a)   ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan
+                 bedraagt de afstand (in m) tussen de geveldelen die niet minstens EI 60 of REI 60 hebben,
+                 ten minste:
+                      (h + 10)/2.5 cos(α) voor 0° ≤ α ≤ 90°
+                      0 voor 90° < α ≤ 180° waarbij α de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.1)."""@nl ;
+    firebim:hasMember firebim:Member_1_3_1_1_1_1 ;
+    firebim:hasFigure firebim:Figure_2_1 .
+    
+firebim:Member_1_3_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is
+                 een horizontale afstand tussen de gebouwen van 6 m voldoende."""@nl .
+
+firebim:Member_1_3_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """b)   ofwel mag de straling van        een brand van een gebouw op een tegenoverstaand gebouw, en
+                 omgekeerd, niet meer dan 15 kW/m² bedragen."""@nl .
+
+firebim:Figure_2_1 a firebim:Figure ;
+    firebim:hasID "F2.1" .
+
+firebim:Member_1_3_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De wanden die aangrenzende gebouwen scheiden hebben EI 60, of REI 60 wanneer ze dragend
+            zijn. 
+            In  deze  wanden  mag  een  verbinding  tussen  deze  gebouwen                   bestaan  via  een  deur  EI1 30,
+            zelfsluitend of zelfsluitend in geval van brand."""@nl .
+
+firebim:Member_1_3_1_3 a firebim:Member ;
+    firebim:hasOriginalText """De voorwaarde van de afstand tussen een laag gebouw en een tegenoverstaand gebouw geldt
+            niet  voor  gebouwen  die  van  elkaar  gescheiden  worden  door  bestaande  straten,  wegen,...
+            behorende tot het openbaar domein."""@nl .
+
+
+Input:
+Section number: 2
+Section text:
+
+Expected output:
+firebim:Section_2 a firebim:Section ;
+    firebim:hasID "2" ;
+    firebim:hasOriginalText "COMPARTIMENTERING EN EVACUATIE."@nl .
+
+
+Input:
+Section number: 2.1
+Section text:
+Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500                           m², met
+            uitzondering van de parkings (zie 5.2).
+            De maximale       oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag
+            3500 m² bedragen. De lengte van dit compartiment bedraagt niet meer dan 90 m.
+            De maximale oppervlakte van een compartiment mag,                   respectievelijk, groter dan ofwel 2500 m²,
+            ofwel 3500 m² bedragen indien het compartiment is uitgerust met een automatische blusinstallatie
+            en een rook- en warmteafvoerinstallatie.
+            De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk
+            zijn op de grootte van het compartiment respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat
+            een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden.
+            De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag.
+            De volgende uitzonderingen zijn nochtans toegestaan:
+            a)   de parking met bouwlagen (zie 5.2);
+            b)   een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een
+                 binnenverbindingstrap (duplex), indien de gecumuleerde oppervlakte van die bouwlagen niet
+                 groter is dan 2500 m²;
+            c)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over  drie  boven  elkaar  gelegen
+                 bouwlagen met een binnenverbindingstrap (triplex), voor zover de som van hun gecumuleerde
+                 oppervlakte  de  300  m²  niet  overschrijdt,  en  dat  dit  compartiment  is              uitgerust  met  een
+                 automatische branddetectie van het type totale bewaking die automatisch een aanduiding van
+                 de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico's;
+            d)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over                verscheidene  boven  elkaar
+                 geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1)                   .
+            e)   de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium)
+                 op voorwaarde:
+                 -    dat dit compartiment is uitgerust         met een automatische blusinstallatie en een rook-               en
+                      warmteafvoerinstallatie. De Minister van Binnenlandse Zaken bepaalt de voorwaarden
+                      waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische
+                      blusinstallatie en een rook- en warmteafvoerinstallatie;
+                                                                                                                          47/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                    (v3.0)
+                                                                                   Federale Overheidsdienst Binnenlandse Zaken
+                                                                                Algemene Directie Civiele Veiligheid – Brandpreventie
+                                              BIJLAGE 2/1: LAGE GEBOUWEN
+            De  Minister  van  Binnenlandse  Zaken  bepaalt  de  voorwaarden  waaraan  de  automatische
+            blusinstallatie en rook- en warmteafvoerinstallatie moeten voldoen.
+
+Expected output:
+firebim:Section_2_1 a firebim:Section ;
+    firebim:hasID "2.1" ;
+    firebim:hasOriginalText "Grootte van de compartimenten"@nl ;
+    firebim:hasArticle firebim:Article_2_1_1, firebim:Article_2_1_2 .
+
+firebim:Section_2 firebim:hasSection firebim:Section_2_1 .
+
+firebim:Article_2_1_1 a firebim:Article ;
+    firebim:hasID "A2.1.1" ;
+    firebim:hasMember firebim:Member_2_1_1_1, firebim:Member_2_1_1_2, firebim:Member_2_1_1_3, firebim:Member_2_1_1_4 .
+
+firebim:Member_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m², met uitzondering van de parkings (zie 5.2)."@nl ;
+    firebim:hasForwardReference firebim:Section_5_2.
+
+firebim:Member_2_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag 3500 m² bedragen."@nl .
+
+firebim:Member_2_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText "De lengte van dit compartiment bedraagt niet meer dan 90 m."@nl .
+    
+firebim:Member_2_1_1_4 a firebim:Member ;
+    firebim:hasOriginalText """De maximale oppervlakte van een compartiment mag, respectievelijk, groter dan ofwel 2500 m²,
+ofwel 3500 m² bedragen indien het compartiment is uitgerust met een automatische blusinstallatie
+en een rook- en warmteafvoerinstallatie."""@nl ;
+    firebim:hasMember firebim:Member_2_1_1_4_1.
+
+firebim:Member_2_1_1_4_1 a firebim:Member ;
+    firebim:hasOriginalText """De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk
+zijn op de grootte van het compartiment respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat
+een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden."""@nl .
+
+firebim:Article_2_1_2 a firebim:Article ;
+    firebim:hasID "A2.1.2" ;
+    firebim:hasMember firebim:Member_2_1_2_1, firebim:Member_2_1_2_2 .
+
+firebim:Member_2_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag."@nl .
+
+firebim:Member_2_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText """De volgende uitzonderingen zijn nochtans toegestaan:"""@nl ;
+    firebim:hasMember firebim:Member_2_1_2_2_1, firebim:Member_2_1_2_2_2, firebim:Member_2_1_2_2_3, firebim:Member_2_1_2_2_4, firebim:Member_2_1_2_2_5 .
+
+firebim:Member_2_1_2_2_1 a firebim:Member ;
+    firebim:hasOriginalText """a)   de parking met bouwlagen (zie 5.2);"""@nl ;
+    firebim:hasForwardReference firebim:Section_5_2.
+
+firebim:Member_2_1_2_2_2 a firebim:Member ;
+    firebim:hasOriginalText """b)   een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een
+     binnenverbindingstrap (duplex), indien de gecumuleerde oppervlakte van die bouwlagen niet
+     groter is dan 2500 m²;"""@nl .
+
+firebim:Member_2_1_2_2_3 a firebim:Member ;
+    firebim:hasOriginalText """c)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over  drie  boven  elkaar  gelegen
+     bouwlagen met een binnenverbindingstrap (triplex), voor zover de som van hun gecumuleerde
+     oppervlakte  de  300  m²  niet  overschrijdt,  en  dat  dit  compartiment  is  uitgerust  met  een
+     automatische branddetectie van het type totale bewaking die automatisch een aanduiding van
+     de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico's;"""@nl .
+
+firebim:Member_2_1_2_2_4 a firebim:Member ;
+    firebim:hasOriginalText """d)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over  verscheidene  boven  elkaar
+     geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1)."""@nl ;
+     firebim:hasForwardReference firebim:Section_5_1_1.
+
+firebim:Member_2_1_2_2_5 a firebim:Member ;
+    firebim:hasOriginalText """e)   de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium)
+     op voorwaarde:"""@nl ;
+    firebim:hasMember firebim:Member_2_1_2_2_5_1 .
+
+firebim:Member_2_1_2_2_5_1 a firebim:Member ;
+    firebim:hasOriginalText """dat dit compartiment is uitgerust met een automatische blusinstallatie en een rook- en
+          warmteafvoerinstallatie."""@nl ;
+    firebim:hasMember firebim:Member_2_1_2_2_5_1_1, firebim:Member_2_1_2_2_5_1_2 .
+
+firebim:Member_2_1_2_2_5_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De Minister van Binnenlandse Zaken bepaalt de voorwaarden
+          waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische
+          blusinstallatie en een rook- en warmteafvoerinstallatie;"""@nl .
+
+firebim:Member_2_1_2_2_5_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De  Minister  van  Binnenlandse  Zaken  bepaalt  de  voorwaarden  waaraan  de  automatische
+blusinstallatie en rook- en warmteafvoerinstallatie moeten voldoen."""@nl .
+
+
+Input:
+Section number: 2.2
+Section text:
+
+Expected output:
+firebim:Section_2_2 a firebim:Section ;
+    firebim:hasID "2.2" ;
+    firebim:hasOriginalText "Evacuatie van de compartimenten."@nl .
+
+firebim:Section_2 firebim:hasSection firebim:Section_2_2 .
+
+
+Input:
+Section number: 2.2.1
+Section text:
+Elk compartiment heeft minimum:
+            -    één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;
+            -    twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen
+                 bedraagt;
+            -    2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling
+                 door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer
+                 dan 500 personen bedraagt.
+            Het  minimum  aantal  uitgangen  kan  door  de  brandweer  verhoogd  worden  in  functie  van  de
+            bezetting en de configuratie van de lokalen.
+            Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.
+
+Expected output:
+firebim:Section_2_2_1 a firebim:Section ;
+    firebim:hasID "2.2.1" ;
+    firebim:hasOriginalText "Aantal uitgangen."@nl ;
+    firebim:hasArticle firebim:Article_2_2_1_1 .
+
+firebim:Article_2_2_1_1 a firebim:Article ;
+    firebim:hasID "A2.2.1.1" ;
+    firebim:hasMember firebim:Member_2_2_1_1_1, firebim:Member_2_2_1_1_2, firebim:Member_2_2_1_1_3 .
+
+firebim:Member_2_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "Elk compartiment heeft minimum:"@nl ;
+    firebim:hasMember firebim:Member_2_2_1_1_1_1, firebim:Member_2_2_1_1_1_2, firebim:Member_2_2_1_1_1_3 .
+
+firebim:Member_2_2_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;"@nl .
+
+firebim:Member_2_2_1_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen bedraagt;"@nl .
+
+firebim:Member_2_2_1_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText "2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt."@nl .
+
+firebim:Member_2_2_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "Het  minimum  aantal  uitgangen  kan  door  de  brandweer  verhoogd  worden  in  functie  van  de bezetting en de configuratie van de lokalen."@nl .
+
+firebim:Member_2_2_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText "Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten."@nl .
+
+firebim:Section_2_2 firebim:hasSection firebim:Section_2_2_1 .
+
+
+Input:
+Section number: 2.2.2
+Section text:
+De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment.
+            De evacuatiewegen leiden ofwel:
+            -    naar buiten;
+            -    naar trappenhuizen;
+            -    naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4).
+            Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met
+            wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen.
+            Voor de parking: zie 5.2.
+            Op  een  evacuatieniveau  leidt  iedere  trap  naar  buiten,  hetzij  rechtstreeks,  hetzij  over  een
+            evacuatieweg die beantwoordt aan de voorschriften van 4.4.
+
+Expected output:
+firebim:Section_2_2_2 a firebim:Section ;
+    firebim:hasID "2.2.2" ;
+    firebim:hasOriginalText "De uitgangen."@nl ;
+    firebim:hasArticle firebim:Article_2_2_2_1 .
+
+firebim:Article_2_2_2_1 a firebim:Article ;
+    firebim:hasID "A2.2.2.1" ;
+    firebim:hasMember firebim:Member_2_2_2_1_1, firebim:Member_2_2_2_1_2, firebim:Member_2_2_2_1_3, firebim:Member_2_2_2_1_4, firebim:Member_2_2_2_1_5 .
+
+firebim:Member_2_2_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment."@nl .
+
+firebim:Member_2_2_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De evacuatiewegen leiden ofwel:"""@nl ;
+    firebim:hasMember firebim:Member_2_2_2_1_2_1, firebim:Member_2_2_2_1_2_2, firebim:Member_2_2_2_1_2_3 .
+
+firebim:Member_2_2_2_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "naar buiten;"@nl .
+    
+firebim:Member_2_2_2_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText "naar trappenhuizen;"@nl .
+    
+firebim:Member_2_2_2_1_2_3 a firebim:Member ;
+    firebim:hasOriginalText "naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4)."@nl .
+
+firebim:Member_2_2_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met
+wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen."""@nl .
+
+firebim:Member_2_2_2_1_4 a firebim:Member ;
+    firebim:hasOriginalText "Voor de parking: zie 5.2."@nl .
+
+firebim:Member_2_2_2_1_5 a firebim:Member ;
+    firebim:hasOriginalText """Op  een  evacuatieniveau  leidt  iedere  trap  naar  buiten,  hetzij  rechtstreeks,  hetzij  over  een
+evacuatieweg die beantwoordt aan de voorschriften van 4.4."""@nl .
+
+firebim:Member_2_2_2_1_2 firebim:hasForwardReference firebim:Section_4_4 .
+firebim:Member_2_2_2_1_4 firebim:hasForwardReference firebim:Section_5_2 .
+firebim:Member_2_2_2_1_5 firebim:hasForwardReference firebim:Section_4_4 .
+
+
+Input:
+Section number: 3
+Section text:
+
+Expected output:
+firebim:Section_3 a firebim:Section ;
+    firebim:hasID "3" ;
+    firebim:hasOriginalText "VOORSCHRIFTEN VOOR SOMMIGE BOUWELEMENTEN."@nl .
+
+
+Input:
+Section number: 3.1
+Section text:
+Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen
+            van wanden mogen de vereiste brandweerstand van de bouwelementen niet nadelig beïnvloeden.
+            De bepalingen van bijlage 7 “Gemeenschappelijke bepalingen”, hoofdstuk 1, zijn van toepassing.
+
+Expected output:
+firebim:Section_3_1 a firebim:Section ;
+    firebim:hasID "3.1" ;
+    firebim:hasOriginalText "Doorvoeringen door wanden."@nl ;
+    firebim:hasArticle firebim:Article_3_1_1 .
+
+firebim:Section_3 firebim:hasSection firebim:Section_3_1 .
+
+firebim:Article_3_1_1 a firebim:Article ;
+    firebim:hasID "A3.1.1" ;
+    firebim:hasMember firebim:Member_3_1_1_1, firebim:Member_3_1_1_2 .
+
+firebim:Member_3_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen
+van wanden mogen de vereiste brandweerstand van de bouwelementen niet nadelig beïnvloeden."""@nl .
+
+firebim:Member_3_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De bepalingen van bijlage 7 "Gemeenschappelijke bepalingen", hoofdstuk 1, zijn van toepassing."""@nl .
+
+firebim:Member_3_1_1_2 firebim:hasReference firebim:Reference_Bijlage_7 .
+
+firebim:Reference_Bijlage_7 a firebim:Reference ;
+    firebim:hasID "Bijlage 7" .
+
+
+Input:
+Section number: 3.2
+Section text:
+De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals
+            weergegeven in tabel 2.1, waarin Ei het laagst gelegen evacuatieniveau voorstelt.
+                                                                                                                            48/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                     (v3.0)
+                                                                                    Federale Overheidsdienst Binnenlandse Zaken
+                                                                                Algemene Directie Civiele Veiligheid – Brandpreventie
+                                               BIJLAGE 2/1: LAGE GEBOUWEN
+                                                      Structurele                Overige
+                                                      elementen van het          structurele
+                                                      dak                        elementen
+              Boven de vloer van Ei
+                                 Eén bouwlaag         R 30 (*)                   R 30
+                         Meerdere bouwlagen           R 30 (*)                   R 60
+              Onder E    ,
+                        i                             Niet van                   R 60
+              met inbegrip van de vloer van           toepassing
+              Ei
+            Tabel 2.1 - Brandweerstand van structurele elementen.
+            (*)  Geen  eisen  voor  de  structurele  elementen  van  het  dak  indien  het  aan  de  binnenkant
+                 beschermd is door middel van een bouwelement EI 30.
+
+Expected output:
+firebim:Section_3_2 a firebim:Section ;
+    firebim:hasID "3.2" ;
+    firebim:hasOriginalText "Structurele elementen."@nl ;
+    firebim:hasArticle firebim:Article_3_2_1 .
+
+firebim:Section_3 firebim:hasSection firebim:Section_3_2 .
+
+firebim:Article_3_2_1 a firebim:Article ;
+    firebim:hasID "A3.2.1" ;
+    firebim:hasMember firebim:Member_3_2_1_1 ;
+    firebim:hasTable firebim:Table_2_1 .
+
+firebim:Member_3_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals
+weergegeven in tabel 2.1, waarin Ei het laagst gelegen evacuatieniveau voorstelt."""@nl .
+
+firebim:Table_2_1 a firebim:Table ;
+    firebim:hasID "T2.1" .
+
+
+Input:
+Section number: 3.3
+Section text:
+Voor  de  wanden  en  de  deuren,  die  compartimenten  afbakenen,  geldt  4.1;  bakenen  zij
+            evacuatiewegen af dan geldt 4.4.
+            De verticale binnenwanden die lokalen of het geheel van lokalen met nachtbezetting afbakenen
+            hebben een brandweerstand, aangegeven in tabel 2.2.
+                                                      Wanden
+              Boven de vloer van Ei
+                                 Eén bouwlaag         EI 30
+                         Meerdere bouwlagen           EI 60
+              Onder Ei,
+              met inbegrip van de vloer van           EI 60
+              Ei
+            Tabel 2.2 – Brandweerstand van verticale binnenwanden
+            De deuren in deze wanden hebben EI1 30.
+
+Expected output:
+firebim:Section_3_3 a firebim:Section ;
+    firebim:hasID "3.3" ;
+    firebim:hasOriginalText "Verticale binnenwanden en binnendeuren."@nl ;
+    firebim:hasArticle firebim:Article_3_3_1 .
+
+firebim:Section_3 firebim:hasSection firebim:Section_3_3 .
+
+firebim:Article_3_3_1 a firebim:Article ;
+    firebim:hasID "A3.3.1" ;
+    firebim:hasMember firebim:Member_3_3_1_1, firebim:Member_3_3_1_2, firebim:Member_3_3_1_3 ;
+    firebim:hasTable firebim:Table_2_2 .
+
+firebim:Member_3_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Voor  de  wanden  en  de  deuren,  die  compartimenten  afbakenen,  geldt  4.1;  bakenen  zij
+evacuatiewegen af dan geldt 4.4."""@nl ;
+    firebim:hasForwardReference firebim:Section_4_1, firebim:Section_4_4 .
+
+firebim:Member_3_3_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De verticale binnenwanden die lokalen of het geheel van lokalen met nachtbezetting afbakenen
+hebben een brandweerstand, aangegeven in tabel 2.2."""@nl .
+
+firebim:Member_3_3_1_3 a firebim:Member ;
+    firebim:hasOriginalText "De deuren in deze wanden hebben EI1 30."@nl .
+
+firebim:Table_2_2 a firebim:Table ;
+    firebim:hasID "T2.2" ;
+    firebim:hasOriginalText """Wanden
+Boven de vloer van Ei
+               Eén bouwlaag         EI 30
+       Meerdere bouwlagen           EI 60
+Onder Ei,
+met inbegrip van de vloer van           EI 60
+Ei
+Tabel 2.2 – Brandweerstand van verticale binnenwanden"""@nl .
+
+
+Input:
+Section number: 3.4
+Section text:
+
+Expected output:
+firebim:Section_3_4 a firebim:Section ;
+    firebim:hasID "3.4" ;
+    firebim:hasOriginalText "Plafonds en verlaagde plafonds."@nl .
+
+firebim:Section_3 firebim:hasSection firebim:Section_3_4 .
+
+
+Input:
+Section number: 3.4.1
+Section text:
+hebben de verlaagde plafonds EI 30 (ab), EI 30 (ba) of EI 30 (a ↔                     b) volgens NBN EN 13501-
+            2 en NBN EN 1364-2 of hebben een stabiliteit bij brand van een ½ h volgens NBN 713-020.
+            Deze vereiste is niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de
+            compartimenten die zijn uitgerust met een automat              ische blusinstallatie van het type sprinkler die is
+            aangepast aan de aanwezige risico's.
+
+Expected output:
+firebim:Section_3_4_1 a firebim:Section ;
+    firebim:hasID "3.4.1" ;
+    firebim:hasArticle firebim:Article_3_4_1_1 .
+
+firebim:Section_3_4 firebim:hasSection firebim:Section_3_4_1 .
+
+firebim:Article_3_4_1_1 a firebim:Article ;
+    firebim:hasID "A3.4.1.1" ;
+    firebim:hasMember firebim:Member_3_4_1_1_1, firebim:Member_3_4_1_1_2 .
+
+firebim:Member_3_4_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """In  de  evacuatiewegen,  de  voor  het  publiek  toegankelijke  lokalen  en  de  collectieve  keukens
+hebben de verlaagde plafonds EI 30 (ab), EI 30 (ba) of EI 30 (a ↔                     b) volgens NBN EN 13501-
+            2 en NBN EN 1364-2 of hebben een stabiliteit bij brand van een ½ h volgens NBN 713-020."""@nl ;
+    firebim:hasReference firebim:Reference_NBN_EN_13501_2, firebim:Reference_NBN_EN_1364_2, firebim:Reference_NBN_713_020 .
+
+firebim:Member_3_4_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Deze vereiste is niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de
+            compartimenten die zijn uitgerust met een automatische blusinstallatie van het type sprinkler die is
+            aangepast aan de aanwezige risico's."""@nl .
+
+firebim:Reference_NBN_EN_13501_2 a firebim:Reference ;
+    firebim:hasID "NBN EN 13501-2" .
+
+firebim:Reference_NBN_EN_1364_2 a firebim:Reference ;
+    firebim:hasID "NBN EN 1364-2" .
+
+firebim:Reference_NBN_713_020 a firebim:Reference ;
+    firebim:hasID "NBN 713-020" .
+
+firebim:Member_3_4_1_1_2 firebim:hasForwardReference firebim:Section_4_4_1_2 .
+
+
+Input:
+Section number: 3.4.2
+Section text:
+het verlaagd plafond.
+                                                                                                                             49/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                      (v3.0)
+                                                                                    Federale Overheidsdienst Binnenlandse Zaken
+                                                                                Algemene Directie Civiele Veiligheid – Brandpreventie
+                                               BIJLAGE 2/1: LAGE GEBOUWEN
+            Indien de ruimte tussen het plafond en het verlaagd plafond niet is uitgerust met een automatische
+            blusinstallatie, moet deze ruimte worden verdeeld in volumes waarvan de horizontale projectie kan
+            ingeschreven worden in een vierkant van maximum 25 m zijde.
+            Deze volumes worden gescheiden door verticale schermen met de volgende kenmerken:
+            -    zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;
+            -    zij beslaan de gehele ruimte tussen de leidingen           ;
+            -    zij hebben EI 30.
+
+Expected output:
+firebim:Section_3_4_2 a firebim:Section ;
+    firebim:hasID "3.4.2" ;
+    firebim:hasArticle firebim:Article_3_4_2_1.
+
+firebim:Section_3_4 firebim:hasSection firebim:Section_3_4_2 .
+
+firebim:Article_3_4_2_1 a firebim:Article ;
+    firebim:hasID "A3.4.2.1" ;
+    firebim:hasMember firebim:Member_3_4_2_1_1, firebim:Member_3_4_2_1_2 .
+
+firebim:Member_3_4_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De wanden waarvoor brandwerendheid vereist is, lopen door in de ruimte tussen het plafond en
+het verlaagd plafond."""@nl .
+
+firebim:Member_3_4_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Indien de ruimte tussen het plafond en het verlaagd plafond niet is uitgerust met een automatische
+blusinstallatie, moet deze ruimte worden verdeeld in volumes waarvan de horizontale projectie kan
+ingeschreven worden in een vierkant van maximum 25 m zijde."""@nl ;
+    firebim:hasMember firebim:Member_3_4_2_1_2_1 .
+
+firebim:Member_3_4_2_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "Deze volumes worden gescheiden door verticale schermen met de volgende kenmerken:"@nl ;
+    firebim:hasMember firebim:Member_3_4_2_1_2_1_1, firebim:Member_3_4_2_1_2_1_2, firebim:Member_3_4_2_1_2_1_3 .
+
+firebim:Member_3_4_2_1_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText "zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;"@nl .
+
+firebim:Member_3_4_2_1_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText "zij beslaan de gehele ruimte tussen de leidingen;"@nl .
+
+firebim:Member_3_4_2_1_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText "zij hebben EI 30."@nl .
+
+
+Input:
+Section number: 3.5
+Section text:
+
+Expected output:
+firebim:Section_3_5 a firebim:Section ;
+    firebim:hasID "3.5" ;
+    firebim:hasOriginalText "Gevels"@nl .
+
+firebim:Section_3 firebim:hasSection firebim:Section_3_5 .
+
+
+Input:
+Section number: 3.5.1
+Section text:
+3.5.1.1     Scheiding tussen compartimenten
+            De stijlen van het gordijngevelskelet worden ter hoogte van elke bouwlaag aan het gebouwskelet
+            bevestigd.     Met  uitzondering  van  de  gebouwen  die  uitgerust  zijn  met  een  automatische
+            blusinstallatie,  moeten  deze  bevestigingen  R 60  zijn  ten  opzichte  van  een                     brand  in  een
+            onderliggend en naastgelegen compartiment.
+            De lineaire voeg aan de gevel is dichtgemaakt zodat geen koude rook tussen de gevel en de
+            compartimentswanden kan dringen.
+            Bovendien heeft de aansluiting van de compartimentswanden met de gevel, met                          uitzondering van
+            een beperkte lineaire voeg met een breedte van maximaal 20 mm aan de gevel, minstens EI 60 of
+            EI 60 (i→   o).
+3.5.1.2     Tegenover elkaar staande gevels en gevels die een tweevlakshoek vormen
+            Om te vermijden dat een brand tussen twee compartimenten kan overslaan:
+            a)   ofwel,   als  gevels   tegenover     elkaar staan of een       inspringende      tweevlakshoek vormen, dan
+                 bedraagt de afstand (in m) tussen de geveldelen die niet minstens E 30 of E 30 (o→                      i) hebben,
+                 ten minste:
+                      h + 10cos   α voor 0° ≤  ≤ 90°
+                        2,5
+                      0 voor 90° < ≤ 180°
+                 waarbij  de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.2).
+                                                                                                                             50/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                      (v3.0)
+                                                                                  Federale Overheidsdienst Binnenlandse Zaken
+                                                                              Algemene Directie Civiele Veiligheid – Brandpreventie
+                                              BIJLAGE 2/1: LAGE GEBOUWEN
+                 Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli                       2022, mag
+                 ook de volgende formule worden gebruikt:
+                      h + 5cos  α
+                       2
+            b)   ofwel   mag   de   straling   van   een   brand   tussen   gevels   behorende   tot   verschillende
+                 compartimenten niet meer dan 15 kW/m² bedragen.
+
+Expected output:
+firebim:Section_3_5_1 a firebim:Section ;
+    firebim:hasID "3.5.1" ;
+    firebim:hasOriginalText "Enkelwandige gevels"@nl ;
+    firebim:hasSection firebim:Section_3_5_1_1, firebim:Section_3_5_1_2 .
+
+firebim:Section_3_5 firebim:hasSection firebim:Section_3_5_1 .
+
+firebim:Section_3_5_1_1 a firebim:Section ;
+    firebim:hasID "3.5.1.1" ;
+    firebim:hasOriginalText "Scheiding tussen compartimenten"@nl ;
+    firebim:hasArticle firebim:Article_3_5_1_1_1 .
+
+firebim:Article_3_5_1_1_1 a firebim:Article ;
+    firebim:hasID "A3.5.1.1.1" ;
+    firebim:hasMember firebim:Member_3_5_1_1_1_1, firebim:Member_3_5_1_1_1_2, firebim:Member_3_5_1_1_1_3 .
+
+firebim:Member_3_5_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De stijlen van het gordijngevelskelet worden ter hoogte van elke bouwlaag aan het gebouwskelet
+bevestigd. Met uitzondering van de gebouwen die uitgerust zijn met een automatische
+blusinstallatie, moeten deze bevestigingen R 60 zijn ten opzichte van een brand in een
+onderliggend en naastgelegen compartiment."""@nl .
+
+firebim:Member_3_5_1_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De lineaire voeg aan de gevel is dichtgemaakt zodat geen koude rook tussen de gevel en de
+compartimentswanden kan dringen."""@nl .
+
+firebim:Member_3_5_1_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Bovendien heeft de aansluiting van de compartimentswanden met de gevel, met uitzondering van
+een beperkte lineaire voeg met een breedte van maximaal 20 mm aan de gevel, minstens EI 60 of
+EI 60 (i→o)."""@nl .
+
+firebim:Section_3_5_1_2 a firebim:Section ;
+    firebim:hasID "3.5.1.2" ;
+    firebim:hasOriginalText "Tegenover elkaar staande gevels en gevels die een tweevlakshoek vormen"@nl ;
+    firebim:hasArticle firebim:Article_3_5_1_2_1 .
+
+firebim:Article_3_5_1_2_1 a firebim:Article ;
+    firebim:hasID "A3.5.1.2.1" ;
+    firebim:hasOriginalText "Om te vermijden dat een brand tussen twee compartimenten kan overslaan:"@nl ;
+    firebim:hasMember firebim:Member_3_5_1_2_1_1, firebim:Member_3_5_1_2_1_2 ;
+    firebim:hasFigure firebim:Figure_2_2 .
+
+firebim:Member_3_5_1_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """a) ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan
+   bedraagt de afstand (in m) tussen de geveldelen die niet minstens E 30 of E 30 (o→i) hebben,
+   ten minste:
+        h + 10cos α voor 0° ≤ α ≤ 90°
+         2,5
+        0 voor 90° < α ≤ 180°
+   waarbij α de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.2)."""@nl ;
+    firebim:hasMember firebim:Member_3_5_1_2_1_1_1 .
+
+firebim:Member_3_5_1_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, mag
+ook de volgende formule worden gebruikt:
+     h + 5cos α
+      2"""@nl .
+
+firebim:Member_3_5_1_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """b) ofwel mag de straling van een brand tussen gevels behorende tot verschillende
+   compartimenten niet meer dan 15 kW/m² bedragen."""@nl .
+
+firebim:Figure_2_2 a firebim:Figure ;
+    firebim:hasID "F2.2" .
+
+
+Input:
+Section number: 3.5.2
+Section text:
+3.5.2.1     Dubbelwandige gevel die onderbroken wordt door een compartimentering.
+            De spouw van de         dubbelwandige gevel wordt in het verlengde van elke compartimentswand
+            onderbroken door een element dat minstens E 60 heeft. Dit element beslaat de volledige ruimte
+            begrepen tussen de twee wanden en heeft een minimale lengte van 60 cm te tellen vanaf de
+            binnenwand van de gevel.
+            Dit element mag openingen bevatten, op voorwaarde dat de continuïteit van de compartimentering
+            door de spouw heen verzekerd wordt door een bij brand zelfsluitende afsluitinrichting met een
+            brandweerstand E 60. Deze inrichting wordt beproefd in zijn dragende constructie, volgens de
+            richting van de compartimentswand; de sluiting ervan wordt bevolen:
+            -    hetzij  door  een  thermische  detectie  ter  hoogte  van  deze  inrichting  die  reageert  bij  een
+                 temperatuur van maximaal 100°C.
+            -    hetzij door een rookdetectie in de spouw of in alle compartimenten langs de gevel, die voldoet
+                 aan de voorwaarden in punt 3.5.2.3.
+            Wanneer er      verluchtingsopeningen        zijn tussen de spouw van de dubbelwandige gevel en de
+            binnenomgeving van het gebouw, is enkel een rookdetectie toegelaten in de spouw of in alle
+            compartimenten langs de gevel. Zij voldoet aan de voorwaarden van punt 3.5.2.3.
+3.5.2.2     Dubbelwandige gevel zonder compartimentering.
+            De dubbelwandige gevels zonder compartimentering moeten in overeenstemming zijn met een
+            van de twee hierna opgenomen mogelijkheden.
+3.5.2.2.1   Dubbelwandige gevel waarvan de binnenwand brandwerend is.
+            De buitenwand van de dubbelwandige gevel bestaat tussen de verdiepingen voor minstens 50%
+                                                                                                                          51/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                   (v3.0)
+                                                                                   Federale Overheidsdienst Binnenlandse Zaken
+                                                                               Algemene Directie Civiele Veiligheid – Brandpreventie
+                                              BIJLAGE 2/1: LAGE GEBOUWEN
+            uit bouwelementen zonder specifieke brandweerstand.
+            De binnenwand heeft:
+            -    hetzij, over de volledige hoogte, minstens een brandweerstand E 30 ( i↔                 o);
+            -    hetzij afwisselend om de twee bouwlagen minstens een brandweerstand EI 30 ( i↔                       o).
+3.5.2.2.2   Dubbelwandige gevel naar buiten toe open.
+            De voorschriften voor enkelwandige gevels mogen toegepast worden op de binnenwand wanneer
+            de buitenwand vaste of mobiele ventilatieopeningen bevat die automatisch openen bij brand.
+            De vaste ventilatieopeningen zijn geplaatst op 30              10 graden naar de buitenkant en naar boven
+            toe ten opzichte van de horizontale, gelijkmatig verdeeld over ten minste 50% van de oppervlakte
+            ervan.
+            De  mobiele  ventilatieopeningen  voldoen,  bij  brand,  aan  dezelfde  voorwaarden  als  de  vaste
+            ventilatieopeningen.
+            De  veiligheidsstand  van  de  mobiele  lamellen  wordt  in  werking  gesteld  door  een  algemene
+            branddetectie-installatie in de compartimenten langs gevels. De automatische bediening moet
+            voldoen aan de voorwaarden voorzien in punt 3.5.2.3.
+3.5.2.3     Automatische sluitings- / openingssystemen.
+3.5.2.3.1   Bediening
+            De sluiting / opening wordt bevolen door een automatische branddetectie                  -installatie.
+            De installatie wordt uitgerust met manuele openings- en sluitingssystemen. De bediening ervan is
+            voorbehouden aan de          brandweer. De plaats ervan moet bepaald worden in akkoord met de
+            brandweer.
+3.5.2.3.2   Bedrijfszekerheid.
+            Bij het uitvallen van de normale energiebron (elektrische energie, persluchtnet), zet de detectie                      -
+            installatie of het bedieningssysteem het sluitings-/openingssysteem in de veiligheidsstand.
+            Elk gebrek aan energiebron, voeding of elektrische of pneumatische bediening moet automatisch
+            gemeld worden aan de detectiecentrale.
+3.5.2.3.3   Werking bij brand in een naburig compartiment.
+            Wanneer de sluitings-        / openingssystemen geen positieve veiligheid hebben, dan moeten de
+            elektrische leidingen die het sluitings-/openingssysteem verbinden, voldoen aan punt 6.5.2.
+
+Expected output:
+firebim:Section_3_5_2 a firebim:Section ;
+    firebim:hasID "3.5.2" ;
+    firebim:hasOriginalText "Dubbelwandige gevels."@nl ;
+    firebim:hasSection firebim:Section_3_5_2_1, firebim:Section_3_5_2_2, firebim:Section_3_5_2_3 .
+
+firebim:Section_3_5 firebim:hasSection firebim:Section_3_5_2 .
+
+firebim:Section_3_5_2_1 a firebim:Section ;
+    firebim:hasID "3.5.2.1" ;
+    firebim:hasOriginalText "Dubbelwandige gevel die onderbroken wordt door een compartimentering."@nl ;
+    firebim:hasArticle firebim:Article_3_5_2_1_1 .
+
+firebim:Article_3_5_2_1_1 a firebim:Article ;
+    firebim:hasID "A3.5.2.1.1" ;
+    firebim:hasMember firebim:Member_3_5_2_1_1_1, firebim:Member_3_5_2_1_1_2, firebim:Member_3_5_2_1_1_3 .
+
+firebim:Member_3_5_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De spouw van de dubbelwandige gevel wordt in het verlengde van elke compartimentswand
+onderbroken door een element dat minstens E 60 heeft. Dit element beslaat de volledige ruimte
+begrepen tussen de twee wanden en heeft een minimale lengte van 60 cm te tellen vanaf de
+binnenwand van de gevel."""@nl .
+
+firebim:Member_3_5_2_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Dit element mag openingen bevatten, op voorwaarde dat de continuïteit van de compartimentering
+door de spouw heen verzekerd wordt door een bij brand zelfsluitende afsluitinrichting met een
+brandweerstand E 60. Deze inrichting wordt beproefd in zijn dragende constructie, volgens de
+richting van de compartimentswand; de sluiting ervan wordt bevolen:"""@nl ;
+    firebim:hasMember firebim:Member_3_5_2_1_1_2_1, firebim:Member_3_5_2_1_1_2_2 .
+
+firebim:Member_3_5_2_1_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText """- hetzij door een thermische detectie ter hoogte van deze inrichting die reageert bij een
+  temperatuur van maximaal 100°C."""@nl .
+
+firebim:Member_3_5_2_1_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText """- hetzij door een rookdetectie in de spouw of in alle compartimenten langs de gevel, die voldoet
+  aan de voorwaarden in punt 3.5.2.3."""@nl .
+
+firebim:Member_3_5_2_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Wanneer er verluchtingsopeningen zijn tussen de spouw van de dubbelwandige gevel en de
+binnenomgeving van het gebouw, is enkel een rookdetectie toegelaten in de spouw of in alle
+compartimenten langs de gevel. Zij voldoet aan de voorwaarden van punt 3.5.2.3."""@nl .
+
+firebim:Section_3_5_2_2 a firebim:Section ;
+    firebim:hasID "3.5.2.2" ;
+    firebim:hasOriginalText "Dubbelwandige gevel zonder compartimentering."@nl ;
+    firebim:hasArticle firebim:Article_3_5_2_2_1 ;
+    firebim:hasSection firebim:Section_3_5_2_2_1, firebim:Section_3_5_2_2_2 .
+
+firebim:Article_3_5_2_2_1 a firebim:Article ;
+    firebim:hasID "A3.5.2.2.1" ;
+    firebim:hasMember firebim:Member_3_5_2_2_1_1 .
+
+firebim:Member_3_5_2_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De dubbelwandige gevels zonder compartimentering moeten in overeenstemming zijn met een
+van de twee hierna opgenomen mogelijkheden."""@nl .
+
+firebim:Section_3_5_2_2_1 a firebim:Section ;
+    firebim:hasID "3.5.2.2.1" ;
+    firebim:hasOriginalText "Dubbelwandige gevel waarvan de binnenwand brandwerend is."@nl ;
+    firebim:hasArticle firebim:Article_3_5_2_2_1_1 .
+
+firebim:Article_3_5_2_2_1_1 a firebim:Article ;
+    firebim:hasID "A3.5.2.2.1.1" ;
+    firebim:hasMember firebim:Member_3_5_2_2_1_1_1, firebim:Member_3_5_2_2_1_1_2 .
+
+firebim:Member_3_5_2_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De buitenwand van de dubbelwandige gevel bestaat tussen de verdiepingen voor minstens 50%
+uit bouwelementen zonder specifieke brandweerstand."""@nl .
+
+firebim:Member_3_5_2_2_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "De binnenwand heeft:"@nl ;
+    firebim:hasMember firebim:Member_3_5_2_2_1_1_2_1, firebim:Member_3_5_2_2_1_1_2_2 .
+
+firebim:Member_3_5_2_2_1_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "- hetzij, over de volledige hoogte, minstens een brandweerstand E 30 (i↔o);"@nl .
+
+firebim:Member_3_5_2_2_1_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText "- hetzij afwisselend om de twee bouwlagen minstens een brandweerstand EI 30 (i↔o)."@nl .
+
+firebim:Section_3_5_2_2_2 a firebim:Section ;
+    firebim:hasID "3.5.2.2.2" ;
+    firebim:hasOriginalText "Dubbelwandige gevel naar buiten toe open."@nl ;
+    firebim:hasArticle firebim:Article_3_5_2_2_2_1 .
+
+firebim:Article_3_5_2_2_2_1 a firebim:Article ;
+    firebim:hasID "A3.5.2.2.2.1" ;
+    firebim:hasMember firebim:Member_3_5_2_2_2_1_1, firebim:Member_3_5_2_2_2_1_2, firebim:Member_3_5_2_2_2_1_3, firebim:Member_3_5_2_2_2_1_4 .
+
+firebim:Member_3_5_2_2_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De voorschriften voor enkelwandige gevels mogen toegepast worden op de binnenwand wanneer
+de buitenwand vaste of mobiele ventilatieopeningen bevat die automatisch openen bij brand."""@nl .
+
+firebim:Member_3_5_2_2_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De vaste ventilatieopeningen zijn geplaatst op 30 ± 10 graden naar de buitenkant en naar boven
+toe ten opzichte van de horizontale, gelijkmatig verdeeld over ten minste 50% van de oppervlakte
+ervan."""@nl .
+
+firebim:Member_3_5_2_2_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText """De mobiele ventilatieopeningen voldoen, bij brand, aan dezelfde voorwaarden als de vaste
+ventilatieopeningen."""@nl .
+
+firebim:Member_3_5_2_2_2_1_4 a firebim:Member ;
+    firebim:hasOriginalText """De veiligheidsstand van de mobiele lamellen wordt in werking gesteld door een algemene
+branddetectie-installatie in de compartimenten langs gevels. De automatische bediening moet
+voldoen aan de voorwaarden voorzien in punt 3.5.2.3."""@nl .
+
+firebim:Section_3_5_2_3 a firebim:Section ;
+    firebim:hasID "3.5.2.3" ;
+    firebim:hasOriginalText "Automatische sluitings- / openingssystemen."@nl ;
+    firebim:hasSection firebim:Section_3_5_2_3_1, firebim:Section_3_5_2_3_2, firebim:Section_3_5_2_3_3 .
+
+firebim:Section_3_5_2_3_1 a firebim:Section ;
+    firebim:hasID "3.5.2.3.1" ;
+    firebim:hasOriginalText "Bediening"@nl ;
+    firebim:hasArticle firebim:Article_3_5_2_3_1_1 .
+
+firebim:Article_3_5_2_3_1_1 a firebim:Article ;
+    firebim:hasID "A3.5.2.3.1.1" ;
+    firebim:hasMember firebim:Member_3_5_2_3_1_1_1, firebim:Member_3_5_2_3_1_1_2 .
+
+firebim:Member_3_5_2_3_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "De sluiting / opening wordt bevolen door een automatische branddetectie-installatie."@nl .
+
+firebim:Member_3_5_2_3_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De installatie wordt uitgerust met manuele openings- en sluitingssystemen. De bediening ervan is
+voorbehouden aan de brandweer. De plaats ervan moet bepaald worden in akkoord met de
+brandweer."""@nl .
+
+firebim:Section_3_5_2_3_2 a firebim:Section ;
+    firebim:hasID "3.5.2.3.2" ;
+    firebim:hasOriginalText "Bedrijfszekerheid."@nl ;
+    firebim:hasArticle firebim:Article_3_5_2_3_2_1 .
+
+firebim:Article_3_5_2_3_2_1 a firebim:Article ;
+    firebim:hasID "A3.5.2.3.2.1" ;
+    firebim:hasMember firebim:Member_3_5_2_3_2_1_1, firebim:Member_3_5_2_3_2_1_2 .
+
+firebim:Member_3_5_2_3_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Bij het uitvallen van de normale energiebron (elektrische energie, persluchtnet), zet de detectie-
+installatie of het bedieningssysteem het sluitings-/openingssysteem in de veiligheidsstand."""@nl .
+
+firebim:Member_3_5_2_3_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Elk gebrek aan energiebron, voeding of elektrische of pneumatische bediening moet automatisch
+gemeld worden aan de detectiecentrale."""@nl .
+
+firebim:Section_3_5_2_3_3 a firebim:Section ;
+    firebim:hasID "3.5.2.3.3" ;
+    firebim:hasOriginalText "Werking bij brand in een naburig compartiment."@nl ;
+    firebim:hasArticle firebim:Article_3_5_2_3_3_1 .
+
+firebim:Article_3_5_2_3_3_1 a firebim:Article ;
+    firebim:hasID "A3.5.2.3.3.1" ;
+    firebim:hasMember firebim:Member_3_5_2_3_3_1_1 .
+
+firebim:Member_3_5_2_3_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Wanneer de sluitings- / openingssystemen geen positieve veiligheid hebben, dan moeten de
+elektrische leidingen die het sluitings-/openingssysteem verbinden, voldoen aan punt 6.5.2."""@nl .
+
+
+Input:
+Section number: 4
+Section text:
+EVACUATIERUIMTEN.
+
+Expected output:
+firebim:Section_4 a firebim:Section ;
+    firebim:hasID "4" ;
+    firebim:hasOriginalText "VOORSCHRIFTEN INZAKE CONSTRUCTIE VAN COMPARTIMENTEN EN EVACUATIERUIMTEN."@nl .
+
+
+Input:
+Section number: 4.2.3
+Section text:
+4.2.3.1     Constructiebepalingen.
+            De trappen hebben de volgende kenmerken:
+            1.   evenals de overlopen hebben zij R 30 of zijn op dezelfde manier ontworpen als een betonplaat
+                 met R 30.
+                 Er wordt evenwel  geen          stabiliteit bij brand vereist  voor de trappen en de overlopen die
+                 uitsluitend zijn samengesteld uit materialen van klasse A1, met een smelttemperatuur groter
+                 dan 727°C (staal voldoet bijvoorbeeld aan deze voorwaarde, aluminium en glas voldoen niet
+                 aan deze voorwaarde);
+            2.   zij zijn aan beide zijden uitgerust met leuningen.
+                 Voor de trappen met een nuttige breedte, kleiner dan 1,20 m, is één leuning voldoende, voor
+                 zover er geen gevaar is voor het vallen;
+            3.   de aantrede van de treden is in elk punt ten minste 20 cm;
+            4.   de optrede van de treden mag niet meer dan 18 cm bedragen;
+            5.   hun helling mag niet meer dan 75 % bedragen (maximale hellingshoek 37°);
+            6.   zij zijn van het "rechte type".
+                 Maar, "wenteltrappen" worden toegestaan zo ze verdreven treden hebben en zo hun treden,
+                 naast de hiervoor vermelde vereisten, (met uitzondering van voornoemd punt 3), ten minste
+                 24 cm aantrede hebben op de looplijn.
+4.2.3.2     Nuttige breedte van traparmen, overlopen en sassen.
+            Deze nuttige breedte is ten minste gelijk aan 0,80 m en bereikt                   ten minste de vereiste nuttige
+            breedte br berekend volgens bijlage 1 "Terminologie".
+            De traparmen en de overlopen der trappenhuizen van één zelfde compartiment mogen in hun
+            nuttige breedte niet meer dan één doorgangseenheid verschillen.
+                                                                                                                           54/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                    (v3.0)
+                                                                                    Federale Overheidsdienst Binnenlandse Zaken
+                                                                                Algemene Directie Civiele Veiligheid – Brandpreventie
+                                               BIJLAGE 2/1: LAGE GEBOUWEN
+            Bevat een compartiment lokalen met speciale bestemming dan wordt de theoretische nuttige
+            trapbreedte  (volgens  bijlage  1  "Terminologie")  op  basis  van  hun  aantal  gebruikers  slechts
+            berekend over de hoogte tussen dit compartiment en het evacuatieniveau.
+
+Expected output:
+firebim:Section_4_2_3 a firebim:Section ;
+    firebim:hasID "4.2.3" ;
+    firebim:hasOriginalText "Trappen."@nl ;
+    firebim:hasSection firebim:Section_4_2_3_1, firebim:Section_4_2_3_2 .
+
+firebim:Section_4_2 firebim:hasSection firebim:Section_4_2_3 .
+
+firebim:Section_4_2_3_1 a firebim:Section ;
+    firebim:hasID "4.2.3.1" ;
+    firebim:hasOriginalText "Constructiebepalingen."@nl ;
+    firebim:hasArticle firebim:Article_4_2_3_1_1 .
+
+firebim:Article_4_2_3_1_1 a firebim:Article ;
+    firebim:hasID "A4.2.3.1.1" ;
+    firebim:hasOriginalText """De trappen hebben de volgende kenmerken:"""@nl ;
+    firebim:hasMember firebim:Member_4_2_3_1_1_1, firebim:Member_4_2_3_1_1_2, firebim:Member_4_2_3_1_1_3, firebim:Member_4_2_3_1_1_4, firebim:Member_4_2_3_1_1_5, firebim:Member_4_2_3_1_1_6 .
+
+firebim:Member_4_2_3_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """1.   evenals de overlopen hebben zij R 30 of zijn op dezelfde manier ontworpen als een betonplaat
+     met R 30.
+     Er wordt evenwel  geen          stabiliteit bij brand vereist  voor de trappen en de overlopen die
+     uitsluitend zijn samengesteld uit materialen van klasse A1, met een smelttemperatuur groter
+     dan 727°C (staal voldoet bijvoorbeeld aan deze voorwaarde, aluminium en glas voldoen niet
+     aan deze voorwaarde);"""@nl .
+
+firebim:Member_4_2_3_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """2.   zij zijn aan beide zijden uitgerust met leuningen.
+     Voor de trappen met een nuttige breedte, kleiner dan 1,20 m, is één leuning voldoende, voor
+     zover er geen gevaar is voor het vallen;"""@nl .
+
+firebim:Member_4_2_3_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText "3.   de aantrede van de treden is in elk punt ten minste 20 cm;"@nl .
+
+firebim:Member_4_2_3_1_1_4 a firebim:Member ;
+    firebim:hasOriginalText "4.   de optrede van de treden mag niet meer dan 18 cm bedragen;"@nl .
+
+firebim:Member_4_2_3_1_1_5 a firebim:Member ;
+    firebim:hasOriginalText "5.   hun helling mag niet meer dan 75 % bedragen (maximale hellingshoek 37°);"@nl .
+
+firebim:Member_4_2_3_1_1_6 a firebim:Member ;
+    firebim:hasOriginalText """6.   zij zijn van het "rechte type".
+     Maar, "wenteltrappen" worden toegestaan zo ze verdreven treden hebben en zo hun treden,
+     naast de hiervoor vermelde vereisten, (met uitzondering van voornoemd punt 3), ten minste
+     24 cm aantrede hebben op de looplijn."""@nl .
+
+firebim:Section_4_2_3_2 a firebim:Section ;
+    firebim:hasID "4.2.3.2" ;
+    firebim:hasOriginalText "Nuttige breedte van traparmen, overlopen en sassen."@nl ;
+    firebim:hasArticle firebim:Article_4_2_3_2_1 .
+
+firebim:Article_4_2_3_2_1 a firebim:Article ;
+    firebim:hasID "A4.2.3.2.1" ;
+    firebim:hasMember firebim:Member_4_2_3_2_1_1, firebim:Member_4_2_3_2_1_2, firebim:Member_4_2_3_2_1_3 .
+
+firebim:Member_4_2_3_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Deze nuttige breedte is ten minste gelijk aan 0,80 m en bereikt                   ten minste de vereiste nuttige
+breedte br berekend volgens bijlage 1 "Terminologie"."""@nl .
+
+firebim:Member_4_2_3_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De traparmen en de overlopen der trappenhuizen van één zelfde compartiment mogen in hun
+nuttige breedte niet meer dan één doorgangseenheid verschillen."""@nl .
+
+firebim:Member_4_2_3_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Bevat een compartiment lokalen met speciale bestemming dan wordt de theoretische nuttige
+trapbreedte  (volgens  bijlage  1  "Terminologie")  op  basis  van  hun  aantal  gebruikers  slechts
+berekend over de hoogte tussen dit compartiment en het evacuatieniveau."""@nl .
+
+
+Input:
+Section number: 4.4.1
+Section text:
+4.4.1.1     Geen enkel punt van een compartiment mag zich verder bevinden dan:
+            a)   voor lokalen met uitsluitend dagbezetting:
+                 -    30 m van de evacuatieweg die de uitgangen verbindt;
+                 -    45 m van de toegang tot de dichtstbijzijnde uitgang;
+                 -    80 m van de toegang tot een tweede uitgang.
+            b)   voor lokalen of geheel van lokalen met nachtbezetting:
+                 -    20 m van de evacuatieweg die de uitgangen verbindt;
+                 -    30 m van de toegang tot de dichtstbijzijnde uitgang;
+                 -    60 m van de toegang tot een tweede uitgang.
+            De lengte van doodlopende evacuatiewegen mag niet meer dan 15 m bedragen.
+            De nuttige breedte van de evacuatiewegen, vluchtterrassen en van hun toegangs-, uitgangs- of
+            doorgangsdeuren  is  groter  dan  of  gelijk  aan  de  vereiste  nuttige  breedte  (zie  bijlage  1
+            "Terminologie"). Zij bedraagt ten minste 0,80 m voor de evacuatiewegen en de deuren, en ten
+            minste 0,60 m voor de vluchtterrassen.
+            In een compartiment gaat de verbinding tussen en naar de trappen via evacuatiewegen of over
+            vluchtterrassen.
+            De bepalingen van dit punt zijn niet van toepassing op parkings (zie 5.2).
+4.4.1.2     Wordt beschouwd als een uitgang van een compartiment:
+            -    een binnentrappenhuis conform het punt 4.2;
+            -    een buitentrappenhuis conform het punt 4.3;
+            -    een rechtstreekse toegang tot de open lucht op een evacuatieniveau;
+            -    een evacuatieweg op een evacuatieniveau waarvan de verticale binnenwanden EI 60 hebben
+                 en de deuren van de lokalen die op deze wegen uitgeven zelfsluitend of bij brand zelfsluitend
+                 zijn en EI1 30 hebben.
+            De in open lucht af te leggen weg speelt geen rol bij het berekenen van deze afstanden.
+                                                                                                                             55/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                       (v3.0)
+                                                                                   Federale Overheidsdienst Binnenlandse Zaken
+                                                                               Algemene Directie Civiele Veiligheid – Brandpreventie
+                                              BIJLAGE 2/1: LAGE GEBOUWEN
+            De deuren op deze wegen mogen geen vergrendeling bezitten die de evacuatie kan belemmeren                            .
+            De   eventuele   verticale   binnenwanden   van   de   evacuatiewegen   hebben   EI                      30   en   de
+            toegangsdeuren tot deze wegen EI1 30.
+            Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1,                   zijn niet van toepassing op de
+            compartimenten met uitsluitend dagbezetting waarvan de oppervlakte geen 1250 m² bereikt.
+            Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn ook niet van toepassing op de
+            compartimenten met uitsluitend dagbezetting waarvan de oppervlakte kleiner is dan 2500 m² op
+            voorwaarde:
+            -    dat deze compartimenten zijn uitgerust met een automatische blusinstallatie van het type
+                 sprinkler die is aangepast aan de aanwezige risico's;
+            -    dat het gebouw is uitgerust met een automatisch branddetectie van het type totale bewaking
+                 die  automatisch  een  aanduiding  van  de  brandmelding  en  de  plaats  ervan  aangeeft  en
+                 waarvan de detectoren aangepast zijn aan de aanwezige risico’s;
+            -    en dat de producten die gebruikt worden voor de bekleding van verticale wanden, plafonds en
+                 vloeren van die compartimenten voldoen aan de vereisten inzake reactie bij brand op de
+                 evacuatiewegen.
+            De   evacuatie   van   lokalen   of   een   geheel   van   lokalen   met   nachtbezetting   gebeurt   via
+            evacuatiewegen waarvan de verticale wanden EI 30 en de deuren EI1 30 hebben.
+            Deze eis is niet van toepassing voor de evacuatie van deze lokalen indien deze behoren bij de
+            uitbating van een gebouw met een commerciële functie.
+
+Expected output:
+firebim:Section_4_4_1 a firebim:Section ;
+    firebim:hasID "4.4.1" ;
+    firebim:hasOriginalText "Algemene voorschriften"@nl ;
+    firebim:hasSection firebim:Section_4_4_1_1, firebim:Section_4_4_1_2 .
+
+firebim:Section_4_4 firebim:hasSection firebim:Section_4_4_1 .
+
+firebim:Section_4_4_1_1 a firebim:Section ;
+    firebim:hasID "4.4.1.1" ;
+    firebim:hasArticle firebim:Article_4_4_1_1_1 .
+
+firebim:Article_4_4_1_1_1 a firebim:Article ;
+    firebim:hasID "A4.4.1.1.1" ;
+    firebim:hasOriginalText """Geen enkel punt van een compartiment mag zich verder bevinden dan:"""@nl ;
+    firebim:hasMember firebim:Member_4_4_1_1_1_1, firebim:Member_4_4_1_1_1_2, firebim:Member_4_4_1_1_1_3, firebim:Member_4_4_1_1_1_4, firebim:Member_4_4_1_1_1_5 .
+
+firebim:Member_4_4_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """a)   voor lokalen met uitsluitend dagbezetting:"""@nl ;
+    firebim:hasMember firebim:Member_4_4_1_1_1_1_1, firebim:Member_4_4_1_1_1_1_2, firebim:Member_4_4_1_1_1_1_3 .
+
+firebim:Member_4_4_1_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """     -    30 m van de evacuatieweg die de uitgangen verbindt;"""@nl .
+
+firebim:Member_4_4_1_1_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """     -    45 m van de toegang tot de dichtstbijzijnde uitgang;"""@nl .
+
+firebim:Member_4_4_1_1_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """     -    80 m van de toegang tot een tweede uitgang."""@nl .
+
+firebim:Member_4_4_1_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """b)   voor lokalen of geheel van lokalen met nachtbezetting:"""@nl ;
+    firebim:hasMember firebim:Member_4_4_1_1_1_2_1, firebim:Member_4_4_1_1_1_2_2, firebim:Member_4_4_1_1_1_2_3 .
+
+firebim:Member_4_4_1_1_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText """     -    20 m van de evacuatieweg die de uitgangen verbindt;"""@nl .
+
+firebim:Member_4_4_1_1_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText """     -    30 m van de toegang tot de dichtstbijzijnde uitgang;"""@nl .
+
+firebim:Member_4_4_1_1_1_2_3 a firebim:Member ;
+    firebim:hasOriginalText """     -    60 m van de toegang tot een tweede uitgang."""@nl .
+
+firebim:Member_4_4_1_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """De lengte van doodlopende evacuatiewegen mag niet meer dan 15 m bedragen."""@nl .
+
+firebim:Member_4_4_1_1_1_4 a firebim:Member ;
+    firebim:hasOriginalText """De nuttige breedte van de evacuatiewegen, vluchtterrassen en van hun toegangs-, uitgangs- of
+doorgangsdeuren  is  groter  dan  of  gelijk  aan  de  vereiste  nuttige  breedte  (zie  bijlage  1
+"Terminologie"). Zij bedraagt ten minste 0,80 m voor de evacuatiewegen en de deuren, en ten
+minste 0,60 m voor de vluchtterrassen."""@nl .
+
+firebim:Member_4_4_1_1_1_5 a firebim:Member ;
+    firebim:hasOriginalText """In een compartiment gaat de verbinding tussen en naar de trappen via evacuatiewegen of over
+vluchtterrassen."""@nl .
+
+firebim:Article_4_4_1_1_1 firebim:hasMember firebim:Member_4_4_1_1_1_6 .
+
+firebim:Member_4_4_1_1_1_6 a firebim:Member ;
+    firebim:hasOriginalText """De bepalingen van dit punt zijn niet van toepassing op parkings (zie 5.2)."""@nl .
+
+firebim:Section_4_4_1_2 a firebim:Section ;
+    firebim:hasID "4.4.1.2" ;
+    firebim:hasArticle firebim:Article_4_4_1_2_1 .
+
+firebim:Article_4_4_1_2_1 a firebim:Article ;
+    firebim:hasID "A4.4.1.2.1" ;
+    firebim:hasOriginalText """Wordt beschouwd als een uitgang van een compartiment:"""@nl ;
+    firebim:hasMember firebim:Member_4_4_1_2_1_1, firebim:Member_4_4_1_2_1_2, firebim:Member_4_4_1_2_1_3, firebim:Member_4_4_1_2_1_4, firebim:Member_4_4_1_2_1_5, firebim:Member_4_4_1_2_1_6, firebim:Member_4_4_1_2_1_7, firebim:Member_4_4_1_2_1_8, firebim:Member_4_4_1_2_1_9 .
+
+firebim:Member_4_4_1_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """-    een binnentrappenhuis conform het punt 4.2;"""@nl .
+
+firebim:Member_4_4_1_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """-    een buitentrappenhuis conform het punt 4.3;"""@nl .
+
+firebim:Member_4_4_1_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText """-    een rechtstreekse toegang tot de open lucht op een evacuatieniveau;"""@nl .
+
+firebim:Member_4_4_1_2_1_4 a firebim:Member ;
+    firebim:hasOriginalText """-    een evacuatieweg op een evacuatieniveau waarvan de verticale binnenwanden EI 60 hebben
+     en de deuren van de lokalen die op deze wegen uitgeven zelfsluitend of bij brand zelfsluitend
+     zijn en EI1 30 hebben."""@nl .
+
+firebim:Member_4_4_1_2_1_5 a firebim:Member ;
+    firebim:hasOriginalText """De in open lucht af te leggen weg speelt geen rol bij het berekenen van deze afstanden."""@nl .
+
+firebim:Member_4_4_1_2_1_6 a firebim:Member ;
+    firebim:hasOriginalText """De deuren op deze wegen mogen geen vergrendeling bezitten die de evacuatie kan belemmeren."""@nl .
+
+firebim:Member_4_4_1_2_1_7 a firebim:Member ;
+    firebim:hasOriginalText """De   eventuele   verticale   binnenwanden   van   de   evacuatiewegen   hebben   EI   30   en   de
+toegangsdeuren tot deze wegen EI1 30."""@nl .
+
+firebim:Member_4_4_1_2_1_8 a firebim:Member ;
+    firebim:hasOriginalText """Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn niet van toepassing op de
+compartimenten met uitsluitend dagbezetting waarvan de oppervlakte geen 1250 m² bereikt."""@nl .
+
+firebim:Member_4_4_1_2_1_9 a firebim:Member ;
+    firebim:hasOriginalText """Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn ook niet van toepassing op de
+compartimenten met uitsluitend dagbezetting waarvan de oppervlakte kleiner is dan 2500 m² op
+voorwaarde:"""@nl ;
+    firebim:hasMember firebim:Member_4_4_1_2_1_9_1, firebim:Member_4_4_1_2_1_9_2, firebim:Member_4_4_1_2_1_9_3 .
+
+firebim:Member_4_4_1_2_1_9_1 a firebim:Member ;
+    firebim:hasOriginalText """-    dat deze compartimenten zijn uitgerust met een automatische blusinstallatie van het type
+     sprinkler die is aangepast aan de aanwezige risico's;"""@nl .
+
+firebim:Member_4_4_1_2_1_9_2 a firebim:Member ;
+    firebim:hasOriginalText """-    dat het gebouw is uitgerust met een automatisch branddetectie van het type totale bewaking
+     die  automatisch  een  aanduiding  van  de  brandmelding  en  de  plaats  ervan  aangeeft  en
+     waarvan de detectoren aangepast zijn aan de aanwezige risico's;"""@nl .
+
+firebim:Member_4_4_1_2_1_9_3 a firebim:Member ;
+    firebim:hasOriginalText """-    en dat de producten die gebruikt worden voor de bekleding van verticale wanden, plafonds en
+     vloeren van die compartimenten voldoen aan de vereisten inzake reactie bij brand op de
+     evacuatiewegen."""@nl .
+
+firebim:Article_4_4_1_2_1 firebim:hasMember firebim:Member_4_4_1_2_1_10, firebim:Member_4_4_1_2_1_11 .
+
+firebim:Member_4_4_1_2_1_10 a firebim:Member ;
+    firebim:hasOriginalText """De   evacuatie   van   lokalen   of   een   geheel   van   lokalen   met   nachtbezetting   gebeurt   via
+evacuatiewegen waarvan de verticale wanden EI 30 en de deuren EI1 30 hebben."""@nl .
+
+firebim:Member_4_4_1_2_1_11 a firebim:Member ;
+    firebim:hasOriginalText """Deze eis is niet van toepassing voor de evacuatie van deze lokalen indien deze behoren bij de
+uitbating van een gebouw met een commerciële functie."""@nl .
+
+
+Input:
+Section number: 5.1.2
+Section text:
+5.1.2.1     Stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter
+            dan of gelijk aan 75 kW en brandstofopslagruimtes.
+            De stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan
+            of gelijk aan 75 kW en de brandstofopslagruimtes, zijn technische lokalen.
+            De voorschriften van punt 5.1.1 zijn van toepassing, mits volgende wijzigingen:
+            -    Elke stooklokaal en brandstofopslagruimte moet een afzonderlijk compartiment vormen;
+            -    De binnenwanden van deze stooklokalen en brandstofopslagruimtes EI 60 hebben;
+            -    Toegang tot deze stooklokalen en brandstofopslagruimtes:
+                 -    Hetzij via een zelfsluitende deur EI1 60;
+                 -    Hetzij via een sas met de volgende kenmerken:
+                      1.   het bevat zelfsluitende deuren EI1 30;
+                      2.   de wanden hebben EI 60;
+                      3.   de oppervlakte bedraagt minimum 2 m²;
+                 -    Hetzij via een uitgang in open lucht, derwijze dat een evacuatieniveau bereikbaar is.
+                 De deuren draaien open in de vluchtzin.
+            -    Geen enkel punt van deze stooklokalen en brandstofopslagruimtes mag zich verder bevinden
+                 dan 15 m van de dichtstbijzijnde uitgang.
+            De capaciteit van een brandstofopslagruimte wordt beperkt zodat de totale brandlast van de
+            brandstofopslagruimte kleiner is dan of gelijk aan 750 GJ.
+5.1.2.2     Gemeenschappelijke bepalingen.
+            Het ontwerp, de bouw en de inrichting van de stookafdelingen voldoen aan de bepalingen van
+            punt 4 van bijlage 7.
+                                                                                                                            57/275
+ Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                      (v3.0)
+                                                                                     Federale Overheidsdienst Binnenlandse Zaken
+                                                                                 Algemene Directie Civiele Veiligheid – Brandpreventie
+                                               BIJLAGE 2/1: LAGE GEBOUWEN
+5.1.2.3     Afwijkende bepalingen.
+            Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, gelden
+            de volgende afwijkende bepalingen:
+            -    Punt 5.1.2.1: Niet van toepassing op de stookafdelingen met verbrandingstoestellen met een
+                 totaal nuttig warmtevermogen (ook totaal nominaal vermogen genoemd) kleiner dan 70 kW;
+            -    Punt 5.1.2.1: Niet van toepassing op de stookafdelingen met verbrandingstoestellen                       met een
+                 totaal nuttig warmtevermogen (ook totaal nominaal vermogen genoemd) groter dan of gelijk
+                 aan 70 kW als de toegang tot de stookafdeling en de brandwerendheid van de muren,
+                 vloeren, plafonds en deuren van de stookafdeling voldoen aan de voorschriften                       van de norm
+                 NBN B 61-001 +A1 : 1996.
+                 In afwijking op deze norm mogen de stookafdelingen en hun bijvertrekken verbonden worden
+                 met de andere gedeelten van het gebouw via een zelfsluitende deur EI1 60 op voorwaarde dat
+                 deze niet uitgeeft op een trappenhuis noch op een liftoverloop noch in een lokaal met
+                 bijzonder risico. De deur draait in de vluchtzin.
+
+Expected output:
+firebim:Section_5_1_2 a firebim:Section ;
+    firebim:hasID "5.1.2" ;
+    firebim:hasOriginalText "Stookafdelingen."@nl ;
+    firebim:hasSection firebim:Section_5_1_2_1, firebim:Section_5_1_2_2, firebim:Section_5_1_2_3 .
+
+firebim:Section_5_1_2_1 a firebim:Section ;
+    firebim:hasID "5.1.2.1" ;
+    firebim:hasOriginalText "Stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan of gelijk aan 75 kW en brandstofopslagruimtes."@nl ;
+    firebim:hasArticle firebim:Article_5_1_2_1_1 .
+
+firebim:Article_5_1_2_1_1 a firebim:Article ;
+    firebim:hasID "A5.1.2.1.1" ;
+    firebim:hasOriginalText """De stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan
+of gelijk aan 75 kW en de brandstofopslagruimtes, zijn technische lokalen.
+De voorschriften van punt 5.1.1 zijn van toepassing, mits volgende wijzigingen:"""@nl ;
+    firebim:hasMember firebim:Member_5_1_2_1_1_1, firebim:Member_5_1_2_1_1_2, firebim:Member_5_1_2_1_1_3, firebim:Member_5_1_2_1_1_4, firebim:Member_5_1_2_1_1_5 .
+
+firebim:Member_5_1_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "-    Elke stooklokaal en brandstofopslagruimte moet een afzonderlijk compartiment vormen;"@nl .
+
+firebim:Member_5_1_2_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "-    De binnenwanden van deze stooklokalen en brandstofopslagruimtes EI 60 hebben;"@nl .
+
+firebim:Member_5_1_2_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText "-    Toegang tot deze stooklokalen en brandstofopslagruimtes:"@nl ;
+    firebim:hasMember firebim:Member_5_1_2_1_1_3_1, firebim:Member_5_1_2_1_1_3_2, firebim:Member_5_1_2_1_1_3_3, firebim:Member_5_1_2_1_1_3_4 .
+
+firebim:Member_5_1_2_1_1_3_1 a firebim:Member ;
+    firebim:hasOriginalText "-    Hetzij via een zelfsluitende deur EI1 60;"@nl .
+
+firebim:Member_5_1_2_1_1_3_2 a firebim:Member ;
+    firebim:hasOriginalText "-    Hetzij via een sas met de volgende kenmerken:"@nl ;
+    firebim:hasMember firebim:Member_5_1_2_1_1_3_2_1, firebim:Member_5_1_2_1_1_3_2_2, firebim:Member_5_1_2_1_1_3_2_3 .
+
+firebim:Member_5_1_2_1_1_3_2_1 a firebim:Member ;
+    firebim:hasOriginalText "1.   het bevat zelfsluitende deuren EI1 30;"@nl .
+
+firebim:Member_5_1_2_1_1_3_2_2 a firebim:Member ;
+    firebim:hasOriginalText "2.   de wanden hebben EI 60;"@nl .
+
+firebim:Member_5_1_2_1_1_3_2_3 a firebim:Member ;
+    firebim:hasOriginalText "3.   de oppervlakte bedraagt minimum 2 m²;"@nl .
+
+firebim:Member_5_1_2_1_1_3_3 a firebim:Member ;
+    firebim:hasOriginalText "-    Hetzij via een uitgang in open lucht, derwijze dat een evacuatieniveau bereikbaar is."@nl .
+
+firebim:Member_5_1_2_1_1_3_4 a firebim:Member ;
+    firebim:hasOriginalText "De deuren draaien open in de vluchtzin."@nl .
+
+firebim:Member_5_1_2_1_1_4 a firebim:Member ;
+    firebim:hasOriginalText """-    Geen enkel punt van deze stooklokalen en brandstofopslagruimtes mag zich verder bevinden
+     dan 15 m van de dichtstbijzijnde uitgang."""@nl .
+
+firebim:Member_5_1_2_1_1_5 a firebim:Member ;
+    firebim:hasOriginalText """De capaciteit van een brandstofopslagruimte wordt beperkt zodat de totale brandlast van de
+brandstofopslagruimte kleiner is dan of gelijk aan 750 GJ."""@nl .
+
+firebim:Section_5_1_2_2 a firebim:Section ;
+    firebim:hasID "5.1.2.2" ;
+    firebim:hasOriginalText "Gemeenschappelijke bepalingen."@nl ;
+    firebim:hasArticle firebim:Article_5_1_2_2_1 .
+
+firebim:Article_5_1_2_2_1 a firebim:Article ;
+    firebim:hasID "A5.1.2.2.1" ;
+    firebim:hasOriginalText """Het ontwerp, de bouw en de inrichting van de stookafdelingen voldoen aan de bepalingen van
+punt 4 van bijlage 7."""@nl ;
+    firebim:hasMember firebim:Member_5_1_2_2_1_1 .
+
+firebim:Member_5_1_2_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Het ontwerp, de bouw en de inrichting van de stookafdelingen voldoen aan de bepalingen van
+punt 4 van bijlage 7."""@nl .
+
+firebim:Section_5_1_2_3 a firebim:Section ;
+    firebim:hasID "5.1.2.3" ;
+    firebim:hasOriginalText "Afwijkende bepalingen."@nl ;
+    firebim:hasArticle firebim:Article_5_1_2_3_1 .
+
+firebim:Article_5_1_2_3_1 a firebim:Article ;
+    firebim:hasID "A5.1.2.3.1" ;
+    firebim:hasOriginalText """Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, gelden
+de volgende afwijkende bepalingen:"""@nl ;
+    firebim:hasMember firebim:Member_5_1_2_3_1_1, firebim:Member_5_1_2_3_1_2 .
+
+firebim:Member_5_1_2_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """-    Punt 5.1.2.1: Niet van toepassing op de stookafdelingen met verbrandingstoestellen met een
+     totaal nuttig warmtevermogen (ook totaal nominaal vermogen genoemd) kleiner dan 70 kW;"""@nl .
+
+firebim:Member_5_1_2_3_1_2 a firebim:Member ;
+    firebim:hasOriginalText """-    Punt 5.1.2.1: Niet van toepassing op de stookafdelingen met verbrandingstoestellen met een
+     totaal nuttig warmtevermogen (ook totaal nominaal vermogen genoemd) groter dan of gelijk
+     aan 70 kW als de toegang tot de stookafdeling en de brandwerendheid van de muren,
+     vloeren, plafonds en deuren van de stookafdeling voldoen aan de voorschriften van de norm
+     NBN B 61-001 +A1 : 1996.
+     In afwijking op deze norm mogen de stookafdelingen en hun bijvertrekken verbonden worden
+     met de andere gedeelten van het gebouw via een zelfsluitende deur EI1 60 op voorwaarde dat
+     deze niet uitgeeft op een trappenhuis noch op een liftoverloop noch in een lokaal met
+     bijzonder risico. De deur draait in de vluchtzin."""@nl .
+
+firebim:Member_5_1_2_3_1_2 firebim:hasReference firebim:Reference_NBN_B_61_001_A1_1996 .
+
+firebim:Reference_NBN_B_61_001_A1_1996 a firebim:Reference ;
+    firebim:hasID "NBN B 61-001 +A1 : 1996" .
+
+
+Input:
+Section number: 5.1.3
+Section text:
+5.1.3.1     Algemeen.
+            Zij  voldoen  aan  de  voorschriften  van  het  Algemeen  reglement  op  de  elektrische  installaties
+            (A.R.E.I.).
+            Verder geldt dat:
+            -    de wanden EI 60 hebben, behalve de buitenmuren;
+            -    de binnendeuren EI1 30 hebben;
+            -    indien water (van om het even welke herkomst, dus ook bluswater) de vloer kan bereiken, bij
+                 voorbeeld door infiltratie of via kabelgoten, dan dienen alle                maatregelen te worden getroffen
+                 opdat het waterpeil constant en automatisch beneden het niveau van de vitale gedeelten blijft
+                 van de elektrische installatie, zolang ze in gebruik is.
+            Indien de olie-inhoud van het geheel der toestellen 50 l of meer bereikt, moeten de voorschriften
+            van    NBN    C    18-200    "Richtlijnen    voor    de    brandbeveiliging    van    de    lokalen    van
+            elektriciteitstransformatie" toegepast worden.
+5.1.3.2     Ter plaatse gemonteerde posten of prefab-posten.
+            Een ter plaatse gemonteerde post of een                prefab-post wordt opgesteld in een daartoe bestemd
+            lokaal, met wanden EI 60.
+            De toegang, zo die niet van buitenaf geschiedt, gaat via een deur EI1 30.
+
+Expected output:
+firebim:Section_5_1_3 a firebim:Section ;
+    firebim:hasID "5.1.3" ;
+    firebim:hasOriginalText "Transformatorlokalen."@nl ;
+    firebim:hasSection firebim:Section_5_1_3_1, firebim:Section_5_1_3_2 .
+
+firebim:Section_5_1 firebim:hasSection firebim:Section_5_1_3 .    
+
+firebim:Section_5_1_3_1 a firebim:Section ;
+    firebim:hasID "5.1.3.1" ;
+    firebim:hasOriginalText "Algemeen."@nl ;
+    firebim:hasArticle firebim:Article_5_1_3_1_1.
+
+firebim:Article_5_1_3_1_1 a firebim:Article ;
+    firebim:hasID "A5.1.3.1.1" ;
+    firebim:hasMember firebim:Member_5_1_3_1_1_1, firebim:Member_5_1_3_1_1_2, firebim:Member_5_1_3_1_1_3 .
+
+firebim:Member_5_1_3_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Zij  voldoen  aan  de  voorschriften  van  het  Algemeen  reglement  op  de  elektrische  installaties
+(A.R.E.I.)."""@nl .
+
+firebim:Member_5_1_3_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "Verder geldt dat:"@nl ;
+    firebim:hasMember firebim:Member_5_1_3_1_1_2_1, firebim:Member_5_1_3_1_1_2_2, firebim:Member_5_1_3_1_1_2_3 .
+
+firebim:Member_5_1_3_1_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "- de wanden EI 60 hebben, behalve de buitenmuren;"@nl .
+
+firebim:Member_5_1_3_1_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText "- de binnendeuren EI1 30 hebben;"@nl .
+
+firebim:Member_5_1_3_1_1_2_3 a firebim:Member ;
+    firebim:hasOriginalText """- indien water (van om het even welke herkomst, dus ook bluswater) de vloer kan bereiken, bij
+     voorbeeld door infiltratie of via kabelgoten, dan dienen alle maatregelen te worden getroffen
+     opdat het waterpeil constant en automatisch beneden het niveau van de vitale gedeelten blijft
+     van de elektrische installatie, zolang ze in gebruik is."""@nl .
+
+firebim:Member_5_1_3_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Indien de olie-inhoud van het geheel der toestellen 50 l of meer bereikt, moeten de voorschriften
+van    NBN    C    18-200    "Richtlijnen    voor    de    brandbeveiliging    van    de    lokalen    van
+elektriciteitstransformatie" toegepast worden."""@nl .
+
+firebim:Member_5_1_3_1_1_3 firebim:hasReference firebim:Reference_NBN_C_18_200.
+
+firebim:Reference_NBN_C_18_200 a firebim:Reference ;
+    firebim:hasID "NBN C 18-200" .
+
+firebim:Section_5_1_3_2 a firebim:Section ;
+    firebim:hasID "5.1.3.2" ;
+    firebim:hasOriginalText "Ter plaatse gemonteerde posten of prefab-posten."@nl ;
+    firebim:hasArticle firebim:Article_5_1_3_2_1 .
+
+firebim:Article_5_1_3_2_1 a firebim:Article ;
+    firebim:hasID "A5.1.3.2.1" ;
+    firebim:hasMember firebim:Member_5_1_3_2_1_1, firebim:Member_5_1_3_2_1_2 .
+
+firebim:Member_5_1_3_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Een ter plaatse gemonteerde post of een prefab-post wordt opgesteld in een daartoe bestemd
+lokaal, met wanden EI 60."""@nl .
+
+firebim:Member_5_1_3_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText "De toegang, zo die niet van buitenaf geschiedt, gaat via een deur EI1 30."@nl .
+

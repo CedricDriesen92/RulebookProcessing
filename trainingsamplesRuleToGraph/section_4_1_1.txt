@@ -1,0 +1,137 @@
+Section number: 4.1.1
+Section text:
+Lorsque le menuisier vient prendre les dimensions sur chantier, les planchers ne sont
+généralement pas encore pourvus de leur revêtement. Il doit donc tenir compte du niveau
+du sol fini, tant au rez-de-chaussée qu’aux étages. Le donneur d’ordre communiquera les
+niveaux à l’entrepreneur chargé de la mise en œuvre de l’escalier, afin que celui-ci puisse
+relever les dimensions.
+
+Il est recommandé de noter les dimensions définitives après la pose des seuils de portes
+au niveau inférieur et celle des chapes aux niveaux supérieurs ainsi qu’après l’achève-
+ment des plafonnages, sans oublier les finitions éventuelles de chacun de ces ouvrages.
+En outre, il y a lieu de tenir compte des volées d’escalier inférieures et supérieures.
+
+Les dimensions qui peuvent être prises sur place sont les suivantes :
+N la hauteur entre étages (d’un plancher à l’autre) ou la somme de toutes les hauteurs de
+  marches
+
+
+                                    52   NIT 198 – décembre 1995
+    N l’étendue de l’escalier, c’est-à-dire la longueur disponible pour son placement
+    N les dimensions des trémies, c’est-à-dire
+        –  la largeur de la trémie d’étage et de la trémie de la cave
+        –  la longueur (qui détermine l’échappée)
+    N la position des trémies les unes par rapport aux autres, dans le cas de volées super-
+          posées.
+
+
+     4.1.2   ESPACE NÉCESSAIRE EN LARGEUR
+
+      La largeur de la trémie est égale à la longueur des marches, augmentée de l’épaisseur des
+       limons, de la largeur du jour et de la finition éventuelle des rives de la trémie. Si l’escalier
+        est appuyé contre un mur ou encloisonné entre deux murs, il faut tenir compte de l’épais-
+       seur de la finition (enduit, par exemple). Lorsque l’escalier est composé de volées iden-
+       tiques superposées, les trémies ont généralement la même largeur.
+
+      Dans le cas d’un escalier encloisonné, au-dessus d’une trémie de cave à maçonner, il est
+       souhaitable de prévoir les dimensions suivantes pour la largeur minimale de l’escalier de
+        la cave et de l’étage (figure 41) : la trémie de la cave doit, si possible, être inférieure de
+      100 mm au moins à la largeur de l’escalier conduisant aux étages, alors que la trémie de
+        l’étage aura au moins 150 mm de plus que la largeur de l’escalier, compte tenu de la
+       présence éventuelle d’un limon traînant. A cet effet, on peut appliquer la règle suivante :
+       trémie d’étage – trémie de cave = ± 250 mm (pour un mur de 90 mm à partir de la trémie
+      de la cave).
+
+      Fig. 41                                                  escalier menant aux étages
+ Espace néces-                                 escalier de la cavesaire en largeur                                                                         150 mm
+au-dessus d’une                                                                         100 mm
+trémie de cave.
+
+               A                                                       B
+                                                                                      bord de la
+                                                                                                    trémie de cave
+
+
+
+
+     4.1.3   ESPACE NÉCESSAIRE EN LONGUEUR
+
+      Pour pouvoir déterminer avec précision la hauteur entre étages et l’étendue de l’escalier,
+           il convient de procéder comme suit (figure 42, p. 54) :
+    N on mesure la hauteur entre étages, c’est-à-dire la distance entre les niveaux du sol fini
+         de l’étage supérieur et inférieur (compte tenu de l’épaisseur prévue dans les plans
+          d’exécution pour les planchers de chaque niveau)
+    N on reporte la projection verticale de la trémie sur le niveau inférieur
+    N on calcule la longueur disponible sur la base du niveau du sol fini du rez-de-chaussée
+           et on mesure la longueur de la trémie. Si l’escalier se compose de plusieurs volées
+          superposées, la longueur disponible sera déterminée par la position relative des trémies
+          entre elles.
+
+
+                                          53  NIT 198 – décembre 1995
+Fig. 42 Relevé des                                                                                         t
+dimensions.
+t  : longueur de la trémie
+T  : étendue de l’escalier
+V : hauteur entre étages
+    d’un plancher à l’autre
+                                                          T          V
+
+
+   AA
+
+Pour déterminer l’espace nécessaire au placement de l’escalier dans la longueur, deux
+possibilités sont envisageables :
+N soit l’espace est limité du fait d’une échappée insuffisante au droit de la ligne de foulée
+  ou par la présence d’une porte ou d’une fenêtre sur le parcours de l’escalier (figure 43);
+   bien qu’il soit nécessaire de tenir compte du module du pas, le rapport idéal hauteur de
+   marche/giron ne peut être déterminé que de manière approximative
+N soit l’espace est illimité (figure 44) : on peut donc appliquer la formule du module du
+   pas (cf. § 2.4.2.3, p. 33); comme il n’y a pas lieu de prendre de mesures horizontales,
+   le choix du giron est entièrement libre.
+
+
+
+
+                                                              V
+                                                             T
+      Fig. 43
+  Espace limité.
+
+
+
+                                                                                                                                  t
+
+
+
+
+
+                            V
+
+
+
+
+
+                                                                 T
+
+
+
+
+
+                                    54   NIT 198 – décembre 1995
+         Fig. 44 Espace
+                           illimité.
+
+
+
+                                                          V
+
+                                                      T
+
+
+
+En ce qui concerne le calcul de l’espace nécessaire en longueur, il est difficile de définir
+une règle générale, car de nombreux paramètres entrent en jeu : situation particulière sur
+les lieux de la mise en œuvre (hauteur de l’étage, dimensions de la trémie), nombre de
+marches choisi. Cette donnée diffère en outre selon le type d’escalier (cf. figure 16, p. 19).
+Nous présentons ci-après un exemple de calcul.
