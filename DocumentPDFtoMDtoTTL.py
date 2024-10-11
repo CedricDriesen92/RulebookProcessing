@@ -12,12 +12,13 @@ import os
 import glob
 import time
 from llama_parse import LlamaParse
+from sympy import true
 
 os.environ["LLAMA_CLOUD_API_KEY"] = "llx-SbQRnu1gMsOiKK7KKS12D9bV3Ccvc2xZ6a7YauCOycd4YmK1"
 client = AnthropicVertex(region="europe-west1", project_id="neat-veld-422214-p1")
 
 def load_ontology(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         return file.read()
 
 def load_training_examples(folder_path):
@@ -42,13 +43,13 @@ def extract_text_from_pdf(pdf_path: str) -> str:
         
         #for page in reader.pages:
         #    text += page.extract_text(extraction_mode="layout", layout_mode_space_vertically=False) + "\n"
-    text = LlamaParse(result_type="text", parsing_instruction="Extract the text from the document in Markdown format, make sure all titles for sections/subsections/subsubsections keep their numbering").load_data(pdf_path)
+    text = LlamaParse(result_type="markdown", skip_diagonal_text=true, show_progress=true, parsing_instruction="Extract the text from the document in Markdown format, make sure all titles for sections/subsections/subsubsections keep their numbering").load_data(pdf_path)
     # Write the output of LlamaParse to a Markdown file
-    output_filename = f"{os.path.splitext(pdf_path)[0]}.md"
+    output_filename = f"{pdf_path}.md"
     with open(output_filename, 'w', encoding='utf-8') as md_file:
         md_file.write(text[0].text)
     print(f"Markdown content written to: {output_filename}")
-    return text
+    return text[0].text
 
 def split_into_sections(text):
     # Split the text into sections based on markdown headers
@@ -210,7 +211,8 @@ def compare_section_numbers(a, b):
     
 def main():
     ontology = load_ontology('FireBIM_Document_Ontology.ttl')
-    pdf_filename = 'NIT_198_crop.pdf'
+    #pdf_filename = 'NIT_198_crop.pdf'
+    pdf_filename = 'BasisnormenLG_cropped.pdf'
     markdown_filename = pdf_filename + '.md'
     
     if os.path.exists(markdown_filename):
@@ -264,7 +266,7 @@ def main():
             main_graph.add((parent_uri, FIREBIM.hasSection, section_uri))
     
     # Serialize the initial structure
-    output_folder = f"documentgraphs/{os.path.splitext(markdown_filename)[0]}"
+    output_folder = f"documentgraphs/{pdf_filename}"
     os.makedirs(output_folder, exist_ok=True)
     main_graph.serialize(f"{output_folder}/document.ttl", format="turtle")
     starting_graph = load_ontology(f"{output_folder}/document.ttl")
