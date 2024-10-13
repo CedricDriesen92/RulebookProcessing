@@ -1,0 +1,30 @@
+flowchart TD
+    S1["Start: Staircase Check"] --> A["For each <a href='http://example.com/firebimbuilding#Staircase' style='color:pink;'>Staircase</a>"]
+    A --> B["<a href='http://example.com/firebimbuilding#IsExternal' style='color:blue;'>IsExternal</a>?"] & S["<a href='http://example.com/firebimbuilding#UsefulWidth' style='color:blue'>UsefulWidth</a> ≥ <a href='http://example.com/firebimbuilding#RequiredUsefulWidth' style='color:blue'>RequiredUsefulWidth</a>?"] & X["<a href='http://example.com/firebimbuilding#ConnectsEvacuationLevel' style='color:blue'>ConnectsEvacuationLevel</a>?"]
+    B -- Yes --> C["Check External Staircase Rules"]
+    B -- No --> E["<a href='http://example.com/firebimbuilding#HasHandrails' style='color:blue;'>HasHandrails</a>?"]
+    E -- No --> G[/"Fail"/]
+    E -- Yes --> H["<a href='http://example.com/firebimbuilding#FireResistanceRating' style='color:blue;'>FireResistanceRating</a> ≥ Required Rating?"]
+    H -- Yes --> I[/"Pass"/]
+    H -- No --> J[/"Fail"/]
+    S -- Yes --> T[/"Pass"/]
+    S -- No --> U[/"Fail"/]
+    X -- Yes --> Y[/"Pass"/]
+    X -- No --> Z["Alternative <a href='http://example.com/firebimbuilding#EvacuationRoute' style='color:pink;'>EvacuationRoute</a>s exist?"]
+    Z -- Yes --> AA[/"Pass"/]
+    Z -- No --> AB[/"Fail"/]
+
+    C@[ shape: hex]
+     S1:::startClass
+     G:::failClass
+     I:::passClass
+     J:::failClass
+     T:::passClass
+     U:::failClass
+     Y:::passClass
+     AA:::passClass
+     AB:::failClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+    style C stroke:#000000,stroke-width:1px,stroke-dasharray: 0,fill:#FFD600
