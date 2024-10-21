@@ -1,0 +1,2808 @@
+@prefix bot: <https://w3id.org/bot#> .
+@prefix dot: <http://example.org/dot#> .
+@prefix fbb: <http://example.org/firebimbuilding#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bot:IfcBeam_0IWGDIlWbC8h8h9xCfOTdB a bot:Element ;
+    fbb:hasID "853604" ;
+    fbb:hasLength 1.68e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 3.129063e-01 ;
+    fbb:hasSpan 1.68e+04 ;
+    fbb:hasVolume 4.2336e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_0epYvzzGX4gRw2Wycb4_BY a bot:Element ;
+    fbb:hasID "858421" ;
+    fbb:hasLength 1.748803e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 3.808918e-01 ;
+    fbb:hasSpan 1.748803e+04 ;
+    fbb:hasVolume 3.413555e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_0epYvzzGX4gRw2Wycb4_Bk a bot:Element ;
+    fbb:hasID "858425" ;
+    fbb:hasLength 8.74e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.472864e+00 ;
+    fbb:hasSpan 8.74e+03 ;
+    fbb:hasVolume 4.027997e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_0jMfGb98L2Keu9BuiEEcnZ a bot:Element ;
+    fbb:hasID "879036" ;
+    fbb:hasLength 9.72e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.41972e+00 ;
+    fbb:hasSpan 9.72e+03 ;
+    fbb:hasVolume 2.308555e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_0jMfGb98L2Keu9BuiEEcr0 a bot:Element ;
+    fbb:hasID "878751" ;
+    fbb:hasLength 9.059871e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.517968e+00 ;
+    fbb:hasSpan 9.059871e+03 ;
+    fbb:hasVolume 2.152308e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_0jMfGb98L2Keu9BuiEEcr2 a bot:Element ;
+    fbb:hasID "878749" ;
+    fbb:hasLength 9.32e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.465063e+00 ;
+    fbb:hasSpan 9.32e+03 ;
+    fbb:hasVolume 1.989409e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_0jMfGb98L2Keu9BuiEEcx1 a bot:Element ;
+    fbb:hasID "879390" ;
+    fbb:hasLength 1.002e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.51832e+00 ;
+    fbb:hasSpan 1.002e+04 ;
+    fbb:hasVolume 2.13883e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_0rzeYvS0T9nPw3Qi0qk9ue a bot:Element ;
+    fbb:hasID "1110482" ;
+    fbb:hasLength 1.68e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 3.982755e-01 ;
+    fbb:hasSpan 1.68e+04 ;
+    fbb:hasVolume 2.069634e+01 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_0zkaD2R5XEtRJQYD1FbOZ_ a bot:Element ;
+    fbb:hasID "969658" ;
+    fbb:hasLength 1.035899e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.10074e+00 ;
+    fbb:hasSpan 1.035899e+04 ;
+    fbb:hasVolume 2.211426e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_0zkaD2R5XEtRJQYD1FbOZu a bot:Element ;
+    fbb:hasID "969660" ;
+    fbb:hasLength 1.369475e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.485407e+00 ;
+    fbb:hasSpan 1.369475e+04 ;
+    fbb:hasVolume 2.923464e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_1NCB6G7Kj5MQWkbabfINWF a bot:Element ;
+    fbb:hasID "857967" ;
+    fbb:hasLength 8.584039e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.49963e+00 ;
+    fbb:hasSpan 8.584039e+03 ;
+    fbb:hasVolume 3.725984e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_1NCB6G7Kj5MQWkbabfINb4 a bot:Element ;
+    fbb:hasID "857636" ;
+    fbb:hasLength 1.7e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 3.458439e-01 ;
+    fbb:hasSpan 1.7e+04 ;
+    fbb:hasVolume 5.409777e+00 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcBeam_1hjR6vFGvBqA$qpRn6XGi7> a bot:Element ;
+    fbb:hasID "1114136" ;
+    fbb:hasLength 2.014e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.137951e-01 ;
+    fbb:hasSpan 2.014e+04 ;
+    fbb:hasVolume 2.1147e+01 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_1q9o1O8GT7UfhoYmhtiiJR a bot:Element ;
+    fbb:hasID "850676" ;
+    fbb:hasLength 1.678e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 2.927182e-01 ;
+    fbb:hasSpan 1.678e+04 ;
+    fbb:hasVolume 4.22856e+00 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcBeam_2BEiTLpEXFLA1$Qf9zVfWa> a bot:Element ;
+    fbb:hasID "860265" ;
+    fbb:hasLength 8.525777e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.305961e+00 ;
+    fbb:hasSpan 8.525777e+03 ;
+    fbb:hasVolume 3.408622e+00 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcBeam_2BEiTLpEXFLA1$Qf9zVfaE> a bot:Element ;
+    fbb:hasID "860483" ;
+    fbb:hasLength 1.611591e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 3.488564e-01 ;
+    fbb:hasSpan 1.611591e+04 ;
+    fbb:hasVolume 3.033649e+00 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcBeam_2BEiTLpEXFLA1$Qf9zVffD> a bot:Element ;
+    fbb:hasID "860672" ;
+    fbb:hasLength 8.521404e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.516569e+00 ;
+    fbb:hasSpan 8.521404e+03 ;
+    fbb:hasVolume 3.490498e+00 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcBeam_2BEiTLpEXFLA1$Qf9zVfhA> a bot:Element ;
+    fbb:hasID "860807" ;
+    fbb:hasLength 8.507023e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.481497e+00 ;
+    fbb:hasSpan 8.507023e+03 ;
+    fbb:hasVolume 3.671012e+00 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcBeam_2BEiTLpEXFLA1$Qf9zVfkD> a bot:Element ;
+    fbb:hasID "861120" ;
+    fbb:hasLength 8.513451e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.451932e+00 ;
+    fbb:hasSpan 8.513451e+03 ;
+    fbb:hasVolume 3.356896e+00 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcBeam_2BEiTLpEXFLA1$Qf9zVfnQ> a bot:Element ;
+    fbb:hasID "861207" ;
+    fbb:hasLength 8.5e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.620295e+00 ;
+    fbb:hasSpan 8.5e+03 ;
+    fbb:hasVolume 3.876948e+00 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcBeam_2BEiTLpEXFLA1$Qf9zVgUo> a bot:Element ;
+    fbb:hasID "860159" ;
+    fbb:hasLength 8.510185e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.376497e+00 ;
+    fbb:hasSpan 8.510185e+03 ;
+    fbb:hasVolume 3.488545e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_36ORSGcJH4UB1vwiyvb40Q a bot:Element ;
+    fbb:hasID "853918" ;
+    fbb:hasLength 1.655469e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 4.060159e-01 ;
+    fbb:hasSpan 1.655469e+04 ;
+    fbb:hasVolume 3.089352e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_36ORSGcJH4UB1vwiyvb4Xc a bot:Element ;
+    fbb:hasID "856034" ;
+    fbb:hasLength 8.64e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.428189e+00 ;
+    fbb:hasSpan 8.64e+03 ;
+    fbb:hasVolume 3.856896e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_36ORSGcJH4UB1vwiyvb4ae a bot:Element ;
+    fbb:hasID "855724" ;
+    fbb:hasLength 8.46e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.453813e+00 ;
+    fbb:hasSpan 8.46e+03 ;
+    fbb:hasVolume 3.648312e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_36ORSGcJH4UB1vwiyvb4cH a bot:Element ;
+    fbb:hasID "855573" ;
+    fbb:hasLength 8.46e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.424423e+00 ;
+    fbb:hasSpan 8.46e+03 ;
+    fbb:hasVolume 3.442801e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_36ORSGcJH4UB1vwiyvb4fI a bot:Element ;
+    fbb:hasID "855510" ;
+    fbb:hasLength 8.485771e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.455914e+00 ;
+    fbb:hasSpan 8.485771e+03 ;
+    fbb:hasVolume 3.38346e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_36ORSGcJH4UB1vwiyvb4hQ a bot:Element ;
+    fbb:hasID "855390" ;
+    fbb:hasLength 8.48e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.46296e+00 ;
+    fbb:hasSpan 8.48e+03 ;
+    fbb:hasVolume 3.571776e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_36ORSGcJH4UB1vwiyvb4y2 a bot:Element ;
+    fbb:hasID "854150" ;
+    fbb:hasLength 8.48e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.455983e+00 ;
+    fbb:hasSpan 8.48e+03 ;
+    fbb:hasVolume 3.449795e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3CFJjDP9nF5foa1GN_nW5k a bot:Element ;
+    fbb:hasID "1109414" ;
+    fbb:hasLength 1.674e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 4.296131e-01 ;
+    fbb:hasSpan 1.674e+04 ;
+    fbb:hasVolume 2.060799e+01 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3CFJjDP9nF5foa1GN_s25v a bot:Element ;
+    fbb:hasID "970161" ;
+    fbb:hasLength 2.013986e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.137959e-01 ;
+    fbb:hasSpan 2.013986e+04 ;
+    fbb:hasVolume 2.114685e+01 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcBeam_3_G9fsUcjBPQjjwHWu$RGG> a bot:Element ;
+    fbb:hasID "969841" ;
+    fbb:hasLength 1.048479e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.417892e+00 ;
+    fbb:hasSpan 1.048479e+04 ;
+    fbb:hasVolume 2.489949e+00 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcBeam_3_G9fsUcjBPQjjwHWu$RGI> a bot:Element ;
+    fbb:hasID "969843" ;
+    fbb:hasLength 1.366e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.064772e+00 ;
+    fbb:hasSpan 1.366e+04 ;
+    fbb:hasVolume 3.244405e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqMPM a bot:Element ;
+    fbb:hasID "863847" ;
+    fbb:hasLength 2.216944e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.336946e+00 ;
+    fbb:hasSpan 2.216944e+04 ;
+    fbb:hasVolume 7.076741e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNB5 a bot:Element ;
+    fbb:hasID "867060" ;
+    fbb:hasLength 2.41394e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.341171e+00 ;
+    fbb:hasSpan 2.41394e+04 ;
+    fbb:hasVolume 1.027491e+01 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqN_p a bot:Element ;
+    fbb:hasID "866178" ;
+    fbb:hasLength 2.415188e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.304884e+00 ;
+    fbb:hasSpan 2.415188e+04 ;
+    fbb:hasVolume 1.027228e+01 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNj3 a bot:Element ;
+    fbb:hasID "865138" ;
+    fbb:hasLength 2.16e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.141195e+00 ;
+    fbb:hasSpan 2.16e+04 ;
+    fbb:hasVolume 7.02589e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNn_ a bot:Element ;
+    fbb:hasID "865359" ;
+    fbb:hasLength 2.213879e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.343523e+00 ;
+    fbb:hasSpan 2.213879e+04 ;
+    fbb:hasVolume 7.016034e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNs5 a bot:Element ;
+    fbb:hasID "865716" ;
+    fbb:hasLength 2.152158e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.339417e+00 ;
+    fbb:hasSpan 2.152158e+04 ;
+    fbb:hasVolume 7.029009e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyY a bot:Element ;
+    fbb:hasID "866067" ;
+    fbb:hasLength 2.140132e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.311947e+00 ;
+    fbb:hasSpan 2.140132e+04 ;
+    fbb:hasVolume 6.96907e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBuildingStorey_1Sps1bgmr0zeLndh498PCt a bot:Storey ;
+    fbb:hasID "1Sps1bgmr0zeLndh498PCt" .
+
+<https://w3id.org/bot#IfcBuilding_3jYYKSK$1B2glTCupLurXX> a bot:Building ;
+    fbb:hasID "3jYYKSK$1B2glTCupLurXX" .
+
+bot:IfcColumn_0o61s_Se57fhGNyHg4oRJ_ a bot:Element ;
+    fbb:hasID "845290" ;
+    fbb:hasLength 4.48e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 1.724082e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_0o61s_Se57fhGNyHg4oRJa a bot:Element ;
+    fbb:hasID "845296" ;
+    fbb:hasLength 4.772e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 1.836455e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_0o61s_Se57fhGNyHg4oRJu a bot:Element ;
+    fbb:hasID "845292" ;
+    fbb:hasLength 4.44e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 1.708688e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_0o61s_Se57fhGNyHg4oRJw a bot:Element ;
+    fbb:hasID "845294" ;
+    fbb:hasLength 4.428e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 1.70407e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_0o61s_Se57fhGNyHg4oRJy a bot:Element ;
+    fbb:hasID "845288" ;
+    fbb:hasLength 4.852e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 1.867242e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_3dIS8vZN9D6BH4SC4QNw15 a bot:Element ;
+    fbb:hasID "1112636" ;
+    fbb:hasLength 1.26e+02 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 6.184717e-03 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_3dIS8vZN9D6BH4SC4QNw2s a bot:Element ;
+    fbb:hasID "1112783" ;
+    fbb:hasLength 1.3e+02 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 6.381057e-03 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_3dIS8vZN9D6BH4SC4QNw43 a bot:Element ;
+    fbb:hasID "1112954" ;
+    fbb:hasLength 1e+02 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 4.908506e-03 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_3dIS8vZN9D6BH4SC4QNw4_ a bot:Element ;
+    fbb:hasID "1112903" ;
+    fbb:hasLength 1.1e+02 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 5.399356e-03 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_3dIS8vZN9D6BH4SC4QNw5k a bot:Element ;
+    fbb:hasID "1112855" ;
+    fbb:hasLength 1.1e+02 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 5.399356e-03 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_3dIS8vZN9D6BH4SC4QNw6E a bot:Element ;
+    fbb:hasID "1113079" ;
+    fbb:hasLength 8e+01 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 3.926804e-03 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_3dIS8vZN9D6BH4SC4QNw6X a bot:Element ;
+    fbb:hasID "1113048" ;
+    fbb:hasLength 1.2e+02 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 5.890207e-03 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_3dIS8vZN9D6BH4SC4QNw7N a bot:Element ;
+    fbb:hasID "1113006" ;
+    fbb:hasLength 1.2e+02 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 5.890207e-03 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_3dIS8vZN9D6BH4SC4QNwE7 a bot:Element ;
+    fbb:hasID "1112574" ;
+    fbb:hasLength 7.6e+01 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 3.730464e-03 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_3dIS8vZN9D6BH4SC4QNwPj a bot:Element ;
+    fbb:hasID "1113108" ;
+    fbb:hasLength 1.5e+02 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasVolume 7.362758e-03 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcSite_3jYYKSK$1B2glTCupLurXY> a bot:Site ;
+    fbb:hasID "882252" .
+
+bot:IfcSlab_0VAWiO0b1DQhhAlpBDvsoC a bot:Element ;
+    fbb:hasArea 1.837485e+01 ;
+    fbb:hasDepth 2.298661e+02 ;
+    fbb:hasID "879944" ;
+    fbb:hasMaterial "NLRS_s1_asfalt_zwart" ;
+    fbb:hasThickness 2.3e+02 ;
+    fbb:hasVolume 4.226215e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcSlab_0VAWiO0b1DQhhAlpBDvspZ a bot:Element ;
+    fbb:hasArea 5.014478e+01 ;
+    fbb:hasID "879911" ;
+    fbb:hasMaterial "NLRS_s1_asfalt_zwart" ;
+    fbb:hasThickness 2.3e+02 ;
+    fbb:hasVolume 1.15333e+01 ;
+    fbb:isLoadBearing true .
+
+bot:IfcSlab_0VAWiO0b1DQhhAlpBDvspx a bot:Element ;
+    fbb:hasArea 1.876603e+01 ;
+    fbb:hasID "879935" ;
+    fbb:hasMaterial "NLRS_s1_asfalt_zwart" ;
+    fbb:hasThickness 2.3e+02 ;
+    fbb:hasVolume 4.316187e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcSlab_0jMfGb98L2Keu9BuiEEc96 a bot:Element ;
+    fbb:hasArea 1.502041e+02 ;
+    fbb:hasID "878489" ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasThickness 2e+02 ;
+    fbb:hasVolume 3.004082e+01 ;
+    fbb:isLoadBearing true .
+
+bot:IfcSlab_0jMfGb98L2Keu9BuiEEca7 a bot:Element ;
+    fbb:hasArea 1.455525e+02 ;
+    fbb:hasID "879832" ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasThickness 2e+02 ;
+    fbb:hasVolume 2.91105e+01 ;
+    fbb:isLoadBearing true .
+
+bot:IfcSlab_0rzeYvS0T9nPw3Qi0qk9ko a bot:Element ;
+    fbb:hasArea 1.539038e+02 ;
+    fbb:hasID "1111112" ;
+    fbb:hasMaterial "Default" ;
+    fbb:hasThickness 2e+02 ;
+    fbb:hasVolume 3.078076e+01 ;
+    fbb:isLoadBearing false .
+
+bot:IfcSlab_0rzeYvS0T9nPw3Qi0qk9qh a bot:Element ;
+    fbb:hasArea 1.538312e+02 ;
+    fbb:hasID "1110737" ;
+    fbb:hasMaterial "Default" ;
+    fbb:hasThickness 2e+02 ;
+    fbb:hasVolume 3.076624e+01 ;
+    fbb:isLoadBearing false .
+
+<https://w3id.org/bot#IfcSlab_1qi7MeKPn3zwxBWztIGo$P> a bot:Element ;
+    fbb:hasArea 1.098987e+02 ;
+    fbb:hasID "966854" ;
+    fbb:hasMaterial "NLRS_s1_asfalt_zwart" ;
+    fbb:hasThickness 2e+02 ;
+    fbb:hasVolume 2.197974e+01 ;
+    fbb:isLoadBearing true .
+
+bot:IfcSlab_1qi7MeKPn3zwxBWztIGo_Y a bot:Element ;
+    fbb:hasArea 1.134126e+02 ;
+    fbb:hasID "966845" ;
+    fbb:hasMaterial "NLRS_s1_asfalt_zwart" ;
+    fbb:hasThickness 2e+02 ;
+    fbb:hasVolume 2.268253e+01 ;
+    fbb:isLoadBearing true .
+
+bot:IfcSlab_1qi7MeKPn3zwxBWztIGo_h a bot:Element ;
+    fbb:hasArea 3.002609e+02 ;
+    fbb:hasID "966836" ;
+    fbb:hasMaterial "NLRS_s1_asfalt_zwart" ;
+    fbb:hasThickness 2e+02 ;
+    fbb:hasVolume 6.005219e+01 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcSlab_2kQVkBh4D1QBJJKmIM$AC9> a bot:Element ;
+    fbb:hasArea 4.7291e+01 ;
+    fbb:hasDepth 2.299244e+02 ;
+    fbb:hasID "967033" ;
+    fbb:hasMaterial "NLRS_s1_asfalt_zwart" ;
+    fbb:hasThickness 2.3e+02 ;
+    fbb:hasVolume 1.087693e+01 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcSlab_2kQVkBh4D1QBJJKmIM$AFo> a bot:Element ;
+    fbb:hasArea 1.802378e+01 ;
+    fbb:hasID "967042" ;
+    fbb:hasMaterial "NLRS_s1_asfalt_zwart" ;
+    fbb:hasThickness 2.3e+02 ;
+    fbb:hasVolume 4.145469e+00 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcSlab_2kQVkBh4D1QBJJKmIM$AFx> a bot:Element ;
+    fbb:hasArea 1.727715e+01 ;
+    fbb:hasID "967051" ;
+    fbb:hasMaterial "NLRS_s1_asfalt_zwart" ;
+    fbb:hasThickness 2.3e+02 ;
+    fbb:hasVolume 3.973744e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcSlab_2xdNbGaT97Kwabixiw1CEP a bot:Element ;
+    fbb:hasArea 3.97717e+02 ;
+    fbb:hasID "872510" ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasThickness 2e+02 ;
+    fbb:hasVolume 7.954341e+01 ;
+    fbb:isLoadBearing true .
+
+bot:IfcWall_14H9WkFEv13OIoL5dlJp_J a bot:Element ;
+    fbb:hasArea 1.629832e+00 ;
+    fbb:hasHeight 2.162578e+03 ;
+    fbb:hasID "881966" ;
+    fbb:hasLength 7.536524e+02 ;
+    fbb:hasMaterial "Default" ;
+    fbb:hasVolume 3.149833e-01 ;
+    fbb:hasWidth 2e+02 ;
+    fbb:isLoadBearing false .
+
+bot:IfcWall_14H9WkFEv13OIoL5dlJpbK a bot:Element ;
+    fbb:hasArea 3.86172e+00 ;
+    fbb:hasHeight 1.972101e+03 ;
+    fbb:hasID "881641" ;
+    fbb:hasLength 1.958175e+03 ;
+    fbb:hasMaterial "Default" ;
+    fbb:hasVolume 7.574394e-01 ;
+    fbb:hasWidth 2e+02 ;
+    fbb:isLoadBearing false .
+
+bot:IfcWall_14H9WkFEv13OIoL5dlJpub a bot:Element ;
+    fbb:hasArea 1.28136e+00 ;
+    fbb:hasHeight 1.979974e+03 ;
+    fbb:hasID "881816" ;
+    fbb:hasLength 6.471596e+02 ;
+    fbb:hasMaterial "Default" ;
+    fbb:hasVolume 2.413077e-01 ;
+    fbb:hasWidth 2e+02 ;
+    fbb:isLoadBearing false .
+
+bot:IfcWall_14H9WkFEv13OIoL5dlJpvu a bot:Element ;
+    fbb:hasArea 1.639117e+00 ;
+    fbb:hasHeight 2.156733e+03 ;
+    fbb:hasID "881861" ;
+    fbb:hasLength 7.6e+02 ;
+    fbb:hasMaterial "Default" ;
+    fbb:hasVolume 3.1687e-01 ;
+    fbb:hasWidth 2e+02 ;
+    fbb:isLoadBearing false .
+
+<https://w3id.org/bot#IfcWall_3ScDG1SpPDbeQhagCu5$Oh> a bot:Element ;
+    fbb:hasArea 1.421251e+00 ;
+    fbb:hasHeight 1.682132e+03 ;
+    fbb:hasID "881555" ;
+    fbb:hasLength 8.449104e+02 ;
+    fbb:hasMaterial "Default" ;
+    fbb:hasVolume 2.714824e-01 ;
+    fbb:hasWidth 2e+02 ;
+    fbb:isLoadBearing false .
+
+bot:IfcWall_3ScDG1SpPDbeQhagCu5_gr a bot:Element ;
+    fbb:hasArea 1.113247e+00 ;
+    fbb:hasHeight 1.708844e+03 ;
+    fbb:hasID "880397" ;
+    fbb:hasLength 6.514621e+02 ;
+    fbb:hasMaterial "Default" ;
+    fbb:hasVolume 2.092884e-01 ;
+    fbb:hasWidth 2e+02 ;
+    fbb:isLoadBearing false .
+
+bot:IfcWall_3ScDG1SpPDbeQhagCu5_hv a bot:Element ;
+    fbb:hasArea 2.911676e+00 ;
+    fbb:hasHeight 1.682086e+03 ;
+    fbb:hasID "880449" ;
+    fbb:hasLength 1.730992e+03 ;
+    fbb:hasMaterial "Default" ;
+    fbb:hasVolume 5.695679e-01 ;
+    fbb:hasWidth 2e+02 ;
+    fbb:isLoadBearing false .
+
+bot:IfcWall_3ScDG1SpPDbeQhagCu5_jk a bot:Element ;
+    fbb:hasArea 3.811333e+00 ;
+    fbb:hasHeight 1.706559e+03 ;
+    fbb:hasID "880342" ;
+    fbb:hasLength 2.233344e+03 ;
+    fbb:hasMaterial "Default" ;
+    fbb:hasVolume 7.489235e-01 ;
+    fbb:hasWidth 2e+02 ;
+    fbb:isLoadBearing false .
+
+<http://example.org/dot#Damage_1FsUCh_1n6AAe2OZ$QBHTi> a dot:Damage ;
+    dot:hasDepth 1e+01 ;
+    dot:hasID "crack_3" ;
+    dot:hasLength 3.5e+02 ;
+    dot:hasWidth 1e+01 ;
+    fbb:hasArea 7.1e-03 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNqE ;
+    fbb:hasID "1126214" ;
+    fbb:hasVolume 3.5e-05 .
+
+<http://example.org/dot#Damage_1FsUCh_1n6AAe2OZ$QBHTk> a dot:Damage ;
+    dot:hasDepth 1e+02 ;
+    dot:hasID "crack_1" ;
+    dot:hasLength 1.24e+03 ;
+    dot:hasWidth 2.3e+02 ;
+    fbb:hasArea 4.322e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNxi ;
+    fbb:hasID "1126212" ;
+    fbb:hasVolume 2.852e-02 .
+
+<http://example.org/dot#Damage_1FsUCh_1n6AAe2OZ$QBHTl> a dot:Damage ;
+    dot:hasDepth 1e+01 ;
+    dot:hasID "crack_2" ;
+    dot:hasLength 1.5e+02 ;
+    dot:hasWidth 2e+01 ;
+    fbb:hasArea 4.7e-03 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNxi ;
+    fbb:hasID "1126213" ;
+    fbb:hasVolume 3e-05 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR0> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126122" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg16" ;
+    sosa:hasSimpleResult 6.92325e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR1> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126123" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg17" ;
+    sosa:hasSimpleResult 5.99746e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR3> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126121" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg15" ;
+    sosa:hasSimpleResult 7.4232e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR4> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126126" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg20" ;
+    sosa:hasSimpleResult -3.59876e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR5> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126127" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg21" ;
+    sosa:hasSimpleResult -3.39479e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR6> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126124" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg18" ;
+    sosa:hasSimpleResult -2.49147e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR7> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126125" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg19" ;
+    sosa:hasSimpleResult -2.71829e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRG> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126138" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg18" ;
+    sosa:hasSimpleResult 1.049369e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRH> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126139" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg19" ;
+    sosa:hasSimpleResult 1.230798e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRI> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126136" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg16" ;
+    sosa:hasSimpleResult 1.04698e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRJ> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126137" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg17" ;
+    sosa:hasSimpleResult 1.062375e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRK> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126142" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg22" ;
+    sosa:hasSimpleResult 1.400991e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRL> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126143" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg12" ;
+    sosa:hasSimpleResult 1.903576e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRM> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126140" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg20" ;
+    sosa:hasSimpleResult 1.251506e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRN> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126141" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg21" ;
+    sosa:hasSimpleResult 1.218582e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRO> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126130" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg24" ;
+    sosa:hasSimpleResult 4.44991e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRP> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126131" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg25" ;
+    sosa:hasSimpleResult 4.87834e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRQ> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126128" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg22" ;
+    sosa:hasSimpleResult -3.67515e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRR> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126129" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg23" ;
+    sosa:hasSimpleResult 4.0539e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRS> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126134" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg14" ;
+    sosa:hasSimpleResult 8.47364e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRT> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126135" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg15" ;
+    sosa:hasSimpleResult 8.74097e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRU> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126132" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg12" ;
+    sosa:hasSimpleResult 6.58386e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRV> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126133" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg13" ;
+    sosa:hasSimpleResult 8.31025e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS$> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126165" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg12" ;
+    sosa:hasSimpleResult 1.889403e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS0> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126186" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg22" ;
+    sosa:hasSimpleResult 1.875712e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS1> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126187" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg12" ;
+    sosa:hasSimpleResult 1.885335e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS2> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126184" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg20" ;
+    sosa:hasSimpleResult 1.887702e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS3> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126185" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg21" ;
+    sosa:hasSimpleResult 1.83507e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS4> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126190" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg15" ;
+    sosa:hasSimpleResult 1.936167e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS5> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126191" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg16" ;
+    sosa:hasSimpleResult 1.95107e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS6> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126188" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg13" ;
+    sosa:hasSimpleResult 1.912955e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS7> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126189" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg14" ;
+    sosa:hasSimpleResult 1.879348e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS8> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126178" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg14" ;
+    sosa:hasSimpleResult 1.926393e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS9> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126179" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg15" ;
+    sosa:hasSimpleResult 1.900903e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSA> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126176" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg12" ;
+    sosa:hasSimpleResult 1.894237e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSB> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126177" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg13" ;
+    sosa:hasSimpleResult 1.933024e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSC> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126182" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg18" ;
+    sosa:hasSimpleResult 1.878818e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSD> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126183" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg19" ;
+    sosa:hasSimpleResult 1.911189e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSE> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126180" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg16" ;
+    sosa:hasSimpleResult 1.936409e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSF> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126181" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg17" ;
+    sosa:hasSimpleResult 1.915031e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSG> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126202" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg16" ;
+    sosa:hasSimpleResult 1.918075e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSH> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126203" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg17" ;
+    sosa:hasSimpleResult 1.947748e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSI> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126200" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg14" ;
+    sosa:hasSimpleResult 1.990527e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSJ> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126201" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg15" ;
+    sosa:hasSimpleResult 1.884781e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSK> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126206" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg20" ;
+    sosa:hasSimpleResult 1.9189e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSL> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126207" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg21" ;
+    sosa:hasSimpleResult 1.841243e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSM> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126204" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg18" ;
+    sosa:hasSimpleResult 1.879256e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSN> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126205" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg19" ;
+    sosa:hasSimpleResult 1.904418e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSO> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126194" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg19" ;
+    sosa:hasSimpleResult 1.955199e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSP> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126195" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg20" ;
+    sosa:hasSimpleResult 1.928221e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSQ> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126192" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg17" ;
+    sosa:hasSimpleResult 1.916499e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSR> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126193" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg18" ;
+    sosa:hasSimpleResult 1.951296e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSS> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126198" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg12" ;
+    sosa:hasSimpleResult 1.924468e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHST> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126199" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg13" ;
+    sosa:hasSimpleResult 1.957321e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSU> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126196" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg21" ;
+    sosa:hasSimpleResult 1.930091e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSV> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126197" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg22" ;
+    sosa:hasSimpleResult 1.949328e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSW> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126154" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg12" ;
+    sosa:hasSimpleResult 1.813621e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSX> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126155" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg13" ;
+    sosa:hasSimpleResult 1.922254e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSY> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126152" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg21" ;
+    sosa:hasSimpleResult 1.78415e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSZ> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126153" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg22" ;
+    sosa:hasSimpleResult 1.81622e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS_> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126164" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg22" ;
+    sosa:hasSimpleResult 1.795176e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSa> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126158" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg16" ;
+    sosa:hasSimpleResult 1.901443e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSb> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126159" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg17" ;
+    sosa:hasSimpleResult 1.778908e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSc> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126156" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg14" ;
+    sosa:hasSimpleResult 1.810305e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSd> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126157" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg15" ;
+    sosa:hasSimpleResult 1.793001e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSe> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126146" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg15" ;
+    sosa:hasSimpleResult 1.89241e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSf> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126147" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg16" ;
+    sosa:hasSimpleResult 1.943987e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSg> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126144" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg13" ;
+    sosa:hasSimpleResult 1.954898e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSh> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126145" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg14" ;
+    sosa:hasSimpleResult 1.902633e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSi> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126150" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg19" ;
+    sosa:hasSimpleResult 1.898992e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSj> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126151" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg20" ;
+    sosa:hasSimpleResult 1.853873e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSk> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126148" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg17" ;
+    sosa:hasSimpleResult 1.891057e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSl> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126149" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg18" ;
+    sosa:hasSimpleResult 1.842291e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSm> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126170" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg17" ;
+    sosa:hasSimpleResult 1.799549e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSn> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126171" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg18" ;
+    sosa:hasSimpleResult 1.805761e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSo> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126168" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg15" ;
+    sosa:hasSimpleResult 1.867089e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSp> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126169" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg16" ;
+    sosa:hasSimpleResult 1.893042e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSq> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126174" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg21" ;
+    sosa:hasSimpleResult 1.769821e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSr> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126175" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg22" ;
+    sosa:hasSimpleResult 1.81789e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSs> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126172" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg19" ;
+    sosa:hasSimpleResult 1.846651e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSt> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126173" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg20" ;
+    sosa:hasSimpleResult 1.780982e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSu> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126162" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg20" ;
+    sosa:hasSimpleResult 1.745794e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSv> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126163" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg21" ;
+    sosa:hasSimpleResult 1.658812e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSw> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126160" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg18" ;
+    sosa:hasSimpleResult 1.723612e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSx> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126161" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg19" ;
+    sosa:hasSimpleResult 1.838922e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSy> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126166" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg13" ;
+    sosa:hasSimpleResult 1.904279e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSz> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126167" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg14" ;
+    sosa:hasSimpleResult 1.82297e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT$> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126229" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg4" ;
+    sosa:hasSimpleResult 2.35149e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT0> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126250" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg3" ;
+    sosa:hasSimpleResult 1.76792e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT1> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126251" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg4" ;
+    sosa:hasSimpleResult 1.76281e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT2> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126248" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg1" ;
+    sosa:hasSimpleResult 1.800803e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT3> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126249" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg2" ;
+    sosa:hasSimpleResult 1.738209e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT4> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126254" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg7" ;
+    sosa:hasSimpleResult 1.81003e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT5> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126255" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg8" ;
+    sosa:hasSimpleResult 1.712501e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT6> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126252" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg5" ;
+    sosa:hasSimpleResult 1.675251e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT7> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126253" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg6" ;
+    sosa:hasSimpleResult 1.707314e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT8> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126242" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg6" ;
+    sosa:hasSimpleResult 1.70381e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT9> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126243" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg7" ;
+    sosa:hasSimpleResult 1.757549e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTA> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126240" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg4" ;
+    sosa:hasSimpleResult 1.549431e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTB> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126241" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg5" ;
+    sosa:hasSimpleResult 1.516748e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTC> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126246" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg10" ;
+    sosa:hasSimpleResult 1.971508e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTD> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126247" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg11" ;
+    sosa:hasSimpleResult 1.918738e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTE> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126244" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg8" ;
+    sosa:hasSimpleResult 1.71798e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTF> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126245" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg9" ;
+    sosa:hasSimpleResult 1.924823e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTG> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126266" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg8" ;
+    sosa:hasSimpleResult 1.738183e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTH> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126267" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg9" ;
+    sosa:hasSimpleResult 1.835402e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTI> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126264" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg6" ;
+    sosa:hasSimpleResult 1.797639e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTJ> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126265" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg7" ;
+    sosa:hasSimpleResult 1.807987e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTK> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126270" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg1" ;
+    sosa:hasSimpleResult 1.804855e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTL> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126271" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg2" ;
+    sosa:hasSimpleResult 1.792771e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTM> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126268" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg10" ;
+    sosa:hasSimpleResult 1.820043e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTN> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126269" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg11" ;
+    sosa:hasSimpleResult 1.762163e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTO> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126258" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg11" ;
+    sosa:hasSimpleResult 1.752336e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTP> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126259" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg1" ;
+    sosa:hasSimpleResult 1.716724e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTQ> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126256" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg9" ;
+    sosa:hasSimpleResult 1.750269e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTR> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126257" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch4_fbg10" ;
+    sosa:hasSimpleResult 1.85364e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTS> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126262" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg4" ;
+    sosa:hasSimpleResult 1.752202e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTT> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126263" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg5" ;
+    sosa:hasSimpleResult 1.653528e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTU> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126260" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg2" ;
+    sosa:hasSimpleResult 1.629763e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTV> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126261" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch5_fbg3" ;
+    sosa:hasSimpleResult 1.769484e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTW> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126218" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg7" ;
+    sosa:hasSimpleResult 5.091e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTX> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126219" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg8" ;
+    sosa:hasSimpleResult 4.8715e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTY> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126216" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg5" ;
+    sosa:hasSimpleResult -1.040007e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTZ> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126217" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg6" ;
+    sosa:hasSimpleResult -1.077535e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT_> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126228" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg3" ;
+    sosa:hasSimpleResult 6.1422e+00 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTa> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126222" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg11" ;
+    sosa:hasSimpleResult 4.41788e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTb> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126223" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg12" ;
+    sosa:hasSimpleResult -4.77258e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTc> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126220" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg9" ;
+    sosa:hasSimpleResult 5.35251e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTd> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126221" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg10" ;
+    sosa:hasSimpleResult 4.3772e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTg> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126208" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg22" ;
+    sosa:hasSimpleResult 1.86556e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTj> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126215" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg4" ;
+    sosa:hasSimpleResult -1.018939e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTm> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126234" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg9" ;
+    sosa:hasSimpleResult 4.6972e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTn> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126235" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg10" ;
+    sosa:hasSimpleResult 6.36845e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTo> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126232" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg7" ;
+    sosa:hasSimpleResult 4.40179e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTp> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126233" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg8" ;
+    sosa:hasSimpleResult 4.64416e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTq> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126238" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg2" ;
+    sosa:hasSimpleResult 1.393841e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTr> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126239" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg3" ;
+    sosa:hasSimpleResult 1.57574e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTs> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126236" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg11" ;
+    sosa:hasSimpleResult 6.55863e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTt> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY ;
+    fbb:hasID "1126237" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch3_fbg1" ;
+    sosa:hasSimpleResult 1.425992e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTu> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126226" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg1" ;
+    sosa:hasSimpleResult 3.1077e+00 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTv> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126227" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg2" ;
+    sosa:hasSimpleResult 4.597e+00 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTw> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126224" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg13" ;
+    sosa:hasSimpleResult -4.80909e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTx> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126225" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch1_fbg14" ;
+    sosa:hasSimpleResult -5.26636e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTy> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126230" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg5" ;
+    sosa:hasSimpleResult 2.55623e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTz> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN ;
+    fbb:hasID "1126231" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch2_fbg6" ;
+    sosa:hasSimpleResult 2.60106e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU$> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126293" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg2" ;
+    sosa:hasSimpleResult 1.91319e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU0> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126314" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg12" ;
+    sosa:hasSimpleResult 1.185501e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU1> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126315" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg13" ;
+    sosa:hasSimpleResult 1.042934e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU2> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126312" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg10" ;
+    sosa:hasSimpleResult 1.221815e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU3> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126313" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg11" ;
+    sosa:hasSimpleResult 1.163689e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU4> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126318" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg16" ;
+    sosa:hasSimpleResult 7.98654e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU5> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126319" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg17" ;
+    sosa:hasSimpleResult 7.00219e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU6> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126316" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg14" ;
+    sosa:hasSimpleResult 9.98035e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU7> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126317" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg15" ;
+    sosa:hasSimpleResult 9.90218e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU8> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126306" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg4" ;
+    sosa:hasSimpleResult 1.606059e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU9> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126307" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg5" ;
+    sosa:hasSimpleResult 1.585345e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUA> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126304" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg2" ;
+    sosa:hasSimpleResult 1.782962e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUB> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126305" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg3" ;
+    sosa:hasSimpleResult 1.8015e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUC> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126310" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg8" ;
+    sosa:hasSimpleResult 1.376862e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUD> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126311" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg9" ;
+    sosa:hasSimpleResult 1.406776e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUE> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126308" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg6" ;
+    sosa:hasSimpleResult 1.592452e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUF> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126309" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg7" ;
+    sosa:hasSimpleResult 1.426675e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUG> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_0o61s_Se57fhGNyHg4oRJE ;
+    fbb:hasID "1126330" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg2" ;
+    sosa:hasSimpleResult 7.2481e+00 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUH> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_0o61s_Se57fhGNyHg4oRJE ;
+    fbb:hasID "1126331" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg3" ;
+    sosa:hasSimpleResult -4.0274e+00 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUI> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126328" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg26" ;
+    sosa:hasSimpleResult 1.89843e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUJ> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_0o61s_Se57fhGNyHg4oRJE ;
+    fbb:hasID "1126329" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg1" ;
+    sosa:hasSimpleResult 1.93499e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUK> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_0o61s_Se57fhGNyHg4oRJU ;
+    fbb:hasID "1126334" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg6" ;
+    sosa:hasSimpleResult -3.57655e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUL> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_0o61s_Se57fhGNyHg4oRJU ;
+    fbb:hasID "1126335" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg7" ;
+    sosa:hasSimpleResult -3.13625e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUM> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_0o61s_Se57fhGNyHg4oRJE ;
+    fbb:hasID "1126332" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg4" ;
+    sosa:hasSimpleResult -5.1179e+00 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUN> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_0o61s_Se57fhGNyHg4oRJU ;
+    fbb:hasID "1126333" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg5" ;
+    sosa:hasSimpleResult -2.74341e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUO> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126322" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg20" ;
+    sosa:hasSimpleResult 4.90877e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUP> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126323" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg21" ;
+    sosa:hasSimpleResult 5.22729e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUQ> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126320" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg18" ;
+    sosa:hasSimpleResult 7.12609e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUR> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126321" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg19" ;
+    sosa:hasSimpleResult 6.60242e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUS> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126326" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg24" ;
+    sosa:hasSimpleResult 3.74941e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUT> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126327" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg25" ;
+    sosa:hasSimpleResult 2.81076e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUU> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126324" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg22" ;
+    sosa:hasSimpleResult 4.27398e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUV> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga ;
+    fbb:hasID "1126325" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg23" ;
+    sosa:hasSimpleResult 3.20856e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUW> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126282" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg2" ;
+    sosa:hasSimpleResult 1.851237e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUX> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126283" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg3" ;
+    sosa:hasSimpleResult 1.886377e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUY> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126280" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg11" ;
+    sosa:hasSimpleResult 1.916483e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUZ> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126281" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg1" ;
+    sosa:hasSimpleResult 1.90284e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU_> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126292" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg1" ;
+    sosa:hasSimpleResult 1.90859e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUa> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126286" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg6" ;
+    sosa:hasSimpleResult 1.90484e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUb> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126287" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg7" ;
+    sosa:hasSimpleResult 1.959705e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUc> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126284" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg4" ;
+    sosa:hasSimpleResult 1.934947e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUd> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126285" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg5" ;
+    sosa:hasSimpleResult 1.866754e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUe> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126274" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg5" ;
+    sosa:hasSimpleResult 1.827215e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUf> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126275" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg6" ;
+    sosa:hasSimpleResult 1.854724e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUg> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126272" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg3" ;
+    sosa:hasSimpleResult 1.831257e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUh> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126273" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg4" ;
+    sosa:hasSimpleResult 1.834196e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUi> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126278" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg9" ;
+    sosa:hasSimpleResult 1.887513e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUj> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126279" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg10" ;
+    sosa:hasSimpleResult 1.908317e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUk> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126276" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg7" ;
+    sosa:hasSimpleResult 1.891569e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUl> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost <https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> ;
+    fbb:hasID "1126277" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch6_fbg8" ;
+    sosa:hasSimpleResult 1.887673e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUm> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126298" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg7" ;
+    sosa:hasSimpleResult 1.97099e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUn> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126299" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg8" ;
+    sosa:hasSimpleResult 1.980468e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUo> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126296" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg5" ;
+    sosa:hasSimpleResult 1.922399e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUp> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126297" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg6" ;
+    sosa:hasSimpleResult 1.929893e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUq> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126302" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg11" ;
+    sosa:hasSimpleResult 1.972479e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUr> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ ;
+    fbb:hasID "1126303" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch9_fbg1" ;
+    sosa:hasSimpleResult 1.86072e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUs> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126300" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg9" ;
+    sosa:hasSimpleResult 1.92101e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUt> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126301" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg10" ;
+    sosa:hasSimpleResult 1.952511e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUu> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126290" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg10" ;
+    sosa:hasSimpleResult 1.90719e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUv> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126291" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg11" ;
+    sosa:hasSimpleResult 1.858429e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUw> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126288" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg8" ;
+    sosa:hasSimpleResult 1.887308e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUx> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126289" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch7_fbg9" ;
+    sosa:hasSimpleResult 1.867926e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUy> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126294" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg3" ;
+    sosa:hasSimpleResult 1.924434e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUz> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS ;
+    fbb:hasID "1126295" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch8_fbg4" ;
+    sosa:hasSimpleResult 1.924456e+02 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVW> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_1q9o1O8GT7UfhoYmhtipih ;
+    fbb:hasID "1126346" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg18" ;
+    sosa:hasSimpleResult -7.11708e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVX> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_1q9o1O8GT7UfhoYmhtipih ;
+    fbb:hasID "1126347" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg19" ;
+    sosa:hasSimpleResult -6.49131e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVY> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_1q9o1O8GT7UfhoYmhtii8i ;
+    fbb:hasID "1126344" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg16" ;
+    sosa:hasSimpleResult -5.673e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVZ> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_1q9o1O8GT7UfhoYmhtipih ;
+    fbb:hasID "1126345" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg17" ;
+    sosa:hasSimpleResult -6.32197e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVc> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_1q9o1O8GT7UfhoYmhtipih ;
+    fbb:hasID "1126348" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg20" ;
+    sosa:hasSimpleResult -6.17011e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVe> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_1q9o1O8GT7UfhoYmhtiiLH ;
+    fbb:hasID "1126338" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg10" ;
+    sosa:hasSimpleResult -3.83052e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVf> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_1q9o1O8GT7UfhoYmhtiiLH ;
+    fbb:hasID "1126339" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg11" ;
+    sosa:hasSimpleResult -4.31754e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVg> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_0o61s_Se57fhGNyHg4oRJU ;
+    fbb:hasID "1126336" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg8" ;
+    sosa:hasSimpleResult -3.24324e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVh> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_1q9o1O8GT7UfhoYmhtiiLH ;
+    fbb:hasID "1126337" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg9" ;
+    sosa:hasSimpleResult -4.47706e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVi> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_1q9o1O8GT7UfhoYmhtii8i ;
+    fbb:hasID "1126342" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg14" ;
+    sosa:hasSimpleResult -5.20802e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVj> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_1q9o1O8GT7UfhoYmhtii8i ;
+    fbb:hasID "1126343" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg15" ;
+    sosa:hasSimpleResult -6.0897e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVk> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_1q9o1O8GT7UfhoYmhtiiLH ;
+    fbb:hasID "1126340" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg12" ;
+    sosa:hasSimpleResult -5.49014e+01 .
+
+<http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVl> a sosa:Sensor ;
+    fbb:hasArea 1.2e-01 ;
+    fbb:hasHost bot:IfcColumn_1q9o1O8GT7UfhoYmhtii8i ;
+    fbb:hasID "1126341" ;
+    fbb:hasVolume 8e-03 ;
+    sosa:hasId "ch10_fbg13" ;
+    sosa:hasSimpleResult -5.31991e+01 .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNqE a bot:Element ;
+    fbb:hasDamage <http://example.org/dot#Damage_1FsUCh_1n6AAe2OZ$QBHTi> ;
+    fbb:hasID "865599" ;
+    fbb:hasLength 2.140134e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.317969e+00 ;
+    fbb:hasSpan 2.140134e+04 ;
+    fbb:hasVolume 6.977686e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNxi a bot:Element ;
+    fbb:hasDamage <http://example.org/dot#Damage_1FsUCh_1n6AAe2OZ$QBHTk>,
+        <http://example.org/dot#Damage_1FsUCh_1n6AAe2OZ$QBHTl> ;
+    fbb:hasID "866013" ;
+    fbb:hasLength 2.116141e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSlope 1.339221e+00 ;
+    fbb:hasSpan 2.116141e+04 ;
+    fbb:hasVolume 7.011686e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_0o61s_Se57fhGNyHg4oRJE a bot:Element ;
+    fbb:hasID "845274" ;
+    fbb:hasLength 4.09127e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSensor <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUG>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUH>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUJ>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUM> ;
+    fbb:hasSlope 8.991307e+01 ;
+    fbb:hasVolume 1.569605e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_0o61s_Se57fhGNyHg4oRJU a bot:Element ;
+    fbb:hasID "845258" ;
+    fbb:hasLength 3.748945e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSensor <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUK>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUL>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUN>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVg> ;
+    fbb:hasSlope 8.994026e+01 ;
+    fbb:hasVolume 1.437864e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_1q9o1O8GT7UfhoYmhtii8i a bot:Element ;
+    fbb:hasID "850947" ;
+    fbb:hasLength 3.762278e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSensor <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVY>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVi>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVj>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVl> ;
+    fbb:hasSlope 8.99841e+01 ;
+    fbb:hasVolume 1.442995e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_1q9o1O8GT7UfhoYmhtiiLH a bot:Element ;
+    fbb:hasID "850814" ;
+    fbb:hasLength 3.760612e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSensor <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVe>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVf>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVh>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVk> ;
+    fbb:hasSlope 8.995397e+01 ;
+    fbb:hasVolume 1.442354e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcColumn_1q9o1O8GT7UfhoYmhtipih a bot:Element ;
+    fbb:hasID "853252" ;
+    fbb:hasLength 4.144039e+03 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSensor <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVW>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVX>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVZ>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHVc> ;
+    fbb:hasSlope 8.96656e+01 ;
+    fbb:hasVolume 1.589913e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNa_ a bot:Element ;
+    fbb:hasID "864527" ;
+    fbb:hasLength 1.628e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSensor <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU0>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU1>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU2>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU3>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU8>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU9>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUA>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUB>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUC>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUD>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUE>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUF>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUr> ;
+    fbb:hasSlope 3.489112e-01 ;
+    fbb:hasSpan 1.628e+04 ;
+    fbb:hasVolume 3.51648e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNga a bot:Element ;
+    fbb:hasID "864917" ;
+    fbb:hasLength 1.628e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSensor <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU4>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU5>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU6>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU7>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUI>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUO>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUP>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUQ>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUR>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUS>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUT>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUU>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUV> ;
+    fbb:hasSlope 3.489112e-01 ;
+    fbb:hasSpan 1.628e+04 ;
+    fbb:hasVolume 3.51648e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNkN a bot:Element ;
+    fbb:hasID "865190" ;
+    fbb:hasLength 2.144007e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSensor <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR0>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR1>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR3>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR4>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR5>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR6>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHR7>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRG>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRH>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRI>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRJ>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRK>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRM>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRN>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRO>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRP>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRQ>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRR>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRS>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRT>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRU>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRV>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT$>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTW>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTX>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTY>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTZ>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT_>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTa>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTb>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTc>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTd>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTj>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTm>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTn>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTo>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTp>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTs>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTu>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTv>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTw>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTx>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTy>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTz> ;
+    fbb:hasSlope 1.269479e+00 ;
+    fbb:hasSpan 2.144007e+04 ;
+    fbb:hasVolume 6.989948e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNvY a bot:Element ;
+    fbb:hasID "865875" ;
+    fbb:hasLength 2.154151e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSensor <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHRL>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSW>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSX>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSY>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSZ>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS_>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSa>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSb>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSc>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSd>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSe>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSf>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSg>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSh>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSi>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSj>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSk>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSl>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSu>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSv>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSw>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSx>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT0>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT1>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT2>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT3>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT4>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT5>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT6>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT7>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT8>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHT9>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTA>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTB>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTC>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTD>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTE>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTF>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTO>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTQ>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTR>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTq>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTr>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTt> ;
+    fbb:hasSlope 1.330012e+00 ;
+    fbb:hasSpan 2.154151e+04 ;
+    fbb:hasVolume 7.02381e+00 ;
+    fbb:isLoadBearing true .
+
+<https://w3id.org/bot#IfcBeam_3hUfRaUmX4xf3VuTxmqNw$> a bot:Element ;
+    fbb:hasID "865934" ;
+    fbb:hasLength 2.154162e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSensor <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS$>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS0>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS2>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS3>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS8>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS9>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSA>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSB>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSC>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSD>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSE>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSF>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSm>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSn>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSo>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSp>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSq>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSr>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSs>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSt>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSy>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSz>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTG>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTH>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTI>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTJ>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTK>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTL>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTM>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTN>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTP>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTS>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTT>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTU>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTV>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUY>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUe>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUf>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUg>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUh>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUi>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUj>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUk>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUl> ;
+    fbb:hasSlope 1.343307e+00 ;
+    fbb:hasSpan 2.154162e+04 ;
+    fbb:hasVolume 7.018446e+00 ;
+    fbb:isLoadBearing true .
+
+bot:IfcBeam_3hUfRaUmX4xf3VuTxmqNyS a bot:Element ;
+    fbb:hasID "866093" ;
+    fbb:hasLength 2.134155e+04 ;
+    fbb:hasMaterial "NLRS_f2_beton_ihwg_gen" ;
+    fbb:hasSensor <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS1>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS4>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS5>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS6>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHS7>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSG>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSH>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSI>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSJ>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSK>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSL>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSM>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSN>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSO>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSP>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSQ>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSR>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSS>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHST>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSU>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHSV>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHTg>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU$>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUW>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUX>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUZ>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHU_>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUa>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUb>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUc>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUd>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUm>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUn>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUo>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUp>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUq>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUs>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUt>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUu>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUv>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUw>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUx>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUy>,
+        <http://www.w3.org/ns/sosa/Sensor_1FsUCh_1n6AAe2OZ$QBHUz> ;
+    fbb:hasSlope 1.342476e+00 ;
+    fbb:hasSpan 2.134155e+04 ;
+    fbb:hasVolume 6.958293e+00 ;
+    fbb:isLoadBearing true .
+
