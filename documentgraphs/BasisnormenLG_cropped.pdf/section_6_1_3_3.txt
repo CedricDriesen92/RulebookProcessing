@@ -1,0 +1,6 @@
+- automatisch bevolen wordt om de gebruikers van de lift een toereikende verluchting te verzekeren, zelfs bij een langdurige stilstand;
+- automatisch bevolen wordt bij een abnormale temperatuursstijging van de machine en/of de controleorganen;
+- automatisch bevolen wordt bij de detectie van een brand in de schacht en/of in de machinekamer;
+- automatisch bevolen wordt bij de detectie van een brand in het gebouw, indien dit uitgerust is met een algemene branddetectie-installatie;
+- automatisch bevolen wordt bij een defect aan de energiebron, de voeding of de bediening (toestel met positieve veiligheid);
+- manueel via een bediening op een evacuatieniveau.

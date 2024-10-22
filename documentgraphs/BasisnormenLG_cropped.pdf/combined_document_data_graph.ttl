@@ -921,13 +921,13 @@ firebim:Section_6_8_5_4_3 a firebim:Section ;
 
 firebim:Table_2_3 a firebim:Table ;
     firebim:hasID "T2.3" ;
-    firebim:hasOriginalText """Wanden
-Boven de vloer van Ei
-Eén bouwlaag         R 30 (*)
-Meerdere bouwlagen   R 60
-Onder Ei, met inbegrip van de vloer van Ei   R 60
-
-Tabel 2.3 – Brandweerstand van wanden tussen compartimenten.
-
+    firebim:hasOriginalText """Wanden\r
+Boven de vloer van Ei\r
+Eén bouwlaag         R 30 (*)\r
+Meerdere bouwlagen   R 60\r
+Onder Ei, met inbegrip van de vloer van Ei   R 60\r
+\r
+Tabel 2.3 – Brandweerstand van wanden tussen compartimenten.\r
+\r
 (*) Geen eisen voor de structurele elementen van het dak indien het aan de binnenkant beschermd is door middel van een bouwelement EI 30."""@nl .
 

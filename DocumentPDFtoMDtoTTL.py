@@ -216,6 +216,7 @@ def main():
     #pdf_filename = 'NIT_198_crop.pdf'
     pdf_filename = 'BasisnormenLG_cropped.pdf'
     markdown_filename = pdf_filename + '.md'
+    output_folder = f"documentgraphs/{pdf_filename}"
     
     if os.path.exists(markdown_filename):
         with open(markdown_filename, 'r', encoding='utf-8') as file:
@@ -236,6 +237,8 @@ def main():
     # Preprocess sections to combine non-section content with previous sections
     processed_sections = []
     for i, (section_number, section_title, section_content) in enumerate(sections):
+        with open(f"{output_folder}/section_{section_number.replace('.', '_')}.txt", 'w', encoding='utf-8') as file:
+            file.write(section_content)
         if i == 0 or compare_section_numbers(section_number, processed_sections[-1][0]) > 0:
             processed_sections.append((section_number, section_title, section_content))
         else:
@@ -268,7 +271,6 @@ def main():
             main_graph.add((parent_uri, FIREBIM.hasSection, section_uri))
     
     # Serialize the initial structure
-    output_folder = f"documentgraphs/{pdf_filename}"
     os.makedirs(output_folder, exist_ok=True)
     main_graph.serialize(f"{output_folder}/document.ttl", format="turtle")
     starting_graph = load_ontology(f"{output_folder}/document.ttl")

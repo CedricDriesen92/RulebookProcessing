@@ -1,0 +1,10 @@
+Om te vermijden dat een brand tussen twee compartimenten kan overslaan:
+
+a) ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de afstand (in m) tussen de geveldelen die niet minstens E 30 of E 30 (o→i) hebben, ten minste:
+
+- h + 10cos α voor 0° ≤ α ≤ 90°
+- 2,5
+- 0 voor 90° < α ≤ 180°
+
+waarbij α de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.2).
+---

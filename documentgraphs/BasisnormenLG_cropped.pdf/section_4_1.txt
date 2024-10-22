@@ -1,0 +1,15 @@
+De wanden tussen compartimenten hebben minstens de brandweerstand aangegeven in tabel 2.3.
+---
+# Wanden
+
+# Boven de vloer van Ei
+
+|Type|Brandweerstand|
+|---|---|
+|Eén bouwlaag|EI 30|
+|Meerdere bouwlagen|EI 60|
+|Onder E,i met inbegrip van de vloer van Ei|EI 60|
+
+Tabel 2.3 – Brandweerstand van wanden tussen compartimenten.
+
+De verbinding tussen twee compartimenten is slechts toegestaan indien zij geschiedt via een zelfsluitende of bij brand zelfsluitende deur EI1 30.

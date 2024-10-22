@@ -1,0 +1,10 @@
+# Tabel 2.1 - Brandweerstand van structurele elementen.
+
+|Structurele elementen van het dak|Overige structurele elementen|
+|---|---|
+|Boven de vloer van Ei|R 30 (*)|
+|Meerdere bouwlagen|R 30 (*)|
+|Onder E,i|Niet van toepassing|
+
+(*) Geen eisen voor de structurele elementen van het dak indien het aan de binnenkant beschermd is door middel van een bouwelement EI 30.
+---

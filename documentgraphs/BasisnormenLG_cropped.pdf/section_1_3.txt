@@ -1,0 +1,13 @@
+Om te vermijden dat een brand tussen twee gebouwen kan overslaan:
+
+a) ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de afstand (in m) tussen de geveldelen die niet minstens EI 60 of REI 60 hebben, ten minste:
+
+|Hoek (α)|Afstand (m)|
+|---|---|
+|0° ≤ α ≤ 90°|h + 10cos α|
+|90° < α ≤ 180°|0|
+
+waarbij α de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.1).
+
+Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is
+---
