@@ -8,6 +8,19 @@ firebim:Section_0 firebim:hasSection firebim:Section_0_1,
         firebim:Section_0_2,
         firebim:Section_0_3 .
 
+firebim:Article_4_1_1 a firebim:Article ;
+    firebim:hasID "A4.1.1" ;
+    firebim:hasMember firebim:Member_4_1_1_1,
+        firebim:Member_4_1_1_2,
+        firebim:Member_4_1_1_3 ;
+    firebim:hasTable firebim:Table_2_3 .
+
+firebim:Member_4_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "De wanden tussen compartimenten hebben minstens de brandweerstand aangegeven in tabel 2.3."@nl .
+
+firebim:Member_4_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "De verbinding tussen twee compartimenten is slechts toegestaan indien zij geschiedt via een zelfsluitende of bij brand zelfsluitende deur EI1 30."@nl .
+
 firebim:RoyalDecree a firebim:Document ;
     firebim:hasID "RoyalDecree1994" ;
     firebim:hasSection firebim:Section_1,
@@ -192,8 +205,10 @@ firebim:Section_4 a firebim:Section ;
         firebim:Section_4_5 .
 
 firebim:Section_4_1 a firebim:Section ;
+    firebim:hasArticle firebim:Article_4_1_1 ;
     firebim:hasID "4.1" ;
-    firebim:hasOriginalText "COMPARTIMENTEN." .
+    firebim:hasOriginalText "COMPARTIMENTEN.",
+        "Compartimenten."@nl .
 
 firebim:Section_4_2 a firebim:Section ;
     firebim:hasID "4.2" ;
@@ -903,4 +918,16 @@ firebim:Section_6_8_5_4_2 a firebim:Section ;
 firebim:Section_6_8_5_4_3 a firebim:Section ;
     firebim:hasID "6.8.5.4.3" ;
     firebim:hasOriginalText "DE ONDERGRONDSE OF DE BOVENGRONDSE HYDRANTEN WORDEN AANGEBRACHT OP EEN HORIZONTAAL GEMETEN AFSTAND VAN TEN MINSTE 0,60 M VAN DE KANT DER STRATEN, WEGEN OF DOORGANGEN WAAROP VOERTUIGEN KUNNEN RIJDEN EN PARKEREN." .
+
+firebim:Table_2_3 a firebim:Table ;
+    firebim:hasID "T2.3" ;
+    firebim:hasOriginalText """Wanden
+Boven de vloer van Ei
+Eén bouwlaag         R 30 (*)
+Meerdere bouwlagen   R 60
+Onder Ei, met inbegrip van de vloer van Ei   R 60
+
+Tabel 2.3 – Brandweerstand van wanden tussen compartimenten.
+
+(*) Geen eisen voor de structurele elementen van het dak indien het aan de binnenkant beschermd is door middel van een bouwelement EI 30."""@nl .
 

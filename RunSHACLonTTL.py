@@ -161,10 +161,11 @@ if __name__ == "__main__":
     
     r = validate(data_graph, shacl_graph=shapes_graph, debug=False, inference="none", advanced=True)
     conforms, results_graph, results_text = r
+    results_graph.serialize(destination="results_graph.ttl", format="turtle")
     
     print(f"Validation {'passed' if conforms else 'failed'}")
     
-    html_file_name = "fire_safety_regulations.html"
+    html_file_name = "BasisnormenLG_cropped.html"
     
     if not conforms:
         processed_results = process_validation_results(results_graph, member_refs, section_refs, document_graph, html_file_name)

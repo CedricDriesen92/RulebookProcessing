@@ -178,7 +178,9 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
         except Exception as e:
             print(f"Error loading existing section {section_number}: {e}")
     
-    return False # Keeps the code from engaging the AI.
+    if section_number not in ['4_1']:
+        print(f"Skipping section {section_number}.")
+        return False # Keeps the code from engaging the AI.
     for attempt in range(3):
         try:
             ttl_content = process_section_to_ttl(section_number, section_text, ontology, examples_str, starting_graph)
@@ -282,6 +284,7 @@ def main():
         curNum += 1
         section_number_underscore = section_number.replace('.', '_')
         file_name = os.path.join(output_folder, f"section_{section_number_underscore}.ttl")
+        processed_bool = False
         
         if not section_content.strip():
             # Create empty section TTL for sections without content
@@ -292,9 +295,10 @@ def main():
         else:
             # Process sections with content through the LLM
             full_content = f"{section_title}\n{section_content}" if section_title else section_content
-            create_and_combine_section_ttl(section_number_underscore, full_content, ontology, main_graph, examples_str, starting_graph, output_folder)
+            processed_bool = create_and_combine_section_ttl(section_number_underscore, full_content, ontology, main_graph, examples_str, starting_graph, output_folder)
         
-        print(f"Processed section {section_number}, nr. {curNum} / {totalNum}")
+        if processed_bool:
+            print(f"Processed section {section_number}, nr. {curNum} / {totalNum}")
     
     main_graph.serialize(f"{output_folder}/combined_document_data_graph.ttl", format="turtle")
 

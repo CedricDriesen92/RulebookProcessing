@@ -1,0 +1,95 @@
+@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] a sh:ValidationReport ;
+    sh:conforms false ;
+    sh:result [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment3 ;
+            sh:resultMessage "Compartment area or length exceeds limits" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraint _:n87ace24d837249a3aa88266d203ce5d3b4 ;
+            sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
+            sh:sourceShape fbb:CompartmentShape ;
+            sh:value fbb:Compartment3 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment4 ;
+            sh:resultMessage "Compartment area or length exceeds limits" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraint _:n87ace24d837249a3aa88266d203ce5d3b4 ;
+            sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
+            sh:sourceShape fbb:CompartmentShape ;
+            sh:value fbb:Compartment4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment5 ;
+            sh:resultMessage "Compartment height does not meet requirements" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraint [ sh:message "Compartment height does not meet requirements" ;
+                    sh:prefixes fbb: ;
+                    sh:select """\r
+            SELECT $this\r
+            WHERE {\r
+                $this fbb:Height ?height .\r
+                $this fbb:isInBuilding ?building .\r
+                ?building fbb:Height ?buildingHeight .\r
+                FILTER (\r
+                    ?height != ?buildingHeight &&\r
+                    NOT EXISTS {\r
+                        { $this fbb:isParking true }\r
+                        UNION\r
+                        { $this fbb:isDuplex true }\r
+                        UNION\r
+                        { $this fbb:isTriplex true }\r
+                        UNION\r
+                        { $this fbb:containsOnlyTechnicalRooms true }\r
+                        UNION\r
+                        {\r
+                            $this fbb:isAtrium true .\r
+                            $this fbb:hasAutomaticFireExtinguishingSystem true .\r
+                            $this fbb:hasSmokeAndHeatEvacuationSystem true .\r
+                        }\r
+                    }\r
+                )\r
+            }\r
+        """ ] ;
+            sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
+            sh:sourceShape fbb:CompartmentShape ;
+            sh:value fbb:Compartment5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Atrium1 ;
+            sh:resultMessage "Compartment area or length exceeds limits" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraint _:n87ace24d837249a3aa88266d203ce5d3b4 ;
+            sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
+            sh:sourceShape fbb:CompartmentShape ;
+            sh:value fbb:Atrium1 ] .
+
+_:n87ace24d837249a3aa88266d203ce5d3b4 sh:message "Compartment area or length exceeds limits" ;
+    sh:prefixes fbb: ;
+    sh:select """\r
+            SELECT $this ?area ?storey ?length ?hasFireExtinguishing ?hasSmokeEvacuation\r
+            WHERE {\r
+                $this fbb:Area ?area .\r
+                OPTIONAL { $this fbb:isOnStorey ?storey . }\r
+                OPTIONAL { $this fbb:Length ?length . }\r
+                OPTIONAL { $this fbb:hasAutomaticFireExtinguishingSystem ?hasFireExtinguishing . }\r
+                OPTIONAL { $this fbb:hasSmokeAndHeatEvacuationSystem ?hasSmokeEvacuation . }\r
+                FILTER (\r
+                    ?area > 2500 &&\r
+                    (\r
+                        (!BOUND(?storey) || ?storey != fbb:GroundFloor) ||\r
+                        (\r
+                            ?storey = fbb:GroundFloor &&\r
+                            (\r
+                                ?area > 3500 &&\r
+                                (?length > 90) ||\r
+                                ?area <= 3500 && \r
+                                ((!BOUND(?hasFireExtinguishing) || !?hasFireExtinguishing) ||\r
+                                (!BOUND(?hasSmokeEvacuation) || !?hasSmokeEvacuation))\r
+                            )\r
+                        )\r
+                    )\r
+                )\r
+            }\r
+        """ .
+
