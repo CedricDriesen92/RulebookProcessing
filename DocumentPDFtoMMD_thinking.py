@@ -3,15 +3,21 @@ import glob
 import csv
 from rdflib import Graph, Namespace
 from anthropic import AnthropicVertex
+import anthropic
 import time
+from dotenv import load_dotenv
 
+load_dotenv()
+
+anthropic_key = os.getenv("ANTHROPIC_API_KEY")
 # Define namespaces
 FIREBIM = Namespace("http://example.com/firebim#")
 SHACL = Namespace("http://www.w3.org/ns/shacl#")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 
 # Initialize AnthropicVertex client
-client = AnthropicVertex(region="europe-west1", project_id="neat-veld-422214-p1")
+#client = AnthropicVertex(region="europe-west1", project_id="neat-veld-422214-p1")
+client = anthropic.Anthropic(api_key=anthropic_key)
 
 def load_training_examples(txt_path, training_path):
     examples = []
@@ -66,6 +72,7 @@ Properties table:
 Training examples, follow these examples closely. Note that these examples might be incomplete and lack object/property matching:
 {examples_str}
 
+DO NOT WASTE IMPORTANT TOKENS ON OUTPUTTING THE FLOWCHART, that is reserved for the next LLM and everything that came before is to understand the task. Only output what comes next:
 Begin by enclosing all thoughts within <thinking> tags, exploring multiple angles and approaches.
 Break down the solution into clear steps within <step> tags. Use <count> tags after each step to show the step you are on.
 Continuously adjust your reasoning based on intermediate results and reflections, adapting your strategy as you progress.
@@ -82,8 +89,10 @@ For mathematical problems, show all work explicitly using LaTeX for formal notat
 Explore multiple solutions individually if possible, comparing approaches in reflections.
 Use thoughts as a scratchpad, writing out all calculations and reasoning explicitly.
 Synthesize the final answer within <answer> tags, providing a clear, concise summary.
-Conclude with a final reflection on the overall solution, discussing effectiveness, challenges, and solutions. Assign a final reward score.That concludes the prompt. Now, for the actual content to be transformed:
+Conclude with a final reflection on the overall solution, discussing effectiveness, challenges, and solutions. Assign a final reward score.That concludes the prompt. 
 
+"""
+    prompt2 = f"""Now, for the actual content to be transformed:
 {ttl_content}
 """
     prompt_verify = f"""
@@ -118,29 +127,75 @@ Please output ONLY the Mermaid diagram, without any explanations, as pure text (
 This is the original text:
 
 {ttl_content}
-
-Now, here is the mmd to be checked, again ONLY output the revised mmd file, not in code blocks:
+"""
+    prompt_verify2 = """Now, here is the mmd to be checked, again ONLY output the revised mmd file, not in code blocks:
 """
     while True:
         try:
-            response = client.messages.create(
-                max_tokens=4096,
+            # response = client.messages.create(
+            #     max_tokens=8000,
+            #     messages=[
+            #         {"role": "user", "content": prompt},
+            #     ],
+            #     model="claude-3-5-sonnet-v2@20241022"
+            # )
+            message = client.messages.create(
+                model="claude-3-5-sonnet-20241022",
+                max_tokens=8192,
+                temperature=0,
+                system=prompt,
                 messages=[
-                    {"role": "user", "content": prompt},
-                ],
-                model="claude-3-5-sonnet@20240620"
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": prompt2
+                            }
+                        ]
+                    }
+                ]
             )
-            first_answer = response.content[0].text.strip()
+            response = message.content[0].text
+            first_answer = response.strip()
             first_answer = first_answer.replace("{", "[").replace("}", "]")
             print(f"First answer: {first_answer}")
-            final_response = client.messages.create(
-                max_tokens=4096,
+            # final_response = client.messages.create(
+            #     max_tokens=8000,
+            #     messages=[
+            #         {"role": "user", "content": prompt_verify + "\n\n" + first_answer},
+            #     ],
+            #     model="claude-3-5-sonnet-v2@20241022"
+            # )
+            # second_answer = final_response.content[0].text.strip()
+            message = client.messages.create(
+                model="claude-3-5-sonnet-20241022",
+                max_tokens=8192,
+                temperature=0,
+                system=prompt_verify,
                 messages=[
-                    {"role": "user", "content": prompt_verify + "\n\n" + first_answer},
-                ],
-                model="claude-3-5-sonnet@20240620"
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": prompt_verify2 + first_answer
+                            }
+                        ]
+                    },
+                    {
+                        "role": "assistant",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "flowchart"
+                            }
+                        ]
+                    }
+                ]
             )
-            second_answer = final_response.content[0].text.strip()
+            response = message.content[0].text
+            second_answer = "flowchart " + response.strip()
             print(f"Final answer: {second_answer}")
             return second_answer
         except Exception as e:
@@ -151,7 +206,7 @@ def main():
     ontology = load_ontology('FireBIM_Document_Ontology.ttl')
     objects_data = load_csv('MatrixObjects_auto.csv')
     properties_data = load_csv('MatrixProperties_auto.csv')
-    input_folder = 'trainingsamplesRuleToGraph'
+    input_folder = 'documentgraphs\BasisnormenLG_cropped.pdf'
     training_folder = 'trainingsamplesRuleToMMD'
     output_folder = 'mmddiagrams'
 
@@ -165,7 +220,7 @@ def main():
         base_name = os.path.splitext(os.path.basename(txt_file))[0]
         output_file = os.path.join(output_folder, f"{base_name}.mmd")
 
-        if os.path.exists(output_file) or "n_3_5" not in base_name:
+        if os.path.exists(output_file) or "2_1" not in base_name:
             print(f"Skipping {base_name}.")
             continue
         

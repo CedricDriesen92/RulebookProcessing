@@ -59,18 +59,18 @@ Please output ONLY the corrected IDS definition without any explanations.
     while True:
         try:
             response = client.messages.create(
-                max_tokens=4096,
+                max_tokens=8000,
                 messages=[
                     {"role": "user", "content": prompt},
                 ],
-                model="claude-3-5-sonnet@20240620"
+                model="claude-3-5-sonnet-v2@20241022"
             )
             final_response = client.messages.create(
-                max_tokens=4096,
+                max_tokens=8000,
                 messages=[
                     {"role": "user", "content": prompt_verify + "\n" + response.content[0].text.strip()},
                 ],
-                model="claude-3-5-sonnet@20240620"
+                model="claude-3-5-sonnet-v2@20241022"
             )
             return final_response.content[0].text.strip()
         except Exception as e:

@@ -1,0 +1,41 @@
+flowchart TD
+    S1["Start: Exit Requirements Check"] --> A["For each <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"]
+    A --> B["Get <a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a>"]
+    B --> C{"<a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> < 100?"}
+    C -- Yes --> D["Set <a href='http://example.com/firebimbuilding#MinimumNumberOfExits' style='color:blue;'>MinimumNumberOfExits</a> = 1"]
+    C -- No --> E{"100 ≤ <a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> < 500?"}
+    E -- Yes --> F["Set <a href='http://example.com/firebimbuilding#MinimumNumberOfExits' style='color:blue;'>MinimumNumberOfExits</a> = 2"]
+    E -- No --> G["Calculate n = ceiling(<a href='http://example.com/firebimbuilding#Occupancy' style='color:blue;'>Occupancy</a> / 1000)"]
+    G --> H["Set <a href='http://example.com/firebimbuilding#MinimumNumberOfExits' style='color:blue;'>MinimumNumberOfExits</a> = 2 + n"]
+    D & F & H --> I["Check <a href='http://example.com/firebimbuilding#AdditionalExitsRequired' style='color:blue;'>AdditionalExitsRequired</a>"]
+    I --> J{"<a href='http://example.com/firebimbuilding#AdditionalExitsRequired' style='color:blue;'>AdditionalExitsRequired</a> > 0?"}
+    J -- Yes --> K["Add <a href='http://example.com/firebimbuilding#AdditionalExitsRequired' style='color:blue;'>AdditionalExitsRequired</a> to <a href='http://example.com/firebimbuilding#MinimumNumberOfExits' style='color:blue;'>MinimumNumberOfExits</a>"]
+    J -- No --> L["Keep original <a href='http://example.com/firebimbuilding#MinimumNumberOfExits' style='color:blue;'>MinimumNumberOfExits</a>"]
+    K & L --> M["Check actual <a href='http://example.com/firebimbuilding#NumberOfExits' style='color:blue;'>NumberOfExits</a>"]
+    M --> N{"Actual ≥ Required?"}
+    N -- Yes --> O[/"Pass"/]
+    N -- No --> P[/"Fail"/]
+    
+    S1 --> Q["For each <a href='http://example.com/firebimbuilding#Floor' style='color:pink;'>Floor</a>"]
+    Q --> R["Apply same exit calculation logic"]
+    R --> S{"Meets requirements?"}
+    S -- Yes --> T[/"Pass"/]
+    S -- No --> U[/"Fail"/]
+    
+    S1 --> V["For each <a href='http://example.com/firebimbuilding#Room' style='color:pink;'>Room</a>"]
+    V --> W["Apply same exit calculation logic"]
+    W --> X{"Meets requirements?"}
+    X -- Yes --> Y[/"Pass"/]
+    X -- No --> Z[/"Fail"/]
+
+    S1:::startClass
+    O:::passClass
+    P:::failClass
+    T:::passClass
+    U:::failClass
+    Y:::passClass
+    Z:::failClass
+
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px

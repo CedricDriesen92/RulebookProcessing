@@ -55,7 +55,7 @@ Text content (your main input with section number {section_number}):
                 messages=[
                     {"role": "user", "content": prompt},
                 ],
-                model="claude-3-5-sonnet@20240620"
+                model="claude-3-5-sonnet-v2@20241022"
             )
             print(response.content[0].text.strip())
             return response.content[0].text.strip()

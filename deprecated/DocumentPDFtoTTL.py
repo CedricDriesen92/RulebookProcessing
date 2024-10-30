@@ -156,12 +156,12 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
     while True:
         try:
             response = client.messages.create(
-                max_tokens=4096,
+                max_tokens=8000,
                 messages=[
                     {"role": "user", "content": prompt},
                     {"role": "assistant", "content": "firebim:Section_" + str(section_number) +" a"}
                 ],
-                model="claude-3-5-sonnet@20240620"
+                model="claude-3-5-sonnet-v2@20241022"
             )
             break
         except Exception as e:

@@ -1,80 +1,137 @@
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix fbb: <http://example.com/firebimbuilding#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix firebim: <http://example.com/firebim#> .
 
 fbb:CompartmentExitRequirementShape
     a sh:NodeShape ;
     sh:targetClass fbb:Compartment ;
+    fbb:flowchartNodeID "A" ;
     firebim:rulesource firebim:Section_2_2_1 ;
     sh:property [
         sh:path fbb:Occupancy ;
         sh:datatype xsd:integer ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
+        fbb:flowchartNodeID "B" ;
+    ] ;
+    sh:property [
+        sh:path fbb:AdditionalExitsRequired ;
+        sh:datatype xsd:integer ;
+        sh:defaultValue 0 ;
     ] ;
     sh:property [
         sh:path fbb:NumberOfExits ;
         sh:datatype xsd:integer ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
     ] ;
     sh:sparql [
-        sh:message "Compartment does not have the required number of exits based on occupancy." ;
+        sh:message "Minimum number of exits calculation failed" ;
         sh:prefixes fbb: ;
         sh:select """
-            SELECT $this ?actualExits ?requiredExits
+            SELECT $this ?violation
             WHERE {
                 $this fbb:Occupancy ?occupancy .
                 $this fbb:NumberOfExits ?actualExits .
+                OPTIONAL { $this fbb:AdditionalExitsRequired ?additional } .
+                BIND(COALESCE(?additional, 0) AS ?additionalRequired)
+                
                 BIND(
-                    IF(?occupancy < 100, 1,
-                        IF(?occupancy < 500, 2,
-                            2 + CEIL((?occupancy - 500) / 1000)
-                        )
-                    ) AS ?requiredExits
+                    CASE 
+                        WHEN ?occupancy < 100 THEN 1
+                        WHEN ?occupancy >= 100 && ?occupancy < 500 THEN 2
+                        ELSE (2 + CEIL((?occupancy - 500) / 1000))
+                    END + ?additionalRequired AS ?requiredExits
                 )
-                FILTER(?actualExits < ?requiredExits)
+                
+                BIND(?actualExits < ?requiredExits AS ?violation)
             }
-        """
+            HAVING (?violation)
+        """ ;
     ] .
 
-fbb:DoorFireExitShape
+fbb:FloorExitRequirementShape
     a sh:NodeShape ;
-    sh:targetClass fbb:Door ;
+    sh:targetClass fbb:Floor ;
+    fbb:flowchartNodeID "Q" ;
     firebim:rulesource firebim:Section_2_2_1 ;
     sh:property [
-        sh:path fbb:IsFireExit ;
-        sh:datatype xsd:boolean ;
+        sh:path fbb:Occupancy ;
+        sh:datatype xsd:integer ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] .
-
-fbb:BuildingAssessmentShape
-    a sh:NodeShape ;
-    sh:targetClass fbb:Building ;
-    firebim:rulesource firebim:Section_2_2_1 ;
+    ] ;
+    sh:property [
+        sh:path fbb:AdditionalExitsRequired ;
+        sh:datatype xsd:integer ;
+        sh:defaultValue 0 ;
+    ] ;
+    sh:property [
+        sh:path fbb:NumberOfExits ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+    ] ;
     sh:sparql [
-        sh:message "Building does not have the required number of fire exits." ;
+        sh:message "Minimum number of exits calculation failed" ;
         sh:prefixes fbb: ;
         sh:select """
-            SELECT $this (COUNT(DISTINCT ?door) AS ?fireExits) (SUM(?requiredExits) AS ?totalRequired)
+            SELECT $this ?violation
             WHERE {
-                $this fbb:containsCompartment ?compartment .
-                ?compartment fbb:Occupancy ?occupancy .
+                $this fbb:Occupancy ?occupancy .
+                $this fbb:NumberOfExits ?actualExits .
+                OPTIONAL { $this fbb:AdditionalExitsRequired ?additional } .
+                BIND(COALESCE(?additional, 0) AS ?additionalRequired)
+                
                 BIND(
-                    IF(?occupancy < 100, 1,
-                        IF(?occupancy < 500, 2,
-                            2 + CEIL((?occupancy - 500) / 1000)
-                        )
-                    ) AS ?requiredExits
+                    CASE 
+                        WHEN ?occupancy < 100 THEN 1
+                        WHEN ?occupancy >= 100 && ?occupancy < 500 THEN 2
+                        ELSE (2 + CEIL((?occupancy - 500) / 1000))
+                    END + ?additionalRequired AS ?requiredExits
                 )
-                OPTIONAL {
-                    $this fbb:hasDoor ?door .
-                    ?door fbb:IsFireExit true .
-                }
+                
+                BIND(?actualExits < ?requiredExits AS ?violation)
             }
-            GROUP BY $this
-            HAVING (?fireExits < ?totalRequired)
-        """
+            HAVING (?violation)
+        """ ;
+    ] .
+
+fbb:RoomExitRequirementShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Room ;
+    fbb:flowchartNodeID "V" ;
+    firebim:rulesource firebim:Section_2_2_1 ;
+    sh:property [
+        sh:path fbb:Occupancy ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path fbb:AdditionalExitsRequired ;
+        sh:datatype xsd:integer ;
+        sh:defaultValue 0 ;
+    ] ;
+    sh:property [
+        sh:path fbb:NumberOfExits ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+    ] ;
+    sh:sparql [
+        sh:message "Minimum number of exits calculation failed" ;
+        sh:prefixes fbb: ;
+        sh:select """
+            SELECT $this ?violation
+            WHERE {
+                $this fbb:Occupancy ?occupancy .
+                $this fbb:NumberOfExits ?actualExits .
+                OPTIONAL { $this fbb:AdditionalExitsRequired ?additional } .
+                BIND(COALESCE(?additional, 0) AS ?additionalRequired)
+                
+                BIND(
+                    CASE 
+                        WHEN ?occupancy < 100 THEN 1
+                        WHEN ?occupancy >= 100 && ?occupancy < 500 THEN 2
+                        ELSE (2 + CEIL((?occupancy - 500) / 1000))
+                    END + ?additionalRequired AS ?requiredExits
+                )
+                
+                BIND(?actualExits < ?requiredExits AS ?violation)
+            }
+            HAVING (?violation)
+        """ ;
     ] .

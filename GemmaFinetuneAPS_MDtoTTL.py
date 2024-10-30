@@ -46,7 +46,7 @@ model = Llama(model_path=local_model_path, n_ctx=2048)  # Adjust n_ctx as needed
 # tokenizer = AutoTokenizer.from_pretrained(model_path)
 
 # Replace the generator pipeline with a custom function
-def generate_text(prompt, max_tokens=4096):
+def generate_text(prompt, max_tokens=8000):
     output = model(prompt, max_tokens=max_tokens)
     return output['choices'][0]['text']
 
@@ -72,7 +72,7 @@ for file in os.listdir(basisnormen_folder):
         print(passage)
         input_text = create_propositions_input(passage)
         print(input_text)
-        output = generate_text(input_text, max_tokens=4096)
+        output = generate_text(input_text, max_tokens=8000)
         print(output)
         result = process_propositions_output(output)
         save_result_to_file(file, result)

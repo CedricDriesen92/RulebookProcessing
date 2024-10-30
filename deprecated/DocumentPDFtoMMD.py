@@ -108,21 +108,21 @@ Now, here is the mmd to be checked, again ONLY output the revised mmd file, not 
     while True:
         try:
             response = client.messages.create(
-                max_tokens=4096,
+                max_tokens=8000,
                 messages=[
                     {"role": "user", "content": prompt},
                 ],
-                model="claude-3-5-sonnet@20240620"
+                model="claude-3-5-sonnet-v2@20241022"
             )
             first_answer = response.content[0].text.strip()
             first_answer = first_answer.replace("{", "[").replace("}", "]")
             print(f"First answer: {first_answer}")
             final_response = client.messages.create(
-                max_tokens=4096,
+                max_tokens=8000,
                 messages=[
                     {"role": "user", "content": prompt_verify + "\n\n" + first_answer},
                 ],
-                model="claude-3-5-sonnet@20240620"
+                model="claude-3-5-sonnet-v2@20241022"
             )
             second_answer = final_response.content[0].text.strip()
             print(f"Final answer: {second_answer}")

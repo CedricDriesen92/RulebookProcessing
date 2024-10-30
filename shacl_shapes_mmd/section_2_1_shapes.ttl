@@ -1,110 +1,129 @@
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix fbb: <http://example.com/firebimbuilding#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix firebim: <http://example.com/firebim#> .
 
 fbb:CompartmentShape
     a sh:NodeShape ;
     sh:targetClass fbb:Compartment ;
+    fbb:flowchartNodeID "A" ;
     firebim:rulesource firebim:Section_2_1 ;
     sh:property [
-        sh:path fbb:Area ;
-        sh:datatype xsd:decimal ;
+        sh:path fbb:IsParking ;
+        sh:datatype xsd:boolean ;
     ] ;
     sh:property [
-        sh:path fbb:Height ;
-        sh:datatype xsd:decimal ;
+        sh:path fbb:IsGroundFloor ;
+        sh:datatype xsd:boolean ;
     ] ;
     sh:property [
-        sh:path fbb:Length ;
+        sh:path fbb:CompartmentArea ;
         sh:datatype xsd:decimal ;
     ] ;
-    sh:sparql [
-        sh:message "Compartment area or length exceeds limits" ;
+    sh:rule [
+        a sh:SPARQLRule ;
         sh:prefixes fbb: ;
-        sh:select """
-            SELECT $this ?area ?storey ?length ?hasFireExtinguishing ?hasSmokeEvacuation
-            WHERE {
-                $this fbb:Area ?area .
-                OPTIONAL { $this fbb:isOnStorey ?storey . }
-                OPTIONAL { $this fbb:Length ?length . }
-                OPTIONAL { $this fbb:hasAutomaticFireExtinguishingSystem ?hasFireExtinguishing . }
-                OPTIONAL { $this fbb:hasSmokeAndHeatEvacuationSystem ?hasSmokeEvacuation . }
-                FILTER (
-                    ?area > 2500 &&
-                    (
-                        (!BOUND(?storey) || ?storey != fbb:GroundFloor) ||
-                        (
-                            ?storey = fbb:GroundFloor &&
-                            (
-                                ?area > 3500 &&
-                                (?length > 90) ||
-                                ?area <= 3500 && 
-                                ((!BOUND(?hasFireExtinguishing) || !?hasFireExtinguishing) ||
-                                (!BOUND(?hasSmokeEvacuation) || !?hasSmokeEvacuation))
-                            )
-                        )
-                    )
-                )
+        fbb:flowchartNodeID "B", "D", "F" ;
+        sh:construct """
+            CONSTRUCT {
+                ?this sh:result _:b0 .
+                _:b0 a sh:ValidationResult ;
+                    sh:focusNode ?this ;
+                    sh:resultSeverity sh:Violation ;
+                    sh:resultMessage "Compartment area exceeds limits without required systems" .
             }
-        """ ;
-    ] ;
-    sh:sparql [
-        sh:message "Compartment height does not meet requirements" ;
-        sh:prefixes fbb: ;
-        sh:select """
-            SELECT $this
             WHERE {
-                $this fbb:Height ?height .
-                $this fbb:isInBuilding ?building .
-                ?building fbb:Height ?buildingHeight .
-                FILTER (
-                    ?height != ?buildingHeight &&
-                    NOT EXISTS {
-                        { $this fbb:isParking true }
-                        UNION
-                        { $this fbb:isDuplex true }
-                        UNION
-                        { $this fbb:isTriplex true }
-                        UNION
-                        { $this fbb:containsOnlyTechnicalRooms true }
-                        UNION
-                        {
-                            $this fbb:isAtrium true .
-                            $this fbb:hasAutomaticFireExtinguishingSystem true .
-                            $this fbb:hasSmokeAndHeatEvacuationSystem true .
-                        }
-                    }
-                )
+                ?this fbb:IsParking false ;
+                      fbb:IsGroundFloor false ;
+                      fbb:CompartmentArea ?area .
+                FILTER(?area > 2500)
+                FILTER NOT EXISTS {
+                    ?this fbb:HasAutomaticFireExtinguishingSystem true ;
+                          fbb:HasSmokeAndHeatExhaustSystem true .
+                }
             }
-        """ ;
-    ] ;
-    sh:sparql [
-        sh:message "Duplex compartment area exceeds limits" ;
-        sh:prefixes fbb: ;
-        sh:select """
-            SELECT $this (SUM(?floorArea) AS ?totalArea)
-            WHERE {
-                $this fbb:isDuplex true .
-                $this fbb:hasFloor ?floor .
-                ?floor fbb:Area ?floorArea .
-            }
-            GROUP BY $this
-            HAVING (?totalArea > 2500)
-        """ ;
-    ] ;
-    sh:sparql [
-        sh:message "Triplex compartment does not meet requirements" ;
-        sh:prefixes fbb: ;
-        sh:select """
-            SELECT $this (SUM(?floorArea) AS ?totalArea)
-            WHERE {
-                $this fbb:isTriplex true .
-                $this fbb:hasFloor ?floor .
-                ?floor fbb:Area ?floorArea .
-                OPTIONAL { $this fbb:hasAutomaticFireDetectionSystem ?hasDetection . }
-            }
-            GROUP BY $this
-            HAVING (?totalArea > 300 || !BOUND(?hasDetection) || !?hasDetection)
         """ ;
     ] .
+
+fbb:GroundFloorCompartmentShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    fbb:flowchartNodeID "E", "G" ;
+    firebim:rulesource firebim:Section_2_1 ;
+    sh:property [
+        sh:path fbb:IsGroundFloor ;
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path fbb:CompartmentArea ;
+        sh:maxInclusive 3500 ;
+        sh:datatype xsd:decimal ;
+    ] ;
+    sh:property [
+        sh:path fbb:CompartmentLength ;
+        sh:maxInclusive 90 ;
+        sh:datatype xsd:decimal ;
+    ] .
+
+fbb:MultiFloorCompartmentShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    fbb:flowchartNodeID "O", "P", "S", "V", "X" ;
+    firebim:rulesource firebim:Section_2_1 ;
+    sh:or (
+        [
+            sh:property [
+                sh:path fbb:IsDuplex ;
+                sh:hasValue true ;
+            ] ;
+            sh:property [
+                sh:path fbb:CompartmentArea ;
+                sh:maxInclusive 2500 ;
+                sh:datatype xsd:decimal ;
+            ] ;
+        ]
+        [
+            sh:property [
+                sh:path fbb:IsTriplex ;
+                sh:hasValue true ;
+            ] ;
+            sh:property [
+                sh:path fbb:CompartmentArea ;
+                sh:maxInclusive 300 ;
+                sh:datatype xsd:decimal ;
+            ] ;
+            sh:property [
+                sh:path fbb:HasAutomaticFireDetectionSystem ;
+                sh:hasValue true ;
+            ] ;
+            sh:property [
+                sh:path fbb:FireDetectionCoverage ;
+                sh:hasValue "Total" ;
+            ] ;
+        ]
+    ) .
+
+fbb:SpecialCasesShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    fbb:flowchartNodeID "Q", "U", "W", "Y" ;
+    firebim:rulesource firebim:Section_2_1 ;
+    sh:or (
+        [
+            sh:property [
+                sh:path fbb:ContainsTechnicalRooms ;
+                sh:hasValue true ;
+            ]
+        ]
+        [
+            sh:property [
+                sh:path fbb:IsAtrium ;
+                sh:hasValue true ;
+            ] ;
+            sh:property [
+                sh:path fbb:HasAutomaticFireExtinguishingSystem ;
+                sh:hasValue true ;
+            ] ;
+            sh:property [
+                sh:path fbb:HasSmokeAndHeatExhaustSystem ;
+                sh:hasValue true ;
+            ]
+        ]
+    ) .

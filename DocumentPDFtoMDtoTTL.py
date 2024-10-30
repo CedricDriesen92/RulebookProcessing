@@ -4,6 +4,7 @@ from llama_index.core import VectorStoreIndex, SimpleDirectoryReader
 import rdflib
 import json
 from anthropic import AnthropicVertex
+import anthropic
 from typing import List, Dict
 import re
 from rdflib import Graph, Namespace, Literal, URIRef
@@ -13,9 +14,15 @@ import glob
 import time
 from llama_parse import LlamaParse
 from sympy import true
+from dotenv import load_dotenv
 
-os.environ["LLAMA_CLOUD_API_KEY"] = "llx-SbQRnu1gMsOiKK7KKS12D9bV3Ccvc2xZ6a7YauCOycd4YmK1"
-client = AnthropicVertex(region="europe-west1", project_id="neat-veld-422214-p1")
+load_dotenv()
+
+anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+print(anthropic_key)
+#client = AnthropicVertex(region="us-east5", project_id="neat-veld-422214-p1")
+#client = AnthropicVertex(region="europe-west1", project_id="neat-veld-422214-p1")
+client = anthropic.Anthropic(api_key=anthropic_key)
 
 def load_ontology(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -146,14 +153,42 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
             prompt_file.write(prompt)
     while True:
         try:
-            response = client.messages.create(
-                max_tokens=4096,
+            # response = client.messages.create(
+            #     max_tokens=8000,
+            #     messages=[
+            #         {"role": "user", "content": prompt},
+            #         {"role": "assistant", "content": "firebim:Section_" + str(section_number) +" a"}
+            #     ],
+            #     model="claude-3-5-sonnet-v2@20241022"
+            # )
+            message = client.messages.create(
+                model="claude-3-5-sonnet-20241022",
+                max_tokens=8192,
+                temperature=0,
+                system=prompt,
                 messages=[
-                    {"role": "user", "content": prompt},
-                    {"role": "assistant", "content": "firebim:Section_" + str(section_number) +" a"}
-                ],
-                model="claude-3-5-sonnet@20240620"
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": prompt2
+                            }
+                        ]
+                    },
+                    {
+                        "role": "assistant",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": "firebim:Section_" + str(section_number) +" a"
+                            }
+                        ]
+                    }
+                ]
             )
+            response = message.content[0].text
+            print(response)
             break
         except Exception as e:
             print(e)
@@ -165,7 +200,7 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .\n\n"""
-    full_ttl_content += "firebim:Section_" + str(section_number) +" a " + response.content[0].text.strip()
+    full_ttl_content += "firebim:Section_" + str(section_number) +" a " + response.strip()
     return full_ttl_content
 
 def create_and_combine_section_ttl(section_number, section_text, ontology, main_graph, examples_str, starting_graph, output_folder):

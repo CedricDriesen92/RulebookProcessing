@@ -1,59 +1,73 @@
 flowchart TD
     S1["Start: Compartment Check"] --> A["For each <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"]
-    A --> B["Is <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a> a <a href='http://example.com/firebimbuilding#Parking' style='color:pink;'>Parking</a>?"]
+    A --> B["<a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a> <a href='http://example.com/firebimbuilding#IsParking' style='color:blue'>IsParking</a>?"] & M["<a href='http://example.com/firebimbuilding#NumberOfFloors' style='color:blue'>NumberOfFloors</a> in <a href='http://example.com/firebimbuilding#Compartment' style='color:pink'>Compartment</a>?"]
     B -- Yes --> C["Check Parking rules (see 5.2)"]
-    B -- No --> D["Is <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a> on ground floor?"]
+    B -- No --> D["<a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a> <a href='http://example.com/firebimbuilding#IsGroundFloor' style='color:blue'>IsGroundFloor</a>?"]
     D -- Yes --> E["<a href='http://example.com/firebimbuilding#CompartmentArea' style='color:blue;'>CompartmentArea</a> ≤ 3500 m²?"]
     D -- No --> F["<a href='http://example.com/firebimbuilding#CompartmentArea' style='color:blue;'>CompartmentArea</a> ≤ 2500 m²?"]
     E -- Yes --> G["<a href='http://example.com/firebimbuilding#CompartmentLength' style='color:blue;'>CompartmentLength</a> ≤ 90 m?"]
-    E -- No --> H["Has <a href='http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem' style='color:blue;'>HasAutomaticFireExtinguishingSystem</a>?"]
+    E -- No --> H["<a href='http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem' style='color:blue;'>HasAutomaticFireExtinguishingSystem</a> and <a href='http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem' style='color:blue'>HasSmokeAndHeatExhaustSystem</a>?"]
     F -- Yes --> I[/"Pass"/]
     F -- No --> H
-    G -- Yes --> I
+    G -- Yes --> IA[/"Pass"/]
     G -- No --> J[/"Fail"/]
-    H -- Yes --> K["Has <a href='http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem' style='color:blue;'>HasSmokeAndHeatExhaustSystem</a>?"]
     H -- No --> L["Exception granted by Minister?"]
-    K -- Yes --> I
-    K -- No --> L
-    L -- Yes --> I
-    L -- No --> J
-    A --> M["<a href='http://example.com/firebimbuilding#NumberOfFloors' style='color:blue;'>NumberOfFloors</a> in <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>?"]
+    L -- Yes --> IC[/"Pass"/]
+    L -- No --> JA[/"Fail"/]
     M -- 1 --> N[/"Pass"/]
     M -- 2 --> O["<a href='http://example.com/firebimbuilding#IsDuplex' style='color:blue;'>IsDuplex</a>?"]
     M -- 3 --> P["<a href='http://example.com/firebimbuilding#IsTriplex' style='color:blue;'>IsTriplex</a>?"]
-    M -- "More than 3" --> Q["<a href='http://example.com/firebimbuilding#ContainsTechnicalRooms' style='color:blue;'>ContainsTechnicalRooms</a>?"]
+    M -- >3 --> Q["<a href='http://example.com/firebimbuilding#ContainsTechnicalRooms' style='color:blue;'>ContainsTechnicalRooms</a>?"]
     O -- Yes --> R["<a href='http://example.com/firebimbuilding#CompartmentArea' style='color:blue;'>CompartmentArea</a> ≤ 2500 m²?"]
-    O -- No --> J
+    O -- No --> JB[/"Fail"/]
     P -- Yes --> S["<a href='http://example.com/firebimbuilding#CompartmentArea' style='color:blue;'>CompartmentArea</a> ≤ 300 m²?"]
-    P -- No --> J
+    P -- No --> JC[/"Fail"/]
     Q -- Yes --> T[/"Pass"/]
     Q -- No --> U["<a href='http://example.com/firebimbuilding#IsAtrium' style='color:blue;'>IsAtrium</a>?"]
-    R -- Yes --> N
-    R -- No --> J
-    S -- Yes --> V["Has <a href='http://example.com/firebimbuilding#HasAutomaticFireDetectionSystem' style='color:blue;'>HasAutomaticFireDetectionSystem</a>?"]
-    S -- No --> J
-    U -- Yes --> W["Has <a href='http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem' style='color:blue;'>HasAutomaticFireExtinguishingSystem</a>?"]
-    U -- No --> J
+    R -- Yes --> NA[/"Pass"/]
+    R -- No --> JD[/"Fail"/]
+    S -- Yes --> V["<a href='http://example.com/firebimbuilding#HasAutomaticFireDetectionSystem' style='color:blue;'>HasAutomaticFireDetectionSystem</a>?"]
+    S -- No --> JE[/"Fail"/]
+    U -- Yes --> W["<a href='http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem' style='color:blue;'>HasAutomaticFireExtinguishingSystem</a>?"]
+    U -- No --> JF[/"Fail"/]
     V -- Yes --> X["<a href='http://example.com/firebimbuilding#FireDetectionCoverage' style='color:blue;'>FireDetectionCoverage</a> = 'Total'?"]
-    V -- No --> J
-    W -- Yes --> Y["Has <a href='http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem' style='color:blue;'>HasSmokeAndHeatExhaustSystem</a>?"]
+    V -- No --> JG[/"Fail"/]
+    W -- Yes --> Y["<a href='http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem' style='color:blue;'>HasSmokeAndHeatExhaustSystem</a>?"]
     W -- No --> Z["Exception granted by Minister?"]
     X -- Yes --> AA["Detectors adapted to present risks?"]
-    X -- No --> J
+    X -- No --> JH[/"Fail"/]
     Y -- Yes --> AB[/"Pass"/]
     Y -- No --> Z
-    Z -- Yes --> AB
-    Z -- No --> J
-    AA -- Yes --> AB
-    AA -- No --> J
+    Z -- Yes --> AC[/"Pass"/]
+    Z -- No --> JI[/"Fail"/]
+    AA -- Yes --> AD[/"Pass"/]
+    AA -- No --> JJ[/"Fail"/]
+    H -- Yes --> IB[/"Pass"/]
 
+    C@{shape: hex}
     S1:::startClass
     I:::passClass
+    IA:::passClass
     J:::failClass
+    IC:::passClass
+    JA:::failClass
     N:::passClass
+    JB:::failClass
+    JC:::failClass
     T:::passClass
+    NA:::passClass
+    JD:::failClass
+    JE:::failClass
+    JF:::failClass
+    JG:::failClass
+    JH:::failClass
     AB:::passClass
-
+    AC:::passClass
+    JI:::failClass
+    AD:::passClass
+    JJ:::failClass
+    IB:::passClass
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+    style C stroke:#000000,stroke-width:1px,stroke-dasharray:0,fill:#FFD600

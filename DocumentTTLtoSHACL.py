@@ -49,11 +49,11 @@ Start your output with the prefix declarations mentioned above, then provide the
     while True:
         try:
             response = client.messages.create(
-                max_tokens=4096,
+                max_tokens=8000,
                 messages=[
                     {"role": "user", "content": prompt},
                 ],
-                model="claude-3-5-sonnet@20240620"
+                model="claude-3-5-sonnet-v2@20241022"
             )
             return response.content[0].text.strip()
         except Exception as e:

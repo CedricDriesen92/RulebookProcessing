@@ -1,42 +1,23 @@
 Input:
-Section number: 2.1
-Section text:
-Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500                           m², met
-            uitzondering van de parkings (zie 5.2).
-            De maximale       oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag
-            3500 m² bedragen. De lengte van dit compartiment bedraagt niet meer dan 90 m.
-            De maximale oppervlakte van een compartiment mag,                   respectievelijk, groter dan ofwel 2500 m²,
-            ofwel 3500 m² bedragen indien het compartiment is uitgerust met een automatische blusinstallatie
-            en een rook- en warmteafvoerinstallatie.
-            De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk
-            zijn op de grootte van het compartiment respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat
-            een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden.
-            De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag.
-            De volgende uitzonderingen zijn nochtans toegestaan:
-            a)   de parking met bouwlagen (zie 5.2);
-            b)   een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een
-                 binnenverbindingstrap (duplex), indien de gecumuleerde oppervlakte van die bouwlagen niet
-                 groter is dan 2500 m²;
-            c)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over  drie  boven  elkaar  gelegen
-                 bouwlagen met een binnenverbindingstrap (triplex), voor zover de som van hun gecumuleerde
-                 oppervlakte  de  300  m²  niet  overschrijdt,  en  dat  dit  compartiment  is              uitgerust  met  een
-                 automatische branddetectie van het type totale bewaking die automatisch een aanduiding van
-                 de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico's;
-            d)   de  hoogte  van  een  compartiment  mag  zich  uitstrekken  over                verscheidene  boven  elkaar
-                 geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1)                   .
-            e)   de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium)
-                 op voorwaarde:
-                 -    dat dit compartiment is uitgerust         met een automatische blusinstallatie en een rook-               en
-                      warmteafvoerinstallatie. De Minister van Binnenlandse Zaken bepaalt de voorwaarden
-                      waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische
-                      blusinstallatie en een rook- en warmteafvoerinstallatie;
-                                                                                                                          47/275
- Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                    (v3.0)
-                                                                                   Federale Overheidsdienst Binnenlandse Zaken
-                                                                                Algemene Directie Civiele Veiligheid – Brandpreventie
-                                              BIJLAGE 2/1: LAGE GEBOUWEN
-            De  Minister  van  Binnenlandse  Zaken  bepaalt  de  voorwaarden  waaraan  de  automatische
-            blusinstallatie en rook- en warmteafvoerinstallatie moeten voldoen.
+Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m², met uitzondering van de parkings (zie 5.2).
+
+De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag 3500 m² bedragen. De lengte van dit compartiment bedraagt niet meer dan 90 m.
+
+De maximale oppervlakte van een compartiment mag, respectievelijk, groter dan ofwel 2500 m², ofwel 3500 m² bedragen indien het compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie.
+
+De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de grootte van het compartiment respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden.
+
+De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag.
+
+De volgende uitzonderingen zijn nochtans toegestaan:
+
+- a) de parking met bouwlagen (zie 5.2);
+- b) een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een binnenverbindingstrap (duplex), indien de gecumuleerde oppervlakte van die bouwlagen niet groter is dan 2500 m²;
+- c) de hoogte van een compartiment mag zich uitstrekken over drie boven elkaar gelegen bouwlagen met een binnenverbindingstrap (triplex), voor zover de som van hun gecumuleerde oppervlakte de 300 m² niet overschrijdt, en dat dit compartiment is uitgerust met een automatische branddetectie van het type totale bewaking die automatisch een aanduiding van de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico's;
+- d) de hoogte van een compartiment mag zich uitstrekken over verscheidene boven elkaar geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1).
+- e) de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium) op voorwaarde:
+- - dat dit compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie. De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische blusinstallatie en een rook- en warmteafvoerinstallatie;
+---
 
 Expected output:
 flowchart TD
@@ -115,18 +96,15 @@ flowchart TD
 
 
 Input:
-Section number: 2.2.1
-Section text:
 Elk compartiment heeft minimum:
-            -    één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;
-            -    twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen
-                 bedraagt;
-            -    2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling
-                 door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer
-                 dan 500 personen bedraagt.
-            Het  minimum  aantal  uitgangen  kan  door  de  brandweer  verhoogd  worden  in  functie  van  de
-            bezetting en de configuratie van de lokalen.
-            Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.
+
+- één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;
+- twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt;
+- 2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt.
+
+Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en de configuratie van de lokalen.
+
+Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten.
 
 Expected output:
 flowchart TD
@@ -168,8 +146,7 @@ flowchart TD
 
 
 Input:
-Section number: 3.5
-Section text:
+
 
 Expected output:
 flowchart TD
@@ -220,25 +197,21 @@ flowchart TD
 
 
 Input:
-Section number: 4.1
-Section text:
-De wanden tussen compartimenten hebben minstens de brandweerstand aangegeven in tabel
-            2.3.
-                                                                                                                           52/275
- Koninklijk besluit van 7 juli 1994 (gecoördineerde versie op 20 mei 2022)                                                    (v3.0)
-                                                                                   Federale Overheidsdienst Binnenlandse Zaken
-                                                                               Algemene Directie Civiele Veiligheid – Brandpreventie
-                                              BIJLAGE 2/1: LAGE GEBOUWEN
-                                                     Wanden
-              Boven de vloer van Ei
-                                 Eén bouwlaag        EI 30
-                         Meerdere bouwlagen          EI 60
-              Onder Ei,
-              met inbegrip van de vloer van          EI 60
-              Ei
-            Tabel 2.3 – Brandweerstand van wanden tussen compartimenten.
-            De verbinding tussen twee compartimenten is slechts toegestaan indien zij geschiedt via een
-            zelfsluitende of bij brand zelfsluitende deur EI1 30.
+De wanden tussen compartimenten hebben minstens de brandweerstand aangegeven in tabel 2.3.
+---
+# Wanden
+
+# Boven de vloer van Ei
+
+|Type|Brandweerstand|
+|---|---|
+|Eén bouwlaag|EI 30|
+|Meerdere bouwlagen|EI 60|
+|Onder E,i met inbegrip van de vloer van Ei|EI 60|
+
+Tabel 2.3 – Brandweerstand van wanden tussen compartimenten.
+
+De verbinding tussen twee compartimenten is slechts toegestaan indien zij geschiedt via een zelfsluitende of bij brand zelfsluitende deur EI1 30.
 
 Expected output:
 flowchart TD
@@ -271,8 +244,7 @@ flowchart TD
 
 
 Input:
-Section number: 4.2
-Section text:
+
 
 Expected output:
 flowchart TD

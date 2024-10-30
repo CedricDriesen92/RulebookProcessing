@@ -1,0 +1,13 @@
+flowchart TD
+    S1["Start: Double-Skinned Facade Check"] --> A["For each <a href='http://example.com/firebimbuilding#DoubleSkinnedFacade' style='color:pink;'>DoubleSkinnedFacade</a>"]
+    A --> B["Get <a href='http://example.com/firebimbuilding#OuterWallOpenings' style='color:blue;'>OuterWallOpenings</a> percentage between floors"]
+    B --> C["<a href='http://example.com/firebimbuilding#OuterWallOpenings' style='color:blue;'>OuterWallOpenings</a> ≤ 50%?"]
+    C -- Yes --> D[/"Pass"/]
+    C -- No --> E[/"Fail"/]
+
+    S1:::startClass
+    D:::passClass
+    E:::failClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px

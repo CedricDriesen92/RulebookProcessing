@@ -9,12 +9,12 @@
 firebim:Section_4_1 a firebim:Section ;
     firebim:hasID "4.1" ;
     firebim:hasOriginalText "Compartimenten."@nl ;
-    firebim:hasArticle firebim:Article_4_1_1 .
+    firebim:hasArticle firebim:Article_4_1_1 ;
+    firebim:hasTable firebim:Table_2_3 .
 
 firebim:Article_4_1_1 a firebim:Article ;
     firebim:hasID "A4.1.1" ;
-    firebim:hasMember firebim:Member_4_1_1_1, firebim:Member_4_1_1_2, firebim:Member_4_1_1_3 ;
-    firebim:hasTable firebim:Table_2_3 .
+    firebim:hasMember firebim:Member_4_1_1_1, firebim:Member_4_1_1_2 .
 
 firebim:Member_4_1_1_1 a firebim:Member ;
     firebim:hasOriginalText "De wanden tussen compartimenten hebben minstens de brandweerstand aangegeven in tabel 2.3."@nl .
@@ -24,12 +24,10 @@ firebim:Member_4_1_1_2 a firebim:Member ;
 
 firebim:Table_2_3 a firebim:Table ;
     firebim:hasID "T2.3" ;
-    firebim:hasOriginalText """Wanden
-Boven de vloer van Ei
-Eén bouwlaag         R 30 (*)
-Meerdere bouwlagen   R 60
-Onder Ei, met inbegrip van de vloer van Ei   R 60
+    firebim:hasOriginalText """Type|Brandweerstand
+Eén bouwlaag|EI 30
+Meerdere bouwlagen|EI 60
+Onder E,i met inbegrip van de vloer van Ei|EI 60
+Tabel 2.3 – Brandweerstand van wanden tussen compartimenten."""@nl .
 
-Tabel 2.3 – Brandweerstand van wanden tussen compartimenten.
-
-(*) Geen eisen voor de structurele elementen van het dak indien het aan de binnenkant beschermd is door middel van een bouwelement EI 30."""@nl .
+firebim:Section_4 firebim:hasSection firebim:Section_4_1 .
