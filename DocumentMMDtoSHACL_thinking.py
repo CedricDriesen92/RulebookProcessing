@@ -155,7 +155,9 @@ The source text:
                     }
                 ]
             )
-            return final_response.content[0].text.strip()
+            return f"""@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n{final_response.content[0].text.strip()}"""
         except Exception as e:
             print(f"Error in LLM processing: {e}")
             time.sleep(5)

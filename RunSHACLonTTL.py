@@ -140,6 +140,77 @@ def process_validation_results(results_graph, member_refs, section_refs, documen
     
     return processed_results
 
+def parse_flowchart_nodes(results_graph, shapes_graph):
+    fbb = Namespace("http://example.com/firebimbuilding#")  # Note: changed from firebim/flowchart to firebimbuilding
+    sh = Namespace("http://www.w3.org/ns/shacl#")
+    failed_nodes = set()
+    
+    for result, p, o in results_graph.triples((None, RDF.type, sh.ValidationResult)):
+        # Get the source shape directly from the validation result
+        source_shape = results_graph.value(subject=result, predicate=sh.sourceShape)
+        
+        # If it's a blank node, we need to find the actual shape it belongs to
+        if isinstance(source_shape, rdflib.BNode):
+            # Find the parent shape that contains this blank node
+            for parent_shape, _, _ in shapes_graph.triples((None, sh.property, source_shape)):
+                for node_id in shapes_graph.objects(subject=parent_shape, predicate=fbb.flowchartNodeID):
+                    failed_nodes.add(str(node_id))
+        else:
+            # Direct shape - get its flowchart nodes
+            for node_id in shapes_graph.objects(subject=source_shape, predicate=fbb.flowchartNodeID):
+                failed_nodes.add(str(node_id))
+            
+    
+    print(f"Found failed nodes: {failed_nodes}")  # Debug print
+    return failed_nodes
+
+def highlight_mermaid_diagram(mmd_content, failed_nodes):
+    modified_lines = []
+    
+    # First pass: Remove existing class definitions for failed nodes
+    for line in mmd_content.split('\n'):
+        skip_line = False
+        for node in failed_nodes:
+            # Skip lines that define classes for failed nodes
+            if line.strip() == f'{node}:::startClass' or \
+               line.strip() == f'{node}:::passClass' or \
+               line.strip() == f'{node}:::failClass':
+                skip_line = True
+                break
+            # Remove existing class definitions from node definitions
+            if line.strip().startswith(f'{node}[') or line.strip().startswith(f'{node}('):
+                line = line.split(':::')[0]  # Remove any class definitions
+        
+        if not skip_line:
+            modified_lines.append(line)
+    
+    # Second pass: Add failed class to nodes
+    final_lines = []
+    class_definitions_added = False
+    
+    for line in modified_lines:
+        if line.strip().startswith('classDef') and not class_definitions_added:
+            final_lines.append(line)
+            final_lines.append('classDef failed fill:#ff0000,stroke:#333,stroke-width:2px')
+            class_definitions_added = True
+        else:
+            # Add failed class to node definitions
+            modified_line = line
+            for node in failed_nodes:
+                if line.strip().startswith(f'{node}[') or line.strip().startswith(f'{node}('):
+                    modified_line = line.rstrip() + ':::failed'
+                    break
+            final_lines.append(modified_line)
+    
+    # Add failed class definition if it wasn't added before
+    if not class_definitions_added:
+        final_lines.append('classDef failed fill:#ff0000,stroke:#333,stroke-width:2px')
+    
+    # Add class assignments for failed nodes at the end
+    for node in failed_nodes:
+        final_lines.append(f'{node}:::failed')
+    
+    return '\n'.join(final_lines)
 
 # Main execution
 if __name__ == "__main__":
@@ -154,7 +225,7 @@ if __name__ == "__main__":
     
     data_graph = rdflib.Graph().parse("buildinggraphs/section_2_1BE_Data.ttl", format="turtle")
     shapes_graph = rdflib.Graph().parse("shacl_shapes_mmd/section_2_1_shapes.ttl", format="turtle")
-    document_graph = load_document_data("combined_document_data_graph.ttl")
+    document_graph = load_document_data("documentgraphs\BasisnormenLG_cropped.pdf\combined_document_data_graph.ttl")
 
     member_refs = parse_member_references(shapes_graph)
     section_refs = parse_section_references(shapes_graph)
@@ -168,6 +239,27 @@ if __name__ == "__main__":
     html_file_name = "BasisnormenLG_cropped.html"
     
     if not conforms:
+        # Get failed flowchart nodes
+        failed_nodes = parse_flowchart_nodes(results_graph, shapes_graph)
+        print(f"Failed flowchart nodes: {failed_nodes}")
+        
+        # Find and modify corresponding MMD file
+        shapes_file = "shacl_shapes_mmd/section_2_1_shapes.ttl"  # Your current shapes file
+        mmd_file = shapes_file.replace('shacl_shapes_mmd/', 'mmddiagrams/').replace('_shapes.ttl', '.mmd')
+        
+        if os.path.exists(mmd_file):
+            with open(mmd_file, 'r', encoding='utf-8') as f:
+                mmd_content = f.read()
+            
+            # Create highlighted version
+            highlighted_content = highlight_mermaid_diagram(mmd_content, failed_nodes)
+            
+            # Save to new file with _highlighted suffix
+            highlighted_file = mmd_file.replace('.mmd', '_highlighted.mmd')
+            with open(highlighted_file, 'w', encoding='utf-8') as f:
+                f.write(highlighted_content)
+            print(f"Created highlighted diagram: {highlighted_file}")
+        
         processed_results = process_validation_results(results_graph, member_refs, section_refs, document_graph, html_file_name)
         for result in processed_results:
             if result['member_id'] != "Unknown":
@@ -178,6 +270,7 @@ if __name__ == "__main__":
                 print("Unknown element validation failed:")
             print(f"  Severity: {result['severity']}")
             print(f"  Focus Node: {result['focus_node']}")
+            print(f"  Failed nodes: {failed_nodes}")
     #        print(f"  Message: {result['message']}")
             print(f"  Original Text: {result['original_text']}")
     #        print(f"  Source Shape: {result['source_shape']}")

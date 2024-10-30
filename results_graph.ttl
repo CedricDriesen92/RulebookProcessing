@@ -5,91 +5,341 @@
 [] a sh:ValidationReport ;
     sh:conforms false ;
     sh:result [ a sh:ValidationResult ;
-            sh:focusNode fbb:Compartment3 ;
-            sh:resultMessage "Compartment area or length exceeds limits" ;
+            sh:focusNode fbb:Atrium1 ;
+            sh:resultMessage "Node fbb:Atrium1->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
             sh:resultSeverity sh:Violation ;
-            sh:sourceConstraint _:n87ace24d837249a3aa88266d203ce5d3b4 ;
-            sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
-            sh:sourceShape fbb:CompartmentShape ;
-            sh:value fbb:Compartment3 ],
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:DuplexFloor2 ;
+            sh:resultMessage "Node fbb:DuplexFloor2 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:DuplexFloor2 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TriplexCompartment1 ;
+            sh:resultMessage "Node fbb:TriplexCompartment1 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:TriplexCompartment1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:DuplexFloor2 ;
+            sh:resultMessage "Node fbb:DuplexFloor2 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:DuplexFloor2 ],
         [ a sh:ValidationResult ;
             sh:focusNode fbb:Compartment4 ;
-            sh:resultMessage "Compartment area or length exceeds limits" ;
+            sh:resultMessage "Node fbb:Compartment4 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
             sh:resultSeverity sh:Violation ;
-            sh:sourceConstraint _:n87ace24d837249a3aa88266d203ce5d3b4 ;
-            sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
-            sh:sourceShape fbb:CompartmentShape ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
             sh:value fbb:Compartment4 ],
         [ a sh:ValidationResult ;
-            sh:focusNode fbb:Compartment5 ;
-            sh:resultMessage "Compartment height does not meet requirements" ;
+            sh:focusNode fbb:TriplexFloor1 ;
+            sh:resultMessage "Node fbb:TriplexFloor1 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
             sh:resultSeverity sh:Violation ;
-            sh:sourceConstraint [ sh:message "Compartment height does not meet requirements" ;
-                    sh:prefixes fbb: ;
-                    sh:select """\r
-            SELECT $this\r
-            WHERE {\r
-                $this fbb:Height ?height .\r
-                $this fbb:isInBuilding ?building .\r
-                ?building fbb:Height ?buildingHeight .\r
-                FILTER (\r
-                    ?height != ?buildingHeight &&\r
-                    NOT EXISTS {\r
-                        { $this fbb:isParking true }\r
-                        UNION\r
-                        { $this fbb:isDuplex true }\r
-                        UNION\r
-                        { $this fbb:isTriplex true }\r
-                        UNION\r
-                        { $this fbb:containsOnlyTechnicalRooms true }\r
-                        UNION\r
-                        {\r
-                            $this fbb:isAtrium true .\r
-                            $this fbb:hasAutomaticFireExtinguishingSystem true .\r
-                            $this fbb:hasSmokeAndHeatEvacuationSystem true .\r
-                        }\r
-                    }\r
-                )\r
-            }\r
-        """ ] ;
-            sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
-            sh:sourceShape fbb:CompartmentShape ;
-            sh:value fbb:Compartment5 ],
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:TriplexFloor1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Parking1 ;
+            sh:resultMessage "Node fbb:Parking1 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:Parking1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment2 ;
+            sh:resultMessage "Node fbb:Compartment2 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:Compartment2 ],
         [ a sh:ValidationResult ;
             sh:focusNode fbb:Atrium1 ;
-            sh:resultMessage "Compartment area or length exceeds limits" ;
+            sh:resultMessage "Node fbb:Atrium1 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
             sh:resultSeverity sh:Violation ;
-            sh:sourceConstraint _:n87ace24d837249a3aa88266d203ce5d3b4 ;
-            sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
-            sh:sourceShape fbb:CompartmentShape ;
-            sh:value fbb:Atrium1 ] .
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:Atrium1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment4 ;
+            sh:resultMessage "Node fbb:Compartment4->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment4 ;
+            sh:resultMessage "Node fbb:Compartment4 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:Compartment4 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment1 ;
+            sh:resultMessage "Node fbb:Compartment1->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TechnicalRoom1 ;
+            sh:resultMessage "Node fbb:TechnicalRoom1 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:TechnicalRoom1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment3 ;
+            sh:resultMessage "Node fbb:Compartment3->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Parking1 ;
+            sh:resultMessage "Value is not <= Literal(\"3500\", datatype=xsd:integer)" ;
+            sh:resultPath fbb:CompartmentArea ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b6 ;
+            sh:value 5000.0 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TriplexCompartment1 ;
+            sh:resultMessage "Node fbb:TriplexCompartment1 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:TriplexCompartment1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:DuplexCompartment1 ;
+            sh:resultMessage "Node fbb:DuplexCompartment1 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:DuplexCompartment1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TriplexFloor1 ;
+            sh:resultMessage "Node fbb:TriplexFloor1 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:TriplexFloor1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Atrium1 ;
+            sh:resultMessage "Node fbb:Atrium1 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:Atrium1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment3 ;
+            sh:resultMessage "Node fbb:Compartment3 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:Compartment3 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TechnicalRoom1 ;
+            sh:resultMessage "Node fbb:TechnicalRoom1 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:TechnicalRoom1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment1 ;
+            sh:resultMessage "Node fbb:Compartment1 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:Compartment1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Parking1 ;
+            sh:resultMessage "Node fbb:Parking1->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment3 ;
+            sh:resultMessage "Value is not <= Literal(\"3500\", datatype=xsd:integer)" ;
+            sh:resultPath fbb:CompartmentArea ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:MaxInclusiveConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b6 ;
+            sh:value 3600.0 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TriplexFloor3 ;
+            sh:resultMessage "Node fbb:TriplexFloor3 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:TriplexFloor3 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TriplexFloor2 ;
+            sh:resultMessage "Node fbb:TriplexFloor2 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:TriplexFloor2 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment2 ;
+            sh:resultMessage "Node fbb:Compartment2->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TriplexFloor3 ;
+            sh:resultMessage "Node fbb:TriplexFloor3 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:TriplexFloor3 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:DuplexFloor1 ;
+            sh:resultMessage "Node fbb:DuplexFloor1 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:DuplexFloor1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TriplexFloor1 ;
+            sh:resultMessage "Node fbb:TriplexFloor1->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Parking1 ;
+            sh:resultMessage "Node fbb:Parking1 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:Parking1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TechnicalRoom1 ;
+            sh:resultMessage "Node fbb:TechnicalRoom1->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TriplexFloor2 ;
+            sh:resultMessage "Node fbb:TriplexFloor2 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:TriplexFloor2 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment1 ;
+            sh:resultMessage "Node fbb:Compartment1 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:Compartment1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TriplexFloor2 ;
+            sh:resultMessage "Node fbb:TriplexFloor2->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment5 ;
+            sh:resultMessage "Node fbb:Compartment5 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:Compartment5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:DuplexFloor2 ;
+            sh:resultMessage "Node fbb:DuplexFloor2->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:DuplexCompartment1 ;
+            sh:resultMessage "Node fbb:DuplexCompartment1->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment5 ;
+            sh:resultMessage "Node fbb:Compartment5->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment5 ;
+            sh:resultMessage "Node fbb:Compartment5 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:Compartment5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment2 ;
+            sh:resultMessage "Node fbb:Compartment2 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:Compartment2 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TriplexCompartment1 ;
+            sh:resultMessage "Node fbb:TriplexCompartment1->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:DuplexFloor1 ;
+            sh:resultMessage "Node fbb:DuplexFloor1->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:DuplexFloor1 ;
+            sh:resultMessage "Node fbb:DuplexFloor1 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:DuplexFloor1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:TriplexFloor3 ;
+            sh:resultMessage "Node fbb:TriplexFloor3->fbb:IsGroundFloor does not contain a value in the set: ['Literal(\"true\" = True, datatype=xsd:boolean)']" ;
+            sh:resultPath fbb:IsGroundFloor ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:HasValueConstraintComponent ;
+            sh:sourceShape _:n56fec0a0d9db41a1a4ed93d3a21d5729b5 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment3 ;
+            sh:resultMessage "Node fbb:Compartment3 does not conform to one or more shapes in [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsDuplex ] ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"300\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ], [ sh:hasValue Literal(\"Total\") ; sh:path fbb:FireDetectionCoverage ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireDetectionSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsTriplex ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:MultiFloorCompartmentShape ;
+            sh:value fbb:Compartment3 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:DuplexCompartment1 ;
+            sh:resultMessage "Node fbb:DuplexCompartment1 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ], [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ]" ;
+            sh:resultSeverity sh:Violation ;
+            sh:sourceConstraintComponent sh:OrConstraintComponent ;
+            sh:sourceShape fbb:SpecialCasesShape ;
+            sh:value fbb:DuplexCompartment1 ] .
 
-_:n87ace24d837249a3aa88266d203ce5d3b4 sh:message "Compartment area or length exceeds limits" ;
-    sh:prefixes fbb: ;
-    sh:select """\r
-            SELECT $this ?area ?storey ?length ?hasFireExtinguishing ?hasSmokeEvacuation\r
-            WHERE {\r
-                $this fbb:Area ?area .\r
-                OPTIONAL { $this fbb:isOnStorey ?storey . }\r
-                OPTIONAL { $this fbb:Length ?length . }\r
-                OPTIONAL { $this fbb:hasAutomaticFireExtinguishingSystem ?hasFireExtinguishing . }\r
-                OPTIONAL { $this fbb:hasSmokeAndHeatEvacuationSystem ?hasSmokeEvacuation . }\r
-                FILTER (\r
-                    ?area > 2500 &&\r
-                    (\r
-                        (!BOUND(?storey) || ?storey != fbb:GroundFloor) ||\r
-                        (\r
-                            ?storey = fbb:GroundFloor &&\r
-                            (\r
-                                ?area > 3500 &&\r
-                                (?length > 90) ||\r
-                                ?area <= 3500 && \r
-                                ((!BOUND(?hasFireExtinguishing) || !?hasFireExtinguishing) ||\r
-                                (!BOUND(?hasSmokeEvacuation) || !?hasSmokeEvacuation))\r
-                            )\r
-                        )\r
-                    )\r
-                )\r
-            }\r
-        """ .
+_:n56fec0a0d9db41a1a4ed93d3a21d5729b6 sh:datatype xsd:decimal ;
+    sh:maxInclusive 3500 ;
+    sh:path fbb:CompartmentArea .
+
+_:n56fec0a0d9db41a1a4ed93d3a21d5729b5 sh:hasValue true ;
+    sh:path fbb:IsGroundFloor .
 
