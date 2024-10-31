@@ -68,11 +68,18 @@ flowchart TD
     JJ:::failClass
     IB:::passClass
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
-classDef failed fill:#ff0000,stroke:#333,stroke-width:2px
+classDef info fill:#ffff00,stroke:#333,stroke-width:2px
+classDef warning fill:#ffa500,stroke:#333,stroke-width:2px
+classDef violation fill:#ff0000,stroke:#333,stroke-width:2px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
     style C stroke:#000000,stroke-width:1px,stroke-dasharray:0,fill:#FFD600
-W:::failed
-U:::failed
-Q:::failed
-Y:::failed
+Q:::violation
+U:::violation
+W:::violation
+Y:::violation
+L:::info
+B:::warning
+D:::warning
+E:::warning
+G:::warning

@@ -13,9 +13,71 @@
             sh:value fbb:Compartment2 ],
         [ a sh:ValidationResult ;
             sh:focusNode fbb:Compartment1 ;
+            sh:resultMessage "Less than 1 values on fbb:Compartment1->fbb:ExceptionGranted" ;
+            sh:resultPath fbb:ExceptionGranted ;
+            sh:resultSeverity sh:Info ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:nc17acfaf39c34fa886a97e4a4f7ef4dfb3 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment2 ;
+            sh:resultMessage "Less than 1 values on fbb:Compartment2->fbb:ExceptionGranted" ;
+            sh:resultPath fbb:ExceptionGranted ;
+            sh:resultSeverity sh:Info ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:nc17acfaf39c34fa886a97e4a4f7ef4dfb3 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment3 ;
+            sh:resultMessage "Less than 1 values on fbb:Compartment3->fbb:ExceptionGranted" ;
+            sh:resultPath fbb:ExceptionGranted ;
+            sh:resultSeverity sh:Info ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:nc17acfaf39c34fa886a97e4a4f7ef4dfb3 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment4 ;
+            sh:resultMessage "Less than 1 values on fbb:Compartment4->fbb:CompartmentLength" ;
+            sh:resultPath fbb:CompartmentLength ;
+            sh:resultSeverity sh:Warning ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:nc17acfaf39c34fa886a97e4a4f7ef4dfb2 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment1 ;
+            sh:resultMessage "Less than 1 values on fbb:Compartment1->fbb:CompartmentLength" ;
+            sh:resultPath fbb:CompartmentLength ;
+            sh:resultSeverity sh:Warning ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:nc17acfaf39c34fa886a97e4a4f7ef4dfb2 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment1 ;
             sh:resultMessage "Node fbb:Compartment1 does not conform to one or more shapes in [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:ContainsTechnicalRooms ] ] , [ sh:and ( [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:IsAtrium ] ] [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasAutomaticFireExtinguishingSystem ] ] [ sh:property [ sh:hasValue Literal(\"true\" = True, datatype=xsd:boolean) ; sh:path fbb:HasSmokeAndHeatExhaustSystem ] ] ) ] , [ sh:property [ sh:datatype xsd:decimal ; sh:maxInclusive Literal(\"2500\", datatype=xsd:integer) ; sh:path fbb:CompartmentArea ] ]" ;
             sh:resultSeverity sh:Violation ;
             sh:sourceConstraintComponent sh:OrConstraintComponent ;
             sh:sourceShape fbb:SpecialCasesShape ;
-            sh:value fbb:Compartment1 ] .
+            sh:value fbb:Compartment1 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment4 ;
+            sh:resultMessage "Less than 1 values on fbb:Compartment4->fbb:ExceptionGranted" ;
+            sh:resultPath fbb:ExceptionGranted ;
+            sh:resultSeverity sh:Info ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:nc17acfaf39c34fa886a97e4a4f7ef4dfb3 ],
+        [ a sh:ValidationResult ;
+            sh:focusNode fbb:Compartment3 ;
+            sh:resultMessage "Less than 1 values on fbb:Compartment3->fbb:CompartmentLength" ;
+            sh:resultPath fbb:CompartmentLength ;
+            sh:resultSeverity sh:Warning ;
+            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;
+            sh:sourceShape _:nc17acfaf39c34fa886a97e4a4f7ef4dfb2 ] .
+
+_:nc17acfaf39c34fa886a97e4a4f7ef4dfb2 fbb:flowchartNodeID "B",
+        "D",
+        "E",
+        "G" ;
+    sh:minCount 1 ;
+    sh:path fbb:CompartmentLength ;
+    sh:severity sh:Warning .
+
+_:nc17acfaf39c34fa886a97e4a4f7ef4dfb3 fbb:flowchartNodeID "L" ;
+    sh:minCount 1 ;
+    sh:path fbb:ExceptionGranted ;
+    sh:severity sh:Info .
 

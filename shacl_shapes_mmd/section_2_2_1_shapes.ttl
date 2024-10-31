@@ -13,6 +13,7 @@ fbb:CompartmentExitRequirementShape
         sh:datatype xsd:integer ;
         sh:minCount 1 ;
         fbb:flowchartNodeID "B" ;
+        sh:severity sh:Warning ;
     ] ;
     sh:property [
         sh:path fbb:AdditionalExitsRequired ;

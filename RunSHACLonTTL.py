@@ -123,99 +123,102 @@ def process_validation_results(results_graph, member_refs, section_refs, documen
 def parse_flowchart_nodes(results_graph, shapes_graph):
     fbb = Namespace("http://example.com/firebimbuilding#")
     sh = Namespace("http://www.w3.org/ns/shacl#")
-    failed_nodes = set()
+    # Track nodes with their highest severity
+    failed_nodes = {}  # Changed from set to dict to store severity
 
     try:
         for result in results_graph.subjects(RDF.type, sh.ValidationResult):
             try:
                 source_shape = results_graph.value(subject=result, predicate=sh.sourceShape)
-                focus_node = results_graph.value(subject=result, predicate=sh.focusNode)
-                path = results_graph.value(subject=result, predicate=sh.resultPath)
-                value = results_graph.value(subject=result, predicate=sh.value)
+                severity = str(results_graph.value(subject=result, predicate=sh.resultSeverity))
                 
-                print(f"\nProcessing ValidationResult:")
-                print(f"Source Shape: {source_shape}")
-                print(f"Focus Node: {focus_node}")
-                print(f"Path: {path}")
-                print(f"Value: {value}")
+                # Convert severity URI to simple string
+                severity_level = severity.split('#')[-1].lower()
+                
+                def update_node_severity(node_id):
+                    current_severity = failed_nodes.get(str(node_id), "info")
+                    # Higher severity overwrites lower severity
+                    if (severity_level == "violation" or 
+                        (severity_level == "warning" and current_severity == "info") or
+                        (severity_level == "info" and current_severity != "warning" and current_severity != "violation")):
+                        failed_nodes[str(node_id)] = severity_level
 
-                # Get all nodes that failed validation
+                # Rest of the existing node collection logic, but using update_node_severity
                 if isinstance(source_shape, rdflib.BNode):
-                    # For property shapes, get the parent shape and its nodes
                     parent_shapes = list(shapes_graph.subjects(sh.property, source_shape))
                     for parent_shape in parent_shapes:
                         node_ids = list(shapes_graph.objects(subject=parent_shape, predicate=fbb.flowchartNodeID))
-                        if node_ids:
-                            print(f"Adding nodes from parent shape: {node_ids}")
-                            failed_nodes.update(str(node_id) for node_id in node_ids)
+                        for node_id in node_ids:
+                            update_node_severity(node_id)
                     
-                    # Also check the property shape itself for node IDs
                     prop_node_ids = list(shapes_graph.objects(subject=source_shape, predicate=fbb.flowchartNodeID))
-                    if prop_node_ids:
-                        print(f"Adding nodes from property shape: {prop_node_ids}")
-                        failed_nodes.update(str(node_id) for node_id in prop_node_ids)
+                    for node_id in prop_node_ids:
+                        update_node_severity(node_id)
                 else:
-                    # For node shapes, get all node IDs
                     node_ids = list(shapes_graph.objects(subject=source_shape, predicate=fbb.flowchartNodeID))
-                    if node_ids:
-                        print(f"Adding nodes from node shape: {node_ids}")
-                        failed_nodes.update(str(node_id) for node_id in node_ids)
+                    for node_id in node_ids:
+                        update_node_severity(node_id)
+
             except Exception as e:
                 print(f"Error processing validation result: {e}")
                 continue
 
     except Exception as e:
         print(f"Error parsing validation results: {e}")
-        return set()
+        return {}
 
-    print(f"\nTotal Failed Nodes: {failed_nodes}")
+    print(f"\nFailed Nodes with Severities: {failed_nodes}")
     return failed_nodes
 
 def highlight_mermaid_diagram(mmd_content, failed_nodes):
     modified_lines = []
     
-    # First pass: Remove existing class definitions for failed nodes
+    # First pass: Remove existing class definitions
     for line in mmd_content.split('\n'):
         skip_line = False
         for node in failed_nodes:
-            # Skip lines that define classes for failed nodes
-            if line.strip() == f'{node}:::startClass' or \
-               line.strip() == f'{node}:::passClass' or \
-               line.strip() == f'{node}:::failClass':
+            if (line.strip() == f'{node}:::startClass' or 
+                line.strip() == f'{node}:::passClass' or 
+                line.strip() == f'{node}:::failClass' or 
+                line.strip() == f'{node}:::info' or 
+                line.strip() == f'{node}:::warning' or 
+                line.strip() == f'{node}:::violation'):
                 skip_line = True
                 break
-            # Remove existing class definitions from node definitions
             if line.strip().startswith(f'{node}[') or line.strip().startswith(f'{node}('):
-                line = line.split(':::')[0]  # Remove any class definitions
+                line = line.split(':::')[0]
         
         if not skip_line:
             modified_lines.append(line)
     
-    # Second pass: Add failed class to nodes
+    # Second pass: Add severity classes
     final_lines = []
     class_definitions_added = False
     
     for line in modified_lines:
         if line.strip().startswith('classDef') and not class_definitions_added:
             final_lines.append(line)
-            final_lines.append('classDef failed fill:#ff0000,stroke:#333,stroke-width:2px')
+            final_lines.append('classDef info fill:#ffff00,stroke:#333,stroke-width:2px')
+            final_lines.append('classDef warning fill:#ffa500,stroke:#333,stroke-width:2px')
+            final_lines.append('classDef violation fill:#ff0000,stroke:#333,stroke-width:2px')
             class_definitions_added = True
         else:
-            # Add failed class to node definitions
             modified_line = line
-            for node in failed_nodes:
+            for node, severity in failed_nodes.items():
                 if line.strip().startswith(f'{node}[') or line.strip().startswith(f'{node}('):
-                    modified_line = line.rstrip() + ':::failed'
+                    modified_line = line.rstrip() + f':::{severity}'
                     break
             final_lines.append(modified_line)
     
-    # Add failed class definition if it wasn't added before
+    # Add class definitions if not added before
     if not class_definitions_added:
-        final_lines.append('classDef failed fill:#ff0000,stroke:#333,stroke-width:2px')
+        final_lines.append('classDef info fill:#ffff00,stroke:#333,stroke-width:2px')
+        final_lines.append('classDef warning fill:#ffa500,stroke:#333,stroke-width:2px')
+        final_lines.append('classDef violation fill:#ff0000,stroke:#333,stroke-width:2px')
     
     # Add class assignments for failed nodes at the end
-    for node in failed_nodes:
-        final_lines.append(f'{node}:::failed')
+    for node, severity in failed_nodes.items():
+        final_lines.append(f'{node}:::{severity}')
     
     return '\n'.join(final_lines)
 

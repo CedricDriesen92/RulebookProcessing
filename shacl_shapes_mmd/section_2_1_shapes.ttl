@@ -1,13 +1,13 @@
-@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix : <file:///c%3A/Users/CDRI/VSCode%20Projects/RulebookProcessing/shacl_shapes_mmd/section_2_1_shapes.ttl#> .
 @prefix fbb: <http://example.com/firebimbuilding#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix firebim: <http://example.com/firebim#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # Base compartment shape - checks area limits for non-ground floor, non-parking compartments
 fbb:CompartmentShape
     a sh:NodeShape ;
     sh:targetClass fbb:Compartment ;
-    fbb:flowchartNodeID "A" ;
     firebim:rulesource firebim:Section_2_1 ;
     sh:rule [
         a sh:SPARQLRule ;
@@ -31,7 +31,24 @@ fbb:CompartmentShape
             }
         """ ;
         fbb:flowchartNodeID "B", "D", "F" ;
-    ] .
+        sh:severity sh:Warning ;
+    ] ;
+    sh:property [
+        sh:path fbb:CompartmentLength ;
+        sh:minCount 1 ;
+        fbb:flowchartNodeID "B", "D", "E", "G" ;
+        sh:severity sh:Warning ;
+    ] ; .
+fbb:ExceptionGrantedShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    firebim:rulesource firebim:Section_2_1 ;
+    sh:property [
+        sh:path fbb:ExceptionGranted ;
+        sh:minCount 1 ;
+        fbb:flowchartNodeID "L" ;
+        sh:severity sh:Info ;
+    ] ; .
 
 # Ground floor compartment shape - only applies to ground floor compartments
 fbb:GroundFloorCompartmentShape
