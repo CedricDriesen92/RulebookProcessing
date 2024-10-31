@@ -1,0 +1,98 @@
+@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Building
+fbb:Building1 a fbb:Building ;
+    fbb:Height 30.0 .
+
+# Storeys
+fbb:GroundFloor a fbb:Storey .
+fbb:FirstFloor a fbb:Storey .
+
+# Regular Compartments
+fbb:Compartment1 a fbb:Compartment ;
+    fbb:CompartmentArea 2000.0 ;
+    fbb:Height 30.0 ;
+    fbb:isOnStorey fbb:GroundFloor ;
+    fbb:isInBuilding fbb:Building1 ;
+    fbb:Length 80.0 .
+
+fbb:Compartment2 a fbb:Compartment ;
+    fbb:CompartmentArea 3000.0 ;
+    fbb:Height 30.0 ;
+    fbb:isOnStorey fbb:GroundFloor ;
+    fbb:isInBuilding fbb:Building1 ;
+    fbb:Length 85.0 ;
+    fbb:hasAutomaticFireExtinguishingSystem true ;
+    fbb:hasSmokeAndHeatEvacuationSystem true .
+
+fbb:Compartment3 a fbb:Compartment ;
+    fbb:CompartmentArea 3600.0 ;
+    fbb:Height 30.0 ;
+    fbb:isOnStorey fbb:GroundFloor ;
+    fbb:isInBuilding fbb:Building1 ;
+    fbb:Length 95.0 ;
+    fbb:hasAutomaticFireExtinguishingSystem true ;
+    fbb:hasSmokeAndHeatEvacuationSystem true .
+
+fbb:Compartment4 a fbb:Compartment ;
+    fbb:CompartmentArea 2700.0 ;
+    fbb:Height 30.0 ;
+    fbb:isOnStorey fbb:FirstFloor ;
+    fbb:isInBuilding fbb:Building1 .
+
+fbb:Compartment5 a fbb:Compartment ;
+    fbb:CompartmentArea 2200.0 ;
+    fbb:Height 28.0 ;
+    fbb:isOnStorey fbb:FirstFloor ;
+    fbb:isInBuilding fbb:Building1 .
+
+# Duplex Compartment
+fbb:DuplexCompartment1 a fbb:Compartment ;
+    fbb:isDuplex true ;
+    fbb:hasFloor fbb:DuplexFloor1, fbb:DuplexFloor2 .
+
+fbb:DuplexFloor1 a fbb:Compartment ;
+    fbb:CompartmentArea 1200.0 .
+
+fbb:DuplexFloor2 a fbb:Compartment ;
+    fbb:CompartmentArea 1100.0 .
+
+# Triplex Compartment
+fbb:TriplexCompartment1 a fbb:Compartment ;
+    fbb:isTriplex true ;
+    fbb:hasFloor fbb:TriplexFloor1, fbb:TriplexFloor2, fbb:TriplexFloor3 ;
+    fbb:hasAutomaticFireDetectionSystem true .
+
+fbb:TriplexFloor1 a fbb:Compartment ;
+    fbb:CompartmentArea 90.0 .
+
+fbb:TriplexFloor2 a fbb:Compartment ;
+    fbb:CompartmentArea 100.0 .
+
+fbb:TriplexFloor3 a fbb:Compartment ;
+    fbb:CompartmentArea 80.0 .
+
+# Atrium
+fbb:Atrium1 a fbb:Compartment ;
+    fbb:CompartmentArea 3000.0 ;
+    fbb:Height 30.0 ;
+    fbb:hasAutomaticFireExtinguishingSystem true ;
+    fbb:hasSmokeAndHeatEvacuationSystem true ;
+    fbb:isAtrium true .
+
+# Parking
+fbb:Parking1 a fbb:Compartment ;
+    fbb:CompartmentArea 5000.0 ;
+    fbb:Height 25.0 ;
+    fbb:Length 85.0 ;
+    fbb:isInBuilding fbb:Building1 ;
+    fbb:isOnStorey fbb:GroundFloor ;
+    fbb:isParking true .
+
+# Technical Room
+fbb:TechnicalRoom1 a fbb:Compartment ;
+    fbb:CompartmentArea 500.0 ;
+    fbb:Height 25.0 ;
+    fbb:isInBuilding fbb:Building1 ;
+    fbb:containsOnlyTechnicalRooms true .

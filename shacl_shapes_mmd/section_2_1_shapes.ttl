@@ -3,32 +3,19 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix firebim: <http://example.com/firebim#> .
 
+# Base compartment shape - checks area limits for non-ground floor, non-parking compartments
 fbb:CompartmentShape
     a sh:NodeShape ;
     sh:targetClass fbb:Compartment ;
     fbb:flowchartNodeID "A" ;
     firebim:rulesource firebim:Section_2_1 ;
-    sh:property [
-        sh:path fbb:IsParking ;
-        sh:datatype xsd:boolean ;
-    ] ;
-    sh:property [
-        sh:path fbb:IsGroundFloor ;
-        sh:datatype xsd:boolean ;
-    ] ;
-    sh:property [
-        sh:path fbb:CompartmentArea ;
-        sh:datatype xsd:decimal ;
-    ] ;
     sh:rule [
         a sh:SPARQLRule ;
         sh:prefixes fbb: ;
-        fbb:flowchartNodeID "B", "D", "F" ;
         sh:construct """
             CONSTRUCT {
                 ?this sh:result _:b0 .
                 _:b0 a sh:ValidationResult ;
-                    sh:focusNode ?this ;
                     sh:resultSeverity sh:Violation ;
                     sh:resultMessage "Compartment area exceeds limits without required systems" .
             }
@@ -43,28 +30,48 @@ fbb:CompartmentShape
                 }
             }
         """ ;
+        fbb:flowchartNodeID "B", "D", "F" ;
     ] .
 
+# Ground floor compartment shape - only applies to ground floor compartments
 fbb:GroundFloorCompartmentShape
     a sh:NodeShape ;
     sh:targetClass fbb:Compartment ;
     fbb:flowchartNodeID "E", "G" ;
     firebim:rulesource firebim:Section_2_1 ;
-    sh:property [
-        sh:path fbb:IsGroundFloor ;
-        sh:hasValue true ;
-    ] ;
-    sh:property [
-        sh:path fbb:CompartmentArea ;
-        sh:maxInclusive 3500 ;
-        sh:datatype xsd:decimal ;
-    ] ;
-    sh:property [
-        sh:path fbb:CompartmentLength ;
-        sh:maxInclusive 90 ;
-        sh:datatype xsd:decimal ;
-    ] .
+    sh:or(
+        [
+            sh:and (
+                [
+                sh:property [
+                    sh:path fbb:IsGroundFloor ;
+                    sh:hasValue true ;
+                ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbb:CompartmentArea ;
+                        sh:maxInclusive 3500 ;
+                        sh:datatype xsd:decimal ;
+                    ] ;
+                    sh:property [
+                        sh:path fbb:CompartmentLength ;
+                        sh:maxInclusive 90 ;
+                        sh:datatype xsd:decimal ;
+                    ]
+                ]
+            )
+        ]
+        [
+            sh:property [
+                sh:path fbb:CompartmentArea ;
+                sh:maxInclusive 3500 ;
+                sh:datatype xsd:decimal ;
+            ]
+        ]
+    ) .
 
+# Multi-floor compartment shape - only applies to duplex/triplex
 fbb:MultiFloorCompartmentShape
     a sh:NodeShape ;
     sh:targetClass fbb:Compartment ;
@@ -72,37 +79,70 @@ fbb:MultiFloorCompartmentShape
     firebim:rulesource firebim:Section_2_1 ;
     sh:or (
         [
-            sh:property [
-                sh:path fbb:IsDuplex ;
-                sh:hasValue true ;
-            ] ;
-            sh:property [
-                sh:path fbb:CompartmentArea ;
-                sh:maxInclusive 2500 ;
-                sh:datatype xsd:decimal ;
-            ] ;
+            sh:and (
+                [
+                    sh:property [
+                        sh:path fbb:IsDuplex ;
+                        sh:hasValue true ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbb:CompartmentArea ;
+                        sh:maxInclusive 2500 ;
+                        sh:datatype xsd:decimal ;
+                    ]
+                ]
+            )
         ]
         [
-            sh:property [
-                sh:path fbb:IsTriplex ;
-                sh:hasValue true ;
-            ] ;
-            sh:property [
-                sh:path fbb:CompartmentArea ;
-                sh:maxInclusive 300 ;
-                sh:datatype xsd:decimal ;
-            ] ;
-            sh:property [
-                sh:path fbb:HasAutomaticFireDetectionSystem ;
-                sh:hasValue true ;
-            ] ;
-            sh:property [
-                sh:path fbb:FireDetectionCoverage ;
-                sh:hasValue "Total" ;
-            ] ;
+            sh:and (
+                [
+                    sh:property [
+                        sh:path fbb:IsTriplex ;
+                        sh:hasValue true ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbb:CompartmentArea ;
+                        sh:maxInclusive 300 ;
+                        sh:datatype xsd:decimal ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbb:HasAutomaticFireDetectionSystem ;
+                        sh:hasValue true ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbb:FireDetectionCoverage ;
+                        sh:hasValue "Total" ;
+                    ]
+                ]
+            )
+        ]
+        [
+            sh:and (	
+                [
+                    sh:property [
+                    sh:path fbb:IsTriplex ;
+                    sh:hasValue false ;
+                 ]
+                ]
+                [
+                    sh:property [
+                    sh:path fbb:IsDuplex ;
+                    sh:hasValue false ;
+                    ]
+                ]
+            )
         ]
     ) .
 
+# Special cases shape - only applies to technical rooms or atriums
 fbb:SpecialCasesShape
     a sh:NodeShape ;
     sh:targetClass fbb:Compartment ;
@@ -116,17 +156,32 @@ fbb:SpecialCasesShape
             ]
         ]
         [
+            sh:and (
+                [
+                    sh:property [
+                        sh:path fbb:IsAtrium ;
+                        sh:hasValue true ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbb:HasAutomaticFireExtinguishingSystem ;
+                        sh:hasValue true ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbb:HasSmokeAndHeatExhaustSystem ;
+                        sh:hasValue true ;
+                    ]
+                ]
+            )
+        ]
+        [
             sh:property [
-                sh:path fbb:IsAtrium ;
-                sh:hasValue true ;
-            ] ;
-            sh:property [
-                sh:path fbb:HasAutomaticFireExtinguishingSystem ;
-                sh:hasValue true ;
-            ] ;
-            sh:property [
-                sh:path fbb:HasSmokeAndHeatExhaustSystem ;
-                sh:hasValue true ;
+                sh:path fbb:CompartmentArea ;
+                sh:maxInclusive 2500 ;
+                sh:datatype xsd:decimal ;
             ]
         ]
     ) .

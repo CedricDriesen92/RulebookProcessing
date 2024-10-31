@@ -4,6 +4,8 @@ from rdflib import Graph, Namespace, URIRef
 from rdflib.namespace import RDF
 from pyshacl import validate
 
+
+
 def load_ontologies(local_path):
     ontologies = ["BOTen", "BPOen", "GEOsparqlen", "OPMen"]
     
@@ -80,88 +82,93 @@ def find_parent_shape(results_graph, shape):
             return parent
     return None
 
-def process_validation_results(results_graph, member_refs, section_refs, document_graph, html_file_name):
+def process_validation_results(results_graph, member_refs, section_refs, document_graph, html_file_name, shapes_graph):
     sh = Namespace("http://www.w3.org/ns/shacl#")
     processed_results = []
+    failed_nodes = set()
     
     for result, p, o in results_graph.triples((None, RDF.type, sh.ValidationResult)):
         source_shape = results_graph.value(subject=result, predicate=sh.sourceShape)
         severity = results_graph.value(subject=result, predicate=sh.resultSeverity)
-        source_shape_str = str(source_shape)
-        
-        # Try to find the member ID directly
-        member_id = member_refs.get(source_shape_str, None)
-        
-        # If not found, try to find the parent shape
-        if member_id is None:
-            parent_shape = find_parent_shape(results_graph, source_shape)
-            if parent_shape:
-                member_id = member_refs.get(str(parent_shape), None)
-        
-        # Try to find the section ID directly
-        section_id = section_refs.get(source_shape_str, None)
 
-        # If not found, try to find the parent shape
-        if section_id is None:
-            parent_shape = find_parent_shape(results_graph, source_shape)
-            if parent_shape:
-                section_id = section_refs.get(str(parent_shape), None)
-
-        if member_id is None:
-            member_id = "Unknown"
-        if section_id is None:
-            section_id = "Unknown"
-
-        focus_node = results_graph.value(subject=result, predicate=sh.focusNode)
-        result_message = results_graph.value(subject=result, predicate=sh.resultMessage)
+        member_id = member_refs.get(str(source_shape), None)
+        section_id = section_refs.get(str(source_shape), None)
         
-        if member_id != "Unknown":
+        if member_id:
             original_text = get_member_text(document_graph, member_id)
-            # Create HTML link for member
             html_link = f"{html_file_name}#member-{member_id.replace('.', '-')}"
-        elif section_id != "Unknown":
+        elif section_id:
             original_text = get_section_text(document_graph, section_id)
-            # Create HTML link for section
             html_link = f"{html_file_name}#section-{section_id.replace('.', '-')}"
         else:
             original_text = "Text not found"
             html_link = ""
-        
+
         processed_results.append({
             "severity": severity,
-            "member_id": member_id,
-            "section_id": section_id,
-            "focus_node": str(focus_node),
-            "message": str(result_message),
+            "member_id": member_id if member_id else "Unknown",
+            "section_id": section_id if section_id else "Unknown",
+            "focus_node": str(results_graph.value(subject=result, predicate=sh.focusNode)),
+            "message": str(results_graph.value(subject=result, predicate=sh.resultMessage)),
             "original_text": original_text,
-            "source_shape": source_shape_str,
+            "source_shape": str(source_shape),
             "html_link": html_link
         })
     
-    return processed_results
+    # Now, collect failed_nodes using the refined parse_flowchart_nodes
+    failed_nodes = parse_flowchart_nodes(results_graph, shapes_graph)
+    
+    return processed_results, failed_nodes
 
 def parse_flowchart_nodes(results_graph, shapes_graph):
-    fbb = Namespace("http://example.com/firebimbuilding#")  # Note: changed from firebim/flowchart to firebimbuilding
+    fbb = Namespace("http://example.com/firebimbuilding#")
     sh = Namespace("http://www.w3.org/ns/shacl#")
     failed_nodes = set()
-    
-    for result, p, o in results_graph.triples((None, RDF.type, sh.ValidationResult)):
-        # Get the source shape directly from the validation result
-        source_shape = results_graph.value(subject=result, predicate=sh.sourceShape)
-        
-        # If it's a blank node, we need to find the actual shape it belongs to
-        if isinstance(source_shape, rdflib.BNode):
-            # Find the parent shape that contains this blank node
-            for parent_shape, _, _ in shapes_graph.triples((None, sh.property, source_shape)):
-                for node_id in shapes_graph.objects(subject=parent_shape, predicate=fbb.flowchartNodeID):
-                    failed_nodes.add(str(node_id))
-        else:
-            # Direct shape - get its flowchart nodes
-            for node_id in shapes_graph.objects(subject=source_shape, predicate=fbb.flowchartNodeID):
-                failed_nodes.add(str(node_id))
-            
-    
-    print(f"Found failed nodes: {failed_nodes}")  # Debug print
+
+    try:
+        for result in results_graph.subjects(RDF.type, sh.ValidationResult):
+            try:
+                source_shape = results_graph.value(subject=result, predicate=sh.sourceShape)
+                focus_node = results_graph.value(subject=result, predicate=sh.focusNode)
+                path = results_graph.value(subject=result, predicate=sh.resultPath)
+                value = results_graph.value(subject=result, predicate=sh.value)
+                
+                print(f"\nProcessing ValidationResult:")
+                print(f"Source Shape: {source_shape}")
+                print(f"Focus Node: {focus_node}")
+                print(f"Path: {path}")
+                print(f"Value: {value}")
+
+                # Get all nodes that failed validation
+                if isinstance(source_shape, rdflib.BNode):
+                    # For property shapes, get the parent shape and its nodes
+                    parent_shapes = list(shapes_graph.subjects(sh.property, source_shape))
+                    for parent_shape in parent_shapes:
+                        node_ids = list(shapes_graph.objects(subject=parent_shape, predicate=fbb.flowchartNodeID))
+                        if node_ids:
+                            print(f"Adding nodes from parent shape: {node_ids}")
+                            failed_nodes.update(str(node_id) for node_id in node_ids)
+                    
+                    # Also check the property shape itself for node IDs
+                    prop_node_ids = list(shapes_graph.objects(subject=source_shape, predicate=fbb.flowchartNodeID))
+                    if prop_node_ids:
+                        print(f"Adding nodes from property shape: {prop_node_ids}")
+                        failed_nodes.update(str(node_id) for node_id in prop_node_ids)
+                else:
+                    # For node shapes, get all node IDs
+                    node_ids = list(shapes_graph.objects(subject=source_shape, predicate=fbb.flowchartNodeID))
+                    if node_ids:
+                        print(f"Adding nodes from node shape: {node_ids}")
+                        failed_nodes.update(str(node_id) for node_id in node_ids)
+            except Exception as e:
+                print(f"Error processing validation result: {e}")
+                continue
+
+    except Exception as e:
+        print(f"Error parsing validation results: {e}")
+        return set()
+
+    print(f"\nTotal Failed Nodes: {failed_nodes}")
     return failed_nodes
 
 def highlight_mermaid_diagram(mmd_content, failed_nodes):
@@ -212,6 +219,33 @@ def highlight_mermaid_diagram(mmd_content, failed_nodes):
     
     return '\n'.join(final_lines)
 
+def load_shapes_graph(file_path):
+    """Load SHACL shapes with robust error handling."""
+    shapes_graph = rdflib.Graph()
+    try:
+        # Try different parsers in order of likelihood
+        for parser in ["turtle", "nt", "n3", "xml"]:
+            try:
+                print(f"Attempting to parse shapes with {parser} parser...")
+                shapes_graph.parse(file_path, format=parser)
+                print(f"Successfully parsed shapes with {parser} parser")
+                return shapes_graph
+            except Exception as e:
+                print(f"Failed to parse with {parser}: {str(e)}")
+                continue
+        
+        # If all parsers fail, try reading the file manually and parse its contents
+        print("Attempting manual file read...")
+        with open(file_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+            shapes_graph.parse(data=content, format="turtle")
+            print("Successfully parsed shapes from file contents")
+            return shapes_graph
+            
+    except Exception as e:
+        print(f"Error loading shapes graph: {str(e)}")
+        raise
+
 # Main execution
 if __name__ == "__main__":
     # Path to local directory containing .txt ontology files
@@ -224,8 +258,12 @@ if __name__ == "__main__":
     merged_ontology = load_ontologies(local_path)
     
     data_graph = rdflib.Graph().parse("buildinggraphs/section_2_1BE_Data.ttl", format="turtle")
-    shapes_graph = rdflib.Graph().parse("shacl_shapes_mmd/section_2_1_shapes.ttl", format="turtle")
-    document_graph = load_document_data("documentgraphs\BasisnormenLG_cropped.pdf\combined_document_data_graph.ttl")
+    try:
+        shapes_graph = load_shapes_graph("shacl_shapes_mmd/section_2_1_shapes.ttl")
+    except Exception as e:
+        print(f"Fatal error loading shapes: {str(e)}")
+        exit(1)
+    document_graph = load_document_data(r"documentgraphs/BasisnormenLG_cropped.pdf/combined_document_data_graph.ttl")
 
     member_refs = parse_member_references(shapes_graph)
     section_refs = parse_section_references(shapes_graph)
@@ -238,29 +276,18 @@ if __name__ == "__main__":
     
     html_file_name = "BasisnormenLG_cropped.html"
     
+    processed_results, failed_nodes = [], set()
+    
     if not conforms:
-        # Get failed flowchart nodes
-        failed_nodes = parse_flowchart_nodes(results_graph, shapes_graph)
-        print(f"Failed flowchart nodes: {failed_nodes}")
+        processed_results, failed_nodes = process_validation_results(
+            results_graph, 
+            member_refs, 
+            section_refs, 
+            document_graph, 
+            html_file_name,
+            shapes_graph
+        )
         
-        # Find and modify corresponding MMD file
-        shapes_file = "shacl_shapes_mmd/section_2_1_shapes.ttl"  # Your current shapes file
-        mmd_file = shapes_file.replace('shacl_shapes_mmd/', 'mmddiagrams/').replace('_shapes.ttl', '.mmd')
-        
-        if os.path.exists(mmd_file):
-            with open(mmd_file, 'r', encoding='utf-8') as f:
-                mmd_content = f.read()
-            
-            # Create highlighted version
-            highlighted_content = highlight_mermaid_diagram(mmd_content, failed_nodes)
-            
-            # Save to new file with _highlighted suffix
-            highlighted_file = mmd_file.replace('.mmd', '_highlighted.mmd')
-            with open(highlighted_file, 'w', encoding='utf-8') as f:
-                f.write(highlighted_content)
-            print(f"Created highlighted diagram: {highlighted_file}")
-        
-        processed_results = process_validation_results(results_graph, member_refs, section_refs, document_graph, html_file_name)
         for result in processed_results:
             if result['member_id'] != "Unknown":
                 print(f"Member {result['member_id']} validation failed:")
@@ -270,26 +297,41 @@ if __name__ == "__main__":
                 print("Unknown element validation failed:")
             print(f"  Severity: {result['severity']}")
             print(f"  Focus Node: {result['focus_node']}")
-            print(f"  Failed nodes: {failed_nodes}")
-    #        print(f"  Message: {result['message']}")
             print(f"  Original Text: {result['original_text']}")
-    #        print(f"  Source Shape: {result['source_shape']}")
             if result['html_link']:
                 print(f"  HTML Link: {result['html_link']}")
             print()
 
-
-    # Generate a simple HTML report with clickable links
+        # Highlight Mermaid Diagram
+        if failed_nodes:
+            shapes_file = "shacl_shapes_mmd/section_2_1_shapes.ttl"  # Your current shapes file
+            mmd_file = shapes_file.replace('shacl_shapes_mmd/', 'mmddiagrams/').replace('_shapes.ttl', '.mmd')
+            
+            if os.path.exists(mmd_file):
+                with open(mmd_file, 'r', encoding='utf-8') as f:
+                    mmd_content = f.read()
+                
+                highlighted_content = highlight_mermaid_diagram(mmd_content, failed_nodes)
+                
+                highlighted_file = mmd_file.replace('.mmd', '_highlighted.mmd')
+                with open(highlighted_file, 'w', encoding='utf-8') as f:
+                    f.write(highlighted_content)
+                print(f"Created highlighted diagram: {highlighted_file}")
+    
+    # Generate HTML report as per existing logic
     with open("validation_report.html", "w", encoding="utf-8") as f:
         f.write("<html><body>")
         f.write("<h1>Validation Report</h1>")
         for result in processed_results:
             if "info" in result['severity'].lower():
                 violation_color = "green"
-            if "warning" in result['severity'].lower():
+            elif "warning" in result['severity'].lower():
                 violation_color = "orange"
-            if "violation" in result['severity'].lower():
+            elif "violation" in result['severity'].lower():
                 violation_color = "red"
+            else:
+                violation_color = "black"  # Default color
+            
             f.write(f"<h2 style='color:{violation_color}';>Severity: {result['severity'].split('#')[-1]}</h2>")
             f.write(f"<p>Focus Node: {result['focus_node'].split('/')[-1]}</p>")
             if result['html_link']:
