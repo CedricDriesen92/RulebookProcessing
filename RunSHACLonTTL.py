@@ -7,6 +7,10 @@ from pyshacl import validate
 
 
 def load_ontologies(local_path):
+    """
+    Loads and merges multiple ontology files into a single graph.
+    First loads the main source file (firebimSource.ttl) then adds other ontologies to it.
+    """
     ontologies = ["BOTen", "BPOen", "GEOsparqlen", "OPMen"]
     
     filename_source = "firebimSource.ttl"
@@ -38,6 +42,12 @@ def get_member_text(document_graph, member_id):
     return str(original_text) if original_text else "Original text not found"
 
 def parse_member_references(shapes_graph):
+    """
+    Extracts relationships between SHACL shapes and their corresponding member IDs.
+    Maps both node shapes and their property shapes to member IDs for traceability.
+    
+    Returns: Dictionary mapping shape URIs to their member IDs
+    """
     firebim = Namespace("http://example.com/firebim#")
     ex = Namespace("http://example.org/")
     sh = Namespace("http://www.w3.org/ns/shacl#")
@@ -83,6 +93,14 @@ def find_parent_shape(results_graph, shape):
     return None
 
 def process_validation_results(results_graph, member_refs, section_refs, document_graph, html_file_name, shapes_graph):
+    """
+    Processes SHACL validation results and creates detailed violation reports.
+    Links violations back to their source rules and original text.
+    
+    Returns: 
+    - processed_results: List of dictionaries containing violation details
+    - failed_nodes: Set of nodes that failed validation (for diagram highlighting)
+    """
     sh = Namespace("http://www.w3.org/ns/shacl#")
     processed_results = []
     failed_nodes = set()
@@ -171,9 +189,18 @@ def parse_flowchart_nodes(results_graph, shapes_graph):
     return failed_nodes
 
 def highlight_mermaid_diagram(mmd_content, failed_nodes):
+    """
+    Updates a Mermaid diagram to highlight nodes that failed validation.
+    
+    Args:
+    - mmd_content: Original Mermaid diagram content
+    - failed_nodes: Dictionary of node IDs and their violation severity
+    
+    Returns: Modified Mermaid diagram content with highlighted nodes
+    """
     modified_lines = []
     
-    # First pass: Remove existing class definitions
+    # First pass: Remove any existing class definitions from nodes
     for line in mmd_content.split('\n'):
         skip_line = False
         for node in failed_nodes:
@@ -191,16 +218,18 @@ def highlight_mermaid_diagram(mmd_content, failed_nodes):
         if not skip_line:
             modified_lines.append(line)
     
-    # Second pass: Add severity classes
+    # Second pass: Add new severity-based classes
     final_lines = []
     class_definitions_added = False
     
+    # Define visual styles for different severity levels
     for line in modified_lines:
         if line.strip().startswith('classDef') and not class_definitions_added:
             final_lines.append(line)
-            final_lines.append('classDef info fill:#ffff00,stroke:#333,stroke-width:2px')
-            final_lines.append('classDef warning fill:#ffa500,stroke:#333,stroke-width:2px')
-            final_lines.append('classDef violation fill:#ff0000,stroke:#333,stroke-width:2px')
+            # Add class definitions for different severity levels
+            final_lines.append('classDef info fill:#ffff00,stroke:#333,stroke-width:2px')      # Yellow for info
+            final_lines.append('classDef warning fill:#ffa500,stroke:#333,stroke-width:2px')   # Orange for warnings
+            final_lines.append('classDef violation fill:#ff0000,stroke:#333,stroke-width:2px') # Red for violations
             class_definitions_added = True
         else:
             modified_line = line
@@ -251,6 +280,17 @@ def load_shapes_graph(file_path):
 
 # Main execution
 if __name__ == "__main__":
+    """
+    Main execution flow:
+    1. Load and merge ontologies
+    2. Load data graph (the instance data to validate)
+    3. Load SHACL shapes (validation rules)
+    4. Load document graph (original text references)
+    5. Run SHACL validation
+    6. Process results and generate reports
+    7. Create highlighted Mermaid diagrams for visualization
+    8. Generate HTML report
+    """
     # Path to local directory containing .txt ontology files
     local_path = "buildingontologies/"
     
