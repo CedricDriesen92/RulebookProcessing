@@ -19,6 +19,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+input_file = os.getenv("INPUT_FILE")
 #client = AnthropicVertex(region="us-east5", project_id="neat-veld-422214-p1")
 #client = AnthropicVertex(region="europe-west1", project_id="neat-veld-422214-p1")
 client = anthropic.Anthropic(api_key=anthropic_key)
@@ -251,7 +252,7 @@ def compare_section_numbers(a, b):
 def main():
     ontology = load_ontology('FireBIM_Document_Ontology.ttl')
     #pdf_filename = 'NIT_198_crop.pdf'
-    pdf_filename = 'BasisnormenLG_cropped.pdf'
+    pdf_filename = input_file
     markdown_filename = pdf_filename + '.md'
     output_folder = f"documentgraphs/{pdf_filename}"
     

@@ -10,6 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+input_file = os.getenv("INPUT_FILE")
 
 # Define namespaces
 FIREBIM = Namespace("http://example.com/firebim#")
@@ -166,9 +167,10 @@ def main():
     ontology = load_ontology('buildingontologies/firebimSource.ttl')
     objects_data = load_csv('MatrixObjects.csv')
     properties_data = load_csv('MatrixProperties.csv')
-    input_folder = 'mmddiagrams'
-    output_folder = 'shacl_shapes_mmd'
-    text_source_folder = 'trainingsamplesRuleToGraph'
+    document_name = 'BasisnormenLG_cropped.pdf'
+    input_folder = f'mmddiagrams/{document_name}'
+    output_folder = f'shacl_shapes_mmd/{document_name}'
+    text_source_folder = f'trainingsamplesRuleToGraph'
 
     os.makedirs(output_folder, exist_ok=True)
 
