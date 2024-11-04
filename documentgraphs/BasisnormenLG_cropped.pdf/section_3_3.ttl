@@ -1,0 +1,42 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_3_3 a firebim:Section ;
+    firebim:hasID "3.3" ;
+    firebim:hasOriginalText "Verticale binnenwanden en binnendeuren."@nl ;
+    firebim:hasArticle firebim:Article_3_3_1 .
+
+firebim:Section_3 firebim:hasSection firebim:Section_3_3 .
+
+firebim:Article_3_3_1 a firebim:Article ;
+    firebim:hasID "A3.3.1" ;
+    firebim:hasMember firebim:Member_3_3_1_1, firebim:Member_3_3_1_2, firebim:Member_3_3_1_3 ;
+    firebim:hasTable firebim:Table_2_2 .
+
+firebim:Member_3_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Voor  de  wanden  en  de  deuren,  die  compartimenten  afbakenen,  geldt  4.1;  bakenen  zij
+evacuatiewegen af dan geldt 4.4."""@nl ;
+    firebim:hasForwardReference firebim:Section_4_1, firebim:Section_4_4 .
+
+firebim:Member_3_3_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De verticale binnenwanden die lokalen of het geheel van lokalen met nachtbezetting afbakenen
+hebben een brandweerstand, aangegeven in tabel 2.2."""@nl .
+
+firebim:Member_3_3_1_3 a firebim:Member ;
+    firebim:hasOriginalText "De deuren in deze wanden hebben EI1 30."@nl .
+
+firebim:Table_2_2 a firebim:Table ;
+    firebim:hasID "T2.2" ;
+    firebim:hasOriginalText """Wanden
+Boven de vloer van Ei
+               Eén bouwlaag         EI 30
+       Meerdere bouwlagen           EI 60
+Onder Ei,
+met inbegrip van de vloer van           EI 60
+Ei
+Tabel 2.2 – Brandweerstand van verticale binnenwanden"""@nl .

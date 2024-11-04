@@ -19,7 +19,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 anthropic_key = os.getenv("ANTHROPIC_API_KEY")
-print(anthropic_key)
 #client = AnthropicVertex(region="us-east5", project_id="neat-veld-422214-p1")
 #client = AnthropicVertex(region="europe-west1", project_id="neat-veld-422214-p1")
 client = anthropic.Anthropic(api_key=anthropic_key)
@@ -213,7 +212,10 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
         except Exception as e:
             print(f"Error loading existing section {section_number}: {e}")
     
-    if section_number not in ['4_1']:
+    #if section_number not in ['4_1']:
+    #    print(f"Skipping section {section_number}.")
+    #    return False # Keeps the code from engaging the AI.
+    if section_number[0] not in ['0', '1', '2', '3'] or section_number in ['3_5_2_3_2', '3_5_2_3_3']:
         print(f"Skipping section {section_number}.")
         return False # Keeps the code from engaging the AI.
     for attempt in range(3):
@@ -232,7 +234,7 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
                 print(f"Generated TTL content:\n{ttl_content}")
             else:
                 print("probably rate limit exceeded... waiting")
-                time.sleep(5)
+                time.sleep(20)
             if attempt < 3:
                 print("Retrying with AI...")
                 section_text += f"\n\nPrevious attempt failed with error: {str(e)}. Please try again and ensure valid Turtle syntax."

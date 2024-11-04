@@ -1,0 +1,35 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_3_5_2_2_2 a firebim:Section ;
+    firebim:hasID "3.5.2.2.2" ;
+    firebim:hasOriginalText "Dubbelwandige gevel naar buiten toe open."@nl ;
+    firebim:hasArticle firebim:Article_3_5_2_2_2_1 .
+
+firebim:Article_3_5_2_2_2_1 a firebim:Article ;
+    firebim:hasID "A3.5.2.2.2.1" ;
+    firebim:hasMember firebim:Member_3_5_2_2_2_1_1, firebim:Member_3_5_2_2_2_1_2, firebim:Member_3_5_2_2_2_1_3, firebim:Member_3_5_2_2_2_1_4 .
+
+firebim:Member_3_5_2_2_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De voorschriften voor enkelwandige gevels mogen toegepast worden op de binnenwand wanneer
+de buitenwand vaste of mobiele ventilatieopeningen bevat die automatisch openen bij brand."""@nl .
+
+firebim:Member_3_5_2_2_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De vaste ventilatieopeningen zijn geplaatst op 30 ± 10 graden naar de buitenkant en naar boven
+toe ten opzichte van de horizontale, gelijkmatig verdeeld over ten minste 50% van de oppervlakte
+ervan."""@nl .
+
+firebim:Member_3_5_2_2_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText """De mobiele ventilatieopeningen voldoen, bij brand, aan dezelfde voorwaarden als de vaste
+ventilatieopeningen."""@nl .
+
+firebim:Member_3_5_2_2_2_1_4 a firebim:Member ;
+    firebim:hasOriginalText """De veiligheidsstand van de mobiele lamellen wordt in werking gesteld door een algemene
+branddetectie-installatie in de compartimenten langs gevels. De automatische bediening moet
+voldoen aan de voorwaarden voorzien in punt 3.5.2.3."""@nl ;
+    firebim:hasForwardReference firebim:Section_3_5_2_3 .

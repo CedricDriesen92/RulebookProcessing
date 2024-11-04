@@ -1,0 +1,21 @@
+flowchart TD
+    S1["Start: Compartment Separation Check"] --> A["For each <a href='http://example.com/firebimbuilding#Wall' style='color:pink;'>Wall</a> between <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartments</a>"] & B["For each <a href='http://example.com/firebimbuilding#Door' style='color:pink;'>Door</a> between <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartments</a>"]
+    A --> C["Check <a href='http://example.com/firebimbuilding#FireResistanceRating' style='color:blue;'>FireResistanceRating</a> according to Table 2.3"]
+    C -- Meets requirements --> D[/"Pass"/]
+    C -- Does not meet --> E[/"Fail"/]
+    B --> F["<a href='http://example.com/firebimbuilding#FireResistanceRating' style='color:blue;'>FireResistanceRating</a> ≥ EI1 30?"]
+    F -- Yes --> G["<a href='http://example.com/firebimbuilding#IsSelfClosing' style='color:blue;'>IsSelfClosing</a> OR <a href='http://example.com/firebimbuilding#IsFireActivatedClosing' style='color:blue;'>IsFireActivatedClosing</a>?"]
+    F -- No --> H[/"Fail"/]
+    G -- Yes --> I[/"Pass"/]
+    G -- No --> J[/"Fail"/]
+
+    S1:::startClass
+    D:::passClass
+    E:::failClass
+    H:::failClass
+    I:::passClass
+    J:::failClass
+    
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px

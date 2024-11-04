@@ -1,0 +1,25 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_3_5_1_1 a firebim:Section ;
+    firebim:hasID "3.5.1.1" ;
+    firebim:hasOriginalText "Scheiding tussen compartimenten"@nl ;
+    firebim:hasArticle firebim:Article_3_5_1_1_1 .
+
+firebim:Article_3_5_1_1_1 a firebim:Article ;
+    firebim:hasID "A3.5.1.1.1" ;
+    firebim:hasMember firebim:Member_3_5_1_1_1_1, firebim:Member_3_5_1_1_1_2, firebim:Member_3_5_1_1_1_3 .
+
+firebim:Member_3_5_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De stijlen van het gordijngevelskelet worden ter hoogte van elke bouwlaag aan het gebouwskelet bevestigd. Met uitzondering van de gebouwen die uitgerust zijn met een automatische blusinstallatie, moeten deze bevestigingen R 60 zijn ten opzichte van een brand in een onderliggend en naastgelegen compartiment."""@nl .
+
+firebim:Member_3_5_1_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De lineaire voeg aan de gevel is dichtgemaakt zodat geen koude rook tussen de gevel en de compartimentswanden kan dringen."""@nl .
+
+firebim:Member_3_5_1_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Bovendien heeft de aansluiting van de compartimentswanden met de gevel, met uitzondering van een beperkte lineaire voeg met een breedte van maximaal 20 mm aan de gevel, minstens EI 60 of EI 60 (i→o)."""@nl .

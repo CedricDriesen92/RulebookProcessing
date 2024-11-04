@@ -1,7 +1,8 @@
 import os
 import glob
 import csv
-from rdflib import Graph, Namespace
+from rdflib import Graph, Namespace, URIRef, Literal
+from rdflib.namespace import RDF, RDFS
 from anthropic import AnthropicVertex
 import anthropic
 import time
@@ -202,38 +203,87 @@ This is the original text:
             print(f"Error in LLM processing: {e}")
             time.sleep(5)
 
+def load_articles_from_graph(graph_path):
+    g = Graph()
+    g.parse(graph_path, format="turtle")
+    
+    FIREBIM = Namespace("http://example.com/firebim#")
+    articles = []
+    
+    # Query to get all articles and their related content
+    query = """
+    SELECT DISTINCT ?article ?articleText ?member ?memberText
+    WHERE {
+        ?article a firebim:Article .
+        OPTIONAL { ?article firebim:hasOriginalText ?articleText }
+        OPTIONAL {
+            ?article firebim:hasMember ?member .
+            ?member firebim:hasOriginalText ?memberText
+        }
+    }
+    ORDER BY ?article ?member
+    """
+    
+    results = g.query(query, initNs={'firebim': FIREBIM})
+    
+    current_article = None
+    current_text = []
+    
+    for row in results:
+        article_uri = str(row.article)
+        if current_article != article_uri:
+            if current_article is not None:
+                articles.append({
+                    'uri': current_article,
+                    'text': '\n'.join(current_text)
+                })
+            current_article = article_uri
+            current_text = []
+            if row.articleText:
+                current_text.append(str(row.articleText))
+        if row.memberText:
+            current_text.append(str(row.memberText))
+    
+    # Add the last article
+    if current_article is not None:
+        articles.append({
+            'uri': current_article,
+            'text': '\n'.join(current_text)
+        })
+    
+    return articles
+
 def main():
     ontology = load_ontology('FireBIM_Document_Ontology.ttl')
     objects_data = load_csv('MatrixObjects_auto.csv')
     properties_data = load_csv('MatrixProperties_auto.csv')
-    input_folder = 'documentgraphs\BasisnormenLG_cropped.pdf'
+    input_graph = 'documentgraphs/BasisnormenLG_cropped.pdf/combined_document_data_graph.ttl'
+    input_folder_training = 'documentgraphs/BasisnormenLG_cropped.pdf'
     training_folder = 'trainingsamplesRuleToMMD'
     output_folder = 'mmddiagrams'
 
     os.makedirs(output_folder, exist_ok=True)
-    training_examples = load_training_examples(input_folder, training_folder)
+    training_examples = load_training_examples(input_folder_training, training_folder)
     examples_str = "\n\n".join([f"Input:\n{ex['input']}\n\nExpected output:\n{str(ex['output'])}\n" for ex in training_examples])
-    with open("current_training_total_mmd.txt", "w", encoding="utf-8") as f:
-        f.write(examples_str)
-
-    for txt_file in glob.glob(os.path.join(input_folder, '*.txt')):
-        base_name = os.path.splitext(os.path.basename(txt_file))[0]
-        output_file = os.path.join(output_folder, f"{base_name}.mmd")
-
-        if os.path.exists(output_file) or "2_1" not in base_name:
-            print(f"Skipping {base_name}.")
+    
+    articles = load_articles_from_graph(input_graph)
+    print(f"Number of articles: {len(articles)}")
+    
+    for article in articles:
+        # Extract article ID from URI
+        article_id = article['uri'].split('#')[-1]
+        output_file = os.path.join(output_folder, f"{article_id}.mmd")
+        
+        if os.path.exists(output_file):
+            print(f"Skipping {article_id}.")
             continue
         
-        with open(txt_file, 'r', encoding='utf-8') as f:
-            txt_content = f.read()
-
-        mmd_diagram = process_ttl_to_mmd(txt_content, ontology, objects_data, properties_data, examples_str)
-
+        mmd_diagram = process_ttl_to_mmd(article['text'], ontology, objects_data, properties_data, examples_str)
+        
         with open(output_file, 'w', encoding='utf-8') as f:
-            #f.write("---\ntitle: " + base_name + "\n---\n")
             f.write(mmd_diagram)
-
-        print(f"Generated Mermaid diagram for {base_name}")
+        
+        print(f"Generated Mermaid diagram for {article_id}")
 
     print("Mermaid generation complete.")
 
