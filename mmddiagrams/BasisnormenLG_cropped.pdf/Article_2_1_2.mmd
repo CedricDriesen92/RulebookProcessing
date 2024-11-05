@@ -1,0 +1,66 @@
+flowchart TD
+    S1["Start: Compartment Height Check"] --> A["For each <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"]
+    A --> B["<a href='http://example.com/firebimbuilding#NumberOfFloors' style='color:blue;'>NumberOfFloors</a> = 1?"]
+    B -- Yes --> C[/"Pass"/]
+    B -- No --> D{"Check exceptions"}
+    D --> E["<a href='http://example.com/firebimbuilding#IsParking' style='color:purple;'>IsParking</a>?"]
+    D --> F["<a href='http://example.com/firebimbuilding#IsDuplex' style='color:purple;'>IsDuplex</a>?"]
+    D --> G["<a href='http://example.com/firebimbuilding#IsTriplex' style='color:purple;'>IsTriplex</a>?"]
+    D --> H["<a href='http://example.com/firebimbuilding#ContainsTechnicalRooms' style='color:purple;'>ContainsTechnicalRooms</a>?"]
+    D --> I["<a href='http://example.com/firebimbuilding#IsAtrium' style='color:purple;'>IsAtrium</a>?"]
+    
+    E -- Yes --> J["Check Parking Rules (see 5.2)"]
+    E -- No --> K[/"Fail"/]
+    
+    F -- Yes --> L["<a href='http://example.com/firebimbuilding#CompartmentArea' style='color:blue;'>CompartmentArea</a> ≤ 2500 m²?"]
+    L -- Yes --> M[/"Pass"/]
+    L -- No --> N[/"Fail"/]
+    F -- No --> O[/"Fail"/]
+    
+    G -- Yes --> P["<a href='http://example.com/firebimbuilding#CompartmentArea' style='color:blue;'>CompartmentArea</a> ≤ 300 m²?"]
+    P -- Yes --> Q["Has <a href='http://example.com/firebimbuilding#smoke detection' style='color:pink;'>smoke detection</a>?"]
+    Q -- Yes --> R["<a href='http://example.com/firebimbuilding#FireDetectionCoverage' style='color:blue;'>FireDetectionCoverage</a> = 'Total'?"]
+    R -- Yes --> S["Detectors adapted to risks?"]
+    S -- Yes --> T[/"Pass"/]
+    S -- No --> U[/"Fail"/]
+    R -- No --> V[/"Fail"/]
+    Q -- No --> W[/"Fail"/]
+    P -- No --> X[/"Fail"/]
+    G -- No --> Y[/"Fail"/]
+    
+    H -- Yes --> Z[/"Pass"/]
+    H -- No --> AA[/"Fail"/]
+    
+    I -- Yes --> AB["Has <a href='http://example.com/firebimbuilding#suppression system' style='color:pink;'>suppression system</a>?"]
+    AB -- Yes --> AC["Has smoke and heat exhaust?"]
+    AC -- Yes --> AD[/"Pass"/]
+    AC -- No --> AE["Ministerial exception granted?"]
+    AB -- No --> AE
+    AE -- Yes --> AF[/"Pass"/]
+    AE -- No --> AG[/"Fail"/]
+    I -- No --> AH[/"Fail"/]
+
+    J@{ shape: hex}
+    S1:::startClass
+    C:::passClass
+    K:::failClass
+    M:::passClass
+    N:::failClass
+    O:::failClass
+    T:::passClass
+    U:::failClass
+    V:::failClass
+    W:::failClass
+    X:::failClass
+    Y:::failClass
+    Z:::passClass
+    AA:::failClass
+    AD:::passClass
+    AF:::passClass
+    AG:::failClass
+    AH:::failClass
+
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+    style J stroke:#000000,stroke-width:1px,stroke-dasharray: 0,fill:#FFD600

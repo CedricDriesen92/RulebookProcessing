@@ -1,0 +1,38 @@
+flowchart TD
+    S1["Start: Exit Location Check"] --> A["For each <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"]
+    A --> B["<a href='http://example.com/firebimbuilding#IsParking' style='color:blue;'>IsParking</a>?"]
+    B -- Yes --> C["Check Parking Rules (see 5.2)"]
+    B -- No --> D["Check <a href='http://example.com/firebimbuilding#Exit' style='color:pink;'>Exit</a> locations"]
+    D --> E["<a href='http://example.com/firebimbuilding#Exit' style='color:pink;'>Exit</a>s in opposite zones?"]
+    E -- Yes --> F["<a href='http://example.com/firebimbuilding#IsUnderground' style='color:blue;'>IsUnderground</a>?"]
+    E -- No --> G[/"Fail"/]
+    F -- Yes --> H["Check alternative <a href='http://example.com/firebimbuilding#EvacuationRoute' style='color:pink;'>EvacuationRoute</a>"]
+    F -- No --> I["<a href='http://example.com/firebimbuilding#IsEvacuationLevel' style='color:blue;'>IsEvacuationLevel</a>?"]
+    H --> J["<a href='http://example.com/firebimbuilding#Wall' style='color:pink;'>Wall</a> <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>FireResistance</a> ≥ EI 30?"]
+    J -- Yes --> K["<a href='http://example.com/firebimbuilding#Door' style='color:pink;'>Door</a> <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>FireResistance</a> ≥ EI1 30?"]
+    J -- No --> L[/"Fail"/]
+    K -- Yes --> M[/"Pass"/]
+    K -- No --> N[/"Fail"/]
+    I -- Yes --> O["For each <a href='http://example.com/firebimbuilding#Staircase' style='color:pink;'>Staircase</a>"]
+    I -- No --> P[/"Pass"/]
+    O --> Q["<a href='http://example.com/firebimbuilding#HasDirectOutsideAccess' style='color:blue;'>HasDirectOutsideAccess</a>?"]
+    Q -- Yes --> R[/"Pass"/]
+    Q -- No --> S["Check <a href='http://example.com/firebimbuilding#EvacuationRoute' style='color:pink;'>EvacuationRoute</a> to outside"]
+    S --> T["Meets 4.4 requirements?"]
+    T -- Yes --> U[/"Pass"/]
+    T -- No --> V[/"Fail"/]
+
+    C@{ shape: hex}
+    S1:::startClass
+    G:::failClass
+    L:::failClass
+    M:::passClass
+    N:::failClass
+    P:::passClass
+    R:::passClass
+    U:::passClass
+    V:::failClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+    style C stroke:#000000,stroke-width:1px,stroke-dasharray: 0,fill:#FFD600

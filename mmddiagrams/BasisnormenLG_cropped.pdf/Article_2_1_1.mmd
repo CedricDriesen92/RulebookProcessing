@@ -1,0 +1,31 @@
+flowchart TD
+    S1["Start: Compartment Check"] --> A["For each <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"]
+    A --> B["<a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a> <a href='http://example.com/firebimbuilding#IsParking' style='color:blue;'>IsParking</a>?"]
+    B -- Yes --> C["Check Parking rules (see 5.2)"]
+    B -- No --> D["<a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a> <a href='http://example.com/firebimbuilding#IsGroundFloor' style='color:blue;'>IsGroundFloor</a>?"]
+    D -- Yes --> E["<a href='http://example.com/firebimbuilding#CompartmentArea' style='color:blue;'>CompartmentArea</a> ≤ 3500 m²?"]
+    D -- No --> F["<a href='http://example.com/firebimbuilding#CompartmentArea' style='color:blue;'>CompartmentArea</a> ≤ 2500 m²?"]
+    E -- Yes --> G["<a href='http://example.com/firebimbuilding#CompartmentLength' style='color:blue;'>CompartmentLength</a> ≤ 90 m?"]
+    E -- No --> H["Check for fire systems"]
+    F -- Yes --> I[/"Pass"/]
+    F -- No --> H
+    G -- Yes --> J[/"Pass"/]
+    G -- No --> K[/"Fail"/]
+    H --> L["<a href='http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem' style='color:blue;'>HasAutomaticFireExtinguishingSystem</a>?"]
+    L -- Yes --> M["<a href='http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem' style='color:blue;'>HasSmokeAndHeatExhaustSystem</a>?"]
+    L -- No --> N[/"Fail"/]
+    M -- Yes --> O[/"Pass"/]
+    M -- No --> P[/"Fail"/]
+
+    C@{ shape: hex}
+    S1:::startClass
+    I:::passClass
+    J:::passClass
+    K:::failClass
+    N:::failClass
+    O:::passClass
+    P:::failClass
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
+    style C stroke:#000000,stroke-width:1px,stroke-dasharray: 0,fill:#FFD600

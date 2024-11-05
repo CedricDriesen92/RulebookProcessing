@@ -1,0 +1,478 @@
+name,object or property
+abnormal heat,property
+absorptivity,property
+acceptance criteria,property
+accuracy,property
+activation time,property
+active fire protection,object
+actual delivered density,property
+acute effect,property
+acute toxicity,property
+aerosol,object
+aerosol particle,object
+afterflame,object
+afterflame time,property
+afterglow,object
+afterglow time,property
+agent-based model,object
+agent outlet,object
+alarm time,property
+alight,property
+analyte,object
+arc resistance,property
+area burning rate,property
+arson,object
+ash,object
+asphyxiant,object
+atmospheric transmissivity,property
+auto-ignition,property
+auto-ignition temperature,property
+available safe escape time,property
+backdraft,object
+behavioural scenario,object
+behavioural uncertainty,property
+black body,object
+black body radiation source,object
+building element,object
+built environment,object
+buoyant plume,object
+burn,property
+burned area,property
+burned length,property
+burning behaviour,property
+burning debris,object
+burning droplet,object
+bursting,object
+bushfire,object
+calibration,object
+calibration related to fire modelling,object
+calorimeter,object
+carboxyhaemoglobin,object
+carboxyhaemoglobin saturation,property
+ceiling jet,object
+char,object
+char length,property
+chimney effect,object
+chronic effect,property
+clinker,object
+combustible,property
+combustible load,property
+combustion,object
+combustion efficiency,property
+combustion product,object
+common mode failure,object
+complete combustion,object
+composite material,object
+computerized model,object
+concentration,property
+concentration-time curve,object
+conceptual model,object
+controlled burn,object
+convection,object
+convective heat flux,property
+convective heat transfer,object
+corrosion damage,property
+corrosion target,object
+critical fire load,property
+damaged area,property
+damaged length,property
+defend in place,object
+deflagration,object
+design density,property
+design fire,object
+design fire scenario,object
+detection time,property
+deterministic analysis,object
+deterministic model,object
+detonation,object
+diffusion flame,object
+dioxin,object
+direct flame contact,object
+draught-free environment,object
+droplet,object
+duration of flaming,property
+ecotoxic,property
+ecotoxicity,property
+effective concentration 50,property
+effective exposure dose 50,property
+effective heat of combustion,property
+ember,object
+emissivity,property
+empirical formula,object
+enclosed fire,object
+enclosure,object
+end-use conditions,object
+engineering judgement,object
+environment,object
+environmental impact,property
+equivalence ratio,property
+error,object
+escape,object
+evacuation,object
+evacuation behaviour,property
+evacuation model,object
+evacuation time,property
+event tree,object
+exit,object
+expanded uncertainty,property
+explosion,object
+exposed surface,object
+exposure dose,property
+exposure time,property
+extent of combustion,property
+exterior insulation and finish system,object
+exterior thermal insulation composite system,object
+exterior wall,object
+exterior wall assembly,object
+exterior wall covering,object
+extinction area of smoke,property
+extinction coefficient,property
+F factor,property
+façade,object
+façade fire,object
+fault tree,object
+fire,object
+fire barrier,object
+fire behaviour,property
+fire classification,object
+fire compartment,object
+fire danger,property
+fire decay,object
+fire effluent,object
+fire effluent decay characteristic,property
+fire effluent transport,object
+fire exposure,property
+fire extinguishment,object
+fire gases,object
+fire growth,object
+fire growth rate,property
+fire hazard,property
+fire hazard analysis,object
+fire integrity,property
+fire load,property
+fire load density,property
+fire model,object
+fire performance,property
+fire plume,object
+fire point,property
+fire propagation,object
+fire resistance,property
+fire retardant,object
+fire retarded,property
+fire risk,property
+fire risk assessment,object
+fire risk curve,object
+fire safety design,object
+fire safety engineering,object
+fire safety management,object
+fire safety objective,object
+fire safety strategy,object
+fire scenario,object
+fire scenario cluster,object
+fire severity,property
+fire stability,property
+fire test,object
+fire whirl,object
+firebrand,object
+fixed fuel load density,property
+flame,object
+flame application time,property
+flame front,object
+flame retardant,object
+flame retardant treatment,object
+flame retarded,property
+flame spread,object
+flame spread rate,property
+flame spread time,property
+flameproof enclosure,object
+flame stabilizer,object
+flaming,object
+flaming combustion,object
+flaming debris,object
+flaming droplet,object
+flammability,property
+flammability limit,property
+flammable,property
+flash-ignition temperature,property
+flash point,property
+flashing,object
+flashover,object
+forest fire,object
+Fourier transform infra-red spectroscopy,object
+fractional effective concentration,property
+fractional effective dose,property
+fuel,object
+fuel-lean combustion,object
+fuel-rich combustion,object
+fully developed fire,object
+gasify,property
+global equivalence ratio,property
+glowing,object
+glowing combustion,object
+gross heat of combustion,property
+heat capacity,property
+heat flow rate,property
+heat flux,property
+heat flux meter,object
+heat of combustion,property
+heat of gasification,property
+heat release,property
+heat release rate,property
+heat release rate calorimeter,object
+heat stress,property
+heat transfer,object
+homogeneous product,object
+human behaviour in fire,property
+hyperventilation,property
+ignitability,property
+ignitable,property
+ignite,property
+ignited,property
+ignition,object
+ignition source,object
+ignition time,property
+impaired escape capability,property
+imposed load,property
+improved fire performance,property
+incandescence,object
+incapacitation,property
+incapacitation concentration 50 %,property
+incident heat flux,property
+individual risk,property
+informal settlement,object
+initial test heat flux,property
+insulation criterion "I",property
+integrity criterion "E",property
+intermediate-scale fire test,object
+intrinsically safe circuit,object
+intrinsically safe system,object
+intumescence,object
+irradiance,property
+irritant,object
+large-scale fire test,object
+large outdoor fire,object
+lateral spread of flame,object
+lethal concentration 50,property
+lethal exposure dose 50,property
+lethal exposure time 50,property
+lethal toxic potency,property
+light,property
+lighting,object
+limit of detection,property
+limit of quantification,property
+linear burning rate,property
+load-bearing criterion "R",property
+load-bearing element,object
+lower flammability limit,property
+lowest observed adverse effect level,property
+macroscopic model,object
+major accident,object
+mass burning rate,property
+mass calorimeter,object
+mass charge concentration,property
+mass concentration of gas,property
+mass concentration of particles,property
+mass loss concentration,property
+mass loss rate,property
+mass optical density of smoke,property
+material,object
+mean flame height,property
+means of escape,object
+measurand,object
+mechanical response,property
+medium-scale fire test,object
+melting behaviour,property
+microscopic model,object
+minimum critical relative humidity,property
+minimum detection limit,property
+minimum ignition temperature,property
+molar mass,property
+molten drip,object
+movable fuel load density,property
+movement behaviour,property
+movement time,property
+narcosis,object
+narcotic,object
+net heat of combustion,property
+no observed adverse effect level,property
+non-combustible,property
+non-flammable,property
+non-load-bearing element,object
+notional yield,property
+numerical fire model,object
+obscuration of smoke,property
+occupant,object
+opacity of smoke,property
+optical density of smoke,property
+oxidation,object
+oxidizing agent,object
+oxygen consumption principle,property
+oxygen index,property
+passive fire protection,object
+performance criteria,object
+performance-based design,object
+performance-based regulation,object
+phased evacuation,object
+physical fire model,object
+piloted ignition,object
+place of safety,object
+pollutant,object
+polymeric material,object
+pool fire,object
+post-exposure time,property
+precision,property
+predicted LC50,property
+predicted toxic potency,property
+pre-evacuation time,property
+pre-mixed flame,object
+pre-movement behaviour,property
+pre-movement time,property
+pre-wetting,object
+prescribed burning,object
+prescriptive regulation,object
+primary fire effluent,object
+primary standard,object
+probabilistic analysis,object
+probabilistic model,object
+progressive smouldering,object
+pyrolysis,object
+pyrolysis front,object
+pyrophoric material,object
+radiant heat flux,property
+radiation,object
+radiative fraction,property
+radiative heat flux,property
+radiative heat transfer,object
+radiometer,object
+reaction to fire,property
+real-scale fire test,object
+recognition behaviour,property
+reference fire scenario,object
+relative atomic mass,property
+representative fire scenario,object
+required delivered density,property
+required safe escape time,property
+response behaviour,property
+risk acceptance,object
+route availability,property
+run-off,object
+safe refuge,object
+sample,object
+scorch,property
+screening test,object
+secondary fire effluent,object
+secondary standard,object
+self-extinguish,property
+self-heating,property
+self-propagation of flame,object
+separating element,object
+short term effect,property
+small-scale fire test,object
+smoke,object
+smoke layer,object
+smoke obscuration,property
+smoke production,property
+smoke production rate,property
+smouldering,object
+smouldering combustion,object
+societal risk,property
+soot,object
+spark,object
+specimen,object
+specific extinction area of smoke,property
+specific heat capacity,property
+specific optical density of smoke,property
+spectrometer,object
+spectroscopy,object
+spontaneous ignition temperature,property
+spot fire,object
+sprinkler activation area,property
+sprinkler application rate,property
+sprinkler density,property
+stoichiometric combustion,object
+stoichiometric oxygen demand,property
+stoichiometric oxygen-to-fuel mass ratio,property
+stoichiometric mixture,object
+stoichiometric yield,property
+structural fire performance,property
+substrate,object
+suppression system,object
+surface burn,object
+surface flash,object
+surface spread of flame,object
+sustained combustion,object
+sustained flame,object
+target,object
+temperature-time curve,object
+tenability,property
+tenability limit,property
+test specimen,object
+thermal action,property
+thermal conductivity,property
+thermal decomposition,object
+thermal degradation,property
+thermal diffusivity,property
+thermal inertia,property
+thermal insulation,property
+thermal insulation material,object
+thermal radiation,object
+thermal response,property
+thermally thick solid behaviour,property
+thermally thin solid behaviour,property
+thermo-oxidative decomposition,object
+total heat flux,property
+total heat flux meter,object
+toxic,property
+toxic gas,object
+toxic hazard,property
+toxic potency,property
+toxic risk,property
+toxicant,object
+toxicity,property
+tracking,object
+tracking resistance,property
+transient flame,object
+transient ignition,object
+transmittance,property
+travel distance,property
+trueness,property
+ultimate stability failure,object
+uncertainty,property
+uncertainty of measurement,property
+unenclosed fires,object
+upper flammability limit,property
+validation,object
+vent flow,object
+ventilation-controlled condition,property
+ventilation-controlled fire,object
+verification,object
+visibility,property
+vitiation-controlled condition,property
+volume fraction,property
+volume yield,property
+wave number,property
+wicking,object
+wildland fire,object
+wildland-urban interface,object
+yield,property
+joint,object
+sealing,object
+length,property
+width,property
+connection,object
+angle,property
+distance,property
+height,property
+required distance,property
+intersection,object
+opening,object
+smoke detection,object
+exhaust,object
+has exception,property
+contains technical rooms,property
+is atrium,property
+is duplex,property
+is triplex,property
+is parking,property
+number of floors,property
+coverage,property

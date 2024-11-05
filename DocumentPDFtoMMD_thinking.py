@@ -40,11 +40,11 @@ def load_ontology(file_path):
     with open(file_path, 'r') as file:
         return file.read()
 
-def load_csv(file_path):
+def load_csv(file_path, type):
     with open(file_path, 'r') as file:
         reader = csv.reader(file)
         next(reader)  # Skip header row
-        return [row[0] for row in reader]
+        return [row[0] for row in reader if row[1] == type]
 
 def process_ttl_to_mmd(ttl_content, ontology, objects_data, properties_data, examples_str):
     prompt = f"""
@@ -202,7 +202,7 @@ This is the original text:
             return second_answer
         except Exception as e:
             print(f"Error in LLM processing: {e}")
-            time.sleep(5)
+            time.sleep(15)
 
 def load_articles_from_graph(graph_path):
     g = Graph()
@@ -212,13 +212,15 @@ def load_articles_from_graph(graph_path):
     articles = []
     
     # Query to get all articles and their related content
+    # The + operator in SPARQL property paths means "one or more", so firebim:hasMember+ 
+    # will match direct members and recursively match members of members to any depth
     query = """
     SELECT DISTINCT ?article ?articleText ?member ?memberText
     WHERE {
         ?article a firebim:Article .
         OPTIONAL { ?article firebim:hasOriginalText ?articleText }
         OPTIONAL {
-            ?article firebim:hasMember ?member .
+            ?article firebim:hasMember+ ?member .
             ?member firebim:hasOriginalText ?memberText
         }
     }
@@ -256,8 +258,8 @@ def load_articles_from_graph(graph_path):
 
 def main():
     ontology = load_ontology('FireBIM_Document_Ontology.ttl')
-    objects_data = load_csv('MatrixObjects_auto.csv')
-    properties_data = load_csv('MatrixProperties_auto.csv')
+    objects_data = load_csv('FireMatrix.csv', 'object')
+    properties_data = load_csv('FireMatrix.csv', 'property')
     document_name = input_file
     input_graph = f'documentgraphs/{document_name}/combined_document_data_graph.ttl'
     input_folder_training = f'documentgraphs/{document_name}'
@@ -276,7 +278,7 @@ def main():
         article_id = article['uri'].split('#')[-1]
         output_file = os.path.join(output_folder, f"{article_id}.mmd")
         
-        if os.path.exists(output_file):
+        if os.path.exists(output_file) or ("e_2_1" not in article_id and "e_2_2" not in article_id):
             print(f"Skipping {article_id}.")
             continue
         

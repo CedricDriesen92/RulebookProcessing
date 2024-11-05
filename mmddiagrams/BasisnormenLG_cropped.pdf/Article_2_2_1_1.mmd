@@ -1,0 +1,35 @@
+flowchart TD
+    S1["Start: Exit Requirements Check"] --> A["For each <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"]
+    A --> B["Get <a href='http://example.com/firebimbuilding#NumberOfExits' style='color:blue;'>NumberOfExits</a>"]
+    B --> C["Check with fire department for <a href='http://example.com/firebimbuilding#AdditionalExitsRequired' style='color:blue;'>AdditionalExitsRequired</a>"]
+    C --> D["<a href='http://example.com/firebimbuilding#AdditionalExitsRequired' style='color:blue;'>AdditionalExitsRequired</a> > 0?"]
+    D -- Yes --> E["Update required <a href='http://example.com/firebimbuilding#NumberOfExits' style='color:blue;'>NumberOfExits</a>"]
+    D -- No --> F["Continue with base requirements"]
+    E --> G["Actual exits ≥ Required exits?"]
+    F --> G
+    G -- Yes --> H[/"Pass"/]
+    G -- No --> I[/"Fail"/]
+    
+    S1 --> J["For each <a href='http://example.com/firebimbuilding#Storey' style='color:pink;'>Storey</a>"]
+    J --> K["Apply same exit calculation logic"]
+    K --> L["Actual exits ≥ Required exits?"]
+    L -- Yes --> M[/"Pass"/]
+    L -- No --> N[/"Fail"/]
+    
+    S1 --> O["For each <a href='http://example.com/firebimbuilding#Room' style='color:pink;'>Room</a>"]
+    O --> P["Apply same exit calculation logic"]
+    P --> Q["Actual exits ≥ Required exits?"]
+    Q -- Yes --> R[/"Pass"/]
+    Q -- No --> S[/"Fail"/]
+
+    S1:::startClass
+    H:::passClass
+    I:::failClass
+    M:::passClass
+    N:::failClass
+    R:::passClass
+    S:::failClass
+
+    classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
+    classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
+    classDef failClass fill:#f99,stroke:#333,stroke-width:2px
