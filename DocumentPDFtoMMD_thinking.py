@@ -22,17 +22,19 @@ SH = Namespace("http://www.w3.org/ns/shacl#")
 client = anthropic.Anthropic(api_key=anthropic_key)
 
 def load_training_examples(txt_path, training_path):
-    examples = []
+    examples = {}
     for mmd_file in glob.glob(os.path.join(training_path, '*.mmd')):
         base_name = os.path.splitext(os.path.basename(mmd_file))[0]
-        txt_file = os.path.join(txt_path, f"{base_name}.txt")
         
-        if os.path.exists(txt_file):
-            with open(txt_file, 'r', encoding='utf-8') as txt, open(mmd_file, 'r', encoding='utf-8') as mmd:
-                examples.append({
-                    "input": txt.read().strip(),
-                    "output": mmd.read().strip()
-                })
+        # Read the MMD file content
+        with open(mmd_file, 'r', encoding='utf-8') as mmd:
+            mmd_content = mmd.read().strip()
+            
+        # Store example with empty input (will be populated later if article exists)
+        examples[base_name] = {
+            "input": "",
+            "output": mmd_content
+        }
     
     return examples
 
@@ -211,9 +213,6 @@ def load_articles_from_graph(graph_path):
     FIREBIM = Namespace("http://example.com/firebim#")
     articles = []
     
-    # Query to get all articles and their related content
-    # The + operator in SPARQL property paths means "one or more", so firebim:hasMember+ 
-    # will match direct members and recursively match members of members to any depth
     query = """
     SELECT DISTINCT ?article ?articleText ?member ?memberText
     WHERE {
@@ -268,13 +267,25 @@ def main():
 
     os.makedirs(output_folder, exist_ok=True)
     training_examples = load_training_examples(input_folder_training, training_folder)
-    examples_str = "\n\n".join([f"Input:\n{ex['input']}\n\nExpected output:\n{str(ex['output'])}\n" for ex in training_examples])
     
     articles = load_articles_from_graph(input_graph)
     print(f"Number of articles: {len(articles)}")
     
+    # Create a dictionary of articles for easier lookup
+    articles_dict = {article['uri'].split('#')[-1]: article['text'] for article in articles}
+    
+    # Update training examples with matching article content
+    for base_name in training_examples:
+        if base_name in articles_dict:
+            training_examples[base_name]["input"] = articles_dict[base_name]
+    
+    # Build examples string only from valid matches
+    all_examples_str = ""
+    for k, v in training_examples.items():
+        if v["input"]:  # Only include examples where we found matching article content
+            all_examples_str += f"Input:\n{v['input']}\n\nExpected output:\n{str(v['output'])}\n\n"
+    
     for article in articles:
-        # Extract article ID from URI
         article_id = article['uri'].split('#')[-1]
         output_file = os.path.join(output_folder, f"{article_id}.mmd")
         
@@ -282,7 +293,7 @@ def main():
             print(f"Skipping {article_id}.")
             continue
         
-        mmd_diagram = process_ttl_to_mmd(article['text'], ontology, objects_data, properties_data, examples_str)
+        mmd_diagram = process_ttl_to_mmd(article['text'], ontology, objects_data, properties_data, all_examples_str)
         
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write(mmd_diagram)

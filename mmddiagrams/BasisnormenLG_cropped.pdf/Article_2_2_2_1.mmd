@@ -1,38 +1,44 @@
 flowchart TD
-    S1["Start: Exit Location Check"] --> A["For each <a href='http://example.com/firebimbuilding#Compartment' style='color:pink;'>Compartment</a>"]
-    A --> B["<a href='http://example.com/firebimbuilding#IsParking' style='color:blue;'>IsParking</a>?"]
-    B -- Yes --> C["Check Parking Rules (see 5.2)"]
-    B -- No --> D["Check <a href='http://example.com/firebimbuilding#Exit' style='color:pink;'>Exit</a> locations"]
-    D --> E["<a href='http://example.com/firebimbuilding#Exit' style='color:pink;'>Exit</a>s in opposite zones?"]
-    E -- Yes --> F["<a href='http://example.com/firebimbuilding#IsUnderground' style='color:blue;'>IsUnderground</a>?"]
-    E -- No --> G[/"Fail"/]
-    F -- Yes --> H["Check alternative <a href='http://example.com/firebimbuilding#EvacuationRoute' style='color:pink;'>EvacuationRoute</a>"]
-    F -- No --> I["<a href='http://example.com/firebimbuilding#IsEvacuationLevel' style='color:blue;'>IsEvacuationLevel</a>?"]
-    H --> J["<a href='http://example.com/firebimbuilding#Wall' style='color:pink;'>Wall</a> <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>FireResistance</a> ≥ EI 30?"]
-    J -- Yes --> K["<a href='http://example.com/firebimbuilding#Door' style='color:pink;'>Door</a> <a href='http://example.com/firebimbuilding#FireResistance' style='color:blue;'>FireResistance</a> ≥ EI1 30?"]
-    J -- No --> L[/"Fail"/]
-    K -- Yes --> M[/"Pass"/]
-    K -- No --> N[/"Fail"/]
-    I -- Yes --> O["For each <a href='http://example.com/firebimbuilding#Staircase' style='color:pink;'>Staircase</a>"]
-    I -- No --> P[/"Pass"/]
-    O --> Q["<a href='http://example.com/firebimbuilding#HasDirectOutsideAccess' style='color:blue;'>HasDirectOutsideAccess</a>?"]
-    Q -- Yes --> R[/"Pass"/]
-    Q -- No --> S["Check <a href='http://example.com/firebimbuilding#EvacuationRoute' style='color:pink;'>EvacuationRoute</a> to outside"]
-    S --> T["Meets 4.4 requirements?"]
-    T -- Yes --> U[/"Pass"/]
-    T -- No --> V[/"Fail"/]
+    S1["Start: Exit Location Check"] --> A["Check <a href='http://example.com/firebimbuilding#Exit' style='color:pink;'>exit</a> locations in <a href='http://example.com/firebimbuilding#FireCompartment' style='color:pink;'>fire compartment</a>"]
+    
+    A --> B["Are <a href='http://example.com/firebimbuilding#Exit' style='color:pink;'>exits</a> in opposite zones?"]
+    B -- No --> C[/"Fail"/]
+    B -- Yes --> D["Check <a href='http://example.com/firebimbuilding#MeansOfEscape' style='color:pink;'>means of escape</a> destination"]
+    
+    D --> E["Where does <a href='http://example.com/firebimbuilding#MeansOfEscape' style='color:pink;'>means of escape</a> lead?"]
+    E -- "To <a href='http://example.com/firebimbuilding#PlaceOfSafety' style='color:pink;'>place of safety</a>" --> F[/"Pass"/]
+    E -- "To <a href='http://example.com/firebimbuilding#Exit' style='color:pink;'>exit</a> stairwell" --> G[/"Pass"/]
+    E -- "To stairs" --> H["Check <a href='http://example.com/firebimbuilding#RequiredDistance' style='color:blue;'>required distance</a> (see 4.4)"]
+    E -- Other --> I[/"Fail"/]
+    
+    subgraph UndergroundCheck
+        J["Is floor underground?"] --> K["Does one <a href='http://example.com/firebimbuilding#Exit' style='color:pink;'>exit</a> lead to <a href='http://example.com/firebimbuilding#PlaceOfSafety' style='color:pink;'>place of safety</a>?"]
+        K -- Yes --> L["Check wall and door requirements"]
+        K -- No --> M[/"Fail"/]
+        L -- "Meets requirements" --> N[/"Pass"/]
+        L -- "Does not meet" --> O[/"Fail"/]
+    end
+    
+    subgraph EvacuationLevel
+        P["Is this evacuation level?"] --> Q["Do all stairs lead to <a href='http://example.com/firebimbuilding#PlaceOfSafety' style='color:pink;'>place of safety</a>?"]
+        Q -- "Directly" --> R[/"Pass"/]
+        Q -- "Via evacuation route" --> S["Check route requirements (see 4.4)"]
+        Q -- "No" --> T[/"Fail"/]
+    end
+    
+    H --> U["Check parking rules (see 5.2)"]
 
-    C@{ shape: hex}
     S1:::startClass
-    G:::failClass
-    L:::failClass
-    M:::passClass
-    N:::failClass
-    P:::passClass
+    C:::failClass
+    F:::passClass
+    G:::passClass
+    I:::failClass
+    M:::failClass
+    N:::passClass
+    O:::failClass
     R:::passClass
-    U:::passClass
-    V:::failClass
+    T:::failClass
+
     classDef startClass fill:#f9f,stroke:#333,stroke-width:4px
     classDef passClass fill:#9f9,stroke:#333,stroke-width:2px
     classDef failClass fill:#f99,stroke:#333,stroke-width:2px
-    style C stroke:#000000,stroke-width:1px,stroke-dasharray: 0,fill:#FFD600
