@@ -35,6 +35,7 @@ fbb:CompartmentShape
                 SELECT ?this (SUM(?spaceArea) as ?totalArea)
                 WHERE {
                   ?this a fbb:Compartment .
+                  FILTER NOT EXISTS { ?this fbb:hasArea ?existingArea }
                   ?this fbb:hasSpace ?space .
                   ?space fbb:hasArea ?spaceArea .
                 }
