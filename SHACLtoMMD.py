@@ -1,136 +1,130 @@
-import rdflib
-from rdflib import Graph, Namespace, URIRef, Literal
-from rdflib.namespace import RDF, RDFS, SH
-import re
-from typing import Dict, List, Set, Tuple
-import hashlib
+from rdflib import Graph, Namespace, RDF, RDFS, OWL, URIRef, Literal
+import uuid
+import textwrap
 
-class SHACLToMermaid:
-    def __init__(self):
-        self.seen_nodes = set()
-        self.node_definitions = []
-        self.relationships = []
-        self.sparql_constraints = {}
-        
-    def parse_shacl_file(self, file_path: str) -> Graph:
-        """Load and parse a SHACL file into an RDF graph."""
-        g = Graph()
-        g.parse(file_path)
-        return g
-        
-    def extract_sparql_patterns(self, query_str: str) -> List[Dict]:
-        """Extract patterns from a SPARQL query string."""
-        patterns = []
-        
-        # Remove comments and normalize whitespace
-        query_str = re.sub(r'#.*$', '', query_str, flags=re.MULTILINE)
-        query_str = ' '.join(query_str.split())
-        
-        # Extract WHERE clause
-        where_match = re.search(r'WHERE\s*{([^}]+)}', query_str, re.IGNORECASE)
-        if where_match:
-            where_clause = where_match.group(1).strip()
-            
-            # Split into triple patterns
-            triple_patterns = re.findall(r'(?:[?]\w+|\<[^>]+\>|\w+:\w+)\s+(?:[?]\w+|\<[^>]+\>|\w+:\w+)\s+(?:[?]\w+|\<[^>]+\>|\w+:\w+|\".+?\")', where_clause)
-            
-            for pattern in triple_patterns:
-                parts = pattern.strip().split()
-                patterns.append({
-                    'subject': parts[0],
-                    'predicate': parts[1],
-                    'object': parts[2]
-                })
-                
-        return patterns
+# Namespaces
+SH = Namespace("http://www.w3.org/ns/shacl#")
+FBB = Namespace("http://example.com/ontology/fbb#") # Example namespace used in previous code
 
-    def normalize_uri(self, uri: str) -> str:
-        """Normalize URI representation for Mermaid."""
-        if uri.startswith('?'):
-            return uri[1:]
-        elif uri.startswith('<') and uri.endswith('>'):
-            return uri[1:-1].split('/')[-1]
-        elif ':' in uri:
-            return uri.split(':')[1]
-        return uri
+def generate_mermaid_from_shacl(shapes_file, output_file="diagram.mmd"):
+    g = Graph()
+    g.parse(shapes_file, format="turtle")
 
-    def process_shape(self, g: Graph, shape_node: URIRef) -> None:
-        """Process a SHACL shape node and generate Mermaid components."""
-        if shape_node in self.seen_nodes:
-            return
-            
-        self.seen_nodes.add(shape_node)
-        shape_id = self.normalize_uri(str(shape_node))
+    # Start a Mermaid diagram
+    # Using a top-down (TD) layout for clarity
+    lines = ["graph TD"]
+
+    # Query all NodeShapes
+    # A NodeShape is indicated by rdf:type sh:NodeShape
+    node_shapes = g.query("""
+        SELECT ?shape
+        WHERE {
+            ?shape a sh:NodeShape .
+        }
+    """)
+
+    # We'll keep track of assigned node ids to avoid duplicates
+    # key: uri (string), value: mermaid node id (string)
+    node_map = {}
+
+    def node_id_for_uri(uri):
+        # Generate a mermaid-safe node id from a URI or literal
+        # Mermaid requires alphanumeric and underscore for node IDs
+        # We'll generate a short uuid if it's a blank node
+        base_id = uri if isinstance(uri, str) else str(uri)
+        base_id = base_id.replace("http://", "").replace("https://", "")
+        base_id = base_id.replace("/", "_").replace("#", "_").replace(":", "_")
+        # If too long, shorten
+        if len(base_id) > 50:
+            base_id = base_id[:50]
+        # Ensure it starts with a letter for safety
+        if not base_id[0].isalpha():
+            base_id = "n_" + base_id
+        return base_id
+
+    def ensure_node(uri, label=None):
+        # Create a new node for uri if not exists
+        if uri not in node_map:
+            nid = node_id_for_uri(uri) + "_" + str(uuid.uuid4())[:8]
+            node_map[uri] = nid
+            # Add node definition line
+            node_label = label if label else uri
+            # Escape quotes
+            node_label = node_label.replace('"', '\\"')
+            lines.append(f'{nid}["{node_label}"]')
+        return node_map[uri]
+
+    # For each NodeShape, we find:
+    # - Target class (sh:targetClass)
+    # - Property shapes (sh:property)
+    # - SPARQL constraints (sh:select, sh:ask within SHACL)
+    for row in node_shapes:
+        shape_uri = row[0]
+        shape_id = ensure_node(str(shape_uri), label=str(shape_uri.split('#')[-1]))
         
-        # Process basic shape properties
-        target_class = g.value(shape_node, SH.targetClass)
-        if target_class:
-            class_name = self.normalize_uri(str(target_class))
-            self.node_definitions.append(f"class {class_name}")
-            self.relationships.append(f"{shape_id} --> {class_name} : validates")
+        # Link to target classes
+        for tclass in g.objects(shape_uri, SH.targetClass):
+            tclass_id = ensure_node(str(tclass), label="Class: " + str(tclass.split('#')[-1]))
+            lines.append(f"{shape_id} --> {tclass_id}")
 
-        # Process SPARQL constraints
-        for constraint in g.objects(shape_node, SH.sparql):
-            select = g.value(constraint, SH.select)
-            if select:
-                patterns = self.extract_sparql_patterns(str(select))
-                constraint_id = hashlib.md5(str(select).encode()).hexdigest()[:8]
-                
-                for pattern in patterns:
-                    subj = self.normalize_uri(pattern['subject'])
-                    pred = self.normalize_uri(pattern['predicate'])
-                    obj = self.normalize_uri(pattern['object'])
-                    
-                    # Add nodes if they don't exist
-                    if not any(subj in node for node in self.node_definitions):
-                        self.node_definitions.append(f"class {subj}")
-                    if not any(obj in node for node in self.node_definitions):
-                        self.node_definitions.append(f"class {obj}")
-                        
-                    # Add relationship
-                    self.relationships.append(f"{subj} --> {obj} : {pred}")
+        # Find SPARQL constraints: sh:rule, sh:constraint (SPARQL-based)
+        for sparql_constraint in g.objects(shape_uri, SH.rule):
+            select_query = g.value(sparql_constraint, SH.select)
+            construct_query = g.value(sparql_constraint, SH.construct)
+            query_text = select_query if select_query else construct_query
+            if query_text:
+                # Remove leading spaces
+                query_text = textwrap.dedent(query_text)
+                # Extract first comment (text after # and before newline)
+                comment = query_text.split('\n')[1].strip()
+                if comment.startswith('#'):
+                    comment = comment[1:].strip()
+                c_id = ensure_node(str(sparql_constraint), label="SPARQL: " + comment)
+                lines.append(f"{shape_id} --> {c_id}")
 
-        # Process property constraints
-        property_shapes = list(g.objects(shape_node, SH.property))
-        for prop in property_shapes:
-            path = g.value(prop, SH.path)
+        for sparql_constraint in g.objects(shape_uri, SH.constraint):
+            select_query = g.value(sparql_constraint, SH.select)
+            ask_query = g.value(sparql_constraint, SH.ask)
+            query_text = select_query if select_query else ask_query
+            if query_text:
+                # Remove leading spaces
+                query_text = textwrap.dedent(query_text)
+                # Extract first comment (text after # and before newline)
+                comment = query_text.split('\n')[1].strip()
+                if comment.startswith('#'):
+                    comment = comment[1:].strip()
+                c_id = ensure_node(str(sparql_constraint), label="SPARQL: " + comment)
+                lines.append(f"{shape_id} --> {c_id}")
+
+        # Property shapes
+        # Each property shape can define constraints like sh:datatype, sh:maxExclusive, etc.
+        for pshape in g.objects(shape_uri, SH.property):
+            pshape_id = ensure_node(str(pshape), label="Property Rule")
+            lines.append(f"{shape_id} --> {pshape_id}")
+
+            # Find the path (the property it constrains)
+            path = g.value(pshape, SH.path)
             if path:
-                path_name = self.normalize_uri(str(path))
-                class_name = g.value(prop, SH['class'])
-                
-                if class_name:
-                    target_class = self.normalize_uri(str(class_name))
-                    if not any(target_class in node for node in self.node_definitions):
-                        self.node_definitions.append(f"class {target_class}")
-                    self.relationships.append(f"{shape_id} --> {target_class} : {path_name}")
+                path_id = ensure_node(str(path), label="Property: " + str(path).split('#')[-1])
+                lines.append(f"{pshape_id} --> {path_id}")
 
-    def generate_mermaid(self, g: Graph) -> str:
-        """Generate complete Mermaid diagram from SHACL shapes."""
-        # Process all shape nodes
-        for shape in g.subjects(RDF.type, SH.NodeShape):
-            self.process_shape(g, shape)
-            
-        # Build Mermaid output
-        mermaid = ["classDiagram"]
-        mermaid.extend(self.node_definitions)
-        mermaid.extend(self.relationships)
-        
-        return "\n    ".join(mermaid)
+            # Find constraints like sh:maxExclusive, sh:datatype, etc.
+            # We'll just list them all
+            for pred, obj in g.predicate_objects(pshape):
+                if pred.startswith(SH) and pred not in [SH.path]:
+                    # This is a SHACL constraint property
+                    # We'll represent each constraint as a node or a note
+                    constraint_id = ensure_node(str(pshape) + str(pred) + str(obj),
+                                                label=str(pred.split('#')[-1]) + "=" + str(obj))
+                    lines.append(f"{pshape_id} --> {constraint_id}")
 
-def convert_shacl_to_mermaid(shacl_file: str) -> str:
-    """Convert a SHACL file to Mermaid diagram."""
-    converter = SHACLToMermaid()
-    graph = converter.parse_shacl_file(shacl_file)
-    return converter.generate_mermaid(graph)
+    # Write to output file
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
 
-# Example usage
+    print(f"Mermaid diagram generated: {output_file}")
+
 if __name__ == "__main__":
-    
-    shacl_file = 'casestudy_compartmentarea/shapes.ttl'
-    try:
-        mermaid_diagram = convert_shacl_to_mermaid(shacl_file)
-        print(mermaid_diagram)
-        with open('casestudy_compartmentarea/mermaid.txt', 'w') as file:
-            file.write(mermaid_diagram)
-    except Exception as e:
-        print(f"Error converting SHACL to Mermaid: {str(e)}")
+    # Example usage:
+    # Adjust 'shapes.ttl' to point to your SHACL file.
+    generate_mermaid_from_shacl("casestudy_compartmentarea/shapes.ttl", "casestudy_compartmentarea/mermaid.txt")

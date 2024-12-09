@@ -1,0 +1,16 @@
+graph TD
+example.com_ontology_fbb_CompartmentShape_66a46d72["CompartmentShape"]
+example.com_ontology_fbb_Compartment_dae538a1["Class: Compartment"]
+example.com_ontology_fbb_CompartmentShape_66a46d72 --> example.com_ontology_fbb_Compartment_dae538a1
+n0b98543c8b0040edabe34c1bd4c15a6db1_de352d2e["SPARQL: This calculates the total area of the compartment as the sum of the areas of all spaces."]
+example.com_ontology_fbb_CompartmentShape_66a46d72 --> n0b98543c8b0040edabe34c1bd4c15a6db1_de352d2e
+n0b98543c8b0040edabe34c1bd4c15a6db7_d1ce0980["Property Rule"]
+example.com_ontology_fbb_CompartmentShape_66a46d72 --> n0b98543c8b0040edabe34c1bd4c15a6db7_d1ce0980
+example.com_ontology_fbb_hasArea_e50e99fd["Property: hasArea"]
+n0b98543c8b0040edabe34c1bd4c15a6db7_d1ce0980 --> example.com_ontology_fbb_hasArea_e50e99fd
+n0b98543c8b0040edabe34c1bd4c15a6db7www.w3.org_ns_s_b869ae8e["datatype=http://www.w3.org/2001/XMLSchema#decimal"]
+n0b98543c8b0040edabe34c1bd4c15a6db7_d1ce0980 --> n0b98543c8b0040edabe34c1bd4c15a6db7www.w3.org_ns_s_b869ae8e
+n0b98543c8b0040edabe34c1bd4c15a6db7www.w3.org_ns_s_d2dc4453["maxExclusive=3500"]
+n0b98543c8b0040edabe34c1bd4c15a6db7_d1ce0980 --> n0b98543c8b0040edabe34c1bd4c15a6db7www.w3.org_ns_s_d2dc4453
+n0b98543c8b0040edabe34c1bd4c15a6db7www.w3.org_ns_s_eec6142d["message=The compartment's total area must be less than 3500."]
+n0b98543c8b0040edabe34c1bd4c15a6db7_d1ce0980 --> n0b98543c8b0040edabe34c1bd4c15a6db7www.w3.org_ns_s_eec6142d

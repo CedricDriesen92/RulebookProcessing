@@ -25,6 +25,7 @@ fbb:CompartmentShape
             )
         ];
         sh:construct """
+            # This calculates the total area of the compartment as the sum of the areas of all spaces.
             PREFIX fbb: <http://example.com/ontology/fbb#>
             PREFIX bot: <https://w3id.org/bot#>
             CONSTRUCT {
