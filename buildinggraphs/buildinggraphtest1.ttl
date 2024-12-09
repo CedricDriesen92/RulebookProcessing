@@ -12,7 +12,8 @@
 
 # Building
 ex:Building_A a bot:Building ;
-    rdfs:label "Building A" .
+    rdfs:label "Building A" ;
+    firebim:hasSpace ex:Floor_1 .
 
 # Storey
 ex:Floor_1 a bot:Storey ;
@@ -23,7 +24,10 @@ ex:Floor_1 a bot:Storey ;
 # Space
 ex:Room_101 a bot:Space ;
     rdfs:label "Room 101" ;
-    bot:hasElement ex:FireDoor_101 .
+    bot:hasElement ex:FireDoor_101 ;
+    bot:isPartOf ex:Floor_1 ;
+    firebim:hasArea 1000 ;
+    firebim:inCompartment ex:Compartment_1 .
 
 # Fire Door
 ex:FireDoor_101 a bot:Element, bpo:Product ;

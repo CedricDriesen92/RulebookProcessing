@@ -1,0 +1,77 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix bot:  <https://w3id.org/bot#> .
+@prefix fbb:  <http://example.com/ontology/fbb#> .
+@prefix fbd:  <http://example.com/ontology/fbd#> .
+
+#################################################################
+# Ontology metadata
+#################################################################
+
+fbb: a owl:Ontology ;
+   rdfs:comment "An ontology for representing building spaces and compartments, aligned with BIM and IFC concepts." ;
+   rdfs:label "Building Compartment Ontology" .
+
+#################################################################
+# Classes
+#################################################################
+
+fbb:Compartment a rdfs:Class ;
+   rdfs:label "Compartment" ;
+   rdfs:comment "A subdivision of a building space, often related to functional or safety zoning." ;
+   fbb:InIfc <http://www.buildingsmart-tech.org/ifc/IFC4/final/html/schema/ifcproductextension/lexical/ifcspace.htm> .
+
+fbd:Section a rdfs:Class ;
+   rdfs:label "Section" ;
+   rdfs:comment "A defined building section." .
+
+#################################################################
+# Object Properties
+#################################################################
+
+fbb:hasCompartment a owl:ObjectProperty ;
+   rdfs:domain bot:Space ;
+   rdfs:range fbb:Compartment ;
+   rdfs:label "has compartment" ;
+   rdfs:comment "Links a building space to a compartment contained within it." ;
+   owl:inverseOf fbb:hasSpace ;
+   fbb:InIfc <http://www.buildingsmart-tech.org/ifc/IFC4/final/html/schema/ifcproductextension/lexical/ifcspace.htm> .
+
+fbb:hasSpace a owl:ObjectProperty ;
+   rdfs:domain fbb:Compartment ;
+   rdfs:range bot:Space ;
+   rdfs:label "has space" ;
+   rdfs:comment "Links a compartment back to the building space it is associated with." ;
+   fbb:InIfc <http://www.buildingsmart-tech.org/ifc/IFC4/final/html/schema/ifcproductextension/lexical/ifcspace.htm> .
+
+fbb:definedIn a owl:ObjectProperty ;
+   rdfs:range fbd:Section ;
+   rdfs:label "defined in" ;
+   rdfs:comment "Indicates the section in which this entity is defined." ;
+   fbb:InIfc <http://www.buildingsmart-tech.org/ifc/IFC4/final/html/schema/ifcgeometricconstraintresource/lexical/ifcsectionedspine.htm> .
+
+#################################################################
+# Datatype Properties
+#################################################################
+
+fbb:hasArea a rdf:Property ;
+   rdfs:label "has area" ;
+   rdfs:comment "Associates a space or compartment with its area, typically in square meters." ;
+   rdfs:range xsd:decimal ;
+   fbb:InIfc <http://www.buildingsmart-tech.org/ifc/IFC4/final/html/schema/ifcproductextension/lexical/ifcquantityarea.htm> .
+
+fbb:hasType a rdf:Property ;
+   rdfs:label "has type" ;
+   rdfs:comment "Assigns a classification or type (e.g., 'Office', 'Compartment A') to a space or compartment." ;
+   rdfs:range xsd:string ;
+   fbb:InIfc <http://www.buildingsmart-tech.org/ifc/IFC4/final/html/schema/ifcsharedbldgelements/lexical/ifcspace.htm> .
+
+#################################################################
+# IFC Annotation Property
+#################################################################
+
+fbb:InIfc a owl:AnnotationProperty ;
+   rdfs:label "In IFC" ;
+   rdfs:comment "Links this entity or property to an equivalent concept or class in IFC." .

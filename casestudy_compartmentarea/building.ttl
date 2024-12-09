@@ -1,0 +1,33 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix bot:  <https://w3id.org/bot#> .
+@prefix fbb:  <http://example.com/ontology/fbb#> .
+@prefix fbd:  <http://example.com/ontology/fbd#> .
+
+#################################################################
+# Building data for testing
+#################################################################
+
+# Compartment A: Will have a total area < 3500
+fbb:CompartmentA a fbb:Compartment ;
+   fbb:hasSpace fbb:Space1 ;
+   fbb:hasSpace fbb:Space2 .
+
+fbb:Space1 a bot:Space ;
+   fbb:hasArea "1000"^^xsd:decimal .
+
+fbb:Space2 a bot:Space ;
+   fbb:hasArea "1500"^^xsd:decimal .
+
+
+# Compartment B: Will have a total area > 3500
+fbb:CompartmentB a fbb:Compartment ;
+   fbb:hasSpace fbb:Space3 ;
+   fbb:hasSpace fbb:Space4 .
+
+fbb:Space3 a bot:Space ;
+   fbb:hasArea "2000"^^xsd:decimal .
+
+fbb:Space4 a bot:Space ;
+   fbb:hasArea "2000"^^xsd:decimal .

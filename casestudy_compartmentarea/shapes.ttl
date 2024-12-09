@@ -1,0 +1,54 @@
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix fbb:  <http://example.com/ontology/fbb#> .
+@prefix bot:  <https://w3id.org/bot#> .
+
+#################################################################
+# SHACL shape for compartments
+#################################################################
+
+fbb:CompartmentShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+
+    # Step 1: Use a SHACL SPARQL rule to infer the total area of the compartment.
+    # This rule will compute the sum of the areas of all spaces linked via fbb:hasSpace.
+    sh:rule [
+        a sh:SPARQLRule ;
+        sh:prefixes [
+            sh:set (
+                [ sh:prefix "fbb" ; sh:namespace "http://example.com/ontology/fbb#" ]
+                [ sh:prefix "bot" ; sh:namespace "https://w3id.org/bot#" ]
+            )
+        ];
+        sh:construct """
+            PREFIX fbb: <http://example.com/ontology/fbb#>
+            PREFIX bot: <https://w3id.org/bot#>
+            CONSTRUCT {
+              ?this fbb:hasArea ?totalArea .
+            }
+            WHERE {
+              {
+                SELECT ?this (SUM(?spaceArea) as ?totalArea)
+                WHERE {
+                  ?this a fbb:Compartment .
+                  ?this fbb:hasSpace ?space .
+                  ?space fbb:hasArea ?spaceArea .
+                }
+                GROUP BY ?this
+                HAVING (COUNT(?space) > 0)
+              }
+            }
+        """
+    ] ;
+
+    # Step 2: Once the area is inferred, we check that it is less than 3500.
+    sh:property [
+        sh:path fbb:hasArea ;
+        sh:datatype xsd:decimal ;
+        sh:maxExclusive 3500 ;
+        sh:message "The compartment's total area must be less than 3500."
+    ] .
