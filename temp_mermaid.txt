@@ -1,0 +1,31 @@
+graph TD
+classDef logicalOperator fill:#f9f,stroke:#333,stroke-width:2px;
+example.com_firebimbuilding_CompartmentShape_cfaf83e0["CompartmentShape"]
+example.com_firebimbuilding_Compartment_a01041f7["Class: Compartment"]
+example.com_firebimbuilding_CompartmentShape_cfaf83e0 --> example.com_firebimbuilding_Compartment_a01041f7
+n8a89f2dd305d43acac8d63449c094bfab1_4578ee8c["SPARQL: CONSTRUCT {"]
+example.com_firebimbuilding_CompartmentShape_cfaf83e0 --> n8a89f2dd305d43acac8d63449c094bfab1_4578ee8c
+n8a89f2dd305d43acac8d63449c094bfab2_8a234203["Property Rule"]
+example.com_firebimbuilding_CompartmentShape_cfaf83e0 --> n8a89f2dd305d43acac8d63449c094bfab2_8a234203
+example.com_firebimbuilding_CompartmentLength_18481025["Property: CompartmentLength"]
+n8a89f2dd305d43acac8d63449c094bfab2_8a234203 --> example.com_firebimbuilding_CompartmentLength_18481025
+n8a89f2dd305d43acac8d63449c094bfab2www.w3.org_ns_s_8f990d2f["minCount=1"]
+n8a89f2dd305d43acac8d63449c094bfab2_8a234203 --> n8a89f2dd305d43acac8d63449c094bfab2www.w3.org_ns_s_8f990d2f
+n8a89f2dd305d43acac8d63449c094bfab2www.w3.org_ns_s_57401229["severity=http://www.w3.org/ns/shacl#Warning"]
+n8a89f2dd305d43acac8d63449c094bfab2_8a234203 --> n8a89f2dd305d43acac8d63449c094bfab2www.w3.org_ns_s_57401229
+example.com_firebimbuilding_ExceptionGrantedShape_74c98607["ExceptionGrantedShape"]
+example.com_firebimbuilding_ExceptionGrantedShape_74c98607 --> example.com_firebimbuilding_Compartment_a01041f7
+n8a89f2dd305d43acac8d63449c094bfab3_f2546e74["Property Rule"]
+example.com_firebimbuilding_ExceptionGrantedShape_74c98607 --> n8a89f2dd305d43acac8d63449c094bfab3_f2546e74
+example.com_firebimbuilding_ExceptionGranted_6847ddce["Property: ExceptionGranted"]
+n8a89f2dd305d43acac8d63449c094bfab3_f2546e74 --> example.com_firebimbuilding_ExceptionGranted_6847ddce
+n8a89f2dd305d43acac8d63449c094bfab3www.w3.org_ns_s_69229e37["minCount=1"]
+n8a89f2dd305d43acac8d63449c094bfab3_f2546e74 --> n8a89f2dd305d43acac8d63449c094bfab3www.w3.org_ns_s_69229e37
+n8a89f2dd305d43acac8d63449c094bfab3www.w3.org_ns_s_7caab5de["severity=http://www.w3.org/ns/shacl#Info"]
+n8a89f2dd305d43acac8d63449c094bfab3_f2546e74 --> n8a89f2dd305d43acac8d63449c094bfab3www.w3.org_ns_s_7caab5de
+example.com_firebimbuilding_GroundFloorCompartment_7fde46be["GroundFloorCompartmentShape"]
+example.com_firebimbuilding_GroundFloorCompartment_7fde46be --> example.com_firebimbuilding_Compartment_a01041f7
+example.com_firebimbuilding_MultiFloorCompartmentS_ed1e4609["MultiFloorCompartmentShape"]
+example.com_firebimbuilding_MultiFloorCompartmentS_ed1e4609 --> example.com_firebimbuilding_Compartment_a01041f7
+example.com_firebimbuilding_SpecialCasesShape_3a1ac6cc["SpecialCasesShape"]
+example.com_firebimbuilding_SpecialCasesShape_3a1ac6cc --> example.com_firebimbuilding_Compartment_a01041f7

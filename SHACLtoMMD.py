@@ -6,13 +6,43 @@ import textwrap
 SH = Namespace("http://www.w3.org/ns/shacl#")
 FBB = Namespace("http://example.com/ontology/fbb#") # Example namespace used in previous code
 
+def handle_logical_operator(g, shape_uri, operator_node, shape_id, lines, node_map):
+    """Handle logical operators (sh:and, sh:or, sh:not, sh:xone)"""
+    operator_type = None
+    for t in g.objects(operator_node, RDF.type):
+        if str(t).startswith(str(SH)):
+            operator_type = str(t).split('#')[-1].upper()
+            break
+    
+    if not operator_type:
+        return
+
+    # Create operator node
+    print(operator_node)
+    operator_id = ensure_node(str(operator_node), label=f"[{operator_type}]", node_map=node_map)
+    lines.append(f"{shape_id} --> {operator_id}")
+
+    # Handle components of the logical operation
+    if operator_type in ['AND', 'OR', 'XONE']:
+        for component in g.objects(operator_node, SH.node):
+            comp_id = ensure_node(str(component), label="Constraint", node_map=node_map)
+            lines.append(f"{operator_id} --> {comp_id}")
+    elif operator_type == 'NOT':
+        not_node = g.value(operator_node, SH.not_)
+        if not_node:
+            not_id = ensure_node(str(not_node), label="NOT Constraint", node_map=node_map)
+            lines.append(f"{operator_id} --> {not_id}")
+
 def generate_mermaid_from_shacl(shapes_file, output_file="diagram.mmd"):
     g = Graph()
     g.parse(shapes_file, format="turtle")
 
     # Start a Mermaid diagram
     # Using a top-down (TD) layout for clarity
-    lines = ["graph TD"]
+    lines = [
+        "graph TD",
+        "classDef logicalOperator fill:#f9f,stroke:#333,stroke-width:2px;"
+    ]
 
     # Query all NodeShapes
     # A NodeShape is indicated by rdf:type sh:NodeShape
@@ -42,16 +72,18 @@ def generate_mermaid_from_shacl(shapes_file, output_file="diagram.mmd"):
             base_id = "n_" + base_id
         return base_id
 
-    def ensure_node(uri, label=None):
-        # Create a new node for uri if not exists
+    def ensure_node(uri, label=None, node_map={}):
         if uri not in node_map:
             nid = node_id_for_uri(uri) + "_" + str(uuid.uuid4())[:8]
             node_map[uri] = nid
-            # Add node definition line
+            # Add node definition line with styling for logical operators
             node_label = label if label else uri
-            # Escape quotes
             node_label = node_label.replace('"', '\\"')
-            lines.append(f'{nid}["{node_label}"]')
+            if label and label.startswith('[') and label.endswith(']'):
+                # Style for logical operators
+                lines.append(f'{nid}["{node_label}"]:::logicalOperator')
+            else:
+                lines.append(f'{nid}["{node_label}"]')
         return node_map[uri]
 
     # For each NodeShape, we find:
@@ -62,6 +94,16 @@ def generate_mermaid_from_shacl(shapes_file, output_file="diagram.mmd"):
         shape_uri = row[0]
         shape_id = ensure_node(str(shape_uri), label=str(shape_uri.split('#')[-1]))
         
+        # Check for logical operators
+        for logical_op in g.objects(shape_uri, SH.and_):
+            handle_logical_operator(g, shape_uri, logical_op, shape_id, lines, node_map)
+        for logical_op in g.objects(shape_uri, SH.or_):
+            handle_logical_operator(g, shape_uri, logical_op, shape_id, lines, node_map)
+        for logical_op in g.objects(shape_uri, SH.not_):
+            handle_logical_operator(g, shape_uri, logical_op, shape_id, lines, node_map)
+        for logical_op in g.objects(shape_uri, SH.xone):
+            handle_logical_operator(g, shape_uri, logical_op, shape_id, lines, node_map)
+
         # Link to target classes
         for tclass in g.objects(shape_uri, SH.targetClass):
             tclass_id = ensure_node(str(tclass), label="Class: " + str(tclass.split('#')[-1]))
@@ -127,4 +169,8 @@ def generate_mermaid_from_shacl(shapes_file, output_file="diagram.mmd"):
 if __name__ == "__main__":
     # Example usage:
     # Adjust 'shapes.ttl' to point to your SHACL file.
-    generate_mermaid_from_shacl("casestudy_compartmentarea/shapes.ttl", "casestudy_compartmentarea/mermaid.txt")
+    #shapes_file = "casestudy_compartmentarea/shapes.ttl"
+    #mermaid_file = "casestudy_compartmentarea/mermaid.txt"
+    shapes_file = "shacl_shapes_mmd\BasisnormenLG_cropped.pdf\section_2_1_shapes.ttl"
+    mermaid_file = "temp_mermaid.txt"
+    generate_mermaid_from_shacl(shapes_file, mermaid_file)
