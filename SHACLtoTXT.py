@@ -21,7 +21,7 @@ CONSTRAINT_TEMPLATES = {
 # Level 1: '-'
 # Level 2: '•'
 # Level 3: '◆'
-indentation_symbols = ["", " ", "  -", "   •", "    ◆"]
+indentation_symbols = ["", "\t", "\t\t-", "\t\t\t•", "\t\t\t\t◆"]
 
 def format_line(level: int, text: str) -> str:
     """

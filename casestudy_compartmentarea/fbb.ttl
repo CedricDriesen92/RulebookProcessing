@@ -19,7 +19,7 @@ fbb: a owl:Ontology ;
 #################################################################
 
 fbb:Compartment a rdfs:Class ;
-   rdfs:label "Compartment" ;
+   rdfs:label "Fire Compartment" ;
    rdfs:comment "use from the matrix." ;
    fbb:InIfc <http://www.buildingsmart-tech.org/ifc/IFC4/final/html/schema/ifcproductextension/lexical/ifcspace.htm> ;
    fbb:definedIn fbd:Section_2_2_1 .
