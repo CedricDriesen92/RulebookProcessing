@@ -1,0 +1,49 @@
+Rule source: Section_2_1
+For every Compartment:
+  Has SPARQL validation rule:
+  - Message: Compartment area exceeds limits without required systems
+  - Conditions:
+   • IsParking must be false
+   • FILTER(?area > 2500)
+   • FILTER NOT EXISTS {
+   • HasAutomaticFireExtinguishingSystem must be true
+  - (Severity: Warning)
+  There must be at least 1 CompartmentLength(s). (Severity: Warning)
+
+Rule source: Section_2_1
+Flowchart nodes: E, G
+For every Compartment:
+  AT LEAST ONE of the following must be true:
+  - ALL of these must be true:
+   • The IsGroundFloor must be exactly true.
+   • The CompartmentArea must be at most 3500.
+   • The CompartmentLength must be at most 90.
+  - The CompartmentArea must be at most 3500.
+
+Rule source: Section_2_1
+Flowchart nodes: O, P, S, V, X
+For every Compartment:
+  AT LEAST ONE of the following must be true:
+  - ALL of these must be true:
+   • The IsDuplex must be exactly true.
+   • The CompartmentArea must be at most 2500.
+  - ALL of these must be true:
+   • The IsTriplex must be exactly true.
+   • The CompartmentArea must be at most 300.
+   • The HasAutomaticFireDetectionSystem must be exactly true.
+   • The FireDetectionCoverage must be exactly Total.
+  - ALL of these must be true:
+   • The IsTriplex must be exactly false.
+   • The IsDuplex must be exactly false.
+
+Rule source: Section_2_1
+Flowchart nodes: Q, U, W, Y
+For every Compartment:
+  AT LEAST ONE of the following must be true:
+  - The ContainsTechnicalRooms must be exactly true.
+  - ALL of these must be true:
+   • The IsAtrium must be exactly true.
+   • The HasAutomaticFireExtinguishingSystem must be exactly true.
+   • The HasSmokeAndHeatExhaustSystem must be exactly true.
+  - The CompartmentArea must be at most 2500.
+
