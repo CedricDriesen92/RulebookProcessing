@@ -1,6 +1,7 @@
 @prefix : <file:///c%3A/Users/CDRI/VSCode%20Projects/RulebookProcessing/shacl_shapes_mmd/section_2_1_shapes.ttl#> .
 @prefix fbb: <http://example.com/firebimbuilding#> .
 @prefix firebim: <http://example.com/firebim#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -12,6 +13,7 @@ fbb:CompartmentShape
     sh:rule [
         a sh:SPARQLRule ;
         sh:prefixes fbb: ;
+        rdfs:label "Calculate compartment area from space areas" ;
         sh:construct """
             CONSTRUCT {
                 ?this sh:result _:b0 .
@@ -38,16 +40,6 @@ fbb:CompartmentShape
         sh:minCount 1 ;
         fbb:flowchartNodeID "B", "D", "E", "G" ;
         sh:severity sh:Warning ;
-    ] ; .
-fbb:ExceptionGrantedShape
-    a sh:NodeShape ;
-    sh:targetClass fbb:Compartment ;
-    firebim:rulesource firebim:Section_2_1 ;
-    sh:property [
-        sh:path fbb:ExceptionGranted ;
-        sh:minCount 1 ;
-        fbb:flowchartNodeID "L" ;
-        sh:severity sh:Info ;
     ] ; .
 
 # Ground floor compartment shape - only applies to ground floor compartments
