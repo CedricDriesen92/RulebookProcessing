@@ -1,5 +1,5 @@
 Rule source: Section_2_1
-For every Compartment:
+For every Fire Compartment:
 	 Has SPARQL validation rule:
 		- Message: Compartment area exceeds limits without required systems
 		- Conditions:
@@ -12,7 +12,7 @@ For every Compartment:
 
 Rule source: Section_2_1
 Flowchart nodes: E, G
-For every Compartment:
+For every Fire Compartment:
 	 AT LEAST ONE of the following must be true:
 		- ALL of these must be true:
 			• The IsGroundFloor must be exactly true.
@@ -22,7 +22,7 @@ For every Compartment:
 
 Rule source: Section_2_1
 Flowchart nodes: O, P, S, V, X
-For every Compartment:
+For every Fire Compartment:
 	 AT LEAST ONE of the following must be true:
 		- ALL of these must be true:
 			• The IsDuplex must be exactly true.
@@ -38,7 +38,7 @@ For every Compartment:
 
 Rule source: Section_2_1
 Flowchart nodes: Q, U, W, Y
-For every Compartment:
+For every Fire Compartment:
 	 AT LEAST ONE of the following must be true:
 		- The ContainsTechnicalRooms must be exactly true.
 		- ALL of these must be true:
