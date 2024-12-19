@@ -1,0 +1,25 @@
+flowchart TD
+    start([Start]) --> A["Check [:pink]exterior wall and [:pink]fire barrier [:blue]connection \n[https://w3id.org/asbingowl#connection]"]
+    
+    A --> B["Examine [:pink]exterior wall material \n[https://w3id.org/asbingowl#exterior_wall]"]
+    
+    B --> C{"Is [:pink]exterior wall material \nclassified as A2-s1,d0? \n[https://w3id.org/asbingowl#material]"}
+    
+    C -->|Yes| D["[:pink]fire barrier may directly connect \nto [:pink]exterior wall \n[https://w3id.org/asbingowl#connection]"]
+    
+    C -->|No| E["[:pink]fire barrier must extend to \ninner side of [:pink]exterior wall covering \n[https://w3id.org/asbingowl#connection]"]
+    
+    subgraph Additional_Checks ["Required Fire Spread Prevention Checks"]
+        F["Verify [:pink]fire barrier extends through \nroof overhangs \n[https://w3id.org/asbingowl#fire_barrier]"]
+        G["Check [:pink]fire barrier continuity at \nbalcony coverings \n[https://w3id.org/asbingowl#fire_barrier]"]
+        H["Verify [:pink]fire barrier interrupts \nrain screen properly \n[https://w3id.org/asbingowl#fire_barrier]"]
+        I["Check [:pink]fire compartment separation \nintegrity at all penetrations \n[https://w3id.org/asbingowl#fire_compartment]"]
+    end
+
+    D --> Additional_Checks
+    E --> Additional_Checks
+    
+    F & G & H & I --> J{"All fire spread \nprevention measures \nverified?"}
+    
+    J -->|Yes| pass([PASS: Fire spread prevention \nrequirements met])
+    J -->|No| fail([FAIL: Inadequate fire spread \nprevention measures])

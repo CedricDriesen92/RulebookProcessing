@@ -1,0 +1,82 @@
+Som alternativ til en brandkam kan brandsektionsvæggen udføres med en brandkamserstatning, som er en sikring af tagkonstruktionen langs brandsektionsvæggen. Sikringen skal udføres mindst som en bygningsdel klasse EI 60 [BD-bygningsdel 60], der understøttes forsvarligt og fastgøres til væggen eller nærmeste spær. Sikringen udføres enten langs begge sider af væggen i en afstand af mindst 1,0 m (dobbeltsidet brandkamserstatning) eller langs den ene side af væggen i en afstand af mindst 1,0 m (ensidet brandkamserstatning), som vist på Figur 4.2.13.
+
+De bygningsdele, som bærer en dobbeltsidet brandkamserstatning, kan udføres uden hensyn til deres brandmodstandsevne. Hvis der udføres ensidig brandkamserstatning, er det nødvendigt at tage højde for, at brandkamserstatningen ikke falder for tidligt ned i tilfælde af en brand inde i bygningen. Derfor skal den ensidige brandkamserstatning udføres mindst som bygningsdel klasse REI 60 [BD-bygningsdel 60], og den del af tagkonstruktionen, der bærer den ensidige brandkamserstatning, udføres mindst som bygningsdel klasse R 60 [BD-bygningsdel 60].
+
+I Figur 4.2.14 og Tabel 4.2.6 er der givet en række præ-accepterede løsninger for, hvordan brandkam eller brandkamserstatning i særlige tilfælde kan udføres ved forskellige bygningsudformninger.
+
+# Tabel 4.2.6 Præ-accepterede løsninger for udførelse af brandkamme og brandkamserstatninger
+
+## Bygningens udformning
+
+| Bygningens udformning                       | Brandkam                                 | Brandkamserstatning                       |
+|---------------------------------------------|------------------------------------------|-------------------------------------------|
+| Bygninger i 1 etage, hvor                  | Brandkam kan udelades.                  | Brandkamserstatning kan udelades.        |
+| tagkonstruktionen ikke                       | Væggen føres op i tæt                    | Væggen føres op i tæt                     |
+| indeholder materialer, som er                | forbindelse med undersiden               | forbindelse med undersiden af             |
+| ringere end materiale klasse                 | af den yderste tagdækning                | den yderste tagdækning                    |
+| B-s1,d0 [klasse A materiale],               |                                          |                                           |
+| bortset fra tagdækninger samt               |                                          |                                           |
+| lægter og spær                              |                                          |                                           |
+| Bygninger med tag med                       | Brandkam med højde mindst                | Kan udføres i mindst 1,0 m               |
+| hældning højst 1:8 mod                      | 0,3 m over tagfladen                     | bredde langs begge sider af               |
+| brandsektionsvæg                            |                                          | væggen (dobbeltsidet                      |
+|                                             |                                          | brandkamserstatning), eller i            |
+|                                             |                                          | mindst 1,0 m bredde langs den             |
+|                                             |                                          | ene side af væggen (ensidet              |
+|                                             |                                          | brandkamserstatning)                     |
+| Bygninger med tag med                       | Brandkam så høj, at der opnås            | Så bred, at der opnås en vandret         |
+| hældning større end 1:8 mod                 | en vandret afstand på mindst             | afstand på mindst 2,5 m fra               |
+| brandsektionsvæg                            | 2,5 m mellem toppen af                   | brandkamserstatningen øverste             |
+| (se Figur 4.2.15)                           | brandkammen og tagfladen                 | punkt til brandsektionsvæggen            |
+|                                             |                                          | på begge sider af væggen                 |
+
+### Figur 4.2.14 Brandkam og brandkamserstatning ved brandsektionsadskillelse for hindring af brandspredning over tag.
+
+Placeres der ovenlys i brandkamserstatninger, eller hvor der i tagfladen sikres mod risiko for høj/lav brandsmitte, jf. Figur 4.2.14, skal disse ovenlys udføres med mindst samme klassifikation som sikringen. Der kan ikke placeres oplukkelige ovenlys i brandkamserstatningen.
+
+## 4.2.15 Præ-accepterede løsninger for brandkam og brandkamserstatning for bygninger med taghældning større end 1:8 mod brandsektionsvæg
+
+Da risikoen for en større brand i et trapperum eller en elevatorskakt er begrænset, kan disse brandsektionsvægge udføres uden en brandkam eller brandkamserstatning. Væggene skal dog føres helt op og i tæt forbindelse med undersiden af tagdækningen (den yderste tagdækning). Trapperum, skakte mv., som ikke føres op i tæt forbindelse med den yderste tagdækning, skal afsluttes foroven med en vandret brandsektionsadskillelse som mindst EI 60 / A2-s1,d0 [BS-Bygningsdel 60].
+
+Brandsektionsvægge, som ikke afsluttes med brandkam, skal føres helt op i tæt forbindelse med undersiden af tagdækningen (den yderste tagdækning). Da brandspredning skal undgås, må undertaget ikke føres over eller igennem brandsektionsadskillende vægge, da undertaget kan medvirke til brandspredning. For at hindre brandspredning via undertag skal brandsektionsvæggen føres ubrudt gennem undertaget og videre op i tæt forbindelse med undersiden af tagdækningen (den yderste tagdækning), så undertaget bliver afbrudt.
+
+Taglægter, som er massivt træ i små dimensioner, og som derfor kun i ringe grad bidrager til brandspredningen, kan føres ubrudt over brandsektionsvægge uden brandkam, når mellemrummet mellem lægterne udfyldes med materiale mindst klasse A2-s1,d0 [ubrændbart materiale].
+
+## 4.2.6.5 Brandvæg
+
+Det fremgår af BR18 § 125, at der ikke må være risiko for brandspredning til bygninger på anden grund. Bygninger, der opføres nærmere skel mod nabo, vej- eller stimidte end 2,5 m, skal derfor udføres med brandvæg mod skel mod nabo, vej eller sti for derved at sikre, at der ikke sker brandspredning til anden grund.
+
+En brandvæg skal udføres mindst som bygningsdel klasse REI 120 / A2- s1,d0 [BS-bygningsdel 120]. Ligesom for brandsektionsvægge er det vigtigt at en brandvæg under brand bevarer sin stabilitet, uanset fra hvilken side væggen brandpåvirkes. Bygningsdele og installationer må ikke indbygges i eller gennembryde en brandvæg så væggens brandmodstandsevne og stabilitet forringes. Taglægter må dog føres ubrudt over brandvægge uden brandkam, når mellemrummet mellem lægterne udfyldes med materiale mindst som materiale klasse A2-s1,d0 [ubrændbart materiale].
+
+En brand må ikke kunne sprede sig over en brandvæg, da brandvæggen derved ikke opfylder sin funktion. Dette hindres ved at brandvæggen udføres med enten brandkam eller brandkamserstatning. Figur 4.2.16 og i Tabel 4.2.7 er givet præ-accepterede løsninger for, hvordan brandkam og brandkamserstatning kan udføres for en brandvæg.
+
+### Tabel 4.2.7 Præ-accepterede løsninger for udførelse af brandkam og brandkamserstatning ved skel for en brandvæg.
+
+| Bygningens udformning | Brandkam | Brandkamserstatning |
+|-----------------------|----------|---------------------|
+| Bygninger med tag med hældning højst 1:8 mod brandvæg | Brandkam med højde mindst 0,3 m over tagfladen | Skal udføres i mindst 1,0 m’s bredde langs den ene side af væggen. Brandkamserstatningen skal udføres mindst som bygningsdel klasse REI 60 [BD-bygningsdel 60], hvilket også omfatter den del af tagkonstruktionen, der bærer brandkamserstatningen. |
+| Taget på en bygning, som er nærmere naboskel, vej- eller stimidte end 2,5 m og med hældning større end 1:8 mod skel, vej eller sti | Så høj, at der opnås en afstand på mindst 2,5 m fra skellet til tagfladen, når der måles vandret over toppen af brandkammen | Så bred, at der opnås en afstand på mindst 2,5 m fra skellet til tagfladen, når der måles vandret fra brandkamserstatningen øverste punkt. Brandkamserstatningen skal udføres mindst som bygningsdel klasse REI 60 [BD-bygningsdel 60], hvilket også omfatter den del af tagkonstruktionen, der bærer brandkamserstatningen. |
+
+!Figur 4.2.16 Brandvæg ved skel. Venstre side viser brandkam og højre side viser brandkamserstatning.
+
+En brandvæg må opføres i skel som en fælles brandvæg. Når en brandvæg opføres i skel, vil det normalt være nødvendigt at sikre, at den ikke helt eller delvist fjernes af nogen af ejerne, og at der ikke foretages bygningsmæssige ændringer ved den, uden at ejerne er enige herom.
+
+## 4.2.6.6  Brandmæssig adskillelse af trapperum, elevatorskakte og porte mv. samt rum til installationer
+
+Det fremgår af BR18 § 116, at installationsskakte, trapperum, elevatorskakte og lignende, der forbinder flere brandmæssige enheder, skal brandmæssigt adskilles fra andre dele af bygningen. Følgende rum og skakte, der forbinder flere bygningsafsnit, bør derfor udføres som selvstændige brandsektioner:
+
+1. Installationsskakte.
+2. Trapperum, elevatorskakte og lignende.
+3. Porte, gennemgange og tilsvarende passager, der er flugtvej eller adgangsvej for redningsberedskabet.
+
+Trapperum, skakte mv., skal føres op i tæt forbindelse med den yderste tagdækning eller afsluttes foroven med en vandret brandsektionsadskillelse som mindst EI60 / A2-s1,d0. En elevatorskakt, som placeres i samme brandsektion som et trapperum, skal udføres af mindst materiale klasse A2-s1,d0 [ubrændbart materiale]. Hvis elevatorskakten placeres i et trapperum, skal det sikres at drivmaskineri, med hydraulikpumper ikke placeres i samme brandsektion, da en brand i dette kan medføre, at trapperummet ikke kan anvendes til evakuering.
+
+I bygninger, hvor de adskillende konstruktioner udføres mindst som bygningsdel klasse EI 120 / A2-s1,d0 [BS-bygningsdel 120], skal døre mod trapperum udføres som EI2 60-C [BD-dør 60]. Spjæld i adskillelsen skal udføres med en brandmodstandsevne som mindst EI 60 (i <-> o) S. Dør fra fælles trapperum, forrum eller luftsluse direkte til etage med kælderfunktion eller til andre rum med lignende funktion og til loftsrum skal være mindst dør klasse EI2 60-C [BD-dør 60].
+
+Etager med kælderfunktion har ofte en øget risiko for brand og røgspredning, da der vil være mulighed for oplag med stor brandbelastning på kælderetagen. I bygninger med gulv i øverste etage, der er mere end 9,6 m over terræn, hvor evakueringen kan blive længerevarende, skal risikoen for brandspredning fra kælderetagen til trapperummet derfor minimeres. Trapperum, hvor gulv i øverste etage er mellem 9,6 m og 22 m over terræn, kan føres til kælder, hvis adgangen fra kælder til trapperum sker gennem et forrum uden brandbelastning, og det udføres som en selvstændig brandcelle, se Figur 4.2.17. Dør mellem kælder og forrum, og mellem forrum og trappe, udføres mindst som dør klasse EI2 30-C [BD-dør 30].
+
+### 4.2.6.7 Affaldsrum
+Indrettes der indeliggende fælles affaldsrum, skal disse udføres som selvstændige brandsektioner. Affaldsrummet ventileres med et ventilationsanlæg, der enten kan være et udsugningsanlæg kombineret med åbninger til det fri eller et indblæsnings- og udsugningsanlæg.
+
+### 4.2.6.8 Fyrrum
+Det fremgår af BR18 § 107, at større fyringsanlæg skal placeres i selvstændige brandmæssige enheder med adgang direkte til det fri for at mindske risikoen for brandspredning. Større fyringsanlæg (piller, halm mv.) er defineret som en nominel ydelse mere end 120 kW, dog 400 kW for olie- og gasfyrede anlæg.

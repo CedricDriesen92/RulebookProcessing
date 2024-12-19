@@ -15,7 +15,7 @@ sh = Namespace("http://www.w3.org/ns/shacl#")
 g = Graph()
 
 # Parse the TTL file
-filename = "NIT_198_crop"
+filename = "VejledningDK"
 g.parse("documentgraphs/"+filename+".pdf/combined_document_data_graph.ttl", format="turtle")
 
 
@@ -262,7 +262,7 @@ def process_toc_section(g, section, level):
 
 
 # Load all shapes
-shapes, shapes_graph = load_all_shapes("shaclshapes")
+shapes, shapes_graph = load_all_shapes("shacl_shapes_mmd")
 
 # Generate HTML content
 html_content = """

@@ -1,0 +1,47 @@
+flowchart TD
+    Start([Start]) --> A["Check if #color: pink[building element] <http://example.com/buildingElement> .blue[height] <http://example.com/height>"]
+    
+    A --> B{"#color: pink[building element] .blue[height] <= 12m?"}
+    
+    B -->|Yes| C["#color: pink[fire barrier] <http://example.com/fireBarrier> options:
+    1. EI 60/A2-s1,d0
+    2. EI 60/D-s2,d2 with K2 60/A2-s1,d0
+    3. EI 60/D-s2,d2 with documentation"]
+    
+    B -->|No| D{"#color: pink[building element] .blue[height] <= 22m?"}
+    
+    D -->|Yes| E["#color: pink[fire barrier] <http://example.com/fireBarrier> 
+    must be EI 60/A2-s1,d0"]
+    
+    D -->|No| F["#color: pink[fire barrier] <http://example.com/fireBarrier> for 
+    #color: pink[exit] <http://example.com/exit> must be EI 120/A2-s1,d0"]
+
+    subgraph "Mandatory #color: pink[fire compartment] <http://example.com/fireCompartment> Requirements"
+        G1["Check space type:"]
+        G2["- Office areas with connected rooms"]
+        G3["- #color: pink[building element] <http://example.com/buildingElement> with area > 150m²"]
+        G4["- Basement functions"]
+        G5["- Waste rooms"]
+        G6["- #color: pink[exit] <http://example.com/exit>"]
+        G7["- #color: pink[suppression system] <http://example.com/suppressionSystem> control rooms"]
+    end
+
+    subgraph "Size Limitations Check"
+        H{"Has #color: pink[suppression system] <http://example.com/suppressionSystem>?"}
+        H -->|Yes| I["Larger sections allowed
+        per Table 4.2.5"]
+        H -->|No| J["Limited section size
+        per Table 4.2.5"]
+    end
+
+    C --> K{["All requirements met?"]}
+    E --> K
+    F --> K
+    I --> K
+    J --> K
+    
+    K -->|Yes| L([Pass])
+    K -->|No| M([Fail])
+
+    note["All measurements and requirements must be
+    documented and verified according to standards"]

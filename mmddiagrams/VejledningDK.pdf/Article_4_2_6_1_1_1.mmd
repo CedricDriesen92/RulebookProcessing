@@ -1,0 +1,22 @@
+flowchart TD
+    start([Start]) --> A["Check [:fire barrier:] between [:fire compartments:]<br/>https://example.com/fireBarrier"]
+    
+    A --> B["Test [:fire barrier:] stability<br/>from both sides<br/>https://example.com/fireStability"]
+    
+    B --> C["Does barrier maintain<br/>[:fire stability:]?<br/>https://example.com/fireStability"]
+    
+    C -->|Yes| D["[:fire barrier:] meets<br/>separation requirements<br/>https://example.com/fireBarrier"]
+    C -->|No| E["[:fire barrier:] fails<br/>separation requirements<br/>https://example.com/fireBarrier"]
+    
+    D --> pass([PASS])
+    E --> fail([FAIL])
+    
+    subgraph Stability Test
+        direction TB
+        S1["Test [:fire stability:] from<br/>first side<br/>https://example.com/fireStability"] --> S2["Maintains [:fire resistance:]?<br/>https://example.com/fireResistance"]
+        S2 -->|No| S4["Fail stability test"]
+        S2 -->|Yes| S3["Test [:fire stability:] from<br/>second side<br/>https://example.com/fireStability"]
+        S3 --> S5["Maintains [:fire resistance:]?<br/>https://example.com/fireResistance"]
+        S5 -->|No| S4
+        S5 -->|Yes| S6["Pass stability test"]
+    end

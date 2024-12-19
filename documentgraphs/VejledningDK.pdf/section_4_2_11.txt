@@ -1,0 +1,14 @@
+Figur 4.2.11 Sammenbygning af facade og brandadskillende bygningsdel, hvor den brandadskillende væg føres frem til indersiden af den udvendige beklædning. Samme princip gælder for etageadskillelser.
+
+Hvis der ved brandsektionsafgrænsende vægge er mulighed for vinkelsmitte, skal ydervæggene, vinduer m.v. udføres mindst som bygningsdel klasse EI 60 [BD-bygningsdel 60] uden åbninger, bortset fra åbninger, der lukkes med mindst dør klasse EI2 60-C [BD-dør 60], så vinkelsmitte ikke kan finde sted inden for en afstand af mindst 2,5 m fra sektionsafgrænsningen. Mulighed for vinkelsmitte kan være til stede, hvor vinklen mellem ydervæggene er mindre end 135°. De angivne 2,5 m skal måles enten langs en af facadelinjerne eller på skrå over hjørnet, svarende til Figur 4.2.12. Hvis der placeres et vinduesparti inden for det område, hvor der sker sikring mod vinkelsmitte, må dette ikke kunne åbnes, og det skal have samme brandmæssige egenskaber, som den væg, hvori det er monteret.
+
+## 4.2.6.4 Brandkam og brandkamserstatning
+
+For at reducere risikoen for horisontal brandspredning over tag fra én brandsektion til en anden, jf. BR18 § 117, nr. 2, skal brandsektionsvægge føres op over taget med en forsvarligt afdækket brandkam udført som mindst bygningsdel klasse EI 60 / A2-s1,d0 [BS-bygningsdel 60], se Figur 4.2.13. Brandkammen skal have en højde på 0,3 m målt vinkelret.
+
+## Figur 4.2.12
+Sikring af vandret brandspredning/vinkelsmitte ved brandsektionsafgrænsende vægge.
+
+Hvis vinklen mellem ydervæggene er mindre end 90° skal det sikres, at afstanden mellem ydervæggene er så stor, at der ikke vil kunne ske brandspredning mellem disse. Ved vinkler under 90° kan ydervæggene ofte betragtes tilsvarende to bygninger, der er placeret mindre end 5,0 m fra hinanden. Det bør derfor i disse tilfælde vurderes, om der skal etableres en brandmæssig adskillelse svarende til EI 60 / A2-S1,d0 [BS-bygningsdel 60] for de dele af ydervæggene, der ligger tættere end 5,0 m. Der bør ligeledes foretages en vurdering om, hvorvidt der kan etableres vinduer eller tilsvarende åbninger.
+
+En åben altan, der er helt åben til mindst 2 sider, betragtes brandmæssigt som et udeområde, og kan opføres uden hensyntagen til vinkelsmitte for selve altanen, herunder også vinkelsmitte i forbindelse med naboskel.

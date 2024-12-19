@@ -261,7 +261,7 @@ def main():
     properties_data = load_csv('FireMatrix.csv', 'property')
     document_name = input_file
     input_graph = f'documentgraphs/{document_name}/combined_document_data_graph.ttl'
-    input_folder_training = f'documentgraphs/{document_name}'
+    input_folder_training = f'documentgraphs/BasisnormenLG_cropped.pdf'
     training_folder = 'trainingsamplesRuleToMMD'
     output_folder = f'mmddiagrams/{document_name}'
 
@@ -289,7 +289,7 @@ def main():
         article_id = article['uri'].split('#')[-1]
         output_file = os.path.join(output_folder, f"{article_id}.mmd")
         
-        if os.path.exists(output_file) or ("e_2_1" not in article_id and "e_2_2" not in article_id):
+        if os.path.exists(output_file) or ("e_4_2" not in article_id and "e_2_2" not in article_id):
             print(f"Skipping {article_id}.")
             continue
         

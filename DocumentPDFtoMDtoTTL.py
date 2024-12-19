@@ -19,6 +19,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+llamaparse_key = os.getenv("LLAMAPARSE_API_KEY")
 input_file = os.getenv("INPUT_FILE")
 #client = AnthropicVertex(region="us-east5", project_id="neat-veld-422214-p1")
 #client = AnthropicVertex(region="europe-west1", project_id="neat-veld-422214-p1")
@@ -50,7 +51,7 @@ def extract_text_from_pdf(pdf_path: str) -> str:
         
         #for page in reader.pages:
         #    text += page.extract_text(extraction_mode="layout", layout_mode_space_vertically=False) + "\n"
-    text = LlamaParse(result_type="markdown", skip_diagonal_text=true, show_progress=true, parsing_instruction="Extract the text from the document in Markdown format, make sure all titles for sections/subsections/subsubsections keep their numbering").load_data(pdf_path)
+    text = LlamaParse(api_key=llamaparse_key, result_type="markdown", skip_diagonal_text=True, show_progress=True, parsing_instruction="Extract the text from the document in Markdown format, make sure all titles for sections/subsections/subsubsections keep their numbering").load_data(pdf_path)
     # Write the output of LlamaParse to a Markdown file
     output_filename = f"{pdf_path}.md"
     with open(output_filename, 'w', encoding='utf-8') as md_file:
@@ -216,7 +217,7 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
     #if section_number not in ['4_1']:
     #    print(f"Skipping section {section_number}.")
     #    return False # Keeps the code from engaging the AI.
-    if section_number[0] not in ['0', '1', '2', '3'] or section_number in ['3_5_2_3_2', '3_5_2_3_3']:
+    if section_number not in ['4_2_6','4_2_6_1', '4_2_6_2', '4_2_6_3', '4_2_6_4', '4_2_6_5', '4_2_6_6', '4_2_6_7', '4_2_6_8']:
         print(f"Skipping section {section_number}.")
         return False # Keeps the code from engaging the AI.
     for attempt in range(3):
@@ -332,11 +333,10 @@ def main():
             with open(file_name, 'w', encoding='utf-8') as f:
                 f.write(ttl_content)
             main_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
-        else:
+        elif section_number_underscore.startswith('4_2_6'):
             # Process sections with content through the LLM
             full_content = f"{section_title}\n{section_content}" if section_title else section_content
             processed_bool = create_and_combine_section_ttl(section_number_underscore, full_content, ontology, main_graph, examples_str, starting_graph, output_folder)
-        
         if processed_bool:
             print(f"Processed section {section_number}, nr. {curNum} / {totalNum}")
     

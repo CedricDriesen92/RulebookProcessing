@@ -1,0 +1,55 @@
+flowchart TD
+    Start([Start Exterior Wall Check]) --> A[":exterior wall: check<br>URL: 'fire resistance'"]
+    A --> B["Check if :exterior wall: prevents fire spread<br>for minimum 60 minutes<br>URL: 'fire resistance'"]
+    
+    B --> C[":building element: height check<br>URL: 'height'"]
+    C --> D{">22m above ground?"}
+    D -->|No| E([Pass - Standard requirements met])
+    D -->|Yes| F[":suppression system: check<br>URL: 'coverage'"]
+    
+    F -->|Has sprinklers| G([Pass - Sprinkler protection])
+    F -->|No sprinklers| H[":fire compartment: size check<br>URL: 'length'"]
+    
+    H --> I{"Size <= 150m²?"}
+    I -->|No| J([Fail - Compartment too large])
+    I -->|Yes| K["Check brystning between floors<br>URL: 'height'"]
+    
+    K --> L{"Height >= 1.2m?"}
+    L -->|No| M([Fail - Insufficient height])
+    L -->|Yes| N[":building element: fire resistance check<br>URL: 'fire resistance'"]
+    
+    N --> O{"Meets E 30?"}
+    O -->|No| P([Fail - Insufficient resistance])
+    O -->|Yes| Q([Pass])
+
+    subgraph Balcony_Protection
+        BA[":exterior wall: balcony material check<br>URL: 'material'"]
+        BA --> BB{"Material A2-s1,d0?"}
+        BB -->|Yes| BC([Pass])
+        BB -->|No| BD["Check protective plate<br>URL: 'fire resistance'"]
+        BD --> BE{"Plate material A2-s1,d0<br>AND<br>Melting point >= 850°?"}
+        BE -->|Yes| BF([Pass])
+        BE -->|No| BG{"Meets K1 10 / B-s1,d0?"}
+        BG -->|Yes| BH([Pass])
+        BG -->|No| BI([Fail])
+        BD --> BJ{"Gap to facade <= 10mm?"}
+        BJ -->|Yes| BK([Pass])
+        BJ -->|No| BL([Fail])
+    end
+
+    subgraph HighLow_Protection
+        HA[":fire barrier: height difference check<br>URL: 'height'"]
+        HA --> HB{"Different heights<br>at section division?"}
+        HB -->|No| HC([No special requirements])
+        HB -->|Yes| HD{"Protection method?"}
+        
+        HD -->|Method 1| HE[":fire barrier: extension<br>URL: 'height'"]
+        HE --> HF{"Wall extends above roof<br>with no openings?"}
+        HF -->|Yes| HG([Pass])
+        HF -->|No| HH([Fail])
+        
+        HD -->|Method 2| HI[":building element: roof protection<br>URL: 'fire resistance'"]
+        HI --> HJ{"5.0m zone meets REI 60<br>AND<br>No openable skylights?"}
+        HJ -->|Yes| HK([Pass])
+        HJ -->|No| HL([Fail])
+    end

@@ -1,0 +1,215 @@
+@prefix firebim: <http://example.com/firebim#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+firebim:Belgian_Government a firebim:Authority ;
+    firebim:hasDocument firebim:RoyalDecree .
+
+firebim:Section_4_2 firebim:hasSection firebim:Section_4_2_11,
+        firebim:Section_4_2_13,
+        firebim:Section_4_2_5,
+        firebim:Section_4_2_6 .
+
+firebim:Article_4_2_6_1 a firebim:Article ;
+    firebim:hasID "A4.2.6.1" ;
+    firebim:hasMember firebim:Member_4_2_6_1_1,
+        firebim:Member_4_2_6_1_2 .
+
+firebim:Article_4_2_6_1_1 a firebim:Article ;
+    firebim:hasID "A4.2.6.1.1" ;
+    firebim:hasMember firebim:Member_4_2_6_1_1_1,
+        firebim:Member_4_2_6_1_1_2,
+        firebim:Member_4_2_6_1_1_3,
+        firebim:Member_4_2_6_1_1_4,
+        firebim:Member_4_2_6_1_1_5,
+        firebim:Member_4_2_6_1_1_6 .
+
+firebim:Article_4_2_6_1_1_1 a firebim:Article ;
+    firebim:hasID "A4.2.6.1.1.1" ;
+    firebim:hasMember firebim:Member_4_2_6_1_1_1_1 .
+
+firebim:Article_4_2_6_2_1 a firebim:Article ;
+    firebim:hasFigure firebim:Figure_4_2_10,
+        firebim:Figure_4_2_9 ;
+    firebim:hasID "A4.2.6.2.1" ;
+    firebim:hasMember firebim:Member_4_2_6_2_1_1,
+        firebim:Member_4_2_6_2_1_2,
+        firebim:Member_4_2_6_2_1_3,
+        firebim:Member_4_2_6_2_1_4,
+        firebim:Member_4_2_6_2_1_5 .
+
+firebim:Article_4_2_6_3_1 a firebim:Article ;
+    firebim:hasFigure firebim:Figure_4_2_11 ;
+    firebim:hasID "A4.2.6.3.1" ;
+    firebim:hasMember firebim:Member_4_2_6_3_1_1,
+        firebim:Member_4_2_6_3_1_2 .
+
+firebim:Figure_4_2_10 a firebim:Figure ;
+    firebim:hasID "F4.2.10" ;
+    firebim:hasOriginalText "Bygninger, hvor der ved brandsektionsvæggen er forskellig bygningshøjde, skal sikres som angivet mod høj/lav brandsmitte."@da .
+
+firebim:Figure_4_2_11 a firebim:Figure ;
+    firebim:hasID "F4.2.11" .
+
+firebim:Figure_4_2_9 a firebim:Figure ;
+    firebim:hasID "F4.2.9" ;
+    firebim:hasOriginalText "Altan, som ikke er mindst materiale klasse A2-s1,d0, skal sikres mod brandspredning fra underliggende etage."@da .
+
+firebim:Member_4_2_6_1_1 a firebim:Member ;
+    firebim:hasOriginalText "Det fremgår af BR18 §111, at byggeri kan opdeles i en eller flere brandmæssige enheder. Opdelingen i brandmæssige enheder skal sikre, at flugtvejene kan anvendes i den tid, der er nødvendig for evakuering og redning af personer i et byggeri, og så der ikke sker væsentlig brandspredning. Derudover fremgår det af BR18 §112, at bygningsafsnit i forskellige anvendelseskategorier skal udgøre selvstændige brandmæssige enheder."@da .
+
+firebim:Member_4_2_6_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "Bygningsdele, der afgrænser en brandsektion, skal udføres med en brandmodstandsevne som mindst bygningsdel klasse EI 60 / A2-s1,d0 [BS-bygningsdel 60] eller alternativt, mindst som bygningsdel klasse EI 60 / D-s2,d2 [BD-bygningsdel 60] [klasse B materiale] udført med mindst beklædning klasse K2 60 / A2-s1,d0 [60 minutters brandbeskyttelsessystem], afhængigt af bygningens højde til gulv i øverste etage."@da .
+
+firebim:Member_4_2_6_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "En brandsektionsadskillelse kan i tilfælde af brand blive påvirket på den ene eller den anden side alt efter, hvor branden er opstået. For at en brandsektionsadskillelse under brand kan medvirke til at hindre brandspredning, er det vigtigt, at den udføres, så den bevarer sin stabilitet, uanset fra hvilken side den brandpåvirkes."@da .
+
+firebim:Member_4_2_6_1_1_2 a firebim:Member ;
+    firebim:hasMember firebim:Member_4_2_6_1_1_2_1,
+        firebim:Member_4_2_6_1_1_2_2,
+        firebim:Member_4_2_6_1_1_2_3,
+        firebim:Member_4_2_6_1_1_2_4,
+        firebim:Member_4_2_6_1_1_2_5,
+        firebim:Member_4_2_6_1_1_2_6 ;
+    firebim:hasOriginalText "Præ-accepterede løsninger på bygningsafsnit, som skal udføres som selvstændige brandsektioner, er:"@da .
+
+firebim:Member_4_2_6_1_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "1. Kontorlokale(r) med tilhørende gange, arkivrum, depotrum og lignende rum med direkte tilknytning til de pågældende afsnit"@da .
+
+firebim:Member_4_2_6_1_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText "2. Garage med areal større end 150 m²"@da .
+
+firebim:Member_4_2_6_1_1_2_3 a firebim:Member ;
+    firebim:hasOriginalText "3. Kælderfunktion"@da .
+
+firebim:Member_4_2_6_1_1_2_4 a firebim:Member ;
+    firebim:hasOriginalText "4. Indeliggende fælles affaldsrum"@da .
+
+firebim:Member_4_2_6_1_1_2_5 a firebim:Member ;
+    firebim:hasOriginalText "5. Flugtvejstrapper"@da .
+
+firebim:Member_4_2_6_1_1_2_6 a firebim:Member ;
+    firebim:hasOriginalText "6. Sprinklercentral"@da .
+
+firebim:Member_4_2_6_1_1_3 a firebim:Member ;
+    firebim:hasMember firebim:Member_4_2_6_1_1_3_1,
+        firebim:Member_4_2_6_1_1_3_2,
+        firebim:Member_4_2_6_1_1_3_3 ;
+    firebim:hasOriginalText "I bygninger, hvor gulv i øverste etage højst er 12,0 m over terræn, kan bygningsdele, som afgrænser en brandsektion, enten udføres med en brandmodstandsevne, som mindst:"@da .
+
+firebim:Member_4_2_6_1_1_3_1 a firebim:Member ;
+    firebim:hasOriginalText "1. Bygningsdel klasse EI 60 / A2-s1,d0 [BS-bygningsdel 60]"@da .
+
+firebim:Member_4_2_6_1_1_3_2 a firebim:Member ;
+    firebim:hasOriginalText "2. Bygningsdel klasse EI 60 / D-s2,d2 [BD-bygningsdel 60] [klasse B materiale] udført med mindst beklædning klasse K2 60 / A2-s1,d0 [60 minutters brandbeskyttelsessystem]"@da .
+
+firebim:Member_4_2_6_1_1_3_3 a firebim:Member ;
+    firebim:hasOriginalText "3. Bygningsdel klasse EI 60 / D-s2,d2 [BD-bygningsdel 60] [klasse B materiale] udført med mindst brandbeskyttende beklædning udført af materialeklasse A2-s1,d0, og det dokumenteres, jf. DS/EN 1995-1-2, at der ikke sker indebrænding af træet i de første 60 minutter af en standardbrandpåvirkning."@da .
+
+firebim:Member_4_2_6_1_1_4 a firebim:Member ;
+    firebim:hasOriginalText "Ved etageadskillelser kan sikringen alene foretages i forhold til en brand under etageadskillelsen. I bygninger, hvor gulv i øverste etage er mere end 12,0 m over terræn, skal de bygningsdele, som afgrænser en brandsektion, udføres med en brandmodstandsevne, som mindst bygningsdel klasse EI 60 / A2-s1,d0 [BS-bygningsdel 60]."@da .
+
+firebim:Member_4_2_6_1_1_5 a firebim:Member ;
+    firebim:hasOriginalText "For trapperum med flugtvejstrapper gælder der dog, at de brandsektionsadskillende vægge mod trapperum skal udføres som mindst bygningsdel klasse EI 120 / A2-s1,d0 [BS-bygningsdel 120], i bygninger, med gulv i øverste etage mere end 22 m."@da .
+
+firebim:Member_4_2_6_1_1_6 a firebim:Member ;
+    firebim:hasOriginalText "For at sikre mod at der sker brandspredning til store områder i bygningsafsnit, skal disse enten opdeles i mindre brandsektioner eller udføres med automatisk sprinkleranlæg. Tabel 4.2.5 angiver acceptable størrelser for henholdsvis sprinklede og ikke-sprinklede brandsektioner. Begrænsning af ikke sprinklede brandsektioner skal tillige sikre redningsberedskabernes indsatsmuligheder."@da .
+
+firebim:Member_4_2_6_1_2 a firebim:Member ;
+    firebim:hasOriginalText "Opdeling af en bygning i selvstændige brandmæssige enheder kan både have til formål at sikre flugtvejene for de personer, der opholder sig i bygningen, samt sikre redningsberedskabets muligheder for at gennemføre en forsvarlig rednings- og slukningsindsats. Opdeling i brandmæssige enheder skal ske, så områder med forskellig personrisiko og/eller brandrisiko udgør selvstændige brandmæssige enheder. En bygning eller en brandsektion kan, jf. denne vejlednings Kapitel 1: Generelt om sikkerhed ved brand, opdeles i flere forskellige brandmæssige enheder med forskellige anvendelseskategorier."@da .
+
+firebim:Member_4_2_6_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText "Det fremgår af BR18 § 117, at ydervægge skal projekteres og udføres så det sikres, at der ikke sker brandspredning mellem de forskellige brandmæssige enheder via ydervægge i den tid, som er nødvendig for evakuering og redningsberedskabets redningsindsats, normalt 60 minutter."@da .
+
+firebim:Member_4_2_6_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText "I bygninger med gulv i øverste etage mere end 22 m over terræn skal lodret brandspredning via vinduesåbninger forhindres ved, at bygningen enten er udført med automatisk sprinkleranlæg eller ved, at bygningen udføres med brystninger mellem hver etageadskillelse, som udgør en brandcelle eller brandsektionsadskillelse. Størrelsen af den enkelte brandcelle må ikke overstige 150 m², når bygningen ikke er sprinklet. Brystningerne skal have en højde mellem etageadskillelsen på mindst 1,2 m og skal udføres som mindst bygningsdel klasse E 30 [F-bygningsdel 30]. Brystningshøjden måles fra overkant vindue i den underliggende etage til underkant vindue i den overliggende etage."@da .
+
+firebim:Member_4_2_6_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText "Ved altaner kan brandspredning fra underliggende etager hindres ved anvendelse af en løsning som fremgår af Figur 4.2.9. Dette sikres enten ved at undersiden af altaner, som ikke mindst er materiale klasse A2-s1,d0 [Ubrændbart materiale], udføres med en tæt plade af mindst materiale klasse A2-s1,d0 [ubrændbart materiale] med et smeltepunkt på mindst 850 grader, eller udføres mindst som beklædning klasse K1 10 / B-s1,d0 [klasse 1 beklædning]. Der kan dog, hvis det byggeteknisk er nødvendigt, accepteres en mindre åbning mellem altanplade og facade på højst 10 mm."@da .
+
+firebim:Member_4_2_6_2_1_4 a firebim:Member ;
+    firebim:hasMember firebim:Member_4_2_6_2_1_4_1,
+        firebim:Member_4_2_6_2_1_4_2 ;
+    firebim:hasOriginalText "Bygninger, hvor der ved brandsektionsadskillelsen er forskellig bygningshøjde, skal sikres mod høj/lav brandsmitte, se Figur 4.2.10. Dette kan gøres ved at:"@da .
+
+firebim:Member_4_2_6_2_1_4_1 a firebim:Member ;
+    firebim:hasOriginalText "1. Brandsektionsvæggen føres op over tag på den højere bygning og udføres uden åbninger i hele væggens højde til tagniveau for den højere bygning."@da .
+
+firebim:Member_4_2_6_2_1_4_2 a firebim:Member ;
+    firebim:hasOriginalText "2. Taget og tagets bærende konstruktion over den lavere bygning udføres mindst som bygningsdel klasse REI 60 [BD-bygningsdel 60] uden åbninger inden for en afstand af mindst 5,0 m fra den højere bygning."@da .
+
+firebim:Member_4_2_6_2_1_5 a firebim:Member ;
+    firebim:hasOriginalText "Placeres der ovenlys eller lignende der hvor tagfladen sikres mod risiko for høj/lav brandsmitte, jf. Figur 4.2.10, skal disse udføres med en klassifikation svarende til sikringens brandmodstandsevne. Der kan ikke placeres oplukkelige ovenlys i dette område."@da .
+
+firebim:Member_4_2_6_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText "Det fremgår af BR18 § 117, at der ikke må kunne ske brandspredning mellem forskellige brandmæssige enheder via ydervægge i den tid, som er nødvendig for evakuering og redning. Det er vigtigt at være opmærksom på, at en brand også kan sprede sig vandret rundt om de brandadskillende vægge, f.eks. via ydervægsbeklædning, tagudhæng og lignende. Det er også vigtigt, at brandsektionsvægge og etagedæk føres ud til indersiden af den udvendige beklædning, og at tagudhæng, altangangsoverdækninger mv., som passerer en brandadskillende væg, afbrydes eller på anden måde sikres ud for væggen. Såfremt der er monteret regnskærm ud for brandsektionen skal denne afbrydes korrekt for ikke at få brandspredning via denne, jf. afsnit 4.2.4."@da .
+
+firebim:Member_4_2_6_3_1_2 a firebim:Member ;
+    firebim:hasMember firebim:Member_4_2_6_3_1_2_1,
+        firebim:Member_4_2_6_3_1_2_2 ;
+    firebim:hasOriginalText "For at sikre mod brandspredning ved en ydervæg, skal sammenbygningen af den brandadskillende bygningsdel (væg eller etageadskillelse) udføres på en af følgende måder, jf. Figur 4.2.11:"@da .
+
+firebim:Member_4_2_6_3_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "1. For ydervægge, der er sammenbyggede af materialer ringere end klasse A2-s1,d0 skal den brandadskillende bygningsdel føres frem til indersiden af den udvendige beklædning."@da .
+
+firebim:Member_4_2_6_3_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText "2. For ydervægge, udført udelukkende af klassificerede materialer som A2-s1,d0 [ubrændbart materiale] kan den brandadskillende bygningsdel sammenbygges med ydervæggen."@da .
+
+firebim:RoyalDecree a firebim:Document ;
+    firebim:hasID "RoyalDecree1994" ;
+    firebim:issued "1994-07-07"^^xsd:date .
+
+firebim:Section_4_2_11 a firebim:Section ;
+    firebim:hasID "4.2.11" ;
+    firebim:hasOriginalText "SAMMENBYGNING AF FACADE OG BRANDADSKILLENDE BYGNINGSDEL" .
+
+firebim:Section_4_2_13 a firebim:Section ;
+    firebim:hasID "4.2.13" ;
+    firebim:hasOriginalText "BRANDKAM VED BRANDSEKTIONSVÆG FOR HINDRING AF BRANDSPREDNING OVER TAG" .
+
+firebim:Section_4_2_5 a firebim:Section ;
+    firebim:hasID "4.2.5" ;
+    firebim:hasOriginalText "RISIKO FOR ANTÆNDELSE" .
+
+firebim:Section_4_2_6 a firebim:Section ;
+    firebim:hasArticle firebim:Article_4_2_6_1 ;
+    firebim:hasID "4.2.6" ;
+    firebim:hasOriginalText "INDDELING I BRANDMÆSSIGE ENHEDER SAMT BRANDADSKILLENDE BYGNINGSDELE",
+        "Inddeling i brandmæssige enheder samt brandadskillende bygningsdele"@da ;
+    firebim:hasSection firebim:Section_4_2_6_1,
+        firebim:Section_4_2_6_2,
+        firebim:Section_4_2_6_3 .
+
+firebim:Section_4_2_6_1 a firebim:Section ;
+    firebim:hasArticle firebim:Article_4_2_6_1_1 ;
+    firebim:hasID "4.2.6.1" ;
+    firebim:hasOriginalText "Brandsektioner"@da ;
+    firebim:hasSection firebim:Section_4_2_6_1_1 ;
+    firebim:hasTable firebim:Table_4_2_5 .
+
+firebim:Section_4_2_6_1_1 a firebim:Section ;
+    firebim:hasArticle firebim:Article_4_2_6_1_1_1 ;
+    firebim:hasID "4.2.6.1.1" ;
+    firebim:hasOriginalText "Stabilitet af brandsektionsadskillende vægge under brand"@da .
+
+firebim:Section_4_2_6_2 a firebim:Section ;
+    firebim:hasArticle firebim:Article_4_2_6_2_1 ;
+    firebim:hasID "4.2.6.2" ;
+    firebim:hasOriginalText "Lodret brandspredning"@da .
+
+firebim:Section_4_2_6_3 a firebim:Section ;
+    firebim:hasArticle firebim:Article_4_2_6_3_1 ;
+    firebim:hasID "4.2.6.3" ;
+    firebim:hasOriginalText "Vandret brandspredning/vinkelsmitte ved brandadskillelser"@da .
+
+firebim:Table_4_2_5 a firebim:Table ;
+    firebim:hasID "T4.2.5" ;
+    firebim:hasOriginalText """Præ-accepterede løsninger for brandsektionsstørrelser for bygningsafsnit med kontorer.
+
+| Maksimalt etageareal af ikke-sprinklet brandsektion, (BR18 § 123) | Maksimalt etageareal af sprinklet brandsektion |
+|-------------------------------------------------------------------|------------------------------------------------|
+| Bygningsafsnit beliggende i bygninger i én etage                  | 5.000 m²                                       | 10.000 m²                                      |
+| Bygningsafsnit i bygninger i mere end én etage                    | 2.000 m²                                       | 10.000 m²                                      |
+| Bygningsafsnit i bygninger hvor gulv i øverste etage er mere end 22 m over terræn | Altid 1)                                       | 10.000 m²                                      |
+
+1) Lempelse angivet i afsnit 4.2.6.2."""@da .
+

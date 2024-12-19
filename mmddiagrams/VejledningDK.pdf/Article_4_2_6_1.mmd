@@ -1,0 +1,32 @@
+flowchart TD
+    A([Start Building Analysis]) --> B[Check if :building_element: contains multiple usage categories]
+    B --> |Yes| C[Separate into different :fire_compartment: units]
+    B --> |No| D[Check :occupant: risk levels and fire risks]
+    
+    C --> E[Verify :fire_barrier: between units meets .fire_resistance: requirements]
+    D --> |Different risks| F[Create separate :fire_compartment: units]
+    D --> |Same risks| G[Can be single :fire_compartment:]
+    
+    F --> E
+    G --> H[Verify :means_of_escape: protection]
+    E --> H
+    
+    H --> I[Does design meet all requirements?]
+    I --> |Yes| J([PASS: Compliant fire unit division])
+    I --> |No| K([FAIL: Redesign required])
+
+    subgraph verify_escape [Verify escape route protection]
+        H1[Check if :means_of_escape: is protected by :fire_barrier:]
+        H2[Verify .fire_stability: of protection]
+        H3[Check .fire_integrity: of barriers]
+        H1 --> H2 --> H3
+    end
+
+    style building_element fill:#FFB6C1
+    style fire_compartment fill:#FFB6C1
+    style fire_barrier fill:#FFB6C1
+    style means_of_escape fill:#FFB6C1
+    style occupant fill:#FFB6C1
+    style fire_resistance fill:#ADD8E6
+    style fire_stability fill:#ADD8E6
+    style fire_integrity fill:#ADD8E6

@@ -1,0 +1,74 @@
+Det fremgår af BR18 §111, at byggeri kan opdeles i en eller flere brandmæssige enheder. Opdelingen i brandmæssige enheder skal sikre, at flugtvejene kan anvendes i den tid, der er nødvendig for evakuering og redning af personer i et byggeri, og så der ikke sker væsentlig brandspredning. Derudover fremgår det af BR18 §112, at bygningsafsnit i forskellige anvendelseskategorier skal udgøre selvstændige brandmæssige enheder.
+
+Opdeling af en bygning i selvstændige brandmæssige enheder kan både have til formål at sikre flugtvejene for de personer, der opholder sig i bygningen, samt sikre redningsberedskabets muligheder for at gennemføre en forsvarlig rednings- og slukningsindsats. Opdeling i brandmæssige enheder skal ske, så områder med forskellig personrisiko og/eller brandrisiko udgør selvstændige brandmæssige enheder. En bygning eller en brandsektion kan, jf. denne vejlednings Kapitel 1: Generelt om sikkerhed ved brand, opdeles i flere forskellige brandmæssige enheder med forskellige anvendelseskategorier.
+
+## 4.2.6.1 Brandsektioner
+Bygningsdele, der afgrænser en brandsektion, skal udføres med en brandmodstandsevne som mindst bygningsdel klasse EI 60 / A2-s1,d0 [BS-bygningsdel 60] eller alternativt, mindst som bygningsdel klasse EI 60 / D-s2,d2 [BD-bygningsdel 60] [klasse B materiale] udført med mindst beklædning klasse K2 60 / A2-s1,d0 [60 minutters brandbeskyttelsessystem], afhængigt af bygningens højde til gulv i øverste etage.
+
+Præ-accepterede løsninger på bygningsafsnit, som skal udføres som selvstændige brandsektioner, er:
+1. Kontorlokale(r) med tilhørende gange, arkivrum, depotrum og lignende rum med direkte tilknytning til de pågældende afsnit
+2. Garage med areal større end 150 m²
+3. Kælderfunktion
+4. Indeliggende fælles affaldsrum
+5. Flugtvejstrapper
+6. Sprinklercentral
+
+I bygninger, hvor gulv i øverste etage højst er 12,0 m over terræn, kan bygningsdele, som afgrænser en brandsektion, enten udføres med en brandmodstandsevne, som mindst:
+
+1. Bygningsdel klasse EI 60 / A2-s1,d0 [BS-bygningsdel 60]
+eller
+2. Bygningsdel klasse EI 60 / D-s2,d2 [BD-bygningsdel 60] [klasse B materiale] udført med mindst beklædning klasse K2 60 / A2-s1,d0 [60 minutters brandbeskyttelsessystem]
+eller
+3. Bygningsdel klasse EI 60 / D-s2,d2 [BD-bygningsdel 60] [klasse B materiale] udført med mindst brandbeskyttende beklædning udført af materialeklasse A2-s1,d0, og det dokumenteres, jf. DS/EN 1995-1-2, at der ikke sker indebrænding af træet i de første 60 minutter af en standardbrandpåvirkning.
+
+Ved etageadskillelser kan sikringen alene foretages i forhold til en brand under etageadskillelsen. I bygninger, hvor gulv i øverste etage er mere end 12,0 m over terræn, skal de bygningsdele, som afgrænser en brandsektion, udføres med en brandmodstandsevne, som mindst bygningsdel klasse EI 60 / A2-s1,d0 [BS-bygningsdel 60].
+
+For trapperum med flugtvejstrapper gælder der dog, at de brandsektionsadskillende vægge mod trapperum skal udføres som mindst bygningsdel klasse EI 120 / A2-s1,d0 [BS-bygningsdel 120], i bygninger, med gulv i øverste etage mere end 22 m.
+
+For at sikre mod at der sker brandspredning til store områder i bygningsafsnit, skal disse enten opdeles i mindre brandsektioner eller udføres med automatisk sprinkleranlæg. Tabel 4.2.5 angiver acceptable størrelser for henholdsvis sprinklede og ikke-sprinklede brandsektioner. Begrænsning af ikke sprinklede brandsektioner skal tillige sikre redningsberedskabernes indsatsmuligheder.
+
+### Tabel 4.2.5 Præ-accepterede løsninger for brandsektionsstørrelser for bygningsafsnit med kontorer.
+
+| Maksimalt etageareal af ikke-sprinklet brandsektion, (BR18 § 123) | Maksimalt etageareal af sprinklet brandsektion |
+|-------------------------------------------------------------------|------------------------------------------------|
+| Bygningsafsnit beliggende i bygninger i én etage                  | 5.000 m²                                       | 10.000 m²                                      |
+| Bygningsafsnit i bygninger i mere end én etage                    | 2.000 m²                                       | 10.000 m²                                      |
+| Bygningsafsnit i bygninger hvor gulv i øverste etage er mere end 22 m over terræn | Altid 1)                                       | 10.000 m²                                      |
+
+1) Lempelse angivet i afsnit 4.2.6.2.
+
+### 4.2.6.1.1 Stabilitet af brandsektionsadskillende vægge under brand
+
+En brandsektionsadskillelse kan i tilfælde af brand blive påvirket på den ene eller den anden side alt efter, hvor branden er opstået. For at en brandsektionsadskillelse under brand kan medvirke til at hindre brandspredning, er det vigtigt, at den udføres, så den bevarer sin stabilitet, uanset fra hvilken side den brandpåvirkes.
+
+## 4.2.6.2 Lodret brandspredning
+
+Det fremgår af BR18 § 117, at ydervægge skal projekteres og udføres så det sikres, at der ikke sker brandspredning mellem de forskellige brandmæssige enheder via ydervægge i den tid, som er nødvendig for evakuering og redningsberedskabets redningsindsats, normalt 60 minutter.
+
+I bygninger med gulv i øverste etage mere end 22 m over terræn skal lodret brandspredning via vinduesåbninger forhindres ved, at bygningen enten er udført med automatisk sprinkleranlæg eller ved, at bygningen udføres med brystninger mellem hver etageadskillelse, som udgør en brandcelle eller brandsektionsadskillelse. Størrelsen af den enkelte brandcelle må ikke overstige 150 m², når bygningen ikke er sprinklet. Brystningerne skal have en højde mellem etageadskillelsen på mindst 1,2 m og skal udføres som mindst bygningsdel klasse E 30 [F-bygningsdel 30]. Brystningshøjden måles fra overkant vindue i den underliggende etage til underkant vindue i den overliggende etage.
+
+Ved altaner kan brandspredning fra underliggende etager hindres ved anvendelse af en løsning som fremgår af Figur 4.2.9. Dette sikres enten ved at undersiden af altaner, som ikke mindst er materiale klasse A2-s1,d0 [Ubrændbart materiale], udføres med en tæt plade af mindst materiale klasse A2-s1,d0 [ubrændbart materiale] med et smeltepunkt på mindst 850 grader, eller udføres mindst som beklædning klasse K1 10 / B-s1,d0 [klasse 1 beklædning]. Der kan dog, hvis det byggeteknisk er nødvendigt, accepteres en mindre åbning mellem altanplade og facade på højst 10 mm.
+
+Tat plade af materiale klasse A2-sl,d0 med smeltepunkt pa mindst 850C eller K1 10 B-sl,d0
+
+**Figur 4.2.9** Altan, som ikke er mindst materiale klasse A2-s1,d0, skal sikres mod brandspredning fra underliggende etage.
+
+Bygninger, hvor der ved brandsektionsadskillelsen er forskellig bygningshøjde, skal sikres mod høj/lav brandsmitte, se Figur 4.2.10. Dette kan gøres ved at:
+1. Brandsektionsvæggen føres op over tag på den højere bygning og udføres uden åbninger i hele væggens højde til tagniveau for den højere bygning.
+2. Taget og tagets bærende konstruktion over den lavere bygning udføres mindst som bygningsdel klasse REI 60 [BD-bygningsdel 60] uden åbninger inden for en afstand af mindst 5,0 m fra den højere bygning.
+
+Brandsektionsvag
+Mindst 2,5 m          Mindst 5 m
+REI 60
+EI60
+Mindst 2,5 m
+
+Figur 4.2.10 Bygninger, hvor der ved brandsektionsvæggen er forskellig bygningshøjde, skal sikres som angivet mod høj/lav brandsmitte.
+
+Placeres der ovenlys eller lignende der hvor tagfladen sikres mod risiko for høj/lav brandsmitte, jf. Figur 4.2.10, skal disse udføres med en klassifikation svarende til sikringens brandmodstandsevne. Der kan ikke placeres oplukkelige ovenlys i dette område.
+
+## 4.2.6.3  Vandret brandspredning/vinkelsmitte ved brandadskillelser
+Det fremgår af BR18 § 117, at der ikke må kunne ske brandspredning mellem forskellige brandmæssige enheder via ydervægge i den tid, som er nødvendig for evakuering og redning. Det er vigtigt at være opmærksom på, at en brand også kan sprede sig vandret rundt om de brandadskillende vægge, f.eks. via ydervægsbeklædning, tagudhæng og lignende. Det er også vigtigt, at brandsektionsvægge og etagedæk føres ud til indersiden af den udvendige beklædning, og at tagudhæng, altangangsoverdækninger mv., som passerer en brandadskillende væg, afbrydes eller på anden måde sikres ud for væggen. Såfremt der er monteret regnskærm ud for brandsektionen skal denne afbrydes korrekt for ikke at få brandspredning via denne, jf. afsnit 4.2.4. For at sikre mod brandspredning ved en ydervæg, skal sammenbygningen af den brandadskillende bygningsdel (væg eller etageadskillelse) udføres på en af følgende måder, jf. Figur 4.2.11.
+
+1. For ydervægge, der er sammenbyggede af materialer ringere end klasse A2-s1,d0 skal den brandadskillende bygningsdel føres frem til indersiden af den udvendige beklædning.
+2. For ydervægge, udført udelukkende af klassificerede materialer som A2-s1,d0 [ubrændbart materiale] kan den brandadskillende bygningsdel sammenbygges med ydervæggen.
