@@ -10,24 +10,24 @@
 #################################################################
 
 # Compartment A: Will have a total area < 3500
-fbb:CompartmentA a fbb:Compartment ;
-   fbb:hasSpace fbb:Space1 ;
-   fbb:hasSpace fbb:Space2 .
+fbb:CompartmentA a fbb:Compartment .
 
 fbb:Space1 a bot:Space ;
+   fbb:hasCompartment fbb:CompartmentA ;
    fbb:hasArea "1000"^^xsd:decimal .
 
 fbb:Space2 a bot:Space ;
-   fbb:hasArea "1500"^^xsd:decimal .
+   fbb:hasCompartment fbb:CompartmentA ;
+   fbb:hasArea "600"^^xsd:decimal .
 
 
 # Compartment B: Will have a total area > 3500
-fbb:CompartmentB a fbb:Compartment ;
-   fbb:hasSpace fbb:Space3 ;
-   fbb:hasSpace fbb:Space4 .
+fbb:CompartmentB a fbb:Compartment .
 
 fbb:Space3 a bot:Space ;
+   fbb:hasCompartment fbb:CompartmentB ;
    fbb:hasArea "2000"^^xsd:decimal .
 
 fbb:Space4 a bot:Space ;
+   fbb:hasCompartment fbb:CompartmentB ;
    fbb:hasArea "2000"^^xsd:decimal .

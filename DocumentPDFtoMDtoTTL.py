@@ -15,15 +15,39 @@ import time
 from llama_parse import LlamaParse
 from sympy import true
 from dotenv import load_dotenv
+import os
+import google.generativeai as genai
 
 load_dotenv()
 
-anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+model_name = "Google"
+
+if model_name == "Google":
+    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
+    # Create the model
+    generation_config = {
+    "temperature": 1,
+    "top_p": 0.95,
+    "top_k": 40,
+    "max_output_tokens": 8192,
+    "response_mime_type": "text/plain",
+    }
+
+    model = genai.GenerativeModel(
+    model_name="gemini-2.0-flash-thinking-exp-1219",
+    generation_config=generation_config,
+    )
+
+
+
 llamaparse_key = os.getenv("LLAMAPARSE_API_KEY")
 input_file = os.getenv("INPUT_FILE")
 #client = AnthropicVertex(region="us-east5", project_id="neat-veld-422214-p1")
 #client = AnthropicVertex(region="europe-west1", project_id="neat-veld-422214-p1")
-client = anthropic.Anthropic(api_key=anthropic_key)
+if model_name == "Claude":
+    anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+    client = anthropic.Anthropic(api_key=anthropic_key)
 
 def load_ontology(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -136,13 +160,22 @@ Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be c
 {starting_graph}
 
 Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following this ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned.
+
+Additionally, you must now enhance the text by adding HTML links to relevant ontology concepts. When you identify terms that match concepts from the ontology, wrap them in HTML anchor tags that link to their URI definitions. For example:
+- If discussing compartment areas, use: <a href="http://example.com/firebimbuilding#CompartmentArea">area of the compartment</a>
+- For fire resistance requirements: <a href="http://example.com/firebimbuilding#FireResistance">fire resistance</a>
+
+The links should be added to the originalText properties in the output TTL. Make sure to:
+1. Only link to terms that actually exist in the ontology
+2. Maintain the original text's meaning and structure
+3. Use the correct URIs from the ontology file(s)
 """
     prompt2 = f"""
 Section number: {section_number}
 Section text:
 {section_text}
 
-Here are some examples of how to convert sections to Turtle format. Note, follow the style used here as a very strong reference. Don't be afraid to nest members where necessary. Examples:
+Here are some examples of how to convert sections to Turtle format. Note, follow the style used here as a very strong reference. Don't be afraid to nest members where necessary. IMPORTANT: the links to the ontology are not taken into account in the examples, only the original text is used. Examples:
 
 {examples_str}
 """
@@ -154,41 +187,44 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
             prompt_file.write(prompt)
     while True:
         try:
-            # response = client.messages.create(
-            #     max_tokens=8000,
-            #     messages=[
-            #         {"role": "user", "content": prompt},
-            #         {"role": "assistant", "content": "firebim:Section_" + str(section_number) +" a"}
-            #     ],
-            #     model="claude-3-5-sonnet-v2@20241022"
-            # )
-            message = client.messages.create(
-                model="claude-3-5-sonnet-20241022",
-                max_tokens=8192,
-                temperature=0,
-                system=prompt,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": [
-                            {
-                                "type": "text",
-                                "text": prompt2
-                            }
-                        ]
-                    },
-                    {
-                        "role": "assistant",
-                        "content": [
-                            {
-                                "type": "text",
-                                "text": "firebim:Section_" + str(section_number) +" a"
-                            }
-                        ]
-                    }
-                ]
-            )
-            response = message.content[0].text
+            if model_name == "Claude":
+                message = client.messages.create(
+                    model="claude-3-5-sonnet-20241022",
+                    max_tokens=8192,
+                    temperature=0,
+                    system=prompt,
+                    messages=[
+                        {
+                            "role": "user",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": prompt2
+                                }
+                            ]
+                        },
+                        {
+                            "role": "assistant",
+                            "content": [
+                                {
+                                    "type": "text",
+                                    "text": "firebim:Section_" + str(section_number) +" a"
+                                }
+                            ]
+                        }
+                    ]
+                )
+            elif model_name == "Google":
+                print("Test")
+                chat_session = model.start_chat(
+                    history=[
+                    ]
+                )
+
+                response = chat_session.send_message(prompt)
+
+                response = response.text # Error 500 means too many input tokens!
+            
             print(response)
             break
         except Exception as e:
@@ -217,7 +253,7 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
     #if section_number not in ['4_1']:
     #    print(f"Skipping section {section_number}.")
     #    return False # Keeps the code from engaging the AI.
-    if section_number not in ['4_2_6','4_2_6_1', '4_2_6_2', '4_2_6_3', '4_2_6_4', '4_2_6_5', '4_2_6_6', '4_2_6_7', '4_2_6_8']:
+    if False:#section_number not in ['4_2_6','4_2_6_1', '4_2_6_2', '4_2_6_3', '4_2_6_4', '4_2_6_5', '4_2_6_6', '4_2_6_7', '4_2_6_8']:
         print(f"Skipping section {section_number}.")
         return False # Keeps the code from engaging the AI.
     for attempt in range(3):
@@ -333,7 +369,7 @@ def main():
             with open(file_name, 'w', encoding='utf-8') as f:
                 f.write(ttl_content)
             main_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
-        elif section_number_underscore.startswith('4_2_6'):
+        elif True:#section_number_underscore.startswith('4_2_6'):
             # Process sections with content through the LLM
             full_content = f"{section_title}\n{section_content}" if section_title else section_content
             processed_bool = create_and_combine_section_ttl(section_number_underscore, full_content, ontology, main_graph, examples_str, starting_graph, output_folder)
