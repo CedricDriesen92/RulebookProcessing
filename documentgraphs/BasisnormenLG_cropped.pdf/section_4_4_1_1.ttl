@@ -1,0 +1,65 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_4_4_1_1 a firebim:Section ;
+    firebim:hasID "4.4.1.1" ;
+    firebim:hasOriginalText "Geen enkel punt van een <a href=\"http://example.com/firebim#Compartment\">compartiment</a> mag zich verder bevinden dan:"@nl ;
+    firebim:hasArticle firebim:Article_4_4_1_1_1 .
+
+firebim:Article_4_4_1_1_1 a firebim:Article ;
+    firebim:hasID "A4.4.1.1.1" ;
+    firebim:hasMember firebim:Member_4_4_1_1_1_1,
+        firebim:Member_4_4_1_1_1_2,
+        firebim:Member_4_4_1_1_1_3,
+        firebim:Member_4_4_1_1_1_4 .
+
+firebim:Member_4_4_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "a) voor lokalen met uitsluitend dagbezetting:"@nl ;
+    firebim:hasMember firebim:Member_4_4_1_1_1_1_1,
+        firebim:Member_4_4_1_1_1_1_2,
+        firebim:Member_4_4_1_1_1_1_3 .
+
+firebim:Member_4_4_1_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText "- 30 m van de <a href=\"http://example.com/firebim#EvacuationRoute\">evacuatieweg</a> die de <a href=\"http://example.com/firebim#Exit\">uitgangen</a> verbindt;"@nl .
+
+firebim:Member_4_4_1_1_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "- 45 m van de toegang tot de dichtstbijzijnde <a href=\"http://example.com/firebim#Exit\">uitgang</a>;"@nl .
+
+firebim:Member_4_4_1_1_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText "- 80 m van de toegang tot een tweede <a href=\"http://example.com/firebim#Exit\">uitgang</a>."@nl .
+
+firebim:Member_4_4_1_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText "b) voor lokalen of geheel van lokalen met nachtbezetting:"@nl ;
+    firebim:hasMember firebim:Member_4_4_1_1_1_2_1,
+        firebim:Member_4_4_1_1_1_2_2,
+        firebim:Member_4_4_1_1_1_2_3 .
+
+firebim:Member_4_4_1_1_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "- 20 m van de <a href=\"http://example.com/firebim#EvacuationRoute\">evacuatieweg</a> die de <a href=\"http://example.com/firebim#Exit\">uitgangen</a> verbindt;"@nl .
+
+firebim:Member_4_4_1_1_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText "- 30 m van de toegang tot de dichtstbijzijnde <a href=\"http://example.com/firebim#Exit\">uitgang</a>;"@nl .
+
+firebim:Member_4_4_1_1_1_2_3 a firebim:Member ;
+    firebim:hasOriginalText "- 60 m van de toegang tot een tweede <a href=\"http://example.com/firebim#Exit\">uitgang</a>."@nl .
+
+firebim:Member_4_4_1_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText "De lengte van doodlopende <a href=\"http://example.com/firebim#EvacuationRoute\">evacuatiewegen</a> mag niet meer dan 15 m bedragen."@nl .
+
+firebim:Member_4_4_1_1_1_4 a firebim:Member ;
+    firebim:hasOriginalText """De nuttige breedte van de <a href="http://example.com/firebim#EvacuationRoute">evacuatiewegen</a>, <a href="http://example.com/firebim#Vluchtterras">vluchtterrassen</a> en van hun toegangs-, <a href="http://example.com/firebim#Exit">uitgangs</a>- of doorgangsdeuren is groter dan of gelijk aan de vereiste nuttige breedte (zie bijlage 1 "Terminologie"). Zij bedraagt ten minste 0,80 m voor de <a href="http://example.com/firebim#EvacuationRoute">evacuatiewegen</a> en de deuren, en ten minste 0,60 m voor de <a href="http://example.com/firebim#Vluchtterras">vluchtterrassen</a>."""@nl .
+
+firebim:Article_4_4_1_1_1 firebim:hasMember firebim:Member_4_4_1_1_1_5 .
+
+firebim:Member_4_4_1_1_1_5 a firebim:Member ;
+    firebim:hasOriginalText """In een <a href="http://example.com/firebim#Compartment">compartiment</a> gaat de verbinding tussen en naar de trappen via <a href="http://example.com/firebim#EvacuationRoute">evacuatiewegen</a> of over <a href="http://example.com/firebim#Vluchtterras">vluchtterrassen</a>."""@nl .
+
+firebim:Article_4_4_1_1_1 firebim:hasMember firebim:Member_4_4_1_1_1_6 .
+
+firebim:Member_4_4_1_1_1_6 a firebim:Member ;
+    firebim:hasOriginalText "De bepalingen van dit punt zijn niet van toepassing op parkings (zie 5.2)."@nl .

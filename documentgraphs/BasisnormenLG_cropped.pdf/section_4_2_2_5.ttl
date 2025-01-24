@@ -1,0 +1,30 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_4_2_2_5 a firebim:Section ;
+    firebim:hasID "4.2.2.5" ;
+    firebim:hasArticle firebim:Article_4_2_2_5_1 .
+
+firebim:Section_4_2_2 firebim:hasSection firebim:Section_4_2_2_5 .
+
+firebim:Article_4_2_2_5_1 a firebim:Article ;
+    firebim:hasID "A4.2.2.5.1" ;
+    firebim:hasMember firebim:Member_4_2_2_5_1_1, firebim:Member_4_2_2_5_1_2 .
+
+firebim:Member_4_2_2_5_1_1 a firebim:Member ;
+    firebim:hasOriginalText "De <a href='http://example.com/firebim#Section'>trappenhuizen</a> die de <a href='http://example.com/firebim#Section'>ondergrondse bouwlagen</a> bedienen, mogen niet rechtstreeks het verlengde zijn van degene die de <a href='http://example.com/firebim#Section'>bouwlagen boven een evacuatieniveau</a> bedienen."@nl .
+
+firebim:Member_4_2_2_5_1_2 a firebim:Member ;
+    firebim:hasOriginalText "Dit sluit niet uit dat het ene boven het andere mag liggen, mits volgende voorwaarden:"@nl ;
+    firebim:hasMember firebim:Member_4_2_2_5_1_2_1, firebim:Member_4_2_2_5_1_2_2 .
+
+firebim:Member_4_2_2_5_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "1. de <a href='http://example.com/firebim#Section'>wanden</a> die ze scheiden hebben <a href='http://example.com/firebim#FireResistance'>EI 60</a>."@nl .
+
+firebim:Member_4_2_2_5_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText "2. de toegang tot ieder <a href='http://example.com/firebim#Section'>trappenhuis</a> geschiedt via een <a href='http://example.com/firebim#Section'>zelfsluitende</a> of bij brand <a href='http://example.com/firebim#Section'>zelfsluitende</a> <a href='http://example.com/firebim#Section'>deur</a> <a href='http://example.com/firebim#FireResistance'>EI1 30</a>."@nl .

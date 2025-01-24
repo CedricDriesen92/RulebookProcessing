@@ -1,0 +1,26 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_1_1 a firebim:Section ;
+    firebim:hasID "1.1" ;
+    firebim:hasOriginalText "Bereikbaarheid en opstelmogelijkheden brandweer"@nl ;
+    firebim:hasArticle firebim:Article_1_1_1 .
+
+firebim:Section_1 firebim:hasSection firebim:Section_1_1 .
+
+firebim:Article_1_1_1 a firebim:Article ;
+    firebim:hasID "A1.1.1" ;
+    firebim:hasMember firebim:Member_1_1_1_1,
+        firebim:Member_1_1_1_2 .
+
+firebim:Member_1_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Voor de <a href="http://example.com/firebim#DocumentSubdivision">gebouwen met één bouwlaag</a> moeten de voertuigen van de brandweer ten minste tot op 60 m van een <a href="http://example.com/firebim#Section">gevel van het gebouw</a> kunnen naderen."""@nl .
+
+firebim:Member_1_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Voor de <a href="http://example.com/firebim#DocumentSubdivision">gebouwen met meer dan één bouwlaag</a> moeten de voertuigen van de brandweer ten minste in één punt een <a href="http://example.com/firebim#Section">gevel</a> kunnen bereiken die op herkenbare plaatsen <a href="http://example.com/firebim#Section">toegang</a> geeft tot
+iedere <a href="http://example.com/firebim#Section">bouwlaag</a>."""@nl .

@@ -1,0 +1,431 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix fbb: <http://example.org/firebimbuilding#> .
+@prefix neo: <http://example.org/neo#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+fbb:CompartmentHeightCheckStartShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    fbb:flowchartNodeID "S1" ;
+    sh:property [
+        sh:path fbb:numberOfFloors ;
+        sh:equals 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Compartment height should correspond to one floor unless exceptions apply. (Start of rule)"@en ;
+    ] ;
+    sh:property [
+        sh:path fbb:isParking ;
+        sh:notEquals true ;
+        sh:property [
+            sh:path fbb:isDuplex ;
+            sh:notEquals true ;
+            sh:property [
+                sh:path fbb:isTriplex ;
+                sh:notEquals true ;
+                sh:property [
+                    sh:path fbb:containsTechnicalRooms ;
+                    sh:notEquals true ;
+                    sh:property [
+                        sh:path fbb:isAtrium ;
+                        sh:notEquals true ;
+                        sh:severity sh:Violation ;
+                        sh:message "Compartment height should correspond to one floor unless exceptions apply. (No exception found)"@en ;
+                    ] ;
+                ] ;
+            ] ;
+        ] ;
+    ] .
+
+fbb:CompartmentSingleFloorPassShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:numberOfFloors ;
+        sh:equals 1 ;
+    ] ;
+    fbb:flowchartNodeID "C" .
+
+fbb:CompartmentDuplexCheckShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isDuplex ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:area ;
+            sh:lessThanOrEquals 2500 ;
+            sh:severity sh:Violation ;
+            sh:message "For duplex compartments, the area must be less than or equal to 2500 m². (Rule b)"@en ;
+        ] ;
+    ] ;
+    fbb:flowchartNodeID "L" .
+
+fbb:CompartmentDuplexPassShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isDuplex ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:area ;
+            sh:lessThanOrEquals 2500 ;
+        ] ;
+    ] ;
+    fbb:flowchartNodeID "M" .
+
+fbb:CompartmentDuplexFailShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isDuplex ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:area ;
+            sh:greaterThan 2500 ;
+            sh:severity sh:Violation ;
+            sh:message "For duplex compartments, the area must be less than or equal to 2500 m². (Rule b - Fail)"@en ;
+        ] ;
+    ] ;
+    fbb:flowchartNodeID "N" .
+
+fbb:CompartmentTriplexCheckShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isTriplex ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:area ;
+            sh:lessThanOrEquals 300 ;
+            sh:severity sh:Violation ;
+            sh:message "For triplex compartments, the area must be less than or equal to 300 m², and smoke detection is required. (Rule c)"@en ;
+        ] ;
+    ] ;
+    fbb:flowchartNodeID "P" .
+
+fbb:CompartmentTriplexSmokeDetectionCheckShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isTriplex ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:area ;
+            sh:lessThanOrEquals 300 ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasSmokeDetection ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "For triplex compartments, smoke detection is required. (Rule c)"@en ;
+    ] ;
+    fbb:flowchartNodeID "Q" .
+
+fbb:CompartmentTriplexSmokeDetectionCoverageCheckShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isTriplex ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:area ;
+            sh:lessThanOrEquals 300 ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasSmokeDetection ;
+        sh:minCount 1 ;
+        sh:property [
+            sh:path fbb:coverage ;
+            sh:equals "Total" ;
+            sh:severity sh:Violation ;
+            sh:message "For triplex compartments with smoke detection, coverage must be 'Total'. (Rule c)"@en ;
+        ] ;
+    ] ;
+    fbb:flowchartNodeID "R" .
+
+fbb:CompartmentTriplexSmokeDetectionAdaptedToRisksCheckShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isTriplex ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:area ;
+            sh:lessThanOrEquals 300 ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasSmokeDetection ;
+        sh:minCount 1 ;
+        sh:property [
+            sh:path fbb:coverage ;
+            sh:equals "Total" ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:smokeDetectionAdaptedToRisks ;
+        sh:equals true ; # Assuming a boolean property indicates adaptation
+        sh:severity sh:Violation ;
+        sh:message "For triplex compartments with smoke detection, detectors must be adapted to risks. (Rule c)"@en ;
+    ] ;
+    fbb:flowchartNodeID "S" .
+
+fbb:CompartmentTriplexPassShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isTriplex ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:area ;
+            sh:lessThanOrEquals 300 ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasSmokeDetection ;
+        sh:minCount 1 ;
+        sh:property [
+            sh:path fbb:coverage ;
+            sh:equals "Total" ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:smokeDetectionAdaptedToRisks ;
+        sh:equals true ;
+    ] ;
+    fbb:flowchartNodeID "T" .
+
+fbb:CompartmentTriplexFailAreaShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isTriplex ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:area ;
+            sh:greaterThan 300 ;
+            sh:severity sh:Violation ;
+            sh:message "For triplex compartments, the area must be less than or equal to 300 m². (Rule c - Fail Area)"@en ;
+        ] ;
+    ] ;
+    fbb:flowchartNodeID "X" .
+
+fbb:CompartmentTriplexFailSmokeDetectionAdaptedShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isTriplex ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:area ;
+            sh:lessThanOrEquals 300 ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasSmokeDetection ;
+        sh:minCount 1 ;
+        sh:property [
+            sh:path fbb:coverage ;
+            sh:equals "Total" ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:smokeDetectionAdaptedToRisks ;
+        sh:notEquals true ;
+        sh:severity sh:Violation ;
+        sh:message "For triplex compartments with smoke detection, detectors must be adapted to risks. (Rule c - Fail Adapted)"@en ;
+    ] ;
+    fbb:flowchartNodeID "U" .
+
+fbb:CompartmentTriplexFailSmokeDetectionCoverageShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isTriplex ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:area ;
+            sh:lessThanOrEquals 300 ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasSmokeDetection ;
+        sh:minCount 1 ;
+        sh:property [
+            sh:path fbb:coverage ;
+            sh:notEquals "Total" ;
+            sh:severity sh:Violation ;
+            sh:message "For triplex compartments with smoke detection, coverage must be 'Total'. (Rule c - Fail Coverage)"@en ;
+        ] ;
+    ] ;
+    fbb:flowchartNodeID "V" .
+
+fbb:CompartmentTriplexFailNoSmokeDetectionShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isTriplex ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:area ;
+            sh:lessThanOrEquals 300 ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasSmokeDetection ;
+        sh:maxCount 0 ;
+        sh:severity sh:Violation ;
+        sh:message "For triplex compartments, smoke detection is required. (Rule c - Fail No Smoke Detection)"@en ;
+    ] ;
+    fbb:flowchartNodeID "W" .
+
+fbb:CompartmentTechnicalRoomsPassShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:containsTechnicalRooms ;
+        sh:equals true ;
+    ] ;
+    fbb:flowchartNodeID "Z" .
+
+fbb:CompartmentAtriumCheckShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isAtrium ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:hasSuppressionSystem ;
+            sh:minCount 1 ;
+            sh:severity sh:Violation ;
+            sh:message "For atrium compartments, a suppression system and smoke/heat exhaust are required. (Rule e)"@en ;
+        ] ;
+    ] ;
+    fbb:flowchartNodeID "AB" .
+
+fbb:CompartmentAtriumSmokeHeatExhaustCheckShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isAtrium ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:hasSuppressionSystem ;
+            sh:minCount 1 ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasSmokeHeatExhaust ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "For atrium compartments, a suppression system and smoke/heat exhaust are required. (Rule e)"@en ;
+    ] ;
+    fbb:flowchartNodeID "AC" .
+
+fbb:CompartmentAtriumPassShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isAtrium ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:hasSuppressionSystem ;
+            sh:minCount 1 ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasSmokeHeatExhaust ;
+        sh:minCount 1 ;
+    ] ;
+    fbb:flowchartNodeID "AD" .
+
+fbb:CompartmentAtriumExceptionCheckShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isAtrium ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:hasSuppressionSystem ;
+            sh:maxCount 0 ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasSmokeHeatExhaust ;
+        sh:maxCount 0 ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasMinisterialException ;
+        sh:equals true ;
+        sh:severity sh:Violation ;
+        sh:message "For atrium compartments without suppression system and smoke/heat exhaust, a ministerial exception is required. (Rule e - Exception)"@en ;
+    ] ;
+    fbb:flowchartNodeID "AE" .
+
+fbb:CompartmentAtriumExceptionPassShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isAtrium ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:hasSuppressionSystem ;
+            sh:maxCount 0 ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasSmokeHeatExhaust ;
+        sh:maxCount 0 ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasMinisterialException ;
+        sh:equals true ;
+    ] ;
+    fbb:flowchartNodeID "AF" .
+
+fbb:CompartmentAtriumExceptionFailShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isAtrium ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:hasSuppressionSystem ;
+            sh:maxCount 0 ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasSmokeHeatExhaust ;
+        sh:maxCount 0 ;
+    ] ;
+    sh:property [
+        sh:path fbb:hasMinisterialException ;
+        sh:notEquals true ;
+        sh:severity sh:Violation ;
+        sh:message "For atrium compartments without suppression system and smoke/heat exhaust, a ministerial exception is required. (Rule e - Exception Fail)"@en ;
+    ] ;
+    fbb:flowchartNodeID "AG" .
+
+fbb:CompartmentAtriumFailNoSystemShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:Compartment ;
+    sh:property [
+        sh:path fbb:isAtrium ;
+        sh:equals true ;
+        sh:property [
+            sh:path fbb:hasSuppressionSystem ;
+            sh:maxCount 0 ;
+            sh:severity sh:Violation ;
+            sh:message "For atrium compartments, a suppression system and smoke/heat exhaust are required. (Rule e - Fail No System)"@en ;
+        ] ;
+    ] ;
+    fbb:flowchartNodeID "AH" .

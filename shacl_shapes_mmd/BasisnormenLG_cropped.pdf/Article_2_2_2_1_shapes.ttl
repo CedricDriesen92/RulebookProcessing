@@ -1,0 +1,61 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix opm: <https://w3id.org/opm#> .
+@prefix fbb: <http://example.org/firebimbuilding#> .
+@prefix neo: <http://example.org/neo#> .
+
+fbb:ExitLocationCheckShape
+    a sh:NodeShape ;
+    sh:targetClass fbb:FireCompartment ;
+    fbb:flowchartNodeID "S1" ;
+    sh:property [
+        sh:path [ sh:zeroOrMorePath bot:hasSpace ];
+        sh:property [
+            sh:path bot:hasElement ;
+            sh:class fbb:Exit ;
+            sh:minCount 2 ;
+            sh:message "FBB-R1: Fire compartment must have at least two exits located in opposite zones."@en ;
+            sh:severity sh:Violation ;
+            fbb:flowchartNodeID "B" ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path [ sh:zeroOrMorePath bot:hasSpace ];
+        sh:property [
+            sh:path bot:hasElement ;
+            sh:class fbb:MeansOfEscape ;
+            sh:property [
+                sh:path fbb:hasDestination ; # Assuming fbb:MeansOfEscape has a destination property
+                sh:or (
+                    [ sh:class fbb:PlaceOfSafety ] ,
+                    [ sh:class fbb:Staircase ] ,
+                    [ sh:class fbb:Stairs ]
+                  ) ;
+                sh:message "FBB-R2: Means of escape must lead to a place of safety, exit stairwell or stairs."@en ;
+                sh:severity sh:Violation ;
+                sh:qualifiedValueShape [
+                    sh:class fbb:PlaceOfSafety ;
+                    fbb:flowchartNodeID "F" ;
+                ] ;
+                sh:qualifiedValueShape [
+                    sh:class fbb:Staircase ;
+                    fbb:flowchartNodeID "G" ;
+                ] ;
+                sh:qualifiedValueShape [
+                    sh:class fbb:Stairs ;
+                    fbb:flowchartNodeID "H" ;
+                ] ;
+                sh:qualifiedMinCount 1 ;
+                sh:qualifiedMaxCount 1 ;
+            ] ;
+             sh:message "FBB-R3: Means of escape destination check."@en ;
+             sh:severity sh:Violation ;
+             fbb:flowchartNodeID "E" ;
+        ] ;
+    ] .

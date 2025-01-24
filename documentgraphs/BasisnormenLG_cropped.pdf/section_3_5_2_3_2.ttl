@@ -1,0 +1,22 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_3_5_2_3_2 a firebim:Section ;
+    firebim:hasID "3.5.2.3.2" ;
+    firebim:hasOriginalText "Bedrijfszekerheid."@nl ;
+    firebim:hasArticle firebim:Article_3_5_2_3_2_1 .
+
+firebim:Article_3_5_2_3_2_1 a firebim:Article ;
+    firebim:hasID "A3.5.2.3.2.1" ;
+    firebim:hasMember firebim:Member_3_5_2_3_2_1_1, firebim:Member_3_5_2_3_2_1_2 .
+
+firebim:Member_3_5_2_3_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Bij het uitvallen van de normale energiebron (elektrische energie, persluchtnet), zet de detectie-installatie of het bedieningssysteem het sluitings-/openingssysteem in de veiligheidsstand."""@nl .
+
+firebim:Member_3_5_2_3_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Elk gebrek aan energiebron, voeding of elektrische of pneumatische bediening moet automatisch gemeld worden aan de detectiecentrale."""@nl .

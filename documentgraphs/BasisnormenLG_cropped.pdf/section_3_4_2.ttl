@@ -1,0 +1,54 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_3_4_2 a firebim:Section ;
+    firebim:hasID "3.4.2" ;
+    firebim:hasOriginalText "Plafonds en verlaagde plafonds."@nl ;
+    firebim:hasArticle firebim:Article_3_4_2_1 .
+
+firebim:Article_3_4_2_1 a firebim:Article ;
+    firebim:hasID "A3.4.2.1" ;
+    firebim:hasMember firebim:Member_3_4_2_1_1,
+        firebim:Member_3_4_2_1_2,
+        firebim:Table_2_1 .
+
+firebim:Member_3_4_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De wanden waarvoor <a href="http://example.com/firebim#FireResistance">brandwerendheid</a> vereist is, lopen door in de ruimte tussen het <a href="http://example.com/firebim#Section">plafond</a> en
+het <a href="http://example.com/firebim#Section">verlaagd plafond</a>."""@nl .
+
+firebim:Member_3_4_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Indien de ruimte tussen het <a href="http://example.com/firebim#Section">plafond</a> en het <a href="http://example.com/firebim#Section">verlaagd plafond</a> niet is uitgerust met een <a href="http://example.com/firebim#Section">automatische blusinstallatie</a>, moet deze ruimte worden verdeeld in volumes waarvan de horizontale projectie kan
+ingeschreven worden in een vierkant van maximum 25 m zijde."""@nl ;
+    firebim:hasMember firebim:Member_3_4_2_1_2_1 .
+
+firebim:Member_3_4_2_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText "Deze volumes worden gescheiden door verticale schermen met de volgende kenmerken:"@nl ;
+    firebim:hasMember firebim:Member_3_4_2_1_2_1_1,
+        firebim:Member_3_4_2_1_2_1_2,
+        firebim:Member_3_4_2_1_2_1_3 .
+
+firebim:Member_3_4_2_1_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText "zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;"@nl .
+
+firebim:Member_3_4_2_1_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText "zij beslaan de gehele ruimte tussen de leidingen;"@nl .
+
+firebim:Member_3_4_2_1_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText "zij hebben <a href=\"http://example.com/firebim#FireResistance\">EI 30</a>."@nl .
+
+firebim:Table_2_1 a firebim:Table ;
+    firebim:hasID "T2.1" ;
+    firebim:hasOriginalText """# Tabel 2.1 - Brandweerstand van structurele elementen.
+
+|Structurele elementen van het dak|Overige structurele elementen|
+|---|---|
+|Boven de vloer van Ei|<a href="http://example.com/firebim#FireResistance">R 30</a> (*)|
+|Meerdere <a href="http://example.com/firebim#Section">bouwlagen</a>|<a href="http://example.com/firebim#FireResistance">R 30</a> (*)|
+|Onder E,i|Niet van toepassing|
+
+(*) Geen eisen voor de <a href="http://example.com/firebim#Section">structurele elementen</a> van het <a href="http://example.com/firebim#Section">dak</a> indien het aan de binnenkant beschermd is door middel van een bouwelement <a href="http://example.com/firebim#FireResistance">EI 30</a>."""@nl .

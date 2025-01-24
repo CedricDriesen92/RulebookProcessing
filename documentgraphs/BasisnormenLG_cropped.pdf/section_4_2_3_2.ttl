@@ -1,0 +1,26 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_4_2_3_2 a firebim:Section ;
+    firebim:hasID "4.2.3.2" ;
+    firebim:hasOriginalText "Nuttige breedte van traparmen, overlopen en sassen."@nl ;
+    firebim:hasArticle firebim:Article_4_2_3_2_1 .
+
+firebim:Article_4_2_3_2_1 a firebim:Article ;
+    firebim:hasID "A4.2.3.2.1" ;
+    firebim:hasMember firebim:Member_4_2_3_2_1_1, firebim:Member_4_2_3_2_1_2 .
+
+firebim:Member_4_2_3_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Deze nuttige breedte is ten minste gelijk aan 0,80 m en bereikt ten minste de vereiste nuttige breedte br berekend volgens <a href="http://example.com/firebim#Appendix">bijlage 1 "Terminologie"</a>."""@nl ;
+    firebim:hasReference firebim:Reference_Bijlage_1 .
+
+firebim:Member_4_2_3_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De traparmen en de overlopen der <a href="http://example.com/firebim#Staircase">trappenhuizen</a> van één zelfde <a href="http://example.com/firebim#Compartment">compartiment</a> mogen in hun nuttige breedte niet meer dan één doorgangseenheid verschillen."""@nl .
+
+firebim:Reference_Bijlage_1 a firebim:Reference ;
+    firebim:hasID "Bijlage 1 \"Terminologie\"" .

@@ -1,0 +1,36 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_3_4_1 a firebim:Section ;
+    firebim:hasID "3.4.1" ;
+    firebim:hasOriginalText """In de <a href="http://example.com/firebim#Section">evacuatiewegen</a>, de voor het publiek toegankelijke <a href="http://example.com/firebim#Section">lokalen</a> en de collectieve <a href="http://example.com/firebim#Section">keukens</a> hebben de <a href="http://example.com/firebim#Section">verlaagde plafonds</a> <a href="http://example.com/firebim#Reference">EI 30</a> (a b), <a href="http://example.com/firebim#Reference">EI 30</a> (b a) of <a href="http://example.com/firebim#Reference">EI 30</a> (a ↔ b) volgens NBN EN 13501-2 en NBN EN 1364-2 of hebben een <a href="http://example.com/firebim#FireResistance">stabiliteit bij brand</a> van een ½ h volgens NBN 713-020.
+Deze vereiste is niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de <a href="http://example.com/firebim#Compartment">compartimenten</a> die zijn uitgerust met een automatische <a href="http://example.com/firebim#Reference">blusinstallatie</a> van het type <a href="http://example.com/firebim#Reference">sprinkler</a> die is aangepast aan de aanwezige risico's."""@nl ;
+    firebim:hasArticle firebim:Article_3_4_1_1 .
+
+firebim:Section_3_4 firebim:hasSection firebim:Section_3_4_1 .
+
+firebim:Article_3_4_1_1 a firebim:Article ;
+    firebim:hasID "A3.4.1.1" ;
+    firebim:hasMember firebim:Member_3_4_1_1_1, firebim:Member_3_4_1_1_2 .
+
+firebim:Member_3_4_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """In de <a href="http://example.com/firebim#Section">evacuatiewegen</a>, de voor het publiek toegankelijke <a href="http://example.com/firebim#Section">lokalen</a> en de collectieve <a href="http://example.com/firebim#Section">keukens</a> hebben de <a href="http://example.com/firebim#Section">verlaagde plafonds</a> <a href="http://example.com/firebim#Reference">EI 30</a> (a b), <a href="http://example.com/firebim#Reference">EI 30</a> (b a) of <a href="http://example.com/firebim#Reference">EI 30</a> (a ↔ b) volgens NBN EN 13501-2 en NBN EN 1364-2 of hebben een <a href="http://example.com/firebim#FireResistance">stabiliteit bij brand</a> van een ½ h volgens NBN 713-020."""@nl ;
+    firebim:hasReference firebim:Reference_NBN_EN_13501_2, firebim:Reference_NBN_EN_1364_2, firebim:Reference_NBN_713_020 .
+
+firebim:Member_3_4_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Deze vereiste is niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de <a href="http://example.com/firebim#Compartment">compartimenten</a> die zijn uitgerust met een automatische <a href="http://example.com/firebim#Reference">blusinstallatie</a> van het type <a href="http://example.com/firebim#Reference">sprinkler</a> die is aangepast aan de aanwezige risico's."""@nl ;
+    firebim:hasForwardReference firebim:Section_4_4_1_2 .
+
+firebim:Reference_NBN_EN_13501_2 a firebim:Reference ;
+    firebim:hasID "NBN EN 13501-2" .
+
+firebim:Reference_NBN_EN_1364_2 a firebim:Reference ;
+    firebim:hasID "NBN EN 1364-2" .
+
+firebim:Reference_NBN_713_020 a firebim:Reference ;
+    firebim:hasID "NBN 713-020" .

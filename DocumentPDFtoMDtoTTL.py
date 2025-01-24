@@ -20,32 +20,30 @@ import google.generativeai as genai
 
 load_dotenv()
 
-model_name = "Google"
+google_key = os.getenv("GEMINI_API_KEY")
+input_file = os.getenv("INPUT_FILE")
+model_provider = os.getenv("MODEL_PROVIDER", "anthropic")
 
-if model_name == "Google":
-    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+if model_provider == "gemini":
+    genai.configure(api_key=google_key)
 
     # Create the model
-    generation_config = {
-    "temperature": 1,
-    "top_p": 0.95,
-    "top_k": 40,
-    "max_output_tokens": 8192,
-    "response_mime_type": "text/plain",
+    genai.configure(api_key=google_key)
+    gemini_config = {
+        "temperature": 0.7,
+        "top_p": 0.95,
+        "top_k": 64,
+        "max_output_tokens": 65536,
+        "response_mime_type": "text/plain",
     }
 
     model = genai.GenerativeModel(
     model_name="gemini-2.0-flash-thinking-exp-1219",
-    generation_config=generation_config,
+    generation_config=gemini_config,
     )
 
-
-
 llamaparse_key = os.getenv("LLAMAPARSE_API_KEY")
-input_file = os.getenv("INPUT_FILE")
-#client = AnthropicVertex(region="us-east5", project_id="neat-veld-422214-p1")
-#client = AnthropicVertex(region="europe-west1", project_id="neat-veld-422214-p1")
-if model_name == "Claude":
+if model_provider == "anthropic":
     anthropic_key = os.getenv("ANTHROPIC_API_KEY")
     client = anthropic.Anthropic(api_key=anthropic_key)
 
@@ -187,7 +185,7 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
             prompt_file.write(prompt)
     while True:
         try:
-            if model_name == "Claude":
+            if model_provider == "anthropic":
                 message = client.messages.create(
                     model="claude-3-5-sonnet-20241022",
                     max_tokens=8192,
@@ -214,30 +212,42 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
                         }
                     ]
                 )
-            elif model_name == "Google":
-                print("Test")
-                chat_session = model.start_chat(
-                    history=[
-                    ]
+                # Extract just the TTL content from the response
+                response = message.content[0].text.strip()
+            elif model_provider == "gemini":
+                model = genai.GenerativeModel(
+                    model_name="gemini-2.0-flash-thinking-exp-01-21",
+                    generation_config={**gemini_config, "temperature": 0},
+                    system_instruction=prompt
                 )
-
-                response = chat_session.send_message(prompt)
-
-                response = response.text # Error 500 means too many input tokens!
+                response = model.generate_content(
+                    prompt2
+                )
+                response = response.text.strip()
             
-            print(response)
-            break
-        except Exception as e:
-            print(e)
-            time.sleep(5)
-    full_ttl_content = """@prefix owl: <http://www.w3.org/2002/07/owl#> .
+            # Remove any markdown code block markers that might be in the response
+            response = re.sub(r'^```turtle\s*|\s*```$', '', response.strip())
+            
+            # Combine with prefix declarations
+            full_ttl_content = """@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix firebim: <http://example.com/firebim#> .
 @base <http://example.com/firebim> .\n\n"""
-    full_ttl_content += "firebim:Section_" + str(section_number) +" a " + response.strip()
+
+            # Only append the response if it doesn't start with "firebim:Section_"
+            if not response.startswith("firebim:Section_"):
+                full_ttl_content += response
+            else:
+                full_ttl_content += response.strip()
+            
+            print(full_ttl_content)
+            break
+        except Exception as e:
+            print(e)
+            time.sleep(5)
     return full_ttl_content
 
 def create_and_combine_section_ttl(section_number, section_text, ontology, main_graph, examples_str, starting_graph, output_folder):
