@@ -20,6 +20,7 @@ import google.generativeai as genai
 
 load_dotenv()
 
+
 google_key = os.getenv("GEMINI_API_KEY")
 input_file = os.getenv("INPUT_FILE")
 model_provider = os.getenv("MODEL_PROVIDER", "anthropic")
@@ -117,6 +118,7 @@ firebim:Section_{section_number.replace('.', '_')} a firebim:Section ;
     return ttl_content
 
 FIREBIM = Namespace("http://example.com/firebim#")
+
 
 def create_initial_graph():
     g = Graph()
@@ -270,7 +272,7 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
         try:
             ttl_content = process_section_to_ttl(section_number, section_text, ontology, examples_str, starting_graph)
             main_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
-            
+
             os.makedirs(output_folder, exist_ok=True)
             with open(file_name, 'w', encoding='utf-8') as f:
                 f.write(ttl_content)

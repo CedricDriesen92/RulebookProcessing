@@ -14,6 +14,7 @@ BOT = Namespace("https://w3id.org/bot#")
 BPO = Namespace("https://w3id.org/bpo#")
 OPM = Namespace("https://w3id.org/opm#")
 IFC = Namespace("http://example.org/IFC#")
+INST = Namespace("http://example.com/project")
 
 # IFC to BOT mapping
 IFC_BOT_MAPPING = {
@@ -55,6 +56,8 @@ FIRE_SAFETY_PROPERTIES = [
     "SmokeDetection",
     "EmergencyLighting",
     "Fire",
+    "HasCompartment",
+    "HasSpace"
 ]
 
 class IFCtoFBBConverter:
@@ -72,7 +75,7 @@ class IFCtoFBBConverter:
         return "None"
     
     def _bind_namespaces(self) -> None:
-        for prefix, namespace in [("fbb", FBB), ("bot", BOT), ("bpo", BPO), ("opm", OPM), ("ifc", IFC)]:
+        for prefix, namespace in [("fbb", FBB), ("bot", BOT), ("bpo", BPO), ("opm", OPM), ("ifc", IFC), ("inst", INST)]:
             self.g.bind(prefix, namespace)
 
     def create_uri(self, ns: Namespace, ifc_type: str, global_id: str) -> URIRef:
@@ -93,14 +96,14 @@ class IFCtoFBBConverter:
 
     def process_building(self) -> None:
         building = self.ifc_file.by_type("IfcBuilding")[0]
-        building_uri = self.create_uri(FBB, "IfcBuilding", building.GlobalId)
+        building_uri = self.create_uri(INST, "IfcBuilding", building.GlobalId)
         self.g.add((building_uri, RDF.type, IFC_BOT_MAPPING["IfcBuilding"]))
         self.g.add((building_uri, FBB.name, Literal(self.sanitize_name(building.Name))))
         self.add_properties(building, building_uri)
 
     def process_storeys(self) -> None:
         building = self.ifc_file.by_type("IfcBuilding")[0]
-        building_uri = self.create_uri(FBB, "IfcBuilding", building.GlobalId)
+        building_uri = self.create_uri(INST, "IfcBuilding", building.GlobalId)
         storeys = self.ifc_file.by_type("IfcBuildingStorey")
         for i, storey in enumerate(storeys, 1):
             print(f"Processing storey {i} out of {len(storeys)}...")
@@ -114,7 +117,7 @@ class IFCtoFBBConverter:
         spaces = self.ifc_file.by_type("IfcSpace")
         for i, space in enumerate(spaces, 1):
             print(f"Processing space {i} out of {len(spaces)}...")
-            space_uri = self.create_uri(FBB, "IfcSpace", space.GlobalId)
+            space_uri = self.create_uri(INST, "IfcSpace", space.GlobalId)
             self.g.add((space_uri, RDF.type, IFC_BOT_MAPPING["IfcSpace"]))
             self.g.add((space_uri, FBB.name, Literal(self.sanitize_name(space.Name))))
             if space.Decomposes:
@@ -136,7 +139,7 @@ class IFCtoFBBConverter:
         element_uri = self.create_uri(FBB, element_type, element.GlobalId)
         
         if self.use_subclasses:
-            element_class_uri = self.create_uri(FBB, element_type, "Class")
+            element_class_uri = self.create_uri(INST, element_type, "Class")
             self.g.add((element_class_uri, RDF.type, OWL.Class))
             self.g.add((element_class_uri, RDFS.subClassOf, BOT.Element))
             self.g.add((element_uri, RDF.type, element_class_uri))

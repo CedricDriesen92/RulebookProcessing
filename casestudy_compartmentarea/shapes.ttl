@@ -50,7 +50,6 @@ fbb:CompartmentShape
     # Step 2: Once the area is inferred, we check that it is less than 3500.
     sh:property [
         sh:path fbb:hasArea ;
-        sh:datatype xsd:decimal ;
         sh:maxExclusive 3500 ;
         sh:message "The compartment's total area must be less than 3500."
     ] .

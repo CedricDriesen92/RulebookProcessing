@@ -11,8 +11,8 @@
 #################################################################
 
 fbb: a owl:Ontology ;
-   rdfs:comment "An ontology for representing building spaces and compartments, aligned with BIM and IFC concepts." ;
-   rdfs:label "Building Compartment Ontology" .
+   rdfs:comment "A FireBIM ontology for representing building spaces and compartments, hopefully aligned with BIM and IFC." ;
+   rdfs:label "FireBIM Compartmentation Ontology" .
 
 #################################################################
 # Classes
@@ -53,7 +53,7 @@ fbb:definedIn a owl:ObjectProperty ;
 fbb:hasArea a rdf:Property ;
    rdfs:domain fbb:Compartment , bot:Space ;
    rdfs:label "has area" ;
-   rdfs:comment "Associates a space or compartment with its area, typically in square meters." ;
+   rdfs:comment "Associates a space or compartment with its area, in square meters." ;
    rdfs:range xsd:decimal ;
    fbb:InIfc <http://www.buildingsmart-tech.org/ifc/IFC4/final/html/schema/ifcproductextension/lexical/ifcquantityarea.htm> .
 
@@ -69,4 +69,4 @@ fbb:hasType a rdf:Property ;
 
 fbb:InIfc a owl:AnnotationProperty ;
    rdfs:label "In IFC" ;
-   rdfs:comment "Links this entity or property to an equivalent concept or class in IFC." .
+   rdfs:comment "Links this entity or property to an equivalent concept or class in IFC (e.g. 'IfcWall' or 'IfcSpace')." .
