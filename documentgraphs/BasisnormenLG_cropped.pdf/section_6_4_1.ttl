@@ -1,0 +1,20 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_4_1 a firebim:Section ;
+    firebim:hasID "6.4.1" ;
+    firebim:hasOriginalText "Liften bestemd voor het evacueren van personen met beperkte mobiliteit"@nl ;
+    firebim:hasArticle firebim:Article_6_4_1_1 .
+
+firebim:Article_6_4_1_1 a firebim:Article ;
+    firebim:hasID "A6.4.1.1" ;
+    firebim:hasMember firebim:Member_6_4_1_1_1 .
+
+firebim:Member_6_4_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Wanneer een <a href=\"http://example.com/firebimbuilding#Elevator\">lift</a> bestemd voor het evacueren van <a href=\"http://example.com/firebimbuilding#AccessibilityForMobility\">personen met beperkte mobiliteit</a> verplicht wordt, moet deze voldoen aan de volgende voorschriften, bovenop de voorschriften opgenomen in punt 6.1."""@nl ;
+    firebim:hasForwardReference firebim:Section_6_1 .

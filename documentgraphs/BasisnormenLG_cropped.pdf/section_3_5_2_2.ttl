@@ -8,4 +8,12 @@
 
 firebim:Section_3_5_2_2 a firebim:Section ;
     firebim:hasID "3.5.2.2" ;
-    firebim:hasOriginalText "Dubbelwandige gevel zonder <a href=\"http://example.com/firebim#Compartment\">compartimentering</a>.\nDe dubbelwandige gevels zonder <a href=\"http://example.com/firebim#Compartment\">compartimentering</a> moeten in overeenstemming zijn met een van de twee hierna opgenomen mogelijkheden."@nl .
+    firebim:hasOriginalText "Dubbelwandige gevel zonder compartimentering."@nl ;
+    firebim:hasArticle firebim:Article_3_5_2_2_1 .
+
+firebim:Article_3_5_2_2_1 a firebim:Article ;
+    firebim:hasID "A3.5.2.2.1" ;
+    firebim:hasMember firebim:Member_3_5_2_2_1_1 .
+
+firebim:Member_3_5_2_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#DoubleSkinnedFacade">dubbelwandige gevels</a> zonder <a href="http://example.com/firebimbuilding#Compartment">compartimentering</a> moeten in overeenstemming zijn met een van de twee hierna opgenomen mogelijkheden."""@nl .

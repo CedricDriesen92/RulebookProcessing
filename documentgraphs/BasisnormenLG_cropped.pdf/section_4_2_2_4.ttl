@@ -8,4 +8,4 @@
 
 firebim:Section_4_2_2_4 a firebim:Section ;
     firebim:hasID "4.2.2.4" ;
-    firebim:hasOriginalText """Indien verscheidene <a href="http://example.com/firebim#Compartment">compartimenten</a> in eenzelfde horizontaal vlak liggen, mogen zij een of"""@nl .
+    firebim:hasOriginalText """Indien verscheidene <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> in eenzelfde horizontaal vlak liggen, mogen zij een of"""@nl .

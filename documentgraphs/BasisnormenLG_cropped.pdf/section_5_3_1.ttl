@@ -1,0 +1,27 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_3_1 a firebim:Section ;
+    firebim:hasID "5.3.1" ;
+    firebim:hasOriginalText "Algemeen."@nl ;
+    firebim:hasArticle firebim:Article_5_3_1_1 .
+
+firebim:Article_5_3_1_1 a firebim:Article ;
+    firebim:hasID "A5.3.1.1" ;
+    firebim:hasMember firebim:Member_5_3_1_1_1,
+        firebim:Member_5_3_1_1_2,
+        firebim:Member_5_3_1_1_3 .
+
+firebim:Member_5_3_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Kunnen er meer dan 500 personen in verblijven, dan mogen deze <a href=\"http://example.com/firebimbuilding#Room\">zalen</a> enkel <a href=\"http://example.com/firebimbuilding#UndergroundRoom\">ondergronds</a> ingericht worden wanneer het verschil tussen het laagste <a href=\"http://example.com/firebimbuilding#Floor\">vloerpeil</a> van deze zalen en het dichtstbijzijnde gelegen <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> niet groter is dan 3 m."""@nl .
+
+firebim:Member_5_3_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Zijn voornoemde <a href=\"http://example.com/firebimbuilding#Room\">zalen</a> bestemd voor maximum 500 personen dan mogen zij <a href=\"http://example.com/firebimbuilding#UndergroundRoom\">ondergronds</a> ingericht worden op voorwaarde dat het voor het publiek toegankelijke laagste <a href=\"http://example.com/firebimbuilding#Floor\">vloerpeil</a> niet meer dan 4 m ligt beneden het gemiddelde peil der verschillende <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveaus</a> van de inrichting."""@nl .
+
+firebim:Member_5_3_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Het aantal <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> wordt bepaald zoals voor de <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a>."""@nl .

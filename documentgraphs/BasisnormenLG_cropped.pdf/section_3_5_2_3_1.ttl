@@ -11,13 +11,15 @@ firebim:Section_3_5_2_3_1 a firebim:Section ;
     firebim:hasOriginalText "Bediening"@nl ;
     firebim:hasArticle firebim:Article_3_5_2_3_1_1 .
 
+firebim:Section_3_5_2_3 firebim:hasSection firebim:Section_3_5_2_3_1 .
+
 firebim:Article_3_5_2_3_1_1 a firebim:Article ;
     firebim:hasID "A3.5.2.3.1.1" ;
     firebim:hasMember firebim:Member_3_5_2_3_1_1_1,
         firebim:Member_3_5_2_3_1_1_2 .
 
 firebim:Member_3_5_2_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De sluiting / opening wordt bevolen door een automatische <a href="http://example.com/firebim#Section">branddetectie-installatie</a>."""@nl .
+    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#ClosureActivation\">sluiting</a> / <a href=\"http://example.com/firebimbuilding#OpeningDirection\">opening</a> wordt bevolen door een automatische <a href=\"http://example.com/firebimbuilding#FireDetectionSystem\">branddetectie-installatie</a>."""@nl .
 
 firebim:Member_3_5_2_3_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De installatie wordt uitgerust met manuele openings- en sluitingssystemen. De bediening ervan is voorbehouden aan de <a href="http://example.com/firebim#Authority">brandweer</a>. De plaats ervan moet bepaald worden in akkoord met de <a href="http://example.com/firebim#Authority">brandweer</a>."""@nl .
+    firebim:hasOriginalText """De installatie wordt uitgerust met manuele <a href=\"http://example.com/firebimbuilding#ManualControlSystem\">openings- en sluitingssystemen</a>. De bediening ervan is voorbehouden aan de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a>. De plaats ervan moet bepaald worden in akkoord met de <a href=\"http://example.com/firebimbuilding#FireDepartmentApproval\">brandweer</a>."""@nl .

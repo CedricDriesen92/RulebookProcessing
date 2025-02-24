@@ -13,15 +13,13 @@ firebim:Section_3_5_1_1 a firebim:Section ;
 
 firebim:Article_3_5_1_1_1 a firebim:Article ;
     firebim:hasID "A3.5.1.1.1" ;
-    firebim:hasMember firebim:Member_3_5_1_1_1_1,
-        firebim:Member_3_5_1_1_1_2,
-        firebim:Member_3_5_1_1_1_3 .
+    firebim:hasMember firebim:Member_3_5_1_1_1_1, firebim:Member_3_5_1_1_1_2, firebim:Member_3_5_1_1_1_3 .
 
 firebim:Member_3_5_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De stijlen van het gordijngevelskelet worden ter hoogte van elke bouwlaag aan het gebouwskelet bevestigd. Met uitzondering van de gebouwen die uitgerust zijn met een <a href="http://example.com/firebim#AutomaticFireSuppressionSystem">automatische blusinstallatie</a>, moeten deze bevestigingen <a href="http://example.com/firebim#FireResistance">R 60</a> zijn ten opzichte van een <a href="http://example.com/firebim#Fire">brand</a> in een onderliggend en naastgelegen <a href="http://example.com/firebim#Compartment">compartiment</a>."""@nl .
+    firebim:hasOriginalText """De stijlen van het <a href=\"http://example.com/firebimbuilding#CurtainWall\">gordijngevelskelet</a> worden ter hoogte van elke <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> aan het <a href=\"http://example.com/firebimbuilding#Building\">gebouwskelet</a> bevestigd."""@nl .
 
 firebim:Member_3_5_1_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De lineaire voeg aan de <a href="http://example.com/firebim#Facade">gevel</a> is dichtgemaakt zodat geen koude rook tussen de <a href="http://example.com/firebim#Facade">gevel</a> en de <a href="http://example.com/firebim#CompartmentWall">compartimentswanden</a> kan dringen."""@nl .
+    firebim:hasOriginalText """Met uitzondering van de <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> die uitgerust zijn met een <a href=\"http://example.com/firebimbuilding#AutomaticFireExtinguishingSystem\">automatische blusinstallatie</a>, moeten deze bevestigingen <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">R 60</a> zijn ten opzichte van een brand in een onderliggend en naastgelegen <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>."""@nl .
 
 firebim:Member_3_5_1_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Bovendien heeft de aansluiting van de <a href="http://example.com/firebim#CompartmentWall">compartimentswanden</a> met de <a href="http://example.com/firebim#Facade">gevel</a>, met uitzondering van een beperkte lineaire voeg met een breedte van maximaal 20 mm aan de <a href="http://example.com/firebim#Facade">gevel</a>, minstens <a href="http://example.com/firebim#FireResistance">EI 60</a> of <a href="http://example.com/firebim#FireResistance">EI 60</a> (i→o)."""@nl .
+    firebim:hasOriginalText """De lineaire voeg aan de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a> is dichtgemaakt zodat geen koude rook tussen de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a> en de <a href=\"http://example.com/firebimbuilding#CompartmentBoundary\">compartimentswanden</a> kan dringen.\n\nBovendien heeft de aansluiting van de <a href=\"http://example.com/firebimbuilding#CompartmentBoundary\">compartimentswanden</a> met de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a>, met uitzondering van een beperkte lineaire voeg met een breedte van maximaal 20 mm aan de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a>, minstens <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a> of <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a> (i→o)."""@nl .

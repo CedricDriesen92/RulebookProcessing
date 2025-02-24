@@ -1,0 +1,12 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_1_2_6 a firebim:Section ;
+    firebim:hasID "6.1.2.6" ;
+    firebim:hasOriginalText """<a href=\"http://example.com/firebimbuilding#Elevator\">Liften</a> en <a href=\"http://example.com/firebimbuilding#Escalator\">roltrappen</a>.
+Het <a href=\"http://example.com/firebimbuilding#ElevatorLobby\">bordes van de lift</a>(en) mag het <a href=\"http://example.com/firebimbuilding#ElevatorLobby\">bordes</a> van een of meerdere <a href=\"http://example.com/firebimbuilding#Escalator\">roltrappen</a> zijn. Het geheel bestaande uit één of meer <a href=\"http://example.com/firebimbuilding#Shaft\">schachten</a> en de eventuele <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamer</a>, alsook <a href=\"http://example.com/firebimbuilding#ElevatorLobby\">toegangsbordessen van de lift</a>(en) en de roltrap(pen), vormt dan slechts één geheel."""@nl .

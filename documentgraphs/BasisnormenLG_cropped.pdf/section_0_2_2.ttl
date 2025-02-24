@@ -14,16 +14,15 @@ firebim:Section_0_2_2 a firebim:Section ;
 firebim:Article_0_2_2_1 a firebim:Article ;
     firebim:hasID "A0.2.2.1" ;
     firebim:hasOriginalText """Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:"""@nl ;
-    firebim:hasMember firebim:Member_0_2_2_1_1, firebim:Member_0_2_2_1_2, firebim:Member_0_2_2_1_3 .
+    firebim:hasMember firebim:Member_0_2_2_1_1,
+        firebim:Member_0_2_2_1_2,
+        firebim:Member_0_2_2_1_3 .
 
 firebim:Member_0_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "1.   de industriegebouwen;"@nl .
+    firebim:hasOriginalText "1. de <a href=\"http://example.com/firebimbuilding#IndustrialBuilding\">industriegebouwen</a>;"@nl .
 
 firebim:Member_0_2_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """2.   de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner
-                 dan of gelijk aan 100 m²;"""@nl .
+    firebim:hasOriginalText """2. de <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> bestaande uit maximaal twee <a href=\"http://example.com/firebimbuilding#NumberOfStoreys\">bouwlagen</a> en met een <a href=\"http://example.com/firebimbuilding#TotalFloorArea\">totale oppervlakte</a> kleiner dan of gelijk aan 100 m²;"""@nl .
 
 firebim:Member_0_2_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText "3.   de eengezinswoningen."@nl .
-
-firebim:Section_0_2 firebim:hasSection firebim:Section_0_2_2 .
+    firebim:hasOriginalText "3. de <a href=\"http://example.com/firebimbuilding#IsSingleFamilyHouse\">eengezinswoningen</a>."@nl .

@@ -10,32 +10,33 @@ firebim:Section_4_1 a firebim:Section ;
     firebim:hasID "4.1" ;
     firebim:hasOriginalText "Compartimenten."@nl ;
     firebim:hasArticle firebim:Article_4_1_1,
-        firebim:Article_4_1_2 ;
-    firebim:hasTable firebim:Table_2_3 .
+        firebim:Article_4_1_2 .
 
 firebim:Article_4_1_1 a firebim:Article ;
     firebim:hasID "A4.1.1" ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebim#Section">wanden</a> tussen <a href="http://example.com/firebim#Compartment">compartimenten</a> hebben minstens de <a href="http://example.com/firebim#FireResistance">brandweerstand</a> aangegeven in <a href="#T2.3">tabel 2.3</a>."""@nl .
+    firebim:hasMember firebim:Member_4_1_1_1 ;
+    firebim:hasTable firebim:Table_2_3 .
+
+firebim:Member_4_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#SeparationWall\">wanden</a> tussen <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> hebben minstens de <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> aangegeven in tabel 2.3."""@nl .
 
 firebim:Table_2_3 a firebim:Table ;
     firebim:hasID "T2.3" ;
-    firebim:hasOriginalText """# <a href="http://example.com/firebim#Section">Wanden</a>
+    firebim:hasOriginalText """# Wanden
 
-# Boven de vloer van Ei
+# Boven de <a href=\"http://example.com/firebimbuilding#Floor\">vloer</a> van Ei
 
-|Type|<a href="http://example.com/firebim#FireResistance">Brandweerstand</a>|
+|Type|<a href=\"http://example.com/firebimbuilding#FireResistance\">Brandweerstand</a>|
 |---|---|
-|Eén bouwlaag|EI 30|
-|Meerdere bouwlagen|EI 60|
-|Onder E,i met inbegrip van de vloer van Ei|EI 60|
+|Eén <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a>|EI 30|
+|Meerdere <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a>|EI 60|
+|Onder E,i met inbegrip van de <a href=\"http://example.com/firebimbuilding#Floor\">vloer</a> van Ei|EI 60|
 
-Tabel 2.3 – <a href="http://example.com/firebim#FireResistance">Brandweerstand</a> van <a href="http://example.com/firebim#Section">wanden</a> tussen <a href="http://example.com/firebim#Compartment">compartimenten</a>."""@nl .
+Tabel 2.3 – <a href=\"http://example.com/firebimbuilding#FireResistance\">Brandweerstand</a> van <a href=\"http://example.com/firebimbuilding#SeparationWall\">wanden</a> tussen <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a>."""@nl .
 
 firebim:Article_4_1_2 a firebim:Article ;
     firebim:hasID "A4.1.2" ;
     firebim:hasMember firebim:Member_4_1_2_1 .
 
 firebim:Member_4_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText """De verbinding tussen twee <a href="http://example.com/firebim#Compartment">compartimenten</a> is slechts toegestaan indien zij geschiedt via een zelfsluitende of bij brand zelfsluitende <a href="http://example.com/firebim#Door">deur</a> EI1 30."""@nl .
-
-firebim:Section_4 firebim:hasSection firebim:Section_4_1 .
+    firebim:hasOriginalText """De verbinding tussen twee <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> is slechts toegestaan indien zij geschiedt via een <a href=\"http://example.com/firebimbuilding#IsSelfClosing\">zelfsluitende</a> of bij brand <a href=\"http://example.com/firebimbuilding#IsFireActivatedClosing\">zelfsluitende</a> <a href=\"http://example.com/firebimbuilding#Door\">deur</a> EI1 30."""@nl .

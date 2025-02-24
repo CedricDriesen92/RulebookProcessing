@@ -7,22 +7,20 @@
 @base <http://example.com/firebim> .
 
 firebim:Section_0_1 a firebim:Section ;
-    firebim:hasID "0_1" ;
+    firebim:hasID "0.1" ;
     firebim:hasOriginalText "Doel."@nl ;
     firebim:hasArticle firebim:Article_0_1_1 .
 
 firebim:Article_0_1_1 a firebim:Article ;
-    firebim:hasID "A0_1_1" ;
-    firebim:hasOriginalText """Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de <a>document</a>, de bouw en de inrichting van lage gebouwen (LG) moeten voldoen om:"""@nl ;
-    firebim:hasMember firebim:Member_0_1_1_1,
-        firebim:Member_0_1_1_2,
-        firebim:Member_0_1_1_3 .
+    firebim:hasID "A0.1.1" ;
+    firebim:hasOriginalText """Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de <a href="http://example.com/firebimbuilding#Building">bouw</a> en de inrichting van lage gebouwen (LG) moeten voldoen om:"""@nl ;
+    firebim:hasMember firebim:Member_0_1_1_1, firebim:Member_0_1_1_2, firebim:Member_0_1_1_3 .
 
 firebim:Member_0_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "-    het ontstaan, de ontwikkeling en de voortplanting van <a href='http://example.com/firebim#DocumentSubdivision'>brand</a> te voorkomen;"@nl .
+    firebim:hasOriginalText "het ontstaan, de ontwikkeling en de voortplanting van <a href=\"http://example.com/firebimbuilding#FireResistance\">brand</a> te voorkomen;"@nl .
 
 firebim:Member_0_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "-    de veiligheid van de aanwezigen te waarborgen;"@nl .
+    firebim:hasOriginalText "de <a href=\"http://example.com/firebimbuilding#OccupantSafety\">veiligheid van de aanwezigen</a> te waarborgen;"@nl .
 
 firebim:Member_0_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "-    preventief het ingrijpen van de <a href='http://example.com/firebim#Authority'>brandweer</a> te vergemakkelijken."@nl .
+    firebim:hasOriginalText "preventief het ingrijpen van de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a> te vergemakkelijken."@nl .

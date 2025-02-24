@@ -15,22 +15,26 @@ firebim:Section_3 firebim:hasSection firebim:Section_3_3 .
 
 firebim:Article_3_3_1 a firebim:Article ;
     firebim:hasID "A3.3.1" ;
-    firebim:hasMember firebim:Member_3_3_1_1, firebim:Member_3_3_1_2, firebim:Member_3_3_1_3 ;
+    firebim:hasMember firebim:Member_3_3_1_1,
+        firebim:Member_3_3_1_2,
+        firebim:Member_3_3_1_3 ;
     firebim:hasTable firebim:Table_2_2 .
 
 firebim:Member_3_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Voor de <a href="http://example.com/firebim#Wall">wanden</a> en de <a href="http://example.com/firebim#Door">deuren</a>, die <a href="http://example.com/firebim#Compartment">compartimenten</a> afbakenen, geldt 4.1; bakenen zij <a href="http://example.com/firebim#EvacuationRoute">evacuatiewegen</a> af dan geldt 4.4."""@nl ;
-    firebim:hasForwardReference firebim:Section_4_1, firebim:Section_4_4 .
+    firebim:hasOriginalText """Voor de <a href="http://example.com/firebimbuilding#Wall">wanden</a> en de <a href="http://example.com/firebimbuilding#Door">deuren</a>, die <a href="http://example.com/firebimbuilding#Compartment">compartimenten</a> afbakenen, geldt 4.1; bakenen zij <a href="http://example.com/firebimbuilding#EvacuationRoute">evacuatiewegen</a> af dan geldt 4.4."""@nl ;
+    firebim:hasForwardReference firebim:Section_4_1,
+        firebim:Section_4_4 .
 
 firebim:Member_3_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De verticale binnen<a href="http://example.com/firebim#Wall">wanden</a> die lokalen of het geheel van lokalen met nachtbezetting afbakenen hebben een <a href="http://example.com/firebim#FireResistance">brandweerstand</a>, aangegeven in tabel 2.2."""@nl .
+    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#InnerWall">verticale binnenwanden</a> die <a href="http://example.com/firebimbuilding#Room">lokalen</a> of het geheel van lokalen met <a href="http://example.com/firebimbuilding#NightOccupancy">nachtbezetting</a> afbakenen hebben een <a href="http://example.com/firebimbuilding#FireResistance">brandweerstand</a>, aangegeven in tabel 2.2."""@nl .
 
 firebim:Member_3_3_1_3 a firebim:Member ;
-    firebim:hasOriginalText "De <a href=\"http://example.com/firebim#Door\">deuren</a> in deze <a href=\"http://example.com/firebim#Wall\">wanden</a> hebben EI1 30."@nl .
+    firebim:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> in deze <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> hebben EI1 30."@nl .
 
 firebim:Table_2_2 a firebim:Table ;
     firebim:hasID "T2.2" ;
-    firebim:hasOriginalText """|Wanden|Boven de vloer van Ei|Eén bouwlaag|Meerdere bouwlagen|Onder E,i|met inbegrip van de vloer van Ei|
+    firebim:hasOriginalText """
+|Wanden|Boven de vloer van Ei|Eén bouwlaag|Meerdere bouwlagen|Onder E,i|met inbegrip van de vloer van Ei|
 |---|---|---|---|---|---|
 | |EI 30|EI 60|EI 60| | |
 

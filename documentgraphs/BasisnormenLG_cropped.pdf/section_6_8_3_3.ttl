@@ -1,0 +1,12 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_8_3_3 a firebim:Section ;
+    firebim:hasID "6.8.3.3" ;
+    firebim:hasOriginalText """Elk <a href="http://example.com/firebimbuilding#FireAlarmDevice">toestel</a> dat de <a href="http://example.com/firebimbuilding#CommunicationDevice">verbinding</a> tot stand kan brengen mits <a href="http://example.com/firebimbuilding#RequiresHumanIntervention">menselijke interventie</a>, draagt een bericht over zijn bestemming en gebruiksaanwijzing.
+Gaat het om een <a href="http://example.com/firebimbuilding#Telephone">telefoontoestel</a>, dan vermeldt dit bericht het te vormen oproepnummer, tenzij de <a href="http://example.com/firebimbuilding#CommunicationDevice">verbinding</a> <a href="http://example.com/firebimbuilding#IsDirectConnection">rechtstreeks</a> of <a href="http://example.com/firebimbuilding#IsAutomaticConnection">automatisch</a> geschiedt."""@nl .

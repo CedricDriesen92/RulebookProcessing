@@ -11,21 +11,29 @@ firebim:Section_3_5_1_2 a firebim:Section ;
     firebim:hasOriginalText "Tegenover elkaar staande gevels en gevels die een tweevlakshoek vormen"@nl ;
     firebim:hasArticle firebim:Article_3_5_1_2_1 .
 
+firebim:Section_3_5 firebim:hasSection firebim:Section_3_5_1_2 .
+
 firebim:Article_3_5_1_2_1 a firebim:Article ;
     firebim:hasID "A3.5.1.2.1" ;
-    firebim:hasOriginalText "Om te vermijden dat een brand tussen twee <a href=\"http://example.com/firebim#Compartment\">compartimenten</a> kan overslaan:"@nl ;
+    firebim:hasOriginalText "Om te vermijden dat een brand tussen twee compartimenten kan overslaan:"@nl ;
     firebim:hasMember firebim:Member_3_5_1_2_1_1 .
 
 firebim:Member_3_5_1_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """a) ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de afstand (in m) tussen de geveldelen die niet minstens E 30 of E 30 (o→i) hebben, ten minste:
+    firebim:hasMember firebim:Member_3_5_1_2_1_1_1,
+        firebim:Member_3_5_1_2_1_1_2,
+        firebim:Member_3_5_1_2_1_1_3 .
 
-- h + 10cos α voor 0° ≤ α ≤ 90°
+firebim:Member_3_5_1_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """a) ofwel, als <a href=\"http://example.com/firebimbuilding#Facade\">gevels</a> tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de <a href=\"http://example.com/firebimbuilding#DistanceBetweenBuildings\">afstand</a> (in m) tussen de <a href=\"http://example.com/firebimbuilding#Facade\">geveldelen</a> die niet minstens E 30 of E 30 (o→i) hebben, ten minste:"""@nl .
+
+firebim:Member_3_5_1_2_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """- h + 10cos α voor 0° ≤ α ≤ 90°
 - 2,5
-- 0 voor 90° < α ≤ 180°
+- 0 voor 90° < α ≤ 180°"""@nl .
 
-waarbij α de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.2)."""@nl ;
+firebim:Member_3_5_1_2_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """waarbij α de ingesloten <a href=\"http://example.com/firebimbuilding#Angle\">hoek</a> is en h de <a href=\"http://example.com/firebimbuilding#BuildingHeight\">hoogte van het gebouw</a> in m (zie plaat 2.2)."""@nl ;
     firebim:hasFigure firebim:Figure_2_2 .
 
 firebim:Figure_2_2 a firebim:Figure ;
-    firebim:hasID "F2.2" ;
-    firebim:hasOriginalText "Plaat 2.2 - Gevels tussen compartimenten"@nl .
+    firebim:hasID "F2.2" .

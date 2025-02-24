@@ -1,0 +1,34 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_1_2_4 a firebim:Section ;
+    firebim:hasID "6.1.2.4" ;
+    firebim:hasOriginalText "Liften en goederenliften waarvan de aandrijving zich in een machinekamer bevindt."@nl ;
+    firebim:hasArticle firebim:Article_6_1_2_4_1 .
+
+firebim:Section_6_1_2 firebim:hasSection firebim:Section_6_1_2_4 .
+
+firebim:Article_6_1_2_4_1 a firebim:Article ;
+    firebim:hasID "A6.1.2.4.1" ;
+    firebim:hasMember firebim:Member_6_1_2_4_1_1,
+        firebim:Member_6_1_2_4_1_2,
+        firebim:Member_6_1_2_4_1_3 .
+
+firebim:Member_6_1_2_4_1_1 a firebim:Member ;
+    firebim:hasOriginalText """<a href=\"http://example.com/firebimbuilding#Elevator\">Liften</a> en <a href=\"http://example.com/firebimbuilding#Elevator\">goederenliften</a> waarvan de aandrijving zich in een <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamer</a> bevindt."""@nl .
+
+firebim:Member_6_1_2_4_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#InnerWall\">binnenwanden</a> van de <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamer</a> die niet uitgeven op de <a href=\"http://example.com/firebimbuilding#ElevatorShaft\">schacht</a> hebben <a href=\"http://example.com/firebimbuilding#WallFireResistance\">EI 60</a>."""@nl .
+
+firebim:Member_6_1_2_4_1_3 a firebim:Member ;
+    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> of <a href=\"http://example.com/firebimbuilding#ShaftHatch\">valluiken</a> in deze <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> hebben <a href=\"http://example.com/firebimbuilding#DoorFireResistance\">EI1 30</a>."""@nl .
+
+firebim:Article_6_1_2_4_1 firebim:hasMember firebim:Member_6_1_2_4_1_4 .
+
+firebim:Member_6_1_2_4_1_4 a firebim:Member ;
+    firebim:hasOriginalText """De brandweer is verzekerd van de <a href=\"http://example.com/firebimbuilding#FirefighterAccessibility\">toegang</a> tot de <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamer</a>."""@nl .

@@ -15,17 +15,17 @@ firebim:Article_5_1_1_1 a firebim:Article ;
     firebim:hasID "A5.1.1.1" ;
     firebim:hasMember firebim:Member_5_1_1_1_1,
         firebim:Member_5_1_1_1_2,
-        firebim:Member_5_1_1_1_3 .
+        firebim:Member_5_1_1_1_3,
+        firebim:Member_5_1_1_1_4 .
 
 firebim:Member_5_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Een <a href="http://example.com/firebim#Section">technisch lokaal</a> of een geheel van <a href="http://example.com/firebim#Section">technische lokalen</a> vormt een <a href="http://example.com/firebim#Section">compartiment</a>."""@nl .
+    firebim:hasOriginalText """Een <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">technisch lokaal</a> of een geheel van <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">technische lokalen</a> vormt een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>."""@nl .
 
 firebim:Member_5_1_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Dit <a href="http://example.com/firebim#Section">compartiment</a> kan over verscheidene opeenvolgende <a href="http://example.com/firebim#Section">bouwlagen</a> reiken."""@nl .
+    firebim:hasOriginalText """Dit <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> kan over verscheidene opeenvolgende <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> reiken."""@nl .
 
 firebim:Member_5_1_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Voor de <a href="http://example.com/firebim#Section">technische lokalen</a> gelden de voorschriften inzake de <a href="http://example.com/firebim#Section">compartimenten</a> mits volgende wijzigingen:"""@nl ;
-    firebim:hasMember firebim:Member_5_1_1_1_3_1 .
+    firebim:hasOriginalText """Voor de <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">technische lokalen</a> gelden de voorschriften inzake de <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> mits volgende wijzigingen:"""@nl .
 
-firebim:Member_5_1_1_1_3_1 a firebim:Member ;
-    firebim:hasOriginalText """1. toegang tot twee <a href="http://example.com/firebim#Section">uitgangen</a> die leiden:"""@nl .
+firebim:Member_5_1_1_1_4 a firebim:Member ;
+    firebim:hasOriginalText "1. toegang tot twee <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> die leiden:"@nl .

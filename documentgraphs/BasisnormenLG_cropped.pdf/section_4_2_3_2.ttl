@@ -8,19 +8,16 @@
 
 firebim:Section_4_2_3_2 a firebim:Section ;
     firebim:hasID "4.2.3.2" ;
-    firebim:hasOriginalText "Nuttige breedte van traparmen, overlopen en sassen."@nl ;
+    firebim:hasOriginalText "Nuttige breedte van <a href=\"http://example.com/firebimbuilding#Staircase\">traparmen</a>, <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> en sassen."@nl ;
     firebim:hasArticle firebim:Article_4_2_3_2_1 .
 
 firebim:Article_4_2_3_2_1 a firebim:Article ;
     firebim:hasID "A4.2.3.2.1" ;
-    firebim:hasMember firebim:Member_4_2_3_2_1_1, firebim:Member_4_2_3_2_1_2 .
+    firebim:hasMember firebim:Member_4_2_3_2_1_1,
+        firebim:Member_4_2_3_2_1_2 .
 
 firebim:Member_4_2_3_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Deze nuttige breedte is ten minste gelijk aan 0,80 m en bereikt ten minste de vereiste nuttige breedte br berekend volgens <a href="http://example.com/firebim#Appendix">bijlage 1 "Terminologie"</a>."""@nl ;
-    firebim:hasReference firebim:Reference_Bijlage_1 .
+    firebim:hasOriginalText """Deze <a href=\"http://example.com/firebimbuilding#UsefulWidth\">nuttige breedte</a> is ten minste gelijk aan 0,80 m en bereikt ten minste de vereiste <a href=\"http://example.com/firebimbuilding#RequiredUsefulWidth\">nuttige breedte</a> br berekend volgens bijlage 1 "Terminologie"."""@nl .
 
 firebim:Member_4_2_3_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De traparmen en de overlopen der <a href="http://example.com/firebim#Staircase">trappenhuizen</a> van één zelfde <a href="http://example.com/firebim#Compartment">compartiment</a> mogen in hun nuttige breedte niet meer dan één doorgangseenheid verschillen."""@nl .
-
-firebim:Reference_Bijlage_1 a firebim:Reference ;
-    firebim:hasID "Bijlage 1 \"Terminologie\"" .
+    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#Staircase\">traparmen</a> en de <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> der <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> van één zelfde <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> mogen in hun <a href=\"http://example.com/firebimbuilding#UsefulWidth\">nuttige breedte</a> niet meer dan één doorgangseenheid verschillen."""@nl .

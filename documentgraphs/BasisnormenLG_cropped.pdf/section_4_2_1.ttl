@@ -8,12 +8,5 @@
 
 firebim:Section_4_2_1 a firebim:Section ;
     firebim:hasID "4.2.1" ;
-    firebim:hasOriginalText "Algemeen"@nl ;
-    firebim:hasArticle firebim:Article_4_2_1_1 .
-
-firebim:Article_4_2_1_1 a firebim:Article ;
-    firebim:hasID "A4.2.1.1" ;
-    firebim:hasMember firebim:Member_4_2_1_1_1 .
-
-firebim:Member_4_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebim#Section">trappen</a> die verscheidene <a href="http://example.com/firebim#Compartment">compartimenten</a> verbinden zijn omsloten. De grondbeginselen van "<a href="http://example.com/firebim#Section">Compartimentering en evacuatie</a>" zijn erop van toepassing."""@nl .
+    firebim:hasOriginalText """Algemeen
+De <a href="http://example.com/firebimbuilding#Staircase">trappen</a> die verscheidene <a href="http://example.com/firebimbuilding#Compartment">compartimenten</a> verbinden zijn omsloten. De grondbeginselen van "<a href="http://example.com/firebimbuilding#Compartment">Compartimentering</a> en <a href="http://example.com/firebimbuilding#EvacuationRoute">evacuatie</a>" zijn erop van toepassing."""@nl .

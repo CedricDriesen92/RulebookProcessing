@@ -19,8 +19,8 @@ firebim:Article_1_1_1 a firebim:Article ;
         firebim:Member_1_1_1_2 .
 
 firebim:Member_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Voor de <a href="http://example.com/firebim#DocumentSubdivision">gebouwen met één bouwlaag</a> moeten de voertuigen van de brandweer ten minste tot op 60 m van een <a href="http://example.com/firebim#Section">gevel van het gebouw</a> kunnen naderen."""@nl .
+    firebim:hasOriginalText """Voor de <a href="http://example.com/firebimbuilding#Building">gebouwen</a> met één bouwlaag moeten de voertuigen van de brandweer ten minste tot op 60 m van een <a href="http://example.com/firebimbuilding#Facade">gevel</a> van het <a href="http://example.com/firebimbuilding#Building">gebouw</a> kunnen naderen."""@nl .
 
 firebim:Member_1_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Voor de <a href="http://example.com/firebim#DocumentSubdivision">gebouwen met meer dan één bouwlaag</a> moeten de voertuigen van de brandweer ten minste in één punt een <a href="http://example.com/firebim#Section">gevel</a> kunnen bereiken die op herkenbare plaatsen <a href="http://example.com/firebim#Section">toegang</a> geeft tot
-iedere <a href="http://example.com/firebim#Section">bouwlaag</a>."""@nl .
+    firebim:hasOriginalText """Voor de <a href="http://example.com/firebimbuilding#Building">gebouwen</a> met meer dan één bouwlaag moeten de voertuigen van de brandweer ten minste in één punt een <a href="http://example.com/firebimbuilding#Facade">gevel</a> kunnen bereiken die op herkenbare plaatsen toegang geeft tot
+iedere <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a>."""@nl .

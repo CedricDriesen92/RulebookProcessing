@@ -13,23 +13,23 @@ firebim:Section_2_2_1 a firebim:Section ;
 
 firebim:Article_2_2_1_1 a firebim:Article ;
     firebim:hasID "A2.2.1.1" ;
-    firebim:hasMember firebim:Member_2_2_1_1_1 .
+    firebim:hasMember firebim:Member_2_2_1_1_1, firebim:Member_2_2_1_1_2, firebim:Member_2_2_1_1_3 .
 
 firebim:Member_2_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Elk <a href=\"http://example.com/firebim#Compartment\">compartiment</a> heeft minimum:"@nl ;
+    firebim:hasOriginalText """Elk <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> heeft minimum:"""@nl ;
     firebim:hasMember firebim:Member_2_2_1_1_1_1, firebim:Member_2_2_1_1_1_2, firebim:Member_2_2_1_1_1_3 .
 
 firebim:Member_2_2_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "- één <a href=\"http://example.com/firebim#Exit\">uitgang</a> indien de maximale bezetting minder dan 100 personen bedraagt;"@nl .
+    firebim:hasOriginalText """- één <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a> indien de maximale <a href=\"http://example.com/firebimbuilding#Occupancy\">bezetting</a> minder dan 100 personen bedraagt;"""@nl .
 
 firebim:Member_2_2_1_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "- twee <a href=\"http://example.com/firebim#Exit\">uitgangen</a> indien de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt;"@nl .
+    firebim:hasOriginalText """- twee <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> indien de <a href=\"http://example.com/firebimbuilding#Occupancy\">bezetting</a> 100 of meer dan 100 en minder dan 500 personen bedraagt;"""@nl .
 
 firebim:Member_2_2_1_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "- 2 + n <a href=\"http://example.com/firebim#Exit\">uitgangen</a> waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het <a href=\"http://example.com/firebim#Compartment\">compartiment</a>, indien de bezetting 500 of meer dan 500 personen bedraagt."@nl .
+    firebim:hasOriginalText """- 2 + n <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale <a href=\"http://example.com/firebimbuilding#Occupancy\">bezetting</a> van het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>, indien de <a href=\"http://example.com/firebimbuilding#Occupancy\">bezetting</a> 500 of meer dan 500 personen bedraagt."""@nl .
 
 firebim:Member_2_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "Het minimum aantal <a href=\"http://example.com/firebim#Exit\">uitgangen</a> kan door de brandweer verhoogd worden in functie van de bezetting en de configuratie van de <a href=\"http://example.com/firebim#Section\">lokalen</a>."@nl .
+    firebim:hasOriginalText """Het minimum aantal <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> kan door de brandweer verhoogd worden in functie van de <a href=\"http://example.com/firebimbuilding#Occupancy\">bezetting</a> en de configuratie van de <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a>."""@nl .
 
 firebim:Member_2_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "Het aantal <a href=\"http://example.com/firebim#Exit\">uitgangen</a> van bouwlagen en <a href=\"http://example.com/firebim#Section\">lokalen</a> wordt bepaald zoals voor de <a href=\"http://example.com/firebim#Compartment\">compartimenten</a>."@nl .
+    firebim:hasOriginalText """Het aantal <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> van <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> en <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> wordt bepaald zoals voor de <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a>."""@nl .

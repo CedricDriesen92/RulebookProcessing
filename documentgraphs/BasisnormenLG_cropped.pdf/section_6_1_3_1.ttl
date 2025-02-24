@@ -1,0 +1,28 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_1_3_1 a firebim:Section ;
+    firebim:hasID "6.1.3.1" ;
+    firebim:hasOriginalText "DE SCHACHT, DE MACHINEKAMER OF HET GEHEEL SCHACHT EN MACHINEKAMER WORDEN OP EEN NATUURLIJKE MANIER VERLUCHT VIA BUITENLUCHTMONDEN IN HET BOVENSTE GEDEELTE."@nl ;
+    firebim:hasArticle firebim:Article_6_1_3_1_1 .
+
+firebim:Article_6_1_3_1_1 a firebim:Article ;
+    firebim:hasID "A6.1.3.1.1" ;
+    firebim:hasMember firebim:Member_6_1_3_1_1_1,
+        firebim:Member_6_1_3_1_1_2 .
+
+firebim:Member_6_1_3_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#Shaft">schacht</a>, de <a href="http://example.com/firebimbuilding#MachineRoom">machinekamer</a> of het geheel <a href="http://example.com/firebimbuilding#Shaft">schacht</a> en <a href="http://example.com/firebimbuilding#MachineRoom">machinekamer</a> worden op een natuurlijke manier verlucht via <a href="http://example.com/firebimbuilding#FacadeVentilationOpening">buitenluchtmonden</a> in het bovenste gedeelte."""@nl .
+
+firebim:Member_6_1_3_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#Shaft">schacht</a> of het geheel <a href="http://example.com/firebimbuilding#Shaft">schacht</a> en <a href="http://example.com/firebimbuilding#MachineRoom">machinekamer</a> mogen echter verlucht worden via <a href="http://example.com/firebimbuilding#FacadeVentilationOpening">binnenluchtmonden</a> op voorwaarde dat de opvatting van de <a href="http://example.com/firebimbuilding#Elevator">lift</a> of goederenlift voldoet aan:
+
+- ofwel het geval beschreven in a) van punt 6.1.2.3;
+- ofwel het geval beschreven in b) van punt 6.1.2.3 in zoverre dat de bouwla(a)g(en) waar de voorschriften van de punten 6.1.2.1 en 6.1.2.2 niet zijn vereist, zich boven de overige bouwlagen bevind(t)(en)."""@nl .
+
+firebim:Section_6_1_3 firebim:hasSection firebim:Section_6_1_3_1 .

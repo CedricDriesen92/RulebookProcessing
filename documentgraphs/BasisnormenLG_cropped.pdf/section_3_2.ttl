@@ -11,15 +11,10 @@ firebim:Section_3_2 a firebim:Section ;
     firebim:hasOriginalText "Structurele elementen."@nl ;
     firebim:hasArticle firebim:Article_3_2_1 .
 
-firebim:Section_3 firebim:hasSection firebim:Section_3_2 .
-
 firebim:Article_3_2_1 a firebim:Article ;
     firebim:hasID "A3.2.1" ;
-    firebim:hasMember firebim:Member_3_2_1_1 ;
+    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#StructuralElement">structurele elementen</a> beschikken, in functie van hun situatie, over een <a href="http://example.com/firebimbuilding#FireResistance">brandweerstand</a> zoals weergegeven in tabel 2.1, waarin Ei het laagst gelegen <a href="http://example.com/firebimbuilding#EvacuationLevel">evacuatieniveau</a> voorstelt."""@nl ;
     firebim:hasTable firebim:Table_2_1 .
-
-firebim:Member_3_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De structurele elementen beschikken, in functie van hun situatie, over een <a href="http://example.com/firebim#FireResistance">brandweerstand</a> zoals weergegeven in tabel 2.1, waarin Ei het laagst gelegen evacuatieniveau voorstelt."""@nl .
 
 firebim:Table_2_1 a firebim:Table ;
     firebim:hasID "T2.1" .

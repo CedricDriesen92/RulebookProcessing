@@ -1,0 +1,25 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_1_3_2 a firebim:Section ;
+    firebim:hasID "5.1.3.2" ;
+    firebim:hasOriginalText "Ter plaatse gemonteerde posten of prefab-posten."@nl ;
+    firebim:hasArticle firebim:Article_5_1_3_2_1 .
+
+firebim:Section_5_1 firebim:hasSection firebim:Section_5_1_3_2 .
+
+firebim:Article_5_1_3_2_1 a firebim:Article ;
+    firebim:hasID "A5.1.3.2.1" ;
+    firebim:hasMember firebim:Member_5_1_3_2_1_1,
+        firebim:Member_5_1_3_2_1_2 .
+
+firebim:Member_5_1_3_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Een ter plaatse gemonteerde post of een prefab-post wordt opgesteld in een daartoe bestemd <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">lokaal</a>, met <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> EI 60."""@nl .
+
+firebim:Member_5_1_3_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#AccessToEvacuationLevel\">toegang</a>, zo die niet van buitenaf geschiedt, gaat via een <a href=\"http://example.com/firebimbuilding#Door\">deur</a> EI1 30."""@nl .

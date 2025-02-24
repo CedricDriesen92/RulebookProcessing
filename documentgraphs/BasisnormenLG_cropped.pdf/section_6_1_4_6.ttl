@@ -1,0 +1,12 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_1_4_6 a firebim:Section ;
+    firebim:hasID "6.1.4.6" ;
+    firebim:hasOriginalText """Wanneer de <a href="http://example.com/firebimbuilding#Elevator">liften</a> bij <a href="http://example.com/firebimbuilding#Fire">brand</a> op het aangeduide <a href="http://example.com/firebimbuilding#Landing">bordes</a> staan, moet de mogelijkheid bestaan dat de <a href="http://example.com/firebimbuilding#Firefighter">brandweer</a> gemakkelijk kan controleren dat de <a href="http://example.com/firebimbuilding#ElevatorCar">liftkooien</a> daar staan en dat niemand in de <a href="http://example.com/firebimbuilding#Elevator">lift</a> opgesloten is.
+<a href="http://example.com/firebimbuilding#Elevator">Liften</a> die, bij hun komst op het aangeduide <a href="http://example.com/firebimbuilding#Landing">bordes</a>, met open <a href="http://example.com/firebimbuilding#Door">deuren</a> stilstaan en buiten normale werking worden gesteld, voldoen aan deze vereiste."""@nl .

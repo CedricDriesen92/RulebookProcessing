@@ -1,0 +1,12 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_4_2 a firebim:Section ;
+    firebim:hasID "6.4.2" ;
+    firebim:hasOriginalText """<a href=\"http://example.com/firebimbuilding#FirefighterElevator\">Liften bestemd voor de brandweer</a>
+Als het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> uitgerust is met een of meer <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> bestemd voor de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a>, moet deze voldoen aan de volgende <a href=\"http://example.com/firebimbuilding#FirePreventionMeasures\">voorschriften</a> bovenop de voorschriften opgenomen in punt 6.1."""@nl .

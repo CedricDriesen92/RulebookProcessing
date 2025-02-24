@@ -1,5 +1,6 @@
 import os
-from rdflib import Graph, RDF, Namespace, URIRef
+import re
+from rdflib import Graph, RDF, Namespace, URIRef, Literal
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -22,6 +23,7 @@ FIREBIM = Namespace("http://example.com/firebim#")
 
 input_file = os.getenv("INPUT_FILE")
 document_name = f"documentgraphs/{input_file}"
+
 def combine_ttl_files(document_name):
     input_folder = document_name
     combined_graph = Graph()
@@ -30,25 +32,26 @@ def combine_ttl_files(document_name):
     for ttl_file in os.listdir(input_folder):
         if ttl_file.endswith('.ttl') and ttl_file != 'combined.ttl':
             file_path = os.path.join(input_folder, ttl_file)
-            section_number = ttl_file.replace('.ttl', '').replace('section_', '') # Extract section number from filename
-            section_graph = Graph() # Create a graph for each section
+            section_graph = Graph()
             section_graph.parse(file_path, format='turtle')
 
-            # Apply keywords to the section graph
-            if section_number in keyword_mapping:
-                section_uri = None  # URI of the section, needs to be extracted from the graph
-                for s, p, o in section_graph.triples((None, RDF.type, FIREBIM.Section)): # Assuming sections are of type firebim:Section
-                    section_uri = s # Assuming there is only one section per file, or we take the first one
-
-                if section_uri: # Only proceed if a section URI is found in the graph
-                    for keyword_str in keyword_mapping[section_number]:
-                        keyword_uri = URIRef(FIREBIM[keyword_str.replace(' ', '_')])
-                        section_graph.add((keyword_uri, RDF.type, FIREBIM.Keyword))
-                        section_graph.add((section_uri, FIREBIM.hasKeyword, keyword_uri))
-
+            # Process all entities that might have text content
+            for s, p, o in section_graph.triples((None, FIREBIM.hasOriginalText, None)):
+                text = str(o)
+                # Find all href links in the text using regex
+                href_pattern = r'href="http://example\.com/firebimbuilding#([^"]*)"'
+                matches = re.findall(href_pattern, text)
+                
+                # Add keywords for each match
+                for keyword in matches:
+                    keyword_uri = URIRef(FIREBIM[keyword])
+                    section_graph.add((keyword_uri, RDF.type, FIREBIM.Keyword))
+                    section_graph.add((s, FIREBIM.hasKeyword, keyword_uri))
+                    #print(f"Added keyword {keyword} to {s}")
 
             combined_graph += section_graph # Merge the section graph into the combined graph
 
+    # Serialize the combined graph
     combined_file_path = os.path.join(input_folder, 'combined.ttl')
     combined_graph.serialize(destination=combined_file_path, format='turtle')
     print(f"Combined TTL file created at: {combined_file_path}")

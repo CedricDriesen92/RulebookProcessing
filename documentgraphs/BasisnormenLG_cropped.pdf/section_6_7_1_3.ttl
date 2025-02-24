@@ -1,0 +1,37 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_7_1_3 a firebim:Section ;
+    firebim:hasID "6.7.1.3" ;
+    firebim:hasOriginalText "Beperking van het hergebruik van lucht"@nl ;
+    firebim:hasArticle firebim:Article_6_7_1_3_1 .
+
+firebim:Section_6_7_1 firebim:hasSection firebim:Section_6_7_1_3 .
+
+firebim:Article_6_7_1_3_1 a firebim:Article ;
+    firebim:hasID "A6.7.1.3.1" ;
+    firebim:hasMember firebim:Member_6_7_1_3_1_1,
+        firebim:Member_6_7_1_3_1_2,
+        firebim:Member_6_7_1_3_1_3 .
+
+firebim:Member_6_7_1_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#Air\">lucht</a> afgezogen uit lokalen met een bijzonder brandgevaar, opslagplaats voor ontvlambare producten, <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookplaats</a>, <a href=\"http://example.com/firebimbuilding#Kitchen\">keuken</a>, <a href=\"http://example.com/firebimbuilding#Parking\">garage</a>, <a href=\"http://example.com/firebimbuilding#Parking\">parking</a>, <a href=\"http://example.com/firebimbuilding#TransformerRoom\">transformatorlokaal</a>, <a href=\"http://example.com/firebimbuilding#WasteStorageRoom\">lokaal voor de opslag van vuilnis</a>, mag niet opnieuw worden rondgestuurd en moet naar buiten worden afgevoerd."""@nl .
+
+firebim:Member_6_7_1_3_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#Air\">lucht</a> afgezogen uit andere lokalen mag:"""@nl ;
+    firebim:hasMember firebim:Member_6_7_1_3_1_2_1,
+        firebim:Member_6_7_1_3_1_2_2 .
+
+firebim:Member_6_7_1_3_1_2_1 a firebim:Member ;
+    firebim:hasOriginalText """- ofwel opnieuw rondgestuurd worden naar dezelfde lokalen, op voorwaarde dat in het recyclagekanaal een <a href=\"http://example.com/firebimbuilding#SmokeValve\">rookklep</a> conform punt 6.7.5 wordt geplaatst;"""@nl .
+
+firebim:Member_6_7_1_3_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText """- ofwel ingeblazen worden in nog andere lokalen om er als compensatielucht te dienen voor mechanische extractiesystemen met rechtstreekse afvoer naar buiten, op voorwaarde dat bijkomend een <a href=\"http://example.com/firebimbuilding#SmokeValve\">rookklep</a> en een <a href=\"http://example.com/firebimbuilding#AirDuct\">kanaalsysteem</a> voor rechtstreekse afvoer naar buiten van deze recyclagelucht wordt voorzien."""@nl .
+
+firebim:Member_6_7_1_3_1_3 a firebim:Member ;
+    firebim:hasOriginalText """In beide gevallen moet een <a href=\"http://example.com/firebimbuilding#SmokeDetection\">rookdetectie</a> worden geïnstalleerd in de recyclagelucht voor de <a href=\"http://example.com/firebimbuilding#SmokeValve\">rookklep</a>. Als er <a href=\"http://example.com/firebimbuilding#Smoke\">rook</a> wordt gedetecteerd in de recyclagelucht worden de"""@nl .

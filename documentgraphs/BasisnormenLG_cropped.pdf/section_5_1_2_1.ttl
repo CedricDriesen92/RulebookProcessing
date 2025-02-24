@@ -8,55 +8,54 @@
 
 firebim:Section_5_1_2_1 a firebim:Section ;
     firebim:hasID "5.1.2.1" ;
-    firebim:hasOriginalText "Stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan of gelijk aan 75 kW en brandstofopslagruimtes"@nl ;
+    firebim:hasOriginalText "Stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan of gelijk aan 75 kW en brandstofopslagruimtes" ;
     firebim:hasArticle firebim:Article_5_1_2_1_1 .
 
 firebim:Article_5_1_2_1_1 a firebim:Article ;
     firebim:hasID "A5.1.2.1.1" ;
-    firebim:hasOriginalText """De stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan of gelijk aan 75 kW en de brandstofopslagruimtes, zijn <a href="http://example.com/firebim#Section">technische lokalen</a>.
+    firebim:hasOriginalText """De stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan of gelijk aan 75 kW en de brandstofopslagruimtes, zijn <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">technische lokalen</a>.
 
 De voorschriften van punt 5.1.1 zijn van toepassing, mits volgende wijzigingen:"""@nl ;
     firebim:hasMember firebim:Member_5_1_2_1_1_1,
         firebim:Member_5_1_2_1_1_2,
         firebim:Member_5_1_2_1_1_3,
-        firebim:Member_5_1_2_1_1_4,
-        firebim:Member_5_1_2_1_1_5 .
+        firebim:Member_5_1_2_1_1_4 .
 
 firebim:Member_5_1_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """- Elke stooklokaal en brandstofopslagruimte moet een afzonderlijk <a href="http://example.com/firebim#Compartment">compartiment</a> vormen;"""@nl .
+    firebim:hasOriginalText "-    Elke stooklokaal en brandstofopslagruimte moet een afzonderlijk <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> vormen;"@nl .
 
 firebim:Member_5_1_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """- De <a href="http://example.com/firebim#VerticalSurface">binnenwanden</a> van deze stooklokalen en brandstofopslagruimtes <a href="http://example.com/firebim#FireResistance">EI 60</a> hebben;"""@nl .
+    firebim:hasOriginalText "-    De <a href=\"http://example.com/firebimbuilding#InnerWall\">binnenwanden</a> van deze stooklokalen en brandstofopslagruimtes EI 60 hebben;"@nl .
 
 firebim:Member_5_1_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """- Toegang tot deze stooklokalen en brandstofopslagruimtes:"""@nl ;
+    firebim:hasOriginalText "-    Toegang tot deze stooklokalen en brandstofopslagruimtes:"@nl ;
     firebim:hasMember firebim:Member_5_1_2_1_1_3_1,
         firebim:Member_5_1_2_1_1_3_2,
         firebim:Member_5_1_2_1_1_3_3 .
 
 firebim:Member_5_1_2_1_1_3_1 a firebim:Member ;
-    firebim:hasOriginalText """- Hetzij via een zelfsluitende <a href="http://example.com/firebim#Door">deur</a> <a href="http://example.com/firebim#FireResistance">EI1 60</a>;"""@nl .
+    firebim:hasOriginalText "-    Hetzij via een zelfsluitende <a href=\"http://example.com/firebimbuilding#Door\">deur</a> EI1 60;"@nl .
 
 firebim:Member_5_1_2_1_1_3_2 a firebim:Member ;
-    firebim:hasOriginalText """- Hetzij via een sas met de volgende kenmerken:"""@nl ;
+    firebim:hasOriginalText "-    Hetzij via een <a href=\"http://example.com/firebimbuilding#Airlock\">sas</a> met de volgende kenmerken:"@nl ;
     firebim:hasMember firebim:Member_5_1_2_1_1_3_2_1,
         firebim:Member_5_1_2_1_1_3_2_2,
         firebim:Member_5_1_2_1_1_3_2_3 .
 
 firebim:Member_5_1_2_1_1_3_2_1 a firebim:Member ;
-    firebim:hasOriginalText """1. het bevat zelfsluitende <a href="http://example.com/firebim#Door">deuren</a> <a href="http://example.com/firebim#FireResistance">EI1 30</a>;"""@nl .
+    firebim:hasOriginalText "1.   het bevat zelfsluitende <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> EI1 30;"@nl .
 
 firebim:Member_5_1_2_1_1_3_2_2 a firebim:Member ;
-    firebim:hasOriginalText """2. de <a href="http://example.com/firebim#VerticalSurface">wanden</a> hebben <a href="http://example.com/firebim#FireResistance">EI 60</a>;"""@nl .
+    firebim:hasOriginalText "2.   de <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> hebben EI 60;"@nl .
 
 firebim:Member_5_1_2_1_1_3_2_3 a firebim:Member ;
-    firebim:hasOriginalText """3. de <a href="http://example.com/firebim#Area">oppervlakte</a> bedraagt minimum 2 m²;"""@nl .
+    firebim:hasOriginalText "3.   de <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> bedraagt minimum 2 m²;"@nl .
 
 firebim:Member_5_1_2_1_1_3_3 a firebim:Member ;
-    firebim:hasOriginalText """- Hetzij via een <a href="http://example.com/firebim#Exit">uitgang</a> in open lucht, derwijze dat een <a href="http://example.com/firebim#EvacuationLevel">evacuatieniveau</a> bereikbaar is. De deuren draaien open in de vluchtzin."""@nl .
+    firebim:hasOriginalText """-    Hetzij via een <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">uitgang in open lucht</a>, derwijze dat een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> bereikbaar is.
+De deuren draaien open in de vluchtzin."""@nl .
 
 firebim:Member_5_1_2_1_1_4 a firebim:Member ;
-    firebim:hasOriginalText """- Geen enkel punt van deze stooklokalen en brandstofopslagruimtes mag zich verder bevinden dan 15 m van de dichtstbijzijnde <a href="http://example.com/firebim#Exit">uitgang</a>."""@nl .
+    firebim:hasOriginalText """-    Geen enkel punt van deze stooklokalen en brandstofopslagruimtes mag zich verder bevinden dan 15 m van de dichtstbijzijnde <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a>.
 
-firebim:Member_5_1_2_1_1_5 a firebim:Member ;
-    firebim:hasOriginalText """De capaciteit van een brandstofopslagruimte wordt beperkt zodat de totale <a href="http://example.com/firebim#FireLoad">brandlast</a> van de brandstofopslagruimte kleiner is dan of gelijk aan 750 GJ."""@nl .
+De capaciteit van een brandstofopslagruimte wordt beperkt zodat de totale <a href=\"http://example.com/firebimbuilding#TotalFireLoad\">brandlast</a> van de brandstofopslagruimte kleiner is dan of gelijk aan 750 GJ."""@nl .

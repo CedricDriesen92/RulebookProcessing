@@ -1,0 +1,26 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_1_4_2 a firebim:Section ;
+    firebim:hasID "5.1.4.2" ;
+    firebim:hasArticle firebim:Article_5_1_4_2_1 .
+
+firebim:Article_5_1_4_2_1 a firebim:Article ;
+    firebim:hasID "A5.1.4.2.1" ;
+    firebim:hasMember firebim:Member_5_1_4_2_1_1,
+        firebim:Member_5_1_4_2_1_2,
+        firebim:Member_5_1_4_2_1_3 .
+
+firebim:Member_5_1_4_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """<a href="http://example.com/firebimbuilding#WasteStorageRoom">Lokaal voor de opslag van het huisvuil</a>"""@nl .
+
+firebim:Member_5_1_4_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#Wall">wanden</a> hebben <a href="http://example.com/firebimbuilding#WallFireResistance">EI 60</a>."""@nl .
+
+firebim:Member_5_1_4_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Het <a href="http://example.com/firebimbuilding#Room">lokaal</a> is toegankelijk via een <a href="http://example.com/firebimbuilding#Door">zelfsluitende deur</a> <a href="http://example.com/firebimbuilding#DoorFireResistance">EI1 30</a>."""@nl .

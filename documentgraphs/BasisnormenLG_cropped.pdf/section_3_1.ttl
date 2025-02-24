@@ -17,13 +17,11 @@ firebim:Article_3_1_1 a firebim:Article ;
         firebim:Member_3_1_1_2 .
 
 firebim:Member_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Doorvoeringen doorheen <a href="http://example.com/firebim#Section">wanden</a> van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen van <a href="http://example.com/firebim#Section">wanden</a> mogen de vereiste <a href="http://example.com/firebim#FireResistance">brandweerstand</a> van de <a href="http://example.com/firebim#DocumentSubdivision">bouwelementen</a> niet nadelig beïnvloeden."""@nl .
+    firebim:hasOriginalText """Doorvoeringen doorheen <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> van <a href=\"http://example.com/firebimbuilding#Pipe\">leidingen</a> voor fluïda of voor elektriciteit en de <a href=\"http://example.com/firebimbuilding#ExpansionJoint\">uitzetvoegen</a> van <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> mogen de vereiste <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> van de <a href=\"http://example.com/firebimbuilding#StructuralElement\">bouwelementen</a> niet nadelig beïnvloeden."""@nl .
 
 firebim:Member_3_1_1_2 a firebim:Member ;
     firebim:hasOriginalText """De bepalingen van bijlage 7 “Gemeenschappelijke bepalingen”, hoofdstuk 1, zijn van toepassing."""@nl ;
     firebim:hasReference firebim:Reference_Bijlage_7 .
-
-firebim:Section_3 firebim:hasSection firebim:Section_3_1 .
 
 firebim:Reference_Bijlage_7 a firebim:Reference ;
     firebim:hasID "Bijlage 7" .

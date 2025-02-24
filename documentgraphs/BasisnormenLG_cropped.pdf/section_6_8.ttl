@@ -1,0 +1,19 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_8 a firebim:Section ;
+    firebim:hasID "6.8" ;
+    firebim:hasOriginalText "Inrichtingen voor melding, waarschuwing, alarm en brandbestrijdingsmiddelen."@nl ;
+    firebim:hasArticle firebim:Article_6_8_1 .
+
+firebim:Article_6_8_1 a firebim:Article ;
+    firebim:hasID "A6.8.1" ;
+    firebim:hasMember firebim:Member_6_8_1_1 .
+
+firebim:Member_6_8_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#FireAlarmDevice\">melding</a>, de <a href=\"http://example.com/firebimbuilding#WarningSystem\">waarschuwing</a>, het <a href=\"http://example.com/firebimbuilding#AlarmSystem\">alarm</a> en de <a href=\"http://example.com/firebimbuilding#FirefightingEquipment\">brandbestrijdingsmiddelen</a> worden bepaald in akkoord met de <a href=\"http://example.com/firebimbuilding#FireDepartmentApproval\">brandweer</a>, volgens de volgende leidraad."""@nl .

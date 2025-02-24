@@ -1,0 +1,101 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_1_5_2 a firebim:Section ;
+    firebim:hasID "5.1.5.2" ;
+    firebim:hasOriginalText "Horizontale kokers"@nl ;
+    firebim:hasSection firebim:Section_5_1_5_2_1, firebim:Section_5_1_5_2_2 .
+
+firebim:Section_5_1_5_2_1 a firebim:Section ;
+    firebim:hasID "5.1.5.2.1" ;
+    firebim:hasOriginalText "Horizontale kokers"@nl ;
+    firebim:hasArticle firebim:Article_5_1_5_2_1_1 .
+
+firebim:Article_5_1_5_2_1_1 a firebim:Article ;
+    firebim:hasID "A5.1.5.2.1.1" ;
+    firebim:hasOriginalText """Wanneer <a href=\"http://example.com/firebimbuilding#HorizontalShaft\">horizontale kokers</a> door <a href=\"http://example.com/firebimbuilding#VerticalShaft\">verticale wanden</a> dringen waarvoor een <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> vereist is, geldt één van de volgende drie maatregelen:"""@nl ;
+    firebim:hasMember firebim:Member_5_1_5_2_1_1_1, firebim:Member_5_1_5_2_1_1_2, firebim:Member_5_1_5_2_1_1_3 .
+
+firebim:Member_5_1_5_2_1_1_1 a firebim:Member ;
+    firebim:hasOriginalText """1. de wanden van de <a href=\"http://example.com/firebimbuilding#HorizontalShaft\">horizontale kokers</a> en de valluiken en deurtjes hebben minstens de vereiste <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> van de <a href=\"http://example.com/firebimbuilding#VerticalShaft\">verticale wand</a>;"""@nl .
+
+firebim:Member_5_1_5_2_1_1_2 a firebim:Member ;
+    firebim:hasOriginalText """2. ter hoogte van de doorvoering bevindt zich een <a href=\"http://example.com/firebimbuilding#StructuralElement\">bouwelement</a> met minstens de vereiste <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> van de <a href=\"http://example.com/firebimbuilding#VerticalShaft\">verticale wand</a>;"""@nl .
+
+firebim:Member_5_1_5_2_1_1_3 a firebim:Member ;
+    firebim:hasOriginalText """3. de wanden van de <a href=\"http://example.com/firebimbuilding#HorizontalShaft\">horizontale kokers</a> hebben <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 30</a>; de valluiken en deurtjes <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI1 30</a>; de kokers worden ter hoogte van elk <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> onderbroken door <a href=\"http://example.com/firebimbuilding#ShaftBarrier\">verticale schermen</a> met de volgende kenmerken:"""@nl ;
+    firebim:hasMember firebim:Member_5_1_5_2_1_1_3_1, firebim:Member_5_1_5_2_1_1_3_2, firebim:Member_5_1_5_2_1_1_3_3 .
+
+firebim:Member_5_1_5_2_1_1_3_1 a firebim:Member ;
+    firebim:hasOriginalText "- ze bestaan uit een <a href=\"http://example.com/firebimbuilding#MaterialClass\">materiaal van klasse A1 en/of A2-s1,d0</a>;"@nl .
+
+firebim:Member_5_1_5_2_1_1_3_2 a firebim:Member ;
+    firebim:hasOriginalText "- ze beslaan de gehele ruimte tussen de <a href=\"http://example.com/firebimbuilding#Pipe\">leidingen</a>;"@nl .
+
+firebim:Member_5_1_5_2_1_1_3_3 a firebim:Member ;
+    firebim:hasOriginalText "- ze hebben <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 30</a>."@nl .
+
+firebim:Section_5_1_5_2_2 a firebim:Section ;
+    firebim:hasID "5.1.5.2.2" ;
+    firebim:hasOriginalText "Verticale kokers"@nl ;
+    firebim:hasArticle firebim:Article_5_1_5_2_2_1, firebim:Article_5_1_5_2_2_2 .
+
+firebim:Article_5_1_5_2_2_1 a firebim:Article ;
+    firebim:hasID "A5.1.5.2.2.1" ;
+    firebim:hasOriginalText """# Wanneer <a href=\"http://example.com/firebimbuilding#VerticalShaft\">verticale kokers</a> door <a href=\"http://example.com/firebimbuilding#Wall\">horizontale wanden</a> dringen waarvoor een <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> vereist is, geldt één van de volgende drie maatregelen:"""@nl ;
+    firebim:hasMember firebim:Member_5_1_5_2_2_1_1, firebim:Member_5_1_5_2_2_1_2, firebim:Member_5_1_5_2_2_1_3, firebim:Member_5_1_5_2_2_1_4 .
+
+firebim:Member_5_1_5_2_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """1. de wanden van de <a href=\"http://example.com/firebimbuilding#VerticalShaft\">verticale kokers</a> hebben een <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a>; de valluiken en deurtjes hebben <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI1 30</a>."""@nl .
+
+firebim:Member_5_1_5_2_2_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Zij hebben aan hun boveneind een degelijke <a href=\"http://example.com/firebimbuilding#Ventilation\">verluchting</a>. De vrije <a href=\"http://example.com/firebimbuilding#VentilationDuctCrossSection\">verluchtingsdoorsnede</a> van de koker is ten minste gelijk aan 10% van de totale horizontale doorsnede van de koker, met een minimum van 4 dm²."""@nl .
+
+firebim:Member_5_1_5_2_2_1_3 a firebim:Member ;
+    firebim:hasOriginalText """De vrije <a href=\"http://example.com/firebimbuilding#VentilationDuctCrossSection\">verluchtingsdoorsnede</a> kan uitgerust worden met <a href=\"http://example.com/firebimbuilding#MotorizedVentilationFlap\">gemotoriseerde verluchtingskleppen</a> waarvan de opening als volgt bevolen wordt:"""@nl ;
+    firebim:hasMember firebim:Member_5_1_5_2_2_1_3_1, firebim:Member_5_1_5_2_2_1_3_2, firebim:Member_5_1_5_2_2_1_3_3, firebim:Member_5_1_5_2_2_1_3_4 .
+
+firebim:Member_5_1_5_2_2_1_3_1 a firebim:Member ;
+    firebim:hasOriginalText "- automatisch bij <a href=\"http://example.com/firebimbuilding#FireDetection\">detectie van een brand</a> in de koker;"@nl .
+
+firebim:Member_5_1_5_2_2_1_3_2 a firebim:Member ;
+    firebim:hasOriginalText """- automatisch bij de <a href=\"http://example.com/firebimbuilding#FireDetection\">detectie van een brand</a> in het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a>, indien dit uitgerust is met een algemene <a href=\"http://example.com/firebimbuilding#FireDetectionSystem\">branddetectie-installatie</a>;"""@nl .
+
+firebim:Member_5_1_5_2_2_1_3_3 a firebim:Member ;
+    firebim:hasOriginalText """- automatisch bij een defect aan de <a href=\"http://example.com/firebimbuilding#EnergySupplyInterruption\">energiebron</a>, de voeding of de bediening (toestel met positieve veiligheid);"""@nl .
+
+firebim:Member_5_1_5_2_2_1_3_4 a firebim:Member ;
+    firebim:hasOriginalText """- manueel via een bediening op een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> op een in akkoord met de brandweer bepaalde plaats."""@nl .
+
+firebim:Member_5_1_5_2_2_1_4 a firebim:Member ;
+    firebim:hasOriginalText """Indien de vrije <a href=\"http://example.com/firebimbuilding#VentilationDuctCrossSection\">verluchtingsdoorsnede</a> van een koker uitgerust is met een <a href=\"http://example.com/firebimbuilding#MotorizedVentilationFlap\">gemotoriseerde verluchtingsklep</a>, moeten de eventuele <a href=\"http://example.com/firebimbuilding#GasPipe\">gasleidingen</a> in deze koker beantwoorden aan de voorschriften van de norm NBN D 51-003 of van de norm NBN D 51-006 voor de leidingen en verbindingen in een niet-verluchte <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">technische koker</a>."""@nl .
+
+firebim:Article_5_1_5_2_2_2 a firebim:Article ;
+    firebim:hasID "A5.1.5.2.2.2" ;
+    firebim:hasMember firebim:Member_5_1_5_2_2_2_1, firebim:Member_5_1_5_2_2_2_2 .
+
+firebim:Member_5_1_5_2_2_2_1 a firebim:Member ;
+    firebim:hasOriginalText """2. ter hoogte van de doorvoering bevindt zich een <a href=\"http://example.com/firebimbuilding#StructuralElement\">bouwelement</a> met minstens de vereiste <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> van de <a href=\"http://example.com/firebimbuilding#Wall\">horizontale wand</a>;"""@nl .
+
+firebim:Member_5_1_5_2_2_2_2 a firebim:Member ;
+    firebim:hasOriginalText """3. de wanden van de <a href=\"http://example.com/firebimbuilding#VerticalShaft\">verticale kokers</a> hebben <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 30</a>; de valluiken en deurtjes <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI1 30</a>; de <a href=\"http://example.com/firebimbuilding#VerticalShaft\">verticale kokers</a> worden ter hoogte van elk <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> onderbroken door <a href=\"http://example.com/firebimbuilding#ShaftBarrier\">horizontale schermen</a> met de volgende kenmerken:"""@nl ;
+    firebim:hasMember firebim:Member_5_1_5_2_2_2_2_1, firebim:Member_5_1_5_2_2_2_2_2, firebim:Member_5_1_5_2_2_2_2_3 .
+
+firebim:Member_5_1_5_2_2_2_2_1 a firebim:Member ;
+    firebim:hasOriginalText "- zij bestaan uit een <a href=\"http://example.com/firebimbuilding#MaterialClass\">materiaal van klasse A1 en/of A2-s1,d0</a>;"@nl .
+
+firebim:Member_5_1_5_2_2_2_2_2 a firebim:Member ;
+    firebim:hasOriginalText "- zij beslaan de gehele ruimte tussen de <a href=\"http://example.com/firebimbuilding#Pipe\">leidingen</a>;"@nl .
+
+firebim:Member_5_1_5_2_2_2_2_3 a firebim:Member ;
+    firebim:hasOriginalText "- zij hebben <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 30</a>."@nl .
+
+firebim:Article_5_1_5_2_2_2 firebim:hasMember firebim:Member_5_1_5_2_2_2_3 .
+
+firebim:Member_5_1_5_2_2_2_3 a firebim:Member ;
+    firebim:hasOriginalText "In gevallen 2 en 3 moeten de kokers niet verlucht zijn."@nl .

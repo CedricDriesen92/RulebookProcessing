@@ -5,18 +5,33 @@ import rdflib
 import os
 import re
 import urllib.parse
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Define namespaces
 FIREBIM = Namespace("http://example.com/firebim#")
 rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 sh = Namespace("http://www.w3.org/ns/shacl#")
 
+# Define SPARQL query for finding related shapes
+query = prepareQuery("""
+    PREFIX sh: <http://www.w3.org/ns/shacl#>
+    PREFIX firebim: <http://example.com/firebim#>
+    
+    SELECT DISTINCT ?shape
+    WHERE {
+        ?shape a sh:NodeShape ;
+               sh:targetNode ?member .
+    }
+""")
+
 # Create a Graph
 g = Graph()
 
 # Parse the TTL file
-filename = "VejledningDK"
-g.parse("documentgraphs/"+filename+".pdf/combined_document_data_graph.ttl", format="turtle")
+filename = os.getenv("INPUT_FILE")
+g.parse("RulebookProcessing/documentgraphs/"+filename+"/combined.ttl", format="turtle")
 
 
 def load_all_shapes(directory):
@@ -48,7 +63,29 @@ def normalize_text(text):
 
 def get_text(entity):
     text = g.value(entity, FIREBIM.hasOriginalText)
-    return html.escape(str(text)) if text else ""
+    if not text:
+        return ""
+    
+    # Only escape text that's not within HTML tags
+    text_str = str(text)
+    parts = text_str.split('<a')
+    escaped_parts = []
+    
+    # Handle the first part (before any <a tag)
+    escaped_parts.append(html.escape(parts[0]))
+    
+    # Handle remaining parts (each starting with an <a tag)
+    for part in parts[1:]:
+        # Split at the end of the anchor tag
+        link_parts = part.split('</a>', 1)
+        if len(link_parts) == 2:
+            # Keep the <a> tag unescaped, escape the text after </a>
+            escaped_parts.append('<a' + link_parts[0] + '</a>' + html.escape(link_parts[1]))
+        else:
+            # If no </a> found, escape the whole part
+            escaped_parts.append(html.escape(part))
+    
+    return ''.join(escaped_parts)
 
 def get_id(entity):
     id_value = g.value(entity, FIREBIM.hasID)
@@ -66,21 +103,84 @@ def get_uri_id(entity):
             return match.group(1).replace('_', '.')
     return ""
 
+def get_keywords_from_graph():
+    keywords = set()
+    # Query for all keywords in the graph
+    print("Searching for keywords...")
+    for keyword in g.subjects(rdf.type, FIREBIM.Keyword):
+        keyword_id = str(keyword).split('#')[-1].replace('_', ' ')
+        keywords.add(keyword_id)
+        print(f"Found keyword: {keyword_id}")
+    
+    # If no keywords found, let's check the graph content
+    if not keywords:
+        print("No keywords found. Checking graph content...")
+        print(f"Total triples in graph: {len(g)}")
+        print("\nNamespaces in graph:")
+        for prefix, namespace in g.namespaces():
+            print(f"{prefix}: {namespace}")
+        
+        print("\nSearching for any Keyword-related triples:")
+        for s, p, o in g.triples((None, None, FIREBIM.Keyword)):
+            print(f"Found Keyword triple: {s} {p} {o}")
+    
+    result = sorted(list(keywords))
+    print(f"Keywords found: {result}")
+    return result
+
+def has_keyword(section, keyword):
+    # Direct keyword check
+    keyword_uri = URIRef(FIREBIM[keyword.replace(' ', '_')])
+    if (section, FIREBIM.hasKeyword, keyword_uri) in g:
+        return True
+    
+    # Check parent sections for inherited keywords
+    current = section
+    while True:
+        parent = g.value(None, FIREBIM.hasSection, current)
+        if not parent:
+            break
+        if (parent, FIREBIM.hasKeyword, keyword_uri) in g:
+            return True
+        current = parent
+    
+    return False
+
+def get_inherited_keywords(entity):
+    """Get all keywords for an entity, including inherited ones from parent sections"""
+    keywords = set()
+    
+    # Get direct keywords
+    for keyword in g.objects(entity, FIREBIM.hasKeyword):
+        keyword_id = str(keyword).split('#')[-1].replace('_', ' ')
+        keywords.add(keyword_id)
+    
+    # Get parent's keywords
+    parent = g.value(None, FIREBIM.hasSection, entity)
+    if parent:
+        parent_keywords = get_inherited_keywords(parent)
+        keywords.update(parent_keywords)
+    
+    return keywords
+
 def process_section(section, level=1):
     section_id = get_id(section)
     section_text = get_text(section)
+    
+    # Get keywords including inherited ones
+    keywords = get_inherited_keywords(section)
     
     is_subsubsection = section_id.count('.') >= 2
     
     if is_subsubsection:
         html_content = f"""
-        <div class='subsubsection' id='{section_id}'>
+        <div class='subsubsection' id='{section_id}' data-keywords='{",".join(keywords)}'>
             <p><strong>{section_id}</strong> {section_text}</p>
             <div class='subsubsection-content'>
         """
     else:
         html_content = f"""
-        <div class='section'>
+        <div class='section' id='section-{section_id}' data-keywords='{",".join(keywords)}'>
             <h{level} id='{section_id}' class='collapsible' onclick='toggleCollapse(this)'>
                 {section_id} {section_text}
             </h{level}>
@@ -89,7 +189,7 @@ def process_section(section, level=1):
     
     # Process articles
     for article in g.objects(section, FIREBIM.hasArticle):
-        html_content += process_article(article)
+        html_content += process_article(article, keywords)  # Pass parent keywords
 
     # Process subsections
     for subsection in g.objects(section, FIREBIM.hasSection):
@@ -100,10 +200,17 @@ def process_section(section, level=1):
     html_content += "</div></div>\n"
     return html_content
 
-def process_article(article):
+def process_article(article, parent_keywords=None):
     article_text = normalize_text(get_text(article))
     article_id = get_id(article)
-    html_content = f"<div class='article' id='{article_id}'>"
+    
+    # Combine parent keywords with article's own keywords
+    keywords = set(parent_keywords) if parent_keywords else set()
+    for keyword in g.objects(article, FIREBIM.hasKeyword):
+        keyword_id = str(keyword).split('#')[-1].replace('_', ' ')
+        keywords.add(keyword_id)
+    
+    html_content = f"<div class='article' id='{article_id}' data-keywords='{','.join(keywords)}'>"
     
     html_content += f"""
     <div class="article-content">
@@ -115,32 +222,29 @@ def process_article(article):
     
     # Process top-level members
     top_level_members = list(g.objects(article, FIREBIM.hasMember))
-    html_content += process_members(top_level_members)
+    html_content += process_members(top_level_members, keywords)  # Pass keywords to members
 
-    # Process tables and figures
     html_content += process_tables_and_figures(article)
     html_content += process_references(article)
     html_content += "</div></div>\n"
     return html_content
 
-def process_members(members, level=0):
+def process_members(members, parent_keywords=None, level=0):
     html_content = ""
     sorted_members = sort_members(members)
-    
-    # Prepare the SPARQL query
-    query = prepareQuery("""
-        SELECT ?shape
-        WHERE {
-            ?member <http://example.org/firebim#hasRelatedShape> ?shape .
-        }
-    """)
     
     for member in sorted_members:
         member_id = get_uri_id(member)
         member_text = normalize_text(get_text(member))
         
+        # Combine parent keywords with member's own keywords
+        keywords = set(parent_keywords) if parent_keywords else set()
+        for keyword in g.objects(member, FIREBIM.hasKeyword):
+            keyword_id = str(keyword).split('#')[-1].replace('_', ' ')
+            keywords.add(keyword_id)
+        
         html_content += f"""
-        <div class='member level-{level}' id='member-{member_id.replace(".", "-")}'>
+        <div class='member level-{level}' id='member-{member_id.replace(".", "-")}' data-keywords='{",".join(keywords)}'>
             <span style="font-size: 10px; color: grey" class="subtle-id">Member {member_id}</span>
             <p>{member_text}</p>
         """
@@ -164,10 +268,10 @@ def process_members(members, level=0):
         #else:
         #    print(f"No related shapes found for member: {member_id}")
         
-        # Process nested members
+        # Process nested members with inherited keywords
         nested_members = list(g.objects(member, FIREBIM.hasMember))
         if nested_members:
-            html_content += process_members(nested_members, level + 1)
+            html_content += process_members(nested_members, keywords, level + 1)
         
         html_content += process_references(member)
         html_content += "</div>"
@@ -263,6 +367,9 @@ def process_toc_section(g, section, level):
 
 # Load all shapes
 shapes, shapes_graph = load_all_shapes("shacl_shapes_mmd")
+
+# First, get the keywords before generating the HTML
+keywords_list = get_keywords_from_graph()
 
 # Generate HTML content
 html_content = """
@@ -546,6 +653,49 @@ html_content = """
         #sidebar a:hover {
             text-decoration: underline;
         }
+        #keyword-filter {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .keyword-toggle {
+            margin: 5px;
+            padding: 5px 10px;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .keyword-toggle.active {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .keyword-section {
+            margin-bottom: 10px;
+        }
+        
+        .keyword-header {
+            cursor: pointer;
+            padding: 5px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        
+        .keyword-content {
+            display: none;
+            padding: 10px;
+        }
+        
+        .section.filtered {
+            display: none;
+        }
+        .filtered {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -553,6 +703,16 @@ html_content = """
         <div id="search-container">
             <input type="text" id="search-input" placeholder="Search...">
             <div id="search-results"></div>
+        </div>
+        <div id="keyword-filter">
+            <div class="keyword-section">
+                <div class="keyword-header" onclick="toggleKeywordContent(this)">
+                    Keywords ▶
+                </div>
+                <div class="keyword-content">
+                    <!-- Keywords will be dynamically inserted here -->
+                </div>
+            </div>
         </div>
         <div>
             table_of_contents_location
@@ -575,7 +735,6 @@ for section in g.objects(document, FIREBIM.hasSection):
 
 html_content += """
     <script>
-
     const shapes = {
 """
 
@@ -943,6 +1102,114 @@ html_content += """
             goToNextResult();
         }
     });
+
+    // Keyword filtering functionality
+    const activeKeywords = new Set();
+    
+    function initializeKeywords() {
+        const keywordContainer = document.querySelector('.keyword-content');
+        const keywords = KEYWORDS_PLACEHOLDER;  // We'll replace this placeholder
+        
+        keywords.forEach(keyword => {
+            const button = document.createElement('button');
+            button.className = 'keyword-toggle';
+            button.textContent = keyword;
+            button.onclick = () => toggleKeyword(keyword, button);
+            keywordContainer.appendChild(button);
+        });
+    }
+    
+    function toggleKeyword(keyword, button) {
+        if (activeKeywords.has(keyword)) {
+            activeKeywords.delete(keyword);
+            button.classList.remove('active');
+        } else {
+            activeKeywords.add(keyword);
+            button.classList.add('active');
+        }
+        applyKeywordFilter();
+    }
+    
+    function toggleKeywordContent(header) {
+        const content = header.nextElementSibling;
+        // Toggle the display state:
+        if (content.style.display === 'none' || content.style.display === '') {
+            content.style.display = 'block';
+            header.textContent = header.textContent.replace(/[▶▼]/, '▼'); // expanded arrow
+        } else {
+            content.style.display = 'none';
+            header.textContent = header.textContent.replace(/[▶▼]/, '▶'); // collapsed arrow
+        }
+    }
+    
+    function applyKeywordFilter() {
+        const selectedElements = document.querySelectorAll('.section, .subsubsection, .article, .member');
+        
+        // If no active keywords, remove filtering from every element.
+        if (activeKeywords.size === 0) {
+             selectedElements.forEach(el => {
+                 el.classList.remove('filtered');
+             });
+             return;
+        }
+        
+        // Otherwise, start with every element hidden.
+        selectedElements.forEach(el => {
+             el._shouldShow = false;
+        });
+        
+        // Mark elements with a direct keyword match.
+        selectedElements.forEach(el => {
+            const keywords = (el.getAttribute('data-keywords') || '')
+                             .split(',')
+                             .map(k => k.trim())
+                             .filter(k => k !== '');
+            const hasActiveKeyword = Array.from(activeKeywords).some(active => keywords.includes(active));
+            if (hasActiveKeyword) {
+                el._shouldShow = true;
+            }
+        });
+        
+        // Propagate downward: if an element should be shown, make all its descendants visible.
+        selectedElements.forEach(el => {
+            if (el._shouldShow) {
+                const descendants = el.querySelectorAll('.section, .subsubsection, .article, .member');
+                descendants.forEach(desc => {
+                    desc._shouldShow = true;
+                });
+            }
+        });
+        
+        // Propagate upward: if an element should be shown, make all its ancestors visible.
+        selectedElements.forEach(el => {
+            if (el._shouldShow) {
+                let parent = el.parentElement;
+                while (parent) {
+                    if (parent.matches('.section, .subsubsection, .article, .member')) {
+                        parent._shouldShow = true;
+                    }
+                    parent = parent.parentElement;
+                }
+            }
+        });
+        
+        
+        // Finally, remove the "filtered" class for everything that should be shown;
+        // add it to every other element.
+        selectedElements.forEach(el => {
+             if (el._shouldShow) {
+                 el.classList.remove('filtered');
+             } else {
+                 el.classList.add('filtered');
+             }
+        });
+    }
+    
+    // Initialize keywords and IDs when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeKeywords();
+        toggleIDs();
+    });
 </script>
 </body>
 </html>
@@ -951,6 +1218,14 @@ html_content += """
 # Create ToC
 table_of_contents = generate_table_of_contents(g, document)
 html_content = html_content.replace('table_of_contents_location', table_of_contents)
+
+# Add this right before writing to the file to verify the keywords are found
+print("Found keywords:", keywords_list)
+
+# Convert the Python list to a JavaScript array string
+keywords_js_array = "[" + ", ".join(f"'{k}'" for k in keywords_list) + "]"
+html_content = html_content.replace("KEYWORDS_PLACEHOLDER", keywords_js_array)
+
 # Write the HTML content to a file
 with open(filename+".html", "w", encoding="utf-8") as f:
     f.write(html_content)

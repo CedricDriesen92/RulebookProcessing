@@ -16,29 +16,30 @@ firebim:Article_2_2_2_1 a firebim:Article ;
     firebim:hasMember firebim:Member_2_2_2_1_1, firebim:Member_2_2_2_1_2, firebim:Member_2_2_2_1_3, firebim:Member_2_2_2_1_4, firebim:Member_2_2_2_1_5 .
 
 firebim:Member_2_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "De <a href='http://example.com/firebim#Exit'>uitgangen</a> zijn gelegen in tegenovergestelde zones van het <a href='http://example.com/firebim#Compartment'>compartiment</a>."@nl .
+    firebim:hasOriginalText "De uitgangen zijn gelegen in tegenovergestelde zones van het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>."@nl .
 
 firebim:Member_2_2_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De <a href='http://example.com/firebim#EvacuationRoute'>evacuatiewegen</a> leiden ofwel:"""@nl ;
+    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a> leiden ofwel:"""@nl ;
     firebim:hasMember firebim:Member_2_2_2_1_2_1, firebim:Member_2_2_2_1_2_2, firebim:Member_2_2_2_1_2_3 .
 
 firebim:Member_2_2_2_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "naar <a href='http://example.com/firebim#Outside'>buiten</a>;"@nl .
+    firebim:hasOriginalText "-    naar buiten;"@nl .
 
 firebim:Member_2_2_2_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "naar <a href='http://example.com/firebim#Staircase'>trappenhuizen</a>;"@nl .
+    firebim:hasOriginalText "-    naar <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a>;"@nl .
 
 firebim:Member_2_2_2_1_2_3 a firebim:Member ;
-    firebim:hasOriginalText "naar <a href='http://example.com/firebim#Staircase'>trappen</a>, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4)."@nl ;
-    firebim:hasForwardReference firebim:Section_4_4 .
+    firebim:hasOriginalText "-    naar trappen, binnen of buiten het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> gelegen (voor de horizontale afstanden zie 4.4)."@nl .
 
 firebim:Member_2_2_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Wat de ondergrondse bouwlagen betreft mag één <a href='http://example.com/firebim#Exit'>uitgang</a> naar <a href='http://example.com/firebim#Outside'>buiten</a> via een <a href='http://example.com/firebim#EvacuationRoute'>evacuatieweg</a> met <a href='http://example.com/firebim#Wall'>wanden</a> <a href='http://example.com/firebim#FireResistance'>EI 30</a> en <a href='http://example.com/firebim#Door'>deuren</a> <a href='http://example.com/firebim#FireResistance'>EI1 30</a> de vereiste toegang tot één der <a href='http://example.com/firebim#Staircase'>trappenhuizen</a> vervangen."""@nl .
+    firebim:hasOriginalText """Wat de <a href=\"http://example.com/firebimbuilding#UndergroundFloor\">ondergrondse bouwlagen</a> betreft mag één uitgang naar buiten via een <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a> met <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> EI 30 en <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> EI1 30 de vereiste toegang tot één der <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> vervangen."""@nl .
 
 firebim:Member_2_2_2_1_4 a firebim:Member ;
-    firebim:hasOriginalText "Voor de parking: zie 5.2."@nl ;
+    firebim:hasOriginalText "Voor de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a>: zie 5.2."@nl ;
     firebim:hasForwardReference firebim:Section_5_2 .
 
 firebim:Member_2_2_2_1_5 a firebim:Member ;
-    firebim:hasOriginalText """Op een <a href='http://example.com/firebim#EvacuationLevel'>evacuatieniveau</a> leidt iedere <a href='http://example.com/firebim#Staircase'>trap</a> naar <a href='http://example.com/firebim#Outside'>buiten</a>, hetzij rechtstreeks, hetzij over een <a href='http://example.com/firebim#EvacuationRoute'>evacuatieweg</a> die beantwoordt aan de voorschriften van 4.4."""@nl ;
+    firebim:hasOriginalText """Op een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a> die beantwoordt aan de voorschriften van 4.4."""@nl ;
     firebim:hasForwardReference firebim:Section_4_4 .
+
+firebim:Section_2_2 firebim:hasSection firebim:Section_2_2_2 .

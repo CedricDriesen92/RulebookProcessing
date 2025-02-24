@@ -8,32 +8,38 @@
 
 firebim:Section_4_2_2_3 a firebim:Section ;
     firebim:hasID "4.2.2.3" ;
-    firebim:hasOriginalText "Op iedere bouwlaag wordt de verbinding tussen het <a href='http://example.com/firebim#Section'>compartiment</a> en het <a href='http://example.com/firebim#Section'>trappenhuis</a> verzekerd door een <a href='http://example.com/firebim#Section'>deur</a> EI1 30."@nl ;
+    firebim:hasOriginalText "OPVATTING."@nl ;
     firebim:hasArticle firebim:Article_4_2_2_3_1 .
+
+firebim:Section_4_2_2 firebim:hasSection firebim:Section_4_2_2_3 .
 
 firebim:Article_4_2_2_3_1 a firebim:Article ;
     firebim:hasID "A4.2.2.3.1" ;
     firebim:hasMember firebim:Member_4_2_2_3_1_1,
-        firebim:Member_4_2_2_3_1_2 .
+        firebim:Member_4_2_2_3_1_2,
+        firebim:Member_4_2_2_3_1_3 .
 
 firebim:Member_4_2_2_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Een rechtstreekse verbinding van elke <a href='http://example.com/firebim#Section'>bouwlaag</a> van een duplex met het <a href='http://example.com/firebim#Section'>trappenhuis</a> is niet vereist, op voorwaarde dat:"""@nl ;
-    firebim:hasMember firebim:Member_4_2_2_3_1_1_1,
-        firebim:Member_4_2_2_3_1_1_2 .
-
-firebim:Member_4_2_2_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "- de totale <a href='http://example.com/firebim#Section'>oppervlakte</a> van het duplex<a href='http://example.com/firebim#Section'>compartiment</a> of het duplexappartement kleiner is dan of gelijk is aan 300 m²;"@nl .
-
-firebim:Member_4_2_2_3_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "- de <a href='http://example.com/firebim#Section'>oppervlakte</a> van de <a href='http://example.com/firebim#Section'>bouwlaag</a> van de duplex die niet rechtstreeks evacueert via het <a href='http://example.com/firebim#Section'>trappenhuis</a>, kleiner is dan of gelijk is aan 150 m²."@nl .
+    firebim:hasOriginalText """Op iedere <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> wordt de verbinding tussen het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> en het <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuis</a> verzekerd door een <a href=\"http://example.com/firebimbuilding#Door\">deur</a> EI1 30."""@nl .
 
 firebim:Member_4_2_2_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De rechtstreekse verbinding van elke <a href='http://example.com/firebim#Section'>bouwlaag</a> van een triplex met het <a href='http://example.com/firebim#Section'>trappenhuis</a> is niet vereist, op voorwaarde dat:"""@nl ;
+    firebim:hasOriginalText """Een rechtstreekse verbinding van elke <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> van een duplex met het <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuis</a> is niet vereist, op voorwaarde dat:"""@nl ;
     firebim:hasMember firebim:Member_4_2_2_3_1_2_1,
         firebim:Member_4_2_2_3_1_2_2 .
 
 firebim:Member_4_2_2_3_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "- de <a href='http://example.com/firebim#Section'>oppervlakte</a> van elke <a href='http://example.com/firebim#Section'>bouwlaag</a> van de triplex die niet rechtstreeks evacueert via het <a href='http://example.com/firebim#Section'>trappenhuis</a>, kleiner is dan of gelijk is aan 100 m²;"@nl .
+    firebim:hasOriginalText """- de totale <a href=\"http://example.com/firebimbuilding#TotalArea\">oppervlakte</a> van het duplex<a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> of het duplexappartement kleiner is dan of gelijk is aan 300 m²;"""@nl .
 
 firebim:Member_4_2_2_3_1_2_2 a firebim:Member ;
+    firebim:hasOriginalText """- de <a href=\"http://example.com/firebimbuilding#TotalArea\">oppervlakte</a> van de <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> van de duplex die niet rechtstreeks <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacueert</a> via het <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuis</a>, kleiner is dan of gelijk is aan 150 m²."""@nl .
+
+firebim:Member_4_2_2_3_1_3 a firebim:Member ;
+    firebim:hasOriginalText """De rechtstreekse verbinding van elke <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> van een triplex met het <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuis</a> is niet vereist, op voorwaarde dat:"""@nl ;
+    firebim:hasMember firebim:Member_4_2_2_3_1_3_1,
+        firebim:Member_4_2_2_3_1_3_2 .
+
+firebim:Member_4_2_2_3_1_3_1 a firebim:Member ;
+    firebim:hasOriginalText """- de <a href=\"http://example.com/firebimbuilding#TotalArea\">oppervlakte</a> van elke <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> van de triplex die niet rechtstreeks <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacueert</a> via het <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuis</a>, kleiner is dan of gelijk is aan 100 m²;"""@nl .
+
+firebim:Member_4_2_2_3_1_3_2 a firebim:Member ;
     firebim:hasOriginalText "- de verbinding met de triplex minstens gebeurt:"@nl .

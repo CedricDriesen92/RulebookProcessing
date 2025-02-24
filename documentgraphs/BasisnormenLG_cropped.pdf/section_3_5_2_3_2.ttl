@@ -13,10 +13,11 @@ firebim:Section_3_5_2_3_2 a firebim:Section ;
 
 firebim:Article_3_5_2_3_2_1 a firebim:Article ;
     firebim:hasID "A3.5.2.3.2.1" ;
-    firebim:hasMember firebim:Member_3_5_2_3_2_1_1, firebim:Member_3_5_2_3_2_1_2 .
+    firebim:hasMember firebim:Member_3_5_2_3_2_1_1,
+        firebim:Member_3_5_2_3_2_1_2 .
 
 firebim:Member_3_5_2_3_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Bij het uitvallen van de normale energiebron (elektrische energie, persluchtnet), zet de detectie-installatie of het bedieningssysteem het sluitings-/openingssysteem in de veiligheidsstand."""@nl .
+    firebim:hasOriginalText """Bij het uitvallen van de normale <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">energiebron</a> (<a href=\"http://example.com/firebimbuilding#ElectricalSystem\">elektrische energie</a>, <a href=\"http://example.com/firebimbuilding#AeraulicSystem\">persluchtnet</a>), zet de <a href=\"http://example.com/firebimbuilding#FireDetectionSystem\">detectie-installatie</a> of het <a href=\"http://example.com/firebimbuilding#ManualControlSystem\">bedieningssysteem</a> het <a href=\"http://example.com/firebimbuilding#ClosureActivation\">sluitings-/openingssysteem</a> in de <a href=\"http://example.com/firebimbuilding#SafetyPosition\">veiligheidsstand</a>."""@nl .
 
 firebim:Member_3_5_2_3_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Elk gebrek aan energiebron, voeding of elektrische of pneumatische bediening moet automatisch gemeld worden aan de detectiecentrale."""@nl .
+    firebim:hasOriginalText """Elk gebrek aan <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">energiebron</a>, <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">voeding</a> of <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">elektrische</a> of <a href=\"http://example.com/firebimbuilding#AeraulicSystem\">pneumatische bediening</a> moet automatisch gemeld worden aan de <a href=\"http://example.com/firebimbuilding#CentralFireControlPanel\">detectiecentrale</a>."""@nl .

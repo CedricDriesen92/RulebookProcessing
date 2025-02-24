@@ -1,0 +1,12 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_7_1_1 a firebim:Section ;
+    firebim:hasID "6.7.1.1" ;
+    firebim:hasOriginalText """Integratie van <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> of <a href=\"http://example.com/firebimbuilding#Room\">gesloten ruimten</a> in de <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a>
+Geen enkel <a href=\"http://example.com/firebimbuilding#Room\">lokaal</a> of <a href=\"http://example.com/firebimbuilding#Room\">gesloten ruimte</a>, zelfs niet op een zolder of in een kelder, mag geïntegreerd worden in het net van <a href=\"http://example.com/firebimbuilding#AirDuct\">luchtkanalen</a>, tenzij deze ruimten voldoen aan de voorschriften opgelegd aan de <a href=\"http://example.com/firebimbuilding#AirDuct\">kanalen</a>."""@nl .

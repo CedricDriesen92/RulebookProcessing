@@ -11,11 +11,9 @@ firebim:Section_1_2 a firebim:Section ;
     firebim:hasOriginalText "Bijgebouwen"@nl ;
     firebim:hasArticle firebim:Article_1_2_1 .
 
-firebim:Section_1 firebim:hasSection firebim:Section_1_2 .
-
 firebim:Article_1_2_1 a firebim:Article ;
     firebim:hasID "A1.2.1" ;
     firebim:hasMember firebim:Member_1_2_1_1 .
 
 firebim:Member_1_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen zijn enkel toegelaten indien daardoor noch de <a href="http://example.com/firebim#Evacuation">evacuatie</a>, noch de veiligheid van de gebruikers, noch de actie van de brandweer in het gedrang komen."""@nl .
+    firebim:hasOriginalText """<a href=\"http://example.com/firebimbuilding#BuildingExtension\">Bijgebouwen</a>, <a href=\"http://example.com/firebimbuilding#OverhangingRoofs\">uitspringende daken</a>, <a href=\"http://example.com/firebimbuilding#Canopies\">luifels</a>, <a href=\"http://example.com/firebimbuilding#CantileveredParts\">uitkragende delen</a> of andere dergelijke toevoegingen zijn enkel toegelaten indien daardoor noch de <a href=\"http://example.com/firebimbuilding#EvacuationSafety\">evacuatie</a>, noch de <a href=\"http://example.com/firebimbuilding#UserSafety\">veiligheid van de gebruikers</a>, noch de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">actie van de brandweer</a> in het gedrang komen."""@nl .

@@ -17,6 +17,7 @@ from sympy import true
 from dotenv import load_dotenv
 import os
 import google.generativeai as genai
+import pandas as pd
 
 load_dotenv()
 
@@ -137,10 +138,12 @@ def create_initial_graph():
     return g
 
 def process_section_to_ttl(section_number, section_text, ontology, examples_str, starting_graph):
+    # Base ontology prompt
     prompt = f"""
 You are tasked with converting building code rulebook sections into Turtle (.ttl) format following the FireBIM Document Ontology. Here's the complete ontology for your reference:
 
 {ontology}
+
 Here is some more info on the firebim ontology and how you should use it:
 
 The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the firebim:Authority (which represents the legal body that publishes and maintains the regulatory document), the firebim:DocumentSubdivision (which represents documents or parts of documents), and the firebim:Reference (which represents references to other representations of the regulation, or similar regulations). The firebim:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
@@ -159,16 +162,29 @@ Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be c
 
 {starting_graph}
 
-Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following this ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned.
+Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following the ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned.
 
-Additionally, you must now enhance the text by adding HTML links to relevant ontology concepts. When you identify terms that match concepts from the ontology, wrap them in HTML anchor tags that link to their URI definitions. For example:
+Additionally, you must now enhance the text by adding HTML links to relevant ontology concepts via the buliding ontology list below. When you identify terms that match concepts from the ontology, wrap them in HTML anchor tags that link to their URI definitions. For example:
 - If discussing compartment areas, use: <a href="http://example.com/firebimbuilding#CompartmentArea">area of the compartment</a>
 - For fire resistance requirements: <a href="http://example.com/firebimbuilding#FireResistance">fire resistance</a>
 
 The links should be added to the originalText properties in the output TTL. Make sure to:
-1. Only link to terms that actually exist in the ontology
+1. Only link to terms that actually exist in the building ontology
 2. Maintain the original text's meaning and structure
 3. Use the correct URIs from the ontology file(s)
+
+Available building ontology terms for linking:
+{', '.join(load_building_terms())}
+
+Use these terms with the URI pattern: http://example.com/firebimbuilding#term
+
+IMPORTANT FORMATTING RULES:
+1. Always use triple quotes (\"\"\" \"\"\") for originalText properties that contain HTML links
+2. Escape any quotes within HTML attributes using \\"
+3. For simple text without HTML, you can use single quotes
+
+Example format:
+firebim:hasOriginalText \"\"\"Text with <a href=\\"http://example.com/firebimbuilding#Term\\">linked term</a>\"\"\"@nl ;
 """
     prompt2 = f"""
 Section number: {section_number}
@@ -268,6 +284,7 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
     if False:#section_number not in ['4_2_6','4_2_6_1', '4_2_6_2', '4_2_6_3', '4_2_6_4', '4_2_6_5', '4_2_6_6', '4_2_6_7', '4_2_6_8']:
         print(f"Skipping section {section_number}.")
         return False # Keeps the code from engaging the AI.
+    ttl_content = None
     for attempt in range(3):
         try:
             ttl_content = process_section_to_ttl(section_number, section_text, ontology, examples_str, starting_graph)
@@ -298,8 +315,18 @@ def compare_section_numbers(a, b):
     b_parts = [int(n) for n in b.split('.')]
     return (a_parts > b_parts) - (a_parts < b_parts)
     
+def load_building_terms():
+    # Load CSV files and extract first columns
+    objects_df = pd.read_csv('matrixobjects_auto.csv')
+    properties_df = pd.read_csv('matrixproperties_auto.csv')
+    
+    # Combine terms from both files
+    building_terms = objects_df.iloc[:, 0].tolist() + properties_df.iloc[:, 0].tolist()
+    return building_terms
+
 def main():
     ontology = load_ontology('FireBIM_Document_Ontology.ttl')
+    building_terms = load_building_terms()
     #pdf_filename = 'NIT_198_crop.pdf'
     pdf_filename = input_file
     markdown_filename = pdf_filename + '.md'

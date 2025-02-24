@@ -1,0 +1,19 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_2 a firebim:Section ;
+    firebim:hasID "5.2" ;
+    firebim:hasOriginalText "Parkings"@nl ;
+    firebim:hasArticle firebim:Article_5_2_1 .
+
+firebim:Article_5_2_1 a firebim:Article ;
+    firebim:hasID "A5.2.1" ;
+    firebim:hasMember firebim:Member_5_2_1_1 .
+
+firebim:Member_5_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """Bij afwijking van het in punt 2.1 gestelde grondbeginsel kan een <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> vormen waarvan de <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> niet beperkt is, zelfs wanneer er verscheidene communicerende bouwlagen zijn."""@nl .

@@ -1,0 +1,28 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_4 a firebim:Section ;
+    firebim:hasID "5.4" ;
+    firebim:hasOriginalText "Winkel- of handelscomplex"@nl ;
+    firebim:hasArticle firebim:Article_5_4_1 .
+
+firebim:Article_5_4_1 a firebim:Article ;
+    firebim:hasID "A5.4.1" ;
+    firebim:hasOriginalText """De inrichting van <a href=\"http://example.com/firebimbuilding#ShopUnit\">winkellokalen</a> die op <a href=\"http://example.com/firebimbuilding#Gallery\">binnengalerijen</a> uitgeven wordt toegelaten op een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> en op de aangrenzende <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> mits:"""@nl ;
+    firebim:hasMember firebim:Member_5_4_1_1,
+        firebim:Member_5_4_1_2,
+        firebim:Member_5_4_1_3 .
+
+firebim:Member_5_4_1_1 a firebim:Member ;
+    firebim:hasOriginalText """1. het <a href=\"http://example.com/firebimbuilding#ShoppingComplex\">complex</a> met zijn <a href=\"http://example.com/firebimbuilding#Gallery\">galerijen</a> van de overige <a href=\"http://example.com/firebimbuilding#Building\">bouwdelen</a> gescheiden is door <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> met <a href=\"http://example.com/firebimbuilding#FireResistance\">EI 60</a>;"""@nl .
+
+firebim:Member_5_4_1_2 a firebim:Member ;
+    firebim:hasOriginalText """2. de overige <a href=\"http://example.com/firebimbuilding#Building\">bouwdelen</a> hun eigen <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> hebben onafhankelijk van de <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> van het winkel- of handelscomplex."""@nl .
+
+firebim:Member_5_4_1_3 a firebim:Member ;
+    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#SeparationWall\">scheidingswanden</a> tussen de <a href=\"http://example.com/firebimbuilding#ShopUnit\">handelslokalen</a> hebben <a href=\"http://example.com/firebimbuilding#FireResistance\">EI 30</a> en lopen door in het eventueel <a href=\"http://example.com/firebimbuilding#SuspendedCeiling\">verlaagd plafond</a>. Dit laatste voorschrift vervalt indien het winkel- of handelscomplex voorzien is van een <a href=\"http://example.com/firebimbuilding#AutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> van het type <a href=\"http://example.com/firebimbuilding#SprinklerSystem\">sprinkler</a> die is aangepast aan de aanwezige risico's."""@nl .

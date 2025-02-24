@@ -8,26 +8,10 @@
 
 firebim:Section_4_2_2_6 a firebim:Section ;
     firebim:hasID "4.2.2.6" ;
-    firebim:hasOriginalText "Bovenaan elk binnentrappenhuis zit een verluchtingsopening met een doorsnede van minimum 1 m² en die uitmondt in de open lucht. Deze opening is normaal gesloten; voor het openen gebruikt men een handbediening die goed zichtbaar geplaatst is op het evacuatieniveau.\nDeze eis geldt niet voor trappenhuizen tussen evacuatieniveau en ondergrondse bouwlagen.\n\nIndien trappenhuizen maximaal twee bovengrondse verdiepingen, met een oppervlakte kleiner dan of gelijk aan 300 m², met het evacuatieniveau verbinden, mag de oppervlakte van de verluchtingsopening beperkt worden tot 0,5 m².\n\nIndien het trappenhuis door de aanwezigheid van een duplex bovenaan het gebouw niet alle bouwlagen bedient, wordt de verluchtingsopening met het trappenhuis verbonden aan de hand van een koker waarvan de doorsnede minstens gelijk is aan de oppervlakte vereist voor de verluchtingsopening."@nl ;
-    firebim:hasArticle firebim:Article_4_2_2_6_1 .
+    firebim:hasOriginalText """Bovenaan elk <a href=\"http://example.com/firebimbuilding#Staircase\">binnentrappenhuis</a> zit een <a href=\"http://example.com/firebimbuilding#VentilationOpening\">verluchtingsopening</a> met een <a href=\"http://example.com/firebimbuilding#VentilationDuctCrossSection\">doorsnede</a> van minimum 1 m² en die uitmondt in de <a href=\"http://example.com/firebimbuilding#Outside\">open lucht</a>.
+Deze <a href=\"http://example.com/firebimbuilding#VentilationOpening\">opening</a> is normaal gesloten; voor het openen gebruikt men een <a href=\"http://example.com/firebimbuilding#ManualControl\">handbediening</a> die goed zichtbaar geplaatst is op het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a>.
+Deze eis geldt niet voor <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> tussen <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> en <a href=\"http://example.com/firebimbuilding#UndergroundFloor\">ondergrondse bouwlagen</a>.
 
-firebim:Article_4_2_2_6_1 a firebim:Article ;
-    firebim:hasID "A4.2.2.6.1" ;
-    firebim:hasMember firebim:Member_4_2_2_6_1_1, firebim:Member_4_2_2_6_1_2, firebim:Member_4_2_2_6_1_3, firebim:Member_4_2_2_6_1_4 .
+Indien <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> maximaal twee <a href=\"http://example.com/firebimbuilding#Floor\">bovengrondse verdiepingen</a>, met een <a href=\"http://example.com/firebimbuilding#LevelArea\">oppervlakte</a> kleiner dan of gelijk aan 300 m², met het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> verbinden, mag de <a href=\"http://example.com/firebimbuilding#VentilationOpeningArea\">oppervlakte van de verluchtingsopening</a> beperkt worden tot 0,5 m².
 
-firebim:Member_4_2_2_6_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Bovenaan elk binnentrappenhuis zit een verluchtingsopening met een doorsnede van minimum 1 m² en die uitmondt in de open lucht."@nl .
-
-firebim:Member_4_2_2_6_1_2 a firebim:Member ;
-    firebim:hasOriginalText "Deze opening is normaal gesloten; voor het openen gebruikt men een handbediening die goed zichtbaar geplaatst is op het evacuatieniveau."@nl .
-
-firebim:Member_4_2_2_6_1_3 a firebim:Member ;
-    firebim:hasOriginalText "Deze eis geldt niet voor trappenhuizen tussen evacuatieniveau en ondergrondse bouwlagen."@nl .
-
-firebim:Member_4_2_2_6_1_4 a firebim:Member ;
-    firebim:hasOriginalText """Indien trappenhuizen maximaal twee bovengrondse verdiepingen, met een oppervlakte kleiner dan of gelijk aan 300 m², met het evacuatieniveau verbinden, mag de oppervlakte van de verluchtingsopening beperkt worden tot 0,5 m²."""@nl .
-
-firebim:Article_4_2_2_6_1 firebim:hasMember firebim:Member_4_2_2_6_1_5 .
-
-firebim:Member_4_2_2_6_1_5 a firebim:Member ;
-    firebim:hasOriginalText """Indien het trappenhuis door de aanwezigheid van een duplex bovenaan het gebouw niet alle bouwlagen bedient, wordt de verluchtingsopening met het trappenhuis verbonden aan de hand van een koker waarvan de doorsnede minstens gelijk is aan de oppervlakte vereist voor de verluchtingsopening."""@nl .
+Indien het <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuis</a> door de aanwezigheid van een <a href=\"http://example.com/firebimbuilding#Duplex\">duplex</a> bovenaan het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> niet alle <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> bedient, wordt de <a href=\"http://example.com/firebimbuilding#VentilationOpening\">verluchtingsopening</a> met het <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuis</a> verbonden aan de hand van een <a href=\"http://example.com/firebimbuilding#AirDuct\">koker</a> waarvan de <a href=\"http://example.com/firebimbuilding#VentilationDuctCrossSection\">doorsnede</a> minstens gelijk is aan de <a href=\"http://example.com/firebimbuilding#VentilationOpeningArea\">oppervlakte vereist voor de verluchtingsopening</a>."""@nl .

@@ -1,0 +1,78 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_5_3_2 a firebim:Section ;
+    firebim:hasID "5.3.2" ;
+    firebim:hasOriginalText "Constructie."@nl ;
+    firebim:hasArticle firebim:Article_5_3_2_1,
+        firebim:Article_5_3_2_2,
+        firebim:Article_5_3_2_3,
+        firebim:Article_5_3_2_4,
+        firebim:Article_5_3_2_5 .
+
+firebim:Article_5_3_2_1 a firebim:Article ;
+    firebim:hasID "A5.3.2.1" ;
+    firebim:hasMember firebim:Member_5_3_2_1_1 .
+
+firebim:Member_5_3_2_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#Wall">wanden</a> die deze <a href="http://example.com/firebimbuilding#Room">lokalen</a> of geheel van <a href="http://example.com/firebimbuilding#Room">lokalen</a> vormen, voldoen niet alleen aan de reglementaire voorschriften die op deze ruimten van toepassing zijn, maar hebben bovendien dezelfde <a href="http://example.com/firebimbuilding#FireResistance">brandweerstand</a> als de <a href="http://example.com/firebimbuilding#Wall">wanden</a> van een <a href="http://example.com/firebimbuilding#Compartment">compartiment</a>."""@nl .
+
+firebim:Article_5_3_2_2 a firebim:Article ;
+    firebim:hasID "A5.3.2.2" ;
+    firebim:hasMember firebim:Member_5_3_2_2_1 .
+
+firebim:Member_5_3_2_2_1 a firebim:Member ;
+    firebim:hasOriginalText """Elke <a href="http://example.com/firebimbuilding#WallPenetration">doorgang</a> in de verticale <a href="http://example.com/firebimbuilding#Wall">wanden</a> is afgesloten door een <a href="http://example.com/firebimbuilding#IsSelfClosing">zelfsluitende</a> of bij <a href="http://example.com/firebimbuilding#Fire">brand</a> <a href="http://example.com/firebimbuilding#IsSelfClosing">zelfsluitende</a> <a href="http://example.com/firebimbuilding#Door">deur</a> EI1 30."""@nl .
+
+firebim:Article_5_3_2_3 a firebim:Article ;
+    firebim:hasID "A5.3.2.3" ;
+    firebim:hasMember firebim:Member_5_3_2_3_1 .
+
+firebim:Member_5_3_2_3_1 a firebim:Member ;
+    firebim:hasOriginalText """Stookafdelingen
+
+Transformatorlokalen
+
+Lokalen voor vuilnisopslag
+De specifieke voorschriften betreffende de <a href="http://example.com/firebimbuilding#BoilerRoom">stookafdelingen</a>, de <a href="http://example.com/firebimbuilding#TransformerRoom">transformatorlokalen</a> en de <a href="http://example.com/firebimbuilding#WasteStorageRoom">lokalen voor vuilnisopslag</a> blijven van toepassing (cf. respectievelijk de punten <a href="#Section_5_1_2">5.1.2</a>, <a href="#Section_5_1_3">5.1.3</a> en <a href="#Section_5_1_4">5.1.4</a>)."""@nl ;
+    firebim:hasForwardReference firebim:Section_5_1_2,
+        firebim:Section_5_1_3,
+        firebim:Section_5_1_4 .
+
+firebim:Article_5_3_2_4 a firebim:Article ;
+    firebim:hasID "A5.3.2.4" ;
+    firebim:hasMember firebim:Member_5_3_2_4_1 .
+
+firebim:Member_5_3_2_4_1 a firebim:Member ;
+    firebim:hasOriginalText """# <a href="http://example.com/firebimbuilding#EvacuationRoute">Evacuatie</a>
+
+Op elke <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a> is de <a href="http://example.com/firebimbuilding#EvacuationRoute">evacuatie</a> als volgt geregeld:
+
+- ten minste twee <a href="http://example.com/firebimbuilding#Staircase">trappenhuizen</a> of <a href="http://example.com/firebimbuilding#ExternalStaircase">buitentrappen</a> voldoen aan de voorschriften vervat in <a href="#Section_4_2">4.2</a> of <a href="#Section_4_3">4.3</a> en zijn vanuit ieder punt van de <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a> toegankelijk; de af te leggen weg naar de dichtstbijzijnde <a href="http://example.com/firebimbuilding#Staircase">trap</a> mag niet meer dan 45 m bedragen; de minimale <a href="http://example.com/firebimbuilding#UsefulWidth">nuttige breedte</a> van deze <a href="http://example.com/firebimbuilding#Staircase">trappen</a> bedraagt 0,80 m;
+- zoals gesteld in <a href="#Section_2_2_2">2.2.2</a>, derde lid, mag op de beschouwde <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a> de vereiste toegang tot één van de twee <a href="http://example.com/firebimbuilding#Staircase">trappenhuizen</a> vervangen worden door een rechtstreekse <a href="http://example.com/firebimbuilding#HasExitToOutside">uitgang naar de open lucht</a>;
+- op de <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a> die het dichtst bij het <a href="http://example.com/firebimbuilding#EvacuationLevel">uitritniveau</a> ligt, mag de <a href="http://example.com/firebimbuilding#Ramp">hellende rijweg</a> één der <a href="http://example.com/firebimbuilding#Staircase">trappenhuizen</a> of <a href="http://example.com/firebimbuilding#ExternalStaircase">buitentrappen</a> vervangen indien de <a href="http://example.com/firebimbuilding#MaximumSlope">helling</a> gemeten in haar hartlijn niet meer dan 10 % bedraagt;
+- de beperking van de <a href="http://example.com/firebimbuilding#MaximumSlope">helling</a> tot 10% geldt niet voor de <a href="http://example.com/firebimbuilding#Compartment">compartimenten</a> waarvan de <a href="http://example.com/firebimbuilding#TotalArea">oppervlakte</a> gelijk of kleiner is dan 500 m², indien <a href="http://example.com/firebimbuilding#EvacuationRoute">evacuatie</a> via de <a href="http://example.com/firebimbuilding#Ramp">helling</a> mogelijk blijft;
+- buiten de signalisatie bepaald in <a href="#Section_4_5">4.5</a> worden de <a href="http://example.com/firebimbuilding#EvacuationRoute">evacuatiewegen</a>, op elke <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a>, ook nog aangeduid op de <a href="http://example.com/firebimbuilding#Floor">vloer</a> of juist erboven."""@nl ;
+    firebim:hasForwardReference firebim:Section_4_2,
+        firebim:Section_4_3,
+        firebim:Section_2_2_2,
+        firebim:Section_4_5 .
+
+firebim:Article_5_3_2_5 a firebim:Article ;
+    firebim:hasID "A5.3.2.5" ;
+    firebim:hasMember firebim:Member_5_3_2_5_1 .
+
+firebim:Member_5_3_2_5_1 a firebim:Member ;
+    firebim:hasOriginalText """Eén enkele <a href="http://example.com/firebimbuilding#Exits">uitgang</a> per <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a> (<a href="http://example.com/firebimbuilding#Staircase">binnentrappenhuis</a>, <a href="http://example.com/firebimbuilding#ExternalStaircase">buitentrap</a>, rechtstreekse <a href="http://example.com/firebimbuilding#HasExitToOutside">uitgang naar de open lucht</a> of <a href="http://example.com/firebimbuilding#Ramp">hellende rijweg</a> op de <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a> die het dichtst bij het <a href="http://example.com/firebimbuilding#EvacuationLevel">uitritniveau</a> ligt) is evenwel voldoende op voorwaarde:
+
+- dat de <a href="http://example.com/firebimbuilding#Parking">parking</a> zich in de hoogte uitstrekt over maximum twee <a href="http://example.com/firebimbuilding#NumberOfStoreys">bouwlagen</a>;
+- dat geen enkele van deze beide <a href="http://example.com/firebimbuilding#Floor">bouwlagen</a> zich op meer dan twee <a href="http://example.com/firebimbuilding#Floor">bouwlagen</a> boven of onder het <a href="http://example.com/firebimbuilding#EvacuationLevel">uitritniveau</a> voor voertuigen bevindt;
+- dat geen enkel punt van de <a href="http://example.com/firebimbuilding#Parking">parking</a> zich op een <a href="http://example.com/firebimbuilding#Distance">afstand</a> verder dan 15 m van de <a href="http://example.com/firebimbuilding#AccessToEvacuationLevel">toegang tot de evacuatieweg</a> naar de <a href="http://example.com/firebimbuilding#Exits">uitgang</a> bevindt;
+- en dat geen enkel punt van de <a href="http://example.com/firebimbuilding#Parking">parking</a> zich op een <a href="http://example.com/firebimbuilding#Distance">afstand</a> verder dan 30 m van de <a href="http://example.com/firebimbuilding#AccessToExit">toegang tot de uitgang</a> bevindt.
+
+In de <a href="http://example.com/firebimbuilding#IsEnclosed">gesloten</a> <a href="http://example.com/firebimbuilding#Parking">parkings</a> met een <a href="http://example.com/firebimbuilding#TotalArea">totale oppervlakte</a> groter dan 2500 m², moeten de maatregelen genomen worden die noodzakelijk zijn om de <a href="http://example.com/firebimbuilding#SmokePrevention">verspreiding van rook</a> te voorkomen."""@nl .

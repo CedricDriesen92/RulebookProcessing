@@ -8,14 +8,5 @@
 
 firebim:Section_4_4_2 a firebim:Section ;
     firebim:hasID "4.4.2" ;
-    firebim:hasOriginalText "Op een evacuatieniveau"@nl ;
-    firebim:hasArticle firebim:Article_4_4_2_1 .
-
-firebim:Section_4_4 firebim:hasSection firebim:Section_4_4_2 .
-
-firebim:Article_4_4_2_1 a firebim:Article ;
-    firebim:hasID "A4.4.2.1" ;
-    firebim:hasMember firebim:Member_4_4_2_1_1 .
-
-firebim:Member_4_4_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Op een <a href="http://example.com/firebim#Section">evacuatieniveau</a> mogen geen uitstalramen van bouwdelen met een commerciële functie, die geen <a href="http://example.com/firebim#FireResistance">EI 30</a> hebben, uitgeven op de <a href="http://example.com/firebim#Section">evacuatieweg</a> die de <a href="http://example.com/firebim#Section">uitgangen</a> van andere bouwdelen verbindt met de openbare weg, met uitzondering van de laatste 3 m van deze <a href="http://example.com/firebim#Section">evacuatieweg</a>."""@nl .
+    firebim:hasOriginalText """Op een <a href="http://example.com/firebimbuilding#EvacuationLevel">evacuatieniveau</a>
+Op een <a href="http://example.com/firebimbuilding#EvacuationLevel">evacuatieniveau</a> mogen geen <a href="http://example.com/firebimbuilding#DisplayWindow">uitstalramen</a> van <a href="http://example.com/firebimbuilding#Building">bouwdelen</a> met een commerciële functie, die geen <a href="http://example.com/firebimbuilding#FireResistanceRating">EI 30</a> hebben, uitgeven op de <a href="http://example.com/firebimbuilding#EvacuationRoute">evacuatieweg</a> die de <a href="http://example.com/firebimbuilding#Exits">uitgangen</a> van andere <a href="http://example.com/firebimbuilding#Building">bouwdelen</a> verbindt met de <a href="http://example.com/firebimbuilding#AccessRoad">openbare weg</a>, met uitzondering van de laatste 3 m van deze <a href="http://example.com/firebimbuilding#EvacuationRoute">evacuatieweg</a>."""@nl .

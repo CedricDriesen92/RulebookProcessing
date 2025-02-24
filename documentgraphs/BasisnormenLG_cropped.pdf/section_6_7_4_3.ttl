@@ -1,0 +1,27 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_7_4_3 a firebim:Section ;
+    firebim:hasID "6.7.4.3" ;
+    firebim:hasOriginalText "Plaatsing van de klep"@nl ;
+    firebim:hasArticle firebim:Article_6_7_4_3_1 .
+
+firebim:Article_6_7_4_3_1 a firebim:Article ;
+    firebim:hasID "A6.7.4.3.1" ;
+    firebim:hasMember firebim:Member_6_7_4_3_1_1,
+        firebim:Member_6_7_4_3_1_2,
+        firebim:Member_6_7_4_3_1_3 .
+
+firebim:Member_6_7_4_3_1_1 a firebim:Member ;
+    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#SmokeValve">klep</a> wordt zodanig in de <a href="http://example.com/firebimbuilding#Wall">wand</a> bevestigd en vastgezet dat de <a href="http://example.com/firebimbuilding#FireStability">stabiliteit</a> van de klep gewaarborgd is, onafhankelijk van de twee aansluitkanalen, zelfs indien één van de twee kanalen verdwijnt."""@nl .
+
+firebim:Member_6_7_4_3_1_2 a firebim:Member ;
+    firebim:hasOriginalText """Voor het nazicht en onderhoud van de <a href="http://example.com/firebimbuilding#SmokeValve">klep</a> wordt een gemakkelijk bereikbaar <a href="http://example.com/firebimbuilding#InspectionDoor">inspectiedeurtje</a> op de klepkast of op de koker in de onmiddellijke nabijheid van de <a href="http://example.com/firebimbuilding#SmokeValve">klep</a> geplaatst. Dit deurtje heeft dezelfde <a href="http://example.com/firebimbuilding#FireResistance">brandweerstand</a> als vereist voor het <a href="http://example.com/firebimbuilding#AirDuct">kanaal</a>."""@nl .
+
+firebim:Member_6_7_4_3_1_3 a firebim:Member ;
+    firebim:hasOriginalText """Om de lokalisatie van de <a href="http://example.com/firebimbuilding#FireDamper">brandwerende klep</a> te vergemakkelijken wordt een goed zichtbaar en onuitwisbaar merkteken aangebracht dat een brandbeveiligingstoestel aanduidt samen met de"""@nl .

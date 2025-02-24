@@ -1,0 +1,32 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@base <http://example.com/firebim> .
+
+firebim:Section_6_6 a firebim:Section ;
+    firebim:hasID "6.6" ;
+    firebim:hasOriginalText "Installaties voor brandbaar gas verdeeld door leidingen."@nl ;
+    firebim:hasArticle firebim:Article_6_6_1 .
+
+firebim:Article_6_6_1 a firebim:Article ;
+    firebim:hasID "A6.6.1" ;
+    firebim:hasOriginalText """De installaties voor <a href=\"http://example.com/firebimbuilding#GasInstallation\">brandbaar gas</a> voldoen aan:"""@nl ;
+    firebim:hasMember firebim:Member_6_6_1_1,
+        firebim:Member_6_6_1_2,
+        firebim:Member_6_6_1_3,
+        firebim:Member_6_6_1_4 .
+
+firebim:Member_6_6_1_1 a firebim:Member ;
+    firebim:hasOriginalText "- NBN D 51-001 - Centrale verwarming, luchtverversing en klimaatregeling - Lokalen voor drukreduceerinrichtingen van aardgas;"@nl .
+
+firebim:Member_6_6_1_2 a firebim:Member ;
+    firebim:hasOriginalText "- NBN D 51-003 - Installaties voor brandbaar gas lichter dan lucht, verdeeld door leidingen;"@nl .
+
+firebim:Member_6_6_1_3 a firebim:Member ;
+    firebim:hasOriginalText "- NBN D 51-004 - Installaties voor brandbaar gas lichter dan lucht, verdeeld door leidingen - Bijzondere installaties;"@nl .
+
+firebim:Member_6_6_1_4 a firebim:Member ;
+    firebim:hasOriginalText """- NBN D 51-006 - Gasinstallaties voor commercieel butaan of commercieel propaan in ontspannen gasfase met een maximum werkdruk (MOP) van 5 bar - Binnenleidingen, plaatsing en in bedrijf stellen van verbruikstoestellen - Algemene technische en veiligheidsvoorschriften."""@nl .
