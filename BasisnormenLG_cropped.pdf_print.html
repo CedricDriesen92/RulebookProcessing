@@ -495,7 +495,28 @@
         "datePublished": "{datetime.datetime.now().strftime('%Y-%m-%d')}"
     }}
     </script>
-</head>
+
+        <style media="print">
+            #sidebar, #id-toggle-container, .show-shape-button, .collapsible:after {
+                display: none !important;
+            }
+            #main-content {
+                margin-left: 0;
+                padding: 0;
+            }
+            .content {
+                display: block !important;
+            }
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+            .section, .article {
+                page-break-inside: avoid;
+            }
+        </style>
+        </head>
+        
 <body>
     <div id="sidebar">
         <div id="search-container">

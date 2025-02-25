@@ -6,6 +6,7 @@ import os
 import re
 import urllib.parse
 from dotenv import load_dotenv
+import datetime
 
 load_dotenv()
 
@@ -174,17 +175,17 @@ def process_section(section, level=1):
     
     if is_subsubsection:
         html_content = f"""
-        <div class='subsubsection' id='{section_id}' data-keywords='{",".join(keywords)}'>
+        <div class='subsubsection' id='{section_id}' data-keywords='{",".join(keywords)}' role="region" aria-label="Subsubsection {section_id}">
             <p><strong>{section_id}</strong> {section_text}</p>
             <div class='subsubsection-content'>
         """
     else:
         html_content = f"""
-        <div class='section' id='section-{section_id}' data-keywords='{",".join(keywords)}'>
-            <h{level} id='{section_id}' class='collapsible' onclick='toggleCollapse(this)'>
+        <div class='section' id='section-{section_id}' data-keywords='{",".join(keywords)}' role="region" aria-label="Section {section_id}">
+            <h{level} id='{section_id}' class='collapsible' onclick='toggleCollapse(this)' role="button" aria-expanded="true" aria-controls="content-{section_id}">
                 {section_id} {section_text}
             </h{level}>
-            <div class='content'>
+            <div class='content' id="content-{section_id}">
         """
     
     # Process articles
@@ -210,12 +211,17 @@ def process_article(article, parent_keywords=None):
         keyword_id = str(keyword).split('#')[-1].replace('_', ' ')
         keywords.add(keyword_id)
     
-    html_content = f"<div class='article' id='{article_id}' data-keywords='{','.join(keywords)}'>"
+    html_content = f"""
+    <div class='article' id='{article_id}' data-keywords='{','.join(keywords)}'>
+        <div class="article-content">
+            <span style="font-size: 16px; color: grey" class="subtle-id article-id">Article {article_id}</span>
+            <button onclick="copyPermalink('{article_id}')" class="permalink-button" title="Copy citation link" aria-label="Copy citation link">
+                🔗
+            </button>
+        </div>
+    """
     
     html_content += f"""
-    <div class="article-content">
-        <span style="font-size: 16px; color: grey" class="subtle-id">Article {article_id}</span>
-    </div>
     <div class="original-text" style="display:block;">
         <p>{article_text}</p>
     """
@@ -245,7 +251,7 @@ def process_members(members, parent_keywords=None, level=0):
         
         html_content += f"""
         <div class='member level-{level}' id='member-{member_id.replace(".", "-")}' data-keywords='{",".join(keywords)}'>
-            <span style="font-size: 10px; color: grey" class="subtle-id">Member {member_id}</span>
+            <span style="font-size: 10px; color: grey" class="subtle-id member-id">Member {member_id}</span>
             <p>{member_text}</p>
         """
         
@@ -364,6 +370,34 @@ def process_toc_section(g, section, level):
     html += "</li>"
     return html
 
+def generate_print_version(html_content):
+    """Create a print-friendly version of the HTML content."""
+    print_content = html_content.replace(
+        '</head>',
+        '''
+        <style media="print">
+            #sidebar, #id-toggle-container, .show-shape-button, .collapsible:after {
+                display: none !important;
+            }
+            #main-content {
+                margin-left: 0;
+                padding: 0;
+            }
+            .content {
+                display: block !important;
+            }
+            @page {
+                size: A4;
+                margin: 2cm;
+            }
+            .section, .article {
+                page-break-inside: avoid;
+            }
+        </style>
+        </head>
+        '''
+    )
+    return print_content
 
 # Load all shapes
 shapes, shapes_graph = load_all_shapes("shacl_shapes_mmd")
@@ -607,13 +641,27 @@ html_content = """
         }
         #id-toggle-container {
             position: fixed;
-            top: 10px;
+            top: 50px;
             right: 10px;
-            background-color: #fff;
+            background-color: #444;
+            color: white;
             padding: 5px 10px;
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             z-index: 1000;
+            display: none;
+        }
+        #article-toggle-container {
+            position: fixed;
+            top: 90px;
+            right: 10px;
+            background-color: #444;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none;
         }
         #search-container {
             position: sticky;
@@ -696,7 +744,165 @@ html_content = """
         .filtered {
             display: none !important;
         }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+        body.dark-mode #sidebar {
+            background-color: #2a2a2a;
+            color: #f0f0f0;
+        }
+        body.dark-mode #sidebar a {
+            color: #a6d8ff;
+        }
+        body.dark-mode .section {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+        body.dark-mode .article {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
+        }
+        body.dark-mode .member {
+            border-left-color: #555;
+        }
+        body.dark-mode a {
+            color: #6bb9f0;
+        }
+        body.dark-mode .reference-button {
+            background-color: #444;
+            color: #ddd;
+        }
+        body.dark-mode #search-container {
+            background-color: #2a2a2a;
+        }
+        body.dark-mode #search-input {
+            background-color: #333;
+            color: #f0f0f0;
+            border: 1px solid #555;
+        }
+        body.dark-mode .highlight {
+            background-color: #664500;
+            color: #f0f0f0;
+        }
+        body.dark-mode #keyword-filter {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+        body.dark-mode .keyword-header {
+            background-color: #444;
+            color: #f0f0f0;
+        }
+        body.dark-mode .keyword-toggle {
+            background-color: #555;
+            color: #f0f0f0;
+            border-color: #777;
+        }
+        body.dark-mode .keyword-toggle.active {
+            background-color: #0069d9;
+        }
+        #dark-mode-toggle, #id-toggle-label {
+            position: fixed;
+            z-index: 1000;
+            padding: 5px 10px;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #dark-mode-toggle {
+            top: 10px;
+            right: 10px;
+        }
+        #id-toggle-container {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            background-color: #444;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none;
+        }
+        #article-toggle-container {
+            position: fixed;
+            top: 90px;
+            right: 10px;
+            background-color: #444;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none;
+        }
+        body.dark-mode h1 {
+            color: #f0f0f0 !important; /* Override the inline style */
+        }
+        body.dark-mode .subsubsection {
+            background-color: #2a2a2a;
+            border-left-color: #555;
+            color: #f0f0f0;
+        }
+        #id-toggle-container {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            background-color: #444;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none;
+        }
+        #article-toggle-container {
+            position: fixed;
+            top: 90px;
+            right: 10px;
+            background-color: #444;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none;
+        }
     </style>
+    <script>
+    function copyPermalink(id) {
+        const url = window.location.href.split('#')[0] + '#' + id;
+        navigator.clipboard.writeText(url);
+        
+        // Show tooltip
+        const tooltip = document.getElementById('permalink-tooltip');
+        tooltip.style.display = 'block';
+        setTimeout(() => {
+            tooltip.style.display = 'none';
+        }, 2000);
+    }
+    </script>
+    <div id="permalink-tooltip" style="display: none; position: fixed; top: 20px; right: 20px; background-color: #333; color: white; padding: 10px; border-radius: 5px; z-index: 1001;">
+        Permalink copied to clipboard!
+    </div>
+    <meta name="description" content="Official digital publication of the {filename} rulebook">
+    <meta property="og:title" content="{filename}">
+    <meta property="og:description" content="Official digital publication of the {filename} rulebook">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">
+    {{
+        "@context": "https://schema.org",
+        "@type": "LegalDocument",
+        "name": "{filename}",
+        "description": "Official digital publication",
+        "datePublished": "{datetime.datetime.now().strftime('%Y-%m-%d')}"
+    }}
+    </script>
 </head>
 <body>
     <div id="sidebar">
@@ -719,12 +925,18 @@ html_content = """
         </div>
     </div>
     <div id="main-content">
+        <button id="dark-mode-toggle" onclick="toggleDarkMode()">☀️ Light Mode</button>
         <div id="id-toggle-container">
-            <label for="id-toggle">
-                <input type="checkbox" id="id-toggle" onchange="toggleIDs()"> Show IDs
+            <label for="id-toggle" id="id-toggle-label">
+                <input type="checkbox" id="id-toggle" onchange="toggleIDs()"> Show Member IDs
             </label>
         </div>
-        <h1 style="color: black;">Koninklijk Besluit Brandveiligheid</h1>
+        <div id="article-toggle-container">
+            <label for="article-toggle" id="article-toggle-label">
+                <input type="checkbox" id="article-toggle" onchange="toggleArticleIDs()" checked> Show Article Numbers
+            </label>
+        </div>
+        <h1 style="color: black;">Koninklijk Besluit Brandveiligheid</h1><p>Version 0.3.0</p>
 """
 
 # Process top-level sections
@@ -816,14 +1028,35 @@ html_content += """
         }
     }
     
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const button = document.getElementById('dark-mode-toggle');
+        if (document.body.classList.contains('dark-mode')) {
+            button.innerHTML = '☀️ Light Mode';
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            button.innerHTML = '🌙 Dark Mode';
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    }
+    
     function toggleIDs() {
         var checkbox = document.getElementById('id-toggle');
-        var subtleIDs = document.getElementsByClassName('subtle-id');
+        var subtleIDs = document.getElementsByClassName('member-id');
         for (var i = 0; i < subtleIDs.length; i++) {
             subtleIDs[i].style.display = checkbox.checked ? 'inline' : 'none';
         }
+        localStorage.setItem('showMemberIDs', checkbox.checked ? 'enabled' : 'disabled');
     }
-    toggleIDs();
+    
+    function toggleArticleIDs() {
+        var checkbox = document.getElementById('article-toggle');
+        var articleIDs = document.getElementsByClassName('article-id');
+        for (var i = 0; i < articleIDs.length; i++) {
+            articleIDs[i].style.display = checkbox.checked ? 'inline' : 'none';
+        }
+        localStorage.setItem('showArticleIDs', checkbox.checked ? 'enabled' : 'disabled');
+    }
     
     // Search functionality
     let searchResults = [];
@@ -1208,7 +1441,25 @@ html_content += """
     // Initialize keywords and IDs when the page loads
     document.addEventListener('DOMContentLoaded', () => {
         initializeKeywords();
-        toggleIDs();
+        
+        // Set default to dark mode
+        document.body.classList.add('dark-mode');
+        document.getElementById('dark-mode-toggle').innerHTML = '☀️ Light Mode';
+        localStorage.setItem('darkMode', 'enabled');
+        
+        // Check for saved ID preferences
+        const showMemberIDsPref = localStorage.getItem('showMemberIDs');
+        if (showMemberIDsPref === 'enabled') {
+            document.getElementById('id-toggle').checked = true;
+        }
+        
+        const showArticleIDsPref = localStorage.getItem('showArticleIDs');
+        if (showArticleIDsPref === 'disabled') {
+            document.getElementById('article-toggle').checked = false;
+        }
+        
+        toggleIDs(); // Apply the member ID visibility setting
+        toggleArticleIDs(); // Apply the article ID visibility setting
     });
 </script>
 </body>
@@ -1225,6 +1476,11 @@ print("Found keywords:", keywords_list)
 # Convert the Python list to a JavaScript array string
 keywords_js_array = "[" + ", ".join(f"'{k}'" for k in keywords_list) + "]"
 html_content = html_content.replace("KEYWORDS_PLACEHOLDER", keywords_js_array)
+
+# After generating the HTML content, create a print version
+print_friendly_html = generate_print_version(html_content)
+with open(filename+"_print.html", "w", encoding="utf-8") as f:
+    f.write(print_friendly_html)
 
 # Write the HTML content to a file
 with open(filename+".html", "w", encoding="utf-8") as f:
