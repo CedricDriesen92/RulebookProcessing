@@ -3,8 +3,9 @@
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix sh:   <http://www.w3.org/ns/shacl#> .
-@prefix fbb:  <http://example.com/ontology/fbb#> .
+@prefix fbb:  <http://example.org/ontology/fbb#> .
 @prefix bot:  <https://w3id.org/bot#> .
+@prefix bpo:  <https://w3id.org/bpo#> .
 
 #################################################################
 # SHACL shape for compartments
@@ -15,30 +16,39 @@ fbb:CompartmentShape
     sh:targetClass fbb:Compartment ;
 
     # Step 1: Use a SHACL SPARQL rule to infer the total area of the compartment.
-    # This rule will compute the sum of the areas of all spaces linked via fbb:hasSpace.
+    # This rule will compute the sum of the areas of all spaces linked via bpo:hasCompartment.
     sh:rule [
         a sh:SPARQLRule ;
         sh:prefixes [
             sh:set (
-                [ sh:prefix "fbb" ; sh:namespace "http://example.com/ontology/fbb#" ]
+                [ sh:prefix "fbb" ; sh:namespace "http://example.org/ontology/fbb#" ]
                 [ sh:prefix "bot" ; sh:namespace "https://w3id.org/bot#" ]
+                [ sh:prefix "bpo" ; sh:namespace "https://w3id.org/bpo#" ]
+                [ sh:prefix "xsd" ; sh:namespace "http://www.w3.org/2001/XMLSchema#" ]
             )
         ];
         sh:construct """
             # This calculates the total area of the compartment as the sum of the areas of all spaces.
-            PREFIX fbb: <http://example.com/ontology/fbb#>
+            PREFIX fbb: <http://example.org/ontology/fbb#>
             PREFIX bot: <https://w3id.org/bot#>
+            PREFIX bpo: <https://w3id.org/bpo#>
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            
             CONSTRUCT {
-              ?this fbb:hasArea ?totalArea .
+              ?this bpo:Area ?totalArea .
             }
             WHERE {
               {
-                SELECT ?this (SUM(?spaceArea) as ?totalArea)
+                SELECT ?this (SUM(xsd:decimal(?spaceArea)) as ?totalArea)
                 WHERE {
                   ?this a fbb:Compartment .
-                  FILTER NOT EXISTS { ?this fbb:hasArea ?existingArea }
-                  ?space fbb:hasCompartment ?this .
-                  ?space fbb:hasArea ?spaceArea .
+                  FILTER NOT EXISTS { ?this bpo:Area ?existingArea }
+                  
+                  # Find spaces that have this compartment
+                  ?space bpo:hasCompartment ?this .
+                  
+                  # Get the area of each space
+                  ?space bpo:Area ?spaceArea .
                 }
                 GROUP BY ?this
                 HAVING (COUNT(?space) > 0)
@@ -49,7 +59,7 @@ fbb:CompartmentShape
 
     # Step 2: Once the area is inferred, we check that it is less than 3500.
     sh:property [
-        sh:path fbb:hasArea ;
+        sh:path bpo:Area ;
         sh:maxExclusive 3500 ;
         sh:message "The compartment's total area must be less than 3500."
     ] .

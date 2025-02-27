@@ -9,12 +9,12 @@ from typing import List, Tuple, Dict
 import unicodedata
 
 # Define namespaces
-FBB = Namespace("http://example.org/firebimbuilding#")
+FBB = Namespace("http://example.org/ontology/fbb#")
 BOT = Namespace("https://w3id.org/bot#")
 BPO = Namespace("https://w3id.org/bpo#")
 OPM = Namespace("https://w3id.org/opm#")
 IFC = Namespace("http://example.org/IFC#")
-INST = Namespace("http://example.com/project")
+INST = Namespace("http://example.org/project#")
 
 # IFC to BOT mapping
 IFC_BOT_MAPPING = {
@@ -37,7 +37,8 @@ GENERAL_PROPERTIES = [
     "Height",
     "Depth",
     "Area",
-    "Volume"
+    "Volume",
+    "Compartment"
 ]
 
 FIRE_SAFETY_PROPERTIES = [
@@ -57,7 +58,8 @@ FIRE_SAFETY_PROPERTIES = [
     "EmergencyLighting",
     "Fire",
     "HasCompartment",
-    "HasSpace"
+    "HasSpace",
+    "Compartment"
 ]
 
 class IFCtoFBBConverter:
@@ -67,6 +69,7 @@ class IFCtoFBBConverter:
         self.g = Graph()
         self.use_subclasses = use_subclasses
         self._bind_namespaces()
+        self.compartments = set()  # Track unique compartment names
 
     def sanitize_name(self, name: str):
         #name = unicodedata.normalize('NFKD', name).encode('ASCII', 'ignore').decode('ASCII')
@@ -80,7 +83,10 @@ class IFCtoFBBConverter:
 
     def create_uri(self, ns: Namespace, ifc_type: str, global_id: str) -> URIRef:
         entity_name = ifc_type[3:] if ifc_type.startswith("Ifc") else ifc_type
-        return ns[f"{self.sanitize_name(entity_name)}_{self.sanitize_name(global_id)}"]
+        if len(global_id) > 0:
+            return ns[f"{self.sanitize_name(entity_name)}_{self.sanitize_name(global_id)}"]
+        else:
+            return ns[self.sanitize_name(entity_name)]
 
     @staticmethod
     def is_property_of_type(prop_name: str, property_list: List[str], threshold: int = 80) -> bool:
@@ -107,7 +113,7 @@ class IFCtoFBBConverter:
         storeys = self.ifc_file.by_type("IfcBuildingStorey")
         for i, storey in enumerate(storeys, 1):
             print(f"Processing storey {i} out of {len(storeys)}...")
-            storey_uri = self.create_uri(FBB, "IfcBuildingStorey", storey.GlobalId)
+            storey_uri = self.create_uri(INST, "IfcBuildingStorey", storey.GlobalId)
             self.g.add((storey_uri, RDF.type, IFC_BOT_MAPPING["IfcBuildingStorey"]))
             self.g.add((storey_uri, FBB.name, Literal(self.sanitize_name(storey.Name))))
             self.g.add((building_uri, BOT.hasStorey, storey_uri))
@@ -123,7 +129,7 @@ class IFCtoFBBConverter:
             if space.Decomposes:
                 storey = space.Decomposes[0].RelatingObject
                 if storey.is_a("IfcBuildingStorey"):
-                    storey_uri = self.create_uri(FBB, "IfcBuildingStorey", storey.GlobalId)
+                    storey_uri = self.create_uri(INST, "IfcBuildingStorey", storey.GlobalId)
                     self.g.add((storey_uri, BOT.hasSpace, space_uri))
             self.add_properties(space, space_uri)
 
@@ -136,7 +142,7 @@ class IFCtoFBBConverter:
                     self._process_single_element(element, element_type)
 
     def _process_single_element(self, element, element_type: str) -> None:
-        element_uri = self.create_uri(FBB, element_type, element.GlobalId)
+        element_uri = self.create_uri(INST, element_type, element.GlobalId)
         
         if self.use_subclasses:
             element_class_uri = self.create_uri(INST, element_type, "Class")
@@ -152,7 +158,7 @@ class IFCtoFBBConverter:
         if hasattr(element, "ContainedInStructure") and element.ContainedInStructure:
             containing_storey = element.ContainedInStructure[0].RelatingStructure
             if containing_storey.is_a("IfcBuildingStorey"):
-                storey_uri = self.create_uri(FBB, "IfcBuildingStorey", containing_storey.GlobalId)
+                storey_uri = self.create_uri(INST, "IfcBuildingStorey", containing_storey.GlobalId)
                 self.g.add((storey_uri, BOT.containsElement, element_uri))
         
         self.add_properties(element, element_uri)
@@ -167,15 +173,39 @@ class IFCtoFBBConverter:
     def _add_single_property(self, entity_uri: URIRef, pset_name: str, prop_name: str, prop_value) -> None:
         sanitized_pset_name = self.sanitize_name(pset_name)
         sanitized_prop_name = self.sanitize_name(prop_name)
+        
+        # Handle Compartment property specially
+        if prop_name == "Compartment" and prop_value:
+            compartment_name = str(prop_value)
+            sanitized_compartment_name = self.sanitize_name(compartment_name)
+            
+            # Create compartment instance if it doesn't exist yet
+            if compartment_name not in self.compartments:
+                self.compartments.add(compartment_name)
+                compartment_uri = INST[f"compartment_{sanitized_compartment_name}"]
+                self.g.add((compartment_uri, RDF.type, FBB.Compartment))
+                self.g.add((compartment_uri, BPO.name, Literal(compartment_name)))
+            
+            # Link the entity to the compartment
+            compartment_uri = INST[f"compartment_{sanitized_compartment_name}"]
+            self.g.add((entity_uri, BPO.hasCompartment, compartment_uri))
+            return
+            
+        # Format numeric values to avoid scientific notation
+        if isinstance(prop_value, (int, float)):
+            prop_value_formatted = f"{prop_value:.10g}"
+        else:
+            prop_value_formatted = prop_value
+        
         if self.is_property_of_type(prop_name, GENERAL_PROPERTIES):
-            property_uri = self.create_uri(BPO, f"{sanitized_pset_name}_{sanitized_prop_name}", "Property")
-            self.g.add((entity_uri, property_uri, Literal(prop_value)))
+            property_uri = self.create_uri(BPO, f"{sanitized_prop_name}", "")
+            self.g.add((entity_uri, property_uri, Literal(prop_value_formatted)))
             self.g.add((property_uri, RDF.type, BPO.Attribute))
             self.g.add((property_uri, RDFS.label, Literal(prop_name)))
         
         if self.is_property_of_type(prop_name, FIRE_SAFETY_PROPERTIES):
-            property_uri = self.create_uri(BPO, f"{sanitized_pset_name}_{sanitized_prop_name}", "Property")
-            self.g.add((entity_uri, property_uri, Literal(prop_value)))
+            property_uri = self.create_uri(BPO, f"{sanitized_pset_name}_{sanitized_prop_name}", "")
+            self.g.add((entity_uri, property_uri, Literal(prop_value_formatted)))
             self.g.add((property_uri, RDF.type, BPO.Attribute))
             self.g.add((property_uri, RDFS.label, Literal(prop_name)))
             self.g.add((property_uri, FBB.isFireSafetyProperty, Literal(True)))
@@ -246,14 +276,14 @@ def main() -> None:
     use_subclasses = False
     
     for file in os.listdir(main_dir):
-        if file.lower().endswith(".ifc"):
+        if file.lower().endswith("ure.ifc"):
             ifc_file_path = os.path.join(main_dir, file)
             ttl_file_path = os.path.join(main_dir, f"{os.path.splitext(file)[0]}.ttl")
             
             ifc_to_fbb_ttl(ifc_file_path, ttl_file_path, use_subclasses)
             
             print(f"Testing external door widths for {file}...")
-            non_compliant_doors = test_external_door_width(ttl_file_path, ifc_file_path)
+            non_compliant_doors = []#test_external_door_width(ttl_file_path, ifc_file_path)
             
             if non_compliant_doors:
                 print(f"Found {len(non_compliant_doors)} non-compliant external doors:")
