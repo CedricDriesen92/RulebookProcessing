@@ -2,9 +2,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix bot:  <https://w3id.org/bot#> .
-@prefix fbb:  <http://example.com/ontology/fbb#> .
-@prefix fbd:  <http://example.com/ontology/fbd#> .
-@prefix inst: <http://example.com/fj209djlvjesloie#> . #<-- GUID of project
+@prefix fbb:  <http://example.org/ontology/fbb#> .
+@prefix bpo:  <https://w3id.org/bpo#> .
+@prefix inst: <http://example.org/project#> . # Changed to match your data
 
 
 #################################################################
@@ -12,24 +12,26 @@
 #################################################################
 
 # Compartment A: Will have a total area < 3500
-inst:CompartmentA a fbb:Compartment .
+inst:CompartmentA a fbb:Compartment ;
+    bpo:name "Compartment A" .
 
 inst:Space1 a bot:Space ;
-   fbb:hasCompartment inst:CompartmentA ;
-   fbb:hasArea "1000"^^xsd:decimal .
+   bpo:hasCompartment inst:CompartmentA ;
+   bpo:Area "1000"^^xsd:decimal .
 
 inst:Space2 a bot:Space ;
-   fbb:hasCompartment inst:CompartmentA ;
-   fbb:hasArea "600"^^xsd:decimal .
+   bpo:hasCompartment inst:CompartmentA ;
+   bpo:Area "600"^^xsd:decimal .
 
 
 # Compartment B: Will have a total area > 3500
-inst:CompartmentB a fbb:Compartment .
+inst:CompartmentB a fbb:Compartment ;
+    bpo:name "Compartment B" .
 
 inst:Space3 a bot:Space ;
-   fbb:hasCompartment inst:CompartmentB ;
-   fbb:hasArea "2000"^^xsd:decimal .
+   bpo:hasCompartment inst:CompartmentB ;
+   bpo:Area "2000"^^xsd:decimal .
 
 inst:Space4 a bot:Space ;
-   fbb:hasCompartment inst:CompartmentB ;
-   fbb:hasArea "2000"^^xsd:decimal .
+   bpo:hasCompartment inst:CompartmentB ;
+   bpo:Area "2000"^^xsd:decimal .
