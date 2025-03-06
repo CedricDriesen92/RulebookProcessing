@@ -277,8 +277,14 @@ def create_ontology():
         if not name_en:
             continue
             
-        # For objects, don't include country code in URI
-        uri_key = normalize_name(name_en)  # No country code for objects
+        # Get country code from language field
+        country_code = get_country_code(props, countries_dict)
+        
+        # Create URI - include country code only if it's not international
+        uri_key = normalize_name(name_en)
+        if country_code != "INT":
+            uri_key = f"{uri_key}{country_code}"
+            
         uri = URIRef(FIREBIM[uri_key])
         
         # Store in mappings
@@ -312,7 +318,6 @@ def create_ontology():
         
         # Get country code from language field
         country_code = get_country_code(props, countries_dict)
-        print(f"Property: {name_en}, Country code: {country_code}")
         
         # Get language only (no region)
         language = get_language_and_region(props)
@@ -383,11 +388,15 @@ def create_ontology():
         if country_code != "INT":
             g.add((property_uri, FIREBIM.hasCountryCode, Literal(country_code)))
     
-    # Process objects
+    # Process objects - first pass to assign BOT types to top-level objects
     print("Fetching objects data...")
     objects_pages = get_all_pages(DB_OBJECTS)
     print(f"Found {len(objects_pages)} objects")
-    
+
+    # We'll track which objects have been assigned a BOT type
+    objects_with_bot_type = set()
+
+    # First pass: Process all objects and assign BOT types to top-level objects
     for page in objects_pages:
         props = page["properties"]
         
@@ -396,20 +405,40 @@ def create_ontology():
         if not name_en:
             continue
         
-        # For objects, don't include country code in URI
-        uri_key = normalize_name(name_en)  # No country code for objects
+        # Get country code from language field
+        country_code = get_country_code(props, countries_dict)
+        
+        # Create URI - include country code only if it's not international
+        uri_key = normalize_name(name_en)
+        if country_code != "INT":
+            uri_key = f"{uri_key}{country_code}"
+            
         object_uri = URIRef(FIREBIM[uri_key])
         
-        # Determine object type based on Tags
-        tags = get_select_value(props.get("Tags"))
+        # Add country information if not international
+        if country_code != "INT":
+            g.add((object_uri, FIREBIM.hasCountryCode, Literal(country_code)))
         
-        # Default to Element, but check if it's a spatial element
-        if tags and "spatial" in tags.lower():
-            g.add((object_uri, RDF.type, BOT.Zone))
-        else:
-            g.add((object_uri, RDF.type, BOT.Element))
+        # Check if this is a top-level object (no parent)
+        object_id = page["id"]
+        is_top_level = object_id not in [child_id for child_ids in parent_child_relations.values() for child_id in child_ids]
+        is_top_level = is_top_level and object_id not in [subitem_id for subitem_ids in subitem_relations.values() for subitem_id in subitem_ids]
         
-        # Add label
+        # For top-level objects, use RDF.type to connect to BOT.Zone or BOT.Element
+        if is_top_level:
+            # Determine object type based on Tags
+            tags = get_select_value(props.get("Tags"))
+            
+            # Default to Element, but check if it's a spatial element
+            if tags and "spatial" in tags.lower():
+                g.add((object_uri, RDF.type, BOT.Zone))
+            else:
+                g.add((object_uri, RDF.type, BOT.Element))
+            
+            # Mark this object as having a BOT type assigned
+            objects_with_bot_type.add(object_uri)
+        
+        # Add label and other properties
         g.add((object_uri, RDFS.label, Literal(name_en, lang="en")))
         
         # Add ISO definition with language tag
@@ -461,10 +490,6 @@ def create_ontology():
         if remark:
             g.add((object_uri, FIREBIM.hasRemark, Literal(remark)))
     
-    # Add a second pass after processing all objects to establish the class hierarchy
-    # Second pass - add parent-child and subclass relationships
-    print("Processing object relationships - second pass...")
-    
     # Process parent-child relationships
     for child_id, parent_ids in parent_child_relations.items():
         if child_id in object_id_to_uri:
@@ -474,29 +499,48 @@ def create_ontology():
                 if parent_id in object_id_to_uri:
                     parent_uri = object_id_to_uri[parent_id]
                     
-                    # Add parent-child relationship
+                    # Add RDF.type relationship - child is of type parent
+                    g.add((child_uri, RDF.type, parent_uri))
+                    
+                    # We still keep the explicit parent-child relationship for reference
                     g.add((child_uri, FIREBIM.hasParent, parent_uri))
                     g.add((parent_uri, FIREBIM.hasChild, child_uri))
-                    
-                    # Add subclass relationship - child is a subclass of parent
-                    g.add((child_uri, RDFS.subClassOf, parent_uri))
-    
-    # Process sub-item relationships
-    for item_id, subitem_ids in subitem_relations.items():
-        if item_id in object_id_to_uri:
-            item_uri = object_id_to_uri[item_id]
+
+    # Second pass - ensure all objects have a BOT type by inheriting from their parent
+    # Keep iterating until all objects have a BOT type
+    while True:
+        newly_typed = 0
+        
+        # For each object that has a type (which could be another object)
+        for s, p, o in g.triples((None, RDF.type, None)):
+            # Skip if the object is already a BOT type
+            if o:
+                continue
             
-            for subitem_id in subitem_ids:
-                if subitem_id in object_id_to_uri:
-                    subitem_uri = object_id_to_uri[subitem_id]
-                    
-                    # Add sub-item relationship
-                    g.add((item_uri, FIREBIM.hasSubItem, subitem_uri))
-                    g.add((subitem_uri, FIREBIM.isSubItemOf, item_uri))
-                    
-                    # Add subclass relationship - sub-item is a subclass of item
-                    g.add((subitem_uri, RDFS.subClassOf, item_uri))
-    
+            # If the subject doesn't have a BOT type yet
+            if s not in objects_with_bot_type:
+                # Check if the object (type) has a BOT type
+                for _, _, parent_type in g.triples((o, RDF.type, None)):
+                    if parent_type in [BOT.Zone, BOT.Element]:
+                        # Assign the same BOT type to the subject
+                        g.add((s, RDF.type, parent_type))
+                        objects_with_bot_type.add(s)
+                        newly_typed += 1
+                        break
+        
+        # If no new objects were typed in this iteration, we're done
+        if newly_typed == 0:
+            break
+
+    # Third pass - ensure all objects have a BOT type, even if their parent doesn't
+    # This handles cases where the inheritance chain is broken
+    for object_uri in object_id_to_uri.values():
+        # If the object still doesn't have a BOT type
+        if object_uri not in objects_with_bot_type:
+            # Default to Element
+            g.add((object_uri, RDF.type, BOT.Element))
+            objects_with_bot_type.add(object_uri)
+
     # Save the ontology to a file
     g.serialize(destination="firebim_ontology_notion.ttl", format="turtle")
     print("Ontology saved to firebim_ontology_notion.ttl")
