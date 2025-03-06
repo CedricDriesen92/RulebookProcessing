@@ -95,36 +95,34 @@ def get_normalized_uri(name, country_code):
     normalized_name = normalize_name(name)
     return f"{normalized_name}{country_code}"
 
+def get_country_code(props, countries_dict):
+    """Get country code from language field's region part"""
+    language = get_select_value(props.get("Language"))
+    
+    # Default international code
+    country_code = "INT"
+    
+    # Extract region from language (which has format like "nl-BE")
+    if language and "-" in language:
+        parts = language.split("-")
+        if len(parts) > 1:
+            country_code = parts[1].upper()
+    
+    return country_code
+
 def get_language_and_region(props):
-    """Extract language and region from Language field"""
+    """Extract language from Language field"""
     language = get_select_value(props.get("Language"))
     
     base_lang = "en"  # Default language
-    region = None
     
     if language and "-" in language:
         parts = language.split("-")
         base_lang = parts[0]
-        region = parts[1]
     elif language:
         base_lang = language
     
-    return base_lang, region
-
-def get_country_code(props, countries_dict):
-    """Get country code from country relation"""
-    country_ids = get_relation_ids(props.get("FB:country"))
-    if not country_ids:
-        return "INT"  # International/default
-    
-    country_id = country_ids[0]
-    if country_id in countries_dict:
-        country_name = countries_dict[country_id]
-        # Extract 2-letter country code
-        if "-" in country_name:
-            return country_name.split("-")[0].upper()
-    
-    return "INT"  # Default if no match
+    return base_lang
 
 def create_ontology():
     # Create RDF graph
@@ -279,11 +277,8 @@ def create_ontology():
         if not name_en:
             continue
             
-        # Get country code
-        country_code = get_country_code(props, countries_dict)
-        
-        # Create normalized URI
-        uri_key = get_normalized_uri(name_en, country_code)
+        # For objects, don't include country code in URI
+        uri_key = normalize_name(name_en)  # No country code for objects
         uri = URIRef(FIREBIM[uri_key])
         
         # Store in mappings
@@ -315,12 +310,12 @@ def create_ontology():
         if not name_en:
             continue
         
-        # Get country code - Fix for properties
+        # Get country code from language field
         country_code = get_country_code(props, countries_dict)
-        #print(f"Property: {name_en}, Country code: {country_code}")
+        print(f"Property: {name_en}, Country code: {country_code}")
         
-        # Get language and region
-        language, region = get_language_and_region(props)
+        # Get language only (no region)
+        language = get_language_and_region(props)
         
         # Create property URI with country code
         uri_key = get_normalized_uri(name_en, country_code)
@@ -334,14 +329,11 @@ def create_ontology():
         name_native = get_rich_text_content(props.get("Name (native language)"))
         if name_native:
             g.add((property_uri, RDFS.label, Literal(name_native, lang=language)))
-            # Add region information if available
-            if region:
-                g.add((property_uri, FIREBIM.hasRegion, Literal(region)))
         
         # Add definitions with appropriate language tags
         definition_en = get_rich_text_content(props.get("Definition (English)"))
         if definition_en:
-            # Create a definition node with language and region information
+            # Create a definition node with language information
             def_node = BNode()
             g.add((property_uri, FIREBIM.hasDefinition, def_node))
             g.add((def_node, FIREBIM.definitionText, Literal(definition_en, lang="en")))
@@ -354,8 +346,6 @@ def create_ontology():
             g.add((property_uri, FIREBIM.hasDefinition, native_def_node))
             g.add((native_def_node, FIREBIM.definitionText, Literal(definition_native, lang=language)))
             g.add((native_def_node, FIREBIM.definitionSource, Literal("FireBIM")))
-            if region:
-                g.add((native_def_node, FIREBIM.definitionRegion, Literal(region)))
         
         # Add unit if available
         unit = get_rich_text_content(props.get("Unit"))
@@ -382,16 +372,16 @@ def create_ontology():
         if value_type:
             g.add((property_uri, FIREBIM.hasValueType, Literal(value_type)))
         
-        # Add country information
-        if country_code != "INT":
-            g.add((property_uri, FIREBIM.hasCountryCode, Literal(country_code)))
-        
         # Add "property is linked to" relationships
         linked_object_ids = get_relation_ids(props.get("Property is linked to"))
         for linked_id in linked_object_ids:
             if linked_id in object_id_to_uri:
                 linked_uri = object_id_to_uri[linked_id]
                 g.add((property_uri, FIREBIM.isLinkedTo, linked_uri))
+        
+        # Add country information
+        if country_code != "INT":
+            g.add((property_uri, FIREBIM.hasCountryCode, Literal(country_code)))
     
     # Process objects
     print("Fetching objects data...")
@@ -406,11 +396,8 @@ def create_ontology():
         if not name_en:
             continue
         
-        # Get country code
-        country_code = get_country_code(props, countries_dict)
-        
-        # Create object URI with country code
-        uri_key = get_normalized_uri(name_en, country_code)
+        # For objects, don't include country code in URI
+        uri_key = normalize_name(name_en)  # No country code for objects
         object_uri = URIRef(FIREBIM[uri_key])
         
         # Determine object type based on Tags
@@ -473,10 +460,6 @@ def create_ontology():
         remark = get_rich_text_content(props.get("Remark"))
         if remark:
             g.add((object_uri, FIREBIM.hasRemark, Literal(remark)))
-        
-        # Add country information
-        if country_code != "INT":
-            g.add((object_uri, FIREBIM.hasCountryCode, Literal(country_code)))
     
     # Add a second pass after processing all objects to establish the class hierarchy
     # Second pass - add parent-child and subclass relationships
