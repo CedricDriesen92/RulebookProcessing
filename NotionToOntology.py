@@ -145,6 +145,110 @@ def create_ontology():
     g.add((FIREBIM.FireBIMOntology, RDF.type, OWL.Ontology))
     g.add((FIREBIM.FireBIMOntology, RDFS.label, Literal("FireBIM Ontology")))
     
+    # Define all custom properties in the ontology
+    print("Defining ontology properties...")
+    
+    # Define isLinkedTo property (bidirectional with hasProperty)
+    g.add((FIREBIM.isLinkedTo, RDF.type, OWL.ObjectProperty))
+    g.add((FIREBIM.isLinkedTo, RDFS.label, Literal("is linked to", lang="en")))
+    g.add((FIREBIM.isLinkedTo, RDFS.comment, Literal("Links a property to an object it describes", lang="en")))
+    g.add((FIREBIM.isLinkedTo, OWL.inverseOf, FIREBIM.hasProperty))
+    
+    # Define hasProperty property
+    g.add((FIREBIM.hasProperty, RDF.type, OWL.ObjectProperty))
+    g.add((FIREBIM.hasProperty, RDFS.label, Literal("has property", lang="en")))
+    g.add((FIREBIM.hasProperty, RDFS.comment, Literal("Links an object to a property that describes it", lang="en")))
+    
+    # Define hasDefinition property
+    g.add((FIREBIM.hasDefinition, RDF.type, OWL.DatatypeProperty))
+    g.add((FIREBIM.hasDefinition, RDFS.label, Literal("has definition", lang="en")))
+    g.add((FIREBIM.hasDefinition, RDFS.comment, Literal("Links an entity to its definition", lang="en")))
+    
+    # Define hasISODefinition property
+    g.add((FIREBIM.hasISODefinition, RDF.type, OWL.DatatypeProperty))
+    g.add((FIREBIM.hasISODefinition, RDFS.label, Literal("has ISO definition", lang="en")))
+    g.add((FIREBIM.hasISODefinition, RDFS.comment, Literal("Links an entity to its ISO definition", lang="en")))
+    g.add((FIREBIM.hasISODefinition, RDFS.subPropertyOf, FIREBIM.hasDefinition))
+    
+    # Define hasUnit property
+    g.add((FIREBIM.hasUnit, RDF.type, OWL.DatatypeProperty))
+    g.add((FIREBIM.hasUnit, RDFS.label, Literal("has unit", lang="en")))
+    g.add((FIREBIM.hasUnit, RDFS.comment, Literal("Specifies the unit of measurement for a property", lang="en")))
+    
+    # Define hasDomain property
+    g.add((FIREBIM.hasDomain, RDF.type, OWL.DatatypeProperty))
+    g.add((FIREBIM.hasDomain, RDFS.label, Literal("has domain", lang="en")))
+    g.add((FIREBIM.hasDomain, RDFS.comment, Literal("Specifies the domain an entity belongs to", lang="en")))
+    
+    # Define hasRemark property
+    g.add((FIREBIM.hasRemark, RDF.type, OWL.DatatypeProperty))
+    g.add((FIREBIM.hasRemark, RDFS.label, Literal("has remark", lang="en")))
+    g.add((FIREBIM.hasRemark, RDFS.comment, Literal("Additional remarks about an entity", lang="en")))
+    
+    # Define hasType property
+    g.add((FIREBIM.hasType, RDF.type, OWL.DatatypeProperty))
+    g.add((FIREBIM.hasType, RDFS.label, Literal("has type", lang="en")))
+    g.add((FIREBIM.hasType, RDFS.comment, Literal("Specifies the type of a property", lang="en")))
+    
+    # Define hasValueType property
+    g.add((FIREBIM.hasValueType, RDF.type, OWL.DatatypeProperty))
+    g.add((FIREBIM.hasValueType, RDFS.label, Literal("has value type", lang="en")))
+    g.add((FIREBIM.hasValueType, RDFS.comment, Literal("Specifies the data type of a property's value", lang="en")))
+    
+    # Define hasCountryCode property
+    g.add((FIREBIM.hasCountryCode, RDF.type, OWL.DatatypeProperty))
+    g.add((FIREBIM.hasCountryCode, RDFS.label, Literal("has country code", lang="en")))
+    g.add((FIREBIM.hasCountryCode, RDFS.comment, Literal("Specifies the country an entity is associated with", lang="en")))
+    
+    # Define hasRegion property
+    g.add((FIREBIM.hasRegion, RDF.type, OWL.DatatypeProperty))
+    g.add((FIREBIM.hasRegion, RDFS.label, Literal("has region", lang="en")))
+    g.add((FIREBIM.hasRegion, RDFS.comment, Literal("Specifies the region within a country", lang="en")))
+    
+    # Define hasIFCEntity property
+    g.add((FIREBIM.hasIFCEntity, RDF.type, OWL.DatatypeProperty))
+    g.add((FIREBIM.hasIFCEntity, RDFS.label, Literal("has IFC entity", lang="en")))
+    g.add((FIREBIM.hasIFCEntity, RDFS.comment, Literal("Specifies the IFC entity name", lang="en")))
+    
+    # Define correspondsToIFC property
+    g.add((FIREBIM.correspondsToIFC, RDF.type, OWL.ObjectProperty))
+    g.add((FIREBIM.correspondsToIFC, RDFS.label, Literal("corresponds to IFC", lang="en")))
+    g.add((FIREBIM.correspondsToIFC, RDFS.comment, Literal("Links to the corresponding IFC entity", lang="en")))
+    
+    # Define hasISOTermLink property
+    g.add((FIREBIM.hasISOTermLink, RDF.type, OWL.ObjectProperty))
+    g.add((FIREBIM.hasISOTermLink, RDFS.label, Literal("has ISO term link", lang="en")))
+    g.add((FIREBIM.hasISOTermLink, RDFS.comment, Literal("Links to the ISO term definition", lang="en")))
+    
+    # Define hasBSDDLink property
+    g.add((FIREBIM.hasBSDDLink, RDF.type, OWL.ObjectProperty))
+    g.add((FIREBIM.hasBSDDLink, RDFS.label, Literal("has bSDD link", lang="en")))
+    g.add((FIREBIM.hasBSDDLink, RDFS.comment, Literal("Links to the buildingSMART Data Dictionary entry", lang="en")))
+    
+    # Define hasBIMidsLink property
+    g.add((FIREBIM.hasBIMidsLink, RDF.type, OWL.ObjectProperty))
+    g.add((FIREBIM.hasBIMidsLink, RDFS.label, Literal("has BIMids link", lang="en")))
+    g.add((FIREBIM.hasBIMidsLink, RDFS.comment, Literal("Links to the BIMids.eu entry", lang="en")))
+    
+    # Define parent-child relationships (bidirectional)
+    g.add((FIREBIM.hasParent, RDF.type, OWL.ObjectProperty))
+    g.add((FIREBIM.hasParent, RDFS.label, Literal("has parent", lang="en")))
+    g.add((FIREBIM.hasParent, RDFS.comment, Literal("Links to the parent object", lang="en")))
+    g.add((FIREBIM.hasParent, OWL.inverseOf, FIREBIM.hasChild))
+    
+    g.add((FIREBIM.hasChild, RDF.type, OWL.ObjectProperty))
+    g.add((FIREBIM.hasChild, RDFS.label, Literal("has child", lang="en")))
+    g.add((FIREBIM.hasChild, RDFS.comment, Literal("Links to a child object", lang="en")))
+    
+    # Define sub-item relationships (bidirectional)
+    g.add((FIREBIM.hasSubItem, RDF.type, OWL.ObjectProperty))
+    g.add((FIREBIM.hasSubItem, RDFS.label, Literal("has sub-item", lang="en")))
+    g.add((FIREBIM.hasSubItem, RDFS.comment, Literal("Links to a sub-item", lang="en")))
+    
+    g.add((FIREBIM.isSubItemOf, RDF.type, OWL.ObjectProperty))
+    g.add((FIREBIM.isSubItemOf, RDFS.label, Literal("is sub-item of", lang="en")))
+    g.add((FIREBIM.isSubItemOf, RDFS.comment, Literal("Links to the parent item", lang="en")))
+    
     # First, get all countries to use for URI creation
     print("Fetching countries data...")
     countries_pages = get_all_pages(DB_COUNTRIES)
@@ -159,11 +263,14 @@ def create_ontology():
     
     print(f"Found {len(countries_dict)} countries")
     
-    # First pass: Create a mapping of object IDs to their URIs
+    # First pass: Create a mapping of object IDs to their URIs and collect parent-child relationships
     print("Building object URI mapping...")
     object_id_to_uri = {}
     object_name_to_uri = {}
+    parent_child_relations = {}  # Store parent-child relationships
+    subitem_relations = {}       # Store sub-item relationships
     
+    # First, collect all objects and their URIs
     for page in get_all_pages(DB_OBJECTS):
         object_id = page["id"]
         props = page["properties"]
@@ -182,6 +289,16 @@ def create_ontology():
         # Store in mappings
         object_id_to_uri[object_id] = uri
         object_name_to_uri[name_en.lower()] = uri
+        
+        # Collect parent-child relationships
+        parent_ids = get_relation_ids(props.get("Parent item"))
+        if parent_ids:
+            parent_child_relations[object_id] = parent_ids
+        
+        # Collect sub-item relationships
+        subitem_ids = get_relation_ids(props.get("Sub-item"))
+        if subitem_ids:
+            subitem_relations[object_id] = subitem_ids
     
     print(f"Built mapping for {len(object_id_to_uri)} objects")
     
@@ -198,8 +315,9 @@ def create_ontology():
         if not name_en:
             continue
         
-        # Get country code
+        # Get country code - Fix for properties
         country_code = get_country_code(props, countries_dict)
+        #print(f"Property: {name_en}, Country code: {country_code}")
         
         # Get language and region
         language, region = get_language_and_region(props)
@@ -359,6 +477,42 @@ def create_ontology():
         # Add country information
         if country_code != "INT":
             g.add((object_uri, FIREBIM.hasCountryCode, Literal(country_code)))
+    
+    # Add a second pass after processing all objects to establish the class hierarchy
+    # Second pass - add parent-child and subclass relationships
+    print("Processing object relationships - second pass...")
+    
+    # Process parent-child relationships
+    for child_id, parent_ids in parent_child_relations.items():
+        if child_id in object_id_to_uri:
+            child_uri = object_id_to_uri[child_id]
+            
+            for parent_id in parent_ids:
+                if parent_id in object_id_to_uri:
+                    parent_uri = object_id_to_uri[parent_id]
+                    
+                    # Add parent-child relationship
+                    g.add((child_uri, FIREBIM.hasParent, parent_uri))
+                    g.add((parent_uri, FIREBIM.hasChild, child_uri))
+                    
+                    # Add subclass relationship - child is a subclass of parent
+                    g.add((child_uri, RDFS.subClassOf, parent_uri))
+    
+    # Process sub-item relationships
+    for item_id, subitem_ids in subitem_relations.items():
+        if item_id in object_id_to_uri:
+            item_uri = object_id_to_uri[item_id]
+            
+            for subitem_id in subitem_ids:
+                if subitem_id in object_id_to_uri:
+                    subitem_uri = object_id_to_uri[subitem_id]
+                    
+                    # Add sub-item relationship
+                    g.add((item_uri, FIREBIM.hasSubItem, subitem_uri))
+                    g.add((subitem_uri, FIREBIM.isSubItemOf, item_uri))
+                    
+                    # Add subclass relationship - sub-item is a subclass of item
+                    g.add((subitem_uri, RDFS.subClassOf, item_uri))
     
     # Save the ontology to a file
     g.serialize(destination="firebim_ontology_notion.ttl", format="turtle")

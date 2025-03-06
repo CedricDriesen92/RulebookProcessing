@@ -31,11 +31,11 @@ firebim:AerodynamiskfritarealAaINT a owl:ObjectProperty ;
 firebim:AreaofafloororfractionINT a owl:ObjectProperty ;
     rdfs:label "Area of a floor or fraction"@en,
         "Área de um piso ou fracção"@pt ;
-    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Sum of the usable floor area of all interior compartments on a given floor or fraction thereof, excluding vestibules, interior circulation, common stairways and ramps, sanitary facilities, closets, storage rooms, wall cabinets and other compartments with a similar function,  and measured by the interior perimeter of the walls that delimit those compartments, excluding walls up to 30 cm, interior walls, partitions and ducts."@en ],
+        [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Soma da área útil de todos os compartimentos interiores de um dado piso ou fracção, excluindo-se vestíbulos, circulações interiores, escadas e rampas comuns, instalações sanitárias, roupeiros, arrumos, armários nas paredes e outros compartimentos de função similar,  e mede-se pelo perímetro interior das paredes que delimitam aqueles compartimentos, descontando encalços até 30 cm, paredes interiores, divisórias e condutas"@pt ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Sum of the usable floor area of all interior compartments on a given floor or fraction thereof, excluding vestibules, interior circulation, common stairways and ramps, sanitary facilities, closets, storage rooms, wall cabinets and other compartments with a similar function,  and measured by the interior perimeter of the walls that delimit those compartments, excluding walls up to 30 cm, interior walls, partitions and ducts."@en ] ;
+            firebim:definitionText "Soma da área útil de todos os compartimentos interiores de um dado piso ou fracção, excluindo-se vestíbulos, circulações interiores, escadas e rampas comuns, instalações sanitárias, roupeiros, arrumos, armários nas paredes e outros compartimentos de função similar,  e mede-se pelo perímetro interior das paredes que delimitam aqueles compartimentos, descontando encalços até 30 cm, paredes interiores, divisórias e condutas"@pt ] ;
     firebim:hasDomain "Generic" ;
     firebim:hasRegion "PT" ;
     firebim:hasRemark "Note: This definition (underlined) is used to determine the usable area of a compartment." ;
@@ -54,11 +54,11 @@ firebim:AreaofcompartmentINT a owl:ObjectProperty ;
 firebim:AreaofrefugespaceINT a owl:ObjectProperty ;
     rdfs:label "Area of refuge space"@en,
         "Área da zona de refúgio"@pt ;
-    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "A refuge area must have a value, in m2, of no less than the effective area of the sites it serves, multiplied by the index 0.2."@en ],
+        [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Uma zona de refúgio deve possuir uma área de valor, em m2, não inferior ao efetivo dos locais que serve, multiplicado pelo índice 0,2."@pt ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "A refuge area must have a value, in m2, of no less than the effective area of the sites it serves, multiplied by the index 0.2."@en ] ;
+            firebim:definitionText "Uma zona de refúgio deve possuir uma área de valor, em m2, não inferior ao efetivo dos locais que serve, multiplicado pelo índice 0,2."@pt ] ;
     firebim:hasDomain "Fire Compartment" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -66,11 +66,6 @@ firebim:AreaofrefugespaceINT a owl:ObjectProperty ;
     firebim:hasValueType "Number" ;
     firebim:isLinkedTo firebim:CompartmentBoundaryINT,
         firebim:RefugespaceINT .
-
-firebim:BankofelevatorsINT a bot:Element ;
-    rdfs:label "Bank of elevators"@en ;
-    firebim:hasDefinition "A bank of elevators with the same rated speed, serving the same floors, with landing doors simultaneously visible or nearby, electrically interconnected, with common call controls"@en,
-        "Conjunto de elevadores com a mesma velocidade nominal, servindo os mesmos pisos, com portas de patamar simultaneamente visíveis ou próximas, interligados eletricamente, dispondo de comandos de chamada comuns"@en .
 
 firebim:BrandeksponeretoverfladeDanishINT a owl:ObjectProperty ;
     rdfs:label "Brandeksponeret overflade"@dk,
@@ -99,18 +94,13 @@ firebim:BrandmssigadskillelseDanishINT a owl:ObjectProperty ;
 firebim:BuildingFirewallINT a owl:ObjectProperty ;
     rdfs:label "Brandvæg"@dk,
         "Building-Firewall"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Wall in or against the neighboring boundary designed to prevent a fire from spreading to another property."@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Væg i eller mod naboskel, der er udformet, så en brand ikke spredes til anden grund."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Wall in or against the neighboring boundary designed to prevent a fire from spreading to another property."@en ] ;
+            firebim:definitionText "Væg i eller mod naboskel, der er udformet, så en brand ikke spredes til anden grund."@dk ] ;
     firebim:hasRegion "DK" ;
     firebim:hasUnit "[-]" .
-
-firebim:BuildingLayerINT a bot:Element ;
-    rdfs:label "Building Layer"@en ;
-    firebim:hasDefinition "de ruimte tussen een vloer en het daarboven liggend plafond. De bouwlagen gelegen onder het niveau Ei zijn kelderverdiepingen en komen niet in aanmerking voor het bepalen van het aantal bouwlagen van een gebouw"@en,
-        "the space between a floor and the ceiling above it. The floors located below level Ei are basement floors and are not eligible for determining the number of floors of a building"@en .
 
 firebim:BuildingheightINT a owl:ObjectProperty ;
     rdfs:label "Building-height"@en,
@@ -130,11 +120,11 @@ firebim:BuildingheightflooruseareaINT a owl:ObjectProperty ;
     rdfs:label "Building-height_floor_use_area"@en,
         """hoogste vloer
   van een gebruiksgebied"""@nl ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "freely divisible part of a function where activities characteristic of the function take place, consisting of one or more spaces on the same floor located in a fire compartment that are not separated from each other by a load-bearing partition and that are not a toilet room, bathroom, technical room or traffic room, unless that space itself is a functional space;"@en ],
-        [ firebim:definitionRegion "NL" ;
+    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "vrij indeelbaar gedeelte van een gebruiksfunctie waar voor de gebruiksfunctie kenmerkende activiteiten plaatsvinden, dat bestaat uit een of meer op dezelfde bouwlaag gelegen ruimten gelegen in een brandcompartiment die niet door een dragende scheidingsconstructie van elkaar zijn gescheiden en die geen toiletruimte, badruimte, technische ruimte of verkeersruimte zijn, tenzij die ruimte zelf een functieruimte is;"@nl ] ;
+            firebim:definitionText "vrij indeelbaar gedeelte van een gebruiksfunctie waar voor de gebruiksfunctie kenmerkende activiteiten plaatsvinden, dat bestaat uit een of meer op dezelfde bouwlaag gelegen ruimten gelegen in een brandcompartiment die niet door een dragende scheidingsconstructie van elkaar zijn gescheiden en die geen toiletruimte, badruimte, technische ruimte of verkeersruimte zijn, tenzij die ruimte zelf een functieruimte is;"@nl ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "freely divisible part of a function where activities characteristic of the function take place, consisting of one or more spaces on the same floor located in a fire compartment that are not separated from each other by a load-bearing partition and that are not a toilet room, bathroom, technical room or traffic room, unless that space itself is a functional space;"@en ] ;
     firebim:hasRegion "NL" ;
     firebim:hasType "property" ;
     firebim:hasUnit "[m]" ;
@@ -169,11 +159,11 @@ firebim:BuildingsectionofficesINT a owl:ObjectProperty ;
 firebim:BuildingtypehighINT a owl:ObjectProperty ;
     rdfs:label "Building-type:high"@en,
         "Hoog gebouw"@nl ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "building whose height is greater than 25 m"@en ],
-        [ firebim:definitionRegion "BE" ;
+    firebim:hasDefinition [ firebim:definitionRegion "BE" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "gebouw waarvan de hoogte groter is dan 25 m"@nl ] ;
+            firebim:definitionText "gebouw waarvan de hoogte groter is dan 25 m"@nl ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "building whose height is greater than 25 m"@en ] ;
     firebim:hasRegion "BE" ;
     firebim:hasType "property" ;
     firebim:hasUnit "[-]" ;
@@ -183,11 +173,11 @@ firebim:BuildingtypehighINT a owl:ObjectProperty ;
 firebim:BuildingtypelowINT a owl:ObjectProperty ;
     rdfs:label "Building-type:low"@en,
         "Laag gebouw"@nl ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "building with a height of less than 10 m"@en ],
-        [ firebim:definitionRegion "BE" ;
+    firebim:hasDefinition [ firebim:definitionRegion "BE" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "gebouw waarvan de hoogte kleiner is dan 10 m"@nl ] ;
+            firebim:definitionText "gebouw waarvan de hoogte kleiner is dan 10 m"@nl ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "building with a height of less than 10 m"@en ] ;
     firebim:hasRegion "BE" ;
     firebim:hasType "property" ;
     firebim:hasUnit "[-]" ;
@@ -197,11 +187,11 @@ firebim:BuildingtypelowINT a owl:ObjectProperty ;
 firebim:BuildingtypemiddleINT a owl:ObjectProperty ;
     rdfs:label "Building-type:middle"@en,
         "Middelhoog gebouw"@nl ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "building whose height is equal to or between 10 m and 25 m"@en ],
-        [ firebim:definitionRegion "BE" ;
+    firebim:hasDefinition [ firebim:definitionRegion "BE" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "gebouw waarvan de hoogte gelijk is aan of begrepen is tussen 10 m en 25 m"@nl ] ;
+            firebim:definitionText "gebouw waarvan de hoogte gelijk is aan of begrepen is tussen 10 m en 25 m"@nl ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "building whose height is equal to or between 10 m and 25 m"@en ] ;
     firebim:hasRegion "BE" ;
     firebim:hasType "property" ;
     firebim:hasUnit "[-]" ;
@@ -240,11 +230,11 @@ firebim:CompartmentAreaINT a owl:ObjectProperty ;
     rdfs:label "Compartment-Area"@en,
         """Oppervlakte S van een
   compartiment"""@nl ;
-    firebim:hasDefinition [ firebim:definitionRegion "BE" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "horizontal gross area measured from the inside of the compartment boundaries"@en ],
+        [ firebim:definitionRegion "BE" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "horizontale bruto-oppervlakte zonder enige aftrek gemeten tussen de binnenvlakken der compartimentswanden."@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "horizontal gross area measured from the inside of the compartment boundaries"@en ] ;
+            firebim:definitionText "horizontale bruto-oppervlakte zonder enige aftrek gemeten tussen de binnenvlakken der compartimentswanden."@nl ] ;
     firebim:hasRegion "BE" ;
     firebim:hasRemark "Floor surface, including colums, walls or elements resting on the floor, but excluding enclosed staircases and enclosed vertical technical shafts and technical rooms. A technical room should be a seperate compartment." ;
     firebim:hasType "property" ;
@@ -261,23 +251,6 @@ firebim:CompartmentSmokeandheatextractionINT a owl:ObjectProperty ;
     firebim:hasValueType "Enumeration (choice)" ;
     firebim:isLinkedTo firebim:CompartmentINT .
 
-firebim:CompartmentSubcompartmentINT a owl:ObjectProperty,
-        bot:Element ;
-    rdfs:label "Brandcelle"@dk,
-        "Compartment - Subcompartment"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
-            firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Et eller flere rum, hvorfra branden ikke spredes til andre brandceller i den tid, der kræves til evakuering og redningsberedskabets redningsindsats i tilstødende brandceller."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "One or more rooms from which the fire does not spread to other subcompartments during the time required for evacuation and rescue efforts in adjacent subcompartments."@en ],
-        "Et eller flere rum, hvorfra branden ikke spredes til andre brandceller i den tid, der kræves til evakuering og redningsberedskabets redningsindsats i tilstødende brandceller."@en,
-        "One or more rooms from which the fire does not spread to other subcompartments during the time required for evacuation and rescue efforts in adjacent subcompartments."@en ;
-    firebim:hasDomain "Fire Compartment" ;
-    firebim:hasRegion "DK" ;
-    firebim:hasRemark " " ;
-    firebim:hasType "object" ;
-    firebim:hasUnit "[-]" .
-
 firebim:CompartmentationINT a owl:ObjectProperty ;
     rdfs:label "Compartmentation"@en ;
     firebim:hasRemark "Is the wall or slab part of the compartmentation boundary?" ;
@@ -288,11 +261,11 @@ firebim:CompartmentationINT a owl:ObjectProperty ;
 firebim:CompartmentationfunctionINT a owl:ObjectProperty ;
     rdfs:label "Compartmentation function"@en,
         "Função de compartimentação"@pt ;
-    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Ability of a partitioning element to prevent the spread of fire (for example, by the passage of flames or hot gases - see airtightness) or by ignition beyond the exposed surface (see thermal insulation) during the relevant fire situation."@en ],
+        [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Capacidade de um elemento de compartimentação para impedir a propagação do fogo (por exemplo, pela passagem de chamas ou de gases quentes – ver estanquidade) ou por ignição para além da superfície exposta (ver isolamento térmico) durante a situação de incêndio relevante."@pt ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Ability of a partitioning element to prevent the spread of fire (for example, by the passage of flames or hot gases - see airtightness) or by ignition beyond the exposed surface (see thermal insulation) during the relevant fire situation."@en ] ;
+            firebim:definitionText "Capacidade de um elemento de compartimentação para impedir a propagação do fogo (por exemplo, pela passagem de chamas ou de gases quentes – ver estanquidade) ou por ignição para além da superfície exposta (ver isolamento térmico) durante a situação de incêndio relevante."@pt ] ;
     firebim:hasDomain "Fire Compartment" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -320,11 +293,11 @@ firebim:CompartmentautomaticfireextinguishingsystemINT a owl:ObjectProperty ;
 firebim:CompartmentbathroomINT a owl:ObjectProperty ;
     rdfs:label "Compartment-bathroom"@en,
         "badruimte"@nl ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "a room containing a bath or shower and a washbasin, with associated connections to water supply and drainage facilities"@en ],
-        [ firebim:definitionRegion "NL" ;
+    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "een ruimte waarin zich een bad of douche en een wastafel bevinden, met bijbehorende aansluitingen op aan- en afvoervoorzieningen voor water"@nl ] ;
+            firebim:definitionText "een ruimte waarin zich een bad of douche en een wastafel bevinden, met bijbehorende aansluitingen op aan- en afvoervoorzieningen voor water"@nl ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "a room containing a bath or shower and a washbasin, with associated connections to water supply and drainage facilities"@en ] ;
     firebim:hasRegion "NL" ;
     firebim:hasType "property" ;
     firebim:hasUnit "Choice" ;
@@ -334,11 +307,11 @@ firebim:CompartmentbathroomINT a owl:ObjectProperty ;
 firebim:CompartmentbathroomareaINT a owl:ObjectProperty ;
     rdfs:label "Compartment-bathroom_area"@en,
         "badruimte"@nl ;
-    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "a room containing a bath or shower and a washbasin, with associated connections to water supply and drainage facilities"@en ],
+        [ firebim:definitionRegion "NL" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "een ruimte waarin zich een bad of douche en een wastafel bevinden, met bijbehorende aansluitingen op aan- en afvoervoorzieningen voor water"@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "a room containing a bath or shower and a washbasin, with associated connections to water supply and drainage facilities"@en ] ;
+            firebim:definitionText "een ruimte waarin zich een bad of douche en een wastafel bevinden, met bijbehorende aansluitingen op aan- en afvoervoorzieningen voor water"@nl ] ;
     firebim:hasRegion "NL" ;
     firebim:hasType "property" ;
     firebim:hasUnit "m²" ;
@@ -348,11 +321,11 @@ firebim:CompartmentbathroomareaINT a owl:ObjectProperty ;
 firebim:CompartmentboundaryINT a owl:ObjectProperty ;
     rdfs:label "Compartment boundary"@en,
         "Compartimentwand"@nl ;
-    firebim:hasDefinition [ firebim:definitionRegion "BE" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "A compartment boundary is a boundary between two compartments"@en ],
+        [ firebim:definitionRegion "BE" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Een compartimentwand is een binnenwand die zich bevindt tussen twee compartimenten"@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "A compartment boundary is a boundary between two compartments"@en ] ;
+            firebim:definitionText "Een compartimentwand is een binnenwand die zich bevindt tussen twee compartimenten"@nl ] ;
     firebim:hasRegion "BE" ;
     firebim:hasRemark "Always a wall? Or also property for door, window, curtain wall, column, slab, …" ;
     firebim:hasType "property" ;
@@ -390,11 +363,11 @@ firebim:CompartmentconduitshaftareaINT a owl:ObjectProperty ;
 firebim:CompartmentenclosedINT a owl:ObjectProperty ;
     rdfs:label "Compartment-enclosed"@en,
         "besloten ruimte"@nl ;
-    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "ruimte begrenst door (inwendige of uitwendige) scheidingsconstructies"@en ],
+        [ firebim:definitionRegion "NL" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "space bounded by (internal or external) dividing structures"@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "ruimte begrenst door (inwendige of uitwendige) scheidingsconstructies"@en ] ;
+            firebim:definitionText "space bounded by (internal or external) dividing structures"@nl ] ;
     firebim:hasRegion "NL" ;
     firebim:hasType "property" ;
     firebim:hasUnit "Choice" ;
@@ -494,11 +467,11 @@ firebim:CompartmentliftshaftstructuralcomponentsfireclassINT a owl:ObjectPropert
 firebim:CompartmentliftshaftstructuralcomponentssmokeclassINT a owl:ObjectProperty ;
     rdfs:label "Compartment-lift_shaft_structural_components_smoke_class"@en,
         "rookklasse"@nl ;
-    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "smoke production determined according to NEN-EN 13501-1"@en ],
+        [ firebim:definitionRegion "NL" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "volgens de NEN-EN 13501-1 bepaalde rookproductie"@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "smoke production determined according to NEN-EN 13501-1"@en ] ;
+            firebim:definitionText "volgens de NEN-EN 13501-1 bepaalde rookproductie"@nl ] ;
     firebim:hasRegion "NL" ;
     firebim:hasType "property" ;
     firebim:hasUnit "Choice" ;
@@ -508,11 +481,11 @@ firebim:CompartmentliftshaftstructuralcomponentssmokeclassINT a owl:ObjectProper
 firebim:CompartmentlinkareaINT a owl:ObjectProperty ;
     rdfs:label "Compartment-link_area"@en,
         "schalmgat"@nl ;
-    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "The free, open area in a stairwell, or the hole formed by the inner stringers of a staircase"@en ],
+        [ firebim:definitionRegion "NL" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Het vrije, open gedeelte in een trappenhuis, ofwel het gat dat door de binnenbomen van een trap gevormd wordt"@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "The free, open area in a stairwell, or the hole formed by the inner stringers of a staircase"@en ] ;
+            firebim:definitionText "Het vrije, open gedeelte in een trappenhuis, ofwel het gat dat door de binnenbomen van een trap gevormd wordt"@nl ] ;
     firebim:hasRegion "NL" ;
     firebim:hasType "property" ;
     firebim:hasUnit "m²" ;
@@ -536,11 +509,11 @@ firebim:CompartmentloadbearinginteriorwallINT a owl:ObjectProperty ;
 firebim:CompartmentloadbearinginteriorwallareaINT a owl:ObjectProperty ;
     rdfs:label "Compartment-load-bearing_interior_wall_area"@en,
         "dragende binnenwand"@nl ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "wall that helps to support the roof or floor(s) above, with a structural function"@en ],
-        [ firebim:definitionRegion "NL" ;
+    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "muur die meewerkt om de dak of verdieping(en) erboven te dragen, met een constructieve functie"@nl ] ;
+            firebim:definitionText "muur die meewerkt om de dak of verdieping(en) erboven te dragen, met een constructieve functie"@nl ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "wall that helps to support the roof or floor(s) above, with a structural function"@en ] ;
     firebim:hasRegion "NL" ;
     firebim:hasType "property" ;
     firebim:hasUnit "m²" ;
@@ -563,11 +536,11 @@ firebim:CompartmentnicheareaINT a owl:ObjectProperty ;
 
 firebim:CompartmentnumberfixedoccupationINT a owl:ObjectProperty ;
     rdfs:label "Compartment-number_fixed_occupation"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "BE" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "the number of users of a compartment that can be accurately determined on the basis of the fixed furniture"@en ],
+        [ firebim:definitionRegion "BE" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "het aantal gebruikers van een compartiment dat nauwkeurig kan bepaald worden op basis van het vast meubilair"@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "the number of users of a compartment that can be accurately determined on the basis of the fixed furniture"@en ] ;
+            firebim:definitionText "het aantal gebruikers van een compartiment dat nauwkeurig kan bepaald worden op basis van het vast meubilair"@nl ] ;
     firebim:hasType "property" ;
     firebim:hasUnit "[-]" ;
     firebim:hasValueType "Number" ;
@@ -593,11 +566,11 @@ firebim:CompartmentnumberofoccupantsINT a owl:ObjectProperty ;
 firebim:CompartmentpermanentfireloaddensityINT a owl:ObjectProperty ;
     rdfs:label "Compartment-permanent_fire_load_density"@en,
         "permanente vuurbelasting"@nl ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "According to NEN 6090, the fire load of the combustible materials in the construction components of a building or of a space located therein, or the construction components that bound that building or space"@en ],
-        [ firebim:definitionRegion "NL" ;
+    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Volgens NEN 6090 bepaalde vuurbelasting van de brandbare materialen in de constructieonderdelen van een bouwwerk of van een daarin gelegen ruimte, of de constructieonderdelen die dat bouwwerk of die ruimte begrenzen"@nl ] ;
+            firebim:definitionText "Volgens NEN 6090 bepaalde vuurbelasting van de brandbare materialen in de constructieonderdelen van een bouwwerk of van een daarin gelegen ruimte, of de constructieonderdelen die dat bouwwerk of die ruimte begrenzen"@nl ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "According to NEN 6090, the fire load of the combustible materials in the construction components of a building or of a space located therein, or the construction components that bound that building or space"@en ] ;
     firebim:hasRegion "NL" ;
     firebim:hasType "property" ;
     firebim:hasUnit "MJ/m²" ;
@@ -607,11 +580,11 @@ firebim:CompartmentpermanentfireloaddensityINT a owl:ObjectProperty ;
 firebim:CompartmentprojectingbuildingpartareaINT a owl:ObjectProperty ;
     rdfs:label "Compartment-projecting_building_part_area"@en,
         "uitspringend bouwdeel"@nl ;
-    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Building component that protrudes, for example a small protruding window"@en ],
+        [ firebim:definitionRegion "NL" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Bouwdeel dat uitsteekt, bijvoorbeeld een klein uitstekend raam "@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Building component that protrudes, for example a small protruding window"@en ] ;
+            firebim:definitionText "Bouwdeel dat uitsteekt, bijvoorbeeld een klein uitstekend raam "@nl ] ;
     firebim:hasRegion "NL" ;
     firebim:hasType "property" ;
     firebim:hasUnit "m²" ;
@@ -657,22 +630,22 @@ firebim:CompartmentservicesspacenominalpowerINT a owl:ObjectProperty ;
 firebim:CompartmentservicesspaceusableareaINT a owl:ObjectProperty ;
     rdfs:label "Compartment-services_space_usable_area"@en,
         "gebruiksoppervlakte"@nl ;
-    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
-            firebim:definitionSource "FireBIM" ;
-            firebim:definitionText """De GO van een ruimte of van een groep van ruimten is de oppervlakte, gemeten op vloerniveau, tussen de opgaande scheidingsconstructies, die de desbetreffende ruimte of groep van ruimten omhullen. Bij de bepaling van de GO worden niet  meegerekend:
-— de oppervlakte van delen van vloeren, waarboven de netto-hoogte kleiner is dan 1,5 m, met uitzondering van vloeren onder trappen, hellingbanen e.d.;
-— een liftschacht;
-— een trapgat, schalmgat of vide, indien de oppervlakte daarvan groter is dan of gelijk is aan 4 m2;
-— een vrijstaande bouwconstructie (niet zijnde een trap) indien de horizontale doorsnede daarvan groter is dan of gelijk is aan 0,5 m2; — een leidingschacht, indien de horizontale doorsnede daarvan groter is dan of gelijk is aan 0,5 m2;
-— een dragende binnenwand. """@nl ],
-        [ firebim:definitionSource "FireBIM" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
             firebim:definitionText """The usable area of ​​a room or group of rooms is the area, measured at floor level, between the rising partitions that enclose the room or group of rooms in question. The following are not taken into account when determining the GO:
 — the area of ​​parts of floors above which the net height is less than 1.5 m, with the exception of floors under stairs, ramps, etc.;
 — a lift shaft;
 — a stairwell, ring hole or void, if its area is greater than or equal to 4 m2;
 — a free-standing building structure (other than a staircase) if its horizontal cross-section is greater than or equal to 0.5 m2;
 — a service shaft, if its horizontal cross-section is greater than or equal to 0.5 m2;
-— a load-bearing internal wall."""@en ] ;
+— a load-bearing internal wall."""@en ],
+        [ firebim:definitionRegion "NL" ;
+            firebim:definitionSource "FireBIM" ;
+            firebim:definitionText """De GO van een ruimte of van een groep van ruimten is de oppervlakte, gemeten op vloerniveau, tussen de opgaande scheidingsconstructies, die de desbetreffende ruimte of groep van ruimten omhullen. Bij de bepaling van de GO worden niet  meegerekend:
+— de oppervlakte van delen van vloeren, waarboven de netto-hoogte kleiner is dan 1,5 m, met uitzondering van vloeren onder trappen, hellingbanen e.d.;
+— een liftschacht;
+— een trapgat, schalmgat of vide, indien de oppervlakte daarvan groter is dan of gelijk is aan 4 m2;
+— een vrijstaande bouwconstructie (niet zijnde een trap) indien de horizontale doorsnede daarvan groter is dan of gelijk is aan 0,5 m2; — een leidingschacht, indien de horizontale doorsnede daarvan groter is dan of gelijk is aan 0,5 m2;
+— een dragende binnenwand. """@nl ] ;
     firebim:hasRegion "NL" ;
     firebim:hasType "property" ;
     firebim:hasUnit "m²" ;
@@ -688,11 +661,11 @@ firebim:CompartmentsnumberofINT a owl:ObjectProperty ;
 firebim:CompartmentstairwellareaINT a owl:ObjectProperty ;
     rdfs:label "Compartment-stairwell_area"@en,
         "trapgat"@nl ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "opening in the floor through which you reach the stairs"@en ],
-        [ firebim:definitionRegion "NL" ;
+    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "opening in de (verdiepings)vloer waardoor je de trap bereikt"@nl ] ;
+            firebim:definitionText "opening in de (verdiepings)vloer waardoor je de trap bereikt"@nl ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "opening in the floor through which you reach the stairs"@en ] ;
     firebim:hasRegion "NL" ;
     firebim:hasType "property" ;
     firebim:hasUnit "m²" ;
@@ -701,11 +674,11 @@ firebim:CompartmentstairwellareaINT a owl:ObjectProperty ;
 
 firebim:CompartmentsurfacefixedoccupationINT a owl:ObjectProperty ;
     rdfs:label "Compartment-surface_fixed_occupation"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "BE" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "surface area of ​​the compartment section for which the number of users can be accurately determined on the basis of the fixed furniture, expressed in m²"@en ],
+        [ firebim:definitionRegion "BE" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "oppervlakte van het compartimentsgedeelte waarvan het aantal gebruikers nauwkeuring kan bepaald worden op basis van het vast meubilair, uitgedrukt in m²"@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "surface area of ​​the compartment section for which the number of users can be accurately determined on the basis of the fixed furniture, expressed in m²"@en ] ;
+            firebim:definitionText "oppervlakte van het compartimentsgedeelte waarvan het aantal gebruikers nauwkeuring kan bepaald worden op basis van het vast meubilair, uitgedrukt in m²"@nl ] ;
     firebim:hasType "property" ;
     firebim:hasUnit "m²" ;
     firebim:hasValueType "Number" ;
@@ -742,11 +715,11 @@ firebim:CompartmenttoiletareaINT a owl:ObjectProperty ;
 firebim:CompartmenttypeAtriumINT a owl:ObjectProperty ;
     rdfs:label "Compartment-type:Atrium"@en,
         "atrium"@nl ;
-    firebim:hasDefinition [ firebim:definitionRegion "BE" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Open space in a building typically over more than 1 building layer"@en ],
+        [ firebim:definitionRegion "BE" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "open ruimte in een gebouw typisch over meerdere verdiepingen"@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Open space in a building typically over more than 1 building layer"@en ] ;
+            firebim:definitionText "open ruimte in een gebouw typisch over meerdere verdiepingen"@nl ] ;
     firebim:hasRegion "BE" ;
     firebim:hasRemark "not defined in legislation" ;
     firebim:hasType "property" ;
@@ -756,11 +729,11 @@ firebim:CompartmenttypeAtriumINT a owl:ObjectProperty ;
 firebim:CompartmenttypeDuplexINT a owl:ObjectProperty ;
     rdfs:label "Compartment-type:Duplex"@en,
         "Duplex"@nl ;
-    firebim:hasDefinition [ firebim:definitionRegion "BE" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "the compartment formed by two superimposed floors with an internal connecting staircase"@en ],
+        [ firebim:definitionRegion "BE" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "het compartiment dat gevormd wordt door twee boven elkaar geplaatste bouwlagen met een binnenverbindingstrap"@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "the compartment formed by two superimposed floors with an internal connecting staircase"@en ] ;
+            firebim:definitionText "het compartiment dat gevormd wordt door twee boven elkaar geplaatste bouwlagen met een binnenverbindingstrap"@nl ] ;
     firebim:hasRegion "BE" ;
     firebim:hasRemark "or could be property of a compartment" ;
     firebim:hasType "property" ;
@@ -791,7 +764,15 @@ firebim:CompartmenttypesinglelayerINT a owl:ObjectProperty ;
 firebim:CompartmentusableareaINT a owl:ObjectProperty ;
     rdfs:label "Compartment-usable_area"@en,
         "gebruiksoppervlakte"@nl ;
-    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText """The usable area of ​​a room or group of rooms is the area, measured at floor level, between the rising partitions that enclose the room or group of rooms in question. The following are not taken into account when determining the GO:
+— the area of ​​parts of floors above which the net height is less than 1.5 m, with the exception of floors under stairs, ramps, etc.;
+— a lift shaft;
+— a stairwell, ring hole or void, if its area is greater than or equal to 4 m2;
+— a free-standing building structure (other than a staircase) if its horizontal cross-section is greater than or equal to 0.5 m2;
+— a service shaft, if its horizontal cross-section is greater than or equal to 0.5 m2;
+— a load-bearing internal wall."""@en ],
+        [ firebim:definitionRegion "NL" ;
             firebim:definitionSource "FireBIM" ;
             firebim:definitionText """De GO van een ruimte of van een groep van ruimten is de oppervlakte, gemeten op vloerniveau, tussen de opgaande scheidingsconstructies, die de desbetreffende ruimte of groep van ruimten omhullen. Bij de bepaling van de GO worden niet meegerekend:
 — de oppervlakte van delen van vloeren, waarboven de netto-hoogte kleiner is dan 1,5 m, met uitzondering van vloeren onder trappen, hellingbanen e.d.;
@@ -799,15 +780,7 @@ firebim:CompartmentusableareaINT a owl:ObjectProperty ;
 — een trapgat, schalmgat of vide, indien de oppervlakte daarvan groter is dan of gelijk is aan 4 m2;
 — een vrijstaande bouwconstructie (niet zijnde een trap) indien de horizontale doorsnede daarvan groter is dan of gelijk is aan 0,5 m2;
 — een leidingschacht, indien de horizontale doorsnede daarvan groter is dan of gelijk is aan 0,5 m2;
-— een dragende binnenwand. """@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText """The usable area of ​​a room or group of rooms is the area, measured at floor level, between the rising partitions that enclose the room or group of rooms in question. The following are not taken into account when determining the GO:
-— the area of ​​parts of floors above which the net height is less than 1.5 m, with the exception of floors under stairs, ramps, etc.;
-— a lift shaft;
-— a stairwell, ring hole or void, if its area is greater than or equal to 4 m2;
-— a free-standing building structure (other than a staircase) if its horizontal cross-section is greater than or equal to 0.5 m2;
-— a service shaft, if its horizontal cross-section is greater than or equal to 0.5 m2;
-— a load-bearing internal wall."""@en ] ;
+— een dragende binnenwand. """@nl ] ;
     firebim:hasRegion "NL" ;
     firebim:hasType "property" ;
     firebim:hasUnit "m²" ;
@@ -860,11 +833,11 @@ Note 5 to entry: In the US, there is a homograph for the term “entrance hall�
 firebim:CoveredspaceINT a owl:ObjectProperty ;
     rdfs:label "Covered space"@en,
         "Espaço coberto"@pt ;
-    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Covered space"@en ],
+        [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Espaço coberto"@pt ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Covered space"@en ] ;
+            firebim:definitionText "Espaço coberto"@pt ] ;
     firebim:hasDomain "Generic" ;
     firebim:hasRegion "PT" ;
     firebim:hasRemark "Important in assigning the type of rooms" ;
@@ -892,11 +865,11 @@ firebim:DateofpermitINT a owl:ObjectProperty ;
 firebim:DaytimeoccupancybuildingsINT a owl:ObjectProperty ;
     rdfs:label "Dagophold "@dk,
         "Daytime occupancy buildings"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Use that means that there are no sleeping persons in the building. Buildings used by people who are awake at night are also considered daytime occupancy buildings."@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Anvendelse som medfører, at der ikke er sovende personer i bygningen. Bygninger, der anvendes af vågne personer om natten, betragtes også som bygninger til dagophold."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Use that means that there are no sleeping persons in the building. Buildings used by people who are awake at night are also considered daytime occupancy buildings."@en ] ;
+            firebim:definitionText "Anvendelse som medfører, at der ikke er sovende personer i bygningen. Bygninger, der anvendes af vågne personer om natten, betragtes også som bygninger til dagophold."@dk ] ;
     firebim:hasDomain "Evacuation/Use category" ;
     firebim:hasRegion "DK" ;
     firebim:hasType "property" ;
@@ -908,11 +881,11 @@ firebim:DaytimeoccupancybuildingsINT a owl:ObjectProperty ;
 firebim:DistanceActualtraveldistanceINT a owl:ObjectProperty ;
     rdfs:label "Ganglængde"@dk,
         "Distance - Actual travel distance "@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "The actual distance that a person must walk in a walking line to reach a given point. The walking line is laid out as the direct route, taking into account fixed obstacles or fixtures, and on a non-slip surface. Also used to refer to the physical length of a corridor."@en ],
-        [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Den faktiske afstand, som en person skal gå i ganglinje for at nå et givent punkt. Ganglinjen udlægges som den direkte vej, under hensyn til faste forhindringer eller fast inventar, og på trædefast areal. Anvendes også om den fysiske længde af en gang."@dk ] ;
+            firebim:definitionText "Den faktiske afstand, som en person skal gå i ganglinje for at nå et givent punkt. Ganglinjen udlægges som den direkte vej, under hensyn til faste forhindringer eller fast inventar, og på trædefast areal. Anvendes også om den fysiske længde af en gang."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "The actual distance that a person must walk in a walking line to reach a given point. The walking line is laid out as the direct route, taking into account fixed obstacles or fixtures, and on a non-slip surface. Also used to refer to the physical length of a corridor."@en ] ;
     firebim:hasDomain "Evacuation" ;
     firebim:hasRegion "DK" ;
     firebim:hasUnit "m" ;
@@ -921,11 +894,11 @@ firebim:DistanceActualtraveldistanceINT a owl:ObjectProperty ;
 firebim:DistanceDirecttraveldistancetheoreticalINT a owl:ObjectProperty ;
     rdfs:label "Gangafstand"@dk,
         "Distance - Direct travel distance (theoretical)"@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "The theoretical longest distance a person must travel to reach the nearest exit or exit door by moving along a path of travel. The paths are laid out corresponding to the most unfavorable location of the person. In rooms, the distance along paths leading to the exit door in one direction only should be multiplied by 1.5."@en ],
-        [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Den teoretisk længste afstand, som en person skal tilbagelægge for at nå frem til nærmeste udgang eller udgangsdør ved at bevæge sig langs ganglinjer. Ganglinjer udlægges svarende til den mest ugunstige placering af personen. I lokaler skal afstanden via ganglinjer, der kun fører til udgangsdør i én retning, multipliceres med 1,5."@dk ] ;
+            firebim:definitionText "Den teoretisk længste afstand, som en person skal tilbagelægge for at nå frem til nærmeste udgang eller udgangsdør ved at bevæge sig langs ganglinjer. Ganglinjer udlægges svarende til den mest ugunstige placering af personen. I lokaler skal afstanden via ganglinjer, der kun fører til udgangsdør i én retning, multipliceres med 1,5."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "The theoretical longest distance a person must travel to reach the nearest exit or exit door by moving along a path of travel. The paths are laid out corresponding to the most unfavorable location of the person. In rooms, the distance along paths leading to the exit door in one direction only should be multiplied by 1.5."@en ] ;
     firebim:hasDomain "Evacuation" ;
     firebim:hasRegion "DK" ;
     firebim:hasUnit "m" ;
@@ -976,41 +949,14 @@ firebim:ElevationINT a owl:ObjectProperty ;
     firebim:hasValueType "Number" ;
     firebim:isLinkedTo firebim:CeilingINT .
 
-firebim:ElevatorliftINT a bot:Element ;
-    rdfs:label "Elevator (lift)"@en ;
-    firebim:correspondsToIFC ifc:IfcTransportElement ;
-    firebim:hasBIMidsLink <https://www.bimids.eu/be-en/elements/lift> ;
-    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcTransportElementELEVATOR> ;
-    firebim:hasIFCEntity "IfcTransportElement.ELEVATOR" ;
-    firebim:hasISODefinition """lift
-elevator ,US
- permanent lifting equipment that serves defined  levels (3.7.2.38)  of  landings (3.3.5.23) , comprising a compartment or cage, running at least partially between rigid vertical guides, or between guides whose inclination to the vertical is less than 15°"""@en ;
-    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.4.29> .
-
-firebim:EmergencyescapedoorINT a owl:ObjectProperty,
-        bot:Element ;
-    rdfs:label "Flugtvejsdør"@dk,
-        "Emergency escape door"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
-            firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Dør til flugtvej eller dør i flugtvej, f.eks. udgangsdør og udgang"@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Door to escape route or door in escape route, e.g. exit door and exit"@en ],
-        "Door to escape route or door in escape route, e.g. exit door and exit"@en,
-        "Dør til flugtvej eller dør i flugtvej, f.eks. udgangsdør og udgang"@en ;
-    firebim:hasDomain "Evacuation" ;
-    firebim:hasRegion "DK" ;
-    firebim:hasType "object" ;
-    firebim:hasUnit "[-]" .
-
 firebim:EmergencyexitlightingINT a owl:ObjectProperty ;
     rdfs:label "Flugtvejsbelysning"@dk,
         "Emergency exit lighting"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Illuminated, translucent or luminescent (fluorescent) escape route signs or escape route luminaires placed above or immediately adjacent to exits and exit doors, supplemented by directional signs as necessary, to direct people to the nearest exit in case of evacuation."@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Belyste, gennemlyste eller selvlysende (fluorescerende) flugtvejsskilte eller flugtvejsarmaturer, der placeres over eller umiddelbart ved udgange og udgangsdøre, suppleret med henvisningsskilte i fornødent omfang, med det formål, at personer i tilfælde af evakuering kan ledes til nærmeste udgang."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Illuminated, translucent or luminescent (fluorescent) escape route signs or escape route luminaires placed above or immediately adjacent to exits and exit doors, supplemented by directional signs as necessary, to direct people to the nearest exit in case of evacuation."@en ] ;
+            firebim:definitionText "Belyste, gennemlyste eller selvlysende (fluorescerende) flugtvejsskilte eller flugtvejsarmaturer, der placeres over eller umiddelbart ved udgange og udgangsdøre, suppleret med henvisningsskilte i fornødent omfang, med det formål, at personer i tilfælde af evakuering kan ledes til nærmeste udgang."@dk ] ;
     firebim:hasDomain "Evacuation" ;
     firebim:hasRegion "DK" ;
     firebim:hasType "property" .
@@ -1018,45 +964,13 @@ firebim:EmergencyexitlightingINT a owl:ObjectProperty ;
 firebim:EmergencypaniclightsINT a owl:ObjectProperty ;
     rdfs:label "Panikbelysning"@dk,
         "Emergency panic lights"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
-            firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Belysning af gulvareal, der tænder ved svigt af den normale strømforsyning. Panikbelysning har til formål at give personer mulighed for at orientere sig i forbindelse med evakuering, så de kan finde vej til og orientere sig i flugtveje."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Floor area lighting that switches on when the normal power supply fails. Panic lighting is intended to allow people to orient themselves during an evacuation so that they can find their way to and orient themselves in escape routes."@en ] ;
-    firebim:hasDomain "Evacuation" ;
-    firebim:hasRegion "DK" .
-
-firebim:EmergencysafetystaircaseINT a owl:ObjectProperty,
-        bot:Element ;
-    rdfs:label "Sikkerhedstrappe"@dk,
-        "Emergency safety staircase"@en ;
     firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Escape stairs designed to minimize the likelihood of smoke spreading to or developing in the stairwell in order to maintain its function as an escape and entry route. The safety measures may include, among other things, that the staircase is equipped with pressurization systems (ATA systems) or with access via an airlock and stricter requirements for surfaces etc. in the stairwell."@en ],
+            firebim:definitionText "Floor area lighting that switches on when the normal power supply fails. Panic lighting is intended to allow people to orient themselves during an evacuation so that they can find their way to and orient themselves in escape routes."@en ],
         [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Flugtvejstrappe, der er udformet, så der er meget lille sandsynlighed for røgspredning til eller røgudvikling i trapperummet, for at opretholde funktionen som flugtvej og indtrængningsvej. Sikringen kan blandt andet omfatte, at trappen udføres med tryksætningsanlæg (ATA-anlæg) eller med adgang over luftsluse samt skærpede krav til overflader mv. i trapperummet."@dk ],
-        "Escape stairs designed to minimize the likelihood of smoke spreading to or developing in the stairwell in order to maintain its function as an escape and entry route. The safety measures may include, among other things, that the staircase is equipped with pressurization systems (ATA systems) or with access via an airlock and stricter requirements for surfaces etc. in the stairwell."@en,
-        "Flugtvejstrappe, der er udformet, så der er meget lille sandsynlighed for røgspredning til eller røgudvikling i trapperummet, for at opretholde funktionen som flugtvej og indtrængningsvej. Sikringen kan blandt andet omfatte, at trappen udføres med tryksætningsanlæg (ATA-anlæg) eller med adgang over luftsluse samt skærpede krav til overflader mv. i trapperummet."@en ;
-    firebim:hasDomain "Evacuation/compartments" ;
-    firebim:hasRegion "DK" ;
-    firebim:hasType "object" ;
-    firebim:hasUnit "[-]" .
-
-firebim:EscaperoutecorridorINT a owl:ObjectProperty,
-        bot:Element ;
-    rdfs:label "Flugtvejsgang"@dk,
-        "Escape route corridor"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
-            firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Gang, der primært er indrettet til flugtvejsfunktion, og som giver adgang til en eller flere udgange. En flugtvejsgang indrettes i egen brandmæssige enhed, for at beskytte personer mod kritiske forhold under evakuering. Der er særlige krav til indretningen af flugtvejsgange og brandbelastning en en flugtvejsgang må højst være 50 MJ/m2, svarende til ultra lav brandbelastning "@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "A corridor that is primarily designed for escape route function and provides access to one or more exits. An escape route corridor is designed in its own fire compartment (nomaly a Subcompartment) to protect people from critical conditions during evacuation. There are special requirements for the design of escape routes and the fire load in an escape route must not exceed 50 MJ/m2, corresponding to ultra low fire load"@en ],
-        "A corridor that is primarily designed for escape route function and provides access to one or more exits. An escape route corridor is designed in its own fire compartment (nomaly a Subcompartment) to protect people from critical conditions during evacuation. There are special requirements for the design of escape routes and the fire load in an escape route must not exceed 50 MJ/m2, corresponding to ultra low fire load"@en,
-        "Gang, der primært er indrettet til flugtvejsfunktion, og som giver adgang til en eller flere udgange. En flugtvejsgang indrettes i egen brandmæssige enhed, for at beskytte personer mod kritiske forhold under evakuering. Der er særlige krav til indretningen af flugtvejsgange og brandbelastning en en flugtvejsgang må højst være 50 MJ/m2, svarende til ultra lav brandbelastning "@en ;
-    firebim:hasDomain "Evacuation/Subcompartments" ;
-    firebim:hasRegion "DK" ;
-    firebim:hasType "object" ;
-    firebim:hasUnit "[-]" .
+            firebim:definitionText "Belysning af gulvareal, der tænder ved svigt af den normale strømforsyning. Panikbelysning har til formål at give personer mulighed for at orientere sig i forbindelse med evakuering, så de kan finde vej til og orientere sig i flugtveje."@dk ] ;
+    firebim:hasDomain "Evacuation" ;
+    firebim:hasRegion "DK" .
 
 firebim:EscaperoutepassageorescaperouteareaINT a owl:ObjectProperty ;
     rdfs:label "Flugtvejspassage eller Flugtvejsareal"@dk,
@@ -1072,70 +986,31 @@ firebim:EscaperoutepassageorescaperouteareaINT a owl:ObjectProperty ;
 firebim:EscaperoutesystemINT a owl:ObjectProperty ;
     rdfs:label "Flugtvejssystem"@dk,
         "Escape route system"@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Coherent system of exits, escape route corridor and emergency stairways to ensure that people can safely evacuate a building."@en ],
-        [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Sammenhængende system af udgange, flugtvejsgange og flugtvejstrapper, som skal sikre, at personer kan evakuere en bygning på sikker vis."@dk ] ;
+            firebim:definitionText "Sammenhængende system af udgange, flugtvejsgange og flugtvejstrapper, som skal sikre, at personer kan evakuere en bygning på sikker vis."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Coherent system of exits, escape route corridor and emergency stairways to ensure that people can safely evacuate a building."@en ] ;
     firebim:hasDomain "Evacuation" ;
     firebim:hasRegion "DK" .
-
-firebim:EvacuationpathINT a bot:Element ;
-    rdfs:label "Evacuation path"@en ;
-    firebim:hasDefinition "maximum 10% hellende weg, binnen het gebouw, die toegang geeft tot trappenhuizen, vluchtterrassen of uitgangen"@en,
-        "maximum 10% sloping road, inside the building, that provides access to stairwells, emergency exits or exits"@en .
 
 firebim:EvacuationtimeINT a owl:ObjectProperty ;
     rdfs:label "Evakueringstid"@dk,
         "Evacuation time"@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "The time from the start of the fire until all people in the building are on the ground outside or in a place of safety inside the building. Evacuation time is the sum of detection-, warning-, reaction-, decision and movement-time."@en ],
-        [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Den tid, der går fra brandens start til alle personer i bygningen befinder sig på terræn i det fri eller et sikkert sted i bygningen. Evakueringstiden er summen af detekterings-, varslings-, reaktions- og beslutningstid samt bevægelsestid."@dk ] ;
+            firebim:definitionText "Den tid, der går fra brandens start til alle personer i bygningen befinder sig på terræn i det fri eller et sikkert sted i bygningen. Evakueringstiden er summen af detekterings-, varslings-, reaktions- og beslutningstid samt bevægelsestid."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "The time from the start of the fire until all people in the building are on the ground outside or in a place of safety inside the building. Evacuation time is the sum of detection-, warning-, reaction-, decision and movement-time."@en ] ;
     firebim:hasDomain "Evacuation" ;
     firebim:hasRegion "DK" ;
     firebim:hasValueType "Number" .
-
-firebim:ExitdoorINT a owl:ObjectProperty,
-        bot:Zone ;
-    rdfs:label "Udgangsdør"@dk,
-        "Exit (door)"@en,
-        "Exit door"@en ;
-    firebim:correspondsToIFC ifc:IfcDoor ;
-    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDoor> ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
-            firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Dør fra en brandmæssig enhed, der giver adgang til flugtvej eller direkte til terræn i det fri."@dk ] ;
-    firebim:hasDomain "Evacuation" ;
-    firebim:hasIFCEntity "IfcDoor.Pset_DoorCommon.FireExit = TRUE" ;
-    firebim:hasISODefinition """exit
- designated point of departure from a  building (3.1.1.3) 
- Note 1 to entry: There is a homograph for the term “exit”. See  3.1.3.2"""@en ;
-    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.2.4.18> ;
-    firebim:hasRegion "DK" ;
-    firebim:hasType "object" .
 
 firebim:ExpansionjointINT a bot:Element ;
     rdfs:label "Expansion joint"@en ;
     firebim:hasDefinition "A building element designed to absorb movements and dimensional variations resulting from changes in temperature, humidity and other environmental factors. It allows materials to expand and contract without causing damage to the structure, avoiding cracks and other problems that could compromise the integrity of the building."@en,
         "Elemento construtivo projectado para absorver movimentos e variações dimensionais que resultam das mudanças de temperatura, humidade e outros factores ambientais. Permite que os materiais se expandam e contraiam sem causar danos à estrutura, evitando fissuras e outros problemas que podem comprometer a integridade do edifício."@en ;
     firebim:hasRemark "Definition of the Portuguese consortium" .
-
-firebim:ExteriorelementINT a bot:Element ;
-    rdfs:label "Exterior element"@en ;
-    firebim:hasDefinition "Elemento estrutural localizado no exterior do edifício, que poderá estar exposto ao fogo através de aberturas na envolvente do edifício"@en,
-        "Structural element located outside the building, which may be exposed to fire through openings in the building envelope"@en .
-
-firebim:FacadeINT a bot:Zone ;
-    rdfs:label "Facade"@en ;
-    firebim:correspondsToIFC ifc:IfcWall ;
-    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcWall> ;
-    firebim:hasIFCEntity "IfcWall.Pset_WallCommon.IsExterior = TRUE" ;
-    firebim:hasISODefinition """facade
- exterior surface of a  wall (3.3.2.46)  enclosing a  building (3.1.1.3) , usually non-loadbearing, which can include a  curtain wall (3.3.2.55) ,  cladding (3.3.2.43) , or other exterior  finish (3.3.5.2)"""@en ;
-    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.44> ;
-    firebim:hasRemark "The whole facade, grouping walls, windows, curtain walls…" .
 
 firebim:FireBIMOntology a owl:Ontology ;
     rdfs:label "FireBIM Ontology" .
@@ -1157,18 +1032,6 @@ firebim:FireHydrantINT a bot:Element ;
     firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcFireSuppressionTerminalFIREHYDRANT> ;
     firebim:hasIFCEntity "IfcFireSuppressionTerminal.FIREHYDRANT" .
 
-firebim:FireWallINT a bot:Element ;
-    rdfs:label "Fire Wall"@en ;
-    firebim:correspondsToIFC ifc:IfcWall ;
-    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcWall> ;
-    firebim:hasDefinition "Compartmentalisation element consisting of a wall separating two spaces (e.g. two buildings), which has been designed to resist fire and to be stable, possibly including resistance to horizontal actions, in such a way as to prevent the spread of fire through the wall in the event of fire and the collapse of the structure on one side of the wall."@en,
-        "Elemento de compartimentação que consiste numa parede de separação entre dois espaços (por exemplo, dois edifícios), que foi dimensionada para resistir ao fogo e ser estável, incluindo eventualmente a resistência a acções horizontais, de tal forma que seja evitada a propagação do fogo através da parede, em caso de incêndio e de colapso da estrutura num dos lados da parede."@en ;
-    firebim:hasIFCEntity """IfcWall.Pset_WallCommon.FireRating > 0
-IfcWall.Pset_WallCommon.Compartmentation = TRUE""" ;
-    firebim:hasISODefinition """firewall
- separating wall (3.3.2.58)  that delays or holds back the spread of  fire from one  building (3.1.1.3)  to an adjoining building"""@en ;
-    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.61> .
-
 firebim:FirechamberINT a bot:Zone ;
     rdfs:label "Fire chamber"@en ;
     firebim:hasDefinition "An independent fire compartment, with a degree of resistance and the means of smoke control provided for in the Technical Regulation - Fire Safety in Buildings , which establishes, as a rule, communication between two spaces with the aim of ensuring the temporary protection of one of them or preventing the spread of fire between them. It should only have access openings to these spaces, protected by fire-resistant doors and at such a distance that they cannot be opened simultaneously by a single person."@en,
@@ -1188,30 +1051,14 @@ firebim:FirecompartmentareaINT a owl:ObjectProperty ;
     firebim:hasValueType "Number" ;
     firebim:isLinkedTo firebim:FirecompartmentINT .
 
-firebim:FirecompartmentboundaryINT a owl:ObjectProperty,
-        bot:Element ;
-    rdfs:label "Brandsektionsadskillelse"@dk,
-        "Fire compartment - boundary"@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "A wall or floor construction designed to prevent a fire from spreading to other fire compartments within the time required for evacuation and emergency response."@en ],
-        [ firebim:definitionRegion "DK" ;
-            firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "En væg eller etageadskillelse, der er udformet, så en brand ikke spredes til andre brandsektioner inden for den tid, der er nødvendig for evakuering og redningsberedskabets indsats."@dk ],
-        "A wall or floor construction designed to prevent a fire from spreading to other fire compartments within the time required for evacuation and emergency response."@en,
-        "En væg eller etageadskillelse, der er udformet, så en brand ikke spredes til andre brandsektioner inden for den tid, der er nødvendig for evakuering og redningsberedskabets indsats."@en ;
-    firebim:hasDomain "Fire Compartment" ;
-    firebim:hasRegion "DK" ;
-    firebim:hasType "object" ;
-    firebim:hasUnit "[-]" .
-
 firebim:FiredamperINT a owl:ObjectProperty ;
     rdfs:label "Fire damper "@en,
         "Registo resistente ao fogo"@pt ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Automatically operated damper with a given fire resistance rating determined by a standardized fire resistance test, intended to prevent the spread of fire or its effects through a duct or opening for a certain period of time."@en ],
-        [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Registo de accionamento automático com uma dada qualificação de resistência ao fogo determinada em ensaio normalizado de resistência ao fogo padrão, destinado a impedir a propagação de um incêndio ou dos seus efeitos através de uma conduta ou de uma abertura, durante um certo período de tempo"@pt ] ;
+            firebim:definitionText "Registo de accionamento automático com uma dada qualificação de resistência ao fogo determinada em ensaio normalizado de resistência ao fogo padrão, destinado a impedir a propagação de um incêndio ou dos seus efeitos através de uma conduta ou de uma abertura, durante um certo período de tempo"@pt ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Automatically operated damper with a given fire resistance rating determined by a standardized fire resistance test, intended to prevent the spread of fire or its effects through a duct or opening for a certain period of time."@en ] ;
     firebim:hasDomain "Fire Compartment" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -1224,11 +1071,11 @@ firebim:FiredamperINT a owl:ObjectProperty ;
 firebim:FireloadINT a owl:ObjectProperty ;
     rdfs:label "Fire load"@en,
         "Carga de incêndio"@pt ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "The sum of the thermal energy released by the combustion of all combustible materials in a space (the building's contents and construction elements)."@en ],
-        [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Soma da energia térmica libertada pela combustão de todos os materiais combustíveis existentes num espaço (o recheio do edifício e os elementos de construção)."@pt ] ;
+            firebim:definitionText "Soma da energia térmica libertada pela combustão de todos os materiais combustíveis existentes num espaço (o recheio do edifício e os elementos de construção)."@pt ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "The sum of the thermal energy released by the combustion of all combustible materials in a space (the building's contents and construction elements)."@en ] ;
     firebim:hasDomain "Fire Compartment" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -1266,11 +1113,11 @@ firebim:FireresistanceINT a owl:ObjectProperty ;
 firebim:FirescenarioINT a owl:ObjectProperty ;
     rdfs:label "Fire scenario"@en,
         "Cenário de incêndio"@pt ;
-    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Qualitative description of the evolution of a fire over time, identifying the main events that characterise the fire and differentiate it from other possible fires. It typically defines the ignition and growth process of the fire, the fully developed fire phase, the cooling phase, as well as the ambient conditions and building systems that will have an impact on the evolution of the fire."@en ],
+        [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Descrição qualitativa da evolução de um incêndio com o tempo, identificando os principais acontecimentos que caracterizam o incêndio e o diferenciam de outros incêndios possíveis. Define, tipicamente, a ignição e o processo de crescimento do incêndio, a fase do incêndio totalmente desenvolvido, a fase de arrefecimento, assim como as condições ambientes e os sistemas do edifício que terão impacto na evolução do incêndio."@pt ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Qualitative description of the evolution of a fire over time, identifying the main events that characterise the fire and differentiate it from other possible fires. It typically defines the ignition and growth process of the fire, the fully developed fire phase, the cooling phase, as well as the ambient conditions and building systems that will have an impact on the evolution of the fire."@en ] ;
+            firebim:definitionText "Descrição qualitativa da evolução de um incêndio com o tempo, identificando os principais acontecimentos que caracterizam o incêndio e o diferenciam de outros incêndios possíveis. Define, tipicamente, a ignição e o processo de crescimento do incêndio, a fase do incêndio totalmente desenvolvido, a fase de arrefecimento, assim como as condições ambientes e os sistemas do edifício que terão impacto na evolução do incêndio."@pt ] ;
     firebim:hasDomain "Fire Compartment" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -1302,11 +1149,11 @@ firebim:FirestabilityINT a owl:ObjectProperty ;
 firebim:FiretightnessINT a owl:ObjectProperty ;
     rdfs:label "Fire tightness "@en,
         "Estanquidade ao fogo "@pt ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Ability of a partitioning element of a building, when exposed to fire on one side, to prevent the passage of flames and hot gases through it and to prevent the occurrence of flames on the unexposed side."@en ],
-        [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Capacidade de um elemento de compartimentação de um edifício, quando exposto ao fogo de um lado, para impedir a passagem de chamas e de gases quentes através de si e para impedir a ocorrência de chamas no lado não exposto."@pt ] ;
+            firebim:definitionText "Capacidade de um elemento de compartimentação de um edifício, quando exposto ao fogo de um lado, para impedir a passagem de chamas e de gases quentes através de si e para impedir a ocorrência de chamas no lado não exposto."@pt ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Ability of a partitioning element of a building, when exposed to fire on one side, to prevent the passage of flames and hot gases through it and to prevent the occurrence of flames on the unexposed side."@en ] ;
     firebim:hasDomain "Fire Compartment" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -1321,38 +1168,33 @@ firebim:FiretightnessINT a owl:ObjectProperty ;
 firebim:FreespaceINT a owl:ObjectProperty ;
     rdfs:label "Friareal"@dk,
         "Free space"@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Indoor area that is kept free of storage, inventory and the like."@en ],
-        [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Indendørs areal, der er friholdt for oplag, inventar og lignende."@dk ] ;
+            firebim:definitionText "Indendørs areal, der er friholdt for oplag, inventar og lignende."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Indoor area that is kept free of storage, inventory and the like."@en ] ;
     firebim:hasDomain "Evacuation" ;
     firebim:hasRegion "DK" .
-
-firebim:GablewallINT a bot:Element ;
-    rdfs:label "Gable wall"@en ;
-    firebim:hasDefinition "Parede lateral de um edifício, sem aberturas, com a função de isolamento relativamente a edifícios contíguos, já existentes ou a construir"@en,
-        "Side wall of a building, without openings, with the function of isolation from adjoining buildings, already existing or to be built"@en .
 
 firebim:GeometricopeningareaAgINT a owl:ObjectProperty ;
     rdfs:label "Geometrisk åbningsareal (Ag)"@dk,
         "Geometric opening area (Ag)"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "The inside area of the opening"@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Det indvendige areal af åbning (karmlysningsarealet)."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "The inside area of the opening"@en ] ;
+            firebim:definitionText "Det indvendige areal af åbning (karmlysningsarealet)."@dk ] ;
     firebim:hasRegion "DK" ;
     firebim:hasValueType "Number" .
 
 firebim:GrossareaofafloororfractionINT a owl:ObjectProperty ;
     rdfs:label "Gross area of a floor or fraction"@en,
         "Área bruta de um piso ou fracção"@pt ;
-    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Total surface area of a given floor or fraction, delimited by the external perimeter of the external walls and the axes of the internal walls separating that fraction from the others"@en ],
+        [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Superfície total de um dado piso ou fracção, delimitada pelo perímetro exterior das paredes exteriores e eixos das paredes interiores separadoras dessa fracção, relativamente às restantes"@pt ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Total surface area of a given floor or fraction, delimited by the external perimeter of the external walls and the axes of the internal walls separating that fraction from the others"@en ] ;
+            firebim:definitionText "Superfície total de um dado piso ou fracção, delimitada pelo perímetro exterior das paredes exteriores e eixos das paredes interiores separadoras dessa fracção, relativamente às restantes"@pt ] ;
     firebim:hasDomain "Generic" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -1397,11 +1239,11 @@ firebim:HeightINT a owl:ObjectProperty ;
 firebim:HeightbuildingINT a owl:ObjectProperty ;
     rdfs:label "Gulv i øverste etage"@dk,
         "Height - building"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "The height is measured from the ground in the open to the top of the upper floor"@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Højden måles fra terræn i det fri til overkant af gulv i øverste etage"@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "The height is measured from the ground in the open to the top of the upper floor"@en ] ;
+            firebim:definitionText "Højden måles fra terræn i det fri til overkant af gulv i øverste etage"@dk ] ;
     firebim:hasRegion "DK" ;
     firebim:hasType "property" ;
     firebim:hasUnit "m" ;
@@ -1411,11 +1253,11 @@ firebim:HeightbuildingINT a owl:ObjectProperty ;
 firebim:HeightofabuildingINT a owl:ObjectProperty ;
     rdfs:label "Height of a building"@en,
         "Altura do edifício"@pt ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Difference in elevation between the most unfavourable floor likely to be occupied and the reference plane, classifying buildings according to their height in accordance with the following table, and the following conditions must also be taken into account	"@en ],
-        [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Diferença de cota entre o piso mais desfavorável susceptível de ocupação e o plano de referência, classificando-se os edifícios consoante a sua altura conforme a tabela seguinte, e devendo atender-se ainda às seguintes condições"@pt ] ;
+            firebim:definitionText "Diferença de cota entre o piso mais desfavorável susceptível de ocupação e o plano de referência, classificando-se os edifícios consoante a sua altura conforme a tabela seguinte, e devendo atender-se ainda às seguintes condições"@pt ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Difference in elevation between the most unfavourable floor likely to be occupied and the reference plane, classifying buildings according to their height in accordance with the following table, and the following conditions must also be taken into account	"@en ] ;
     firebim:hasDomain "Generic" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -1455,21 +1297,21 @@ firebim:HoseReelINT a bot:Element ;
 firebim:HosereelSLVINT a owl:ObjectProperty ;
     rdfs:label "Slangevinde"@dk,
         "Hose reel (SLV)"@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Fire extinguishing equipment designed as a fixed installation and connected to the building's normal water supply. Used for first response of people in the building. Can be made with rigid or flat hose."@en ],
-        [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Brandslukningsmateriel udført som fast installation og tilsluttet bygningens normale vandforsyning. Bruges til en førsteindsats af personer i bygningen. Kan være udført med formfast eller flad slange."@dk ] ;
+            firebim:definitionText "Brandslukningsmateriel udført som fast installation og tilsluttet bygningens normale vandforsyning. Bruges til en førsteindsats af personer i bygningen. Kan være udført med formfast eller flad slange."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Fire extinguishing equipment designed as a fixed installation and connected to the building's normal water supply. Used for first response of people in the building. Can be made with rigid or flat hose."@en ] ;
     firebim:hasRegion "DK" .
 
 firebim:IndependentbuildingsINT a owl:ObjectProperty ;
     rdfs:label "Independent buildings "@en,
         "Edifícios independentes "@pt ;
-    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Buildings with independent structures, with no internal communication between them or, when there is one, it is exclusively through a fire chamber, and which comply with the provisions of Fire Safety in Buildings Regulation, regarding the fire resistance of the construction elements that isolate them from each other, as well as parts of the same building with a common structure, with no internal communication between them or, where there is one, it is carried out exclusively through a fire chamber and they comply with the provisions of Fire Safety in Buildings Regulation in relation to the fire resistance of the construction elements that isolate them from each other and neither part depends on the other to comply with the regulatory evacuation conditions."@en ],
+        [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Edifícios dotados de estruturas independentes, sem comunicação interior entre eles ou, quando exista, a mesma seja efetuada exclusivamente através de câmara corta-fogo, e que cumpram as disposições de SCIE, relativamente à resistência ao fogo dos elementos de construção que os isolam entre si, bem como as partes de um mesmo edifício com estrutura comum, sem comunicação interior entre elas ou, quando exista, a mesma seja efetuada exclusivamente através de câmara corta-fogo e cumpram as disposições de SCIE, relativamente à resistência ao fogo dos elementos de construção que as isolam entre si e nenhuma das partes dependa da outra para cumprir as condições regulamentares de evacuação"@pt ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Buildings with independent structures, with no internal communication between them or, when there is one, it is exclusively through a fire chamber, and which comply with the provisions of Fire Safety in Buildings Regulation, regarding the fire resistance of the construction elements that isolate them from each other, as well as parts of the same building with a common structure, with no internal communication between them or, where there is one, it is carried out exclusively through a fire chamber and they comply with the provisions of Fire Safety in Buildings Regulation in relation to the fire resistance of the construction elements that isolate them from each other and neither part depends on the other to comply with the regulatory evacuation conditions."@en ] ;
+            firebim:definitionText "Edifícios dotados de estruturas independentes, sem comunicação interior entre eles ou, quando exista, a mesma seja efetuada exclusivamente através de câmara corta-fogo, e que cumpram as disposições de SCIE, relativamente à resistência ao fogo dos elementos de construção que os isolam entre si, bem como as partes de um mesmo edifício com estrutura comum, sem comunicação interior entre elas ou, quando exista, a mesma seja efetuada exclusivamente através de câmara corta-fogo e cumpram as disposições de SCIE, relativamente à resistência ao fogo dos elementos de construção que as isolam entre si e nenhuma das partes dependa da outra para cumprir as condições regulamentares de evacuação"@pt ] ;
     firebim:hasDomain "Generic" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -1502,11 +1344,6 @@ firebim:IndependentexitsINT a owl:ObjectProperty ;
             firebim:definitionText "Udgange i flugtvejssystem til uafhængige flugtveje. Begrebet benyttes også om uafhængige udgangsdøre fra brandmæssige enheder."@dk ] ;
     firebim:hasDomain "Evacuation" ;
     firebim:hasRegion "DK" .
-
-firebim:IndependentpartsofabuildingINT a bot:Element ;
-    rdfs:label "Independent parts of a building "@en ;
-    firebim:hasDefinition "Corpos distintos de um mesmo edifício que disponham de estrutura independente e que cumpram as disposições de SCIE, relativamente à resistência ao fogo dos elementos de construção que os isolam entre si e às disposições construtivas referentes ao isolamento das suas comunicações interiores comuns"@en,
-        "Separate parts of the same building that have an independent structure and comply with the provisions of Fire Safety in Buildings Regulation, regarding the fire resistance of the construction elements that isolate them from each other and the constructive provisions regarding the isolation of their common interior communications."@en .
 
 firebim:InteriorcourtyardatriumlightwellorlobbyINT a bot:Zone ;
     rdfs:label "Interior courtyard (atrium, light well or lobby)"@en ;
@@ -1612,11 +1449,11 @@ firebim:LivingorHousingunitINT a owl:ObjectProperty,
         bot:Zone ;
     rdfs:label "Boenhed eller Boligenhed"@dk,
         "Living or Housing unit"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Delimited part of a building consisting of one or more rooms/spaces, e.g. in hotels and nursing homes, where at least one of the rooms is furnished with sleeping accommodation. Or Building, or defined part of a building, assigned to use category 4, where one family or related persons live, e.g. cohousing, intergenerational community and similar."@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
             firebim:definitionText "Afgrænset del af bygning bestående af et eller flere værelser/rum, f.eks. på hoteller og plejehjem, hvor mindst et af rummene er indrettet med sovepladser. Bygning, eller afgrænset del af bygning, henført til anvendelseskategori 4, hvor der bor én familie eller relaterede personer, f.eks. bofællesskab, generationsfællesskab og lignende."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Delimited part of a building consisting of one or more rooms/spaces, e.g. in hotels and nursing homes, where at least one of the rooms is furnished with sleeping accommodation. Or Building, or defined part of a building, assigned to use category 4, where one family or related persons live, e.g. cohousing, intergenerational community and similar."@en ],
         "Afgrænset del af bygning bestående af et eller flere værelser/rum, f.eks. på hoteller og plejehjem, hvor mindst et af rummene er indrettet med sovepladser. Bygning, eller afgrænset del af bygning, henført til anvendelseskategori 4, hvor der bor én familie eller relaterede personer, f.eks. bofællesskab, generationsfællesskab og lignende."@en,
         "Delimited part of a building consisting of one or more rooms/spaces, e.g. in hotels and nursing homes, where at least one of the rooms is furnished with sleeping accommodation. Or Building, or defined part of a building, assigned to use category 4, where one family or related persons live, e.g. cohousing, intergenerational community and similar."@en ;
     firebim:hasDomain "Subcompartment" ;
@@ -1624,19 +1461,14 @@ firebim:LivingorHousingunitINT a owl:ObjectProperty,
     firebim:hasType "object" ;
     firebim:hasUnit "[-]" .
 
-firebim:MezzanineINT a bot:Element ;
-    rdfs:label "Mezzanine"@en ;
-    firebim:hasDefinition "Andar intermédio construído geralmente entre o solo e o tecto de um piso com pé-direito alto."@en,
-        "Intermediate floor usually built between the ground and the ceiling of a room with a high ceiling height."@en .
-
 firebim:ModifiedfireloaddensityINT a owl:ObjectProperty ;
     rdfs:label "Modified fire load density"@en,
         "Densidade da carga de incêndio modificada"@pt ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "The fire load density affected by coefficients relating to the degree of danger and the fuel activation index, determined on the basis of the criteria referred to in Article 12(4);"@en ],
-        [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "A densidade da carga de incêndio é afetada por coeficientes relativos ao grau de perigo e ao índice de ativação do combustível, determinados com base nos critérios referidos no nº 4 do artigo 12º;"@pt ] ;
+            firebim:definitionText "A densidade da carga de incêndio é afetada por coeficientes relativos ao grau de perigo e ao índice de ativação do combustível, determinados com base nos critérios referidos no nº 4 do artigo 12º;"@pt ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "The fire load density affected by coefficients relating to the degree of danger and the fuel activation index, determined on the basis of the criteria referred to in Article 12(4);"@en ] ;
     firebim:hasDomain "Fire Compartment" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -1654,11 +1486,11 @@ firebim:NumberofexitsINT a owl:ObjectProperty ;
 firebim:NumberoffloorsbelowthereferenceplaneINT a owl:ObjectProperty ;
     rdfs:label "Number of floors below the reference plane"@en,
         "Número de pisos abaixo do plano de referência"@pt ;
-    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Number of floors below the reference plane"@en ],
+        [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Número de pisos abaixo do plano de referência"@pt ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Number of floors below the reference plane"@en ] ;
+            firebim:definitionText "Número de pisos abaixo do plano de referência"@pt ] ;
     firebim:hasDomain "Generic" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -1669,11 +1501,11 @@ firebim:NumberoffloorsbelowthereferenceplaneINT a owl:ObjectProperty ;
 firebim:NumberofpeoplecompartmentINT a owl:ObjectProperty ;
     rdfs:label "Personbelastning"@dk,
         "Number of people - compartment"@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "The number of persons for which each fire compartment is designed and which is indicated on fire plans and space allocation plans, among other things. Also used as a designation for the dimensioning number of persons, e.g. indicated by the number of persons per m2 , which is used when dimensioning the width of escape routes, escape route passages and doors to escape routes as well as in evacuation calculations for fire engineering design."@en ],
-        [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Det antal personer, som den enkelte brandmæssige enhed er indrettet til, og som bl.a. angives på brandplaner og på pladsfordelingsplaner. Benyttes også som betegnelse for det dimensionsgivende antal personer, f.eks. angivet ved antal personer pr. m2 , som lægges til grund ved dimensionering af bredde af flugtveje, flugtvejspassager og døre til flugtveje samt ved evakueringsberegninger ved brandteknisk dimensionering."@dk ] ;
+            firebim:definitionText "Det antal personer, som den enkelte brandmæssige enhed er indrettet til, og som bl.a. angives på brandplaner og på pladsfordelingsplaner. Benyttes også som betegnelse for det dimensionsgivende antal personer, f.eks. angivet ved antal personer pr. m2 , som lægges til grund ved dimensionering af bredde af flugtveje, flugtvejspassager og døre til flugtveje samt ved evakueringsberegninger ved brandteknisk dimensionering."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "The number of persons for which each fire compartment is designed and which is indicated on fire plans and space allocation plans, among other things. Also used as a designation for the dimensioning number of persons, e.g. indicated by the number of persons per m2 , which is used when dimensioning the width of escape routes, escape route passages and doors to escape routes as well as in evacuation calculations for fire engineering design."@en ] ;
     firebim:hasDomain "Fire Compartment" ;
     firebim:hasRegion "DK" ;
     firebim:hasType "property" ;
@@ -1733,11 +1565,11 @@ firebim:OccupancytypeofINT a owl:ObjectProperty ;
 firebim:OccupantsINT a owl:ObjectProperty ;
     rdfs:label "Occupants"@en,
         "Efetivo"@pt ;
-    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "The estimated maximum number of people that can simultaneously occupy a given space in a building or enclosure"@en ],
+        [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "O número máximo estimado de pessoas que podem ocupar simultaneamente um determinado espaço num edifício ou recinto"@pt ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "The estimated maximum number of people that can simultaneously occupy a given space in a building or enclosure"@en ] ;
+            firebim:definitionText "O número máximo estimado de pessoas que podem ocupar simultaneamente um determinado espaço num edifício ou recinto"@pt ] ;
     firebim:hasDomain "Generic" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -1769,11 +1601,11 @@ firebim:PassivefireprotectionINT a owl:ObjectProperty ;
 firebim:PeoplewithknowledgeofescaperoutesINT a owl:ObjectProperty ;
     rdfs:label "Stedkendt person"@dk,
         "People with knowledge of escape routes"@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Person who has knowledge of the escape routes of the building or building section. Either by virtue of the person being familiar with the building (building section) or because the building (building section) is so simple and clear that the escape routes can be immediately identified."@en ],
-        [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Person, der har kendskab til bygningens eller bygningsafsnittets flugtveje. Enten i kraft af at personen er bekendt med bygningen (bygningsafsnittet), eller at bygningen (bygningsafsnittet) er så simpel og overskuelig, at flugtvejene umiddelbart kan identificeres."@dk ] ;
+            firebim:definitionText "Person, der har kendskab til bygningens eller bygningsafsnittets flugtveje. Enten i kraft af at personen er bekendt med bygningen (bygningsafsnittet), eller at bygningen (bygningsafsnittet) er så simpel og overskuelig, at flugtvejene umiddelbart kan identificeres."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Person who has knowledge of the escape routes of the building or building section. Either by virtue of the person being familiar with the building (building section) or because the building (building section) is so simple and clear that the escape routes can be immediately identified."@en ] ;
     firebim:hasDomain "Use Category" ;
     firebim:hasRegion "DK" ;
     firebim:hasType "property" ;
@@ -1854,11 +1686,11 @@ firebim:ReferenceplaneINT a owl:ObjectProperty ;
 firebim:RescueheightINT a owl:ObjectProperty ;
     rdfs:label "Redningshøjde"@dk,
         "Rescue height"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Height measured from the fire rescue area on the ground to the lower edge of the rescue opening or upper edge of the railing or handrail."@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Højde målt fra brandredningsareal på terræn til underkant af redningsåbning eller overkant af rækværk eller gelænder."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Height measured from the fire rescue area on the ground to the lower edge of the rescue opening or upper edge of the railing or handrail."@en ] ;
+            firebim:definitionText "Højde målt fra brandredningsareal på terræn til underkant af redningsåbning eller overkant af rækværk eller gelænder."@dk ] ;
     firebim:hasDomain "Evacuation" ;
     firebim:hasRegion "DK" ;
     firebim:hasUnit "m" ;
@@ -1867,11 +1699,11 @@ firebim:RescueheightINT a owl:ObjectProperty ;
 firebim:RescueopeningINT a owl:ObjectProperty ;
     rdfs:label "Redningsåbning"@dk,
         "Rescue opening"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "An opening to the outside of a occupied room, such as a window, hatch and balcony door, which is used for emergency rescue or self-help rescue in situations where the occupants of the room are prevented from using the escape routes."@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Åbning til det fri i et opholdsrum, f.eks. vindue, lem og altandør, som benyttes i forbindelse med redningsberedskabets redningsindsats eller redning ved egen hjælp i situationer, hvor personerne i rummet er afskåret fra at benytte flugtvejene."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "An opening to the outside of a occupied room, such as a window, hatch and balcony door, which is used for emergency rescue or self-help rescue in situations where the occupants of the room are prevented from using the escape routes."@en ] ;
+            firebim:definitionText "Åbning til det fri i et opholdsrum, f.eks. vindue, lem og altandør, som benyttes i forbindelse med redningsberedskabets redningsindsats eller redning ved egen hjælp i situationer, hvor personerne i rummet er afskåret fra at benytte flugtvejene."@dk ] ;
     firebim:hasDomain "Evacuation" ;
     firebim:hasRegion "DK" .
 
@@ -1884,13 +1716,13 @@ firebim:RiserheightINT a owl:ObjectProperty ;
 firebim:RiskcategoryINT a owl:ObjectProperty ;
     rdfs:label "Risk category"@en,
         "Categoria de risco"@pt ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Classification into four levels of fire risk of any standard use of a building and premises, taking into account various risk factors, such as its height, the number of occupantes, the number of occupants in risk locations, the modified fire load density and the existence of floors below the reference plane, under the terms of article 12 of the RJ-SCIE"@en ],
-        [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
             firebim:definitionText """Classificação em quatro níveis de risco de incêndio de qualquer
 utilização-tipo de um edifício e recinto, atendendo a diversos fatores de risco, como a sua altura, o efetivo, o efetivo em locais de risco, a densidade de carga de incêndio modificada e a existência de
-pisos abaixo do plano de referência, nos termos previstos no artigo 12.º do RJ-SCIE"""@pt ] ;
+pisos abaixo do plano de referência, nos termos previstos no artigo 12.º do RJ-SCIE"""@pt ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Classification into four levels of fire risk of any standard use of a building and premises, taking into account various risk factors, such as its height, the number of occupantes, the number of occupants in risk locations, the modified fire load density and the existence of floors below the reference plane, under the terms of article 12 of the RJ-SCIE"@en ] ;
     firebim:hasDomain "Generic" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -1901,11 +1733,11 @@ pisos abaixo do plano de referência, nos termos previstos no artigo 12.º do RJ
 firebim:RiskoffireactivationINT a owl:ObjectProperty ;
     rdfs:label "Risk of fire activation"@en,
         "Risco de ativação de incêndio"@pt ;
-    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Parameter that takes into account the probability of ignition, depending on the area of the room and occupancy."@en ],
+        [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Parâmetro que tem em conta a probabilidade de ignição, função da área do compartimento e da ocupação."@pt ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Parameter that takes into account the probability of ignition, depending on the area of the room and occupancy."@en ] ;
+            firebim:definitionText "Parâmetro que tem em conta a probabilidade de ignição, função da área do compartimento e da ocupação."@pt ] ;
     firebim:hasDomain "Fire Compartment" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -1941,12 +1773,12 @@ firebim:RoomAssemblyroomsINT a owl:ObjectProperty ;
 firebim:RoomEmergencyescapestaircaseINT a owl:ObjectProperty ;
     rdfs:label "Flugtvejstrappe"@dk,
         "Room-Emergency escape staircase"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Stairs in an escape route used in the event of an evacuation and often also used as a fire brigade entry route. Often located in its own fire compartment with access to the ground outside, possibly via a vestibule, to ensure that the staircase retains its function as an escape and entry route in case of fire. No storage or furniture may be placed in an escape staircase and the space must be free of fire loads"@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
             firebim:definitionText """Trappe i flugtvej, som benyttes i tilfælde af evakuering, og som ofte også benyttes som redningsberedskabets indtrængningsvej. Er ofte placeret i sin egen brandmæssige enhed med udgang
-  til terræn i det fri, evt. via et vindfang, for at sikre, at trappen bevarer sin funktion som flugtvej og indtrængningsvej i tilfælde af brand. Der må ikke henstilles oplag eller inventar i en flugtvejstrappe og rummet skal være uden brandbelastning """@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Stairs in an escape route used in the event of an evacuation and often also used as a fire brigade entry route. Often located in its own fire compartment with access to the ground outside, possibly via a vestibule, to ensure that the staircase retains its function as an escape and entry route in case of fire. No storage or furniture may be placed in an escape staircase and the space must be free of fire loads"@en ] ;
+  til terræn i det fri, evt. via et vindfang, for at sikre, at trappen bevarer sin funktion som flugtvej og indtrængningsvej i tilfælde af brand. Der må ikke henstilles oplag eller inventar i en flugtvejstrappe og rummet skal være uden brandbelastning """@dk ] ;
     firebim:hasDomain "Subcompartment" ;
     firebim:hasRegion "DK" ;
     firebim:hasType "property" ;
@@ -1979,30 +1811,14 @@ Den permanente brandbelastning består af bygningens brændbare konstruktioner, 
     firebim:hasUnit "MJ/m2" ;
     firebim:hasValueType "Number" .
 
-firebim:RoomSubcompartmentboundaryINT a owl:ObjectProperty,
-        bot:Element ;
-    rdfs:label "Brandcelleadskillelse"@dk,
-        "Room - Subcompartment - boundary"@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Building element, e.g. wall, floor construction or door, which is used to create a fire compartment."@en ],
-        [ firebim:definitionRegion "DK" ;
-            firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Bygningsdel, f.eks. væg, etageadskillelse eller dør, som indgår ved etablering af en brandcelle."@dk ],
-        "Building element, e.g. wall, floor construction or door, which is used to create a fire compartment."@en,
-        "Bygningsdel, f.eks. væg, etageadskillelse eller dør, som indgår ved etablering af en brandcelle."@en ;
-    firebim:hasDomain "Fire Compartment" ;
-    firebim:hasRegion "DK" ;
-    firebim:hasType "object" ;
-    firebim:hasUnit "[-]" .
-
 firebim:RoomTypeofINT a owl:ObjectProperty ;
     rdfs:label "Room (Type of)"@en,
         "Locais de risco"@pt ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Classification of any area of a building or enclosure according to the nature of the fire risk, in accordance with the provisions of Art.10 of Legal Regime - Fire Safety in Buildings "@en ],
-        [ firebim:definitionRegion "PT" ;
+    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Classificação de qualquer área de um edifício ou recinto, em função da natureza do risco de incêndio, em conformidade com o disposto no art.º 10.º do RJ-SCIE"@pt ] ;
+            firebim:definitionText "Classificação de qualquer área de um edifício ou recinto, em função da natureza do risco de incêndio, em conformidade com o disposto no art.º 10.º do RJ-SCIE"@pt ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Classification of any area of a building or enclosure according to the nature of the fire risk, in accordance with the provisions of Art.10 of Legal Regime - Fire Safety in Buildings "@en ] ;
     firebim:hasDomain "Generic" ;
     firebim:hasRegion "PT" ;
     firebim:hasType "property" ;
@@ -2013,11 +1829,11 @@ firebim:RoomTypeofINT a owl:ObjectProperty ;
 firebim:RoomforoccupancyINT a owl:ObjectProperty ;
     rdfs:label "Opholdsrum"@dk,
         "Room for occupancy"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Rooms designed for occupancy, such as an office, meeting room, sales room, living room, bedroom, staff room or kitchen."@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Rum indrettet til personophold, f.eks. kontor, møderum, salgslokale, stue, soverum, personalerum eller køkken."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Rooms designed for occupancy, such as an office, meeting room, sales room, living room, bedroom, staff room or kitchen."@en ] ;
+            firebim:definitionText "Rum indrettet til personophold, f.eks. kontor, møderum, salgslokale, stue, soverum, personalerum eller køkken."@dk ] ;
     firebim:hasDomain "Subcompartment/Evacuations" ;
     firebim:hasRegion "DK" ;
     firebim:hasType "property" ;
@@ -2041,11 +1857,11 @@ firebim:RoomsAreafloorinroomsINT a owl:ObjectProperty ;
 firebim:RoomsKitchenetteorsideboardkitchenINT a owl:ObjectProperty ;
     rdfs:label "Te- eller anretterkøkken"@dk,
         "Rooms-Kitchenette or sideboard kitchen"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "A kitchenette is a room without heating surfaces such as an oven, hob or fryer, but where a microwave, kettle, dishwasher, refrigerator and coffee machines or coffee makers may be present. This type of kitchen, where no food is produced, is not considered a room with a particular fire hazard. Similarly, smaller kitchens that include an oven, hob or deep fryer are considered a special fire hazard and are therefore not a Kitchenette or Appliance Kitchen"@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Te- eller anretterkøkken er et rum uden varmeflader i form af ovn, kogeplade eller friture, men hvor der kan forefindes mikrobølgeovn, elkedel, opvaskemaskine, køleskab og kaffeautomater eller –maskiner. Denne type køkken, hvor der ikke produceres mad, anses ikke som et rum med en særlig brandfare. Tilsvarende mindre køkkener, hvor der indgår ovn, kogeplade eller friture, anses at udgøre en særlig brandfare og er dermed ikke et Te- eller anretterkøkken"@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "A kitchenette is a room without heating surfaces such as an oven, hob or fryer, but where a microwave, kettle, dishwasher, refrigerator and coffee machines or coffee makers may be present. This type of kitchen, where no food is produced, is not considered a room with a particular fire hazard. Similarly, smaller kitchens that include an oven, hob or deep fryer are considered a special fire hazard and are therefore not a Kitchenette or Appliance Kitchen"@en ] ;
+            firebim:definitionText "Te- eller anretterkøkken er et rum uden varmeflader i form af ovn, kogeplade eller friture, men hvor der kan forefindes mikrobølgeovn, elkedel, opvaskemaskine, køleskab og kaffeautomater eller –maskiner. Denne type køkken, hvor der ikke produceres mad, anses ikke som et rum med en særlig brandfare. Tilsvarende mindre køkkener, hvor der indgår ovn, kogeplade eller friture, anses at udgøre en særlig brandfare og er dermed ikke et Te- eller anretterkøkken"@dk ] ;
     firebim:hasDomain "Subcompartment" ;
     firebim:hasRegion "DK" ;
     firebim:hasType "property" ;
@@ -2067,11 +1883,11 @@ firebim:RoomsKitchensINT a owl:ObjectProperty ;
 firebim:RoomsProductionkitchenINT a owl:ObjectProperty ;
     rdfs:label "Produktionskøkken"@dk,
         "RoomsProduction kitchen"@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Production kitchen is a commercial kitchen that is a workplace where food is prepared using hobs, griddles, ovens, grills, fryers and the like."@en ],
-        [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Produktionskøkken er et storkøkken, der udgør en arbejdsplads, hvor der foregår tilberedning af mad ved brug af kogeplader, stegeplader, ovne, grill, friture og lignende."@dk ] ;
+            firebim:definitionText "Produktionskøkken er et storkøkken, der udgør en arbejdsplads, hvor der foregår tilberedning af mad ved brug af kogeplader, stegeplader, ovne, grill, friture og lignende."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Production kitchen is a commercial kitchen that is a workplace where food is prepared using hobs, griddles, ovens, grills, fryers and the like."@en ] ;
     firebim:hasDomain "Subcompartment" ;
     firebim:hasRegion "DK" ;
     firebim:hasType "property" ;
@@ -2080,11 +1896,11 @@ firebim:RoomsProductionkitchenINT a owl:ObjectProperty ;
 firebim:RoomsSchoolkitchenINT a owl:ObjectProperty ;
     rdfs:label "Skolekøkken"@dk,
         "RoomsSchool kitchen"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "School kitchen is a kitchen used for teaching"@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Skolekøkken er et køkken, der bruges til undervisning"@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "School kitchen is a kitchen used for teaching"@en ] ;
+            firebim:definitionText "Skolekøkken er et køkken, der bruges til undervisning"@dk ] ;
     firebim:hasDomain "Subcompartment" ;
     firebim:hasRegion "DK" ;
     firebim:hasType "property" ;
@@ -2098,11 +1914,11 @@ firebim:RoomtypecollectivekitchenINT a owl:ObjectProperty ;
 firebim:RoomtypehorizontalshaftINT a owl:ObjectProperty ;
     rdfs:label "Room-type:horizontal_shaft"@en,
         "horizontale leidingenkoker"@nl ;
-    firebim:hasDefinition [ firebim:definitionRegion "BE" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Horizontal shaft in which technical pipes run and which runs over various compartments"@en ],
+        [ firebim:definitionRegion "BE" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Horizontale koker waarin technische leidingen lopen en die over verschillende compartimenten loopt"@nl ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Horizontal shaft in which technical pipes run and which runs over various compartments"@en ] ;
+            firebim:definitionText "Horizontale koker waarin technische leidingen lopen en die over verschillende compartimenten loopt"@nl ] ;
     firebim:hasRegion "BE" ;
     firebim:hasType "property" ;
     firebim:isLinkedTo firebim:SpaceRoomINT .
@@ -2148,11 +1964,11 @@ firebim:RoomtypeverticalshaftINT a owl:ObjectProperty ;
 firebim:SecondaryescaperouteINT a owl:ObjectProperty ;
     rdfs:label "Sekundær flugtvej"@dk,
         "Secondary escape route"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Escape route that is not typically used as an access route during the normal use of the building."@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Flugtvej, der typisk ikke benyttes som adgangsvej under bygningens normale brug."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Escape route that is not typically used as an access route during the normal use of the building."@en ] ;
+            firebim:definitionText "Flugtvej, der typisk ikke benyttes som adgangsvej under bygningens normale brug."@dk ] ;
     firebim:hasDomain "Evacuation" ;
     firebim:hasRegion "DK" .
 
@@ -2242,11 +2058,11 @@ firebim:SlopeINT a owl:ObjectProperty ;
 firebim:SmokealarmsystemINT a owl:ObjectProperty ;
     rdfs:label "Røgalarmanlæg"@dk,
         "Smoke alarm system"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "System consisting of one or more interconnected smoke alarms that detect smoke and alert in the fire unit, e.g. a residence, where the smoke occurs. Smoke alarm systems are connected to the building's power supply and equipped with battery backup."@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Anlæg, bestående af en eller flere forbundne røgalarmer, der detekterer røg og varsler i den brandmæssige enhed, f.eks. en bolig, hvor røgen opstår. Røgalarmanlæg er tilsluttet bygningens strømforsyning og forsynet med batteribackup."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "System consisting of one or more interconnected smoke alarms that detect smoke and alert in the fire unit, e.g. a residence, where the smoke occurs. Smoke alarm systems are connected to the building's power supply and equipped with battery backup."@en ] ;
+            firebim:definitionText "Anlæg, bestående af en eller flere forbundne røgalarmer, der detekterer røg og varsler i den brandmæssige enhed, f.eks. en bolig, hvor røgen opstår. Røgalarmanlæg er tilsluttet bygningens strømforsyning og forsynet med batteribackup."@dk ] ;
     firebim:hasRegion "DK" .
 
 firebim:StandardfirecurveINT a owl:ObjectProperty ;
@@ -2297,11 +2113,6 @@ firebim:StoreysnumberofINT a owl:ObjectProperty ;
     firebim:hasValueType "Number" ;
     firebim:isLinkedTo firebim:BuildingINT .
 
-firebim:StructuralelementsINT a bot:Element ;
-    rdfs:label "Structural  elements"@en ;
-    firebim:hasDefinition "Elementos resistentes de uma estrutura, incluindo os contraventamentos."@en,
-        "Resisting elements of a structure, including bracing."@en .
-
 firebim:SurfacecladdingINT a owl:ObjectProperty,
         bot:Element ;
     rdfs:label "Beklædning"@dk,
@@ -2320,11 +2131,11 @@ firebim:SurfacecladdingINT a owl:ObjectProperty,
 firebim:SuspendedceilingINT a owl:ObjectProperty ;
     rdfs:label "Nedhængt loft"@dk,
         "Suspended ceiling"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Ceiling located below the ceiling cladding that does not necessarily meet the requirements for the interior ceiling cladding."@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Loft placeret under loftsbeklædningen som ikke nødvendigvis opfylder kravene til den indvendige loftsbeklædning."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Ceiling located below the ceiling cladding that does not necessarily meet the requirements for the interior ceiling cladding."@en ] ;
+            firebim:definitionText "Loft placeret under loftsbeklædningen som ikke nødvendigvis opfylder kravene til den indvendige loftsbeklædning."@dk ] ;
     firebim:hasRegion "DK" .
 
 firebim:SwingDirectionINT a owl:ObjectProperty ;
@@ -2336,11 +2147,11 @@ firebim:SwingDirectionINT a owl:ObjectProperty ;
 firebim:TerrainINT a owl:ObjectProperty ;
     rdfs:label "Terræn i det fri"@dk,
         "Terrain"@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Outdoor areas on the ground where evacuees are safe from the fire and from which there is unobstructed access to a public area or road. Also used for areas that are large enough for all evacuees to remain at a safe distance from the fire."@en ],
-        [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Udendørs områder i terræn, hvor evakuerede personer er i sikkerhed for branden, og hvorfra der er uhindret adgang til offentligt areal eller vej. Benyttes også om områder, der er så store, at alle de evakuerede personer kan opholde sig her i sikker afstand fra branden."@dk ] ;
+            firebim:definitionText "Udendørs områder i terræn, hvor evakuerede personer er i sikkerhed for branden, og hvorfra der er uhindret adgang til offentligt areal eller vej. Benyttes også om områder, der er så store, at alle de evakuerede personer kan opholde sig her i sikker afstand fra branden."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Outdoor areas on the ground where evacuees are safe from the fire and from which there is unobstructed access to a public area or road. Also used for areas that are large enough for all evacuees to remain at a safe distance from the fire."@en ] ;
     firebim:hasRegion "DK" .
 
 firebim:ThermalConductivityINT a owl:ObjectProperty ;
@@ -2418,11 +2229,11 @@ firebim:UsableatticroofspaceINT a owl:ObjectProperty ;
 firebim:UsecategoryINT a owl:ObjectProperty ;
     rdfs:label "Anvendelseskategori"@dk,
         "Use category"@en ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Category with a number from 1 - 6, determined based on the primary use of a primary use of a building or section of a building based on whether the building section has sleeping accommodation, whether the occupants of the building section have knowledge of escape routes, whether the occupants of the building section have the ability to get to safety by themselves and the number of occupants per fire unit."@en ],
-        [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Kategori med et nummer fra 1 – 6, der fastlægges på baggrund af en bygnings eller et bygningsafsnits primære anvendelse baseret på, om bygningsafsnittet er indrettet med sovepladser, om personerne i bygningsafsnittet har kendskab til flugtveje, om personerne i bygningsafsnittet har mulighed for ved egen hjælp at bringe sig i sikkerhed samt på antallet af personer pr. brandmæssig enhed."@dk ] ;
+            firebim:definitionText "Kategori med et nummer fra 1 – 6, der fastlægges på baggrund af en bygnings eller et bygningsafsnits primære anvendelse baseret på, om bygningsafsnittet er indrettet med sovepladser, om personerne i bygningsafsnittet har kendskab til flugtveje, om personerne i bygningsafsnittet har mulighed for ved egen hjælp at bringe sig i sikkerhed samt på antallet af personer pr. brandmæssig enhed."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Category with a number from 1 - 6, determined based on the primary use of a primary use of a building or section of a building based on whether the building section has sleeping accommodation, whether the occupants of the building section have knowledge of escape routes, whether the occupants of the building section have the ability to get to safety by themselves and the number of occupants per fire unit."@en ] ;
     firebim:hasRegion "DK" ;
     firebim:hasType "property" ;
     firebim:hasValueType "Enumeration (choice)" .
@@ -2443,11 +2254,11 @@ firebim:VolumeINT a owl:ObjectProperty ;
 firebim:WalkingtimeINT a owl:ObjectProperty ;
     rdfs:label "Gangtid"@dk,
         "Walking time"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "The portion of movement time during which people travel the distance to open terrain or to a place of safety, excluding any queuing time at exits and congestion in the escape route system."@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Den del af bevægelsestiden, hvor personer tilbagelægger afstanden til terræn i det fri eller til et sikkert sted, eksklusiv eventuel køtid ved udgange og flaskehalse i flugtvejssystemet."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "The portion of movement time during which people travel the distance to open terrain or to a place of safety, excluding any queuing time at exits and congestion in the escape route system."@en ] ;
+            firebim:definitionText "Den del af bevægelsestiden, hvor personer tilbagelægger afstanden til terræn i det fri eller til et sikkert sted, eksklusiv eventuel køtid ved udgange og flaskehalse i flugtvejssystemet."@dk ] ;
     firebim:hasDomain "Evacuation" ;
     firebim:hasRegion "DK" .
 
@@ -2521,6 +2332,77 @@ firebim:ZonesINT a owl:ObjectProperty ;
     firebim:hasValueType "Enumeration (choice)" ;
     firebim:isLinkedTo firebim:BuildingINT .
 
+firebim:correspondsToIFC a owl:ObjectProperty ;
+    rdfs:label "corresponds to IFC"@en ;
+    rdfs:comment "Links to the corresponding IFC entity"@en .
+
+firebim:hasBIMidsLink a owl:ObjectProperty ;
+    rdfs:label "has BIMids link"@en ;
+    rdfs:comment "Links to the BIMids.eu entry"@en .
+
+firebim:hasBSDDLink a owl:ObjectProperty ;
+    rdfs:label "has bSDD link"@en ;
+    rdfs:comment "Links to the buildingSMART Data Dictionary entry"@en .
+
+firebim:hasCountryCode a owl:DatatypeProperty ;
+    rdfs:label "has country code"@en ;
+    rdfs:comment "Specifies the country an entity is associated with"@en .
+
+firebim:hasDomain a owl:DatatypeProperty ;
+    rdfs:label "has domain"@en ;
+    rdfs:comment "Specifies the domain an entity belongs to"@en .
+
+firebim:hasIFCEntity a owl:DatatypeProperty ;
+    rdfs:label "has IFC entity"@en ;
+    rdfs:comment "Specifies the IFC entity name"@en .
+
+firebim:hasISODefinition a owl:DatatypeProperty ;
+    rdfs:label "has ISO definition"@en ;
+    rdfs:comment "Links an entity to its ISO definition"@en ;
+    rdfs:subPropertyOf firebim:hasDefinition .
+
+firebim:hasISOTermLink a owl:ObjectProperty ;
+    rdfs:label "has ISO term link"@en ;
+    rdfs:comment "Links to the ISO term definition"@en .
+
+firebim:hasParent a owl:ObjectProperty ;
+    rdfs:label "has parent"@en ;
+    rdfs:comment "Links to the parent object"@en ;
+    owl:inverseOf firebim:hasChild .
+
+firebim:hasRegion a owl:DatatypeProperty ;
+    rdfs:label "has region"@en ;
+    rdfs:comment "Specifies the region within a country"@en .
+
+firebim:hasRemark a owl:DatatypeProperty ;
+    rdfs:label "has remark"@en ;
+    rdfs:comment "Additional remarks about an entity"@en .
+
+firebim:hasSubItem a owl:ObjectProperty ;
+    rdfs:label "has sub-item"@en ;
+    rdfs:comment "Links to a sub-item"@en .
+
+firebim:hasType a owl:DatatypeProperty ;
+    rdfs:label "has type"@en ;
+    rdfs:comment "Specifies the type of a property"@en .
+
+firebim:hasUnit a owl:DatatypeProperty ;
+    rdfs:label "has unit"@en ;
+    rdfs:comment "Specifies the unit of measurement for a property"@en .
+
+firebim:hasValueType a owl:DatatypeProperty ;
+    rdfs:label "has value type"@en ;
+    rdfs:comment "Specifies the data type of a property's value"@en .
+
+firebim:isLinkedTo a owl:ObjectProperty ;
+    rdfs:label "is linked to"@en ;
+    rdfs:comment "Links a property to an object it describes"@en ;
+    owl:inverseOf firebim:hasProperty .
+
+firebim:isSubItemOf a owl:ObjectProperty ;
+    rdfs:label "is sub-item of"@en ;
+    rdfs:comment "Links to the parent item"@en .
+
 firebim:CeilingINT a bot:Element ;
     rdfs:label "Ceiling"@en ;
     firebim:correspondsToIFC ifc:IfcCovering ;
@@ -2531,21 +2413,6 @@ firebim:CeilingINT a bot:Element ;
  construction (3.3.5.6)  covering the underside of a  floor (3.3.2.10)  or  roof (3.3.2.21)  and providing the overhead surface of an enclosed  space (3.2.1.1) , often to conceal  structural members (3.3.1.3)  or  services (3.3.4.1)"""@en ;
     firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.18> ;
     firebim:hasRemark "Ceiling vs Suspended Ceiling" .
-
-firebim:CompartmentescaperouteINT a owl:ObjectProperty,
-        bot:Element ;
-    rdfs:label "Compartment-escape_route"@en,
-        "vluchtroute"@nl ;
-    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "route that starts in a space for people, only runs over floors, stairs or ramps and ends in a safe place, without the need to use a lift"@en ],
-        [ firebim:definitionRegion "NL" ;
-            firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "route die begint in ruimte voor personen, alleen voert over vloeren, trappen of hellingbanen en eindigt op een veilige plaats, zonder dat gebruik moet worden gemaakt van een lift"@nl ] ;
-    firebim:hasRegion "NL" ;
-    firebim:hasType "property" ;
-    firebim:hasUnit "Choice" ;
-    firebim:hasValueType "Boolean (yes/no)" ;
-    firebim:isLinkedTo firebim:FirecompartmentINT .
 
 firebim:MaterialINT a owl:ObjectProperty,
         bot:Element ;
@@ -2560,55 +2427,203 @@ firebim:MaterialINT a owl:ObjectProperty,
     firebim:hasValueType "Reference" ;
     firebim:isLinkedTo firebim:StairINT .
 
-firebim:ParkingINT a bot:Element,
-        bot:Zone ;
-    rdfs:label "Parking"@en ;
-    firebim:correspondsToIFC ifc:IfcSpace ;
-    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpacePARKING> ;
-    firebim:hasIFCEntity "IfcSpace.PARKING" ;
-    firebim:hasISODefinition """parking bay
-parking space,US
-parking stall, US
-parking spot, US 
-area intended, and usually designated and marked, for the parking of a vehicle"""@en ;
-    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.3.59> ;
-    firebim:hasRemark "no definition in legislation" .
+firebim:hasChild a owl:ObjectProperty ;
+    rdfs:label "has child"@en ;
+    rdfs:comment "Links to a child object"@en .
 
-firebim:RefugespaceINT a bot:Element ;
-    rdfs:label "Refuge space"@en ;
-    firebim:hasDefinition "Local num edifício, temporariamente seguro, especialmente dotado de meios de proteção, de modo a que as pessoas não venham a sofrer dos efeitos diretos de um incêndio no edifício"@en,
-        "Temporarily safe place in a building specially equipped with means of protection so that people do not suffer from the direct effects of a fire in the building."@en .
+firebim:hasDefinition a owl:DatatypeProperty ;
+    rdfs:label "has definition"@en ;
+    rdfs:comment "Links an entity to its definition"@en .
 
-firebim:StairwellINT a bot:Zone ;
-    rdfs:label "Stairwell"@en ;
-    firebim:correspondsToIFC ifc:IfcZone ;
-    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcZone> ;
-    firebim:hasIFCEntity "IfcZone" ;
-    firebim:hasISODefinition """stairwell
- space (3.2.1.1)  around which a  stair (3.3.5.22)  is disposed"""@en ;
-    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.2.4.15> ;
-    firebim:hasRemark """A stairwell stretches across the full height of a building and intersects with all the storeys it serves. Modeling the space inside a stairwell can be tricky since it is not just associated to one single storey like most other spaces.
+firebim:hasProperty a owl:ObjectProperty ;
+    rdfs:label "has property"@en ;
+    rdfs:comment "Links an object to a property that describes it"@en .
 
-In most BIM authoring tools the stairwell space would just be located on the base level and hence belong to this storey. In BOT, however, we have the concept of interfaces that we can use to model the relationships to the different storeys. [SOURCE:  https://w3c-lbd-cg.github.io/bot/#stairwell ]""" .
+firebim:BankofelevatorsINT a bot:Element ;
+    rdfs:label "Bank of elevators"@en ;
+    firebim:hasDefinition "A bank of elevators with the same rated speed, serving the same floors, with landing doors simultaneously visible or nearby, electrically interconnected, with common call controls"@en,
+        "Conjunto de elevadores com a mesma velocidade nominal, servindo os mesmos pisos, com portas de patamar simultaneamente visíveis ou próximas, interligados eletricamente, dispondo de comandos de chamada comuns"@en ;
+    firebim:hasParent firebim:ElevatorliftINT ;
+    firebim:isSubItemOf firebim:ElevatorliftINT ;
+    rdfs:subClassOf firebim:ElevatorliftINT .
 
-firebim:ElevatorLiftshaftINT a bot:Zone ;
-    rdfs:label "Elevator/Lift shaft"@en ;
-    firebim:hasDefinition "pijpvormig deel van een gebouw waardoor een lift op- en neerbewegen kan"@en,
-        """pipe-shaped
-  part of a building through which an elevator can move up and down"""@en ;
-    firebim:hasRemark "Object or Property?" .
+firebim:BuildingLayerINT a bot:Element ;
+    rdfs:label "Building Layer"@en ;
+    firebim:hasDefinition "de ruimte tussen een vloer en het daarboven liggend plafond. De bouwlagen gelegen onder het niveau Ei zijn kelderverdiepingen en komen niet in aanmerking voor het bepalen van het aantal bouwlagen van een gebouw"@en,
+        "the space between a floor and the ceiling above it. The floors located below level Ei are basement floors and are not eligible for determining the number of floors of a building"@en ;
+    firebim:hasParent firebim:BuildingStoreyINT ;
+    firebim:isSubItemOf firebim:BuildingStoreyINT ;
+    rdfs:subClassOf firebim:BuildingStoreyINT .
 
-firebim:EvacuationRouteINT a bot:Zone ;
-    rdfs:label "Evacuation Route"@en ;
-    firebim:correspondsToIFC ifc:IfcAnnotation ;
-    firebim:hasIFCEntity "IfcAnnotation" ;
-    firebim:hasRemark "to nearest exit, to second exit, to evacuation road" .
+firebim:CompartmentSubcompartmentINT a owl:ObjectProperty,
+        bot:Element ;
+    rdfs:label "Brandcelle"@dk,
+        "Compartment - Subcompartment"@en ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+            firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Et eller flere rum, hvorfra branden ikke spredes til andre brandceller i den tid, der kræves til evakuering og redningsberedskabets redningsindsats i tilstødende brandceller."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "One or more rooms from which the fire does not spread to other subcompartments during the time required for evacuation and rescue efforts in adjacent subcompartments."@en ],
+        "Et eller flere rum, hvorfra branden ikke spredes til andre brandceller i den tid, der kræves til evakuering og redningsberedskabets redningsindsats i tilstødende brandceller."@en,
+        "One or more rooms from which the fire does not spread to other subcompartments during the time required for evacuation and rescue efforts in adjacent subcompartments."@en ;
+    firebim:hasDomain "Fire Compartment" ;
+    firebim:hasParent firebim:CompartmentINT ;
+    firebim:hasRegion "DK" ;
+    firebim:hasRemark " " ;
+    firebim:hasType "object" ;
+    firebim:hasUnit "[-]" ;
+    firebim:isSubItemOf firebim:CompartmentINT ;
+    rdfs:subClassOf firebim:CompartmentINT .
 
-firebim:FloorINT a bot:Element ;
-    rdfs:label "Floor"@en ;
-    firebim:hasDefinition "Part of a building, comprising one or more spaces or divisions delimited by horizontal construction elements"@en,
-        "Parte de um edifício, compreendendo um ou mais espaços ou divisões delimitadas por elementos de construção horizontais"@en ;
-    firebim:hasRemark "Definition of the Portuguese consortium" .
+firebim:EmergencyescapedoorINT a owl:ObjectProperty,
+        bot:Element ;
+    rdfs:label "Flugtvejsdør"@dk,
+        "Emergency escape door"@en ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Door to escape route or door in escape route, e.g. exit door and exit"@en ],
+        [ firebim:definitionRegion "DK" ;
+            firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Dør til flugtvej eller dør i flugtvej, f.eks. udgangsdør og udgang"@dk ],
+        "Door to escape route or door in escape route, e.g. exit door and exit"@en,
+        "Dør til flugtvej eller dør i flugtvej, f.eks. udgangsdør og udgang"@en ;
+    firebim:hasDomain "Evacuation" ;
+    firebim:hasParent firebim:ExitdoorINT ;
+    firebim:hasRegion "DK" ;
+    firebim:hasType "object" ;
+    firebim:hasUnit "[-]" ;
+    firebim:isSubItemOf firebim:ExitdoorINT ;
+    rdfs:subClassOf firebim:ExitdoorINT .
+
+firebim:EmergencysafetystaircaseINT a owl:ObjectProperty,
+        bot:Element ;
+    rdfs:label "Sikkerhedstrappe"@dk,
+        "Emergency safety staircase"@en ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+            firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Flugtvejstrappe, der er udformet, så der er meget lille sandsynlighed for røgspredning til eller røgudvikling i trapperummet, for at opretholde funktionen som flugtvej og indtrængningsvej. Sikringen kan blandt andet omfatte, at trappen udføres med tryksætningsanlæg (ATA-anlæg) eller med adgang over luftsluse samt skærpede krav til overflader mv. i trapperummet."@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Escape stairs designed to minimize the likelihood of smoke spreading to or developing in the stairwell in order to maintain its function as an escape and entry route. The safety measures may include, among other things, that the staircase is equipped with pressurization systems (ATA systems) or with access via an airlock and stricter requirements for surfaces etc. in the stairwell."@en ],
+        "Escape stairs designed to minimize the likelihood of smoke spreading to or developing in the stairwell in order to maintain its function as an escape and entry route. The safety measures may include, among other things, that the staircase is equipped with pressurization systems (ATA systems) or with access via an airlock and stricter requirements for surfaces etc. in the stairwell."@en,
+        "Flugtvejstrappe, der er udformet, så der er meget lille sandsynlighed for røgspredning til eller røgudvikling i trapperummet, for at opretholde funktionen som flugtvej og indtrængningsvej. Sikringen kan blandt andet omfatte, at trappen udføres med tryksætningsanlæg (ATA-anlæg) eller med adgang over luftsluse samt skærpede krav til overflader mv. i trapperummet."@en ;
+    firebim:hasDomain "Evacuation/compartments" ;
+    firebim:hasParent firebim:StairwellINT ;
+    firebim:hasRegion "DK" ;
+    firebim:hasType "object" ;
+    firebim:hasUnit "[-]" ;
+    firebim:isSubItemOf firebim:StairwellINT ;
+    rdfs:subClassOf firebim:StairwellINT .
+
+firebim:EscaperoutecorridorINT a owl:ObjectProperty,
+        bot:Element ;
+    rdfs:label "Flugtvejsgang"@dk,
+        "Escape route corridor"@en ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+            firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Gang, der primært er indrettet til flugtvejsfunktion, og som giver adgang til en eller flere udgange. En flugtvejsgang indrettes i egen brandmæssige enhed, for at beskytte personer mod kritiske forhold under evakuering. Der er særlige krav til indretningen af flugtvejsgange og brandbelastning en en flugtvejsgang må højst være 50 MJ/m2, svarende til ultra lav brandbelastning "@dk ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "A corridor that is primarily designed for escape route function and provides access to one or more exits. An escape route corridor is designed in its own fire compartment (nomaly a Subcompartment) to protect people from critical conditions during evacuation. There are special requirements for the design of escape routes and the fire load in an escape route must not exceed 50 MJ/m2, corresponding to ultra low fire load"@en ],
+        "A corridor that is primarily designed for escape route function and provides access to one or more exits. An escape route corridor is designed in its own fire compartment (nomaly a Subcompartment) to protect people from critical conditions during evacuation. There are special requirements for the design of escape routes and the fire load in an escape route must not exceed 50 MJ/m2, corresponding to ultra low fire load"@en,
+        "Gang, der primært er indrettet til flugtvejsfunktion, og som giver adgang til en eller flere udgange. En flugtvejsgang indrettes i egen brandmæssige enhed, for at beskytte personer mod kritiske forhold under evakuering. Der er særlige krav til indretningen af flugtvejsgange og brandbelastning en en flugtvejsgang må højst være 50 MJ/m2, svarende til ultra lav brandbelastning "@en ;
+    firebim:hasDomain "Evacuation/Subcompartments" ;
+    firebim:hasParent firebim:EvacuationRouteINT ;
+    firebim:hasRegion "DK" ;
+    firebim:hasType "object" ;
+    firebim:hasUnit "[-]" ;
+    firebim:isSubItemOf firebim:EvacuationRouteINT ;
+    rdfs:subClassOf firebim:EvacuationRouteINT .
+
+firebim:EvacuationpathINT a bot:Element ;
+    rdfs:label "Evacuation path"@en ;
+    firebim:hasDefinition "maximum 10% hellende weg, binnen het gebouw, die toegang geeft tot trappenhuizen, vluchtterrassen of uitgangen"@en,
+        "maximum 10% sloping road, inside the building, that provides access to stairwells, emergency exits or exits"@en ;
+    firebim:hasParent firebim:EvacuationRouteINT ;
+    firebim:isSubItemOf firebim:EvacuationRouteINT ;
+    rdfs:subClassOf firebim:EvacuationRouteINT .
+
+firebim:ExteriorelementINT a bot:Element ;
+    rdfs:label "Exterior element"@en ;
+    firebim:hasDefinition "Elemento estrutural localizado no exterior do edifício, que poderá estar exposto ao fogo através de aberturas na envolvente do edifício"@en,
+        "Structural element located outside the building, which may be exposed to fire through openings in the building envelope"@en ;
+    firebim:hasParent firebim:FacadeINT ;
+    firebim:isSubItemOf firebim:FacadeINT ;
+    rdfs:subClassOf firebim:FacadeINT .
+
+firebim:FireWallINT a bot:Element ;
+    rdfs:label "Fire Wall"@en ;
+    firebim:correspondsToIFC ifc:IfcWall ;
+    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcWall> ;
+    firebim:hasDefinition "Compartmentalisation element consisting of a wall separating two spaces (e.g. two buildings), which has been designed to resist fire and to be stable, possibly including resistance to horizontal actions, in such a way as to prevent the spread of fire through the wall in the event of fire and the collapse of the structure on one side of the wall."@en,
+        "Elemento de compartimentação que consiste numa parede de separação entre dois espaços (por exemplo, dois edifícios), que foi dimensionada para resistir ao fogo e ser estável, incluindo eventualmente a resistência a acções horizontais, de tal forma que seja evitada a propagação do fogo através da parede, em caso de incêndio e de colapso da estrutura num dos lados da parede."@en ;
+    firebim:hasIFCEntity """IfcWall.Pset_WallCommon.FireRating > 0
+IfcWall.Pset_WallCommon.Compartmentation = TRUE""" ;
+    firebim:hasISODefinition """firewall
+ separating wall (3.3.2.58)  that delays or holds back the spread of  fire from one  building (3.1.1.3)  to an adjoining building"""@en ;
+    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.61> ;
+    firebim:hasParent firebim:WallINT ;
+    firebim:isSubItemOf firebim:WallINT ;
+    rdfs:subClassOf firebim:WallINT .
+
+firebim:FirecompartmentboundaryINT a owl:ObjectProperty,
+        bot:Element ;
+    rdfs:label "Brandsektionsadskillelse"@dk,
+        "Fire compartment - boundary"@en ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "A wall or floor construction designed to prevent a fire from spreading to other fire compartments within the time required for evacuation and emergency response."@en ],
+        [ firebim:definitionRegion "DK" ;
+            firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "En væg eller etageadskillelse, der er udformet, så en brand ikke spredes til andre brandsektioner inden for den tid, der er nødvendig for evakuering og redningsberedskabets indsats."@dk ],
+        "A wall or floor construction designed to prevent a fire from spreading to other fire compartments within the time required for evacuation and emergency response."@en,
+        "En væg eller etageadskillelse, der er udformet, så en brand ikke spredes til andre brandsektioner inden for den tid, der er nødvendig for evakuering og redningsberedskabets indsats."@en ;
+    firebim:hasDomain "Fire Compartment" ;
+    firebim:hasParent firebim:CompartmentBoundaryINT ;
+    firebim:hasRegion "DK" ;
+    firebim:hasType "object" ;
+    firebim:hasUnit "[-]" ;
+    firebim:isSubItemOf firebim:CompartmentBoundaryINT ;
+    rdfs:subClassOf firebim:CompartmentBoundaryINT .
+
+firebim:GablewallINT a bot:Element ;
+    rdfs:label "Gable wall"@en ;
+    firebim:hasDefinition "Parede lateral de um edifício, sem aberturas, com a função de isolamento relativamente a edifícios contíguos, já existentes ou a construir"@en,
+        "Side wall of a building, without openings, with the function of isolation from adjoining buildings, already existing or to be built"@en ;
+    firebim:hasParent firebim:FacadeINT ;
+    firebim:isSubItemOf firebim:FacadeINT ;
+    rdfs:subClassOf firebim:FacadeINT .
+
+firebim:IndependentpartsofabuildingINT a bot:Element ;
+    rdfs:label "Independent parts of a building "@en ;
+    firebim:hasDefinition "Corpos distintos de um mesmo edifício que disponham de estrutura independente e que cumpram as disposições de SCIE, relativamente à resistência ao fogo dos elementos de construção que os isolam entre si e às disposições construtivas referentes ao isolamento das suas comunicações interiores comuns"@en,
+        "Separate parts of the same building that have an independent structure and comply with the provisions of Fire Safety in Buildings Regulation, regarding the fire resistance of the construction elements that isolate them from each other and the constructive provisions regarding the isolation of their common interior communications."@en ;
+    firebim:hasParent firebim:BuildingINT ;
+    firebim:isSubItemOf firebim:BuildingINT ;
+    rdfs:subClassOf firebim:BuildingINT .
+
+firebim:MezzanineINT a bot:Element ;
+    rdfs:label "Mezzanine"@en ;
+    firebim:hasDefinition "Andar intermédio construído geralmente entre o solo e o tecto de um piso com pé-direito alto."@en,
+        "Intermediate floor usually built between the ground and the ceiling of a room with a high ceiling height."@en ;
+    firebim:hasParent firebim:BuildingStoreyINT ;
+    firebim:isSubItemOf firebim:BuildingStoreyINT ;
+    rdfs:subClassOf firebim:BuildingStoreyINT .
+
+firebim:RoomSubcompartmentboundaryINT a owl:ObjectProperty,
+        bot:Element ;
+    rdfs:label "Brandcelleadskillelse"@dk,
+        "Room - Subcompartment - boundary"@en ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Building element, e.g. wall, floor construction or door, which is used to create a fire compartment."@en ],
+        [ firebim:definitionRegion "DK" ;
+            firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Bygningsdel, f.eks. væg, etageadskillelse eller dør, som indgår ved etablering af en brandcelle."@dk ],
+        "Building element, e.g. wall, floor construction or door, which is used to create a fire compartment."@en,
+        "Bygningsdel, f.eks. væg, etageadskillelse eller dør, som indgår ved etablering af en brandcelle."@en ;
+    firebim:hasDomain "Fire Compartment" ;
+    firebim:hasParent firebim:CompartmentBoundaryINT ;
+    firebim:hasRegion "DK" ;
+    firebim:hasType "object" ;
+    firebim:hasUnit "[-]" ;
+    firebim:isSubItemOf firebim:CompartmentBoundaryINT ;
+    rdfs:subClassOf firebim:CompartmentBoundaryINT .
 
 firebim:SlabINT a bot:Element ;
     rdfs:label "Slab"@en ;
@@ -2632,10 +2647,36 @@ firebim:ColumnINT a bot:Element ;
  structural member (3.3.1.3)  of slender form, usually vertical, that transmits to its base the  forces (3.7.3.22) , primarily in  compression (3.7.3.32) , that are applied to it"""@en ;
     firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.1.10> .
 
+firebim:CompartmentescaperouteINT a owl:ObjectProperty,
+        bot:Element ;
+    rdfs:label "Compartment-escape_route"@en,
+        "vluchtroute"@nl ;
+    firebim:hasDefinition [ firebim:definitionRegion "NL" ;
+            firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "route die begint in ruimte voor personen, alleen voert over vloeren, trappen of hellingbanen en eindigt op een veilige plaats, zonder dat gebruik moet worden gemaakt van een lift"@nl ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "route that starts in a space for people, only runs over floors, stairs or ramps and ends in a safe place, without the need to use a lift"@en ] ;
+    firebim:hasParent firebim:EvacuationRouteINT ;
+    firebim:hasRegion "NL" ;
+    firebim:hasType "property" ;
+    firebim:hasUnit "Choice" ;
+    firebim:hasValueType "Boolean (yes/no)" ;
+    firebim:isLinkedTo firebim:FirecompartmentINT ;
+    firebim:isSubItemOf firebim:EvacuationRouteINT ;
+    rdfs:subClassOf firebim:EvacuationRouteINT .
+
 firebim:DamperINT a bot:Element ;
     rdfs:label "Damper"@en ;
     firebim:hasDefinition "Automatic or manually operated movable device for closing the section of a duct or opening, open or closed in its normal position"@en,
         "Dispositivo móvel de obturação da secção de uma conduta ou de uma abertura, aberto ou fechado na sua posição normal, de comando automático ou manual"@en .
+
+firebim:RefugespaceINT a bot:Element ;
+    rdfs:label "Refuge space"@en ;
+    firebim:hasDefinition "Local num edifício, temporariamente seguro, especialmente dotado de meios de proteção, de modo a que as pessoas não venham a sofrer dos efeitos diretos de um incêndio no edifício"@en,
+        "Temporarily safe place in a building specially equipped with means of protection so that people do not suffer from the direct effects of a fire in the building."@en ;
+    firebim:hasParent firebim:CompartmentINT ;
+    firebim:isSubItemOf firebim:CompartmentINT ;
+    rdfs:subClassOf firebim:CompartmentINT .
 
 firebim:BeamINT a bot:Element ;
     rdfs:label "Beam"@en ;
@@ -2647,28 +2688,29 @@ firebim:BeamINT a bot:Element ;
  structural member (3.3.1.3)  for carrying  loads (3.7.3.19)  between or beyond points of support, usually narrow in relation to its  length (3.7.2.10)  and horizontal or nearly so"""@en ;
     firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.1.11> .
 
-firebim:BeamsINT a bot:Element ;
-    rdfs:label "Beams"@en .
-
-firebim:ColumnsINT a bot:Element ;
-    rdfs:label "Columns"@en .
-
-firebim:CompartmentBoundaryINT a bot:Element ;
-    rdfs:label "Compartment Boundary"@en ;
-    firebim:hasDefinition "Elemento resistente ou não resistente (por exemplo, uma parede) que faz parte da envolvente de um compartimento de incêndio."@en,
-        "Resistant or non-resistant element (e.g. a wall) forming part of the envelope of a fire compartment."@en ;
-    firebim:hasISODefinition """3.3.2.59
-boundary wall
- wall (3.3.2.46)  separating two plots of different occupation or ownership"""@en ;
-    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.59> .
-
 firebim:ElementINT a bot:Element ;
     rdfs:label "Element"@en ;
     firebim:hasDefinition "A fundamental part of a structure (such as a beam, a column, but also an assembly such as a panelled wall, a lattice beam, etc.) considered in isolation and with the appropriate support and boundary conditions."@en,
         "Parte fundamental de uma estrutura (como, por exemplo, uma viga, um pilar, mas também um conjunto como uma parede de painéis, uma viga reticulada,…) considerada isoladamente e com as condições de apoio e de fronteira adequadas."@en .
 
-firebim:FiredoorINT a bot:Element ;
-    rdfs:label "Fire door"@en .
+firebim:ElevatorLiftshaftINT a bot:Zone ;
+    rdfs:label "Elevator/Lift shaft"@en ;
+    firebim:hasDefinition "pijpvormig deel van een gebouw waardoor een lift op- en neerbewegen kan"@en,
+        """pipe-shaped
+  part of a building through which an elevator can move up and down"""@en ;
+    firebim:hasParent firebim:ElevatorliftINT ;
+    firebim:hasRemark "Object or Property?" ;
+    firebim:isSubItemOf firebim:ElevatorliftINT ;
+    rdfs:subClassOf firebim:ElevatorliftINT .
+
+firebim:FloorINT a bot:Element ;
+    rdfs:label "Floor"@en ;
+    firebim:hasDefinition "Part of a building, comprising one or more spaces or divisions delimited by horizontal construction elements"@en,
+        "Parte de um edifício, compreendendo um ou mais espaços ou divisões delimitadas por elementos de construção horizontais"@en ;
+    firebim:hasParent firebim:BuildingStoreyINT ;
+    firebim:hasRemark "Definition of the Portuguese consortium" ;
+    firebim:isSubItemOf firebim:BuildingStoreyINT ;
+    rdfs:subClassOf firebim:BuildingStoreyINT .
 
 firebim:RoadINT a bot:Element ;
     rdfs:label "Road"@en ;
@@ -2681,54 +2723,108 @@ firebim:RoadINT a bot:Element ;
     firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.3.1> ;
     firebim:hasRemark "Access Road(s)" .
 
-firebim:SpaceINT a owl:ObjectProperty,
+firebim:StairwellINT a bot:Zone ;
+    rdfs:label "Stairwell"@en ;
+    firebim:correspondsToIFC ifc:IfcZone ;
+    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcZone> ;
+    firebim:hasChild firebim:EmergencysafetystaircaseINT ;
+    firebim:hasIFCEntity "IfcZone" ;
+    firebim:hasISODefinition """stairwell
+ space (3.2.1.1)  around which a  stair (3.3.5.22)  is disposed"""@en ;
+    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.2.4.15> ;
+    firebim:hasRemark """A stairwell stretches across the full height of a building and intersects with all the storeys it serves. Modeling the space inside a stairwell can be tricky since it is not just associated to one single storey like most other spaces.
+
+In most BIM authoring tools the stairwell space would just be located on the base level and hence belong to this storey. In BOT, however, we have the concept of interfaces that we can use to model the relationships to the different storeys. [SOURCE:  https://w3c-lbd-cg.github.io/bot/#stairwell ]""" ;
+    firebim:hasSubItem firebim:EmergencysafetystaircaseINT .
+
+firebim:BeamsINT a bot:Element ;
+    rdfs:label "Beams"@en ;
+    firebim:hasParent firebim:StructuralelementsINT ;
+    firebim:isSubItemOf firebim:StructuralelementsINT ;
+    rdfs:subClassOf firebim:StructuralelementsINT .
+
+firebim:ColumnsINT a bot:Element ;
+    rdfs:label "Columns"@en ;
+    firebim:hasParent firebim:StructuralelementsINT ;
+    firebim:isSubItemOf firebim:StructuralelementsINT ;
+    rdfs:subClassOf firebim:StructuralelementsINT .
+
+firebim:ElevatorliftINT a bot:Element ;
+    rdfs:label "Elevator (lift)"@en ;
+    firebim:correspondsToIFC ifc:IfcTransportElement ;
+    firebim:hasBIMidsLink <https://www.bimids.eu/be-en/elements/lift> ;
+    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcTransportElementELEVATOR> ;
+    firebim:hasChild firebim:BankofelevatorsINT,
+        firebim:ElevatorLiftshaftINT ;
+    firebim:hasIFCEntity "IfcTransportElement.ELEVATOR" ;
+    firebim:hasISODefinition """lift
+elevator ,US
+ permanent lifting equipment that serves defined  levels (3.7.2.38)  of  landings (3.3.5.23) , comprising a compartment or cage, running at least partially between rigid vertical guides, or between guides whose inclination to the vertical is less than 15°"""@en ;
+    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.4.29> ;
+    firebim:hasSubItem firebim:BankofelevatorsINT,
+        firebim:ElevatorLiftshaftINT .
+
+firebim:ExitdoorINT a owl:ObjectProperty,
         bot:Zone ;
-    rdfs:label "Space"@en,
-        "Local"@pt ;
-    firebim:correspondsToIFC ifc:IfcSpace ;
-    firebim:hasBIMidsLink <https://www.bimids.eu/be-en/elements/space> ;
-    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpace> ;
-    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
+    rdfs:label "Udgangsdør"@dk,
+        "Exit (door)"@en,
+        "Exit door"@en ;
+    firebim:correspondsToIFC ifc:IfcDoor ;
+    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDoor> ;
+    firebim:hasChild firebim:EmergencyescapedoorINT,
+        firebim:FiredoorINT ;
+    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Compartimento, sala, espaço ou área de um edifício ou recinto"@pt ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "Compartment, room, space or area of a building or enclosure"@en ] ;
-    firebim:hasIFCEntity "IfcSpace" ;
-    firebim:hasISODefinition """space
- area or volume bounded actually or theoretically"""@en ;
-    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.2.1.1> ;
-    firebim:hasRegion "PT" ;
-    firebim:hasRemark "Portuguese consortium definition",
-        "Room, Space" ;
-    firebim:hasType "property" ;
-    firebim:hasUnit "-" ;
-    firebim:hasValueType "Boolean (yes/no)" ;
-    firebim:isLinkedTo firebim:BuildingINT,
-        firebim:RoomINT .
+            firebim:definitionText "Dør fra en brandmæssig enhed, der giver adgang til flugtvej eller direkte til terræn i det fri."@dk ] ;
+    firebim:hasDomain "Evacuation" ;
+    firebim:hasIFCEntity "IfcDoor.Pset_DoorCommon.FireExit = TRUE" ;
+    firebim:hasISODefinition """exit
+ designated point of departure from a  building (3.1.1.3) 
+ Note 1 to entry: There is a homograph for the term “exit”. See  3.1.3.2"""@en ;
+    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.2.4.18> ;
+    firebim:hasRegion "DK" ;
+    firebim:hasSubItem firebim:EmergencyescapedoorINT,
+        firebim:FiredoorINT ;
+    firebim:hasType "object" .
 
-firebim:SlabsINT a bot:Element ;
-    rdfs:label "Slabs"@en .
+firebim:FacadeINT a bot:Zone ;
+    rdfs:label "Facade"@en ;
+    firebim:correspondsToIFC ifc:IfcWall ;
+    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcWall> ;
+    firebim:hasChild firebim:ExteriorelementINT,
+        firebim:GablewallINT ;
+    firebim:hasIFCEntity "IfcWall.Pset_WallCommon.IsExterior = TRUE" ;
+    firebim:hasISODefinition """facade
+ exterior surface of a  wall (3.3.2.46)  enclosing a  building (3.1.1.3) , usually non-loadbearing, which can include a  curtain wall (3.3.2.55) ,  cladding (3.3.2.43) , or other exterior  finish (3.3.5.2)"""@en ;
+    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.44> ;
+    firebim:hasRemark "The whole facade, grouping walls, windows, curtain walls…" ;
+    firebim:hasSubItem firebim:ExteriorelementINT,
+        firebim:GablewallINT .
 
-firebim:SpaceRoomINT a bot:Element ;
-    rdfs:label "Space / Room"@en ;
-    firebim:hasDefinition "Lokaal, Ruimte"@en .
+firebim:FiredoorINT a bot:Element ;
+    rdfs:label "Fire door"@en ;
+    firebim:hasParent firebim:ExitdoorINT ;
+    firebim:isSubItemOf firebim:ExitdoorINT ;
+    rdfs:subClassOf firebim:ExitdoorINT .
 
-firebim:BuildingStoreyINT a bot:Zone ;
-    rdfs:label "Building Storey"@en ;
-    firebim:correspondsToIFC ifc:IfcBuildingStorey ;
-    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcBuildingStorey> ;
-    firebim:hasIFCEntity "IfcBuildingStorey" ;
-    firebim:hasISODefinition """storey
-story,US
- space (3.2.1.1)  between two consecutive  floors (3.3.2.10)  or between a floor and a  roof (3.3.2.21) Note 1 to entry: In the US, this term does not apply to an  attic (3.2.2.2)  or  space (3.2.1.1)  partly or wholly below  ground level (3.7.2.66) ."""@en ;
-    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.2.1.2> ;
-    firebim:hasRemark "Building Layer, Level" .
-
-firebim:RoomINT a bot:Element,
+firebim:ParkingINT a bot:Element,
         bot:Zone ;
-    rdfs:label "Room"@en ;
-    firebim:hasDefinition "Compartimento interior de um edifício ou recinto."@en ;
-    firebim:hasRemark "Definition of the Portuguese consortium" .
+    rdfs:label "Parking"@en ;
+    firebim:correspondsToIFC ifc:IfcSpace ;
+    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpacePARKING> ;
+    firebim:hasChild firebim:ParkingINT ;
+    firebim:hasIFCEntity "IfcSpace.PARKING" ;
+    firebim:hasISODefinition """parking bay
+parking space,US
+parking stall, US
+parking spot, US 
+area intended, and usually designated and marked, for the parking of a vehicle"""@en ;
+    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.3.59> ;
+    firebim:hasParent firebim:ParkingINT ;
+    firebim:hasRemark "no definition in legislation" ;
+    firebim:hasSubItem firebim:ParkingINT ;
+    firebim:isSubItemOf firebim:ParkingINT ;
+    rdfs:subClassOf firebim:ParkingINT .
 
 firebim:DoorINT a bot:Element ;
     rdfs:label "Door"@en ;
@@ -2739,6 +2835,19 @@ firebim:DoorINT a bot:Element ;
     firebim:hasISODefinition """door
  construction (3.3.5.6)  for closing an  opening (3.3.3.1)  intended primarily for access or egress or both"""@en ;
     firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.3.3> .
+
+firebim:SlabsINT a bot:Element ;
+    rdfs:label "Slabs"@en ;
+    firebim:hasParent firebim:StructuralelementsINT ;
+    firebim:isSubItemOf firebim:StructuralelementsINT ;
+    rdfs:subClassOf firebim:StructuralelementsINT .
+
+firebim:SpaceRoomINT a bot:Element ;
+    rdfs:label "Space / Room"@en ;
+    firebim:hasDefinition "Lokaal, Ruimte"@en ;
+    firebim:hasParent firebim:SpaceINT ;
+    firebim:isSubItemOf firebim:SpaceINT ;
+    rdfs:subClassOf firebim:SpaceINT .
 
 firebim:StairINT a bot:Element ;
     rdfs:label "Stair"@en ;
@@ -2753,61 +2862,159 @@ firebim:StairINT a bot:Element ;
  [SOURCE:EN 14076:2013, 2.1.1, modified — “(steps or landings)” was deleted.]"""@en ;
     firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.5.22> .
 
-firebim:WallINT a bot:Element ;
-    rdfs:label "Wall"@en ;
-    firebim:correspondsToIFC ifc:IfcWall ;
-    firebim:hasBIMidsLink <https://www.bimids.eu/be-en/elements/wall> ;
-    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcWall> ;
-    firebim:hasDefinition "al dan niet verticaal bouwelement dat twee volumes scheidt; een binnenwand bevindt zich tussen twee binnenomgevingen; een buitenwand bevindt zich tussen een binnen- en buitenomgeving"@en,
-        "vertical or non-vertical building element that separates two volumes; an interior wall is located between two interior environments; an exterior wall is located between an interior and exterior environment"@en ;
-    firebim:hasIFCEntity "IfcWall" ;
-    firebim:hasISODefinition """wall
- vertical  construction (3.3.5.6)  that bounds or subdivides a  space (3.2.1.1)  and usually fulfils a loadbearing or retaining function"""@en ;
-    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.46> .
+firebim:RoomINT a bot:Element,
+        bot:Zone ;
+    rdfs:label "Room"@en ;
+    firebim:hasDefinition "Compartimento interior de um edifício ou recinto."@en ;
+    firebim:hasParent firebim:SpaceINT ;
+    firebim:hasRemark "Definition of the Portuguese consortium" ;
+    firebim:isSubItemOf firebim:SpaceINT ;
+    rdfs:subClassOf firebim:SpaceINT .
+
+firebim:StructuralelementsINT a bot:Element ;
+    rdfs:label "Structural  elements"@en ;
+    firebim:hasChild firebim:BeamsINT,
+        firebim:ColumnsINT,
+        firebim:SlabsINT ;
+    firebim:hasDefinition "Elementos resistentes de uma estrutura, incluindo os contraventamentos."@en,
+        "Resisting elements of a structure, including bracing."@en ;
+    firebim:hasSubItem firebim:BeamsINT,
+        firebim:ColumnsINT,
+        firebim:SlabsINT .
+
+firebim:SpaceINT a owl:ObjectProperty,
+        bot:Zone ;
+    rdfs:label "Space"@en,
+        "Local"@pt ;
+    firebim:correspondsToIFC ifc:IfcSpace ;
+    firebim:hasBIMidsLink <https://www.bimids.eu/be-en/elements/space> ;
+    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpace> ;
+    firebim:hasChild firebim:RoomINT,
+        firebim:SpaceRoomINT ;
+    firebim:hasDefinition [ firebim:definitionRegion "PT" ;
+            firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Compartimento, sala, espaço ou área de um edifício ou recinto"@pt ],
+        [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "Compartment, room, space or area of a building or enclosure"@en ] ;
+    firebim:hasIFCEntity "IfcSpace" ;
+    firebim:hasISODefinition """space
+ area or volume bounded actually or theoretically"""@en ;
+    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.2.1.1> ;
+    firebim:hasRegion "PT" ;
+    firebim:hasRemark "Portuguese consortium definition",
+        "Room, Space" ;
+    firebim:hasSubItem firebim:RoomINT,
+        firebim:SpaceRoomINT ;
+    firebim:hasType "property" ;
+    firebim:hasUnit "-" ;
+    firebim:hasValueType "Boolean (yes/no)" ;
+    firebim:isLinkedTo firebim:BuildingINT,
+        firebim:RoomINT .
+
+firebim:EvacuationRouteINT a bot:Zone ;
+    rdfs:label "Evacuation Route"@en ;
+    firebim:correspondsToIFC ifc:IfcAnnotation ;
+    firebim:hasChild firebim:CompartmentescaperouteINT,
+        firebim:EscaperoutecorridorINT,
+        firebim:EvacuationpathINT ;
+    firebim:hasIFCEntity "IfcAnnotation" ;
+    firebim:hasRemark "to nearest exit, to second exit, to evacuation road" ;
+    firebim:hasSubItem firebim:CompartmentescaperouteINT,
+        firebim:EscaperoutecorridorINT,
+        firebim:EvacuationpathINT .
+
+firebim:BuildingStoreyINT a bot:Zone ;
+    rdfs:label "Building Storey"@en ;
+    firebim:correspondsToIFC ifc:IfcBuildingStorey ;
+    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcBuildingStorey> ;
+    firebim:hasChild firebim:BuildingLayerINT,
+        firebim:FloorINT,
+        firebim:MezzanineINT ;
+    firebim:hasIFCEntity "IfcBuildingStorey" ;
+    firebim:hasISODefinition """storey
+story,US
+ space (3.2.1.1)  between two consecutive  floors (3.3.2.10)  or between a floor and a  roof (3.3.2.21) Note 1 to entry: In the US, this term does not apply to an  attic (3.2.2.2)  or  space (3.2.1.1)  partly or wholly below  ground level (3.7.2.66) ."""@en ;
+    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.2.1.2> ;
+    firebim:hasRemark "Building Layer, Level" ;
+    firebim:hasSubItem firebim:BuildingLayerINT,
+        firebim:FloorINT,
+        firebim:MezzanineINT .
+
+firebim:CompartmentBoundaryINT a bot:Element ;
+    rdfs:label "Compartment Boundary"@en ;
+    firebim:hasChild firebim:CompartmentBoundaryINT,
+        firebim:FirecompartmentboundaryINT,
+        firebim:RoomSubcompartmentboundaryINT ;
+    firebim:hasDefinition "Elemento resistente ou não resistente (por exemplo, uma parede) que faz parte da envolvente de um compartimento de incêndio."@en,
+        "Resistant or non-resistant element (e.g. a wall) forming part of the envelope of a fire compartment."@en ;
+    firebim:hasISODefinition """3.3.2.59
+boundary wall
+ wall (3.3.2.46)  separating two plots of different occupation or ownership"""@en ;
+    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.59> ;
+    firebim:hasParent firebim:CompartmentBoundaryINT ;
+    firebim:hasSubItem firebim:CompartmentBoundaryINT,
+        firebim:FirecompartmentboundaryINT,
+        firebim:RoomSubcompartmentboundaryINT ;
+    firebim:isSubItemOf firebim:CompartmentBoundaryINT ;
+    rdfs:subClassOf firebim:CompartmentBoundaryINT .
 
 firebim:FireCompartmentINT a owl:ObjectProperty,
         bot:Element ;
     rdfs:label "Brandsektion"@dk,
         "Fire Compartment"@en ;
-    firebim:hasDefinition [ firebim:definitionRegion "DK" ;
+    firebim:hasDefinition [ firebim:definitionSource "FireBIM" ;
+            firebim:definitionText "A detached (in terms of fire spread) building or a defined area of a building that is constructed with fire compartment separations from other rooms and buildings. A fire compartment consists of one or more Subcompartments."@en ],
+        [ firebim:definitionRegion "DK" ;
             firebim:definitionSource "FireBIM" ;
             firebim:definitionText "En brandmæssigt fritliggende bygning eller et afgrænset område af en bygning, som er udført med brandsektionsadskillelser mod andre rum og bygninger. En brandsektion består af en eller flere brandceller."@dk ],
-        [ firebim:definitionSource "FireBIM" ;
-            firebim:definitionText "A detached (in terms of fire spread) building or a defined area of a building that is constructed with fire compartment separations from other rooms and buildings. A fire compartment consists of one or more Subcompartments."@en ],
         "A detached (in terms of fire spread) building or a defined area of a building that is constructed with fire compartment separations from other rooms and buildings. A fire compartment consists of one or more Subcompartments."@en,
         "En brandmæssigt fritliggende bygning eller et afgrænset område af en bygning, som er udført med brandsektionsadskillelser mod andre rum og bygninger. En brandsektion består af en eller flere brandceller."@en,
         "Part of a building, comprising one or more spaces, divisions or floors, delimited by fire-resistant construction elements suitable for ensuring the protection of the building or preventing the spread of fire to the rest of the building, or for fractionating the fire load, during a given period of time."@en,
         "Parte de um edifício, compreendendo um ou mais espaços, divisões ou pisos, delimitada por elementos de construção com resistência ao fogo adequada a, durante um período de tempo determinado, garantir a proteção do edifício ou impedir a propagação do incêndio ao resto do edifício ou, ainda, a fraccionar a carga de incêndio"@en ;
     firebim:hasDomain "Fire Compartment" ;
+    firebim:hasParent firebim:CompartmentINT ;
     firebim:hasRegion "DK" ;
     firebim:hasType "object" ;
-    firebim:hasUnit "[-]" .
+    firebim:hasUnit "[-]" ;
+    firebim:isSubItemOf firebim:CompartmentINT ;
+    rdfs:subClassOf firebim:CompartmentINT .
 
-firebim:CompartmentINT a bot:Zone ;
-    rdfs:label "Compartment"@en ;
-    firebim:correspondsToIFC ifc:IfcSpatialZone ;
-    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpatialZoneFIRESAFETY> ;
-    firebim:hasDefinition "deel van een gebouw begrensd door wanden die de brandvoortplanting naar het aanliggende compartiment of compartimenten gedurende een bepaalde tijd dienen te beletten. Een compartiment is al dan niet onderverdeeld in lokalen."@en,
-        "part of a building bounded by walls that serve to prevent the spread of fire to the adjacent compartment or compartments for a certain period of time. A compartment may or may not be divided into rooms."@en ;
-    firebim:hasIFCEntity """IfcSpatialZone.FIRESAFETY
-IfcZone.ObjectType=FireCompartment""" ;
-    firebim:hasISODefinition """fire compartment
- enclosed space, which may be subdivided, separated from adjoining spaces by  fire barriers (3.141)"""@en ;
-    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.144> ;
-    firebim:hasRemark "Fire Compartment, Fire Cell, …" .
+firebim:WallINT a bot:Element ;
+    rdfs:label "Wall"@en ;
+    firebim:correspondsToIFC ifc:IfcWall ;
+    firebim:hasBIMidsLink <https://www.bimids.eu/be-en/elements/wall> ;
+    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcWall> ;
+    firebim:hasChild firebim:FireWallINT,
+        firebim:WallINT ;
+    firebim:hasDefinition "al dan niet verticaal bouwelement dat twee volumes scheidt; een binnenwand bevindt zich tussen twee binnenomgevingen; een buitenwand bevindt zich tussen een binnen- en buitenomgeving"@en,
+        "vertical or non-vertical building element that separates two volumes; an interior wall is located between two interior environments; an exterior wall is located between an interior and exterior environment"@en ;
+    firebim:hasIFCEntity "IfcWall" ;
+    firebim:hasISODefinition """wall
+ vertical  construction (3.3.5.6)  that bounds or subdivides a  space (3.2.1.1)  and usually fulfils a loadbearing or retaining function"""@en ;
+    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.46> ;
+    firebim:hasParent firebim:WallINT ;
+    firebim:hasSubItem firebim:FireWallINT,
+        firebim:WallINT ;
+    firebim:isSubItemOf firebim:WallINT ;
+    rdfs:subClassOf firebim:WallINT .
 
 firebim:FirecompartmentINT a bot:Element ;
     rdfs:label "Fire compartment"@en ;
     firebim:hasDefinition "gedeelte van een of meer bouwwerken bestemd als maximaal uitbreidingsgebied van brand"@en,
         """part of
   one or more buildings designated as a maximum fire expansion area"""@en ;
-    firebim:hasRemark "brandcompartiment" .
+    firebim:hasParent firebim:CompartmentINT ;
+    firebim:hasRemark "brandcompartiment" ;
+    firebim:isSubItemOf firebim:CompartmentINT ;
+    rdfs:subClassOf firebim:CompartmentINT .
 
 firebim:BuildingINT a bot:Element,
         bot:Zone ;
     rdfs:label "Building"@en ;
     firebim:correspondsToIFC ifc:IfcBuilding ;
     firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcBuilding> ;
+    firebim:hasChild firebim:BuildingINT,
+        firebim:IndependentpartsofabuildingINT ;
     firebim:hasDefinition "Any building intended for human use that has, in whole or in part, a usable interior space, covering the realities referred to in Art. 8(1) of Legal Regime - Fire Safety in Buildings  [identification of Use-Types]."@en,
         "Toda e qualquer edificação destinada à utilização humana que disponha, na totalidade ou em parte, de um espaço interior utilizável, abrangendo as realidades referidas no n.º 1 do art.º 8.º do RJ-SCIE [identificação das utilizações-tipo]"@en,
         "any building structure forming a covered space accessible to people, wholly or partially enclosed by walls; industrial plants (such as chemical plants and tank farms) and engineering structures (bridges, tunnels, etc.) are not considered buildings."@en,
@@ -2816,5 +3023,36 @@ firebim:BuildingINT a bot:Element,
     firebim:hasISODefinition """building
  construction works (3.1.1.1)  that has the provision of shelter for its occupants or contents as one of its main purposes, usually partially or totally enclosed and designed to stand permanently in one place
 Note 1 to entry: There is a homograph for the term “building”. See  3.5.1.4 ."""@en ;
-    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.1.3> .
+    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.1.3> ;
+    firebim:hasParent firebim:BuildingINT ;
+    firebim:hasSubItem firebim:BuildingINT,
+        firebim:IndependentpartsofabuildingINT ;
+    firebim:isSubItemOf firebim:BuildingINT ;
+    rdfs:subClassOf firebim:BuildingINT .
+
+firebim:CompartmentINT a bot:Zone ;
+    rdfs:label "Compartment"@en ;
+    firebim:correspondsToIFC ifc:IfcSpatialZone ;
+    firebim:hasBSDDLink <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpatialZoneFIRESAFETY> ;
+    firebim:hasChild firebim:CompartmentINT,
+        firebim:CompartmentSubcompartmentINT,
+        firebim:FireCompartmentINT,
+        firebim:FirecompartmentINT,
+        firebim:RefugespaceINT ;
+    firebim:hasDefinition "deel van een gebouw begrensd door wanden die de brandvoortplanting naar het aanliggende compartiment of compartimenten gedurende een bepaalde tijd dienen te beletten. Een compartiment is al dan niet onderverdeeld in lokalen."@en,
+        "part of a building bounded by walls that serve to prevent the spread of fire to the adjacent compartment or compartments for a certain period of time. A compartment may or may not be divided into rooms."@en ;
+    firebim:hasIFCEntity """IfcSpatialZone.FIRESAFETY
+IfcZone.ObjectType=FireCompartment""" ;
+    firebim:hasISODefinition """fire compartment
+ enclosed space, which may be subdivided, separated from adjoining spaces by  fire barriers (3.141)"""@en ;
+    firebim:hasISOTermLink <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.144> ;
+    firebim:hasParent firebim:CompartmentINT ;
+    firebim:hasRemark "Fire Compartment, Fire Cell, …" ;
+    firebim:hasSubItem firebim:CompartmentINT,
+        firebim:CompartmentSubcompartmentINT,
+        firebim:FireCompartmentINT,
+        firebim:FirecompartmentINT,
+        firebim:RefugespaceINT ;
+    firebim:isSubItemOf firebim:CompartmentINT ;
+    rdfs:subClassOf firebim:CompartmentINT .
 
