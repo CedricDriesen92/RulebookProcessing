@@ -281,7 +281,7 @@ def create_ontology():
         country_code = get_country_code(props, countries_dict)
         
         # Create URI - include country code only if it's not international
-        uri_key = normalize_name(name_en)
+        uri_key = normalize_name("object" + name_en)
         if country_code != "INT":
             uri_key = f"{uri_key}{country_code}"
             
@@ -323,7 +323,7 @@ def create_ontology():
         language = get_language_and_region(props)
         
         # Create property URI with country code
-        uri_key = get_normalized_uri(name_en, country_code)
+        uri_key = get_normalized_uri("property_" + name_en, country_code)
         property_uri = URIRef(FIREBIM[uri_key])
         
         # Add property to ontology
@@ -335,22 +335,14 @@ def create_ontology():
         if name_native:
             g.add((property_uri, RDFS.label, Literal(name_native, lang=language)))
         
-        # Add definitions with appropriate language tags
+        # Add definitions with appropriate language tags directly to the property
         definition_en = get_rich_text_content(props.get("Definition (English)"))
         if definition_en:
-            # Create a definition node with language information
-            def_node = BNode()
-            g.add((property_uri, FIREBIM.hasDefinition, def_node))
-            g.add((def_node, FIREBIM.definitionText, Literal(definition_en, lang="en")))
-            g.add((def_node, FIREBIM.definitionSource, Literal("FireBIM")))
+            g.add((property_uri, FIREBIM.hasDefinition, Literal(definition_en, lang="en")))
         
-        # Add native definition with language tag
         definition_native = get_rich_text_content(props.get("Definition (Native Language)"))
         if definition_native:
-            native_def_node = BNode()
-            g.add((property_uri, FIREBIM.hasDefinition, native_def_node))
-            g.add((native_def_node, FIREBIM.definitionText, Literal(definition_native, lang=language)))
-            g.add((native_def_node, FIREBIM.definitionSource, Literal("FireBIM")))
+            g.add((property_uri, FIREBIM.hasDefinition, Literal(definition_native, lang=language)))
         
         # Add unit if available
         unit = get_rich_text_content(props.get("Unit"))
@@ -395,21 +387,29 @@ def create_ontology():
 
     # We'll track which objects have been assigned a BOT type
     objects_with_bot_type = set()
+    
+    # Store object tags for inheritance
+    object_id_to_tags = {}
 
     # First pass: Process all objects and assign BOT types to top-level objects
     for page in objects_pages:
         props = page["properties"]
+        object_id = page["id"]
         
         # Get object name from title field
         name_en = get_title_content(props.get("Name"))
         if not name_en:
             continue
         
+        # Store tags for each object
+        tags = get_select_value(props.get("Tags"))
+        object_id_to_tags[object_id] = tags
+        
         # Get country code from language field
         country_code = get_country_code(props, countries_dict)
         
         # Create URI - include country code only if it's not international
-        uri_key = normalize_name(name_en)
+        uri_key = normalize_name("object" + name_en)
         if country_code != "INT":
             uri_key = f"{uri_key}{country_code}"
             
@@ -420,7 +420,6 @@ def create_ontology():
             g.add((object_uri, FIREBIM.hasCountryCode, Literal(country_code)))
         
         # Check if this is a top-level object (no parent)
-        object_id = page["id"]
         is_top_level = object_id not in [child_id for child_ids in parent_child_relations.values() for child_id in child_ids]
         is_top_level = is_top_level and object_id not in [subitem_id for subitem_ids in subitem_relations.values() for subitem_id in subitem_ids]
         
@@ -454,7 +453,18 @@ def create_ontology():
         # Add native definition with language tag
         definition_native = get_rich_text_content(props.get("Definition (Native Language)"))
         if definition_native:
-            g.add((object_uri, FIREBIM.hasDefinition, Literal(definition_native, lang="en")))
+            # Determine the language tag based on the country code
+            lang_tag = "en"  # default to English if no country code is found
+            if country_code == "DK":
+                lang_tag = "dk"
+            elif country_code == "PT":
+                lang_tag = "pt"
+            elif country_code == "BE":
+                lang_tag = "nl-BE"
+            elif country_code == "NL":
+                lang_tag = "nl-NL"
+            
+            g.add((object_uri, FIREBIM.hasDefinition, Literal(definition_native, lang=lang_tag)))
         
         # Add IFC mapping if available
         ifc_entity = get_rich_text_content(props.get("Entity (IFC4)"))
@@ -495,6 +505,15 @@ def create_ontology():
         if child_id in object_id_to_uri:
             child_uri = object_id_to_uri[child_id]
             
+            # If child has no tags, inherit from parent
+            if not object_id_to_tags.get(child_id) and parent_ids:
+                for parent_id in parent_ids:
+                    parent_tags = object_id_to_tags.get(parent_id)
+                    if parent_tags:
+                        # Assign parent tags to child
+                        object_id_to_tags[child_id] = parent_tags
+                        break
+            
             for parent_id in parent_ids:
                 if parent_id in object_id_to_uri:
                     parent_uri = object_id_to_uri[parent_id]
@@ -507,38 +526,18 @@ def create_ontology():
                     g.add((parent_uri, FIREBIM.hasChild, child_uri))
 
     # Second pass - ensure all objects have a BOT type by inheriting from their parent
-    # Keep iterating until all objects have a BOT type
-    while True:
-        newly_typed = 0
-        
-        # For each object that has a type (which could be another object)
-        for s, p, o in g.triples((None, RDF.type, None)):
-            # Skip if the object is already a BOT type
-            if o:
-                continue
-            
-            # If the subject doesn't have a BOT type yet
-            if s not in objects_with_bot_type:
-                # Check if the object (type) has a BOT type
-                for _, _, parent_type in g.triples((o, RDF.type, None)):
-                    if parent_type in [BOT.Zone, BOT.Element]:
-                        # Assign the same BOT type to the subject
-                        g.add((s, RDF.type, parent_type))
-                        objects_with_bot_type.add(s)
-                        newly_typed += 1
-                        break
-        
-        # If no new objects were typed in this iteration, we're done
-        if newly_typed == 0:
-            break
-
-    # Third pass - ensure all objects have a BOT type, even if their parent doesn't
-    # This handles cases where the inheritance chain is broken
-    for object_uri in object_id_to_uri.values():
-        # If the object still doesn't have a BOT type
+    # Now use the inherited tags to determine BOT type
+    for object_id, object_uri in object_id_to_uri.items():
+        # If the object doesn't have a BOT type yet
         if object_uri not in objects_with_bot_type:
-            # Default to Element
-            g.add((object_uri, RDF.type, BOT.Element))
+            # Use the (possibly inherited) tags to determine BOT type
+            tags = object_id_to_tags.get(object_id)
+            
+            if tags and "spatial" in tags.lower():
+                g.add((object_uri, RDF.type, BOT.Zone))
+            else:
+                g.add((object_uri, RDF.type, BOT.Element))
+                
             objects_with_bot_type.add(object_uri)
 
     # Save the ontology to a file
