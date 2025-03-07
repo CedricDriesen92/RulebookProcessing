@@ -522,8 +522,8 @@ def create_ontology():
             objects_with_bot_type.add(object_uri)
 
     # Save the ontology to a file
-    g.serialize(destination="firebim_ontology_notion.ttl", format="turtle")
-    print("Ontology saved to firebim_ontology_notion.ttl")
+    g.serialize(destination="buildingontologies/firebim_ontology_notion.ttl", format="turtle")
+    print("Ontology saved to buildingontologies/firebim_ontology_notion.ttl")
 
 if __name__ == "__main__":
     create_ontology()
