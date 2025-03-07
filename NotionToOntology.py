@@ -228,25 +228,6 @@ def create_ontology():
     g.add((FIREBIM.hasBIMidsLink, RDFS.label, Literal("has BIMids link", lang="en")))
     g.add((FIREBIM.hasBIMidsLink, RDFS.comment, Literal("Links to the BIMids.eu entry", lang="en")))
     
-    # Define parent-child relationships (bidirectional)
-    g.add((FIREBIM.hasParent, RDF.type, OWL.ObjectProperty))
-    g.add((FIREBIM.hasParent, RDFS.label, Literal("has parent", lang="en")))
-    g.add((FIREBIM.hasParent, RDFS.comment, Literal("Links to the parent object", lang="en")))
-    g.add((FIREBIM.hasParent, OWL.inverseOf, FIREBIM.hasChild))
-    
-    g.add((FIREBIM.hasChild, RDF.type, OWL.ObjectProperty))
-    g.add((FIREBIM.hasChild, RDFS.label, Literal("has child", lang="en")))
-    g.add((FIREBIM.hasChild, RDFS.comment, Literal("Links to a child object", lang="en")))
-    
-    # Define sub-item relationships (bidirectional)
-    g.add((FIREBIM.hasSubItem, RDF.type, OWL.ObjectProperty))
-    g.add((FIREBIM.hasSubItem, RDFS.label, Literal("has sub-item", lang="en")))
-    g.add((FIREBIM.hasSubItem, RDFS.comment, Literal("Links to a sub-item", lang="en")))
-    
-    g.add((FIREBIM.isSubItemOf, RDF.type, OWL.ObjectProperty))
-    g.add((FIREBIM.isSubItemOf, RDFS.label, Literal("is sub-item of", lang="en")))
-    g.add((FIREBIM.isSubItemOf, RDFS.comment, Literal("Links to the parent item", lang="en")))
-    
     # First, get all countries to use for URI creation
     print("Fetching countries data...")
     countries_pages = get_all_pages(DB_COUNTRIES)
@@ -427,12 +408,12 @@ def create_ontology():
         if is_top_level:
             # Determine object type based on Tags
             tags = get_select_value(props.get("Tags"))
-            
+            g.add((object_uri, RDF.type, OWL.Class))
             # Default to Element, but check if it's a spatial element
             if tags and "spatial" in tags.lower():
-                g.add((object_uri, RDF.type, BOT.Zone))
+                g.add((object_uri, RDFS.subClassOf, BOT.Zone))
             else:
-                g.add((object_uri, RDF.type, BOT.Element))
+                g.add((object_uri, RDFS.subClassOf, BOT.Element))
             
             # Mark this object as having a BOT type assigned
             objects_with_bot_type.add(object_uri)
@@ -519,11 +500,10 @@ def create_ontology():
                     parent_uri = object_id_to_uri[parent_id]
                     
                     # Add RDF.type relationship - child is of type parent
-                    g.add((child_uri, RDF.type, parent_uri))
+                    #g.add((child_uri, RDF.type, parent_uri))
                     
-                    # We still keep the explicit parent-child relationship for reference
-                    g.add((child_uri, FIREBIM.hasParent, parent_uri))
-                    g.add((parent_uri, FIREBIM.hasChild, child_uri))
+                    # Use rdfs:subClassOf instead of firebim:hasParent
+                    g.add((child_uri, RDFS.subClassOf, parent_uri))
 
     # Second pass - ensure all objects have a BOT type by inheriting from their parent
     # Now use the inherited tags to determine BOT type
@@ -533,10 +513,11 @@ def create_ontology():
             # Use the (possibly inherited) tags to determine BOT type
             tags = object_id_to_tags.get(object_id)
             
+            g.add((object_uri, RDF.type, OWL.Class))
             if tags and "spatial" in tags.lower():
-                g.add((object_uri, RDF.type, BOT.Zone))
+                g.add((object_uri, RDFS.subClassOf, BOT.Zone))
             else:
-                g.add((object_uri, RDF.type, BOT.Element))
+                g.add((object_uri, RDFS.subClassOf, BOT.Element))
                 
             objects_with_bot_type.add(object_uri)
 
