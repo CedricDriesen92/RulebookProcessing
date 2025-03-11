@@ -16,7 +16,7 @@ def main():
         abort_on_first=False,
         meta_shacl=False,
         advanced=True,
-        debug=True,
+        #debug=True,
         inplace=False,
         # Don't serialize the report graph
         serialize_report_graph=None

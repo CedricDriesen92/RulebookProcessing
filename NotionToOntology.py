@@ -138,6 +138,7 @@ def create_ontology():
     g.bind("owl", OWL)
     g.bind("rdfs", RDFS)
     g.bind("ifc", IFC)
+    g.bind("rdf", RDF)
     
     # Create FireBIM ontology class
     g.add((FIREBIM.FireBIMOntology, RDF.type, OWL.Ontology))
@@ -241,6 +242,8 @@ def create_ontology():
             countries_dict[country_id] = country_name
     
     print(f"Found {len(countries_dict)} countries")
+    # Add a print statement to show all countries
+    print("Countries in the project:", sorted(list(countries_dict.values())))
     
     # First pass: Create a mapping of object IDs to their URIs and collect parent-child relationships
     print("Building object URI mapping...")

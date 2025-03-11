@@ -15,52 +15,189 @@ BPO = Namespace("https://w3id.org/bpo#")
 OPM = Namespace("https://w3id.org/opm#")
 IFC = Namespace("http://example.org/IFC#")
 INST = Namespace("http://example.org/project#")
+FIREBIM = Namespace("http://example.com/firebim#")
 
-# IFC to BOT mapping
-IFC_BOT_MAPPING = {
-    "IfcBuilding": BOT.Building,
-    "IfcBuildingStorey": BOT.Storey,
-    "IfcSpace": BOT.Space,
-    "IfcWall": BOT.Element,
-    "IfcDoor": BOT.Element,
-    "IfcWindow": BOT.Element,
-    "IfcSlab": BOT.Element,
-    "IfcBeam": BOT.Element,
-    "IfcColumn": BOT.Element,
-    "IfcStair": BOT.Element,
-    "IfcRoof": BOT.Element,
-    "IfcCovering": BOT.Element,
-}
+# Load the FireBIM ontology
+def load_firebim_ontology(ontology_path="buildingontologies/firebim_ontology_notion.ttl"):
+    print(f"Loading FireBIM ontology from {ontology_path}...")
+    g = Graph()
+    try:
+        g.parse(ontology_path, format="turtle")
+        print(f"Successfully loaded ontology with {len(g)} triples")
+        return g
+    except Exception as e:
+        print(f"Error loading ontology: {e}")
+        print("Using default mappings instead")
+        return None
 
-GENERAL_PROPERTIES = [
-    "Width",
-    "Height",
-    "Depth",
-    "Area",
-    "Volume",
-    "Compartment"
-]
+def build_ifc_bot_mapping(ontology_graph):
+    """Build IFC to BOT mapping from the FireBIM ontology"""
+    mapping = {}
+    
+    if ontology_graph is None:
+        # Return default mappings if ontology couldn't be loaded
+        return {
+            "IfcBuilding": BOT.Building,
+            "IfcBuildingStorey": BOT.Storey,
+            "IfcSpace": BOT.Space,
+            "IfcWall": BOT.Element,
+            "IfcDoor": BOT.Element,
+            "IfcWindow": BOT.Element,
+            "IfcSlab": BOT.Element,
+            "IfcBeam": BOT.Element,
+            "IfcColumn": BOT.Element,
+            "IfcStair": BOT.Element,
+            "IfcRoof": BOT.Element,
+            "IfcCovering": BOT.Element,
+        }
+    
+    # Query for objects that have an IFC entity mapping
+    query = """
+    PREFIX firebim: <http://example.com/firebim#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX bot: <https://w3id.org/bot#>
+    
+    SELECT ?object ?ifcEntity ?botType
+    WHERE {
+        ?object firebim:hasIFCEntity ?ifcEntity .
+        OPTIONAL {
+            ?object rdfs:subClassOf ?botType .
+            FILTER(STRSTARTS(STR(?botType), STR(bot:)))
+        }
+    }
+    """
+    
+    results = ontology_graph.query(query)
+    
+    for row in results:
+        ifc_entity = str(row['ifcEntity'])
+        
+        # Default to BOT.Element if no specific BOT type is found
+        bot_type = row['botType'] if row['botType'] else BOT.Element
+        
+        # Handle multiple IFC entities (comma-separated)
+        ifc_entities = [e.strip() for e in ifc_entity.split(',')]
+        for entity in ifc_entities:
+            # Extract the base class (before any dot)
+            ifc_class = entity.split('.')[0] if '.' in entity else entity
+            mapping[ifc_class] = bot_type
+    
+    # Add default mappings for common IFC entities if not already in the mapping
+    default_mappings = {
+        "IfcBuilding": BOT.Building,
+        "IfcBuildingStorey": BOT.Storey,
+        "IfcSpace": BOT.Space,
+        "IfcWall": BOT.Element,
+        "IfcDoor": BOT.Element,
+        "IfcWindow": BOT.Element,
+        "IfcSlab": BOT.Element,
+        "IfcBeam": BOT.Element,
+        "IfcColumn": BOT.Element,
+        "IfcStair": BOT.Element,
+        "IfcRoof": BOT.Element,
+        "IfcCovering": BOT.Element,
+    }
+    
+    for ifc_class, bot_type in default_mappings.items():
+        if ifc_class not in mapping:
+            mapping[ifc_class] = bot_type
+    
+    print(f"Built IFC to BOT mapping with {len(mapping)} entries")
+    print(mapping)
+    return mapping
 
-FIRE_SAFETY_PROPERTIES = [
-    "FireRating",
-    "FireResistanceRating",
-    "FireCompartment",
-    "SmokeCompartment",
-    "IsExternal",
-    "LoadBearing",
-    "SprinklerProtection",
-    "FireExit",
-    "EvacuationRoute",
-    "FireDetection",
-    "FireSuppressionSystem",
-    "FlammabilityRating",
-    "SmokeDetection",
-    "EmergencyLighting",
-    "Fire",
-    "HasCompartment",
-    "HasSpace",
-    "Compartment"
-]
+def extract_properties_from_ontology(ontology_graph):
+    """Extract general and fire safety properties from the FireBIM ontology"""
+    general_properties = []
+    fire_safety_properties = []
+    
+    if ontology_graph is None:
+        # Return default property lists if ontology couldn't be loaded
+        return (
+            ["Width", "Height", "Depth", "Area", "Volume", "Compartment"],
+            [
+                "FireRating", "FireResistanceRating", "FireCompartment", 
+                "SmokeCompartment", "IsExternal", "LoadBearing", 
+                "SprinklerProtection", "FireExit", "EvacuationRoute", 
+                "FireDetection", "FireSuppressionSystem", "FlammabilityRating", 
+                "SmokeDetection", "EmergencyLighting", "Fire", 
+                "HasCompartment", "HasSpace", "Compartment"
+            ]
+        )
+    
+    # Query for properties and their English labels
+    query = """
+    PREFIX firebim: <http://example.com/firebim#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    
+    SELECT ?property ?label ?domain ?isFireSafety
+    WHERE {
+        ?property rdf:type owl:ObjectProperty .
+        ?property rdfs:label ?label .
+        FILTER(LANG(?label) = "en" || LANG(?label) = "")
+        
+        OPTIONAL { ?property firebim:hasDomain ?domain }
+        OPTIONAL { 
+            ?property firebim:isFireSafetyProperty ?isFireSafety 
+            FILTER(?isFireSafety = true)
+        }
+    }
+    """
+    
+    results = ontology_graph.query(query)
+    
+    for row in results:
+        property_label = str(row['label'])
+        domain = row['domain'] if row['domain'] else None
+        is_fire_safety = bool(row['isFireSafety']) if row['isFireSafety'] else False
+        
+        # Add to appropriate list based on domain or fire safety flag
+        if is_fire_safety:
+            fire_safety_properties.append(property_label)
+        elif domain and "fire" in str(domain).lower():
+            fire_safety_properties.append(property_label)
+        else:
+            general_properties.append(property_label)
+    
+    # Add default properties if lists are empty
+    if not general_properties:
+        general_properties = ["Width", "Height", "Depth", "Area", "Volume", "Compartment"]
+    else:
+        general_properties = general_properties + ["Width", "Height", "Depth", "Area", "Volume", "Compartment"]
+    
+    if not fire_safety_properties:
+        fire_safety_properties = [
+            "FireRating", "FireResistanceRating", "FireCompartment", 
+            "SmokeCompartment", "IsExternal", "LoadBearing", 
+            "SprinklerProtection", "FireExit", "EvacuationRoute", 
+            "FireDetection", "FireSuppressionSystem", "FlammabilityRating", 
+            "SmokeDetection", "EmergencyLighting", "Fire", 
+            "HasCompartment", "HasSpace", "Compartment"
+        ]
+    else:
+        fire_safety_properties = fire_safety_properties + [
+            "FireRating", "FireResistanceRating", "FireCompartment", 
+            "SmokeCompartment", "IsExternal", "LoadBearing", 
+            "SprinklerProtection", "FireExit", "EvacuationRoute", 
+            "FireDetection", "FireSuppressionSystem", "FlammabilityRating", 
+            "SmokeDetection", "EmergencyLighting", "Fire", 
+            "HasCompartment", "HasSpace", "Compartment"
+        ]
+    print(general_properties)
+    print(fire_safety_properties)
+    # Ensure "Compartment" is in general properties for backward compatibility
+    if "Compartment" not in general_properties:
+        general_properties.append("Compartment")
+    
+    print(f"Extracted {len(general_properties)} general properties and {len(fire_safety_properties)} fire safety properties")
+    return general_properties, fire_safety_properties
+
+# Load the ontology and build the mapping
+ONTOLOGY_GRAPH = load_firebim_ontology()
+IFC_BOT_MAPPING = build_ifc_bot_mapping(ONTOLOGY_GRAPH)
+GENERAL_PROPERTIES, FIRE_SAFETY_PROPERTIES = extract_properties_from_ontology(ONTOLOGY_GRAPH)
 
 class IFCtoFBBConverter:
     def __init__(self, ifc_file_path: str, output_ttl_path: str, use_subclasses: bool = False):
@@ -101,21 +238,41 @@ class IFCtoFBBConverter:
         self.process_elements()
 
     def process_building(self) -> None:
-        building = self.ifc_file.by_type("IfcBuilding")[0]
-        building_uri = self.create_uri(INST, "IfcBuilding", building.GlobalId)
+        buildings = self.ifc_file.by_type("IfcBuilding")
+        if not buildings:
+            print("Warning: No IfcBuilding found in the IFC file")
+            return
+            
+        building = buildings[0]
+        global_id = getattr(building, "GlobalId", f"Building_{building.id()}")
+        building_uri = self.create_uri(INST, "IfcBuilding", global_id)
         self.g.add((building_uri, RDF.type, IFC_BOT_MAPPING["IfcBuilding"]))
-        self.g.add((building_uri, FBB.name, Literal(self.sanitize_name(building.Name))))
+        
+        name = getattr(building, "Name", f"Building_{building.id()}")
+        self.g.add((building_uri, FBB.name, Literal(self.sanitize_name(name))))
+        
         self.add_properties(building, building_uri)
 
     def process_storeys(self) -> None:
-        building = self.ifc_file.by_type("IfcBuilding")[0]
-        building_uri = self.create_uri(INST, "IfcBuilding", building.GlobalId)
+        buildings = self.ifc_file.by_type("IfcBuilding")
+        if not buildings:
+            print("Warning: No IfcBuilding found in the IFC file")
+            return
+            
+        building = buildings[0]
+        global_id = getattr(building, "GlobalId", f"Building_{building.id()}")
+        building_uri = self.create_uri(INST, "IfcBuilding", global_id)
+        
         storeys = self.ifc_file.by_type("IfcBuildingStorey")
         for i, storey in enumerate(storeys, 1):
             print(f"Processing storey {i} out of {len(storeys)}...")
-            storey_uri = self.create_uri(INST, "IfcBuildingStorey", storey.GlobalId)
+            storey_global_id = getattr(storey, "GlobalId", f"Storey_{storey.id()}")
+            storey_uri = self.create_uri(INST, "IfcBuildingStorey", storey_global_id)
             self.g.add((storey_uri, RDF.type, IFC_BOT_MAPPING["IfcBuildingStorey"]))
-            self.g.add((storey_uri, FBB.name, Literal(self.sanitize_name(storey.Name))))
+            
+            storey_name = getattr(storey, "Name", f"Storey_{storey.id()}")
+            self.g.add((storey_uri, FBB.name, Literal(self.sanitize_name(storey_name))))
+            
             self.g.add((building_uri, BOT.hasStorey, storey_uri))
             self.add_properties(storey, storey_uri)
 
@@ -123,26 +280,48 @@ class IFCtoFBBConverter:
         spaces = self.ifc_file.by_type("IfcSpace")
         for i, space in enumerate(spaces, 1):
             print(f"Processing space {i} out of {len(spaces)}...")
-            space_uri = self.create_uri(INST, "IfcSpace", space.GlobalId)
+            space_global_id = getattr(space, "GlobalId", f"Space_{space.id()}")
+            space_uri = self.create_uri(INST, "IfcSpace", space_global_id)
             self.g.add((space_uri, RDF.type, IFC_BOT_MAPPING["IfcSpace"]))
-            self.g.add((space_uri, FBB.name, Literal(self.sanitize_name(space.Name))))
-            if space.Decomposes:
+            
+            space_name = getattr(space, "Name", f"Space_{space.id()}")
+            self.g.add((space_uri, FBB.name, Literal(self.sanitize_name(space_name))))
+            
+            if hasattr(space, "Decomposes") and space.Decomposes:
                 storey = space.Decomposes[0].RelatingObject
                 if storey.is_a("IfcBuildingStorey"):
-                    storey_uri = self.create_uri(INST, "IfcBuildingStorey", storey.GlobalId)
+                    storey_global_id = getattr(storey, "GlobalId", f"Storey_{storey.id()}")
+                    storey_uri = self.create_uri(INST, "IfcBuildingStorey", storey_global_id)
                     self.g.add((storey_uri, BOT.hasSpace, space_uri))
+            
             self.add_properties(space, space_uri)
 
     def process_elements(self) -> None:
         for h, element_type in enumerate(IFC_BOT_MAPPING, 1):
             print(f"Processing element type {h} out of {len(IFC_BOT_MAPPING)}...")
             if element_type not in ["IfcBuilding", "IfcBuildingStorey", "IfcSpace"]:
-                elements = self.ifc_file.by_type(element_type)
-                for element in elements:
-                    self._process_single_element(element, element_type)
+                try:
+                    elements = self.ifc_file.by_type(element_type)
+                    if not elements:
+                        print(f"No {element_type} elements found in the IFC file")
+                        continue
+                        
+                    for element in elements:
+                        try:
+                            self._process_single_element(element, element_type)
+                        except Exception as e:
+                            print(f"Error processing {element_type} (id: {element.id()}): {e}")
+                except Exception as e:
+                    print(f"Error processing element type {element_type}: {e}")
 
     def _process_single_element(self, element, element_type: str) -> None:
-        element_uri = self.create_uri(INST, element_type, element.GlobalId)
+        # Check if element has GlobalId attribute, use a fallback if not
+        global_id = getattr(element, "GlobalId", None)
+        if global_id is None:
+            # For entities without GlobalId, use a combination of type and id
+            global_id = f"{element_type}_{element.id()}"
+        
+        element_uri = self.create_uri(INST, element_type, global_id)
         
         if self.use_subclasses:
             element_class_uri = self.create_uri(INST, element_type, "Class")
@@ -153,22 +332,33 @@ class IFCtoFBBConverter:
             self.g.add((element_uri, RDF.type, IFC_BOT_MAPPING[element_type]))
             self.g.add((element_uri, FBB.hasIfcType, Literal(element_type)))
         
-        self.g.add((element_uri, FBB.name, Literal(element.Name)))
+        # Check if element has Name attribute, use a fallback if not
+        name = getattr(element, "Name", None)
+        if name is None:
+            # For entities without Name, use the type and id
+            name = f"{element_type}_{element.id()}"
         
+        self.g.add((element_uri, FBB.name, Literal(self.sanitize_name(name))))
+        
+        # Check if element has ContainedInStructure attribute
         if hasattr(element, "ContainedInStructure") and element.ContainedInStructure:
             containing_storey = element.ContainedInStructure[0].RelatingStructure
             if containing_storey.is_a("IfcBuildingStorey"):
-                storey_uri = self.create_uri(INST, "IfcBuildingStorey", containing_storey.GlobalId)
+                storey_global_id = getattr(containing_storey, "GlobalId", f"Storey_{containing_storey.id()}")
+                storey_uri = self.create_uri(INST, "IfcBuildingStorey", storey_global_id)
                 self.g.add((storey_uri, BOT.containsElement, element_uri))
         
         self.add_properties(element, element_uri)
 
     def add_properties(self, ifc_entity, entity_uri: URIRef) -> None:
-        psets = ifcopenshell.util.element.get_psets(ifc_entity)
-        for pset_name, properties in psets.items():
-            for prop_name, prop_value in properties.items():
-                if prop_value is not None:
-                    self._add_single_property(entity_uri, pset_name, prop_name, prop_value)
+        try:
+            psets = ifcopenshell.util.element.get_psets(ifc_entity)
+            for pset_name, properties in psets.items():
+                for prop_name, prop_value in properties.items():
+                    if prop_value is not None:
+                        self._add_single_property(entity_uri, pset_name, prop_name, prop_value)
+        except Exception as e:
+            print(f"Error getting properties for entity {ifc_entity.id()}: {e}")
 
     def _add_single_property(self, entity_uri: URIRef, pset_name: str, prop_name: str, prop_value) -> None:
         sanitized_pset_name = self.sanitize_name(pset_name)
@@ -214,17 +404,20 @@ class IFCtoFBBConverter:
         self.g.serialize(destination=self.output_ttl_path, format="turtle")
 
 def get_unit_scale(ifc_file_path: str) -> float:
-    ifc_file = ifcopenshell.open(ifc_file_path)
-    project = ifc_file.by_type("IfcProject")[0]
-    units = project.UnitsInContext.Units
-    for unit in units:
-        if unit.is_a("IfcSIUnit") and unit.UnitType == "LENGTHUNIT":
-            if unit.Prefix == "MILLI":
-                return 0.001  # Millimeters to meters
-            elif unit.Prefix == "CENTI":
-                return 0.01   # Centimeters to meters
-            else:
-                return 1.0    # Already in meters
+    try:
+        ifc_file = ifcopenshell.open(ifc_file_path)
+        project = ifc_file.by_type("IfcProject")[0]
+        units = project.UnitsInContext.Units
+        for unit in units:
+            if unit.is_a("IfcSIUnit") and unit.UnitType == "LENGTHUNIT":
+                if unit.Prefix == "MILLI":
+                    return 0.001  # Millimeters to meters
+                elif unit.Prefix == "CENTI":
+                    return 0.01   # Centimeters to meters
+                else:
+                    return 1.0    # Already in meters
+    except Exception as e:
+        print(f"Error determining unit scale: {e}")
     return 1.0  # Default to meters if no unit is found
 
 def test_external_door_width(ttl_file_path: str, ifc_file_path: str) -> List[Tuple[URIRef, float, URIRef]]:
@@ -234,7 +427,7 @@ def test_external_door_width(ttl_file_path: str, ifc_file_path: str) -> List[Tup
     unit_scale = get_unit_scale(ifc_file_path)
 
     query = """
-    PREFIX fbb: <http://example.org/firebimbuilding#>
+    PREFIX fbb: <http://example.org/ontology/fbb#>
     PREFIX bpo: <https://w3id.org/bpo#>
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -267,23 +460,33 @@ def test_external_door_width(ttl_file_path: str, ifc_file_path: str) -> List[Tup
     return non_compliant_doors
 
 def ifc_to_fbb_ttl(ifc_file_path: str, output_ttl_path: str, use_subclasses: bool = False) -> None:
-    converter = IFCtoFBBConverter(ifc_file_path, output_ttl_path, use_subclasses)
-    converter.process_ifc()
-    converter.save_ttl()
+    try:
+        converter = IFCtoFBBConverter(ifc_file_path, output_ttl_path, use_subclasses)
+        converter.process_ifc()
+        converter.save_ttl()
+        print(f"Successfully converted {ifc_file_path} to {output_ttl_path}")
+    except Exception as e:
+        print(f"Error converting {ifc_file_path}: {e}")
 
 def main() -> None:
     main_dir = "IFCtoTTLin-outputs/"
     use_subclasses = False
+    
+    # Ensure the output directory exists
+    if not os.path.exists(main_dir):
+        print(f"Creating output directory: {main_dir}")
+        os.makedirs(main_dir)
     
     for file in os.listdir(main_dir):
         if file.lower().endswith("ure.ifc"):
             ifc_file_path = os.path.join(main_dir, file)
             ttl_file_path = os.path.join(main_dir, f"{os.path.splitext(file)[0]}.ttl")
             
+            print(f"Processing IFC file: {file}")
             ifc_to_fbb_ttl(ifc_file_path, ttl_file_path, use_subclasses)
             
             print(f"Testing external door widths for {file}...")
-            non_compliant_doors = []#test_external_door_width(ttl_file_path, ifc_file_path)
+            non_compliant_doors = []  # Uncomment to enable: test_external_door_width(ttl_file_path, ifc_file_path)
             
             if non_compliant_doors:
                 print(f"Found {len(non_compliant_doors)} non-compliant external doors:")
