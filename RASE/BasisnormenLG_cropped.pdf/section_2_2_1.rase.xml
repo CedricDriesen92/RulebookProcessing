@@ -1,0 +1,8 @@
+<rules>
+  <R><a>Elk compartiment</a> <r>heeft minimum:</r></R>
+  <R>- <r>één uitgang</r> indien <a>de maximale bezetting minder dan 100 personen bedraagt</a>;</R>
+  <R><r>twee uitgangen</r> <A>indien <a>de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt</a>;</A></R>
+  <R>- <r>2 + n uitgangen</r> <r>waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment</r>, <a>indien de bezetting 500 of meer dan 500 personen bedraagt</a>.</R>
+  <R>Het minimum aantal uitgangen <r>kan door de brandweer verhoogd worden</r> <a>in functie van de bezetting</a> en <a>de configuratie van de lokalen</a>.</R>
+  <R><a>Het aantal uitgangen van bouwlagen en lokalen</a> <r>wordt bepaald zoals voor de compartimenten</r>.</R>
+</rules>
