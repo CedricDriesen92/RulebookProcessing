@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 from rdflib import Graph, Literal, URIRef, Namespace
 from rdflib.namespace import RDF, RDFS
+from collections import defaultdict
 
 # Load environment variables
 load_dotenv()
@@ -38,7 +39,7 @@ gemini_config = {
     "temperature": 0.2, # Lower temperature for more deterministic RASE/SHACL tasks
     "top_p": 0.95,
     "top_k": 64,
-    "max_output_tokens": 8192, # Increased for potentially complex outputs
+    "max_output_tokens": 65536, # Increased for potentially complex outputs
     "response_mime_type": "text/plain", # Expecting JSON as text first
 }
 
@@ -63,45 +64,66 @@ SH = Namespace("http://www.w3.org/ns/shacl#")
 
 # --- Helper Functions ---
 
-def extract_rule_text_from_ttl(ttl_content: str) -> list[tuple[str, str]]:
+def extract_rule_text_from_ttl(ttl_content: str) -> dict[str, list[str]]:
     """
-    Parses TTL content to extract rule text, typically from firebim:hasOriginalText
-    associated with Members or Articles. Returns a list of (subject_uri, text).
+    Parses TTL content to extract rule text (firebim:hasOriginalText) associated
+    with each Article, including text from its Members.
+    Returns a dictionary mapping {article_uri: [list_of_texts]}.
     """
     g = Graph()
     try:
         g.parse(data=ttl_content, format="turtle")
     except Exception as e:
         print(f"Warning: Could not parse TTL content: {e}")
-        return []
+        return {}
 
-    rule_texts = []
-    # Query for original text associated with Articles or Members
-    # Adjust the query based on where the actual rule text resides in your TTL structure
+    # Use defaultdict to easily collect texts per article
+    article_texts_map = defaultdict(list)
+
+    # Query for Articles and their optional direct text, and their Members' optional text.
+    # Assumes 'firebim:hasMember' links Articles to Members. Adjust if needed.
     query = """
-    SELECT ?subject ?text
+    SELECT ?article ?articleText ?memberText
     WHERE {
-        { ?subject rdf:type firebim:Article . }
-        UNION
-        { ?subject rdf:type firebim:Member . }
-        ?subject firebim:hasOriginalText ?text .
-        # Add FILTERs if needed, e.g., FILTER(lang(?text) = 'en')
+        ?article rdf:type firebim:Article .
+        OPTIONAL { ?article firebim:hasOriginalText ?articleText . }
+        OPTIONAL {
+            ?article firebim:hasMember ?member .
+            ?member rdf:type firebim:Member .
+            ?member firebim:hasOriginalText ?memberText .
+        }
     }
     """
+    processed_article_texts = set() # Track added article texts to avoid duplication
+    processed_member_texts = defaultdict(set) # Track added member texts per article
+
     try:
         results = g.query(query, initNs={"firebim": FIREBIM, "rdf": RDF})
         for row in results:
-            subject_uri = str(row.subject)
-            text_content = str(row.text).strip()
-            # Ignore very short or non-descriptive texts if necessary
-            if text_content and len(text_content.split()) > 3: # Basic filter
-                 # Remove HTML tags added in the previous step if they interfere
-                text_content_cleaned = re.sub('<[^<]+?>', '', text_content)
-                rule_texts.append((subject_uri, text_content_cleaned))
+            article_uri = str(row.article)
+            article_text = str(row.articleText).strip() if row.articleText else None
+            member_text = str(row.memberText).strip() if row.memberText else None
+
+            # Add article's own text (only once per article)
+            if article_text and article_uri not in processed_article_texts:
+                cleaned_text = re.sub('<[^<]+?>', '', article_text)
+                if cleaned_text and len(cleaned_text.split()) > 3:
+                    article_texts_map[article_uri].append(cleaned_text)
+                processed_article_texts.add(article_uri) # Mark as processed
+
+            # Add member's text (avoiding duplicates for the same member text under the same article)
+            if member_text:
+                cleaned_text = re.sub('<[^<]+?>', '', member_text)
+                if cleaned_text and len(cleaned_text.split()) > 3 and cleaned_text not in processed_member_texts[article_uri]:
+                     article_texts_map[article_uri].append(cleaned_text)
+                     processed_member_texts[article_uri].add(cleaned_text) # Mark as added for this article
+
     except Exception as e:
         print(f"Warning: Error querying TTL graph: {e}")
 
-    return rule_texts
+    # Filter out articles that ultimately have no text collected
+    final_map = {uri: texts for uri, texts in article_texts_map.items() if texts}
+    return final_map
 
 def annotate_rule_with_rase(rule_text: str, context: str = "") -> str | None:
     """
@@ -125,33 +147,33 @@ Carefully read the regulatory text provided by the user. Apply RASE tags (`<R>`,
 
 **Understanding the RASE Components (Based on Semantic Mark-up Principles):**
 
- It is a characteristic of regulations that every ‘check’ must be in some way satisfied. The most obvious 
-and most easily identified are the ‘requirements’ as these are associated with the future imperatives 
-‘shall’ or ‘must’ ‘requirements’. It is required that a check contains at least one ‘requirement’. 
-Secondly, there will be text that identifies the ‘applicability’ of the check. These are often 
+ It is a characteristic of regulations that every 'check' must be in some way satisfied. The most obvious 
+and most easily identified are the 'requirements' as these are associated with the future imperatives 
+'shall' or 'must' 'requirements'. It is required that a check contains at least one 'requirement'. 
+Secondly, there will be text that identifies the 'applicability' of the check. These are often 
 304 of 982
-compounded, for example ‘external windows’. These phrases need not relate directly to the topic of 
-the regulation or the topic of the overall check. For example, if a check applies in ‘a seismic zone’, this 
+compounded, for example 'external windows'. These phrases need not relate directly to the topic of 
+the regulation or the topic of the overall check. For example, if a check applies in 'a seismic zone', this 
 is a property of the building site, not of the structural integrity of a particular building material. In 
 general, there will be one or more phrases defining the applicability. One special but distinct case is 
-where a ‘selection’ of alternative subjects or more ‘exceptions’. These are the opposite of 
-‘applicability’, and conversely work by exclusion. (Nisbet, Wix and Conover, 2008). The RASE mark
-up language uses the following four RASE operators: ‘requirement’ ‘applies, ‘select’, and ‘exception’.
+where a 'selection' of alternative subjects or more 'exceptions'. These are the opposite of 
+'applicability', and conversely work by exclusion. (Nisbet, Wix and Conover, 2008). The RASE mark
+up language uses the following four RASE operators: 'requirement' 'applies, 'select', and 'exception'.
  Applied on a text, the user highlights any clause or phrase that means:
- • ‘shall’/’must’ as a ‘requirement’, (including alternative requirements)
- • less scope as an ‘applies’
- • more scope as a ‘select’
- • ‘unless’  as an ‘exception’, (including composite exceptions).
+ • 'shall'/'must' as a 'requirement', (including alternative requirements)
+ • less scope as an 'applies'
+ • more scope as a 'select'
+ • 'unless'  as an 'exception', (including composite exceptions).
 The naming of the operator is chosen to correspond with the way standards, 
 codes, regulative are written, which reflects natural language.
  The marked-up Requirement (R), Applicabilities (A), Selection (S) and Exceptions (E) clauses will 
 contain phrases. The four types of phrases can be identically attributed to have a topic, a property, a 
 comparator and a target value. The topic and property are ideally be drawn from a restricted dictionary 
 composed of terms defined within the regulation and normal practice. The value (with any unit) may 
-be numeric, whereupon the comparators will include ‘greater’, ‘lesser’, ‘equal’ and their converses. If 
-the value is descriptive, then only the ‘equal’ or ‘not equal’ comparators are relevant. If the value 
+be numeric, whereupon the comparators will include 'greater', 'lesser', 'equal' and their converses. If 
+the value is descriptive, then only the 'equal' or 'not equal' comparators are relevant. If the value 
 represents a set of objects, then the comparator may be any of the set comparison operators such as 
-‘includes’, ‘excludes’ (Hjelseth and Nisbet, 2010a and Nisbet, Wix and Conover, 2008).
+'includes', 'excludes' (Hjelseth and Nisbet, 2010a and Nisbet, Wix and Conover, 2008).
 
 
 1.  **R - Requirement:**
@@ -364,14 +386,16 @@ def main():
         print(f"Error: No TTL files found in {doc_graph_dir}. Did DocumentPDFtoMDtoTTL.py run successfully?")
         return
 
-    all_rase_rules = {} # Store RASE results {subject_uri: rase_rule_text}
+    # Store RASE results {article_uri: combined_rase_annotation}
+    all_article_rase_annotations = {}
 
     # --- Step 1: RASE Annotation ---
     print(f"\n--- Found {len(ttl_files)} TTL files to process for RASE annotation ---")
     for ttl_file_path in sorted(ttl_files):
         filename = os.path.basename(ttl_file_path)
-        if "section_2_2_1" not in filename:
-            continue
+        # Limit processing for testing if needed
+        # if "section_2" not in filename:
+        #    continue
         print(f"Processing {filename}...")
 
         try:
@@ -381,36 +405,44 @@ def main():
             print(f"Error reading {filename}: {e}")
             continue
 
-        rule_texts = extract_rule_text_from_ttl(ttl_content)
-        if not rule_texts:
-            print(f"No suitable rule text found in {filename}.")
+        # Extract text grouped by article
+        article_texts_map = extract_rule_text_from_ttl(ttl_content)
+        if not article_texts_map:
+            print(f"No suitable article/member text found in {filename}.")
             continue
 
-        print(f"Found {len(rule_texts)} rule snippets in {filename}.")
-        section_annotated_rules = [] # Store list of (subject_uri, <R/A/S/E> block) for this file
+        print(f"Found text for {len(article_texts_map)} articles in {filename}.")
+        section_annotated_articles = {} # Store {article_uri: rase_block} for this file
 
-        for subject_uri, rule_text in rule_texts:
-            print(f"  Annotating rule for subject: {subject_uri}")
+        # Annotate combined text for each article
+        for article_uri, text_list in article_texts_map.items():
+            if not text_list: # Skip if no text was actually collected
+                continue
+
+            print(f"  Annotating combined text for article: {article_uri}")
+            # Combine the texts - use newline as a separator. Adjust if needed.
+            combined_rule_text = "\n\n".join(text_list)
+
             # Add context=context if needed from surrounding TTL elements
-            rase_result_rule = annotate_rule_with_rase(rule_text)
+            rase_result_annotation = annotate_rule_with_rase(combined_rule_text)
 
-            if rase_result_rule:
-                section_annotated_rules.append((subject_uri, rase_result_rule))
-                all_rase_rules[subject_uri] = rase_result_rule # Add to global dict
+            if rase_result_annotation:
+                section_annotated_articles[article_uri] = rase_result_annotation
+                all_article_rase_annotations[article_uri] = rase_result_annotation # Add to global dict
 
-        # Save RASE results for this section TTL file as a single .rase.xml file
-        if section_annotated_rules:
-            # Use .rase.xml extension to indicate content type
-            rase_output_filename = os.path.join(rase_output_dir, f"{os.path.splitext(filename)[0]}.rase.xml")
+        # Save RASE results for this section (articles found within this TTL)
+        if section_annotated_articles:
+            # Use .rase.xml extension
+            rase_output_filename = os.path.join(rase_output_dir, f"{os.path.splitext(filename)[0]}.article.rase.xml")
             try:
                 with open(rase_output_filename, 'w', encoding='utf-8') as f_out:
-                    # Write the R/A/S/E blocks directly, potentially wrapped in a root element
-                    f_out.write("<rules>\n") # Optional root element
-                    for subj, rase_rule in section_annotated_rules:
-                        #f_out.write(f"  <!-- Rule Source: {subj} -->\n")
-                        f_out.write(f"  {rase_rule}\n")
-                    f_out.write("</rules>\n") # Close optional root element
-                print(f"Saved RASE annotated rules to {rase_output_filename}")
+                    f_out.write("<articles>\n") # Optional root element
+                    for art_uri, rase_block in section_annotated_articles.items():
+                        # Add article URI as comment for traceability
+                        f_out.write(f"  <!-- Article Source: {art_uri} -->\n")
+                        f_out.write(f"  {rase_block}\n")
+                    f_out.write("</articles>\n") # Close optional root element
+                print(f"Saved RASE annotated articles to {rase_output_filename}")
             except Exception as e:
                 print(f"Error saving RASE rules for {filename}: {e}")
 
@@ -418,12 +450,13 @@ def main():
 
     # --- Step 2: SHACL Generation (Placeholder Implementation) ---
     print("\n--- Starting SHACL Generation (Placeholder) ---")
-    if not all_rase_rules:
+    # Check the dictionary holding the article-level annotations
+    if not all_article_rase_annotations:
         print("No RASE annotations were generated. Skipping SHACL generation.")
         return
 
-    # Load the building ontology (needed for context in real SHACL generation)
-    building_ontology_path = "buildingontologies/firebim_ontology_notion.ttl" # Adjust path if needed
+    # Load the building ontology
+    building_ontology_path = "buildingontologies/firebim_ontology_notion.ttl"
     building_ontology_graph = Graph()
     try:
         print(f"Loading building ontology from {building_ontology_path}...")
@@ -432,46 +465,42 @@ def main():
     except Exception as e:
         print(f"Warning: Could not load building ontology from {building_ontology_path}: {e}")
         print("SHACL generation context will be limited.")
-        # Proceed without ontology graph, or handle error differently
 
     combined_shacl_graph = Graph()
-    # Bind namespaces to the combined graph
     combined_shacl_graph.bind("sh", SH)
     combined_shacl_graph.bind("firebim", FIREBIM)
-    # Add other necessary namespaces (FBBO, INST, XSD, etc.)
+    # Add other necessary namespaces
 
     shacl_count = 0
-    # Now iterate through the collected RASE rules (<R/A/S/E> blocks)
-    for subject_uri, rase_rule_text in all_rase_rules.items():
-        # Pass the annotated rule text to the SHACL generation function
-        shacl_ttl_output = generate_shacl_from_rase(rase_rule_text, subject_uri, building_ontology_graph)
+    # Iterate through the collected ARTICLE RASE annotations
+    for article_uri, combined_rase_annotation in all_article_rase_annotations.items():
+        # Pass the combined annotated text and the article URI
+        shacl_ttl_output = generate_shacl_from_rase(combined_rase_annotation, article_uri, building_ontology_graph)
 
         if shacl_ttl_output:
             shacl_count += 1
-            # Option 1: Save individual SHACL files
-            shacl_filename_base = subject_uri.split('#')[-1] if '#' in subject_uri else subject_uri.split('/')[-1]
-            # Sanitize filename base if needed
+            # Save individual SHACL files (named after article)
+            shacl_filename_base = article_uri.split('#')[-1] if '#' in article_uri else article_uri.split('/')[-1]
             shacl_filename_base = re.sub(r'[\\/*?:"<>|]', "_", shacl_filename_base)
-            shacl_output_filename = os.path.join(shacl_output_dir, f"shape_{shacl_filename_base}.ttl")
+            shacl_output_filename = os.path.join(shacl_output_dir, f"shape_article_{shacl_filename_base}.ttl")
             try:
                 with open(shacl_output_filename, 'w', encoding='utf-8') as f_shacl:
                     f_shacl.write(shacl_ttl_output)
-                # print(f"Saved placeholder SHACL shape to {shacl_output_filename}")
 
-                # Option 2: Add to a combined graph (also parse the generated TTL)
+                # Add to combined graph
                 try:
                     combined_shacl_graph.parse(data=shacl_ttl_output, format="turtle")
                 except Exception as e:
-                    print(f"Error parsing generated SHACL for {subject_uri}: {e}\nContent:\n{shacl_ttl_output}")
+                    print(f"Error parsing generated SHACL for article {article_uri}: {e}\nContent:\n{shacl_ttl_output}")
 
             except Exception as e:
                 print(f"Error writing SHACL file {shacl_output_filename}: {e}")
 
-    print(f"\nGenerated {shacl_count} placeholder SHACL shapes.")
+    print(f"\nGenerated {shacl_count} placeholder SHACL shapes (one per article).")
 
-    # Save the combined SHACL graph (if using Option 2)
+    # Save the combined SHACL graph
     if shacl_count > 0:
-        combined_shacl_file = os.path.join(shacl_output_dir, f"{os.path.basename(input_file_base)}_combined.shacl.ttl")
+        combined_shacl_file = os.path.join(shacl_output_dir, f"{os.path.basename(input_file_base)}_article_combined.shacl.ttl")
         try:
             combined_shacl_graph.serialize(destination=combined_shacl_file, format="turtle")
             print(f"Saved combined placeholder SHACL graph to {combined_shacl_file}")

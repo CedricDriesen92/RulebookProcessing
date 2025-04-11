@@ -1,0 +1,30 @@
+<articles>
+  <!-- Article Source: http://example.com/firebim#Article_4_4_1_2_1 -->
+  <R>
+<R>- <r>een binnentrappenhuis conform het punt 4.2</r>;</R>
+
+<R>- <r>een buitentrappenhuis conform het punt 4.3</r>;</R>
+
+<R>- <r>een rechtstreekse toegang tot de open lucht op een evacuatieniveau</r>;</R>
+
+<R>- <a>een evacuatieweg op een evacuatieniveau</a> waarvan <r>de verticale binnenwanden EI 60 hebben</r> en <r>de deuren van de lokalen die op deze wegen uitgeven zelfsluitend of bij brand zelfsluitend zijn</r> en <r>EI1 30 hebben</r>.</R>
+
+<E>De <a>in open lucht af te leggen weg</a> <e>speelt geen rol bij het berekenen van deze afstanden</e>.</E>
+
+<R><a>De deuren op deze wegen</a> <r>mogen geen vergrendeling bezitten die de evacuatie kan belemmeren</r>.</R>
+
+<R><a>De eventuele verticale binnenwanden van de evacuatiewegen</a> <r>hebben EI 30</r> en <a>de toegangsdeuren tot deze wegen</a> <r>EI1 30</r>.</R>
+
+<E>Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn <e>niet van toepassing</e> <a>op de compartimenten met uitsluitend dagbezetting</a> <a>waarvan de oppervlakte geen 1250 m² bereikt</a>.</E>
+
+<E>Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn ook <e>niet van toepassing</e> <a>op de compartimenten met uitsluitend dagbezetting</a> <a>waarvan de oppervlakte kleiner is dan 2500 m²</a> <e>op voorwaarde</e>:
+<R>- dat <a>deze compartimenten</a> zijn <r>uitgerust met een automatische blusinstallatie van het type sprinkler die is aangepast aan de aanwezige risico's</r>;</R>
+<R>- dat <a>het gebouw</a> is <r>uitgerust met een automatische branddetectie van het type totale bewaking die automatisch een aanduiding van de brandmelding en de plaats ervan aangeeft en waarvan de detectoren aangepast zijn aan de aanwezige risico’s</r>;</R>
+<R>- en dat <a>de producten die gebruikt worden voor de bekleding van verticale wanden, plafonds en vloeren van die compartimenten</a> <r>voldoen aan de vereisten inzake reactie bij brand op de evacuatiewegen</r>.</R>
+</E>
+
+<R><a>De evacuatie van lokalen of een geheel van lokalen met nachtbezetting</a> <r>gebeurt via evacuatiewegen waarvan de verticale wanden EI 30</r> en <r>de deuren EI1 30 hebben</r>.</R>
+
+<E>Deze eis is <e>niet van toepassing</e> <a>voor de evacuatie van deze lokalen</a> <a>indien deze behoren bij de uitbating van een gebouw met een commerciële functie</a>.</E>
+</R>
+</articles>

@@ -1,0 +1,58 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix : <http://example.com/firebim#> .
+
+# Shape derived from "De evacuatiewegen leiden ofwel: - naar buiten; - naar trappenhuizen; - naar trappen..."
+:Shape_Article_2_2_2_1_EvacuationRoute
+    a sh:NodeShape ;
+    sh:targetClass firebim:EvacuationRoute ;
+    rdfs:comment "Constraint based on Article 2.2.2.1: Evacuation routes must lead to Exterior, Stairwell, or Stairs." ;
+    sh:property [
+        sh:path firebim:leadsTo ; # Assuming firebim:leadsTo points to the destination element or space type
+        sh:minCount 1 ; # An evacuation route must lead somewhere
+        sh:message "Evacuation route must lead to Exterior, Stairwell, or Stairs (Article 2.2.2.1)."@en, "Evacuatieweg moet leiden naar buiten, trappenhuis of trap (Artikel 2.2.2.1)."@nl ;
+        sh:or (
+            [ sh:class firebim:Exterior ]       # naar buiten
+            [ sh:class firebim:Stairwell ]      # naar trappenhuizen
+            [ sh:class firebim:Stairs ]         # naar trappen
+            # Note: Further constraints on stairs location (inside/outside) or compliance (4.4) might require additional shapes or logic.
+        )
+    ].
+
+# Shape derived from "Op een evacuatieniveau leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een evacuatieweg..."
+:Shape_Article_2_2_2_1_Stairs
+    a sh:NodeShape ;
+    sh:targetClass firebim:Stairs ;
+    rdfs:comment "Constraint based on Article 2.2.2.1: Stairs on an evacuation level must lead outside." ;
+    # This constraint applies only if the stair is on an evacuation level.
+    # We express this using sh:or: EITHER the stair is NOT on an evacuation level, OR it leads outside.
+    sh:or (
+        [ # Condition 1: The stair is NOT on an evacuation level
+            sh:not [
+                sh:property [
+                    sh:path bot:locatedIn ; # Assuming bot:locatedIn links Stair to Storey/Level
+                    sh:class firebim:EvacuationLevel ;
+                    sh:minCount 1 ; # Ensures it is linked to at least one evacuation level to trigger the 'not' condition correctly
+                ]
+            ]
+        ]
+        [ # Condition 2: The stair leads to the Exterior
+          # Assuming firebim:leadsTo points to the ultimate destination type (Exterior)
+          # This could be direct or via an intermediate EvacuationRoute. A property path might be needed for full accuracy,
+          # e.g., firebim:leadsTo | (firebim:leadsToRoute / firebim:leadsTo)
+          # For simplicity, assuming firebim:leadsTo captures the final destination type here.
+            sh:property [
+                sh:path firebim:leadsTo ;
+                sh:class firebim:Exterior ;
+                sh:minCount 1 ; # If on an evacuation level, it must lead somewhere, specifically outside.
+            ]
+        ]
+    ) ;
+    sh:message "Stairs located on an evacuation level must lead to the exterior (directly or via a compliant evacuation route) (Article 2.2.2.1)."@en, "Trap op een evacatieniveau moet naar buiten leiden (rechtstreeks of via een conforme evacuatieweg) (Artikel 2.2.2.1)."@nl .
+
+# Note: The constraint "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment" involves complex spatial reasoning beyond typical SHACL Core capabilities.
+# Note: The exception for underground storeys ("Wat de ondergrondse bouwlagen betreft...") modifies other requirements and involves specific properties (EI 30 walls/doors), making it complex to model without more context or potentially SPARQL.
+# Note: The reference to parking ("Voor de parking: zie 5.2.") indicates other rules apply, not a direct constraint here.

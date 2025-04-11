@@ -1,0 +1,16 @@
+<articles>
+  <!-- Article Source: http://example.com/firebim#Article_2_1_1 -->
+  <R>
+<R><a>Het gebouw</a> <r>is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m²</r>, <E><e>met uitzondering van de parkings</e> (zie 5.2)</E>.</R>
+
+<R><a>De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment</a> <r>mag 3500 m² bedragen</r>.</R>
+
+<R><a>De lengte van dit compartiment</a> <r>bedraagt niet meer dan 90 m</r>.</R>
+
+<E><a>De maximale oppervlakte van een compartiment</a> <r>mag, respectievelijk, groter dan ofwel 2500 m², ofwel 3500 m² bedragen</r> <a>indien het compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie</a>.</E>
+</R>
+  <!-- Article Source: http://example.com/firebim#Article_2_1_2 -->
+  <R><R><a>De hoogte van een compartiment</a> <r>stemt overeen met de hoogte van één bouwlaag</r>.</R>
+
+<E><e>De volgende uitzonderingen</e> zijn nochtans toegestaan:</E></R>
+</articles>

@@ -1,0 +1,166 @@
+@prefix fbbo: <http://example.com/fbbo#> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+firebim:Article_2_1_1 a sh:NodeShape ;
+    rdfs:label "Shape for Article 2.1.1 - Compartment Size Limits"@en ;
+    rdfs:comment """Checks compartment area and length limits based on Article 2.1.1.
+- Default area < 2500 m².
+- Exception 1: Parking compartments are exempt from these area limits.
+- Exception 2: Single compartment in a ground-floor-only building: max area 3500 m², max length 90 m.
+- Exception 3: Compartments with automatic extinguishing AND smoke/heat evacuation systems are exempt from these area limits.
+- Note: Further exceptions based on Ministerial Decree are not modeled here."""@en ;
+    sh:rule [ a sh:SPARQLRule ;
+            sh:condition firebim:IsSingleGroundFloorCompartmentCondition ;
+            sh:property [ sh:maxInclusive 3500 ;
+                    sh:message "Area of single compartment in ground floor building must be <= 3500 m² (unless exempted by equipment or decree)."@en,
+                        "Oppervlakte van enkel compartiment in gelijkvloers gebouw moet <= 3500 m² zijn (tenzij vrijgesteld door uitrusting of besluit)."@nl ;
+                    sh:path fbbo:hasArea ],
+                [ sh:maxInclusive 90 ;
+                    sh:message "Length of single compartment in ground floor building must be <= 90 m."@en,
+                        "Lengte van enkel compartiment in gelijkvloers gebouw moet <= 90 m zijn."@nl ;
+                    sh:path fbbo:hasLength ] ],
+        [ a sh:SPARQLRule ;
+            sh:condition firebim:DefaultAreaCondition ;
+            sh:property [ sh:maxExclusive 2500 ;
+                    sh:message "Compartment area must be < 2500 m² (default case)."@en,
+                        "Compartimentoppervlakte moet < 2500 m² zijn (standaardgeval)."@nl ;
+                    sh:path fbbo:hasArea ] ] ;
+    sh:targetClass fbbo:Compartment .
+
+firebim:Shape_Article_2_1_2 a sh:NodeShape ;
+    rdfs:label "Compartment height rule (Art. 2.1.2)"@en,
+        "Regel compartimenthoogte (Art. 2.1.2)"@nl ;
+    sh:message "A compartment's height must correspond to one storey, unless specific exceptions apply (Parking, Duplex, Triplex, Technical Rooms, Atrium)."@en,
+        "De hoogte van een compartiment moet overeenstemmen met één bouwlaag, tenzij specifieke uitzonderingen van toepassing zijn (Parking, Duplex, Triplex, Technische lokalen, Atrium)."@nl ;
+    sh:or ( [ sh:property [ sh:maxCount 1 ;
+                        sh:message "Compartment height must correspond to exactly one storey (Core Requirement)."@en,
+                            "Hoogte van compartiment moet overeenstemmen met precies één bouwlaag (Kernvereiste)."@nl ;
+                        sh:minCount 1 ;
+                        sh:path firebim:spansStorey ] ] [ sh:class firebim:Parking ;
+                sh:message "Exception: Compartment is a parking structure."@en,
+                    "Uitzondering: Compartiment is een parking."@nl ] [ sh:property [ sh:datatype xsd:decimal ;
+                        sh:maxInclusive 2500 ;
+                        sh:message "Duplex exception requires cumulative area of the two storeys <= 2500 m²."@en,
+                            "Duplex-uitzondering vereist gecumuleerde oppervlakte van de twee bouwlagen <= 2500 m²."@nl ;
+                        sh:path firebim:hasCumulativeStoreyArea ],
+                    [ sh:maxCount 2 ;
+                        sh:message "Duplex exception requires exactly 2 storeys."@en,
+                            "Duplex-uitzondering vereist precies 2 bouwlagen."@nl ;
+                        sh:minCount 2 ;
+                        sh:path firebim:spansStorey ],
+                    [ sh:hasValue true ;
+                        sh:message "Duplex exception requires an internal connecting staircase."@en,
+                            "Duplex-uitzondering vereist een binnenverbindingstrap."@nl ;
+                        sh:path firebim:hasInternalStaircase ] ] [ sh:property [ sh:maxCount 3 ;
+                        sh:message "Triplex exception requires exactly 3 storeys."@en,
+                            "Triplex-uitzondering vereist precies 3 bouwlagen."@nl ;
+                        sh:minCount 3 ;
+                        sh:path firebim:spansStorey ],
+                    [ sh:hasValue true ;
+                        sh:message "Triplex exception requires an internal connecting staircase."@en,
+                            "Triplex-uitzondering vereist een binnenverbindingstrap."@nl ;
+                        sh:path firebim:hasInternalStaircase ],
+                    [ sh:datatype xsd:decimal ;
+                        sh:maxInclusive 300 ;
+                        sh:message "Triplex exception requires cumulative area of the three storeys <= 300 m²."@en,
+                            "Triplex-uitzondering vereist gecumuleerde oppervlakte van de drie bouwlagen <= 300 m²."@nl ;
+                        sh:path firebim:hasCumulativeStoreyArea ],
+                    [ sh:message "Triplex exception requires a specific fire detection system (total surveillance, auto indication, adapted detectors)."@en,
+                            "Triplex-uitzondering vereist een specifiek branddetectiesysteem (totale bewaking, auto indicatie, aangepaste detectoren)."@nl ;
+                        sh:node firebim:TriplexFireDetectionShape ;
+                        sh:path firebim:hasFireDetectionSystem ] ] [ sh:property [ sh:hasValue true ;
+                        sh:message "Exception: Compartment contains only technical rooms."@en,
+                            "Uitzondering: Compartiment bevat enkel technische lokalen."@nl ;
+                        sh:path firebim:containsOnlyTechnicalRooms ] ] [ sh:property [ sh:hasValue true ;
+                        sh:message "Atrium exception requires the compartment to be identified as an atrium."@en,
+                            "Atrium-uitzondering vereist dat het compartiment als atrium is geïdentificeerd."@nl ;
+                        sh:path firebim:isAtrium ],
+                    [ sh:hasValue true ;
+                        sh:message "Atrium exception requires an automatic extinguishing system."@en,
+                            "Atrium-uitzondering vereist een automatische blusinstallatie."@nl ;
+                        sh:path firebim:hasAutomaticExtinguishingSystem ],
+                    [ sh:hasValue true ;
+                        sh:message "Atrium exception requires a smoke and heat extraction system."@en,
+                            "Atrium-uitzondering vereist een rook- en warmteafvoerinstallatie."@nl ;
+                        sh:path firebim:hasSmokeAndHeatExtractionSystem ] ] ) ;
+    sh:targetClass firebim:Compartment .
+
+firebim:DefaultAreaCondition a sh:SPARQLSelectConstraint ;
+    sh:message "Condition for default area limit (< 2500 m²)" ;
+    sh:prefixes _:n70ba87c5d232496dafc80df7463a7e88b1 ;
+    sh:select """
+        SELECT $this WHERE {
+            BIND ($this AS ?focusNode) . # Ensure $this is bound for filters
+
+            # Condition: NOT Parking
+            FILTER NOT EXISTS { $focusNode a fbbo:Parking . }
+
+            # Condition: NOT (Sprinkler AND SmokeHeat)
+            FILTER NOT EXISTS {
+                $focusNode fbbo:hasEquipment firebim:AutomaticExtinguishingSystem .
+                $focusNode fbbo:hasEquipment firebim:SmokeAndHeatEvacuationSystem .
+            }
+
+            # Condition: NOT SingleGroundFloorCompartment
+            FILTER NOT EXISTS {
+                ?building bot:hasSpace $focusNode .
+                ?building fbbo:isGroundFloorOnly true .
+                FILTER NOT EXISTS {
+                    ?building bot:hasSpace ?otherSpace .
+                    FILTER (?otherSpace != $focusNode)
+                }
+            }
+        }
+    """ .
+
+firebim:IsSingleGroundFloorCompartmentCondition a sh:SPARQLSelectConstraint ;
+    sh:message "Condition for single compartment in ground floor building" ;
+    sh:prefixes _:n70ba87c5d232496dafc80df7463a7e88b1 ;
+    sh:select """
+        SELECT $this WHERE {
+          ?building bot:hasSpace $this .
+          ?building fbbo:isGroundFloorOnly true .
+          # Check if there are OTHER spaces/compartments in the same building
+          FILTER NOT EXISTS {
+            ?building bot:hasSpace ?otherSpace .
+            FILTER (?otherSpace != $this)
+          }
+        }
+    """ .
+
+firebim:TriplexFireDetectionShape a sh:NodeShape ;
+    sh:property [ sh:hasValue firebim:TotalSurveillance ;
+            sh:message "Fire detection system must be of type Total Surveillance for Triplex exception."@en,
+                "Branddetectiesysteem moet van het type totale bewaking zijn voor Triplex-uitzondering."@nl ;
+            sh:path firebim:hasDetectionType ],
+        [ sh:hasValue true ;
+            sh:message "Fire detection system must provide automatic alarm indication for Triplex exception."@en,
+                "Branddetectiesysteem moet automatische alarmindicatie geven voor Triplex-uitzondering."@nl ;
+            sh:path firebim:hasAutomaticAlarmIndication ],
+        [ sh:hasValue true ;
+            sh:message "Fire detection system detectors must be adapted to the risks for Triplex exception."@en,
+                "Detectoren van het branddetectiesysteem moeten aangepast zijn aan de risico's voor Triplex-uitzondering."@nl ;
+            sh:path firebim:hasAdaptedDetectors ] .
+
+_:n70ba87c5d232496dafc80df7463a7e88b2 sh:namespace "https://w3id.org/bot#"^^xsd:anyURI ;
+    sh:prefix "bot" .
+
+_:n70ba87c5d232496dafc80df7463a7e88b3 sh:namespace "http://example.com/fbbo#"^^xsd:anyURI ;
+    sh:prefix "fbbo" .
+
+_:n70ba87c5d232496dafc80df7463a7e88b4 sh:namespace "http://example.com/firebim#"^^xsd:anyURI ;
+    sh:prefix "firebim" .
+
+_:n70ba87c5d232496dafc80df7463a7e88b5 sh:namespace "http://www.w3.org/ns/shacl#"^^xsd:anyURI ;
+    sh:prefix "sh" .
+
+_:n70ba87c5d232496dafc80df7463a7e88b1 a sh:PrefixDeclaration ;
+    sh:declare _:n70ba87c5d232496dafc80df7463a7e88b2,
+        _:n70ba87c5d232496dafc80df7463a7e88b3,
+        _:n70ba87c5d232496dafc80df7463a7e88b4,
+        _:n70ba87c5d232496dafc80df7463a7e88b5 .
+

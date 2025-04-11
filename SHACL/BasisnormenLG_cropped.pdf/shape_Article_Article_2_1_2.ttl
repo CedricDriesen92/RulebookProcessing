@@ -1,0 +1,148 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix firebim: <http://example.com/firebim#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fbbo: <http://example.com/fbbo#> . # Example Building Ontology namespace
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+
+# Placeholder shape for Triplex Fire Detection requirements (Exception c)
+firebim:TriplexFireDetectionShape a sh:NodeShape ;
+    sh:property [
+        sh:path firebim:hasDetectionType ;
+        sh:hasValue firebim:TotalSurveillance ; # Assumes firebim:TotalSurveillance is an instance representing this type
+        sh:message "Fire detection system must be of type Total Surveillance for Triplex exception."@en ;
+        sh:message "Branddetectiesysteem moet van het type totale bewaking zijn voor Triplex-uitzondering."@nl ;
+    ] ;
+    sh:property [
+        sh:path firebim:hasAutomaticAlarmIndication ; # Assumes boolean property
+        sh:hasValue true ;
+        sh:message "Fire detection system must provide automatic alarm indication for Triplex exception."@en ;
+        sh:message "Branddetectiesysteem moet automatische alarmindicatie geven voor Triplex-uitzondering."@nl ;
+    ] ;
+    sh:property [
+        sh:path firebim:hasAdaptedDetectors ; # Assumes boolean property
+        sh:hasValue true ;
+        sh:message "Fire detection system detectors must be adapted to the risks for Triplex exception."@en ;
+        sh:message "Detectoren van het branddetectiesysteem moeten aangepast zijn aan de risico's voor Triplex-uitzondering."@nl ;
+    ] .
+
+firebim:Shape_Article_2_1_2
+    a sh:NodeShape ;
+    sh:targetClass firebim:Compartment ; # Assuming firebim:Compartment represents a fire compartment
+    rdfs:label "Compartment height rule (Art. 2.1.2)"@en ;
+    rdfs:label "Regel compartimenthoogte (Art. 2.1.2)"@nl ;
+    sh:message "A compartment's height must correspond to one storey, unless specific exceptions apply (Parking, Duplex, Triplex, Technical Rooms, Atrium)."@en ;
+    sh:message "De hoogte van een compartiment moet overeenstemmen met één bouwlaag, tenzij specifieke uitzonderingen van toepassing zijn (Parking, Duplex, Triplex, Technische lokalen, Atrium)."@nl ;
+
+    sh:or (
+        # Core Requirement: Height corresponds to one storey
+        [
+            sh:property [
+                sh:path firebim:spansStorey ; # Assumes this property links a compartment to the storeys it occupies
+                sh:minCount 1 ;
+                sh:maxCount 1 ;
+                sh:message "Compartment height must correspond to exactly one storey (Core Requirement)."@en ;
+                sh:message "Hoogte van compartiment moet overeenstemmen met precies één bouwlaag (Kernvereiste)."@nl ;
+            ]
+        ]
+
+        # Exception a: Parking with storeys
+        [
+            # Assuming firebim:Parking represents a parking structure, could also map to e.g., brick:Parking_Garage
+            sh:class firebim:Parking ;
+            sh:message "Exception: Compartment is a parking structure."@en ;
+            sh:message "Uitzondering: Compartiment is een parking."@nl ;
+        ]
+
+        # Exception b: Duplex
+        [
+            sh:property [
+                sh:path firebim:spansStorey ;
+                sh:minCount 2 ;
+                sh:maxCount 2 ;
+                sh:message "Duplex exception requires exactly 2 storeys."@en ;
+                sh:message "Duplex-uitzondering vereist precies 2 bouwlagen."@nl ;
+            ] ;
+            sh:property [
+                sh:path firebim:hasInternalStaircase ; # Assumes boolean property indicating presence of internal stairs
+                sh:hasValue true ;
+                sh:message "Duplex exception requires an internal connecting staircase."@en ;
+                sh:message "Duplex-uitzondering vereist een binnenverbindingstrap."@nl ;
+            ] ;
+            sh:property [
+                sh:path firebim:hasCumulativeStoreyArea ; # Assumes numeric value, units (m²) implied by context/ontology definition
+                sh:maxInclusive 2500 ;
+                sh:datatype xsd:decimal ; # Or appropriate numeric type like xsd:double
+                sh:message "Duplex exception requires cumulative area of the two storeys <= 2500 m²."@en ;
+                sh:message "Duplex-uitzondering vereist gecumuleerde oppervlakte van de twee bouwlagen <= 2500 m²."@nl ;
+            ]
+        ]
+
+        # Exception c: Triplex
+        [
+            sh:property [
+                sh:path firebim:spansStorey ;
+                sh:minCount 3 ;
+                sh:maxCount 3 ;
+                sh:message "Triplex exception requires exactly 3 storeys."@en ;
+                sh:message "Triplex-uitzondering vereist precies 3 bouwlagen."@nl ;
+            ] ;
+            sh:property [
+                sh:path firebim:hasInternalStaircase ; # Assumes boolean property
+                sh:hasValue true ;
+                sh:message "Triplex exception requires an internal connecting staircase."@en ;
+                sh:message "Triplex-uitzondering vereist een binnenverbindingstrap."@nl ;
+            ] ;
+            sh:property [
+                sh:path firebim:hasCumulativeStoreyArea ; # Assumes numeric value, units (m²) implied by context/ontology definition
+                sh:maxInclusive 300 ;
+                sh:datatype xsd:decimal ; # Or appropriate numeric type
+                sh:message "Triplex exception requires cumulative area of the three storeys <= 300 m²."@en ;
+                sh:message "Triplex-uitzondering vereist gecumuleerde oppervlakte van de drie bouwlagen <= 300 m²."@nl ;
+            ] ;
+             sh:property [
+                 sh:path firebim:hasFireDetectionSystem ; # Links compartment to its fire detection system instance
+                 sh:node firebim:TriplexFireDetectionShape ; # Validate the system against the specific requirements
+                 sh:message "Triplex exception requires a specific fire detection system (total surveillance, auto indication, adapted detectors)."@en ;
+                 sh:message "Triplex-uitzondering vereist een specifiek branddetectiesysteem (totale bewaking, auto indicatie, aangepaste detectoren)."@nl ;
+             ]
+        ]
+
+        # Exception d: Technical Rooms Only
+        [
+             sh:property [
+                 # This assumes a property indicating the compartment's content type.
+                 # Alternatively, could check types of all contained spaces if model allows.
+                 sh:path firebim:containsOnlyTechnicalRooms ; # Assumes boolean property
+                 sh:hasValue true ;
+                 sh:message "Exception: Compartment contains only technical rooms."@en ;
+                 sh:message "Uitzondering: Compartiment bevat enkel technische lokalen."@nl ;
+             ]
+        ]
+
+        # Exception e: Atrium
+        [
+             sh:property [
+                 sh:path firebim:isAtrium ; # Assumes boolean property identifying an atrium compartment
+                 sh:hasValue true ;
+                 sh:message "Atrium exception requires the compartment to be identified as an atrium."@en ;
+                 sh:message "Atrium-uitzondering vereist dat het compartiment als atrium is geïdentificeerd."@nl ;
+             ] ;
+             sh:property [
+                 sh:path firebim:hasAutomaticExtinguishingSystem ; # Assumes boolean property
+                 sh:hasValue true ;
+                 sh:message "Atrium exception requires an automatic extinguishing system."@en ;
+                 sh:message "Atrium-uitzondering vereist een automatische blusinstallatie."@nl ;
+             ] ;
+             sh:property [
+                 sh:path firebim:hasSmokeAndHeatExtractionSystem ; # Assumes boolean property
+                 sh:hasValue true ;
+                 sh:message "Atrium exception requires a smoke and heat extraction system."@en ;
+                 sh:message "Atrium-uitzondering vereist een rook- en warmteafvoerinstallatie."@nl ;
+             ]
+             # Note: The condition about the Minister determining further exceptions is procedural and not directly modeled here.
+             # It might require external validation logic or specific data indicating ministerial approval.
+        ]
+    ) .
