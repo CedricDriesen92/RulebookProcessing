@@ -393,7 +393,7 @@ def load_building_terms():
     building_terms = objects_df.iloc[:, 0].tolist() + properties_df.iloc[:, 0].tolist()
     return building_terms
 
-def main(): ,
+def main():
     ontology = load_ontology('FireBIM_Document_Ontology_Alex.ttl')
     building_terms = load_building_terms()
     #pdf_filename = 'NIT_198_crop.pdf'
