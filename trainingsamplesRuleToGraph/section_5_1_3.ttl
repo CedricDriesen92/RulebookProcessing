@@ -1,61 +1,61 @@
-firebim:Section_5_1_3 a firebim:Section ;
-    firebim:hasID "5.1.3" ;
-    firebim:hasOriginalText "Transformatorlokalen."@nl ;
-    firebim:hasSection firebim:Section_5_1_3_1, firebim:Section_5_1_3_2 .
+fro:Section_5_1_3 a fro:Section ;
+    fro:hasID "5.1.3" ;
+    fro:hasOriginalText "Transformatorlokalen."@nl ;
+    fro:hasSection fro:Section_5_1_3_1, fro:Section_5_1_3_2 .
 
-firebim:Section_5_1 firebim:hasSection firebim:Section_5_1_3 .    
+fro:Section_5_1 fro:hasSection fro:Section_5_1_3 .    
 
-firebim:Section_5_1_3_1 a firebim:Section ;
-    firebim:hasID "5.1.3.1" ;
-    firebim:hasOriginalText "Algemeen."@nl ;
-    firebim:hasArticle firebim:Article_5_1_3_1_1.
+fro:Section_5_1_3_1 a fro:Section ;
+    fro:hasID "5.1.3.1" ;
+    fro:hasOriginalText "Algemeen."@nl ;
+    fro:hasArticle fro:Article_5_1_3_1_1.
 
-firebim:Article_5_1_3_1_1 a firebim:Article ;
-    firebim:hasID "A5.1.3.1.1" ;
-    firebim:hasMember firebim:Member_5_1_3_1_1_1, firebim:Member_5_1_3_1_1_2, firebim:Member_5_1_3_1_1_3 .
+fro:Article_5_1_3_1_1 a fro:Article ;
+    fro:hasID "A5.1.3.1.1" ;
+    fro:hasMember fro:Member_5_1_3_1_1_1, fro:Member_5_1_3_1_1_2, fro:Member_5_1_3_1_1_3 .
 
-firebim:Member_5_1_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Zij  voldoen  aan  de  voorschriften  van  het  Algemeen  reglement  op  de  elektrische  installaties
+fro:Member_5_1_3_1_1_1 a fro:Member ;
+    fro:hasOriginalText """Zij  voldoen  aan  de  voorschriften  van  het  Algemeen  reglement  op  de  elektrische  installaties
 (A.R.E.I.)."""@nl .
 
-firebim:Member_5_1_3_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "Verder geldt dat:"@nl ;
-    firebim:hasMember firebim:Member_5_1_3_1_1_2_1, firebim:Member_5_1_3_1_1_2_2, firebim:Member_5_1_3_1_1_2_3 .
+fro:Member_5_1_3_1_1_2 a fro:Member ;
+    fro:hasOriginalText "Verder geldt dat:"@nl ;
+    fro:hasMember fro:Member_5_1_3_1_1_2_1, fro:Member_5_1_3_1_1_2_2, fro:Member_5_1_3_1_1_2_3 .
 
-firebim:Member_5_1_3_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "- de wanden EI 60 hebben, behalve de buitenmuren;"@nl .
+fro:Member_5_1_3_1_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- de wanden EI 60 hebben, behalve de buitenmuren;"@nl .
 
-firebim:Member_5_1_3_1_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "- de binnendeuren EI1 30 hebben;"@nl .
+fro:Member_5_1_3_1_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- de binnendeuren EI1 30 hebben;"@nl .
 
-firebim:Member_5_1_3_1_1_2_3 a firebim:Member ;
-    firebim:hasOriginalText """- indien water (van om het even welke herkomst, dus ook bluswater) de vloer kan bereiken, bij
+fro:Member_5_1_3_1_1_2_3 a fro:Member ;
+    fro:hasOriginalText """- indien water (van om het even welke herkomst, dus ook bluswater) de vloer kan bereiken, bij
      voorbeeld door infiltratie of via kabelgoten, dan dienen alle maatregelen te worden getroffen
      opdat het waterpeil constant en automatisch beneden het niveau van de vitale gedeelten blijft
      van de elektrische installatie, zolang ze in gebruik is."""@nl .
 
-firebim:Member_5_1_3_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Indien de olie-inhoud van het geheel der toestellen 50 l of meer bereikt, moeten de voorschriften
+fro:Member_5_1_3_1_1_3 a fro:Member ;
+    fro:hasOriginalText """Indien de olie-inhoud van het geheel der toestellen 50 l of meer bereikt, moeten de voorschriften
 van    NBN    C    18-200    "Richtlijnen    voor    de    brandbeveiliging    van    de    lokalen    van
 elektriciteitstransformatie" toegepast worden."""@nl .
 
-firebim:Member_5_1_3_1_1_3 firebim:hasReference firebim:Reference_NBN_C_18_200.
+fro:Member_5_1_3_1_1_3 fro:hasReference fro:Reference_NBN_C_18_200.
 
-firebim:Reference_NBN_C_18_200 a firebim:Reference ;
-    firebim:hasID "NBN C 18-200" .
+fro:Reference_NBN_C_18_200 a fro:Reference ;
+    fro:hasID "NBN C 18-200" .
 
-firebim:Section_5_1_3_2 a firebim:Section ;
-    firebim:hasID "5.1.3.2" ;
-    firebim:hasOriginalText "Ter plaatse gemonteerde posten of prefab-posten."@nl ;
-    firebim:hasArticle firebim:Article_5_1_3_2_1 .
+fro:Section_5_1_3_2 a fro:Section ;
+    fro:hasID "5.1.3.2" ;
+    fro:hasOriginalText "Ter plaatse gemonteerde posten of prefab-posten."@nl ;
+    fro:hasArticle fro:Article_5_1_3_2_1 .
 
-firebim:Article_5_1_3_2_1 a firebim:Article ;
-    firebim:hasID "A5.1.3.2.1" ;
-    firebim:hasMember firebim:Member_5_1_3_2_1_1, firebim:Member_5_1_3_2_1_2 .
+fro:Article_5_1_3_2_1 a fro:Article ;
+    fro:hasID "A5.1.3.2.1" ;
+    fro:hasMember fro:Member_5_1_3_2_1_1, fro:Member_5_1_3_2_1_2 .
 
-firebim:Member_5_1_3_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Een ter plaatse gemonteerde post of een prefab-post wordt opgesteld in een daartoe bestemd
+fro:Member_5_1_3_2_1_1 a fro:Member ;
+    fro:hasOriginalText """Een ter plaatse gemonteerde post of een prefab-post wordt opgesteld in een daartoe bestemd
 lokaal, met wanden EI 60."""@nl .
 
-firebim:Member_5_1_3_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText "De toegang, zo die niet van buitenaf geschiedt, gaat via een deur EI1 30."@nl .
+fro:Member_5_1_3_2_1_2 a fro:Member ;
+    fro:hasOriginalText "De toegang, zo die niet van buitenaf geschiedt, gaat via een deur EI1 30."@nl .

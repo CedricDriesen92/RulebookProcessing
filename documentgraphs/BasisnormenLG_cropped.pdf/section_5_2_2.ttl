@@ -1,29 +1,29 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_5_2_2 a firebim:Section ;
-    firebim:hasID "5.2.2" ;
-    firebim:hasOriginalText "Compartiment"@nl ;
-    firebim:hasArticle firebim:Article_5_2_2_1 .
+fro:Section_5_2_2 a fro:Section ;
+    fro:hasArticle fro:Article_5_2_2_1 ;
+    fro:hasID "5.2.2" ;
+    fro:hasOriginalText "Compartiment"@nl .
 
-firebim:Section_5_2 firebim:hasSection firebim:Section_5_2_2 .
+fro:Article_5_2_2_1 a fro:Article ;
+    fro:hasID "A5.2.2.1" ;
+    fro:hasMember fro:Member_5_2_2_1_1 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Article_5_2_2_1 a firebim:Article ;
-    firebim:hasID "A5.2.2.1" ;
-    firebim:hasMember firebim:Member_5_2_2_1_1,
-        firebim:Member_5_2_2_1_2,
-        firebim:Member_5_2_2_1_3 .
+fro:Member_5_2_2_1_1 a fro:Member ;
+    fro:hasMember fro:Member_5_2_2_1_1_1,
+        fro:Member_5_2_2_1_1_2 ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> tussen de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> en de rest van het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> hebben <a href=\"http://example.com/firebimbuilding#FireResistance\">EI 60</a>, en de verbinding tussen de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> en de rest van het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> wordt verzekerd:"@nl .
 
-firebim:Member_5_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#Wall">wanden</a> tussen de <a href="http://example.com/firebimbuilding#Parking">parking</a> en de rest van het <a href="http://example.com/firebimbuilding#Building">gebouw</a> hebben <a href="http://example.com/firebimbuilding#WallFireResistance">EI 60</a>, en de <a href="http://example.com/firebimbuilding#CompartmentSeparation">verbinding</a> tussen de <a href="http://example.com/firebimbuilding#Parking">parking</a> en de rest van het <a href="http://example.com/firebimbuilding#Building">gebouw</a> wordt verzekerd:"""@nl .
+fro:Member_5_2_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "- ofwel door een <a href=\"http://example.com/firebimbuilding#Airlock\">sas</a> met <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> <a href=\"http://example.com/firebimbuilding#FireResistance\">EI 60</a> en <a href=\"http://example.com/firebimbuilding#IsSelfClosing\">zelfsluitende</a> of <a href=\"http://example.com/firebimbuilding#IsFireActivatedClosing\">bij brand zelfsluitende</a> <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> <a href=\"http://example.com/firebimbuilding#FireResistance\">EI1 30</a>;"@nl .
 
-firebim:Member_5_2_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """- ofwel door een <a href="http://example.com/firebimbuilding#Airlock">sas</a> met <a href="http://example.com/firebimbuilding#Wall">wanden</a> <a href="http://example.com/firebimbuilding#WallFireResistance">EI 60</a> en <a href="http://example.com/firebimbuilding#IsSelfClosing">zelfsluitende</a> of <a href="http://example.com/firebimbuilding#IsFireActivatedClosing">bij brand zelfsluitende</a> <a href="http://example.com/firebimbuilding#Door">deuren</a> <a href="http://example.com/firebimbuilding#DoorFireResistance">EI1 30</a>;"""@nl .
+fro:Member_5_2_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "- ofwel door een <a href=\"http://example.com/firebimbuilding#IsSelfClosing\">zelfsluitende</a> of <a href=\"http://example.com/firebimbuilding#IsFireActivatedClosing\">bij brand zelfsluitende</a> <a href=\"http://example.com/firebimbuilding#Door\">deur</a> <a href=\"http://example.com/firebimbuilding#FireResistance\">EI1 60</a>."@nl .
 
-firebim:Member_5_2_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText """- ofwel door een <a href="http://example.com/firebimbuilding#IsSelfClosing">zelfsluitende</a> of <a href="http://example.com/firebimbuilding#IsFireActivatedClosing">bij brand zelfsluitende</a> <a href="http://example.com/firebimbuilding#Door">deur</a> <a href="http://example.com/firebimbuilding#DoorFireResistance">EI1 60</a>."""@nl .
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

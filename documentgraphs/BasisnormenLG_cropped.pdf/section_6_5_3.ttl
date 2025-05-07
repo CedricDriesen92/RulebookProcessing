@@ -1,23 +1,25 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_5_3 a firebim:Section ;
-    firebim:hasID "6.5.3" ;
-    firebim:hasOriginalText "Autonome stroombronnen."@nl ;
-    firebim:hasArticle firebim:Article_6_5_3_1 .
+fro:Section_6_5_3 a fro:Section ;
+    fro:hasArticle fro:Article_6_5_3_1 ;
+    fro:hasID "6.5.3" ;
+    fro:hasOriginalText "Autonome stroombronnen."@nl .
 
-firebim:Article_6_5_3_1 a firebim:Article ;
-    firebim:hasID "A6.5.3.1" ;
-    firebim:hasMember firebim:Member_6_5_3_1_1,
-        firebim:Member_6_5_3_1_2 .
+fro:Article_6_5_3_1 a fro:Article ;
+    fro:hasID "A6.5.3.1" ;
+    fro:hasMember fro:Member_6_5_3_1_1,
+        fro:Member_6_5_3_1_2 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_6_5_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">stroomkringen</a> waarvan sprake in 6.5.2 moeten kunnen gevoed worden door één of meer <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">autonome stroombronnen</a>; het vermogen van die bronnen moet voldoende zijn om gelijktijdig alle aan die <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">stroomkringen</a> aangesloten <a href=\"http://example.com/firebimbuilding#ElectricalInstallation\">installaties</a> te voeden."""@nl .
+fro:Member_6_5_3_1_1 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">stroomkringen</a> waarvan sprake in 6.5.2 moeten kunnen gevoed worden door één of meer <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">autonome stroombronnen</a>; het vermogen van die bronnen moet voldoende zijn om gelijktijdig alle aan die <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">stroomkringen</a> aangesloten <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">installaties</a> te voeden."@nl .
 
-firebim:Member_6_5_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Zodra de <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">normale stroom</a> uitvalt, verzekeren de <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">autonome bronnen</a> automatisch en binnen één minuut, de <a href=\"http://example.com/firebimbuilding#OperationType\">werking</a> gedurende één uur van de bovenvermelde <a href=\"http://example.com/firebimbuilding#ElectricalInstallation\">installaties</a>."""@nl .
+fro:Member_6_5_3_1_2 a fro:Member ;
+    fro:hasOriginalText "Zodra de <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">normale stroom</a> uitvalt, verzekeren de <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">autonome bronnen</a> automatisch en binnen één minuut, de werking gedurende één uur van de bovenvermelde <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">installaties</a>."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

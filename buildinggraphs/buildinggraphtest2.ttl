@@ -2,7 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix firebim: <http://example.org/firebim#> .
+@prefix fro: <http://example.org/firebim#> .
 @prefix bot: <https://w3id.org/bot#> .
 @prefix bpo: <https://w3id.org/bpo#> .
 @prefix schema: <http://schema.org/> .
@@ -30,14 +30,14 @@ ex:Room_101 a bot:Space ;
 ex:FireDoor_101 a bot:Element, bpo:Product ;
     rdfs:label "Fire Door 101" ;
     bot:adjacentElement ex:Wall_101 ;
-    firebim:hasState ex:FireDoor_101_State ;
+    fro:hasState ex:FireDoor_101_State ;
     bpo:hasAttribute ex:FireDoor_101_FireRating, ex:FireDoor_101_Material ;
     geo:hasGeometry ex:FireDoor_101_Geometry .
 
 # Fire Door State
-ex:FireDoor_101_State a firebim:State ;
+ex:FireDoor_101_State a fro:State ;
     rdfs:label "Fire Door 101 State" ;
-    firebim:currentState "Closed" .
+    fro:currentState "Closed" .
 
 # Fire Door Attributes
 ex:FireDoor_101_FireRating a bpo:Attribute ;

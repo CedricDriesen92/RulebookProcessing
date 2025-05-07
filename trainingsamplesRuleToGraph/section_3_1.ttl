@@ -3,28 +3,28 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_3_1 a firebim:Section ;
-    firebim:hasID "3.1" ;
-    firebim:hasOriginalText "Doorvoeringen door wanden."@nl ;
-    firebim:hasArticle firebim:Article_3_1_1 .
+fro:Section_3_1 a fro:Section ;
+    fro:hasID "3.1" ;
+    fro:hasOriginalText "Doorvoeringen door wanden."@nl ;
+    fro:hasArticle fro:Article_3_1_1 .
 
-firebim:Section_3 firebim:hasSection firebim:Section_3_1 .
+fro:Section_3 fro:hasSection fro:Section_3_1 .
 
-firebim:Article_3_1_1 a firebim:Article ;
-    firebim:hasID "A3.1.1" ;
-    firebim:hasMember firebim:Member_3_1_1_1, firebim:Member_3_1_1_2 .
+fro:Article_3_1_1 a fro:Article ;
+    fro:hasID "A3.1.1" ;
+    fro:hasMember fro:Member_3_1_1_1, fro:Member_3_1_1_2 .
 
-firebim:Member_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen
+fro:Member_3_1_1_1 a fro:Member ;
+    fro:hasOriginalText """Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen
 van wanden mogen de vereiste brandweerstand van de bouwelementen niet nadelig beïnvloeden."""@nl .
 
-firebim:Member_3_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De bepalingen van bijlage 7 "Gemeenschappelijke bepalingen", hoofdstuk 1, zijn van toepassing."""@nl .
+fro:Member_3_1_1_2 a fro:Member ;
+    fro:hasOriginalText """De bepalingen van bijlage 7 "Gemeenschappelijke bepalingen", hoofdstuk 1, zijn van toepassing."""@nl .
 
-firebim:Member_3_1_1_2 firebim:hasReference firebim:Reference_Bijlage_7 .
+fro:Member_3_1_1_2 fro:hasReference fro:Reference_Bijlage_7 .
 
-firebim:Reference_Bijlage_7 a firebim:Reference ;
-    firebim:hasID "Bijlage 7" .
+fro:Reference_Bijlage_7 a fro:Reference ;
+    fro:hasID "Bijlage 7" .

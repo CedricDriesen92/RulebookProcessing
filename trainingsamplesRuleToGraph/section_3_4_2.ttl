@@ -3,38 +3,38 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_3_4_2 a firebim:Section ;
-    firebim:hasID "3.4.2" ;
-    firebim:hasArticle firebim:Article_3_4_2_1.
+fro:Section_3_4_2 a fro:Section ;
+    fro:hasID "3.4.2" ;
+    fro:hasArticle fro:Article_3_4_2_1.
 
-firebim:Section_3_4 firebim:hasSection firebim:Section_3_4_2 .
+fro:Section_3_4 fro:hasSection fro:Section_3_4_2 .
 
-firebim:Article_3_4_2_1 a firebim:Article ;
-    firebim:hasID "A3.4.2.1" ;
-    firebim:hasMember firebim:Member_3_4_2_1_1, firebim:Member_3_4_2_1_2 .
+fro:Article_3_4_2_1 a fro:Article ;
+    fro:hasID "A3.4.2.1" ;
+    fro:hasMember fro:Member_3_4_2_1_1, fro:Member_3_4_2_1_2 .
 
-firebim:Member_3_4_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De wanden waarvoor brandwerendheid vereist is, lopen door in de ruimte tussen het plafond en
+fro:Member_3_4_2_1_1 a fro:Member ;
+    fro:hasOriginalText """De wanden waarvoor brandwerendheid vereist is, lopen door in de ruimte tussen het plafond en
 het verlaagd plafond."""@nl .
 
-firebim:Member_3_4_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Indien de ruimte tussen het plafond en het verlaagd plafond niet is uitgerust met een automatische
+fro:Member_3_4_2_1_2 a fro:Member ;
+    fro:hasOriginalText """Indien de ruimte tussen het plafond en het verlaagd plafond niet is uitgerust met een automatische
 blusinstallatie, moet deze ruimte worden verdeeld in volumes waarvan de horizontale projectie kan
 ingeschreven worden in een vierkant van maximum 25 m zijde."""@nl ;
-    firebim:hasMember firebim:Member_3_4_2_1_2_1 .
+    fro:hasMember fro:Member_3_4_2_1_2_1 .
 
-firebim:Member_3_4_2_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "Deze volumes worden gescheiden door verticale schermen met de volgende kenmerken:"@nl ;
-    firebim:hasMember firebim:Member_3_4_2_1_2_1_1, firebim:Member_3_4_2_1_2_1_2, firebim:Member_3_4_2_1_2_1_3 .
+fro:Member_3_4_2_1_2_1 a fro:Member ;
+    fro:hasOriginalText "Deze volumes worden gescheiden door verticale schermen met de volgende kenmerken:"@nl ;
+    fro:hasMember fro:Member_3_4_2_1_2_1_1, fro:Member_3_4_2_1_2_1_2, fro:Member_3_4_2_1_2_1_3 .
 
-firebim:Member_3_4_2_1_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;"@nl .
+fro:Member_3_4_2_1_2_1_1 a fro:Member ;
+    fro:hasOriginalText "zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;"@nl .
 
-firebim:Member_3_4_2_1_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText "zij beslaan de gehele ruimte tussen de leidingen;"@nl .
+fro:Member_3_4_2_1_2_1_2 a fro:Member ;
+    fro:hasOriginalText "zij beslaan de gehele ruimte tussen de leidingen;"@nl .
 
-firebim:Member_3_4_2_1_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText "zij hebben EI 30."@nl .
+fro:Member_3_4_2_1_2_1_3 a fro:Member ;
+    fro:hasOriginalText "zij hebben EI 30."@nl .

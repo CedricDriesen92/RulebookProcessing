@@ -216,11 +216,11 @@ def load_articles_from_graph(graph_path):
     query = """
     SELECT DISTINCT ?article ?articleText ?member ?memberText
     WHERE {
-        ?article a firebim:Article .
-        OPTIONAL { ?article firebim:hasOriginalText ?articleText }
+        ?article a fro:Article .
+        OPTIONAL { ?article fro:hasOriginalText ?articleText }
         OPTIONAL {
-            ?article firebim:hasMember+ ?member .
-            ?member firebim:hasOriginalText ?memberText
+            ?article fro:hasMember+ ?member .
+            ?member fro:hasOriginalText ?memberText
         }
     }
     ORDER BY ?article ?member

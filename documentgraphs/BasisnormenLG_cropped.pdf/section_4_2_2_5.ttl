@@ -1,25 +1,26 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_4_2_2_5 a firebim:Section ;
-    firebim:hasID "4.2.2.5" ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#Staircase">trappenhuizen</a> die de <a href="http://example.com/firebimbuilding#UndergroundFloor">ondergrondse bouwlagen</a> bedienen, mogen niet rechtstreeks het verlengde zijn van degene die de <a href="http://example.com/firebimbuilding#Floor">bouwlagen</a> boven een <a href="http://example.com/firebimbuilding#EvacuationLevel">evacuatieniveau</a> bedienen.
-Dit sluit niet uit dat het ene boven het andere mag liggen, mits volgende voorwaarden:"""@nl ;
-    firebim:hasArticle firebim:Article_4_2_2_5_1 .
+fro:Section_4_2_2_5 a fro:Section ;
+    fro:hasArticle fro:Article_4_2_2_5_1 ;
+    fro:hasID "4.2.2.5" ;
+    fro:hasOriginalText """De <a href="http://example.com/firebimbuilding#Staircase">trappenhuizen</a> die de <a href="http://example.com/firebimbuilding#UndergroundFloor">ondergrondse bouwlagen</a> bedienen, mogen niet rechtstreeks het verlengde zijn van degene die de bouwlagen boven een <a href="http://example.com/firebimbuilding#EvacuationLevel">evacuatieniveau</a> bedienen.
+Dit sluit niet uit dat het ene boven het andere mag liggen, mits volgende voorwaarden:"""@nl .
 
-firebim:Section_4_2_2 firebim:hasSection firebim:Section_4_2_2_5 .
+fro:Article_4_2_2_5_1 a fro:Article ;
+    fro:hasID "A4.2.2.5.1" ;
+    fro:hasMember fro:Member_4_2_2_5_1_1,
+        fro:Member_4_2_2_5_1_2 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Article_4_2_2_5_1 a firebim:Article ;
-    firebim:hasID "A4.2.2.5.1" ;
-    firebim:hasMember firebim:Member_4_2_2_5_1_1, firebim:Member_4_2_2_5_1_2 .
+fro:Member_4_2_2_5_1_1 a fro:Member ;
+    fro:hasOriginalText "1. de <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> die ze scheiden hebben <a href=\"http://example.com/firebimbuilding#FireResistance\">EI 60</a>."@nl .
 
-firebim:Member_4_2_2_5_1_1 a firebim:Member ;
-    firebim:hasOriginalText """1. de <a href="http://example.com/firebimbuilding#SeparationWall">wanden</a> die ze scheiden hebben <a href="http://example.com/firebimbuilding#WallFireResistance">EI 60</a>."""@nl .
+fro:Member_4_2_2_5_1_2 a fro:Member ;
+    fro:hasOriginalText "2. de toegang tot ieder trappenhuis geschiedt via een <a href=\"http://example.com/firebimbuilding#Door\">zelfsluitende</a> of <a href=\"http://example.com/firebimbuilding#IsFireActivatedClosing\">bij brand zelfsluitende</a> <a href=\"http://example.com/firebimbuilding#Door\">deur</a> <a href=\"http://example.com/firebimbuilding#FireResistance\">EI1 30</a>."@nl .
 
-firebim:Member_4_2_2_5_1_2 a firebim:Member ;
-    firebim:hasOriginalText """2. de <a href="http://example.com/firebimbuilding#Access">toegang</a> tot ieder <a href="http://example.com/firebimbuilding#Staircase">trappenhuis</a> geschiedt via een <a href="http://example.com/firebimbuilding#IsSelfClosing">zelfsluitende</a> of <a href="http://example.com/firebimbuilding#IsFireActivatedClosing">bij brand zelfsluitende</a> <a href="http://example.com/firebimbuilding#Door">deur</a> <a href="http://example.com/firebimbuilding#DoorFireResistance">EI1 30</a>."""@nl .
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

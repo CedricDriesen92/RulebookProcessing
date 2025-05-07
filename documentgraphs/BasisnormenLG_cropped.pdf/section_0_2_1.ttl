@@ -1,45 +1,41 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_0_2_1 a firebim:Section ;
-    firebim:hasID "0.2.1" ;
-    firebim:hasArticle firebim:Article_0_2_1_1 .
+fro:Section_0_2_1 a fro:Section ;
+    fro:hasArticle fro:Article_0_2_1_1 ;
+    fro:hasID "0.2.1" .
 
-firebim:Article_0_2_1_1 a firebim:Article ;
-    firebim:hasID "A0.2.1.1" ;
-    firebim:hasOriginalText """Deze bijlage is van toepassing op de volgende op te richten <a href="http://example.com/firebimbuilding#Building">gebouwen</a> en de volgende <a href="http://example.com/firebimbuilding#BuildingExtension">uitbreidingen van bestaande gebouwen</a>, waarvoor de aanvraag voor de bouw wordt ingediend vanaf 1 december 2012:"""@nl ;
-    firebim:hasMember firebim:Member_0_2_1_1_1,
-        firebim:Member_0_2_1_1_2,
-        firebim:Member_0_2_1_1_3 .
+fro:Article_0_2_1_1 a fro:Article ;
+    fro:hasID "A0.2.1.1" ;
+    fro:hasMember fro:Member_0_2_1_1_1,
+        fro:Member_0_2_1_1_2,
+        fro:Member_0_2_1_1_3 ;
+    fro:hasOriginalText "Deze bijlage is van toepassing op de volgende op te richten <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> en de volgende <a href=\"http://example.com/firebimbuilding#BuildingExtension\">uitbreidingen van bestaande gebouwen</a>, waarvoor de aanvraag voor de bouw wordt ingediend vanaf 1 december 2012:"@nl ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_0_2_1_1_1 a firebim:Member ;
-    firebim:hasID "M0.2.1.1.1" ;
-    firebim:hasOriginalText "1. de <a href=\"http://example.com/firebimbuilding#Building\">lage gebouwen</a>;"@nl .
+fro:Member_0_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "1. de lage gebouwen;"@nl .
 
-firebim:Member_0_2_1_1_2 a firebim:Member ;
-    firebim:hasID "M0.2.1.1.2" ;
-    firebim:hasOriginalText "2. de <a href=\"http://example.com/firebimbuilding#BuildingExtension\">uitbreidingen van gebouwen</a> die na realisatie een laag gebouw zijn;"@nl .
+fro:Member_0_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "2. de uitbreidingen van <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> die na realisatie een laag gebouw zijn;"@nl .
 
-firebim:Member_0_2_1_1_3 a firebim:Member ;
-    firebim:hasID "M0.2.1.1.3" ;
-    firebim:hasOriginalText """3. de <a href="http://example.com/firebimbuilding#Room">lokalen</a> of delen van <a href="http://example.com/firebimbuilding#Building">lage gebouwen</a> waarin een <a href="http://example.com/firebimbuilding#IndustrialActivity">industriële activiteit</a> plaatsvindt en waarvan de totale <a href="http://example.com/firebimbuilding#TotalArea">oppervlakte</a> kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:"""@nl ;
-    firebim:hasMember firebim:Member_0_2_1_1_3_1,
-        firebim:Member_0_2_1_1_3_2,
-        firebim:Member_0_2_1_1_3_3 .
+fro:Member_0_2_1_1_3 a fro:Member ;
+    fro:hasMember fro:Member_0_2_1_1_3_1,
+        fro:Member_0_2_1_1_3_2,
+        fro:Member_0_2_1_1_3_3 ;
+    fro:hasOriginalText "3. de <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> of delen van lage gebouwen waarin een <a href=\"http://example.com/firebimbuilding#IndustrialActivity\">industriële activiteit</a> plaatsvindt en waarvan de <a href=\"http://example.com/firebimbuilding#TotalArea\">totale oppervlakte</a> kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:"@nl .
 
-firebim:Member_0_2_1_1_3_1 a firebim:Member ;
-    firebim:hasID "M0.2.1.1.3.1" ;
-    firebim:hasOriginalText """- in het <a href="http://example.com/firebimbuilding#Building">gebouw</a> hoofdzakelijk <a href="http://example.com/firebimbuilding#NonIndustrialActivity">niet-industriële activiteiten</a> plaats vinden en de totale <a href="http://example.com/firebimbuilding#TotalArea">oppervlakte</a> van de <a href="http://example.com/firebimbuilding#Room">lokalen</a> met <a href="http://example.com/firebimbuilding#IndustrialActivity">industriële activiteit</a> kleiner is dan de overblijvende <a href="http://example.com/firebimbuilding#TotalArea">oppervlakte</a> van het <a href="http://example.com/firebimbuilding#Building">gebouw</a>;"""@nl .
+fro:Member_0_2_1_1_3_1 a fro:Member ;
+    fro:hasOriginalText "- in het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> hoofdzakelijk <a href=\"http://example.com/firebimbuilding#NonIndustrialActivity\">niet-industriële activiteiten</a> plaats vinden en de <a href=\"http://example.com/firebimbuilding#TotalArea\">totale oppervlakte</a> van de <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> met <a href=\"http://example.com/firebimbuilding#IndustrialActivity\">industriële activiteit</a> kleiner is dan de overblijvende <a href=\"http://example.com/firebimbuilding#TotalArea\">oppervlakte</a> van het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a>;"@nl .
 
-firebim:Member_0_2_1_1_3_2 a firebim:Member ;
-    firebim:hasID "M0.2.1.1.3.2" ;
-    firebim:hasOriginalText """- de <a href="http://example.com/firebimbuilding#IndustrialActivity">industriële activiteiten</a> in deze <a href="http://example.com/firebimbuilding#Room">lokalen</a> de <a href="http://example.com/firebimbuilding#NonIndustrialActivity">niet-industriële activiteiten</a> in hetzelfde <a href="http://example.com/firebimbuilding#Compartment">compartiment</a> ondersteunen;"""@nl .
+fro:Member_0_2_1_1_3_2 a fro:Member ;
+    fro:hasOriginalText "- de <a href=\"http://example.com/firebimbuilding#IndustrialActivity\">industriële activiteiten</a> in deze <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> de <a href=\"http://example.com/firebimbuilding#NonIndustrialActivity\">niet-industriële activiteiten</a> in hetzelfde <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> ondersteunen;"@nl .
 
-firebim:Member_0_2_1_1_3_3 a firebim:Member ;
-    firebim:hasID "M0.2.1.1.3.3" ;
-    firebim:hasOriginalText """- er geen <a href="http://example.com/firebimbuilding#Room">lokalen</a> met <a href="http://example.com/firebimbuilding#NightOccupancy">nachtbezetting</a> zijn in het <a href="http://example.com/firebimbuilding#Compartment">compartiment</a> waarin er <a href="http://example.com/firebimbuilding#IndustrialActivity">industriële activiteiten</a> plaatsvinden."""@nl .
+fro:Member_0_2_1_1_3_3 a fro:Member ;
+    fro:hasOriginalText "- er geen <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> met <a href=\"http://example.com/firebimbuilding#NightOccupancy\">nachtbezetting</a> zijn in het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> waarin er <a href=\"http://example.com/firebimbuilding#IndustrialActivity\">industriële activiteiten</a> plaatsvinden."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

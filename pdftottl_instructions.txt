@@ -7,7 +7,7 @@ You are tasked with converting building code rulebook sections into Turtle (.ttl
 @prefix xml: <http://www.w3.org/XML/1998/namespace/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim#> .
 
 <http://example.com/firebim> rdf:type owl:Ontology ;
@@ -19,116 +19,123 @@ You are tasked with converting building code rulebook sections into Turtle (.ttl
 #################################################################
 
 ###  http://example.com/firebim#hasAppendix
-firebim:hasAppendix rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf firebim:hasSubdivision ;
-                    rdfs:domain firebim:DocumentSubdivision ;
-                    rdfs:range firebim:Appendix ;
+fro:hasAppendix rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf fro:hasSubdivision ;
+                    rdfs:domain fro:DocumentSubdivision ;
+                    rdfs:range fro:Appendix ;
                     rdfs:label "has appendix"@en .
 
 
 ###  http://example.com/firebim#hasArticle
-firebim:hasArticle rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf firebim:hasSubdivision ;
-                   rdfs:domain firebim:Section ;
-                   rdfs:range firebim:Article ;
+fro:hasArticle rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf fro:hasSubdivision ;
+                   rdfs:domain fro:Section ;
+                   rdfs:range fro:Article ;
                    rdfs:label "has article"@en .
 
 
 ###  http://example.com/firebim#hasBackwardReference
-firebim:hasBackwardReference rdf:type owl:ObjectProperty ;
-                             rdfs:subPropertyOf firebim:hasReference ;
-                             owl:inverseOf firebim:hasForwardReference ;
-                             rdfs:domain firebim:DocumentSubdivision ;
-                             rdfs:range firebim:DocumentSubdivision ;
+fro:hasBackwardReference rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf fro:hasReference ;
+                             owl:inverseOf fro:hasForwardReference ;
+                             rdfs:domain fro:DocumentSubdivision ;
+                             rdfs:range fro:DocumentSubdivision ;
                              rdfs:label "has backward reference"@en .
 
 
 ###  http://example.com/firebim#hasChapter
-firebim:hasChapter rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf firebim:hasSubdivision ;
-                   rdfs:domain firebim:DocumentSubdivision ;
-                   rdfs:range firebim:Chapter ;
+fro:hasChapter rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf fro:hasSubdivision ;
+                   rdfs:domain fro:DocumentSubdivision ;
+                   rdfs:range fro:Chapter ;
                    rdfs:label "has chapter"@en .
 
 
 ###  http://example.com/firebim#hasDocument
-firebim:hasDocument rdf:type owl:ObjectProperty ;
-                    rdfs:domain firebim:Authority ;
-                    rdfs:range firebim:Document ;
+fro:hasDocument rdf:type owl:ObjectProperty ;
+                    rdfs:domain fro:Authority ;
+                    rdfs:range fro:Document ;
                     rdfs:label "has document"@en .
 
 
 ###  http://example.com/firebim#hasFigure
-firebim:hasFigure rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf firebim:hasSubdivision ;
-                  rdfs:domain firebim:DocumentSubdivision ;
-                  rdfs:range firebim:Figure ;
+fro:hasFigure rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf fro:hasSubdivision ;
+                  rdfs:domain fro:DocumentSubdivision ;
+                  rdfs:range fro:Figure ;
                   rdfs:label "has figure"@en .
 
 
 ###  http://example.com/firebim#hasForwardReference
-firebim:hasForwardReference rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf firebim:hasReference ;
-                            rdfs:domain firebim:DocumentSubdivision ;
-                            rdfs:range firebim:DocumentSubdivision ;
+fro:hasForwardReference rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf fro:hasReference ;
+                            rdfs:domain fro:DocumentSubdivision ;
+                            rdfs:range fro:DocumentSubdivision ;
                             rdfs:label "has forward reference"@en .
 
 
 ###  http://example.com/firebim#hasMember
-firebim:hasMember rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf firebim:hasSubdivision ;
-                  rdfs:domain firebim:Article ,
-                              firebim:Member ;
-                  rdfs:range firebim:Member ;
+fro:hasMember rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf fro:hasSubdivision ;
+                  rdfs:domain fro:Article ,
+                              fro:Member ;
+                  rdfs:range fro:Member ;
                   rdfs:label "has member"@en .
 
 
 ###  http://example.com/firebim#hasParagraph
-firebim:hasParagraph rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf firebim:hasSubdivision ;
-                     rdfs:domain firebim:DocumentSubdivision ;
-                     rdfs:range firebim:Paragraph ;
+fro:hasParagraph rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf fro:hasSubdivision ;
+                     rdfs:domain fro:DocumentSubdivision ;
+                     rdfs:range fro:Paragraph ;
                      rdfs:label "has paragraph"@en .
 
 
 ###  http://example.com/firebim#hasReference
-firebim:hasReference rdf:type owl:ObjectProperty ;
-                     rdfs:domain firebim:DocumentSubdivision ;
-                     rdfs:range firebim:DocumentSubdivision ,
-                                firebim:Reference ;
+fro:hasReference rdf:type owl:ObjectProperty ;
+                     rdfs:domain fro:DocumentSubdivision ;
+                     rdfs:range fro:DocumentSubdivision ,
+                                fro:Reference ;
                      rdfs:label "has reference"@en .
 
 
 ###  http://example.com/firebim#hasSection
-firebim:hasSection rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf firebim:hasSubdivision ;
-                   rdfs:domain firebim:DocumentSubdivision ;
-                   rdfs:range firebim:Section ;
+fro:hasSection rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf fro:hasSubdivision ;
+                   rdfs:domain fro:DocumentSubdivision ;
+                   rdfs:range fro:Section ;
                    rdfs:label "has section"@en .
 
 
 ###  http://example.com/firebim#hasSubchapter
-firebim:hasSubchapter rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf firebim:hasSubdivision ;
-                      rdfs:domain firebim:DocumentSubdivision ;
-                      rdfs:range firebim:Subchapter ;
+fro:hasSubchapter rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf fro:hasSubdivision ;
+                      rdfs:domain fro:DocumentSubdivision ;
+                      rdfs:range fro:Subchapter ;
                       rdfs:label "has subchapter"@en .
 
 
 ###  http://example.com/firebim#hasSubdivision
-firebim:hasSubdivision rdf:type owl:ObjectProperty ,
+fro:hasSubdivision rdf:type owl:ObjectProperty ,
                                 owl:TransitiveProperty ;
-                       rdfs:domain firebim:DocumentSubdivision ;
-                       rdfs:range firebim:DocumentSubdivision ;
+                       rdfs:domain fro:DocumentSubdivision ;
+                       rdfs:range fro:DocumentSubdivision ;
                        rdfs:label "has subdivision"@en .
 
 
 ###  http://example.com/firebim#hasTable
-firebim:hasTable rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf firebim:hasSubdivision ;
-                 rdfs:domain firebim:DocumentSubdivision ;
-                 rdfs:range firebim:Table ;
+fro:hasTable rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf fro:hasSubdivision ;
+                 rdfs:domain fro:DocumentSubdivision ;
+                 rdfs:range fro:Table ;
                  rdfs:label "has table"@en .
+
+
+### http://example.com/firebim#hasVersion
+fro:hasVersion rdf:type owl:ObjectProperty ;
+                   rdfs:domain fro:Article ;
+                   rdfs:range fro:Version ;
+                   rdfs:label "has version"@en .
 
 
 #################################################################
@@ -136,31 +143,52 @@ firebim:hasTable rdf:type owl:ObjectProperty ;
 #################################################################
 
 ###  http://example.com/firebim#hasID
-firebim:hasID rdf:type owl:DatatypeProperty ;
-              rdfs:domain firebim:DocumentSubdivision ;
+fro:hasID rdf:type owl:DatatypeProperty ;
+              rdfs:domain fro:DocumentSubdivision ;
               rdfs:range xsd:string ;
               rdfs:label "has ID"@en .
 
 
 ###  http://example.com/firebim#hasOriginalText
-firebim:hasOriginalText rdf:type owl:DatatypeProperty ;
-                        rdfs:domain firebim:DocumentSubdivision ;
+fro:hasOriginalText rdf:type owl:DatatypeProperty ;
+                        rdfs:domain fro:DocumentSubdivision ;
                         rdfs:range xsd:string ;
                         rdfs:label "has original text"@en .
 
 
 ###  http://example.com/firebim#issued
-firebim:issued rdf:type owl:DatatypeProperty ;
-               rdfs:domain firebim:Document ;
+fro:issued rdf:type owl:DatatypeProperty ;
+               rdfs:domain fro:Document ;
                rdfs:range xsd:dateTime ;
                rdfs:label "issued"@en .
 
 
 ###  http://example.com/firebim#hasKeyword
-firebim:hasKeyword rdf:type owl:ObjectProperty ;
-                    rdfs:domain firebim:DocumentSubdivision ;
-                    rdfs:range firebim:Keyword ;
+fro:hasKeyword rdf:type owl:ObjectProperty ;
+                    rdfs:domain fro:DocumentSubdivision ;
+                    rdfs:range fro:Keyword ;
                     rdfs:label "has keyword"@en .
+
+
+### http://example.com/firebim#hasDate
+fro:hasDate rdf:type owl:DatatypeProperty ;
+                rdfs:domain fro:Version ;
+                rdfs:range xsd:dateTime ;
+                rdfs:label "has date"@en .
+
+
+### http://example.com/firebim#hasVersionNumber
+fro:hasVersionNumber rdf:type owl:DatatypeProperty ;
+                         rdfs:domain fro:Version ;
+                         rdfs:range xsd:string ;
+                         rdfs:label "has version number"@en .
+
+
+### http://example.com/firebim#hasDescription
+fro:hasDescription rdf:type owl:DatatypeProperty ;
+                       rdfs:domain fro:Version ;
+                       rdfs:range xsd:string ;
+                       rdfs:label "has description"@en .
 
 
 #################################################################
@@ -168,96 +196,102 @@ firebim:hasKeyword rdf:type owl:ObjectProperty ;
 #################################################################
 
 ###  http://example.com/firebim#Appendix
-firebim:Appendix rdf:type owl:Class ;
-                 rdfs:subClassOf firebim:Section ;
+fro:Appendix rdf:type owl:Class ;
+                 rdfs:subClassOf fro:Section ;
                  rdfs:label "Appendix"@en .
 
 
 ###  http://example.com/firebim#Article
-firebim:Article rdf:type owl:Class ;
-                rdfs:subClassOf firebim:DocumentSubdivision ;
+fro:Article rdf:type owl:Class ;
+                rdfs:subClassOf fro:DocumentSubdivision ;
                 rdfs:comment "A separate rule \"article\", a subdivision of a section as the smallest containing text of a rule."@en ;
                 rdfs:label "Article"@en .
 
 
 ###  http://example.com/firebim#Authority
-firebim:Authority rdf:type owl:Class ;
+fro:Authority rdf:type owl:Class ;
                   rdfs:comment "Represents the legal body that publishes and maintains the regulatory document"@en ;
                   rdfs:label "Authority"@en .
 
 
 ###  http://example.com/firebim#Chapter
-firebim:Chapter rdf:type owl:Class ;
-                rdfs:subClassOf firebim:Section ;
+fro:Chapter rdf:type owl:Class ;
+                rdfs:subClassOf fro:Section ;
                 rdfs:label "Chapter"@en .
 
 
 ###  http://example.com/firebim#Document
-firebim:Document rdf:type owl:Class ;
-                 rdfs:subClassOf firebim:DocumentSubdivision ;
+fro:Document rdf:type owl:Class ;
+                 rdfs:subClassOf fro:DocumentSubdivision ;
                  rdfs:comment "The individual document containing the rules, this can be a law, guidelines, etc."@en ;
                  rdfs:label "Document"@en .
 
 
 ###  http://example.com/firebim#DocumentSubdivision
-firebim:DocumentSubdivision rdf:type owl:Class ;
+fro:DocumentSubdivision rdf:type owl:Class ;
                             rdfs:comment "Represents documents or parts of documents"@en ;
                             rdfs:label "Document Subdivision"@en .
 
 
 ###  http://example.com/firebim#Figure
-firebim:Figure rdf:type owl:Class ;
-               rdfs:subClassOf firebim:Section ;
+fro:Figure rdf:type owl:Class ;
+               rdfs:subClassOf fro:Section ;
                rdfs:label "Figure"@en .
 
 
 ###  http://example.com/firebim#Member
-firebim:Member rdf:type owl:Class ;
-               rdfs:subClassOf firebim:DocumentSubdivision ;
+fro:Member rdf:type owl:Class ;
+               rdfs:subClassOf fro:DocumentSubdivision ;
                rdfs:comment "Typically holds the one or multiple bodies of text that an article exists of, the individual rule conditions."@en ;
                rdfs:label "Member"@en .
 
 
 ###  http://example.com/firebim#Paragraph
-firebim:Paragraph rdf:type owl:Class ;
-                  rdfs:subClassOf firebim:Section ;
+fro:Paragraph rdf:type owl:Class ;
+                  rdfs:subClassOf fro:Section ;
                   rdfs:label "Paragraph"@en .
 
 
 ###  http://example.com/firebim#Reference
-firebim:Reference rdf:type owl:Class ;
+fro:Reference rdf:type owl:Class ;
                   rdfs:comment "Represents references to other representations of the regulation, or similar regulations"@en ;
                   rdfs:label "Reference"@en .
 
 
 ###  http://example.com/firebim#Section
-firebim:Section rdf:type owl:Class ;
-                rdfs:subClassOf firebim:DocumentSubdivision ;
+fro:Section rdf:type owl:Class ;
+                rdfs:subClassOf fro:DocumentSubdivision ;
                 rdfs:comment "Any subdivision of a document, wether it's a large section itself, a subsection, a table, a figure, a paragraph..."@en ;
                 rdfs:label "Section"@en .
 
 
 ###  http://example.com/firebim#Subchapter
-firebim:Subchapter rdf:type owl:Class ;
-                   rdfs:subClassOf firebim:Section ;
+fro:Subchapter rdf:type owl:Class ;
+                   rdfs:subClassOf fro:Section ;
                    rdfs:label "Subchapter"@en .
 
 
 ###  http://example.com/firebim#Table
-firebim:Table rdf:type owl:Class ;
-              rdfs:subClassOf firebim:Section ;
+fro:Table rdf:type owl:Class ;
+              rdfs:subClassOf fro:Section ;
               rdfs:label "Table"@en .
 
 
 ###  http://example.com/firebim#Keyword
-firebim:Keyword rdf:type owl:Class ;
+fro:Keyword rdf:type owl:Class ;
                rdfs:label "Keyword" .
+
+
+### http://example.com/firebim#Version
+fro:Version rdf:type owl:Class ;
+                rdfs:comment "Represents a specific version of an article, including metadata like date and description."@en ;
+                rdfs:label "Version"@en .
 
 
 Here is some more info on the firebim ontology and how you should use it:
 
-The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the firebim:Authority (which represents the legal body that publishes and maintains the regulatory document), the firebim:DocumentSubdivision (which represents documents or parts of documents), and the firebim:Reference (which represents references to other representations of the regulation, or similar regulations). The firebim:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
-The created data graph should be modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can contain submembers, or they can have references to other members, using the firebim:hasBackwardReference and firebim:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
+The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the fro:Authority (which represents the legal body that publishes and maintains the regulatory document), the fro:DocumentSubdivision (which represents documents or parts of documents), and the fro:Reference (which represents references to other representations of the regulation, or similar regulations). The fro:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
+The created data graph should be modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can contain submembers, or they can have references to other members, using the fro:hasBackwardReference and fro:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
 
 Not every section needs to have their own sections/articles/members, if the section text is empty no articles are needed...
 In your .ttl, if your section is not a base numbered section (i.e. 0, 1, 2...) make a hasSection from the parent section to this section. Adding all originaltext, in order, from all DocumentSubdivisions should recreate the rules part of the document. For the section itself don't include the full originaltext, only the titles. Make everything that includes a subdivision of the title (e.g. 4.3.1.2 if you are doing section 4.3.1) its own section with as originaltext the title attached to the number, with the following text split up in articles, split up in members. NEVER repeat text, it should ALWAYS be used only once, ALL originaltext will be added automatically so any doubles ruin the format.
@@ -270,915 +304,915 @@ For text spanning multiple lines make sure to use triple quotes, as single codes
 Format text to be logical, don't change the content but fix any obvious formatting errors.
 Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be combined with the .ttl files for the other sections, as well as the base file defining the authority and document this section is from:
 
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-firebim:Belgian_Government a firebim:Authority ;
-    firebim:hasDocument firebim:RoyalDecree .
-
-firebim:Section_0 firebim:hasSection firebim:Section_0_1,
-        firebim:Section_0_2,
-        firebim:Section_0_3 .
-
-firebim:RoyalDecree a firebim:Document ;
-    firebim:hasID "RoyalDecree1994" ;
-    firebim:hasSection firebim:Section_1,
-        firebim:Section_2,
-        firebim:Section_3,
-        firebim:Section_4,
-        firebim:Section_5,
-        firebim:Section_6 ;
-    firebim:issued "1994-07-07"^^xsd:date .
-
-firebim:Section_0_1 a firebim:Section ;
-    firebim:hasID "0.1" ;
-    firebim:hasOriginalText "DOEL." .
-
-firebim:Section_0_2 a firebim:Section ;
-    firebim:hasID "0.2" ;
-    firebim:hasOriginalText "TOEPASSINGSGEBIED." ;
-    firebim:hasSection firebim:Section_0_2_1,
-        firebim:Section_0_2_2 .
-
-firebim:Section_0_2_1 a firebim:Section ;
-    firebim:hasID "0.2.1" ;
-    firebim:hasOriginalText "DEZE BIJLAGE IS VAN TOEPASSING OP DE VOLGENDE OP TE RICHTEN GEBOUWEN EN DE VOLGENDE UITBREIDINGEN VAN BESTAANDE GEBOUWEN, WAARVOOR DE AANVRAAG VOOR DE BOUW WORDT INGEDIEND VANAF 1 DECEMBER 2012:" .
-
-firebim:Section_0_2_2 a firebim:Section ;
-    firebim:hasID "0.2.2" ;
-    firebim:hasOriginalText "UITGESLOTEN VAN HET TOEPASSINGSGEBIED VAN DEZE BIJLAGE ZIJN ECHTER:" .
-
-firebim:Section_0_3 a firebim:Section ;
-    firebim:hasID "0.3" ;
-    firebim:hasOriginalText "PLATEN" .
-
-firebim:Section_1 a firebim:Section ;
-    firebim:hasID "1" ;
-    firebim:hasOriginalText "INPLANTING EN TOEGANGSWEGEN." ;
-    firebim:hasSection firebim:Section_1_1,
-        firebim:Section_1_2,
-        firebim:Section_1_3 .
-
-firebim:Section_1_1 a firebim:Section ;
-    firebim:hasID "1.1" ;
-    firebim:hasOriginalText "BEREIKBAARHEID EN OPSTELMOGELIJKHEDEN BRANDWEER" .
-
-firebim:Section_1_2 a firebim:Section ;
-    firebim:hasID "1.2" ;
-    firebim:hasOriginalText "BIJGEBOUWEN" .
-
-firebim:Section_1_3 a firebim:Section ;
-    firebim:hasID "1.3" ;
-    firebim:hasOriginalText "HORIZONTALE AFSTAND TUSSEN GEBOUWEN" .
-
-firebim:Section_2 a firebim:Section ;
-    firebim:hasID "2" ;
-    firebim:hasOriginalText "COMPARTIMENTERING EN EVACUATIE." ;
-    firebim:hasSection firebim:Section_2_1,
-        firebim:Section_2_2 .
-
-firebim:Section_2_1 a firebim:Section ;
-    firebim:hasID "2.1" ;
-    firebim:hasOriginalText "GROOTTE VAN DE COMPARTIMENTEN" .
-
-firebim:Section_2_2 a firebim:Section ;
-    firebim:hasID "2.2" ;
-    firebim:hasOriginalText "EVACUATIE VAN DE COMPARTIMENTEN." ;
-    firebim:hasSection firebim:Section_2_2_1,
-        firebim:Section_2_2_2 .
-
-firebim:Section_2_2_1 a firebim:Section ;
-    firebim:hasID "2.2.1" ;
-    firebim:hasOriginalText "AANTAL UITGANGEN." .
-
-firebim:Section_2_2_2 a firebim:Section ;
-    firebim:hasID "2.2.2" ;
-    firebim:hasOriginalText "DE UITGANGEN." .
-
-firebim:Section_3 a firebim:Section ;
-    firebim:hasID "3" ;
-    firebim:hasOriginalText "VOORSCHRIFTEN VOOR SOMMIGE BOUWELEMENTEN." ;
-    firebim:hasSection firebim:Section_3_1,
-        firebim:Section_3_2,
-        firebim:Section_3_3,
-        firebim:Section_3_4,
-        firebim:Section_3_5 .
-
-firebim:Section_3_1 a firebim:Section ;
-    firebim:hasID "3.1" ;
-    firebim:hasOriginalText "DOORVOERINGEN DOOR WANDEN." .
-
-firebim:Section_3_2 a firebim:Section ;
-    firebim:hasID "3.2" ;
-    firebim:hasOriginalText "STRUCTURELE ELEMENTEN." .
-
-firebim:Section_3_3 a firebim:Section ;
-    firebim:hasID "3.3" ;
-    firebim:hasOriginalText "VERTICALE BINNENWANDEN EN BINNENDEUREN." .
-
-firebim:Section_3_4 a firebim:Section ;
-    firebim:hasID "3.4" ;
-    firebim:hasOriginalText "PLAFONDS EN VERLAAGDE PLAFONDS." ;
-    firebim:hasSection firebim:Section_3_4_1,
-        firebim:Section_3_4_2 .
-
-firebim:Section_3_4_1 a firebim:Section ;
-    firebim:hasID "3.4.1" ;
-    firebim:hasOriginalText "IN DE EVACUATIEWEGEN, DE VOOR HET PUBLIEK TOEGANKELIJKE LOKALEN EN DE COLLECTIEVE KEUKENS HEBBEN DE VERLAAGDE PLAFONDS EI 30 (A B), EI 30 (B A) OF EI 30 (A ↔ B) VOLGENS NBN EN 13501-2 EN NBN EN 1364-2 OF HEBBEN EEN STABILITEIT BIJ BRAND VAN EEN ½ H VOLGENS NBN 713-020." .
-
-firebim:Section_3_4_2 a firebim:Section ;
-    firebim:hasID "3.4.2" ;
-    firebim:hasOriginalText "DE WANDEN WAARVOOR BRANDWERENDHEID VEREIST IS, LOPEN DOOR IN DE RUIMTE TUSSEN HET PLAFOND EN HET VERLAAGD PLAFOND." .
-
-firebim:Section_3_5 a firebim:Section ;
-    firebim:hasID "3.5" ;
-    firebim:hasOriginalText "GEVELS" ;
-    firebim:hasSection firebim:Section_3_5_1,
-        firebim:Section_3_5_2 .
-
-firebim:Section_3_5_1 a firebim:Section ;
-    firebim:hasID "3.5.1" ;
-    firebim:hasOriginalText "ENKELWANDIGE GEVELS" ;
-    firebim:hasSection firebim:Section_3_5_1_1,
-        firebim:Section_3_5_1_2 .
-
-firebim:Section_3_5_1_1 a firebim:Section ;
-    firebim:hasID "3.5.1.1" ;
-    firebim:hasOriginalText "SCHEIDING TUSSEN COMPARTIMENTEN" .
-
-firebim:Section_3_5_1_2 a firebim:Section ;
-    firebim:hasID "3.5.1.2" ;
-    firebim:hasOriginalText "TEGENOVER ELKAAR STAANDE GEVELS EN GEVELS DIE EEN TWEEVLAKSHOEK VORMEN" .
-
-firebim:Section_3_5_2 a firebim:Section ;
-    firebim:hasID "3.5.2" ;
-    firebim:hasOriginalText "DUBBELWANDIGE GEVELS." ;
-    firebim:hasSection firebim:Section_3_5_2_1,
-        firebim:Section_3_5_2_2,
-        firebim:Section_3_5_2_3 .
-
-firebim:Section_3_5_2_1 a firebim:Section ;
-    firebim:hasID "3.5.2.1" ;
-    firebim:hasOriginalText "DUBBELWANDIGE GEVEL DIE ONDERBROKEN WORDT DOOR EEN COMPARTIMENTERING." .
-
-firebim:Section_3_5_2_2 a firebim:Section ;
-    firebim:hasID "3.5.2.2" ;
-    firebim:hasOriginalText "DUBBELWANDIGE GEVEL ZONDER COMPARTIMENTERING." ;
-    firebim:hasSection firebim:Section_3_5_2_2_1,
-        firebim:Section_3_5_2_2_2 .
-
-firebim:Section_3_5_2_2_1 a firebim:Section ;
-    firebim:hasID "3.5.2.2.1" ;
-    firebim:hasOriginalText "DUBBELWANDIGE GEVEL WAARVAN DE BINNENWAND BRANDWEREND IS." .
-
-firebim:Section_3_5_2_2_2 a firebim:Section ;
-    firebim:hasID "3.5.2.2.2" ;
-    firebim:hasOriginalText "DUBBELWANDIGE GEVEL NAAR BUITEN TOE OPEN." .
-
-firebim:Section_3_5_2_3 a firebim:Section ;
-    firebim:hasID "3.5.2.3" ;
-    firebim:hasOriginalText "AUTOMATISCHE SLUITINGS- / OPENINGSSYSTEMEN." ;
-    firebim:hasSection firebim:Section_3_5_2_3_1,
-        firebim:Section_3_5_2_3_2,
-        firebim:Section_3_5_2_3_3 .
-
-firebim:Section_3_5_2_3_1 a firebim:Section ;
-    firebim:hasID "3.5.2.3.1" ;
-    firebim:hasOriginalText "BEDIENING" .
-
-firebim:Section_3_5_2_3_2 a firebim:Section ;
-    firebim:hasID "3.5.2.3.2" ;
-    firebim:hasOriginalText "BEDRIJFSZEKERHEID." .
-
-firebim:Section_3_5_2_3_3 a firebim:Section ;
-    firebim:hasID "3.5.2.3.3" ;
-    firebim:hasOriginalText "WERKING BIJ BRAND IN EEN NABURIG COMPARTIMENT." .
-
-firebim:Section_4 a firebim:Section ;
-    firebim:hasID "4" ;
-    firebim:hasOriginalText "VOORSCHRIFTEN INZAKE CONSTRUCTIE VAN COMPARTIMENTEN EN EVACUATIERUIMTEN." ;
-    firebim:hasSection firebim:Section_4_1,
-        firebim:Section_4_2,
-        firebim:Section_4_3,
-        firebim:Section_4_4,
-        firebim:Section_4_5 .
-
-firebim:Section_4_1 a firebim:Section ;
-    firebim:hasID "4.1" ;
-    firebim:hasOriginalText "COMPARTIMENTEN." .
-
-firebim:Section_4_2 a firebim:Section ;
-    firebim:hasID "4.2" ;
-    firebim:hasOriginalText "BINNENTRAPPENHUIZEN" ;
-    firebim:hasSection firebim:Section_4_2_1,
-        firebim:Section_4_2_2,
-        firebim:Section_4_2_3 .
-
-firebim:Section_4_2_1 a firebim:Section ;
-    firebim:hasID "4.2.1" ;
-    firebim:hasOriginalText "ALGEMEEN" .
-
-firebim:Section_4_2_2 a firebim:Section ;
-    firebim:hasID "4.2.2" ;
-    firebim:hasOriginalText "OPVATTING" ;
-    firebim:hasSection firebim:Section_4_2_2_1,
-        firebim:Section_4_2_2_2,
-        firebim:Section_4_2_2_3,
-        firebim:Section_4_2_2_4,
-        firebim:Section_4_2_2_5,
-        firebim:Section_4_2_2_6 .
-
-firebim:Section_4_2_2_1 a firebim:Section ;
-    firebim:hasID "4.2.2.1" ;
-    firebim:hasOriginalText "DE BINNENWANDEN VAN DE TRAPPENHUIZEN HEBBEN MINSTENS EI 60. HUN BUITENWANDEN MOGEN BEGLAASD ZIJN INDIEN DEZE OPENINGEN OVER TEN MINSTE 1 M ZIJDELINGS AFGEZET ZIJN MET EEN ELEMENT E 30." .
-
-firebim:Section_4_2_2_2 a firebim:Section ;
-    firebim:hasID "4.2.2.2" ;
-    firebim:hasOriginalText "DE TRAPPENHUIZEN MOETEN TOEGANG GEVEN TOT EEN EVACUATIENIVEAU." .
-
-firebim:Section_4_2_2_3 a firebim:Section ;
-    firebim:hasID "4.2.2.3" ;
-    firebim:hasOriginalText "OP IEDERE BOUWLAAG WORDT DE VERBINDING TUSSEN HET COMPARTIMENT EN HET TRAPPENHUIS VERZEKERD DOOR EEN DEUR EI1 30." .
-
-firebim:Section_4_2_2_4 a firebim:Section ;
-    firebim:hasID "4.2.2.4" ;
-    firebim:hasOriginalText "INDIEN VERSCHEIDENE COMPARTIMENTEN IN EENZELFDE HORIZONTAAL VLAK LIGGEN, MOGEN ZIJ EEN OF" .
-
-firebim:Section_4_2_2_5 a firebim:Section ;
-    firebim:hasID "4.2.2.5" ;
-    firebim:hasOriginalText "DE TRAPPENHUIZEN DIE DE ONDERGRONDSE BOUWLAGEN BEDIENEN, MOGEN NIET RECHTSTREEKS HET VERLENGDE ZIJN VAN DEGENE DIE DE BOUWLAGEN BOVEN EEN EVACUATIENIVEAU BEDIENEN." .
-
-firebim:Section_4_2_2_6 a firebim:Section ;
-    firebim:hasID "4.2.2.6" ;
-    firebim:hasOriginalText "BOVENAAN ELK BINNENTRAPPENHUIS ZIT EEN VERLUCHTINGSOPENING MET EEN DOORSNEDE VAN MINIMUM 1 M² EN DIE UITMONDT IN DE OPEN LUCHT. DEZE OPENING IS NORMAAL GESLOTEN; VOOR HET OPENEN GEBRUIKT MEN EEN HANDBEDIENING DIE GOED ZICHTBAAR GEPLAATST IS OP HET EVACUATIENIVEAU." .
-
-firebim:Section_4_2_3 a firebim:Section ;
-    firebim:hasID "4.2.3" ;
-    firebim:hasOriginalText "" ;
-    firebim:hasSection firebim:Section_4_2_3_1,
-        firebim:Section_4_2_3_2 .
-
-firebim:Section_4_2_3_1 a firebim:Section ;
-    firebim:hasID "4.2.3.1" ;
-    firebim:hasOriginalText "CONSTRUCTIEBEPALINGEN." .
-
-firebim:Section_4_2_3_2 a firebim:Section ;
-    firebim:hasID "4.2.3.2" ;
-    firebim:hasOriginalText "NUTTIGE BREEDTE VAN TRAPARMEN, OVERLOPEN EN SASSEN." .
-
-firebim:Section_4_3 a firebim:Section ;
-    firebim:hasID "4.3" ;
-    firebim:hasOriginalText "BUITENTRAPPENHUIZEN" .
-
-firebim:Section_4_4 a firebim:Section ;
-    firebim:hasID "4.4" ;
-    firebim:hasOriginalText "EVACUATIEWEGEN EN VLUCHTTERRASSEN" ;
-    firebim:hasSection firebim:Section_4_4_1,
-        firebim:Section_4_4_2 .
-
-firebim:Section_4_4_1 a firebim:Section ;
-    firebim:hasID "4.4.1" ;
-    firebim:hasOriginalText "ALGEMENE VOORSCHRIFTEN" ;
-    firebim:hasSection firebim:Section_4_4_1_1,
-        firebim:Section_4_4_1_2 .
-
-firebim:Section_4_4_1_1 a firebim:Section ;
-    firebim:hasID "4.4.1.1" ;
-    firebim:hasOriginalText "GEEN ENKEL PUNT VAN EEN COMPARTIMENT MAG ZICH VERDER BEVINDEN DAN:" .
-
-firebim:Section_4_4_1_2 a firebim:Section ;
-    firebim:hasID "4.4.1.2" ;
-    firebim:hasOriginalText "WORDT BESCHOUWD ALS EEN UITGANG VAN EEN COMPARTIMENT:" .
-
-firebim:Section_4_4_2 a firebim:Section ;
-    firebim:hasID "4.4.2" ;
-    firebim:hasOriginalText "OP EEN EVACUATIENIVEAU" .
-
-firebim:Section_4_5 a firebim:Section ;
-    firebim:hasID "4.5" ;
-    firebim:hasOriginalText "SIGNALISATIE." .
-
-firebim:Section_5 a firebim:Section ;
-    firebim:hasID "5" ;
-    firebim:hasOriginalText "CONSTRUCTIEVOORSCHRIFTEN VOOR SOMMIGE LOKALEN EN TECHNISCHE RUIMTEN." ;
-    firebim:hasSection firebim:Section_5_1,
-        firebim:Section_5_2,
-        firebim:Section_5_3,
-        firebim:Section_5_4,
-        firebim:Section_5_5 .
-
-firebim:Section_5_1 a firebim:Section ;
-    firebim:hasID "5.1" ;
-    firebim:hasOriginalText "TECHNISCHE LOKALEN EN RUIMTEN." ;
-    firebim:hasSection firebim:Section_5_1_1,
-        firebim:Section_5_1_2,
-        firebim:Section_5_1_3,
-        firebim:Section_5_1_4,
-        firebim:Section_5_1_5 .
-
-firebim:Section_5_1_1 a firebim:Section ;
-    firebim:hasID "5.1.1" ;
-    firebim:hasOriginalText "ALGEMEEN." .
-
-firebim:Section_5_1_2 a firebim:Section ;
-    firebim:hasID "5.1.2" ;
-    firebim:hasOriginalText "STOOKAFDELINGEN" ;
-    firebim:hasSection firebim:Section_5_1_2_1,
-        firebim:Section_5_1_2_2,
-        firebim:Section_5_1_2_3 .
-
-firebim:Section_5_1_2_1 a firebim:Section ;
-    firebim:hasID "5.1.2.1" ;
-    firebim:hasOriginalText "STOOKLOKALEN MET VERBRANDINGSTOESTELLEN MET EEN GECUMULEERD VERBRANDINGSDEBIET GROTER DAN OF GELIJK AAN 75 KW EN BRANDSTOFOPSLAGRUIMTES" .
-
-firebim:Section_5_1_2_2 a firebim:Section ;
-    firebim:hasID "5.1.2.2" ;
-    firebim:hasOriginalText "GEMEENSCHAPPELIJKE BEPALINGEN" .
-
-firebim:Section_5_1_2_3 a firebim:Section ;
-    firebim:hasID "5.1.2.3" ;
-    firebim:hasOriginalText "AFWIJKENDE BEPALINGEN" .
-
-firebim:Section_5_1_3 a firebim:Section ;
-    firebim:hasID "5.1.3" ;
-    firebim:hasOriginalText "TRANSFORMATORLOKALEN" ;
-    firebim:hasSection firebim:Section_5_1_3_1,
-        firebim:Section_5_1_3_2 .
-
-firebim:Section_5_1_3_1 a firebim:Section ;
-    firebim:hasID "5.1.3.1" ;
-    firebim:hasOriginalText "ALGEMEEN" .
-
-firebim:Section_5_1_3_2 a firebim:Section ;
-    firebim:hasID "5.1.3.2" ;
-    firebim:hasOriginalText "TER PLAATSE GEMONTEERDE POSTEN OF PREFAB-POSTEN" .
-
-firebim:Section_5_1_4 a firebim:Section ;
-    firebim:hasID "5.1.4" ;
-    firebim:hasOriginalText "HUISVUILAFVOER" ;
-    firebim:hasSection firebim:Section_5_1_4_1,
-        firebim:Section_5_1_4_2 .
-
-firebim:Section_5_1_4_1 a firebim:Section ;
-    firebim:hasID "5.1.4.1" ;
-    firebim:hasOriginalText "STORTKOKERS ZIJN VERBODEN" .
-
-firebim:Section_5_1_4_2 a firebim:Section ;
-    firebim:hasID "5.1.4.2" ;
-    firebim:hasOriginalText "LOKAAL VOOR DE OPSLAG VAN HET HUISVUIL" .
-
-firebim:Section_5_1_5 a firebim:Section ;
-    firebim:hasID "5.1.5" ;
-    firebim:hasOriginalText "LEIDINGENKOKERS" ;
-    firebim:hasSection firebim:Section_5_1_5_1,
-        firebim:Section_5_1_5_2 .
-
-firebim:Section_5_1_5_1 a firebim:Section ;
-    firebim:hasID "5.1.5.1" ;
-    firebim:hasOriginalText "VERTICALE KOKERS" .
-
-firebim:Section_5_1_5_2 a firebim:Section ;
-    firebim:hasID "5.1.5.2" ;
-    firebim:hasOriginalText "HORIZONTALE KOKERS" .
-
-firebim:Section_5_2 a firebim:Section ;
-    firebim:hasID "5.2" ;
-    firebim:hasOriginalText "PARKINGS" ;
-    firebim:hasSection firebim:Section_5_2_1,
-        firebim:Section_5_2_2,
-        firebim:Section_5_2_3,
-        firebim:Section_5_2_4,
-        firebim:Section_5_2_5 .
-
-firebim:Section_5_2_1 a firebim:Section ;
-    firebim:hasID "5.2.1" ;
-    firebim:hasOriginalText "STRUCTURELE ELEMENTEN" .
-
-firebim:Section_5_2_2 a firebim:Section ;
-    firebim:hasID "5.2.2" ;
-    firebim:hasOriginalText "COMPARTIMENT" .
-
-firebim:Section_5_2_3 a firebim:Section ;
-    firebim:hasID "5.2.3" ;
-    firebim:hasOriginalText "PARKING ONDER VERSCHILLENDE GEBOUWEN" .
-
-firebim:Section_5_2_4 a firebim:Section ;
-    firebim:hasID "5.2.4" ;
-    firebim:hasOriginalText "GEMEENSCHAPPELIJKE BEPALINGEN" .
-
-firebim:Section_5_2_5 a firebim:Section ;
-    firebim:hasID "5.2.5" ;
-    firebim:hasOriginalText "AFWIJKENDE BEPALINGEN" .
-
-firebim:Section_5_3 a firebim:Section ;
-    firebim:hasID "5.3" ;
-    firebim:hasOriginalText "ZALEN." ;
-    firebim:hasSection firebim:Section_5_3_1,
-        firebim:Section_5_3_2 .
-
-firebim:Section_5_3_1 a firebim:Section ;
-    firebim:hasID "5.3.1" ;
-    firebim:hasOriginalText "ALGEMEEN." .
-
-firebim:Section_5_3_2 a firebim:Section ;
-    firebim:hasID "5.3.2" ;
-    firebim:hasOriginalText "CONSTRUCTIE." .
-
-firebim:Section_5_4 a firebim:Section ;
-    firebim:hasID "5.4" ;
-    firebim:hasOriginalText "WINKEL- OF HANDELSCOMPLEX" .
-
-firebim:Section_5_5 a firebim:Section ;
-    firebim:hasID "5.5" ;
-    firebim:hasOriginalText "COLLECTIEVE KEUKENS" .
-
-firebim:Section_6 a firebim:Section ;
-    firebim:hasID "6" ;
-    firebim:hasOriginalText "UITRUSTING VAN DE GEBOUWEN" ;
-    firebim:hasSection firebim:Section_6_1,
-        firebim:Section_6_2,
-        firebim:Section_6_3,
-        firebim:Section_6_4,
-        firebim:Section_6_5,
-        firebim:Section_6_6,
-        firebim:Section_6_7,
-        firebim:Section_6_8 .
-
-firebim:Section_6_1 a firebim:Section ;
-    firebim:hasID "6.1" ;
-    firebim:hasOriginalText "LIFTEN EN GOEDERENLIFTEN" ;
-    firebim:hasSection firebim:Section_6_1_1,
-        firebim:Section_6_1_2,
-        firebim:Section_6_1_3,
-        firebim:Section_6_1_4 .
-
-firebim:Section_6_1_1 a firebim:Section ;
-    firebim:hasID "6.1.1" ;
-    firebim:hasOriginalText "ALGEMEEN" ;
-    firebim:hasSection firebim:Section_6_1_1_2,
-        firebim:Section_6_1_1_3 .
-
-firebim:Section_6_1_1_2 a firebim:Section ;
-    firebim:hasID "6.1.1.2" ;
-    firebim:hasOriginalText "IN GEVAL VAN ABNORMALE STIJGING VAN DE TEMPERATUUR VAN DE MACHINE EN/OF VAN DE ANDERE ELEKTRISCHE UITRUSTINGEN, MOETEN DE LIFTEN STOPPEN OP EEN BORDES ZODAT DE PASSAGIERS KUNNEN UITSTAPPEN." .
-
-firebim:Section_6_1_1_3 a firebim:Section ;
-    firebim:hasID "6.1.1.3" ;
-    firebim:hasOriginalText "IN DE SCHACHT(EN) MAG GEEN ENKELE BLUSINRICHTING MET WATER OPGESTELD STAAN." .
-
-firebim:Section_6_1_2 a firebim:Section ;
-    firebim:hasID "6.1.2" ;
-    firebim:hasOriginalText "# OPVATTING." ;
-    firebim:hasSection firebim:Section_6_1_2_1,
-        firebim:Section_6_1_2_2,
-        firebim:Section_6_1_2_3,
-        firebim:Section_6_1_2_4,
-        firebim:Section_6_1_2_5,
-        firebim:Section_6_1_2_6 .
-
-firebim:Section_6_1_2_1 a firebim:Section ;
-    firebim:hasID "6.1.2.1" ;
-    firebim:hasOriginalText "HET GEHEEL BESTAANDE UIT ÉÉN OF MEER SCHACHTEN EN DE EVENTUELE MACHINEKAMER, ALSOOK TOEGANGSBORDESSEN DIE EEN SAS MOETEN VORMEN VOOR DE ONDERGRONDSE BOUWLAGEN, IS OMSLOTEN DOOR WANDEN MET EI 60." .
-
-firebim:Section_6_1_2_2 a firebim:Section ;
-    firebim:hasID "6.1.2.2" ;
-    firebim:hasOriginalText "HET GEHEEL VAN DE SCHACHTDEUREN VAN DE LIFT OF GOEDERENLIFT HEEFT E 30. DE BRANDWERENDHEID VOLGENS DE NORM NBN EN 81-58, WAARBIJ DE BORDESWAND AAN DE KANT VAN HET BORDES AAN HET VUUR BLOOTGESTELD WORDT. DE BORDESWAND ZAL BEPROEFD WORDEN MET DE EVENTUELE BEDIENINGS- EN CONTROLEORGANEN DIE DAARVAN DEEL UITMAKEN." .
-
-firebim:Section_6_1_2_3 a firebim:Section ;
-    firebim:hasID "6.1.2.3" ;
-    firebim:hasOriginalText "DE VOORSCHRIFTEN VAN DE PUNTEN 6.1.2.1 EN 6.1.2.2 ZIJN NIET VEREIST IN DE VOLGENDE GEVALLEN:" .
-
-firebim:Section_6_1_2_4 a firebim:Section ;
-    firebim:hasID "6.1.2.4" ;
-    firebim:hasOriginalText "LIFTEN EN GOEDERENLIFTEN WAARVAN DE AANDRIJVING ZICH IN EEN MACHINEKAMER BEVINDT." .
-
-firebim:Section_6_1_2_5 a firebim:Section ;
-    firebim:hasID "6.1.2.5" ;
-    firebim:hasOriginalText "OLEOHYDRAULISCHE LIFTEN EN GOEDERENLIFTEN." .
-
-firebim:Section_6_1_2_6 a firebim:Section ;
-    firebim:hasID "6.1.2.6" ;
-    firebim:hasOriginalText "LIFTEN EN ROLTRAPPEN." .
-
-firebim:Section_6_1_3 a firebim:Section ;
-    firebim:hasID "6.1.3" ;
-    firebim:hasOriginalText "VERLUCHTING." ;
-    firebim:hasSection firebim:Section_6_1_3_1,
-        firebim:Section_6_1_3_2,
-        firebim:Section_6_1_3_3 .
-
-firebim:Section_6_1_3_1 a firebim:Section ;
-    firebim:hasID "6.1.3.1" ;
-    firebim:hasOriginalText "DE SCHACHT, DE MACHINEKAMER OF HET GEHEEL SCHACHT EN MACHINEKAMER WORDEN OP EEN NATUURLIJKE MANIER VERLUCHT VIA BUITENLUCHTMONDEN IN HET BOVENSTE GEDEELTE." .
-
-firebim:Section_6_1_3_2 a firebim:Section ;
-    firebim:hasID "6.1.3.2" ;
-    firebim:hasOriginalText "DE VERLUCHTINGSOPENINGEN HEBBEN EEN MINIMALE DOORSNEDE VAN 1 % VAN DE HORIZONTALE OPPERVLAKTE VAN DE RUIMTE WAARUIT DE LUCHT WORDT AFGEVOERD." .
-
-firebim:Section_6_1_3_3 a firebim:Section ;
-    firebim:hasID "6.1.3.3" ;
-    firebim:hasOriginalText "DE VERLUCHTINGSOPENINGEN MOGEN UITGERUST WORDEN MET GEMOTORISEERDE VERLUCHTINGSKLEPPEN WAARVAN DE OPENING ALS VOLGT BEVOLEN:" .
-
-firebim:Section_6_1_4 a firebim:Section ;
-    firebim:hasID "6.1.4" ;
-    firebim:hasOriginalText "WERKING BIJ BRAND." ;
-    firebim:hasSection firebim:Section_6_1_4_1,
-        firebim:Section_6_1_4_2,
-        firebim:Section_6_1_4_3,
-        firebim:Section_6_1_4_4,
-        firebim:Section_6_1_4_5,
-        firebim:Section_6_1_4_6,
-        firebim:Section_6_1_4_7,
-        firebim:Section_6_1_4_8 .
-
-firebim:Section_6_1_4_1 a firebim:Section ;
-    firebim:hasID "6.1.4.1" ;
-    firebim:hasOriginalText "DE WERKING VAN DE LIFTEN BIJ BRAND BEANTWOORDT AAN DE VOORSCHRIFTEN VAN DE NORM NBN EN 81-73." .
-
-firebim:Section_6_1_4_2 a firebim:Section ;
-    firebim:hasID "6.1.4.2" ;
-    firebim:hasOriginalText "HET BORDES VAN DE LIFT OP HET EVACUATIENIVEAU WORDT VASTGELEGD ALS AANGEDUIDE LIFTBORDES." .
-
-firebim:Section_6_1_4_3 a firebim:Section ;
-    firebim:hasID "6.1.4.3" ;
-    firebim:hasOriginalText "ELKE LIFTBATTERIJ IS MINSTENS VOORZIEN VAN EEN MANUELE OPROEPVOORZIENING OP EEN EVACUATIENIVEAU." .
-
-firebim:Section_6_1_4_4 a firebim:Section ;
-    firebim:hasID "6.1.4.4" ;
-    firebim:hasOriginalText "WANNEER ER EEN ALGEMENE OF GEDEELTELIJKE DETECTIE IN HET GEBOUW VEREIST IS EN DE MACHINERIE VAN DE LIFTEN EN GOEDERENLIFTEN BEVINDT ZICH IN DE SCHACHT, DIENT EEN ROOKDETECTIE GEPLAATST TE WORDEN IN DE SCHACHT." .
-
-firebim:Section_6_1_4_5 a firebim:Section ;
-    firebim:hasID "6.1.4.5" ;
-    firebim:hasOriginalText "INDIEN DOOR EEN BRANDDETECTIE-INSTALLATIE EEN BRAND GEDETECTEERD WORDT OP HET BORDES DAT OVEREENSTEMT MET HET AANGEDUIDE HOOFDBORDES, MOET DE LIFT EEN OF MEER BIJKOMENDE ELEKTRISCHE SIGNALEN KRIJGEN OPDAT DE LIFTKOOI NAAR HET AANGEDUIDE VERVANGENDE BORDES WORDT AFGELEID." .
-
-firebim:Section_6_1_4_6 a firebim:Section ;
-    firebim:hasID "6.1.4.6" ;
-    firebim:hasOriginalText "WANNEER DE LIFTEN BIJ BRAND OP HET AANGEDUIDE BORDES STAAN, MOET DE MOGELIJKHEID BESTAAN DAT DE BRANDWEER GEMAKKELIJK KAN CONTROLEREN DAT DE LIFTKOOIEN DAAR STAAN EN DAT NIEMAND IN DE LIFT OPGESLOTEN IS." .
-
-firebim:Section_6_1_4_7 a firebim:Section ;
-    firebim:hasID "6.1.4.7" ;
-    firebim:hasOriginalText "DE LIFT KAN ENKEL TERUG IN NORMALE WERKING GESTELD WORDEN DOOR EEN BEVOEGDE PERSOON." .
-
-firebim:Section_6_1_4_8 a firebim:Section ;
-    firebim:hasID "6.1.4.8" ;
-    firebim:hasOriginalText "VOOR DE GEBOUWEN WAARVOOR DE AANVRAAG VOOR DE BOUW WERD INGEDIEND VOOR 1 APRIL 2017, GELDEN DE VOLGENDE AFWIJKENDE BEPALINGEN:" .
-
-firebim:Section_6_2 a firebim:Section ;
-    firebim:hasID "6.2" ;
-    firebim:hasOriginalText "PATERNOSTERLIFT, CONTAINERTRANSPORT EN GOEDERENLIFT MET LAAD- EN LOSAUTOMATISME." ;
-    firebim:hasSection firebim:Section_6_2_1,
-        firebim:Section_6_2_2 .
-
-firebim:Section_6_2_1 a firebim:Section ;
-    firebim:hasID "6.2.1" ;
-    firebim:hasOriginalText "DEZE TOESTELLEN HEBBEN HUN EIGEN MACHINEKAMERS, SCHACHTEN EN BORDESSEN." .
-
-firebim:Section_6_2_2 a firebim:Section ;
-    firebim:hasID "6.2.2" ;
-    firebim:hasOriginalText "HET INSTALLEREN VAN PATERNOSTERLIFTEN VOOR PERSONENVERVOER IS VERBODEN." .
-
-firebim:Section_6_3 a firebim:Section ;
-    firebim:hasID "6.3" ;
-    firebim:hasOriginalText "ROLTRAPPEN" ;
-    firebim:hasSection firebim:Section_6_3_1,
-        firebim:Section_6_3_2,
-        firebim:Section_6_3_3,
-        firebim:Section_6_3_4 .
-
-firebim:Section_6_3_1 a firebim:Section ;
-    firebim:hasID "6.3.1" ;
-    firebim:hasOriginalText "HET TRAPPENHUIS VAN ROLTRAPPEN HEEFT WANDEN MET EI 60." .
-
-firebim:Section_6_3_2 a firebim:Section ;
-    firebim:hasID "6.3.2" ;
-    firebim:hasOriginalText "DE TOEGANG TOT HET TRAPPENHUIS GESCHIEDT OP ELKE BOUWLAAG, VIA EEN ZELFSLUITENDE OF BIJ BRAND ZELFSLUITENDE DEUR EI1 30." .
-
-firebim:Section_6_3_3 a firebim:Section ;
-    firebim:hasID "6.3.3" ;
-    firebim:hasOriginalText "DE ROLTRAP WORDT AUTOMATISCH UITGESCHAKELD ZODRA ER BRAND GEDETECTEERD WORDT IN EEN COMPARTIMENT WAARHEEN HIJ LEIDT." .
-
-firebim:Section_6_3_4 a firebim:Section ;
-    firebim:hasID "6.3.4" ;
-    firebim:hasOriginalText "DE VOORSCHRIFTEN VAN DE PUNTEN 6.3.1 EN 6.3.2 ZIJN NIET VEREIST IN DE VOLGENDE GEVALLEN:" .
-
-firebim:Section_6_4 a firebim:Section ;
-    firebim:hasID "6.4" ;
-    firebim:hasOriginalText "SPECIALE LIFTEN" ;
-    firebim:hasSection firebim:Section_6_4_1,
-        firebim:Section_6_4_2,
-        firebim:Section_6_4_3 .
-
-firebim:Section_6_4_1 a firebim:Section ;
-    firebim:hasID "6.4.1" ;
-    firebim:hasOriginalText "LIFTEN BESTEMD VOOR HET EVACUEREN VAN PERSONEN MET BEPERKTE MOBILITEIT" ;
-    firebim:hasSection firebim:Section_6_4_1_1,
-        firebim:Section_6_4_1_2,
-        firebim:Section_6_4_1_3,
-        firebim:Section_6_4_1_4,
-        firebim:Section_6_4_1_5,
-        firebim:Section_6_4_1_6,
-        firebim:Section_6_4_1_7,
-        firebim:Section_6_4_1_8 .
-
-firebim:Section_6_4_1_1 a firebim:Section ;
-    firebim:hasID "6.4.1.1" ;
-    firebim:hasOriginalText "DEZE LIFT MOET ZODANIG ONTWORPEN EN GEBOUWD WORDEN DAT DE TOEGANG EN HET GEBRUIK DOOR PERSONEN MET BEPERKTE MOBILITEIT NIET BELEMMERD OF VERHINDERD WORDT." .
-
-firebim:Section_6_4_1_2 a firebim:Section ;
-    firebim:hasID "6.4.1.2" ;
-    firebim:hasOriginalText "OP ALLE BOUWLAGEN VORMEN DE LIFTBORDESSEN EEN SAS DAT BEANTWOORDT AAN DE VOORSCHRIFTEN VAN PUNT 6.1.2.1 WAARBIJ DE OPPERVLAKTE GELIJK IS AAN OF GROTER IS DAN DE OPPERVLAKTE VAN DE LIFTKOOI." .
-
-firebim:Section_6_4_1_3 a firebim:Section ;
-    firebim:hasID "6.4.1.3" ;
-    firebim:hasOriginalText "DE LIFTKOOIEN ZIJN TEN MINSTE TOEGANKELIJK VOOR EEN PERSOON IN EEN ROLSTOEL EN EEN BEGELEIDENDE PERSOON." .
-
-firebim:Section_6_4_1_4 a firebim:Section ;
-    firebim:hasID "6.4.1.4" ;
-    firebim:hasOriginalText "DE SCHACHTDEUREN OPENEN EN SLUITEN AUTOMATISCH EN HEBBEN EEN NUTTIGE BREEDTE VAN TEN MINSTE 0,90 M." .
-
-firebim:Section_6_4_1_5 a firebim:Section ;
-    firebim:hasID "6.4.1.5" ;
-    firebim:hasOriginalText "DE EVACUATIE GEBEURT ONDER TOEZICHT VAN EEN BEVOEGD PERSOON. HIERTOE IS DE LIFT UITGERUST MET EEN SCHAKELAAR MET “EVACUATIESLEUTEL” DIE HET MOGELIJK MAAKT DAT EEN BEVOEGD PERSOON DE BEDIENING VAN DE LIFT OVERNEEMT." .
-
-firebim:Section_6_4_1_6 a firebim:Section ;
-    firebim:hasID "6.4.1.6" ;
-    firebim:hasOriginalText "DE LIFTEN BESTEMD VOOR DE EVACUATIE VAN PERSONEN MET BEPERKTE MOBILITEIT WORDEN AANGEDUID MET EEN DUIDELIJKE EN HERKENBARE SIGNALERING." .
-
-firebim:Section_6_4_1_7 a firebim:Section ;
-    firebim:hasID "6.4.1.7" ;
-    firebim:hasOriginalText "DE LIFT MOET EEN INTERCOMSYSTEEM BEVATTEN DAT MONDELINGE TWEERICHTINGSCOMMUNICATIE TOELAAT ALS DE LIFT IN EVACUATIEMODUS IS. DIT SYSTEEM MOET TOELATEN OM TE COMMUNICEREN TUSSEN DE LIFTKOOI, HET EVACUATIENIVEAU EN DE MACHINEKAMER OF HET PANEEL VAN DE HULPVERLENINGSOPERATIES." .
-
-firebim:Section_6_4_1_8 a firebim:Section ;
-    firebim:hasID "6.4.1.8" ;
-    firebim:hasOriginalText "MET UITZONDERING VAN DE LIFTEN DIE SLECHTS TWEE BOUWLAGEN BEDIENEN, MOET ELK LIFTBORDES EEN INTERCOMSYSTEEM BEVATTEN DAT MONDELINGE TWEERICHTINGSCOMMUNICATIE TOELAAT ALS DE LIFT IN EVACUATIEMODUS IS. DIT SYSTEEM MOET TOELATEN OM TE COMMUNICEREN TUSSEN ELK LIFTBORDES, HET EVACUATIENIVEAU EN DE MACHINEKAMER OF HET PANEEL VAN DE HULPVERLENINGSOPERATIES, ZODAT DE BOUWLAGEN WAAROP PERSONEN MET BEPERKTE MOBILITEIT DIE DIENEN GEËVACUEERD TE WORDEN ZICH BEVINDEN KUNNEN HERKEND WORDEN EN DEZE INFORMATIE AAN DE PERSOON BELAST MET DE EVACUATIE KAN DOORGEGEVEN WORDEN." .
-
-firebim:Section_6_4_2 a firebim:Section ;
-    firebim:hasID "6.4.2" ;
-    firebim:hasOriginalText "LIFTEN BESTEMD VOOR DE BRANDWEER" ;
-    firebim:hasSection firebim:Section_6_4_2_1,
-        firebim:Section_6_4_2_2,
-        firebim:Section_6_4_2_3,
-        firebim:Section_6_4_2_4,
-        firebim:Section_6_4_2_5,
-        firebim:Section_6_4_2_6,
-        firebim:Section_6_4_2_7 .
-
-firebim:Section_6_4_2_1 a firebim:Section ;
-    firebim:hasID "6.4.2.1" ;
-    firebim:hasOriginalText "DE LIFTEN BESTEMD VOOR DE BRANDWEER EN DE WERKING ERVAN IN GEVAL VAN BRAND BEANTWOORDEN AAN DE VOORSCHRIFTEN VAN DE NORM NBN EN 81-72." .
-
-firebim:Section_6_4_2_2 a firebim:Section ;
-    firebim:hasID "6.4.2.2" ;
-    firebim:hasOriginalText "OP ALLE BOUWLAGEN VORMEN DE LIFTBORDESSEN EEN SAS DAT BEANTWOORDT AAN DE VOORSCHRIFTEN VAN PUNT 6.1.2.1 WAARBIJ DE OPPERVLAKTE GELIJK IS AAN OF GROTER IS DAN DE OPPERVLAKTE VAN DE LIFTKOOI." .
-
-firebim:Section_6_4_2_3 a firebim:Section ;
-    firebim:hasID "6.4.2.3" ;
-    firebim:hasOriginalText "ALS ER IN EEN LIFTBATTERIJ GEEN MUUR EI 60 IS VOORZIEN OM DE LIFT BESTEMD VOOR DE BRANDWEER AF TE SCHEIDEN VAN DE ANDERE LIFTEN IN EEN DEZELFDE SCHACHT, DAN MOETEN ALLE LIFTEN EN HUN ELEKTRISCHE UITRUSTING DEZELFDE BESCHERMING TEGEN BRAND HEBBEN ALS DE LIFT BESTEMD VOOR DE BRANDWEER." .
-
-firebim:Section_6_4_2_4 a firebim:Section ;
-    firebim:hasID "6.4.2.4" ;
-    firebim:hasOriginalText "DE MINIMALE AFMETINGEN VAN DE LIFTKOOIEN ZIJN 1,1 M (BREEDTE) X 2,1 M (DIEPTE)." .
-
-firebim:Section_6_4_2_5 a firebim:Section ;
-    firebim:hasID "6.4.2.5" ;
-    firebim:hasOriginalText "DE SCHACHTDEUREN OPENEN EN SLUITEN AUTOMATISCH EN HEBBEN EEN NUTTIGE BREEDTE VAN TEN MINSTE 0,80 M." .
-
-firebim:Section_6_4_2_6 a firebim:Section ;
-    firebim:hasID "6.4.2.6" ;
-    firebim:hasOriginalText "OP HET BORDES VAN HET TOEGANGSNIVEAU VAN DE BRANDWEER IS EEN SCHAKELAAR MET “BRANDWEERSLEUTEL” VOORZIEN DIE DE BRANDWEER TOELAAT OM DE BEDIENING VAN DE LIFT OVER TE NEMEN." .
-
-firebim:Section_6_4_2_7 a firebim:Section ;
-    firebim:hasID "6.4.2.7" ;
-    firebim:hasOriginalText "DE LIFT MOET DE VERST VAN HET TOEGANGSNIVEAU VAN DE BRANDWEER GELEGEN VERDIEPING KUNNEN BEREIKEN IN MINDER DAN 60 SECONDEN NA HET SLUITEN VAN DE DEUREN." .
-
-firebim:Section_6_4_3 a firebim:Section ;
-    firebim:hasID "6.4.3" ;
-    firebim:hasOriginalText "AFWIJKENDE BEPALINGEN." .
-
-firebim:Section_6_5 a firebim:Section ;
-    firebim:hasID "6.5" ;
-    firebim:hasOriginalText "ELEKTRISCHE LAAGSPANNINGSINSTALLATIES VOOR DRIJFKRACHT, VERLICHTING EN SIGNALISATIE." ;
-    firebim:hasSection firebim:Section_6_5_1,
-        firebim:Section_6_5_2,
-        firebim:Section_6_5_3,
-        firebim:Section_6_5_4 .
-
-firebim:Section_6_5_1 a firebim:Section ;
-    firebim:hasID "6.5.1" ;
-    firebim:hasOriginalText "ZIJ VOLDOEN AAN DE VOORSCHRIFTEN VAN DE GELDENDE WETTELIJKE EN REGLEMENTAIRE TEKSTEN, EVENALS AAN HET ALGEMEEN REGLEMENT OP DE ELEKTRISCHE INSTALLATIES (A.R.E.I.)." .
-
-firebim:Section_6_5_2 a firebim:Section ;
-    firebim:hasID "6.5.2" ;
-    firebim:hasOriginalText "DE ELEKTRISCHE LEIDINGEN DIE INSTALLATIES OF TOESTELLEN VOEDEN DIE BIJ BRAND ABSOLUUT IN DIENST MOETEN BLIJVEN, WORDEN ZODANIG GEPLAATST DAT DE RISICO’S VAN ALGEHELE BUITENDIENSTSTELLING GESPREID ZIJN." .
-
-firebim:Section_6_5_3 a firebim:Section ;
-    firebim:hasID "6.5.3" ;
-    firebim:hasOriginalText "AUTONOME STROOMBRONNEN." .
-
-firebim:Section_6_5_4 a firebim:Section ;
-    firebim:hasID "6.5.4" ;
-    firebim:hasOriginalText "VEILIGHEIDSVERLICHTING." .
-
-firebim:Section_6_6 a firebim:Section ;
-    firebim:hasID "6.6" ;
-    firebim:hasOriginalText "INSTALLATIES VOOR BRANDBAAR GAS VERDEELD DOOR LEIDINGEN." .
-
-firebim:Section_6_7 a firebim:Section ;
-    firebim:hasID "6.7" ;
-    firebim:hasOriginalText "AËRAULISCHE INSTALLATIES" ;
-    firebim:hasSection firebim:Section_6_7_1,
-        firebim:Section_6_7_2,
-        firebim:Section_6_7_3,
-        firebim:Section_6_7_4,
-        firebim:Section_6_7_5,
-        firebim:Section_6_7_6 .
-
-firebim:Section_6_7_1 a firebim:Section ;
-    firebim:hasID "6.7.1" ;
-    firebim:hasOriginalText "OPVATTING VAN DE INSTALLATIES" ;
-    firebim:hasSection firebim:Section_6_7_1_1,
-        firebim:Section_6_7_1_2,
-        firebim:Section_6_7_1_3 .
-
-firebim:Section_6_7_1_1 a firebim:Section ;
-    firebim:hasID "6.7.1.1" ;
-    firebim:hasOriginalText "INTEGRATIE VAN LOKALEN OF GESLOTEN RUIMTEN IN DE LOKALEN" .
-
-firebim:Section_6_7_1_2 a firebim:Section ;
-    firebim:hasID "6.7.1.2" ;
-    firebim:hasOriginalText "GEBRUIK VAN DE TRAPPENHUIZEN VOOR LUCHTTRANSPORT" .
-
-firebim:Section_6_7_1_3 a firebim:Section ;
-    firebim:hasID "6.7.1.3" ;
-    firebim:hasOriginalText "BEPERKING VAN HET HERGEBRUIK VAN LUCHT" .
-
-firebim:Section_6_7_2 a firebim:Section ;
-    firebim:hasID "6.7.2" ;
-    firebim:hasOriginalText "BOUW VAN DE LUCHTKANALEN." ;
-    firebim:hasSection firebim:Section_6_7_2_1,
-        firebim:Section_6_7_2_2 .
-
-firebim:Section_6_7_2_1 a firebim:Section ;
-    firebim:hasID "6.7.2.1" ;
-    firebim:hasOriginalText "LUCHTKANALEN IN EVACUATIEWEGEN." .
-
-firebim:Section_6_7_2_2 a firebim:Section ;
-    firebim:hasID "6.7.2.2" ;
-    firebim:hasOriginalText "AFZUIGKANALEN VAN COLLECTIEVE KEUKENS" .
-
-firebim:Section_6_7_3 a firebim:Section ;
-    firebim:hasID "6.7.3" ;
-    firebim:hasOriginalText "DOORGANGEN VAN LUCHTKANALEN DOOR WANDEN." ;
-    firebim:hasSection firebim:Section_6_7_3_1,
-        firebim:Section_6_7_3_2 .
-
-firebim:Section_6_7_3_1 a firebim:Section ;
-    firebim:hasID "6.7.3.1" ;
-    firebim:hasOriginalText "ALGEMEEN." .
-
-firebim:Section_6_7_3_2 a firebim:Section ;
-    firebim:hasID "6.7.3.2" ;
-    firebim:hasOriginalText "DOORGANGEN MET BRANDWERENDE KLEPPEN" .
-
-firebim:Section_6_7_4 a firebim:Section ;
-    firebim:hasID "6.7.4" ;
-    firebim:hasOriginalText "BRANDWERENDE KLEPPEN" ;
-    firebim:hasSection firebim:Section_6_7_4_1,
-        firebim:Section_6_7_4_2,
-        firebim:Section_6_7_4_3 .
-
-firebim:Section_6_7_4_1 a firebim:Section ;
-    firebim:hasID "6.7.4.1" ;
-    firebim:hasOriginalText "BEDIENING" .
-
-firebim:Section_6_7_4_2 a firebim:Section ;
-    firebim:hasID "6.7.4.2" ;
-    firebim:hasOriginalText "PRESTATIES VAN DE KLEP" .
-
-firebim:Section_6_7_4_3 a firebim:Section ;
-    firebim:hasID "6.7.4.3" ;
-    firebim:hasOriginalText "PLAATSING VAN DE KLEP" .
-
-firebim:Section_6_7_5 a firebim:Section ;
-    firebim:hasID "6.7.5" ;
-    firebim:hasOriginalText "ROOKKLEPPEN" .
-
-firebim:Section_6_7_6 a firebim:Section ;
-    firebim:hasID "6.7.6" ;
-    firebim:hasOriginalText "BEDIENING BIJ BRAND VAN DE AËRAULISCHE INSTALLATIES" .
-
-firebim:Section_6_8 a firebim:Section ;
-    firebim:hasID "6.8" ;
-    firebim:hasOriginalText "INRICHTINGEN VOOR MELDING, WAARSCHUWING, ALARM EN BRANDBESTRIJDINGSMIDDELEN." ;
-    firebim:hasSection firebim:Section_6_8_1,
-        firebim:Section_6_8_2,
-        firebim:Section_6_8_3,
-        firebim:Section_6_8_4,
-        firebim:Section_6_8_5 .
-
-firebim:Section_6_8_1 a firebim:Section ;
-    firebim:hasID "6.8.1" ;
-    firebim:hasOriginalText "IN DE GEBOUWEN ZIJN INRICHTINGEN VOOR MELDING EN BRANDBESTRIJDING VERPLICHT." .
-
-firebim:Section_6_8_2 a firebim:Section ;
-    firebim:hasID "6.8.2" ;
-    firebim:hasOriginalText "AANTAL EN PLAATS VAN DE TOESTELLEN VOOR BRANDMELDING, WAARSCHUWING, ALARM EN BRANDBESTRIJDING." ;
-    firebim:hasSection firebim:Section_6_8_2_1,
-        firebim:Section_6_8_2_2,
-        firebim:Section_6_8_2_3 .
-
-firebim:Section_6_8_2_1 a firebim:Section ;
-    firebim:hasID "6.8.2.1" ;
-    firebim:hasOriginalText "HET AANTAL TOESTELLEN WORDT BEPAALD DOOR DE AFMETINGEN, DE TOESTAND EN HET RISICO IN DE LOKALEN." .
-
-firebim:Section_6_8_2_2 a firebim:Section ;
-    firebim:hasID "6.8.2.2" ;
-    firebim:hasOriginalText "DE TOESTELLEN DIE MENSELIJKE INTERVENTIE VERGEN, WORDEN AANGEBRACHT OP ZICHTBARE OF HELDER AANGEDUIDE PLAATSEN DIE IN ALLE OMSTANDIGHEDEN VRIJ BEREIKBAAR ZIJN. ZIJ BEVINDEN ZICH ONDER MEER NABIJ UITGANGEN, OP OVERLOPEN, IN GANGEN EN WORDEN DERWIJZE AANGEBRACHT DAT ZIJ DE CIRCULATIE NIET HINDEREN EN NIET BESCHADIGD OF AANGESTOTEN KUNNEN WORDEN." .
-
-firebim:Section_6_8_2_3 a firebim:Section ;
-    firebim:hasID "6.8.2.3" ;
-    firebim:hasOriginalText "DE SIGNALISATIE VOLDOET AAN DE GELDENDE VOORSCHRIFTEN." .
-
-firebim:Section_6_8_3 a firebim:Section ;
-    firebim:hasID "6.8.3" ;
-    firebim:hasOriginalText "BRANDMELDING." ;
-    firebim:hasSection firebim:Section_6_8_3_1,
-        firebim:Section_6_8_3_2,
-        firebim:Section_6_8_3_3 .
-
-firebim:Section_6_8_3_1 a firebim:Section ;
-    firebim:hasID "6.8.3.1" ;
-    firebim:hasOriginalText "DE MELDING VAN ONTDEKKING OF DETECTIE VAN BRAND MOET TERSTOND AAN DE BRANDWEERDIENSTEN KUNNEN WORDEN DOORGEGEVEN DOOR EEN MELDINGSTOESTEL PER COMPARTIMENT; IN DE GEBOUWEN WAARVAN DE OPPERVLAKTE PER BOUWLAAG KLEINER IS DAN 500 M² VOLSTAAT ÉÉN MELDINGSTOESTEL VOOR HET GEBOUW." .
-
-firebim:Section_6_8_3_2 a firebim:Section ;
-    firebim:hasID "6.8.3.2" ;
-    firebim:hasOriginalText "DE NODIGE VERBINDINGEN WORDEN BESTENDIG EN TERSTOND VERZEKERD DOOR TELEFOON- OF ELEKTRISCHE LIJNEN, OF DOOR ELK ANDER SYSTEEM DAT DEZELFDE WERKINGSWAARBORGEN EN DEZELFDE GEBRUIKSFACILITEITEN BIEDT." .
-
-firebim:Section_6_8_3_3 a firebim:Section ;
-    firebim:hasID "6.8.3.3" ;
-    firebim:hasOriginalText "ELK TOESTEL DAT DE VERBINDING TOT STAND KAN BRENGEN MITS MENSELIJKE INTERVENTIE, DRAAGT EEN BERICHT OVER ZIJN BESTEMMING EN GEBRUIKSAANWIJZING." .
-
-firebim:Section_6_8_4 a firebim:Section ;
-    firebim:hasID "6.8.4" ;
-    firebim:hasOriginalText "WAARSCHUWING EN ALARM." .
-
-firebim:Section_6_8_5 a firebim:Section ;
-    firebim:hasID "6.8.5" ;
-    firebim:hasOriginalText "BRANDBESTRIJDINGSMIDDELEN." ;
-    firebim:hasSection firebim:Section_6_8_5_1,
-        firebim:Section_6_8_5_2,
-        firebim:Section_6_8_5_3,
-        firebim:Section_6_8_5_4 .
-
-firebim:Section_6_8_5_1 a firebim:Section ;
-    firebim:hasID "6.8.5.1" ;
-    firebim:hasOriginalText "ALGEMEEN." .
-
-firebim:Section_6_8_5_2 a firebim:Section ;
-    firebim:hasID "6.8.5.2" ;
-    firebim:hasOriginalText "DRAAGBARE OF MOBIELE SNELBLUSSERS." .
-
-firebim:Section_6_8_5_3 a firebim:Section ;
-    firebim:hasID "6.8.5.3" ;
-    firebim:hasOriginalText "MUURHASPELS MET AXIALE VOEDING, MUURHYDRANTEN." ;
-    firebim:hasSection firebim:Section_6_8_5_3_1,
-        firebim:Section_6_8_5_3_2,
-        firebim:Section_6_8_5_3_3 .
-
-firebim:Section_6_8_5_3_1 a firebim:Section ;
-    firebim:hasID "6.8.5.3.1" ;
-    firebim:hasOriginalText "HET AANTAL EN DE PLAATS VAN DEZE TOESTELLEN WORDEN BEPAALD DOOR DE AARD EN DE OMVANG VAN HET BRANDGEVAAR." .
-
-firebim:Section_6_8_5_3_2 a firebim:Section ;
-    firebim:hasID "6.8.5.3.2" ;
-    firebim:hasOriginalText "DE STIJGLEIDING DIE EVENTUELE TOESTELLEN VOEDT MET WATER ONDER DRUK, HEEFT DE VOLGENDE KENMERKEN:" .
-
-firebim:Section_6_8_5_3_3 a firebim:Section ;
-    firebim:hasID "6.8.5.3.3" ;
-    firebim:hasOriginalText "DE EVENTUELE TOESTELLEN WORDEN ZONDER VOORAFGAANDE BEDIENING GEVOED MET WATER ONDER DRUK. DEZE DRUK BEDRAAGT TEN MINSTE 2,5 BAR OP HET ONGUNSTIGSTE PUNT." .
-
-firebim:Section_6_8_5_4 a firebim:Section ;
-    firebim:hasID "6.8.5.4" ;
-    firebim:hasOriginalText "ONDERGRONDSE EN BOVENGRONDSE HYDRANTEN." ;
-    firebim:hasSection firebim:Section_6_8_5_4_1,
-        firebim:Section_6_8_5_4_2,
-        firebim:Section_6_8_5_4_3 .
-
-firebim:Section_6_8_5_4_1 a firebim:Section ;
-    firebim:hasID "6.8.5.4.1" ;
-    firebim:hasOriginalText "DEZE BOVENGRONDSE EN ONDERGRONDSE HYDRANTEN WORDEN GEVOED DOOR HET OPENBAAR WATERLEIDINGNET VIA EEN LEIDING MET MINIMALE BINNENDIAMETER VAN 80 MM." .
-
-firebim:Section_6_8_5_4_2 a firebim:Section ;
-    firebim:hasID "6.8.5.4.2" ;
-    firebim:hasOriginalText "IN DE NIJVERHEIDS- EN HANDELSZONES EN OP DE PLAATSEN MET EEN GROTE BEVOLKINGSDICHTHEID LIGGEN DE WATERAANSLUITINGEN OP EEN MAXIMUM AFSTAND VAN 100 M VAN ELKAAR VERWIJDERD. ELDERS ZIJN ZIJ WEGENS DE LIGGING VAN DE VOOR BRAND TE BEVEILIGEN GEBOUWEN OF INRICHTINGEN ZO VERDEELD DAT DE AFSTAND TUSSEN DE INGANG VAN ELK GEBOUW OF VAN ELKE INRICHTING EN DE DICHTSTBIJGELEGEN HYDRANT NIET MEER DAN 200 M BEDRAAGT." .
-
-firebim:Section_6_8_5_4_3 a firebim:Section ;
-    firebim:hasID "6.8.5.4.3" ;
-    firebim:hasOriginalText "DE ONDERGRONDSE OF DE BOVENGRONDSE HYDRANTEN WORDEN AANGEBRACHT OP EEN HORIZONTAAL GEMETEN AFSTAND VAN TEN MINSTE 0,60 M VAN DE KANT DER STRATEN, WEGEN OF DOORGANGEN WAAROP VOERTUIGEN KUNNEN RIJDEN EN PARKEREN." .
-
-
-
-Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following the ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned.
+fro:Belgian_Government a fro:Authority ;
+    fro:hasDocument fro:RoyalDecree .
+
+fro:Section_0 fro:hasSection fro:Section_0_1,
+        fro:Section_0_2,
+        fro:Section_0_3 .
+
+fro:RoyalDecree a fro:Document ;
+    fro:hasID "RoyalDecree1994" ;
+    fro:hasSection fro:Section_1,
+        fro:Section_2,
+        fro:Section_3,
+        fro:Section_4,
+        fro:Section_5,
+        fro:Section_6 ;
+    fro:issued "1994-07-07"^^xsd:date .
+
+fro:Section_0_1 a fro:Section ;
+    fro:hasID "0.1" ;
+    fro:hasOriginalText "DOEL." .
+
+fro:Section_0_2 a fro:Section ;
+    fro:hasID "0.2" ;
+    fro:hasOriginalText "TOEPASSINGSGEBIED." ;
+    fro:hasSection fro:Section_0_2_1,
+        fro:Section_0_2_2 .
+
+fro:Section_0_2_1 a fro:Section ;
+    fro:hasID "0.2.1" ;
+    fro:hasOriginalText "DEZE BIJLAGE IS VAN TOEPASSING OP DE VOLGENDE OP TE RICHTEN GEBOUWEN EN DE VOLGENDE UITBREIDINGEN VAN BESTAANDE GEBOUWEN, WAARVOOR DE AANVRAAG VOOR DE BOUW WORDT INGEDIEND VANAF 1 DECEMBER 2012:" .
+
+fro:Section_0_2_2 a fro:Section ;
+    fro:hasID "0.2.2" ;
+    fro:hasOriginalText "UITGESLOTEN VAN HET TOEPASSINGSGEBIED VAN DEZE BIJLAGE ZIJN ECHTER:" .
+
+fro:Section_0_3 a fro:Section ;
+    fro:hasID "0.3" ;
+    fro:hasOriginalText "PLATEN" .
+
+fro:Section_1 a fro:Section ;
+    fro:hasID "1" ;
+    fro:hasOriginalText "INPLANTING EN TOEGANGSWEGEN." ;
+    fro:hasSection fro:Section_1_1,
+        fro:Section_1_2,
+        fro:Section_1_3 .
+
+fro:Section_1_1 a fro:Section ;
+    fro:hasID "1.1" ;
+    fro:hasOriginalText "BEREIKBAARHEID EN OPSTELMOGELIJKHEDEN BRANDWEER" .
+
+fro:Section_1_2 a fro:Section ;
+    fro:hasID "1.2" ;
+    fro:hasOriginalText "BIJGEBOUWEN" .
+
+fro:Section_1_3 a fro:Section ;
+    fro:hasID "1.3" ;
+    fro:hasOriginalText "HORIZONTALE AFSTAND TUSSEN GEBOUWEN" .
+
+fro:Section_2 a fro:Section ;
+    fro:hasID "2" ;
+    fro:hasOriginalText "COMPARTIMENTERING EN EVACUATIE." ;
+    fro:hasSection fro:Section_2_1,
+        fro:Section_2_2 .
+
+fro:Section_2_1 a fro:Section ;
+    fro:hasID "2.1" ;
+    fro:hasOriginalText "GROOTTE VAN DE COMPARTIMENTEN" .
+
+fro:Section_2_2 a fro:Section ;
+    fro:hasID "2.2" ;
+    fro:hasOriginalText "EVACUATIE VAN DE COMPARTIMENTEN." ;
+    fro:hasSection fro:Section_2_2_1,
+        fro:Section_2_2_2 .
+
+fro:Section_2_2_1 a fro:Section ;
+    fro:hasID "2.2.1" ;
+    fro:hasOriginalText "AANTAL UITGANGEN." .
+
+fro:Section_2_2_2 a fro:Section ;
+    fro:hasID "2.2.2" ;
+    fro:hasOriginalText "DE UITGANGEN." .
+
+fro:Section_3 a fro:Section ;
+    fro:hasID "3" ;
+    fro:hasOriginalText "VOORSCHRIFTEN VOOR SOMMIGE BOUWELEMENTEN." ;
+    fro:hasSection fro:Section_3_1,
+        fro:Section_3_2,
+        fro:Section_3_3,
+        fro:Section_3_4,
+        fro:Section_3_5 .
+
+fro:Section_3_1 a fro:Section ;
+    fro:hasID "3.1" ;
+    fro:hasOriginalText "DOORVOERINGEN DOOR WANDEN." .
+
+fro:Section_3_2 a fro:Section ;
+    fro:hasID "3.2" ;
+    fro:hasOriginalText "STRUCTURELE ELEMENTEN." .
+
+fro:Section_3_3 a fro:Section ;
+    fro:hasID "3.3" ;
+    fro:hasOriginalText "VERTICALE BINNENWANDEN EN BINNENDEUREN." .
+
+fro:Section_3_4 a fro:Section ;
+    fro:hasID "3.4" ;
+    fro:hasOriginalText "PLAFONDS EN VERLAAGDE PLAFONDS." ;
+    fro:hasSection fro:Section_3_4_1,
+        fro:Section_3_4_2 .
+
+fro:Section_3_4_1 a fro:Section ;
+    fro:hasID "3.4.1" ;
+    fro:hasOriginalText "IN DE EVACUATIEWEGEN, DE VOOR HET PUBLIEK TOEGANKELIJKE LOKALEN EN DE COLLECTIEVE KEUKENS HEBBEN DE VERLAAGDE PLAFONDS EI 30 (A B), EI 30 (B A) OF EI 30 (A ↔ B) VOLGENS NBN EN 13501-2 EN NBN EN 1364-2 OF HEBBEN EEN STABILITEIT BIJ BRAND VAN EEN ½ H VOLGENS NBN 713-020." .
+
+fro:Section_3_4_2 a fro:Section ;
+    fro:hasID "3.4.2" ;
+    fro:hasOriginalText "DE WANDEN WAARVOOR BRANDWERENDHEID VEREIST IS, LOPEN DOOR IN DE RUIMTE TUSSEN HET PLAFOND EN HET VERLAAGD PLAFOND." .
+
+fro:Section_3_5 a fro:Section ;
+    fro:hasID "3.5" ;
+    fro:hasOriginalText "GEVELS" ;
+    fro:hasSection fro:Section_3_5_1,
+        fro:Section_3_5_2 .
+
+fro:Section_3_5_1 a fro:Section ;
+    fro:hasID "3.5.1" ;
+    fro:hasOriginalText "ENKELWANDIGE GEVELS" ;
+    fro:hasSection fro:Section_3_5_1_1,
+        fro:Section_3_5_1_2 .
+
+fro:Section_3_5_1_1 a fro:Section ;
+    fro:hasID "3.5.1.1" ;
+    fro:hasOriginalText "SCHEIDING TUSSEN COMPARTIMENTEN" .
+
+fro:Section_3_5_1_2 a fro:Section ;
+    fro:hasID "3.5.1.2" ;
+    fro:hasOriginalText "TEGENOVER ELKAAR STAANDE GEVELS EN GEVELS DIE EEN TWEEVLAKSHOEK VORMEN" .
+
+fro:Section_3_5_2 a fro:Section ;
+    fro:hasID "3.5.2" ;
+    fro:hasOriginalText "DUBBELWANDIGE GEVELS." ;
+    fro:hasSection fro:Section_3_5_2_1,
+        fro:Section_3_5_2_2,
+        fro:Section_3_5_2_3 .
+
+fro:Section_3_5_2_1 a fro:Section ;
+    fro:hasID "3.5.2.1" ;
+    fro:hasOriginalText "DUBBELWANDIGE GEVEL DIE ONDERBROKEN WORDT DOOR EEN COMPARTIMENTERING." .
+
+fro:Section_3_5_2_2 a fro:Section ;
+    fro:hasID "3.5.2.2" ;
+    fro:hasOriginalText "DUBBELWANDIGE GEVEL ZONDER COMPARTIMENTERING." ;
+    fro:hasSection fro:Section_3_5_2_2_1,
+        fro:Section_3_5_2_2_2 .
+
+fro:Section_3_5_2_2_1 a fro:Section ;
+    fro:hasID "3.5.2.2.1" ;
+    fro:hasOriginalText "DUBBELWANDIGE GEVEL WAARVAN DE BINNENWAND BRANDWEREND IS." .
+
+fro:Section_3_5_2_2_2 a fro:Section ;
+    fro:hasID "3.5.2.2.2" ;
+    fro:hasOriginalText "DUBBELWANDIGE GEVEL NAAR BUITEN TOE OPEN." .
+
+fro:Section_3_5_2_3 a fro:Section ;
+    fro:hasID "3.5.2.3" ;
+    fro:hasOriginalText "AUTOMATISCHE SLUITINGS- / OPENINGSSYSTEMEN." ;
+    fro:hasSection fro:Section_3_5_2_3_1,
+        fro:Section_3_5_2_3_2,
+        fro:Section_3_5_2_3_3 .
+
+fro:Section_3_5_2_3_1 a fro:Section ;
+    fro:hasID "3.5.2.3.1" ;
+    fro:hasOriginalText "BEDIENING" .
+
+fro:Section_3_5_2_3_2 a fro:Section ;
+    fro:hasID "3.5.2.3.2" ;
+    fro:hasOriginalText "BEDRIJFSZEKERHEID." .
+
+fro:Section_3_5_2_3_3 a fro:Section ;
+    fro:hasID "3.5.2.3.3" ;
+    fro:hasOriginalText "WERKING BIJ BRAND IN EEN NABURIG COMPARTIMENT." .
+
+fro:Section_4 a fro:Section ;
+    fro:hasID "4" ;
+    fro:hasOriginalText "VOORSCHRIFTEN INZAKE CONSTRUCTIE VAN COMPARTIMENTEN EN EVACUATIERUIMTEN." ;
+    fro:hasSection fro:Section_4_1,
+        fro:Section_4_2,
+        fro:Section_4_3,
+        fro:Section_4_4,
+        fro:Section_4_5 .
+
+fro:Section_4_1 a fro:Section ;
+    fro:hasID "4.1" ;
+    fro:hasOriginalText "COMPARTIMENTEN." .
+
+fro:Section_4_2 a fro:Section ;
+    fro:hasID "4.2" ;
+    fro:hasOriginalText "BINNENTRAPPENHUIZEN" ;
+    fro:hasSection fro:Section_4_2_1,
+        fro:Section_4_2_2,
+        fro:Section_4_2_3 .
+
+fro:Section_4_2_1 a fro:Section ;
+    fro:hasID "4.2.1" ;
+    fro:hasOriginalText "ALGEMEEN" .
+
+fro:Section_4_2_2 a fro:Section ;
+    fro:hasID "4.2.2" ;
+    fro:hasOriginalText "OPVATTING" ;
+    fro:hasSection fro:Section_4_2_2_1,
+        fro:Section_4_2_2_2,
+        fro:Section_4_2_2_3,
+        fro:Section_4_2_2_4,
+        fro:Section_4_2_2_5,
+        fro:Section_4_2_2_6 .
+
+fro:Section_4_2_2_1 a fro:Section ;
+    fro:hasID "4.2.2.1" ;
+    fro:hasOriginalText "DE BINNENWANDEN VAN DE TRAPPENHUIZEN HEBBEN MINSTENS EI 60. HUN BUITENWANDEN MOGEN BEGLAASD ZIJN INDIEN DEZE OPENINGEN OVER TEN MINSTE 1 M ZIJDELINGS AFGEZET ZIJN MET EEN ELEMENT E 30." .
+
+fro:Section_4_2_2_2 a fro:Section ;
+    fro:hasID "4.2.2.2" ;
+    fro:hasOriginalText "DE TRAPPENHUIZEN MOETEN TOEGANG GEVEN TOT EEN EVACUATIENIVEAU." .
+
+fro:Section_4_2_2_3 a fro:Section ;
+    fro:hasID "4.2.2.3" ;
+    fro:hasOriginalText "OP IEDERE BOUWLAAG WORDT DE VERBINDING TUSSEN HET COMPARTIMENT EN HET TRAPPENHUIS VERZEKERD DOOR EEN DEUR EI1 30." .
+
+fro:Section_4_2_2_4 a fro:Section ;
+    fro:hasID "4.2.2.4" ;
+    fro:hasOriginalText "INDIEN VERSCHEIDENE COMPARTIMENTEN IN EENZELFDE HORIZONTAAL VLAK LIGGEN, MOGEN ZIJ EEN OF" .
+
+fro:Section_4_2_2_5 a fro:Section ;
+    fro:hasID "4.2.2.5" ;
+    fro:hasOriginalText "DE TRAPPENHUIZEN DIE DE ONDERGRONDSE BOUWLAGEN BEDIENEN, MOGEN NIET RECHTSTREEKS HET VERLENGDE ZIJN VAN DEGENE DIE DE BOUWLAGEN BOVEN EEN EVACUATIENIVEAU BEDIENEN." .
+
+fro:Section_4_2_2_6 a fro:Section ;
+    fro:hasID "4.2.2.6" ;
+    fro:hasOriginalText "BOVENAAN ELK BINNENTRAPPENHUIS ZIT EEN VERLUCHTINGSOPENING MET EEN DOORSNEDE VAN MINIMUM 1 M² EN DIE UITMONDT IN DE OPEN LUCHT. DEZE OPENING IS NORMAAL GESLOTEN; VOOR HET OPENEN GEBRUIKT MEN EEN HANDBEDIENING DIE GOED ZICHTBAAR GEPLAATST IS OP HET EVACUATIENIVEAU." .
+
+fro:Section_4_2_3 a fro:Section ;
+    fro:hasID "4.2.3" ;
+    fro:hasOriginalText "" ;
+    fro:hasSection fro:Section_4_2_3_1,
+        fro:Section_4_2_3_2 .
+
+fro:Section_4_2_3_1 a fro:Section ;
+    fro:hasID "4.2.3.1" ;
+    fro:hasOriginalText "CONSTRUCTIEBEPALINGEN." .
+
+fro:Section_4_2_3_2 a fro:Section ;
+    fro:hasID "4.2.3.2" ;
+    fro:hasOriginalText "NUTTIGE BREEDTE VAN TRAPARMEN, OVERLOPEN EN SASSEN." .
+
+fro:Section_4_3 a fro:Section ;
+    fro:hasID "4.3" ;
+    fro:hasOriginalText "BUITENTRAPPENHUIZEN" .
+
+fro:Section_4_4 a fro:Section ;
+    fro:hasID "4.4" ;
+    fro:hasOriginalText "EVACUATIEWEGEN EN VLUCHTTERRASSEN" ;
+    fro:hasSection fro:Section_4_4_1,
+        fro:Section_4_4_2 .
+
+fro:Section_4_4_1 a fro:Section ;
+    fro:hasID "4.4.1" ;
+    fro:hasOriginalText "ALGEMENE VOORSCHRIFTEN" ;
+    fro:hasSection fro:Section_4_4_1_1,
+        fro:Section_4_4_1_2 .
+
+fro:Section_4_4_1_1 a fro:Section ;
+    fro:hasID "4.4.1.1" ;
+    fro:hasOriginalText "GEEN ENKEL PUNT VAN EEN COMPARTIMENT MAG ZICH VERDER BEVINDEN DAN:" .
+
+fro:Section_4_4_1_2 a fro:Section ;
+    fro:hasID "4.4.1.2" ;
+    fro:hasOriginalText "WORDT BESCHOUWD ALS EEN UITGANG VAN EEN COMPARTIMENT:" .
+
+fro:Section_4_4_2 a fro:Section ;
+    fro:hasID "4.4.2" ;
+    fro:hasOriginalText "OP EEN EVACUATIENIVEAU" .
+
+fro:Section_4_5 a fro:Section ;
+    fro:hasID "4.5" ;
+    fro:hasOriginalText "SIGNALISATIE." .
+
+fro:Section_5 a fro:Section ;
+    fro:hasID "5" ;
+    fro:hasOriginalText "CONSTRUCTIEVOORSCHRIFTEN VOOR SOMMIGE LOKALEN EN TECHNISCHE RUIMTEN." ;
+    fro:hasSection fro:Section_5_1,
+        fro:Section_5_2,
+        fro:Section_5_3,
+        fro:Section_5_4,
+        fro:Section_5_5 .
+
+fro:Section_5_1 a fro:Section ;
+    fro:hasID "5.1" ;
+    fro:hasOriginalText "TECHNISCHE LOKALEN EN RUIMTEN." ;
+    fro:hasSection fro:Section_5_1_1,
+        fro:Section_5_1_2,
+        fro:Section_5_1_3,
+        fro:Section_5_1_4,
+        fro:Section_5_1_5 .
+
+fro:Section_5_1_1 a fro:Section ;
+    fro:hasID "5.1.1" ;
+    fro:hasOriginalText "ALGEMEEN." .
+
+fro:Section_5_1_2 a fro:Section ;
+    fro:hasID "5.1.2" ;
+    fro:hasOriginalText "STOOKAFDELINGEN" ;
+    fro:hasSection fro:Section_5_1_2_1,
+        fro:Section_5_1_2_2,
+        fro:Section_5_1_2_3 .
+
+fro:Section_5_1_2_1 a fro:Section ;
+    fro:hasID "5.1.2.1" ;
+    fro:hasOriginalText "STOOKLOKALEN MET VERBRANDINGSTOESTELLEN MET EEN GECUMULEERD VERBRANDINGSDEBIET GROTER DAN OF GELIJK AAN 75 KW EN BRANDSTOFOPSLAGRUIMTES" .
+
+fro:Section_5_1_2_2 a fro:Section ;
+    fro:hasID "5.1.2.2" ;
+    fro:hasOriginalText "GEMEENSCHAPPELIJKE BEPALINGEN" .
+
+fro:Section_5_1_2_3 a fro:Section ;
+    fro:hasID "5.1.2.3" ;
+    fro:hasOriginalText "AFWIJKENDE BEPALINGEN" .
+
+fro:Section_5_1_3 a fro:Section ;
+    fro:hasID "5.1.3" ;
+    fro:hasOriginalText "TRANSFORMATORLOKALEN" ;
+    fro:hasSection fro:Section_5_1_3_1,
+        fro:Section_5_1_3_2 .
+
+fro:Section_5_1_3_1 a fro:Section ;
+    fro:hasID "5.1.3.1" ;
+    fro:hasOriginalText "ALGEMEEN" .
+
+fro:Section_5_1_3_2 a fro:Section ;
+    fro:hasID "5.1.3.2" ;
+    fro:hasOriginalText "TER PLAATSE GEMONTEERDE POSTEN OF PREFAB-POSTEN" .
+
+fro:Section_5_1_4 a fro:Section ;
+    fro:hasID "5.1.4" ;
+    fro:hasOriginalText "HUISVUILAFVOER" ;
+    fro:hasSection fro:Section_5_1_4_1,
+        fro:Section_5_1_4_2 .
+
+fro:Section_5_1_4_1 a fro:Section ;
+    fro:hasID "5.1.4.1" ;
+    fro:hasOriginalText "STORTKOKERS ZIJN VERBODEN" .
+
+fro:Section_5_1_4_2 a fro:Section ;
+    fro:hasID "5.1.4.2" ;
+    fro:hasOriginalText "LOKAAL VOOR DE OPSLAG VAN HET HUISVUIL" .
+
+fro:Section_5_1_5 a fro:Section ;
+    fro:hasID "5.1.5" ;
+    fro:hasOriginalText "LEIDINGENKOKERS" ;
+    fro:hasSection fro:Section_5_1_5_1,
+        fro:Section_5_1_5_2 .
+
+fro:Section_5_1_5_1 a fro:Section ;
+    fro:hasID "5.1.5.1" ;
+    fro:hasOriginalText "VERTICALE KOKERS" .
+
+fro:Section_5_1_5_2 a fro:Section ;
+    fro:hasID "5.1.5.2" ;
+    fro:hasOriginalText "HORIZONTALE KOKERS" .
+
+fro:Section_5_2 a fro:Section ;
+    fro:hasID "5.2" ;
+    fro:hasOriginalText "PARKINGS" ;
+    fro:hasSection fro:Section_5_2_1,
+        fro:Section_5_2_2,
+        fro:Section_5_2_3,
+        fro:Section_5_2_4,
+        fro:Section_5_2_5 .
+
+fro:Section_5_2_1 a fro:Section ;
+    fro:hasID "5.2.1" ;
+    fro:hasOriginalText "STRUCTURELE ELEMENTEN" .
+
+fro:Section_5_2_2 a fro:Section ;
+    fro:hasID "5.2.2" ;
+    fro:hasOriginalText "COMPARTIMENT" .
+
+fro:Section_5_2_3 a fro:Section ;
+    fro:hasID "5.2.3" ;
+    fro:hasOriginalText "PARKING ONDER VERSCHILLENDE GEBOUWEN" .
+
+fro:Section_5_2_4 a fro:Section ;
+    fro:hasID "5.2.4" ;
+    fro:hasOriginalText "GEMEENSCHAPPELIJKE BEPALINGEN" .
+
+fro:Section_5_2_5 a fro:Section ;
+    fro:hasID "5.2.5" ;
+    fro:hasOriginalText "AFWIJKENDE BEPALINGEN" .
+
+fro:Section_5_3 a fro:Section ;
+    fro:hasID "5.3" ;
+    fro:hasOriginalText "ZALEN." ;
+    fro:hasSection fro:Section_5_3_1,
+        fro:Section_5_3_2 .
+
+fro:Section_5_3_1 a fro:Section ;
+    fro:hasID "5.3.1" ;
+    fro:hasOriginalText "ALGEMEEN." .
+
+fro:Section_5_3_2 a fro:Section ;
+    fro:hasID "5.3.2" ;
+    fro:hasOriginalText "CONSTRUCTIE." .
+
+fro:Section_5_4 a fro:Section ;
+    fro:hasID "5.4" ;
+    fro:hasOriginalText "WINKEL- OF HANDELSCOMPLEX" .
+
+fro:Section_5_5 a fro:Section ;
+    fro:hasID "5.5" ;
+    fro:hasOriginalText "COLLECTIEVE KEUKENS" .
+
+fro:Section_6 a fro:Section ;
+    fro:hasID "6" ;
+    fro:hasOriginalText "UITRUSTING VAN DE GEBOUWEN" ;
+    fro:hasSection fro:Section_6_1,
+        fro:Section_6_2,
+        fro:Section_6_3,
+        fro:Section_6_4,
+        fro:Section_6_5,
+        fro:Section_6_6,
+        fro:Section_6_7,
+        fro:Section_6_8 .
+
+fro:Section_6_1 a fro:Section ;
+    fro:hasID "6.1" ;
+    fro:hasOriginalText "LIFTEN EN GOEDERENLIFTEN" ;
+    fro:hasSection fro:Section_6_1_1,
+        fro:Section_6_1_2,
+        fro:Section_6_1_3,
+        fro:Section_6_1_4 .
+
+fro:Section_6_1_1 a fro:Section ;
+    fro:hasID "6.1.1" ;
+    fro:hasOriginalText "ALGEMEEN" ;
+    fro:hasSection fro:Section_6_1_1_2,
+        fro:Section_6_1_1_3 .
+
+fro:Section_6_1_1_2 a fro:Section ;
+    fro:hasID "6.1.1.2" ;
+    fro:hasOriginalText "IN GEVAL VAN ABNORMALE STIJGING VAN DE TEMPERATUUR VAN DE MACHINE EN/OF VAN DE ANDERE ELEKTRISCHE UITRUSTINGEN, MOETEN DE LIFTEN STOPPEN OP EEN BORDES ZODAT DE PASSAGIERS KUNNEN UITSTAPPEN." .
+
+fro:Section_6_1_1_3 a fro:Section ;
+    fro:hasID "6.1.1.3" ;
+    fro:hasOriginalText "IN DE SCHACHT(EN) MAG GEEN ENKELE BLUSINRICHTING MET WATER OPGESTELD STAAN." .
+
+fro:Section_6_1_2 a fro:Section ;
+    fro:hasID "6.1.2" ;
+    fro:hasOriginalText "# OPVATTING." ;
+    fro:hasSection fro:Section_6_1_2_1,
+        fro:Section_6_1_2_2,
+        fro:Section_6_1_2_3,
+        fro:Section_6_1_2_4,
+        fro:Section_6_1_2_5,
+        fro:Section_6_1_2_6 .
+
+fro:Section_6_1_2_1 a fro:Section ;
+    fro:hasID "6.1.2.1" ;
+    fro:hasOriginalText "HET GEHEEL BESTAANDE UIT ÉÉN OF MEER SCHACHTEN EN DE EVENTUELE MACHINEKAMER, ALSOOK TOEGANGSBORDESSEN DIE EEN SAS MOETEN VORMEN VOOR DE ONDERGRONDSE BOUWLAGEN, IS OMSLOTEN DOOR WANDEN MET EI 60." .
+
+fro:Section_6_1_2_2 a fro:Section ;
+    fro:hasID "6.1.2.2" ;
+    fro:hasOriginalText "HET GEHEEL VAN DE SCHACHTDEUREN VAN DE LIFT OF GOEDERENLIFT HEEFT E 30. DE BRANDWERENDHEID VOLGENS DE NORM NBN EN 81-58, WAARBIJ DE BORDESWAND AAN DE KANT VAN HET BORDES AAN HET VUUR BLOOTGESTELD WORDT. DE BORDESWAND ZAL BEPROEFD WORDEN MET DE EVENTUELE BEDIENINGS- EN CONTROLEORGANEN DIE DAARVAN DEEL UITMAKEN." .
+
+fro:Section_6_1_2_3 a fro:Section ;
+    fro:hasID "6.1.2.3" ;
+    fro:hasOriginalText "DE VOORSCHRIFTEN VAN DE PUNTEN 6.1.2.1 EN 6.1.2.2 ZIJN NIET VEREIST IN DE VOLGENDE GEVALLEN:" .
+
+fro:Section_6_1_2_4 a fro:Section ;
+    fro:hasID "6.1.2.4" ;
+    fro:hasOriginalText "LIFTEN EN GOEDERENLIFTEN WAARVAN DE AANDRIJVING ZICH IN EEN MACHINEKAMER BEVINDT." .
+
+fro:Section_6_1_2_5 a fro:Section ;
+    fro:hasID "6.1.2.5" ;
+    fro:hasOriginalText "OLEOHYDRAULISCHE LIFTEN EN GOEDERENLIFTEN." .
+
+fro:Section_6_1_2_6 a fro:Section ;
+    fro:hasID "6.1.2.6" ;
+    fro:hasOriginalText "LIFTEN EN ROLTRAPPEN." .
+
+fro:Section_6_1_3 a fro:Section ;
+    fro:hasID "6.1.3" ;
+    fro:hasOriginalText "VERLUCHTING." ;
+    fro:hasSection fro:Section_6_1_3_1,
+        fro:Section_6_1_3_2,
+        fro:Section_6_1_3_3 .
+
+fro:Section_6_1_3_1 a fro:Section ;
+    fro:hasID "6.1.3.1" ;
+    fro:hasOriginalText "DE SCHACHT, DE MACHINEKAMER OF HET GEHEEL SCHACHT EN MACHINEKAMER WORDEN OP EEN NATUURLIJKE MANIER VERLUCHT VIA BUITENLUCHTMONDEN IN HET BOVENSTE GEDEELTE." .
+
+fro:Section_6_1_3_2 a fro:Section ;
+    fro:hasID "6.1.3.2" ;
+    fro:hasOriginalText "DE VERLUCHTINGSOPENINGEN HEBBEN EEN MINIMALE DOORSNEDE VAN 1 % VAN DE HORIZONTALE OPPERVLAKTE VAN DE RUIMTE WAARUIT DE LUCHT WORDT AFGEVOERD." .
+
+fro:Section_6_1_3_3 a fro:Section ;
+    fro:hasID "6.1.3.3" ;
+    fro:hasOriginalText "DE VERLUCHTINGSOPENINGEN MOGEN UITGERUST WORDEN MET GEMOTORISEERDE VERLUCHTINGSKLEPPEN WAARVAN DE OPENING ALS VOLGT BEVOLEN:" .
+
+fro:Section_6_1_4 a fro:Section ;
+    fro:hasID "6.1.4" ;
+    fro:hasOriginalText "WERKING BIJ BRAND." ;
+    fro:hasSection fro:Section_6_1_4_1,
+        fro:Section_6_1_4_2,
+        fro:Section_6_1_4_3,
+        fro:Section_6_1_4_4,
+        fro:Section_6_1_4_5,
+        fro:Section_6_1_4_6,
+        fro:Section_6_1_4_7,
+        fro:Section_6_1_4_8 .
+
+fro:Section_6_1_4_1 a fro:Section ;
+    fro:hasID "6.1.4.1" ;
+    fro:hasOriginalText "DE WERKING VAN DE LIFTEN BIJ BRAND BEANTWOORDT AAN DE VOORSCHRIFTEN VAN DE NORM NBN EN 81-73." .
+
+fro:Section_6_1_4_2 a fro:Section ;
+    fro:hasID "6.1.4.2" ;
+    fro:hasOriginalText "HET BORDES VAN DE LIFT OP HET EVACUATIENIVEAU WORDT VASTGELEGD ALS AANGEDUIDE LIFTBORDES." .
+
+fro:Section_6_1_4_3 a fro:Section ;
+    fro:hasID "6.1.4.3" ;
+    fro:hasOriginalText "ELKE LIFTBATTERIJ IS MINSTENS VOORZIEN VAN EEN MANUELE OPROEPVOORZIENING OP EEN EVACUATIENIVEAU." .
+
+fro:Section_6_1_4_4 a fro:Section ;
+    fro:hasID "6.1.4.4" ;
+    fro:hasOriginalText "WANNEER ER EEN ALGEMENE OF GEDEELTELIJKE DETECTIE IN HET GEBOUW VEREIST IS EN DE MACHINERIE VAN DE LIFTEN EN GOEDERENLIFTEN BEVINDT ZICH IN DE SCHACHT, DIENT EEN ROOKDETECTIE GEPLAATST TE WORDEN IN DE SCHACHT." .
+
+fro:Section_6_1_4_5 a fro:Section ;
+    fro:hasID "6.1.4.5" ;
+    fro:hasOriginalText "INDIEN DOOR EEN BRANDDETECTIE-INSTALLATIE EEN BRAND GEDETECTEERD WORDT OP HET BORDES DAT OVEREENSTEMT MET HET AANGEDUIDE HOOFDBORDES, MOET DE LIFT EEN OF MEER BIJKOMENDE ELEKTRISCHE SIGNALEN KRIJGEN OPDAT DE LIFTKOOI NAAR HET AANGEDUIDE VERVANGENDE BORDES WORDT AFGELEID." .
+
+fro:Section_6_1_4_6 a fro:Section ;
+    fro:hasID "6.1.4.6" ;
+    fro:hasOriginalText "WANNEER DE LIFTEN BIJ BRAND OP HET AANGEDUIDE BORDES STAAN, MOET DE MOGELIJKHEID BESTAAN DAT DE BRANDWEER GEMAKKELIJK KAN CONTROLEREN DAT DE LIFTKOOIEN DAAR STAAN EN DAT NIEMAND IN DE LIFT OPGESLOTEN IS." .
+
+fro:Section_6_1_4_7 a fro:Section ;
+    fro:hasID "6.1.4.7" ;
+    fro:hasOriginalText "DE LIFT KAN ENKEL TERUG IN NORMALE WERKING GESTELD WORDEN DOOR EEN BEVOEGDE PERSOON." .
+
+fro:Section_6_1_4_8 a fro:Section ;
+    fro:hasID "6.1.4.8" ;
+    fro:hasOriginalText "VOOR DE GEBOUWEN WAARVOOR DE AANVRAAG VOOR DE BOUW WERD INGEDIEND VOOR 1 APRIL 2017, GELDEN DE VOLGENDE AFWIJKENDE BEPALINGEN:" .
+
+fro:Section_6_2 a fro:Section ;
+    fro:hasID "6.2" ;
+    fro:hasOriginalText "PATERNOSTERLIFT, CONTAINERTRANSPORT EN GOEDERENLIFT MET LAAD- EN LOSAUTOMATISME." ;
+    fro:hasSection fro:Section_6_2_1,
+        fro:Section_6_2_2 .
+
+fro:Section_6_2_1 a fro:Section ;
+    fro:hasID "6.2.1" ;
+    fro:hasOriginalText "DEZE TOESTELLEN HEBBEN HUN EIGEN MACHINEKAMERS, SCHACHTEN EN BORDESSEN." .
+
+fro:Section_6_2_2 a fro:Section ;
+    fro:hasID "6.2.2" ;
+    fro:hasOriginalText "HET INSTALLEREN VAN PATERNOSTERLIFTEN VOOR PERSONENVERVOER IS VERBODEN." .
+
+fro:Section_6_3 a fro:Section ;
+    fro:hasID "6.3" ;
+    fro:hasOriginalText "ROLTRAPPEN" ;
+    fro:hasSection fro:Section_6_3_1,
+        fro:Section_6_3_2,
+        fro:Section_6_3_3,
+        fro:Section_6_3_4 .
+
+fro:Section_6_3_1 a fro:Section ;
+    fro:hasID "6.3.1" ;
+    fro:hasOriginalText "HET TRAPPENHUIS VAN ROLTRAPPEN HEEFT WANDEN MET EI 60." .
+
+fro:Section_6_3_2 a fro:Section ;
+    fro:hasID "6.3.2" ;
+    fro:hasOriginalText "DE TOEGANG TOT HET TRAPPENHUIS GESCHIEDT OP ELKE BOUWLAAG, VIA EEN ZELFSLUITENDE OF BIJ BRAND ZELFSLUITENDE DEUR EI1 30." .
+
+fro:Section_6_3_3 a fro:Section ;
+    fro:hasID "6.3.3" ;
+    fro:hasOriginalText "DE ROLTRAP WORDT AUTOMATISCH UITGESCHAKELD ZODRA ER BRAND GEDETECTEERD WORDT IN EEN COMPARTIMENT WAARHEEN HIJ LEIDT." .
+
+fro:Section_6_3_4 a fro:Section ;
+    fro:hasID "6.3.4" ;
+    fro:hasOriginalText "DE VOORSCHRIFTEN VAN DE PUNTEN 6.3.1 EN 6.3.2 ZIJN NIET VEREIST IN DE VOLGENDE GEVALLEN:" .
+
+fro:Section_6_4 a fro:Section ;
+    fro:hasID "6.4" ;
+    fro:hasOriginalText "SPECIALE LIFTEN" ;
+    fro:hasSection fro:Section_6_4_1,
+        fro:Section_6_4_2,
+        fro:Section_6_4_3 .
+
+fro:Section_6_4_1 a fro:Section ;
+    fro:hasID "6.4.1" ;
+    fro:hasOriginalText "LIFTEN BESTEMD VOOR HET EVACUEREN VAN PERSONEN MET BEPERKTE MOBILITEIT" ;
+    fro:hasSection fro:Section_6_4_1_1,
+        fro:Section_6_4_1_2,
+        fro:Section_6_4_1_3,
+        fro:Section_6_4_1_4,
+        fro:Section_6_4_1_5,
+        fro:Section_6_4_1_6,
+        fro:Section_6_4_1_7,
+        fro:Section_6_4_1_8 .
+
+fro:Section_6_4_1_1 a fro:Section ;
+    fro:hasID "6.4.1.1" ;
+    fro:hasOriginalText "DEZE LIFT MOET ZODANIG ONTWORPEN EN GEBOUWD WORDEN DAT DE TOEGANG EN HET GEBRUIK DOOR PERSONEN MET BEPERKTE MOBILITEIT NIET BELEMMERD OF VERHINDERD WORDT." .
+
+fro:Section_6_4_1_2 a fro:Section ;
+    fro:hasID "6.4.1.2" ;
+    fro:hasOriginalText "OP ALLE BOUWLAGEN VORMEN DE LIFTBORDESSEN EEN SAS DAT BEANTWOORDT AAN DE VOORSCHRIFTEN VAN PUNT 6.1.2.1 WAARBIJ DE OPPERVLAKTE GELIJK IS AAN OF GROTER IS DAN DE OPPERVLAKTE VAN DE LIFTKOOI." .
+
+fro:Section_6_4_1_3 a fro:Section ;
+    fro:hasID "6.4.1.3" ;
+    fro:hasOriginalText "DE LIFTKOOIEN ZIJN TEN MINSTE TOEGANKELIJK VOOR EEN PERSOON IN EEN ROLSTOEL EN EEN BEGELEIDENDE PERSOON." .
+
+fro:Section_6_4_1_4 a fro:Section ;
+    fro:hasID "6.4.1.4" ;
+    fro:hasOriginalText "DE SCHACHTDEUREN OPENEN EN SLUITEN AUTOMATISCH EN HEBBEN EEN NUTTIGE BREEDTE VAN TEN MINSTE 0,90 M." .
+
+fro:Section_6_4_1_5 a fro:Section ;
+    fro:hasID "6.4.1.5" ;
+    fro:hasOriginalText "DE EVACUATIE GEBEURT ONDER TOEZICHT VAN EEN BEVOEGD PERSOON. HIERTOE IS DE LIFT UITGERUST MET EEN SCHAKELAAR MET “EVACUATIESLEUTEL” DIE HET MOGELIJK MAAKT DAT EEN BEVOEGD PERSOON DE BEDIENING VAN DE LIFT OVERNEEMT." .
+
+fro:Section_6_4_1_6 a fro:Section ;
+    fro:hasID "6.4.1.6" ;
+    fro:hasOriginalText "DE LIFTEN BESTEMD VOOR DE EVACUATIE VAN PERSONEN MET BEPERKTE MOBILITEIT WORDEN AANGEDUID MET EEN DUIDELIJKE EN HERKENBARE SIGNALERING." .
+
+fro:Section_6_4_1_7 a fro:Section ;
+    fro:hasID "6.4.1.7" ;
+    fro:hasOriginalText "DE LIFT MOET EEN INTERCOMSYSTEEM BEVATTEN DAT MONDELINGE TWEERICHTINGSCOMMUNICATIE TOELAAT ALS DE LIFT IN EVACUATIEMODUS IS. DIT SYSTEEM MOET TOELATEN OM TE COMMUNICEREN TUSSEN DE LIFTKOOI, HET EVACUATIENIVEAU EN DE MACHINEKAMER OF HET PANEEL VAN DE HULPVERLENINGSOPERATIES." .
+
+fro:Section_6_4_1_8 a fro:Section ;
+    fro:hasID "6.4.1.8" ;
+    fro:hasOriginalText "MET UITZONDERING VAN DE LIFTEN DIE SLECHTS TWEE BOUWLAGEN BEDIENEN, MOET ELK LIFTBORDES EEN INTERCOMSYSTEEM BEVATTEN DAT MONDELINGE TWEERICHTINGSCOMMUNICATIE TOELAAT ALS DE LIFT IN EVACUATIEMODUS IS. DIT SYSTEEM MOET TOELATEN OM TE COMMUNICEREN TUSSEN ELK LIFTBORDES, HET EVACUATIENIVEAU EN DE MACHINEKAMER OF HET PANEEL VAN DE HULPVERLENINGSOPERATIES, ZODAT DE BOUWLAGEN WAAROP PERSONEN MET BEPERKTE MOBILITEIT DIE DIENEN GEËVACUEERD TE WORDEN ZICH BEVINDEN KUNNEN HERKEND WORDEN EN DEZE INFORMATIE AAN DE PERSOON BELAST MET DE EVACUATIE KAN DOORGEGEVEN WORDEN." .
+
+fro:Section_6_4_2 a fro:Section ;
+    fro:hasID "6.4.2" ;
+    fro:hasOriginalText "LIFTEN BESTEMD VOOR DE BRANDWEER" ;
+    fro:hasSection fro:Section_6_4_2_1,
+        fro:Section_6_4_2_2,
+        fro:Section_6_4_2_3,
+        fro:Section_6_4_2_4,
+        fro:Section_6_4_2_5,
+        fro:Section_6_4_2_6,
+        fro:Section_6_4_2_7 .
+
+fro:Section_6_4_2_1 a fro:Section ;
+    fro:hasID "6.4.2.1" ;
+    fro:hasOriginalText "DE LIFTEN BESTEMD VOOR DE BRANDWEER EN DE WERKING ERVAN IN GEVAL VAN BRAND BEANTWOORDEN AAN DE VOORSCHRIFTEN VAN DE NORM NBN EN 81-72." .
+
+fro:Section_6_4_2_2 a fro:Section ;
+    fro:hasID "6.4.2.2" ;
+    fro:hasOriginalText "OP ALLE BOUWLAGEN VORMEN DE LIFTBORDESSEN EEN SAS DAT BEANTWOORDT AAN DE VOORSCHRIFTEN VAN PUNT 6.1.2.1 WAARBIJ DE OPPERVLAKTE GELIJK IS AAN OF GROTER IS DAN DE OPPERVLAKTE VAN DE LIFTKOOI." .
+
+fro:Section_6_4_2_3 a fro:Section ;
+    fro:hasID "6.4.2.3" ;
+    fro:hasOriginalText "ALS ER IN EEN LIFTBATTERIJ GEEN MUUR EI 60 IS VOORZIEN OM DE LIFT BESTEMD VOOR DE BRANDWEER AF TE SCHEIDEN VAN DE ANDERE LIFTEN IN EEN DEZELFDE SCHACHT, DAN MOETEN ALLE LIFTEN EN HUN ELEKTRISCHE UITRUSTING DEZELFDE BESCHERMING TEGEN BRAND HEBBEN ALS DE LIFT BESTEMD VOOR DE BRANDWEER." .
+
+fro:Section_6_4_2_4 a fro:Section ;
+    fro:hasID "6.4.2.4" ;
+    fro:hasOriginalText "DE MINIMALE AFMETINGEN VAN DE LIFTKOOIEN ZIJN 1,1 M (BREEDTE) X 2,1 M (DIEPTE)." .
+
+fro:Section_6_4_2_5 a fro:Section ;
+    fro:hasID "6.4.2.5" ;
+    fro:hasOriginalText "DE SCHACHTDEUREN OPENEN EN SLUITEN AUTOMATISCH EN HEBBEN EEN NUTTIGE BREEDTE VAN TEN MINSTE 0,80 M." .
+
+fro:Section_6_4_2_6 a fro:Section ;
+    fro:hasID "6.4.2.6" ;
+    fro:hasOriginalText "OP HET BORDES VAN HET TOEGANGSNIVEAU VAN DE BRANDWEER IS EEN SCHAKELAAR MET “BRANDWEERSLEUTEL” VOORZIEN DIE DE BRANDWEER TOELAAT OM DE BEDIENING VAN DE LIFT OVER TE NEMEN." .
+
+fro:Section_6_4_2_7 a fro:Section ;
+    fro:hasID "6.4.2.7" ;
+    fro:hasOriginalText "DE LIFT MOET DE VERST VAN HET TOEGANGSNIVEAU VAN DE BRANDWEER GELEGEN VERDIEPING KUNNEN BEREIKEN IN MINDER DAN 60 SECONDEN NA HET SLUITEN VAN DE DEUREN." .
+
+fro:Section_6_4_3 a fro:Section ;
+    fro:hasID "6.4.3" ;
+    fro:hasOriginalText "AFWIJKENDE BEPALINGEN." .
+
+fro:Section_6_5 a fro:Section ;
+    fro:hasID "6.5" ;
+    fro:hasOriginalText "ELEKTRISCHE LAAGSPANNINGSINSTALLATIES VOOR DRIJFKRACHT, VERLICHTING EN SIGNALISATIE." ;
+    fro:hasSection fro:Section_6_5_1,
+        fro:Section_6_5_2,
+        fro:Section_6_5_3,
+        fro:Section_6_5_4 .
+
+fro:Section_6_5_1 a fro:Section ;
+    fro:hasID "6.5.1" ;
+    fro:hasOriginalText "ZIJ VOLDOEN AAN DE VOORSCHRIFTEN VAN DE GELDENDE WETTELIJKE EN REGLEMENTAIRE TEKSTEN, EVENALS AAN HET ALGEMEEN REGLEMENT OP DE ELEKTRISCHE INSTALLATIES (A.R.E.I.)." .
+
+fro:Section_6_5_2 a fro:Section ;
+    fro:hasID "6.5.2" ;
+    fro:hasOriginalText "DE ELEKTRISCHE LEIDINGEN DIE INSTALLATIES OF TOESTELLEN VOEDEN DIE BIJ BRAND ABSOLUUT IN DIENST MOETEN BLIJVEN, WORDEN ZODANIG GEPLAATST DAT DE RISICO’S VAN ALGEHELE BUITENDIENSTSTELLING GESPREID ZIJN." .
+
+fro:Section_6_5_3 a fro:Section ;
+    fro:hasID "6.5.3" ;
+    fro:hasOriginalText "AUTONOME STROOMBRONNEN." .
+
+fro:Section_6_5_4 a fro:Section ;
+    fro:hasID "6.5.4" ;
+    fro:hasOriginalText "VEILIGHEIDSVERLICHTING." .
+
+fro:Section_6_6 a fro:Section ;
+    fro:hasID "6.6" ;
+    fro:hasOriginalText "INSTALLATIES VOOR BRANDBAAR GAS VERDEELD DOOR LEIDINGEN." .
+
+fro:Section_6_7 a fro:Section ;
+    fro:hasID "6.7" ;
+    fro:hasOriginalText "AËRAULISCHE INSTALLATIES" ;
+    fro:hasSection fro:Section_6_7_1,
+        fro:Section_6_7_2,
+        fro:Section_6_7_3,
+        fro:Section_6_7_4,
+        fro:Section_6_7_5,
+        fro:Section_6_7_6 .
+
+fro:Section_6_7_1 a fro:Section ;
+    fro:hasID "6.7.1" ;
+    fro:hasOriginalText "OPVATTING VAN DE INSTALLATIES" ;
+    fro:hasSection fro:Section_6_7_1_1,
+        fro:Section_6_7_1_2,
+        fro:Section_6_7_1_3 .
+
+fro:Section_6_7_1_1 a fro:Section ;
+    fro:hasID "6.7.1.1" ;
+    fro:hasOriginalText "INTEGRATIE VAN LOKALEN OF GESLOTEN RUIMTEN IN DE LOKALEN" .
+
+fro:Section_6_7_1_2 a fro:Section ;
+    fro:hasID "6.7.1.2" ;
+    fro:hasOriginalText "GEBRUIK VAN DE TRAPPENHUIZEN VOOR LUCHTTRANSPORT" .
+
+fro:Section_6_7_1_3 a fro:Section ;
+    fro:hasID "6.7.1.3" ;
+    fro:hasOriginalText "BEPERKING VAN HET HERGEBRUIK VAN LUCHT" .
+
+fro:Section_6_7_2 a fro:Section ;
+    fro:hasID "6.7.2" ;
+    fro:hasOriginalText "BOUW VAN DE LUCHTKANALEN." ;
+    fro:hasSection fro:Section_6_7_2_1,
+        fro:Section_6_7_2_2 .
+
+fro:Section_6_7_2_1 a fro:Section ;
+    fro:hasID "6.7.2.1" ;
+    fro:hasOriginalText "LUCHTKANALEN IN EVACUATIEWEGEN." .
+
+fro:Section_6_7_2_2 a fro:Section ;
+    fro:hasID "6.7.2.2" ;
+    fro:hasOriginalText "AFZUIGKANALEN VAN COLLECTIEVE KEUKENS" .
+
+fro:Section_6_7_3 a fro:Section ;
+    fro:hasID "6.7.3" ;
+    fro:hasOriginalText "DOORGANGEN VAN LUCHTKANALEN DOOR WANDEN." ;
+    fro:hasSection fro:Section_6_7_3_1,
+        fro:Section_6_7_3_2 .
+
+fro:Section_6_7_3_1 a fro:Section ;
+    fro:hasID "6.7.3.1" ;
+    fro:hasOriginalText "ALGEMEEN." .
+
+fro:Section_6_7_3_2 a fro:Section ;
+    fro:hasID "6.7.3.2" ;
+    fro:hasOriginalText "DOORGANGEN MET BRANDWERENDE KLEPPEN" .
+
+fro:Section_6_7_4 a fro:Section ;
+    fro:hasID "6.7.4" ;
+    fro:hasOriginalText "BRANDWERENDE KLEPPEN" ;
+    fro:hasSection fro:Section_6_7_4_1,
+        fro:Section_6_7_4_2,
+        fro:Section_6_7_4_3 .
+
+fro:Section_6_7_4_1 a fro:Section ;
+    fro:hasID "6.7.4.1" ;
+    fro:hasOriginalText "BEDIENING" .
+
+fro:Section_6_7_4_2 a fro:Section ;
+    fro:hasID "6.7.4.2" ;
+    fro:hasOriginalText "PRESTATIES VAN DE KLEP" .
+
+fro:Section_6_7_4_3 a fro:Section ;
+    fro:hasID "6.7.4.3" ;
+    fro:hasOriginalText "PLAATSING VAN DE KLEP" .
+
+fro:Section_6_7_5 a fro:Section ;
+    fro:hasID "6.7.5" ;
+    fro:hasOriginalText "ROOKKLEPPEN" .
+
+fro:Section_6_7_6 a fro:Section ;
+    fro:hasID "6.7.6" ;
+    fro:hasOriginalText "BEDIENING BIJ BRAND VAN DE AËRAULISCHE INSTALLATIES" .
+
+fro:Section_6_8 a fro:Section ;
+    fro:hasID "6.8" ;
+    fro:hasOriginalText "INRICHTINGEN VOOR MELDING, WAARSCHUWING, ALARM EN BRANDBESTRIJDINGSMIDDELEN." ;
+    fro:hasSection fro:Section_6_8_1,
+        fro:Section_6_8_2,
+        fro:Section_6_8_3,
+        fro:Section_6_8_4,
+        fro:Section_6_8_5 .
+
+fro:Section_6_8_1 a fro:Section ;
+    fro:hasID "6.8.1" ;
+    fro:hasOriginalText "IN DE GEBOUWEN ZIJN INRICHTINGEN VOOR MELDING EN BRANDBESTRIJDING VERPLICHT." .
+
+fro:Section_6_8_2 a fro:Section ;
+    fro:hasID "6.8.2" ;
+    fro:hasOriginalText "AANTAL EN PLAATS VAN DE TOESTELLEN VOOR BRANDMELDING, WAARSCHUWING, ALARM EN BRANDBESTRIJDING." ;
+    fro:hasSection fro:Section_6_8_2_1,
+        fro:Section_6_8_2_2,
+        fro:Section_6_8_2_3 .
+
+fro:Section_6_8_2_1 a fro:Section ;
+    fro:hasID "6.8.2.1" ;
+    fro:hasOriginalText "HET AANTAL TOESTELLEN WORDT BEPAALD DOOR DE AFMETINGEN, DE TOESTAND EN HET RISICO IN DE LOKALEN." .
+
+fro:Section_6_8_2_2 a fro:Section ;
+    fro:hasID "6.8.2.2" ;
+    fro:hasOriginalText "DE TOESTELLEN DIE MENSELIJKE INTERVENTIE VERGEN, WORDEN AANGEBRACHT OP ZICHTBARE OF HELDER AANGEDUIDE PLAATSEN DIE IN ALLE OMSTANDIGHEDEN VRIJ BEREIKBAAR ZIJN. ZIJ BEVINDEN ZICH ONDER MEER NABIJ UITGANGEN, OP OVERLOPEN, IN GANGEN EN WORDEN DERWIJZE AANGEBRACHT DAT ZIJ DE CIRCULATIE NIET HINDEREN EN NIET BESCHADIGD OF AANGESTOTEN KUNNEN WORDEN." .
+
+fro:Section_6_8_2_3 a fro:Section ;
+    fro:hasID "6.8.2.3" ;
+    fro:hasOriginalText "DE SIGNALISATIE VOLDOET AAN DE GELDENDE VOORSCHRIFTEN." .
+
+fro:Section_6_8_3 a fro:Section ;
+    fro:hasID "6.8.3" ;
+    fro:hasOriginalText "BRANDMELDING." ;
+    fro:hasSection fro:Section_6_8_3_1,
+        fro:Section_6_8_3_2,
+        fro:Section_6_8_3_3 .
+
+fro:Section_6_8_3_1 a fro:Section ;
+    fro:hasID "6.8.3.1" ;
+    fro:hasOriginalText "DE MELDING VAN ONTDEKKING OF DETECTIE VAN BRAND MOET TERSTOND AAN DE BRANDWEERDIENSTEN KUNNEN WORDEN DOORGEGEVEN DOOR EEN MELDINGSTOESTEL PER COMPARTIMENT; IN DE GEBOUWEN WAARVAN DE OPPERVLAKTE PER BOUWLAAG KLEINER IS DAN 500 M² VOLSTAAT ÉÉN MELDINGSTOESTEL VOOR HET GEBOUW." .
+
+fro:Section_6_8_3_2 a fro:Section ;
+    fro:hasID "6.8.3.2" ;
+    fro:hasOriginalText "DE NODIGE VERBINDINGEN WORDEN BESTENDIG EN TERSTOND VERZEKERD DOOR TELEFOON- OF ELEKTRISCHE LIJNEN, OF DOOR ELK ANDER SYSTEEM DAT DEZELFDE WERKINGSWAARBORGEN EN DEZELFDE GEBRUIKSFACILITEITEN BIEDT." .
+
+fro:Section_6_8_3_3 a fro:Section ;
+    fro:hasID "6.8.3.3" ;
+    fro:hasOriginalText "ELK TOESTEL DAT DE VERBINDING TOT STAND KAN BRENGEN MITS MENSELIJKE INTERVENTIE, DRAAGT EEN BERICHT OVER ZIJN BESTEMMING EN GEBRUIKSAANWIJZING." .
+
+fro:Section_6_8_4 a fro:Section ;
+    fro:hasID "6.8.4" ;
+    fro:hasOriginalText "WAARSCHUWING EN ALARM." .
+
+fro:Section_6_8_5 a fro:Section ;
+    fro:hasID "6.8.5" ;
+    fro:hasOriginalText "BRANDBESTRIJDINGSMIDDELEN." ;
+    fro:hasSection fro:Section_6_8_5_1,
+        fro:Section_6_8_5_2,
+        fro:Section_6_8_5_3,
+        fro:Section_6_8_5_4 .
+
+fro:Section_6_8_5_1 a fro:Section ;
+    fro:hasID "6.8.5.1" ;
+    fro:hasOriginalText "ALGEMEEN." .
+
+fro:Section_6_8_5_2 a fro:Section ;
+    fro:hasID "6.8.5.2" ;
+    fro:hasOriginalText "DRAAGBARE OF MOBIELE SNELBLUSSERS." .
+
+fro:Section_6_8_5_3 a fro:Section ;
+    fro:hasID "6.8.5.3" ;
+    fro:hasOriginalText "MUURHASPELS MET AXIALE VOEDING, MUURHYDRANTEN." ;
+    fro:hasSection fro:Section_6_8_5_3_1,
+        fro:Section_6_8_5_3_2,
+        fro:Section_6_8_5_3_3 .
+
+fro:Section_6_8_5_3_1 a fro:Section ;
+    fro:hasID "6.8.5.3.1" ;
+    fro:hasOriginalText "HET AANTAL EN DE PLAATS VAN DEZE TOESTELLEN WORDEN BEPAALD DOOR DE AARD EN DE OMVANG VAN HET BRANDGEVAAR." .
+
+fro:Section_6_8_5_3_2 a fro:Section ;
+    fro:hasID "6.8.5.3.2" ;
+    fro:hasOriginalText "DE STIJGLEIDING DIE EVENTUELE TOESTELLEN VOEDT MET WATER ONDER DRUK, HEEFT DE VOLGENDE KENMERKEN:" .
+
+fro:Section_6_8_5_3_3 a fro:Section ;
+    fro:hasID "6.8.5.3.3" ;
+    fro:hasOriginalText "DE EVENTUELE TOESTELLEN WORDEN ZONDER VOORAFGAANDE BEDIENING GEVOED MET WATER ONDER DRUK. DEZE DRUK BEDRAAGT TEN MINSTE 2,5 BAR OP HET ONGUNSTIGSTE PUNT." .
+
+fro:Section_6_8_5_4 a fro:Section ;
+    fro:hasID "6.8.5.4" ;
+    fro:hasOriginalText "ONDERGRONDSE EN BOVENGRONDSE HYDRANTEN." ;
+    fro:hasSection fro:Section_6_8_5_4_1,
+        fro:Section_6_8_5_4_2,
+        fro:Section_6_8_5_4_3 .
+
+fro:Section_6_8_5_4_1 a fro:Section ;
+    fro:hasID "6.8.5.4.1" ;
+    fro:hasOriginalText "DEZE BOVENGRONDSE EN ONDERGRONDSE HYDRANTEN WORDEN GEVOED DOOR HET OPENBAAR WATERLEIDINGNET VIA EEN LEIDING MET MINIMALE BINNENDIAMETER VAN 80 MM." .
+
+fro:Section_6_8_5_4_2 a fro:Section ;
+    fro:hasID "6.8.5.4.2" ;
+    fro:hasOriginalText "IN DE NIJVERHEIDS- EN HANDELSZONES EN OP DE PLAATSEN MET EEN GROTE BEVOLKINGSDICHTHEID LIGGEN DE WATERAANSLUITINGEN OP EEN MAXIMUM AFSTAND VAN 100 M VAN ELKAAR VERWIJDERD. ELDERS ZIJN ZIJ WEGENS DE LIGGING VAN DE VOOR BRAND TE BEVEILIGEN GEBOUWEN OF INRICHTINGEN ZO VERDEELD DAT DE AFSTAND TUSSEN DE INGANG VAN ELK GEBOUW OF VAN ELKE INRICHTING EN DE DICHTSTBIJGELEGEN HYDRANT NIET MEER DAN 200 M BEDRAAGT." .
+
+fro:Section_6_8_5_4_3 a fro:Section ;
+    fro:hasID "6.8.5.4.3" ;
+    fro:hasOriginalText "DE ONDERGRONDSE OF DE BOVENGRONDSE HYDRANTEN WORDEN AANGEBRACHT OP EEN HORIZONTAAL GEMETEN AFSTAND VAN TEN MINSTE 0,60 M VAN DE KANT DER STRATEN, WEGEN OF DOORGANGEN WAAROP VOERTUIGEN KUNNEN RIJDEN EN PARKEREN." .
+
+
+
+Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following the ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned. Prefixes will be added afterwards automatically so ALWAYS start off with fro:Section_..., NEVER define any prefixes.
 
 Additionally, you must now enhance the text by adding HTML links to relevant ontology concepts via the buliding ontology list below. When you identify terms that match concepts from the ontology, wrap them in HTML anchor tags that link to their URI definitions. For example:
 - If discussing compartment areas, use: <a href="http://example.com/firebimbuilding#CompartmentArea">area of the compartment</a>
@@ -1200,4 +1234,4 @@ IMPORTANT FORMATTING RULES:
 3. For simple text without HTML, you can use single quotes
 
 Example format:
-firebim:hasOriginalText """Text with <a href=\"http://example.com/firebimbuilding#Term\">linked term</a>"""@nl ;
+fro:hasOriginalText """Text with <a href=\"http://example.com/firebimbuilding#Term\">linked term</a>"""@nl ;

@@ -3,24 +3,24 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_3_2 a firebim:Section ;
-    firebim:hasID "3.2" ;
-    firebim:hasOriginalText "Structurele elementen."@nl ;
-    firebim:hasArticle firebim:Article_3_2_1 .
+fro:Section_3_2 a fro:Section ;
+    fro:hasID "3.2" ;
+    fro:hasOriginalText "Structurele elementen."@nl ;
+    fro:hasArticle fro:Article_3_2_1 .
 
-firebim:Section_3 firebim:hasSection firebim:Section_3_2 .
+fro:Section_3 fro:hasSection fro:Section_3_2 .
 
-firebim:Article_3_2_1 a firebim:Article ;
-    firebim:hasID "A3.2.1" ;
-    firebim:hasMember firebim:Member_3_2_1_1 ;
-    firebim:hasTable firebim:Table_2_1 .
+fro:Article_3_2_1 a fro:Article ;
+    fro:hasID "A3.2.1" ;
+    fro:hasMember fro:Member_3_2_1_1 ;
+    fro:hasTable fro:Table_2_1 .
 
-firebim:Member_3_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals
+fro:Member_3_2_1_1 a fro:Member ;
+    fro:hasOriginalText """De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals
 weergegeven in tabel 2.1, waarin Ei het laagst gelegen evacuatieniveau voorstelt."""@nl .
 
-firebim:Table_2_1 a firebim:Table ;
-    firebim:hasID "T2.1" .
+fro:Table_2_1 a fro:Table ;
+    fro:hasID "T2.1" .

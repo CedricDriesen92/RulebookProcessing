@@ -1,25 +1,29 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_3_5_1_1 a firebim:Section ;
-    firebim:hasID "3.5.1.1" ;
-    firebim:hasOriginalText "Scheiding tussen compartimenten"@nl ;
-    firebim:hasArticle firebim:Article_3_5_1_1_1 .
+fro:Section_3_5_1_1 a fro:Section ;
+    fro:hasArticle fro:Article_3_5_1_1_1 ;
+    fro:hasID "3.5.1.1" ;
+    fro:hasOriginalText "Scheiding tussen compartimenten"@nl .
 
-firebim:Article_3_5_1_1_1 a firebim:Article ;
-    firebim:hasID "A3.5.1.1.1" ;
-    firebim:hasMember firebim:Member_3_5_1_1_1_1, firebim:Member_3_5_1_1_1_2, firebim:Member_3_5_1_1_1_3 .
+fro:Article_3_5_1_1_1 a fro:Article ;
+    fro:hasID "A3.5.1.1.1" ;
+    fro:hasMember fro:Member_3_5_1_1_1_1,
+        fro:Member_3_5_1_1_1_2,
+        fro:Member_3_5_1_1_1_3 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_3_5_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De stijlen van het <a href=\"http://example.com/firebimbuilding#CurtainWall\">gordijngevelskelet</a> worden ter hoogte van elke <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> aan het <a href=\"http://example.com/firebimbuilding#Building\">gebouwskelet</a> bevestigd."""@nl .
+fro:Member_3_5_1_1_1_1 a fro:Member ;
+    fro:hasOriginalText "De stijlen van het <a href=\"http://example.com/firebimbuilding#CurtainWall\">gordijngevelskelet</a> worden ter hoogte van elke <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> aan het <a href=\"http://example.com/firebimbuilding#StructuralElement\">gebouwskelet</a> bevestigd. Met uitzondering van de <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> die uitgerust zijn met een <a href=\"http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem\">automatische blusinstallatie</a>, moeten deze bevestigingen <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">R 60</a> zijn ten opzichte van een <a href=\"http://example.com/firebimbuilding#FireSpreadPrevention\">brand</a> in een onderliggend en naastgelegen <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>."@nl .
 
-firebim:Member_3_5_1_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Met uitzondering van de <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> die uitgerust zijn met een <a href=\"http://example.com/firebimbuilding#AutomaticFireExtinguishingSystem\">automatische blusinstallatie</a>, moeten deze bevestigingen <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">R 60</a> zijn ten opzichte van een brand in een onderliggend en naastgelegen <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>."""@nl .
+fro:Member_3_5_1_1_1_2 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#LinearJointSeal\">lineaire voeg</a> aan de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a> is dichtgemaakt zodat geen koude rook tussen de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a> en de <a href=\"http://example.com/firebimbuilding#CompartmentBoundary\">compartimentswanden</a> kan dringen."@nl .
 
-firebim:Member_3_5_1_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """De lineaire voeg aan de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a> is dichtgemaakt zodat geen koude rook tussen de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a> en de <a href=\"http://example.com/firebimbuilding#CompartmentBoundary\">compartimentswanden</a> kan dringen.\n\nBovendien heeft de aansluiting van de <a href=\"http://example.com/firebimbuilding#CompartmentBoundary\">compartimentswanden</a> met de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a>, met uitzondering van een beperkte lineaire voeg met een breedte van maximaal 20 mm aan de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a>, minstens <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a> of <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a> (i→o)."""@nl .
+fro:Member_3_5_1_1_1_3 a fro:Member ;
+    fro:hasOriginalText "Bovendien heeft de <a href=\"http://example.com/firebimbuilding#CompartmentBoundary\">aansluiting van de compartimentswanden</a> met de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a>, met uitzondering van een beperkte <a href=\"http://example.com/firebimbuilding#LinearJointSeal\">lineaire voeg</a> met een breedte van maximaal 20 mm aan de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a>, minstens <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a> of <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a> (i→o)."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

@@ -1,35 +1,39 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_2_1 a firebim:Section ;
-    firebim:hasID "6.2.1" ;
-    firebim:hasOriginalText "DEZE TOESTELLEN HEBBEN HUN EIGEN MACHINEKAMERS, SCHACHTEN EN BORDESSEN."@nl ;
-    firebim:hasArticle firebim:Article_6_2_1_1 .
+fro:Section_6_2_1 a fro:Section ;
+    fro:hasArticle fro:Article_6_2_1_1 ;
+    fro:hasID "6.2.1" ;
+    fro:hasOriginalText "DEZE TOESTELLEN HEBBEN HUN EIGEN MACHINEKAMERS, SCHACHTEN EN BORDESSEN."@nl .
 
-firebim:Article_6_2_1_1 a firebim:Article ;
-    firebim:hasID "A6.2.1.1" ;
-    firebim:hasMember firebim:Member_6_2_1_1_1,
-        firebim:Member_6_2_1_1_2,
-        firebim:Member_6_2_1_1_3,
-        firebim:Member_6_2_1_1_4,
-        firebim:Member_6_2_1_1_5 .
+fro:Article_6_2_1_1 a fro:Article ;
+    fro:hasID "A6.2.1.1" ;
+    fro:hasMember fro:Member_6_2_1_1_1,
+        fro:Member_6_2_1_1_2,
+        fro:Member_6_2_1_1_3,
+        fro:Member_6_2_1_1_4,
+        fro:Member_6_2_1_1_5 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_6_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Deze toestellen hebben hun eigen <a href="http://example.com/firebimbuilding#MachineRoom">machinekamers</a>, <a href="http://example.com/firebimbuilding#Shaft">schachten</a> en <a href="http://example.com/firebimbuilding#Landing">bordessen</a>."""@nl .
+fro:Member_6_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "Deze toestellen hebben hun eigen <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamers</a>, <a href=\"http://example.com/firebimbuilding#Shaft\">schachten</a> en <a href=\"http://example.com/firebimbuilding#Landing\">bordessen</a>."@nl .
 
-firebim:Member_6_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#MachineRoom">machinekamers</a> bevinden zich bovenaan de <a href="http://example.com/firebimbuilding#Shaft">schacht</a>. De <a href="http://example.com/firebimbuilding#Wall">binnenwanden</a> van de <a href="http://example.com/firebimbuilding#MachineRoom">machinekamers</a> en van de <a href="http://example.com/firebimbuilding#Shaft">schachten</a> hebben <a href="http://example.com/firebimbuilding#FireResistanceRating">EI 60</a>."""@nl .
+fro:Member_6_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamers</a> bevinden zich bovenaan de <a href=\"http://example.com/firebimbuilding#Shaft\">schacht</a>."@nl .
 
-firebim:Member_6_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#Door">binnentoegangsdeuren</a> hebben <a href="http://example.com/firebimbuilding#FireResistanceRating">EI1 30</a>."""@nl .
+fro:Member_6_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#InnerWall\">binnenwanden</a> van de <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamers</a> en van de <a href=\"http://example.com/firebimbuilding#Shaft\">schachten</a> hebben <a href=\"http://example.com/firebimbuilding#FireResistance\">EI 60</a>."@nl .
 
-firebim:Member_6_2_1_1_4 a firebim:Member ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#ShaftWall">schachtwanden</a> aan de kant van het <a href="http://example.com/firebimbuilding#Landing">bordes</a> en de <a href="http://example.com/firebimbuilding#InspectionDoor">toezichtluiken</a> in deze wanden hebben <a href="http://example.com/firebimbuilding#FireResistanceRating">EI 30</a>."""@nl .
+fro:Member_6_2_1_1_4 a fro:Member ;
+    fro:hasOriginalText "De binnentoegangs<a href=\"http://example.com/firebimbuilding#Door\">deuren</a> hebben <a href=\"http://example.com/firebimbuilding#FireResistance\">EI1 30</a>."@nl .
 
-firebim:Member_6_2_1_1_5 a firebim:Member ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#ShaftDoor">schachtdeuren</a> of toegangsluiken van deze toestellen werken <a href="http://example.com/firebimbuilding#IsAutomaticClosing">automatisch</a> en zijn normaal gesloten."""@nl .
+fro:Member_6_2_1_1_5 a fro:Member ;
+    fro:hasOriginalText """De <a href="http://example.com/firebimbuilding#ShaftWall">schachtwanden</a> aan de kant van het <a href="http://example.com/firebimbuilding#Landing">bordes</a> en de <a href="http://example.com/firebimbuilding#ShaftHatch">toezichtluiken</a> in deze <a href="http://example.com/firebimbuilding#Wall">wanden</a> hebben <a href="http://example.com/firebimbuilding#FireResistance">EI 30</a>.
+
+De <a href="http://example.com/firebimbuilding#ShaftDoor">schachtdeuren</a> of <a href="http://example.com/firebimbuilding#ShaftHatch">toegangsluiken</a> van deze toestellen werken automatisch en zijn normaal gesloten."""@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

@@ -1,31 +1,35 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_5_2_5 a firebim:Section ;
-    firebim:hasID "5.2.5" ;
-    firebim:hasOriginalText "Afwijkende bepalingen"@nl ;
-    firebim:hasArticle firebim:Article_5_2_5_1 .
+fro:Section_5_2 fro:hasSection fro:Section_5_2_5 .
 
-firebim:Article_5_2_5_1 a firebim:Article ;
-    firebim:hasID "A5.2.5.1" ;
-    firebim:hasMember firebim:Member_5_2_5_1_1,
-        firebim:Member_5_2_5_1_2,
-        firebim:Member_5_2_5_1_3,
-        firebim:Member_5_2_5_1_4 .
+fro:Article_5_2_5_1 a fro:Article ;
+    fro:hasID "A5.2.5.1" ;
+    fro:hasMember fro:Member_5_2_5_1_1,
+        fro:Member_5_2_5_1_2,
+        fro:Member_5_2_5_1_3,
+        fro:Member_5_2_5_1_4 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_5_2_5_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De punten 5.2.1 tot 5.2.4 zijn niet van toepassing op de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> van een <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> waarvoor de aanvraag voor de bouw werd ingediend vóór 1 juli 2022 als het voldoet aan de volgende voorwaarden."""@nl .
+fro:Member_5_2_5_1_1 a fro:Member ;
+    fro:hasOriginalText "De punten 5.2.1 tot 5.2.4 zijn niet van toepassing op de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> van een <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> waarvoor de aanvraag voor de <a href=\"http://example.com/firebimbuilding#Building\">bouw</a> werd ingediend vóór 1 juli 2022 als het voldoet aan de volgende voorwaarden."@nl .
 
-firebim:Member_5_2_5_1_2 a firebim:Member ;
-    firebim:hasOriginalText """In afwijking van het punt 3.2, worden er geen eisen voor <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> gesteld aan de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkings</a> waarvan de <a href=\"http://example.com/firebimbuilding#Wall\">horizontale wanden</a> REI 60 bezitten."""@nl .
+fro:Member_5_2_5_1_2 a fro:Member ;
+    fro:hasOriginalText "In afwijking van het punt 3.2, worden er geen eisen voor <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> gesteld aan de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkings</a> waarvan de horizontale <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> REI 60 bezitten."@nl .
 
-firebim:Member_5_2_5_1_3 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> tussen de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> en de rest van het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> hebben EI 60."""@nl .
+fro:Member_5_2_5_1_3 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> tussen de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> en de rest van het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> hebben EI 60."@nl .
 
-firebim:Member_5_2_5_1_4 a firebim:Member ;
-    firebim:hasOriginalText """In het parkeer<a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> mogen sommige, niet voor verblijf bestemde lokalen worden opgenomen, zoals: <a href=\"http://example.com/firebimbuilding#TransformerRoom\">transformatorlokalen</a>, bergingen, archieflokalen, <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">technische ruimten</a> …"""@nl .
+fro:Member_5_2_5_1_4 a fro:Member ;
+    fro:hasOriginalText "In het <a href=\"http://example.com/firebimbuilding#Compartment\">parkeercompartiment</a> mogen sommige, niet voor verblijf bestemde lokalen worden opgenomen, zoals: <a href=\"http://example.com/firebimbuilding#TransformerRoom\">transformatorlokalen</a>, bergingen, archieflokalen, <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">technische ruimten</a> …"@nl .
+
+fro:Section_5_2_5 a fro:Section ;
+    fro:hasArticle fro:Article_5_2_5_1 ;
+    fro:hasID "5.2.5" ;
+    fro:hasOriginalText "Afwijkende bepalingen"@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

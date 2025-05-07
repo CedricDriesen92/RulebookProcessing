@@ -1,26 +1,30 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_5_1_2_3 a firebim:Section ;
-    firebim:hasID "5.1.2.3" ;
-    firebim:hasOriginalText "Afwijkende bepalingen"@nl ;
-    firebim:hasArticle firebim:Article_5_1_2_3_1 .
+fro:Section_5_1_2_3 a fro:Section ;
+    fro:hasArticle fro:Article_5_1_2_3_1 ;
+    fro:hasID "5.1.2.3" ;
+    fro:hasOriginalText "Afwijkende bepalingen"@nl .
 
-firebim:Article_5_1_2_3_1 a firebim:Article ;
-    firebim:hasID "A5.1.2.3.1" ;
-    firebim:hasOriginalText """Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, gelden de volgende afwijkende bepalingen:"""@nl ;
-    firebim:hasMember firebim:Member_5_1_2_3_1_1, firebim:Member_5_1_2_3_1_2, firebim:Member_5_1_2_3_1_3 .
+fro:Article_5_1_2_3_1 a fro:Article ;
+    fro:hasID "A5.1.2.3.1" ;
+    fro:hasMember fro:Member_5_1_2_3_1_1,
+        fro:Member_5_1_2_3_1_2,
+        fro:Member_5_1_2_3_1_3 ;
+    fro:hasOriginalText "Voor de <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> waarvoor de aanvraag voor de <a href=\"http://example.com/firebimbuilding#Building\">bouw</a> werd ingediend voor 1 juli 2022, gelden de volgende afwijkende bepalingen:"@nl ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_5_1_2_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """- Punt 5.1.2.1: Niet van toepassing op de <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookafdelingen</a> met <a href=\"http://example.com/firebimbuilding#FryingEquipment\">verbrandingstoestellen</a> met een totaal nuttig <a href=\"http://example.com/firebimbuilding#CombustionRate\">warmtevermogen</a> (ook totaal nominaal vermogen genoemd) kleiner dan 70 kW;"""@nl .
+fro:Member_5_1_2_3_1_1 a fro:Member ;
+    fro:hasOriginalText "- Punt 5.1.2.1: Niet van toepassing op de <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookafdelingen</a> met <a href=\"http://example.com/firebimbuilding#FryingEquipment\">verbrandingstoestellen</a> met een totaal nuttig <a href=\"http://example.com/firebimbuilding#CombustionRate\">warmtevermogen</a> (ook totaal nominaal vermogen genoemd) kleiner dan 70 kW;"@nl .
 
-firebim:Member_5_1_2_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """- Punt 5.1.2.1: Niet van toepassing op de <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookafdelingen</a> met <a href=\"http://example.com/firebimbuilding#FryingEquipment\">verbrandingstoestellen</a> met een totaal nuttig <a href=\"http://example.com/firebimbuilding#CombustionRate\">warmtevermogen</a> (ook totaal nominaal vermogen genoemd) groter dan of gelijk aan 70 kW als de <a href=\"http://example.com/firebimbuilding#AccessRoad\">toegang</a> tot de <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookafdeling</a> en de <a href=\"http://example.com/firebimbuilding#FireResistance\">brandwerendheid</a> van de <a href=\"http://example.com/firebimbuilding#Wall\">muren</a>, <a href=\"http://example.com/firebimbuilding#Floor\">vloeren</a>, <a href=\"http://example.com/firebimbuilding#Ceiling\">plafonds</a> en <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> van de <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookafdeling</a> voldoen aan de voorschriften van de norm NBN B 61-001 +A1 : 1996."""@nl .
+fro:Member_5_1_2_3_1_2 a fro:Member ;
+    fro:hasOriginalText "- Punt 5.1.2.1: Niet van toepassing op de <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookafdelingen</a> met <a href=\"http://example.com/firebimbuilding#FryingEquipment\">verbrandingstoestellen</a> met een totaal nuttig <a href=\"http://example.com/firebimbuilding#CombustionRate\">warmtevermogen</a> (ook totaal nominaal vermogen genoemd) groter dan of gelijk aan 70 kW als de <a href=\"http://example.com/firebimbuilding#AccessToEvacuationLevel\">toegang tot de stookafdeling</a> en de <a href=\"http://example.com/firebimbuilding#FireResistance\">brandwerendheid</a> van de <a href=\"http://example.com/firebimbuilding#Wall\">muren</a>, <a href=\"http://example.com/firebimbuilding#Floor\">vloeren</a>, <a href=\"http://example.com/firebimbuilding#Ceiling\">plafonds</a> en <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> van de <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookafdeling</a> voldoen aan de voorschriften van de norm NBN B 61-001 +A1 : 1996."@nl .
 
-firebim:Member_5_1_2_3_1_3 a firebim:Member ;
-    firebim:hasOriginalText """In afwijking op deze norm mogen de <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookafdelingen</a> en hun bijvertrekken verbonden worden met de andere gedeelten van het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> via een <a href=\"http://example.com/firebimbuilding#Door\">zelfsluitende deur</a> <a href=\"http://example.com/firebimbuilding#DoorFireResistance\">EI1 60</a> op voorwaarde dat deze niet uitgeeft op een <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuis</a> noch op een <a href=\"http://example.com/firebimbuilding#ElevatorLobby\">liftoverloop</a> noch in een <a href=\"http://example.com/firebimbuilding#Room\">lokaal</a> met bijzonder risico. De <a href=\"http://example.com/firebimbuilding#Door\">deur</a> draait in de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">vluchtzin</a>."""@nl .
+fro:Member_5_1_2_3_1_3 a fro:Member ;
+    fro:hasOriginalText "In afwijking op deze norm mogen de <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookafdelingen</a> en hun bijvertrekken verbonden worden met de andere gedeelten van het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> via een <a href=\"http://example.com/firebimbuilding#Door\">zelfsluitende deur</a> <a href=\"http://example.com/firebimbuilding#DoorFireResistance\">EI1 60</a> op voorwaarde dat deze niet uitgeeft op een <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuis</a> noch op een <a href=\"http://example.com/firebimbuilding#Landing\">liftoverloop</a> noch in een <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">lokaal met bijzonder risico</a>. De <a href=\"http://example.com/firebimbuilding#Door\">deur</a> draait in de vluchtzin."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

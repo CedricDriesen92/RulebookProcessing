@@ -3,35 +3,35 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_2_2_1_5 a firebim:Section ;
-    firebim:hasID "2.2.1.5" ;
-    firebim:hasOriginalText "REACTION AU FEU"@fr ;
-    firebim:hasArticle firebim:Article_2_2_1_5_1 .
+fro:Section_2_2_1_5 a fro:Section ;
+    fro:hasID "2.2.1.5" ;
+    fro:hasOriginalText "REACTION AU FEU"@fr ;
+    fro:hasArticle fro:Article_2_2_1_5_1 .
 
-firebim:Article_2_2_1_5_1 a firebim:Article ;
-    firebim:hasID "A2.2.1.5.1" ;
-    firebim:hasMember firebim:Member_2_2_1_5_1_1, firebim:Member_2_2_1_5_1_2 .
+fro:Article_2_2_1_5_1 a fro:Article ;
+    fro:hasID "A2.2.1.5.1" ;
+    fro:hasMember fro:Member_2_2_1_5_1_1, fro:Member_2_2_1_5_1_2 .
 
-firebim:Member_2_2_1_5_1_1 a firebim:Member ;
-    firebim:hasOriginalText """La réaction au feu d'un matériau de construction est l'ensemble de ses propriétés qui ont un rapport avec l'influence qu'il peut avoir sur la naissance et le développement d'un incendie."""@fr .
+fro:Member_2_2_1_5_1_1 a fro:Member ;
+    fro:hasOriginalText """La réaction au feu d'un matériau de construction est l'ensemble de ses propriétés qui ont un rapport avec l'influence qu'il peut avoir sur la naissance et le développement d'un incendie."""@fr .
 
-firebim:Member_2_2_1_5_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Outre la classe des matériaux ininflammables A0 (plâtre, béton, maçonnerie), on distingue quatre classes de réaction au feu :"""@fr ;
-    firebim:hasMember firebim:Member_2_2_1_5_1_2_1, firebim:Member_2_2_1_5_1_2_2, firebim:Member_2_2_1_5_1_2_3, firebim:Member_2_2_1_5_1_2_4 .
+fro:Member_2_2_1_5_1_2 a fro:Member ;
+    fro:hasOriginalText """Outre la classe des matériaux ininflammables A0 (plâtre, béton, maçonnerie), on distingue quatre classes de réaction au feu :"""@fr ;
+    fro:hasMember fro:Member_2_2_1_5_1_2_1, fro:Member_2_2_1_5_1_2_2, fro:Member_2_2_1_5_1_2_3, fro:Member_2_2_1_5_1_2_4 .
 
-firebim:Member_2_2_1_5_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "- A1 : difficilement inflammable"@fr .
+fro:Member_2_2_1_5_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- A1 : difficilement inflammable"@fr .
 
-firebim:Member_2_2_1_5_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "- A2 : moyennement inflammable"@fr .
+fro:Member_2_2_1_5_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- A2 : moyennement inflammable"@fr .
 
-firebim:Member_2_2_1_5_1_2_3 a firebim:Member ;
-    firebim:hasOriginalText "- A3 : inflammable"@fr .
+fro:Member_2_2_1_5_1_2_3 a fro:Member ;
+    fro:hasOriginalText "- A3 : inflammable"@fr .
 
-firebim:Member_2_2_1_5_1_2_4 a firebim:Member ;
-    firebim:hasOriginalText "- A4 : facilement inflammable"@fr .
+fro:Member_2_2_1_5_1_2_4 a fro:Member ;
+    fro:hasOriginalText "- A4 : facilement inflammable"@fr .
 
-firebim:Section_2_2_1 firebim:hasSection firebim:Section_2_2_1_5 .
+fro:Section_2_2_1 fro:hasSection fro:Section_2_2_1_5 .

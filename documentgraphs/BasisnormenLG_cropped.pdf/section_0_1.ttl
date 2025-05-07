@@ -1,26 +1,30 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_0_1 a firebim:Section ;
-    firebim:hasID "0.1" ;
-    firebim:hasOriginalText "Doel."@nl ;
-    firebim:hasArticle firebim:Article_0_1_1 .
+fro:Section_0_1 a fro:Section ;
+    fro:hasArticle fro:Article_0_1_1 ;
+    fro:hasID "0.1" ;
+    fro:hasOriginalText "Doel."@nl .
 
-firebim:Article_0_1_1 a firebim:Article ;
-    firebim:hasID "A0.1.1" ;
-    firebim:hasOriginalText """Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de <a href="http://example.com/firebimbuilding#Building">bouw</a> en de inrichting van lage gebouwen (LG) moeten voldoen om:"""@nl ;
-    firebim:hasMember firebim:Member_0_1_1_1, firebim:Member_0_1_1_2, firebim:Member_0_1_1_3 .
+fro:Article_0_1_1 a fro:Article ;
+    fro:hasID "A0.1.1" ;
+    fro:hasMember fro:Member_0_1_1_1,
+        fro:Member_0_1_1_2,
+        fro:Member_0_1_1_3 ;
+    fro:hasOriginalText "Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de <a href=\"http://example.com/firebimbuilding#Building\">bouw</a> en de inrichting van <a href=\"http://example.com/firebimbuilding#Building\">lage gebouwen</a> (LG) moeten voldoen om:"@nl ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_0_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "het ontstaan, de ontwikkeling en de voortplanting van <a href=\"http://example.com/firebimbuilding#FireResistance\">brand</a> te voorkomen;"@nl .
+fro:Member_0_1_1_1 a fro:Member ;
+    fro:hasOriginalText "-    het ontstaan, de ontwikkeling en de voortplanting van <a href=\"http://example.com/firebimbuilding#Fire\">brand</a> te voorkomen;"@nl .
 
-firebim:Member_0_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "de <a href=\"http://example.com/firebimbuilding#OccupantSafety\">veiligheid van de aanwezigen</a> te waarborgen;"@nl .
+fro:Member_0_1_1_2 a fro:Member ;
+    fro:hasOriginalText "-    de <a href=\"http://example.com/firebimbuilding#OccupantSafety\">veiligheid van de aanwezigen</a> te waarborgen;"@nl .
 
-firebim:Member_0_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "preventief het ingrijpen van de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a> te vergemakkelijken."@nl .
+fro:Member_0_1_1_3 a fro:Member ;
+    fro:hasOriginalText "-    preventief het ingrijpen van de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a> te vergemakkelijken."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

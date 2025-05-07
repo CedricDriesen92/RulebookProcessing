@@ -3,132 +3,132 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_4_4_1 a firebim:Section ;
-    firebim:hasID "4.4.1" ;
-    firebim:hasOriginalText "Algemene voorschriften"@nl ;
-    firebim:hasSection firebim:Section_4_4_1_1, firebim:Section_4_4_1_2 .
+fro:Section_4_4_1 a fro:Section ;
+    fro:hasID "4.4.1" ;
+    fro:hasOriginalText "Algemene voorschriften"@nl ;
+    fro:hasSection fro:Section_4_4_1_1, fro:Section_4_4_1_2 .
 
-firebim:Section_4_4 firebim:hasSection firebim:Section_4_4_1 .
+fro:Section_4_4 fro:hasSection fro:Section_4_4_1 .
 
-firebim:Section_4_4_1_1 a firebim:Section ;
-    firebim:hasID "4.4.1.1" ;
-    firebim:hasArticle firebim:Article_4_4_1_1_1 .
+fro:Section_4_4_1_1 a fro:Section ;
+    fro:hasID "4.4.1.1" ;
+    fro:hasArticle fro:Article_4_4_1_1_1 .
 
-firebim:Article_4_4_1_1_1 a firebim:Article ;
-    firebim:hasID "A4.4.1.1.1" ;
-    firebim:hasOriginalText """Geen enkel punt van een compartiment mag zich verder bevinden dan:"""@nl ;
-    firebim:hasMember firebim:Member_4_4_1_1_1_1, firebim:Member_4_4_1_1_1_2, firebim:Member_4_4_1_1_1_3, firebim:Member_4_4_1_1_1_4, firebim:Member_4_4_1_1_1_5 .
+fro:Article_4_4_1_1_1 a fro:Article ;
+    fro:hasID "A4.4.1.1.1" ;
+    fro:hasOriginalText """Geen enkel punt van een compartiment mag zich verder bevinden dan:"""@nl ;
+    fro:hasMember fro:Member_4_4_1_1_1_1, fro:Member_4_4_1_1_1_2, fro:Member_4_4_1_1_1_3, fro:Member_4_4_1_1_1_4, fro:Member_4_4_1_1_1_5 .
 
-firebim:Member_4_4_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """a)   voor lokalen met uitsluitend dagbezetting:"""@nl ;
-    firebim:hasMember firebim:Member_4_4_1_1_1_1_1, firebim:Member_4_4_1_1_1_1_2, firebim:Member_4_4_1_1_1_1_3 .
+fro:Member_4_4_1_1_1_1 a fro:Member ;
+    fro:hasOriginalText """a)   voor lokalen met uitsluitend dagbezetting:"""@nl ;
+    fro:hasMember fro:Member_4_4_1_1_1_1_1, fro:Member_4_4_1_1_1_1_2, fro:Member_4_4_1_1_1_1_3 .
 
-firebim:Member_4_4_1_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """     -    30 m van de evacuatieweg die de uitgangen verbindt;"""@nl .
+fro:Member_4_4_1_1_1_1_1 a fro:Member ;
+    fro:hasOriginalText """     -    30 m van de evacuatieweg die de uitgangen verbindt;"""@nl .
 
-firebim:Member_4_4_1_1_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """     -    45 m van de toegang tot de dichtstbijzijnde uitgang;"""@nl .
+fro:Member_4_4_1_1_1_1_2 a fro:Member ;
+    fro:hasOriginalText """     -    45 m van de toegang tot de dichtstbijzijnde uitgang;"""@nl .
 
-firebim:Member_4_4_1_1_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """     -    80 m van de toegang tot een tweede uitgang."""@nl .
+fro:Member_4_4_1_1_1_1_3 a fro:Member ;
+    fro:hasOriginalText """     -    80 m van de toegang tot een tweede uitgang."""@nl .
 
-firebim:Member_4_4_1_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """b)   voor lokalen of geheel van lokalen met nachtbezetting:"""@nl ;
-    firebim:hasMember firebim:Member_4_4_1_1_1_2_1, firebim:Member_4_4_1_1_1_2_2, firebim:Member_4_4_1_1_1_2_3 .
+fro:Member_4_4_1_1_1_2 a fro:Member ;
+    fro:hasOriginalText """b)   voor lokalen of geheel van lokalen met nachtbezetting:"""@nl ;
+    fro:hasMember fro:Member_4_4_1_1_1_2_1, fro:Member_4_4_1_1_1_2_2, fro:Member_4_4_1_1_1_2_3 .
 
-firebim:Member_4_4_1_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText """     -    20 m van de evacuatieweg die de uitgangen verbindt;"""@nl .
+fro:Member_4_4_1_1_1_2_1 a fro:Member ;
+    fro:hasOriginalText """     -    20 m van de evacuatieweg die de uitgangen verbindt;"""@nl .
 
-firebim:Member_4_4_1_1_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText """     -    30 m van de toegang tot de dichtstbijzijnde uitgang;"""@nl .
+fro:Member_4_4_1_1_1_2_2 a fro:Member ;
+    fro:hasOriginalText """     -    30 m van de toegang tot de dichtstbijzijnde uitgang;"""@nl .
 
-firebim:Member_4_4_1_1_1_2_3 a firebim:Member ;
-    firebim:hasOriginalText """     -    60 m van de toegang tot een tweede uitgang."""@nl .
+fro:Member_4_4_1_1_1_2_3 a fro:Member ;
+    fro:hasOriginalText """     -    60 m van de toegang tot een tweede uitgang."""@nl .
 
-firebim:Member_4_4_1_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """De lengte van doodlopende evacuatiewegen mag niet meer dan 15 m bedragen."""@nl .
+fro:Member_4_4_1_1_1_3 a fro:Member ;
+    fro:hasOriginalText """De lengte van doodlopende evacuatiewegen mag niet meer dan 15 m bedragen."""@nl .
 
-firebim:Member_4_4_1_1_1_4 a firebim:Member ;
-    firebim:hasOriginalText """De nuttige breedte van de evacuatiewegen, vluchtterrassen en van hun toegangs-, uitgangs- of
+fro:Member_4_4_1_1_1_4 a fro:Member ;
+    fro:hasOriginalText """De nuttige breedte van de evacuatiewegen, vluchtterrassen en van hun toegangs-, uitgangs- of
 doorgangsdeuren  is  groter  dan  of  gelijk  aan  de  vereiste  nuttige  breedte  (zie  bijlage  1
 "Terminologie"). Zij bedraagt ten minste 0,80 m voor de evacuatiewegen en de deuren, en ten
 minste 0,60 m voor de vluchtterrassen."""@nl .
 
-firebim:Member_4_4_1_1_1_5 a firebim:Member ;
-    firebim:hasOriginalText """In een compartiment gaat de verbinding tussen en naar de trappen via evacuatiewegen of over
+fro:Member_4_4_1_1_1_5 a fro:Member ;
+    fro:hasOriginalText """In een compartiment gaat de verbinding tussen en naar de trappen via evacuatiewegen of over
 vluchtterrassen."""@nl .
 
-firebim:Article_4_4_1_1_1 firebim:hasMember firebim:Member_4_4_1_1_1_6 .
+fro:Article_4_4_1_1_1 fro:hasMember fro:Member_4_4_1_1_1_6 .
 
-firebim:Member_4_4_1_1_1_6 a firebim:Member ;
-    firebim:hasOriginalText """De bepalingen van dit punt zijn niet van toepassing op parkings (zie 5.2)."""@nl .
+fro:Member_4_4_1_1_1_6 a fro:Member ;
+    fro:hasOriginalText """De bepalingen van dit punt zijn niet van toepassing op parkings (zie 5.2)."""@nl .
 
-firebim:Section_4_4_1_2 a firebim:Section ;
-    firebim:hasID "4.4.1.2" ;
-    firebim:hasArticle firebim:Article_4_4_1_2_1 .
+fro:Section_4_4_1_2 a fro:Section ;
+    fro:hasID "4.4.1.2" ;
+    fro:hasArticle fro:Article_4_4_1_2_1 .
 
-firebim:Article_4_4_1_2_1 a firebim:Article ;
-    firebim:hasID "A4.4.1.2.1" ;
-    firebim:hasOriginalText """Wordt beschouwd als een uitgang van een compartiment:"""@nl ;
-    firebim:hasMember firebim:Member_4_4_1_2_1_1, firebim:Member_4_4_1_2_1_2, firebim:Member_4_4_1_2_1_3, firebim:Member_4_4_1_2_1_4, firebim:Member_4_4_1_2_1_5, firebim:Member_4_4_1_2_1_6, firebim:Member_4_4_1_2_1_7, firebim:Member_4_4_1_2_1_8, firebim:Member_4_4_1_2_1_9 .
+fro:Article_4_4_1_2_1 a fro:Article ;
+    fro:hasID "A4.4.1.2.1" ;
+    fro:hasOriginalText """Wordt beschouwd als een uitgang van een compartiment:"""@nl ;
+    fro:hasMember fro:Member_4_4_1_2_1_1, fro:Member_4_4_1_2_1_2, fro:Member_4_4_1_2_1_3, fro:Member_4_4_1_2_1_4, fro:Member_4_4_1_2_1_5, fro:Member_4_4_1_2_1_6, fro:Member_4_4_1_2_1_7, fro:Member_4_4_1_2_1_8, fro:Member_4_4_1_2_1_9 .
 
-firebim:Member_4_4_1_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """-    een binnentrappenhuis conform het punt 4.2;"""@nl .
+fro:Member_4_4_1_2_1_1 a fro:Member ;
+    fro:hasOriginalText """-    een binnentrappenhuis conform het punt 4.2;"""@nl .
 
-firebim:Member_4_4_1_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """-    een buitentrappenhuis conform het punt 4.3;"""@nl .
+fro:Member_4_4_1_2_1_2 a fro:Member ;
+    fro:hasOriginalText """-    een buitentrappenhuis conform het punt 4.3;"""@nl .
 
-firebim:Member_4_4_1_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText """-    een rechtstreekse toegang tot de open lucht op een evacuatieniveau;"""@nl .
+fro:Member_4_4_1_2_1_3 a fro:Member ;
+    fro:hasOriginalText """-    een rechtstreekse toegang tot de open lucht op een evacuatieniveau;"""@nl .
 
-firebim:Member_4_4_1_2_1_4 a firebim:Member ;
-    firebim:hasOriginalText """-    een evacuatieweg op een evacuatieniveau waarvan de verticale binnenwanden EI 60 hebben
+fro:Member_4_4_1_2_1_4 a fro:Member ;
+    fro:hasOriginalText """-    een evacuatieweg op een evacuatieniveau waarvan de verticale binnenwanden EI 60 hebben
      en de deuren van de lokalen die op deze wegen uitgeven zelfsluitend of bij brand zelfsluitend
      zijn en EI1 30 hebben."""@nl .
 
-firebim:Member_4_4_1_2_1_5 a firebim:Member ;
-    firebim:hasOriginalText """De in open lucht af te leggen weg speelt geen rol bij het berekenen van deze afstanden."""@nl .
+fro:Member_4_4_1_2_1_5 a fro:Member ;
+    fro:hasOriginalText """De in open lucht af te leggen weg speelt geen rol bij het berekenen van deze afstanden."""@nl .
 
-firebim:Member_4_4_1_2_1_6 a firebim:Member ;
-    firebim:hasOriginalText """De deuren op deze wegen mogen geen vergrendeling bezitten die de evacuatie kan belemmeren."""@nl .
+fro:Member_4_4_1_2_1_6 a fro:Member ;
+    fro:hasOriginalText """De deuren op deze wegen mogen geen vergrendeling bezitten die de evacuatie kan belemmeren."""@nl .
 
-firebim:Member_4_4_1_2_1_7 a firebim:Member ;
-    firebim:hasOriginalText """De   eventuele   verticale   binnenwanden   van   de   evacuatiewegen   hebben   EI   30   en   de
+fro:Member_4_4_1_2_1_7 a fro:Member ;
+    fro:hasOriginalText """De   eventuele   verticale   binnenwanden   van   de   evacuatiewegen   hebben   EI   30   en   de
 toegangsdeuren tot deze wegen EI1 30."""@nl .
 
-firebim:Member_4_4_1_2_1_8 a firebim:Member ;
-    firebim:hasOriginalText """Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn niet van toepassing op de
+fro:Member_4_4_1_2_1_8 a fro:Member ;
+    fro:hasOriginalText """Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn niet van toepassing op de
 compartimenten met uitsluitend dagbezetting waarvan de oppervlakte geen 1250 m² bereikt."""@nl .
 
-firebim:Member_4_4_1_2_1_9 a firebim:Member ;
-    firebim:hasOriginalText """Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn ook niet van toepassing op de
+fro:Member_4_4_1_2_1_9 a fro:Member ;
+    fro:hasOriginalText """Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn ook niet van toepassing op de
 compartimenten met uitsluitend dagbezetting waarvan de oppervlakte kleiner is dan 2500 m² op
 voorwaarde:"""@nl ;
-    firebim:hasMember firebim:Member_4_4_1_2_1_9_1, firebim:Member_4_4_1_2_1_9_2, firebim:Member_4_4_1_2_1_9_3 .
+    fro:hasMember fro:Member_4_4_1_2_1_9_1, fro:Member_4_4_1_2_1_9_2, fro:Member_4_4_1_2_1_9_3 .
 
-firebim:Member_4_4_1_2_1_9_1 a firebim:Member ;
-    firebim:hasOriginalText """-    dat deze compartimenten zijn uitgerust met een automatische blusinstallatie van het type
+fro:Member_4_4_1_2_1_9_1 a fro:Member ;
+    fro:hasOriginalText """-    dat deze compartimenten zijn uitgerust met een automatische blusinstallatie van het type
      sprinkler die is aangepast aan de aanwezige risico's;"""@nl .
 
-firebim:Member_4_4_1_2_1_9_2 a firebim:Member ;
-    firebim:hasOriginalText """-    dat het gebouw is uitgerust met een automatisch branddetectie van het type totale bewaking
+fro:Member_4_4_1_2_1_9_2 a fro:Member ;
+    fro:hasOriginalText """-    dat het gebouw is uitgerust met een automatisch branddetectie van het type totale bewaking
      die  automatisch  een  aanduiding  van  de  brandmelding  en  de  plaats  ervan  aangeeft  en
      waarvan de detectoren aangepast zijn aan de aanwezige risico's;"""@nl .
 
-firebim:Member_4_4_1_2_1_9_3 a firebim:Member ;
-    firebim:hasOriginalText """-    en dat de producten die gebruikt worden voor de bekleding van verticale wanden, plafonds en
+fro:Member_4_4_1_2_1_9_3 a fro:Member ;
+    fro:hasOriginalText """-    en dat de producten die gebruikt worden voor de bekleding van verticale wanden, plafonds en
      vloeren van die compartimenten voldoen aan de vereisten inzake reactie bij brand op de
      evacuatiewegen."""@nl .
 
-firebim:Article_4_4_1_2_1 firebim:hasMember firebim:Member_4_4_1_2_1_10, firebim:Member_4_4_1_2_1_11 .
+fro:Article_4_4_1_2_1 fro:hasMember fro:Member_4_4_1_2_1_10, fro:Member_4_4_1_2_1_11 .
 
-firebim:Member_4_4_1_2_1_10 a firebim:Member ;
-    firebim:hasOriginalText """De   evacuatie   van   lokalen   of   een   geheel   van   lokalen   met   nachtbezetting   gebeurt   via
+fro:Member_4_4_1_2_1_10 a fro:Member ;
+    fro:hasOriginalText """De   evacuatie   van   lokalen   of   een   geheel   van   lokalen   met   nachtbezetting   gebeurt   via
 evacuatiewegen waarvan de verticale wanden EI 30 en de deuren EI1 30 hebben."""@nl .
 
-firebim:Member_4_4_1_2_1_11 a firebim:Member ;
-    firebim:hasOriginalText """Deze eis is niet van toepassing voor de evacuatie van deze lokalen indien deze behoren bij de
+fro:Member_4_4_1_2_1_11 a fro:Member ;
+    fro:hasOriginalText """Deze eis is niet van toepassing voor de evacuatie van deze lokalen indien deze behoren bij de
 uitbating van een gebouw met een commerciële functie."""@nl .

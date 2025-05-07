@@ -3,46 +3,46 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_2_2_1_3 a firebim:Section ;
-    firebim:hasID "2.2.1.3" ;
-    firebim:hasOriginalText "ESCALIERS"@fr ;
-    firebim:hasArticle firebim:Article_2_2_1_3_1 .
+fro:Section_2_2_1_3 a fro:Section ;
+    fro:hasID "2.2.1.3" ;
+    fro:hasOriginalText "ESCALIERS"@fr ;
+    fro:hasArticle fro:Article_2_2_1_3_1 .
 
-firebim:Article_2_2_1_3_1 a firebim:Article ;
-    firebim:hasID "A2.2.1.3.1" ;
-    firebim:hasMember firebim:Member_2_2_1_3_1_1, firebim:Member_2_2_1_3_1_2, firebim:Member_2_2_1_3_1_3, firebim:Member_2_2_1_3_1_4 .
+fro:Article_2_2_1_3_1 a fro:Article ;
+    fro:hasID "A2.2.1.3.1" ;
+    fro:hasMember fro:Member_2_2_1_3_1_1, fro:Member_2_2_1_3_1_2, fro:Member_2_2_1_3_1_3, fro:Member_2_2_1_3_1_4 .
 
-firebim:Member_2_2_1_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Les escaliers faisant dans certains cas fonction de voies d'évacuation; ils constituent un élément essentiel de la protection contre l'incendie."""@fr .
+fro:Member_2_2_1_3_1_1 a fro:Member ;
+    fro:hasOriginalText """Les escaliers faisant dans certains cas fonction de voies d'évacuation; ils constituent un élément essentiel de la protection contre l'incendie."""@fr .
 
-firebim:Member_2_2_1_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De ce point de vue, les caractéristiques suivantes peuvent revêtir une certaine importance : largeur utile requise, hauteur des marches, giron et/ou pente de l'escalier; réaction au feu des matériaux mis en œuvre (voir § 2.2.1.5) et stabilité au feu de l'escalier (voir § 2.2.1.4)."""@fr ;
-    firebim:hasForwardReference firebim:Section_2_2_1_5, firebim:Section_2_2_1_4 .
+fro:Member_2_2_1_3_1_2 a fro:Member ;
+    fro:hasOriginalText """De ce point de vue, les caractéristiques suivantes peuvent revêtir une certaine importance : largeur utile requise, hauteur des marches, giron et/ou pente de l'escalier; réaction au feu des matériaux mis en œuvre (voir § 2.2.1.5) et stabilité au feu de l'escalier (voir § 2.2.1.4)."""@fr ;
+    fro:hasForwardReference fro:Section_2_2_1_5, fro:Section_2_2_1_4 .
 
-firebim:Member_2_2_1_3_1_3 a firebim:Member ;
-    firebim:hasOriginalText """L'unité de passage est la largeur minimale requise pour le passage d'une personne. Elle est fixée par convention à 0,60 m. La largeur utile d'un chemin d'évacuation est la largeur libre de tout obstacle jusqu'à une hauteur d'au moins 2 m. On ne tient pas compte toutefois des saillies formées sur les murs par les plinthes, les limons et les socles lorsqu'elles ne dépassent pas 0,10 m et qu'elles ne surplombent pas les marches ou le plancher de plus de 1 m. La même règle s'applique aux garde-corps."""@fr .
+fro:Member_2_2_1_3_1_3 a fro:Member ;
+    fro:hasOriginalText """L'unité de passage est la largeur minimale requise pour le passage d'une personne. Elle est fixée par convention à 0,60 m. La largeur utile d'un chemin d'évacuation est la largeur libre de tout obstacle jusqu'à une hauteur d'au moins 2 m. On ne tient pas compte toutefois des saillies formées sur les murs par les plinthes, les limons et les socles lorsqu'elles ne dépassent pas 0,10 m et qu'elles ne surplombent pas les marches ou le plancher de plus de 1 m. La même règle s'applique aux garde-corps."""@fr .
 
-firebim:Member_2_2_1_3_1_4 a firebim:Member ;
-    firebim:hasOriginalText """Remarque : il convient de faire la distinction entre la notion de largeur utile définie par la norme belge NBN S 21-201 [23] et la largeur libre 'b' telle que définie par la norme NBN NEN 3509 [25], d'autre part (voir § titre 24 NIT 198 décembre 1995)."""@fr ;
-    firebim:hasReference firebim:Reference_NBN_S_21_201, firebim:Reference_NBN_NEN_3509, firebim:Reference_NIT_198 .
+fro:Member_2_2_1_3_1_4 a fro:Member ;
+    fro:hasOriginalText """Remarque : il convient de faire la distinction entre la notion de largeur utile définie par la norme belge NBN S 21-201 [23] et la largeur libre 'b' telle que définie par la norme NBN NEN 3509 [25], d'autre part (voir § titre 24 NIT 198 décembre 1995)."""@fr ;
+    fro:hasReference fro:Reference_NBN_S_21_201, fro:Reference_NBN_NEN_3509, fro:Reference_NIT_198 .
 
-firebim:Reference_NBN_S_21_201 a firebim:Reference ;
-    firebim:hasID "NBN S 21-201" .
+fro:Reference_NBN_S_21_201 a fro:Reference ;
+    fro:hasID "NBN S 21-201" .
 
-firebim:Reference_NBN_NEN_3509 a firebim:Reference ;
-    firebim:hasID "NBN NEN 3509" .
+fro:Reference_NBN_NEN_3509 a fro:Reference ;
+    fro:hasID "NBN NEN 3509" .
 
-firebim:Reference_NIT_198 a firebim:Reference ;
-    firebim:hasID "NIT 198" .
+fro:Reference_NIT_198 a fro:Reference ;
+    fro:hasID "NIT 198" .
 
-firebim:Article_2_2_1_3_1 firebim:hasTable firebim:Table_2 .
+fro:Article_2_2_1_3_1 fro:hasTable fro:Table_2 .
 
-firebim:Table_2 a firebim:Table ;
-    firebim:hasID "T2" ;
-    firebim:hasOriginalText """Tableau 2 Classement des bâtiments selon leur hauteur:
+fro:Table_2 a fro:Table ;
+    fro:hasID "T2" ;
+    fro:hasOriginalText """Tableau 2 Classement des bâtiments selon leur hauteur:
 
 |TYPE DE BATIMENT|HAUTEUR DU BATIMENT|
 |---|---|
@@ -50,10 +50,10 @@ firebim:Table_2 a firebim:Table ;
 |Batiments moyens (BM)|10 m < h < 25 m|
 |Batiments bas (BB)|h < 10 m|"""@fr .
 
-firebim:Article_2_2_1_3_1 firebim:hasMember firebim:Member_2_2_1_3_1_5 .
+fro:Article_2_2_1_3_1 fro:hasMember fro:Member_2_2_1_3_1_5 .
 
-firebim:Member_2_2_1_3_1_5 a firebim:Member ;
-    firebim:hasOriginalText """Largeur utile théorique d'un chemin d'évacuation
+fro:Member_2_2_1_3_1_5 a fro:Member ;
+    fro:hasOriginalText """Largeur utile théorique d'un chemin d'évacuation
 
 La largeur utile théorique b' (en m) d'un chemin d'évacuation est définie par la relation :
 
@@ -74,12 +74,12 @@ dans laquelle le terme int b représente la valeur de 0,60 arrondie à l'unité 
 
 La largeur utile requise pour les chemins d'évacuation est au minimum de 0,80 m (voir § 2.2.2.2, p. 27)."""@fr .
 
-firebim:Member_2_2_1_3_1_5 firebim:hasForwardReference firebim:Section_2_2_2_2 .
+fro:Member_2_2_1_3_1_5 fro:hasForwardReference fro:Section_2_2_2_2 .
 
-firebim:Article_2_2_1_3_1 firebim:hasMember firebim:Member_2_2_1_3_1_6 .
+fro:Article_2_2_1_3_1 fro:hasMember fro:Member_2_2_1_3_1_6 .
 
-firebim:Member_2_2_1_3_1_6 a firebim:Member ;
-    firebim:hasOriginalText """Niveau d'évacuation
+fro:Member_2_2_1_3_1_6 a fro:Member ;
+    fro:hasOriginalText """Niveau d'évacuation
 
 Un niveau d'évacuation ou niveau E comporte une ou plusieurs issues permettant une évacuation à l'extérieur : Les issues en question débouchent sur la voie publique ou sur un lieu donnant accès à la voie publique. Dans un bâtiment comportant plusieurs niveaux d'évacuation, on a :
 
@@ -88,18 +88,18 @@ Un niveau d'évacuation ou niveau E comporte une ou plusieurs issues permettant 
 
 La largeur totale de la voie publique et/ou du lieu d'évacuation communiquant avec les chemins d'évacuation du bâtiment ne peut être inférieure à la largeur utile totale requise pour les chemins d'évacuation."""@fr .
 
-firebim:Article_2_2_1_3_1 firebim:hasMember firebim:Member_2_2_1_3_1_7 .
+fro:Article_2_2_1_3_1 fro:hasMember fro:Member_2_2_1_3_1_7 .
 
-firebim:Member_2_2_1_3_1_7 a firebim:Member ;
-    firebim:hasOriginalText """Exemple
+fro:Member_2_2_1_3_1_7 a fro:Member ;
+    fro:hasOriginalText """Exemple
 
 Un des étages d'un immeuble de bureaux comporte quatre compartiments d'une surface S' desservis par deux cages d'escaliers permettant de descendre vers les issues (voir figure 20), l'un des compartiments (n° 1) étant un local à destination particulière (salle de réunion de 100 personnes, n = 100); pour les autres compartiments, n = 10."""@fr .
 
-firebim:Article_2_2_1_3_1 firebim:hasTable firebim:Table_3 .
+fro:Article_2_2_1_3_1 fro:hasTable fro:Table_3 .
 
-firebim:Table_3 a firebim:Table ;
-    firebim:hasID "T3" ;
-    firebim:hasOriginalText """COMPARTIMENT
+fro:Table_3 a fro:Table ;
+    fro:hasID "T3" ;
+    fro:hasOriginalText """COMPARTIMENT
 
 |Surface totale|S (m²)|maximum|50| | |
 |---|---|---|---|---|---|
@@ -108,10 +108,10 @@ firebim:Table_3 a firebim:Table ;
 | |50| |2,5| | |
 | | | |50| | |"""@fr .
 
-firebim:Article_2_2_1_3_1 firebim:hasMember firebim:Member_2_2_1_3_1_8 .
+fro:Article_2_2_1_3_1 fro:hasMember fro:Member_2_2_1_3_1_8 .
 
-firebim:Member_2_2_1_3_1_8 a firebim:Member ;
-    firebim:hasOriginalText """Calculons la largeur utile requise b'
+fro:Member_2_2_1_3_1_8 a fro:Member ;
+    fro:hasOriginalText """Calculons la largeur utile requise b'
 
 b1 = amax (m)
 
@@ -133,4 +133,4 @@ b_ 1,20 m-
 
 Cette largeur utile requise *b1* est indiquee à la figure 21, parallelement à la largeur libre 'v' telle que definie par la norme NBN NEN 3509 [25]"""@fr .
 
-firebim:Member_2_2_1_3_1_8 firebim:hasReference firebim:Reference_NBN_NEN_3509 .
+fro:Member_2_2_1_3_1_8 fro:hasReference fro:Reference_NBN_NEN_3509 .

@@ -1,48 +1,49 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_7_2_2 a firebim:Section ;
-    firebim:hasID "6.7.2.2" ;
-    firebim:hasOriginalText "Afzuigkanalen van collectieve keukens"@nl ;
-    firebim:hasArticle firebim:Article_6_7_2_2_1 .
+fro:Section_6_7_2_2 a fro:Section ;
+    fro:hasArticle fro:Article_6_7_2_2_1 ;
+    fro:hasID "6.7.2.2" ;
+    fro:hasOriginalText "Afzuigkanalen van collectieve keukens"@nl .
 
-firebim:Article_6_7_2_2_1 a firebim:Article ;
-    firebim:hasID "A6.7.2.2.1" ;
-    firebim:hasMember firebim:Member_6_7_2_2_1_1,
-        firebim:Member_6_7_2_2_1_2,
-        firebim:Member_6_7_2_2_1_3,
-        firebim:Member_6_7_2_2_1_4 .
+fro:Article_6_7_2_2_1 a fro:Article ;
+    fro:hasID "A6.7.2.2.1" ;
+    fro:hasMember fro:Member_6_7_2_2_1_1,
+        fro:Member_6_7_2_2_1_2,
+        fro:Member_6_7_2_2_1_3,
+        fro:Member_6_7_2_2_1_4 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_6_7_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#AirDuct\">afzuigkanalen</a> van <a href=\"http://example.com/firebimbuilding#Collective\">collectieve</a> <a href=\"http://example.com/firebimbuilding#Kitchen\">keukens</a> zijn vervaardigd uit <a href=\"http://example.com/firebimbuilding#Material\">materialen</a> van <a href=\"http://example.com/firebimbuilding#MaterialClass\">klasse</a> A1."""@nl .
+fro:Member_6_7_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#ExhaustDuct\">afzuigkanalen</a> van collectieve <a href=\"http://example.com/firebimbuilding#Kitchen\">keukens</a> zijn vervaardigd uit <a href=\"http://example.com/firebimbuilding#MaterialClass\">materialen van klasse</a> A1."@nl .
 
-firebim:Member_6_7_2_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#AirDuct\">afzuigkanalen</a> gelegen buiten de <a href=\"http://example.com/firebimbuilding#Collective\">collectieve</a> <a href=\"http://example.com/firebimbuilding#Kitchen\">keukens</a> zijn:"""@nl ;
-    firebim:hasMember firebim:Member_6_7_2_2_1_2_1,
-        firebim:Member_6_7_2_2_1_2_2 .
+fro:Member_6_7_2_2_1_2 a fro:Member ;
+    fro:hasMember fro:Member_6_7_2_2_1_2_1,
+        fro:Member_6_7_2_2_1_2_2 ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#ExhaustDuct\">afzuigkanalen</a> gelegen buiten de collectieve <a href=\"http://example.com/firebimbuilding#Kitchen\">keukens</a> zijn:"@nl .
 
-firebim:Member_6_7_2_2_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText """- ofwel geplaatst in <a href=\"http://example.com/firebimbuilding#Shaft\">kokers</a> waarvan de <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI</a> 60 hebben;"""@nl .
+fro:Member_6_7_2_2_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- ofwel geplaatst in kokers waarvan de <a href=\"http://example.com/firebimbuilding#ShaftWall\">wanden</a> EI 60 hebben;"@nl .
 
-firebim:Member_6_7_2_2_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText """- ofwel hebben <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI</a> 60 (<a href=\"http://example.com/firebimbuilding#IsHorizontal\">ho</a> i ↔ o) of <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI</a> 60 (<a href=\"http://example.com/firebimbuilding#IsVertical\">ve</a> i ↔ o) wanneer ze respectievelijk <a href=\"http://example.com/firebimbuilding#Horizontal\">horizontaal</a> of <a href=\"http://example.com/firebimbuilding#Vertical\">verticaal</a> geplaatst worden."""@nl .
+fro:Member_6_7_2_2_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- ofwel hebben EI 60 (ho i ↔ o) of EI 60 (ve i ↔ o) wanneer ze respectievelijk horizontaal of verticaal geplaatst worden."@nl .
 
-firebim:Member_6_7_2_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#AirDuct\">afzuigkanalen</a> in de <a href=\"http://example.com/firebimbuilding#Collective\">collectieve</a> <a href=\"http://example.com/firebimbuilding#Kitchen\">keukens</a> met hun <a href=\"http://example.com/firebimbuilding#DuctSuspension\">ophangingen</a> hebben een <a href=\"http://example.com/firebimbuilding#FireStability\">stabiliteit bij brand</a> van minstens ½ h."""@nl .
+fro:Member_6_7_2_2_1_3 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#ExhaustDuct\">afzuigkanalen</a> in de collectieve <a href=\"http://example.com/firebimbuilding#Kitchen\">keukens</a> met hun <a href=\"http://example.com/firebimbuilding#DuctSuspension\">ophangingen</a> hebben een <a href=\"http://example.com/firebimbuilding#FireStability\">stabiliteit bij brand</a> van minstens ½ h."@nl .
 
-firebim:Member_6_7_2_2_1_4 a firebim:Member ;
-    firebim:hasOriginalText """Aan deze bepaling is voldaan als:"""@nl ;
-    firebim:hasMember firebim:Member_6_7_2_2_1_4_1,
-        firebim:Member_6_7_2_2_1_4_2 .
+fro:Member_6_7_2_2_1_4 a fro:Member ;
+    fro:hasMember fro:Member_6_7_2_2_1_4_1,
+        fro:Member_6_7_2_2_1_4_2 ;
+    fro:hasOriginalText "Aan deze bepaling is voldaan als:"@nl .
 
-firebim:Member_6_7_2_2_1_4_1 a firebim:Member ;
-    firebim:hasOriginalText """- ofwel de kanalen en hun <a href=\"http://example.com/firebimbuilding#DuctSuspension\">ophangingen</a> <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI</a> 30 (<a href=\"http://example.com/firebimbuilding#Horizontal\">ho</a> i o) of <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI</a> 30 (<a href=\"http://example.com/firebimbuilding#Vertical\">ve</a> i o) hebben wanneer ze respectievelijk <a href=\"http://example.com/firebimbuilding#Horizontal\">horizontaal</a> of <a href=\"http://example.com/firebimbuilding#Vertical\">verticaal</a> geplaatst worden;"""@nl .
+fro:Member_6_7_2_2_1_4_1 a fro:Member ;
+    fro:hasOriginalText "- ofwel de kanalen en hun <a href=\"http://example.com/firebimbuilding#DuctSuspension\">ophangingen</a> EI 30 (ho i o) of EI 30 (ve i o) hebben wanneer ze respectievelijk horizontaal of verticaal geplaatst worden;"@nl .
 
-firebim:Member_6_7_2_2_1_4_2 a firebim:Member ;
-    firebim:hasOriginalText """- ofwel de kanalen opgehangen worden zodat voldaan is aan de volgende voorschriften:
----"""@nl .
+fro:Member_6_7_2_2_1_4_2 a fro:Member ;
+    fro:hasOriginalText "- ofwel de kanalen opgehangen worden zodat voldaan is aan de volgende voorschriften:"@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

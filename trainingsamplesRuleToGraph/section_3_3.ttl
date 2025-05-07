@@ -3,36 +3,36 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_3_3 a firebim:Section ;
-    firebim:hasID "3.3" ;
-    firebim:hasOriginalText "Verticale binnenwanden en binnendeuren."@nl ;
-    firebim:hasArticle firebim:Article_3_3_1 .
+fro:Section_3_3 a fro:Section ;
+    fro:hasID "3.3" ;
+    fro:hasOriginalText "Verticale binnenwanden en binnendeuren."@nl ;
+    fro:hasArticle fro:Article_3_3_1 .
 
-firebim:Section_3 firebim:hasSection firebim:Section_3_3 .
+fro:Section_3 fro:hasSection fro:Section_3_3 .
 
-firebim:Article_3_3_1 a firebim:Article ;
-    firebim:hasID "A3.3.1" ;
-    firebim:hasMember firebim:Member_3_3_1_1, firebim:Member_3_3_1_2, firebim:Member_3_3_1_3 ;
-    firebim:hasTable firebim:Table_2_2 .
+fro:Article_3_3_1 a fro:Article ;
+    fro:hasID "A3.3.1" ;
+    fro:hasMember fro:Member_3_3_1_1, fro:Member_3_3_1_2, fro:Member_3_3_1_3 ;
+    fro:hasTable fro:Table_2_2 .
 
-firebim:Member_3_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Voor  de  wanden  en  de  deuren,  die  compartimenten  afbakenen,  geldt  4.1;  bakenen  zij
+fro:Member_3_3_1_1 a fro:Member ;
+    fro:hasOriginalText """Voor  de  wanden  en  de  deuren,  die  compartimenten  afbakenen,  geldt  4.1;  bakenen  zij
 evacuatiewegen af dan geldt 4.4."""@nl ;
-    firebim:hasForwardReference firebim:Section_4_1, firebim:Section_4_4 .
+    fro:hasForwardReference fro:Section_4_1, fro:Section_4_4 .
 
-firebim:Member_3_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De verticale binnenwanden die lokalen of het geheel van lokalen met nachtbezetting afbakenen
+fro:Member_3_3_1_2 a fro:Member ;
+    fro:hasOriginalText """De verticale binnenwanden die lokalen of het geheel van lokalen met nachtbezetting afbakenen
 hebben een brandweerstand, aangegeven in tabel 2.2."""@nl .
 
-firebim:Member_3_3_1_3 a firebim:Member ;
-    firebim:hasOriginalText "De deuren in deze wanden hebben EI1 30."@nl .
+fro:Member_3_3_1_3 a fro:Member ;
+    fro:hasOriginalText "De deuren in deze wanden hebben EI1 30."@nl .
 
-firebim:Table_2_2 a firebim:Table ;
-    firebim:hasID "T2.2" ;
-    firebim:hasOriginalText """Wanden
+fro:Table_2_2 a fro:Table ;
+    fro:hasID "T2.2" ;
+    fro:hasOriginalText """Wanden
 Boven de vloer van Ei
                Eén bouwlaag         EI 30
        Meerdere bouwlagen           EI 60

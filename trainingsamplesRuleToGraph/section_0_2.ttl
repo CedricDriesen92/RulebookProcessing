@@ -3,9 +3,9 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_0_2 a firebim:Section ;
-    firebim:hasID "0.2" ;
-    firebim:hasOriginalText "Toepassingsgebied."@nl .
+fro:Section_0_2 a fro:Section ;
+    fro:hasID "0.2" ;
+    fro:hasOriginalText "Toepassingsgebied."@nl .

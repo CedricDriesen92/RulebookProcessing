@@ -3,45 +3,45 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_2_2_2 a firebim:Section ;
-    firebim:hasID "2.2.2" ;
-    firebim:hasOriginalText "De uitgangen."@nl ;
-    firebim:hasArticle firebim:Article_2_2_2_1 .
+fro:Section_2_2_2 a fro:Section ;
+    fro:hasID "2.2.2" ;
+    fro:hasOriginalText "De uitgangen."@nl ;
+    fro:hasArticle fro:Article_2_2_2_1 .
 
-firebim:Article_2_2_2_1 a firebim:Article ;
-    firebim:hasID "A2.2.2.1" ;
-    firebim:hasMember firebim:Member_2_2_2_1_1, firebim:Member_2_2_2_1_2, firebim:Member_2_2_2_1_3, firebim:Member_2_2_2_1_4, firebim:Member_2_2_2_1_5 .
+fro:Article_2_2_2_1 a fro:Article ;
+    fro:hasID "A2.2.2.1" ;
+    fro:hasMember fro:Member_2_2_2_1_1, fro:Member_2_2_2_1_2, fro:Member_2_2_2_1_3, fro:Member_2_2_2_1_4, fro:Member_2_2_2_1_5 .
 
-firebim:Member_2_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment."@nl .
+fro:Member_2_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment."@nl .
 
-firebim:Member_2_2_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De evacuatiewegen leiden ofwel:"""@nl ;
-    firebim:hasMember firebim:Member_2_2_2_1_2_1, firebim:Member_2_2_2_1_2_2, firebim:Member_2_2_2_1_2_3 .
+fro:Member_2_2_2_1_2 a fro:Member ;
+    fro:hasOriginalText """De evacuatiewegen leiden ofwel:"""@nl ;
+    fro:hasMember fro:Member_2_2_2_1_2_1, fro:Member_2_2_2_1_2_2, fro:Member_2_2_2_1_2_3 .
 
-firebim:Member_2_2_2_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "naar buiten;"@nl .
+fro:Member_2_2_2_1_2_1 a fro:Member ;
+    fro:hasOriginalText "naar buiten;"@nl .
     
-firebim:Member_2_2_2_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "naar trappenhuizen;"@nl .
+fro:Member_2_2_2_1_2_2 a fro:Member ;
+    fro:hasOriginalText "naar trappenhuizen;"@nl .
     
-firebim:Member_2_2_2_1_2_3 a firebim:Member ;
-    firebim:hasOriginalText "naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4)."@nl .
+fro:Member_2_2_2_1_2_3 a fro:Member ;
+    fro:hasOriginalText "naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4)."@nl .
 
-firebim:Member_2_2_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met
+fro:Member_2_2_2_1_3 a fro:Member ;
+    fro:hasOriginalText """Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met
 wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen."""@nl .
 
-firebim:Member_2_2_2_1_4 a firebim:Member ;
-    firebim:hasOriginalText "Voor de parking: zie 5.2."@nl .
+fro:Member_2_2_2_1_4 a fro:Member ;
+    fro:hasOriginalText "Voor de parking: zie 5.2."@nl .
 
-firebim:Member_2_2_2_1_5 a firebim:Member ;
-    firebim:hasOriginalText """Op  een  evacuatieniveau  leidt  iedere  trap  naar  buiten,  hetzij  rechtstreeks,  hetzij  over  een
+fro:Member_2_2_2_1_5 a fro:Member ;
+    fro:hasOriginalText """Op  een  evacuatieniveau  leidt  iedere  trap  naar  buiten,  hetzij  rechtstreeks,  hetzij  over  een
 evacuatieweg die beantwoordt aan de voorschriften van 4.4."""@nl .
 
-firebim:Member_2_2_2_1_2 firebim:hasForwardReference firebim:Section_4_4 .
-firebim:Member_2_2_2_1_4 firebim:hasForwardReference firebim:Section_5_2 .
-firebim:Member_2_2_2_1_5 firebim:hasForwardReference firebim:Section_4_4 .
+fro:Member_2_2_2_1_2 fro:hasForwardReference fro:Section_4_4 .
+fro:Member_2_2_2_1_4 fro:hasForwardReference fro:Section_5_2 .
+fro:Member_2_2_2_1_5 fro:hasForwardReference fro:Section_4_4 .

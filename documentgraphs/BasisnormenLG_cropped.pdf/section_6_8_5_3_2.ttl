@@ -1,19 +1,7 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 
-firebim:Section_6_8_5_3_2 a firebim:Section ;
-    firebim:hasID "6.8.5.3.2" ;
-    firebim:hasOriginalText "DE STIJGLEIDING DIE EVENTUELE TOESTELLEN VOEDT MET <a href=\"http://example.com/firebimbuilding#WaterSupplySystem\">WATER ONDER DRUK</a>, HEEFT DE VOLGENDE KENMERKEN:"@nl ;
-    firebim:hasArticle firebim:Article_6_8_5_3_2_1 .
+fro:Section_6_8_5_3_2 a fro:Section ;
+    fro:hasID "6.8.5.3.2" ;
+    fro:hasOriginalText """De <a href="http://example.com/firebimbuilding#Pipe">stijgleiding</a> die eventuele toestellen voedt met <a href="http://example.com/firebimbuilding#WaterSupplySystem">water onder druk</a>, heeft de volgende kenmerken:
+de <a href="http://example.com/firebimbuilding#PipeDiameter">binnendiameter</a> en de <a href="http://example.com/firebimbuilding#WaterPressure">voedingsdruk</a> moeten zodanig zijn dat de druk aan de minst bedeelde <a href="http://example.com/firebimbuilding#FireHoseReel">haspel met axiale voeding</a> beantwoordt aan de voorschriften van NBN EN 671-1, ermee rekening houdend dat 3 <a href="http://example.com/firebimbuilding#FireHoseReel">haspels met axiale voeding</a> gelijktijdig moeten kunnen werken gedurende ½ h."""@nl .
 
-firebim:Article_6_8_5_3_2_1 a firebim:Article ;
-    firebim:hasID "A6.8.5.3.2.1" ;
-    firebim:hasMember firebim:Member_6_8_5_3_2_1_1 .
-
-firebim:Member_6_8_5_3_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """de <a href=\"http://example.com/firebimbuilding#PipeDiameter\">BINNENDIAMETER</a> EN DE <a href=\"http://example.com/firebimbuilding#WaterPressure\">VOEDINGSKRACHT</a> MOETEN ZODANIG ZIJN DAT DE DRUK AAN DE MINST BEDEELDE HASPEL BEANTWOORDT AAN DE VOORSCHRIFTEN VAN NBN EN 671-1, ERMEE REKENING HOUDEND DAT 3 <a href=\"http://example.com/firebimbuilding#FireHoseReel\">HASPELS MET AXIALE VOEDING</a> GELIJKTIJDIG MOETEN KUNNEN WERKEN GEDURENDE ½ H."""@nl .

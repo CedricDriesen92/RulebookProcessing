@@ -1,36 +1,16 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 
-firebim:Section_6_1_2_1 a firebim:Section ;
-    firebim:hasID "6.1.2.1" ;
-    firebim:hasOriginalText """Het geheel bestaande uit één of meer <a href=\"http://example.com/firebimbuilding#Shaft\">schachten</a> en de eventuele <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamer</a>, alsook <a href=\"http://example.com/firebimbuilding#Landing\">toegangsbordessen</a> die een <a href=\"http://example.com/firebimbuilding#Airlock\">sas</a> moeten vormen voor de <a href=\"http://example.com/firebimbuilding#UndergroundFloor\">ondergrondse bouwlagen</a>, is omsloten door <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> met <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a>.
-Hun <a href=\"http://example.com/firebimbuilding#Facade\">buitenwanden</a> mogen <a href=\"http://example.com/firebimbuilding#IsGlazed\">beglaasd</a> zijn indien deze beantwoorden aan de eisen gesteld in punt 3.5."""@nl ;
-    firebim:hasArticle firebim:Article_6_1_2_1_1 .
+fro:Section_6_1_2_1 a fro:Section ;
+    fro:hasID "6.1.2.1" ;
+    fro:hasOriginalText """Het geheel bestaande uit één of meer <a href="http://example.com/firebimbuilding#ElevatorShaft">schachten</a> en de eventuele <a href="http://example.com/firebimbuilding#MachineRoom">machinekamer</a>, alsook <a href="http://example.com/firebimbuilding#Landing">toegangsbordessen</a> die een <a href="http://example.com/firebimbuilding#ElevatorLobby">sas</a> moeten vormen voor de <a href="http://example.com/firebimbuilding#UndergroundFloor">ondergrondse bouwlagen</a>, is omsloten door <a href="http://example.com/firebimbuilding#Wall">wanden</a> met <a href="http://example.com/firebimbuilding#FireResistance">EI 60</a>.
+Hun <a href="http://example.com/firebimbuilding#ExternalWall">buitenwanden</a> mogen <a href="http://example.com/firebimbuilding#IsGlazed">beglaasd</a> zijn indien deze beantwoorden aan de eisen gesteld in punt 3.5.
 
-firebim:Article_6_1_2_1_1 a firebim:Article ;
-    firebim:hasID "A6.1.2.1.1" ;
-    firebim:hasMember firebim:Member_6_1_2_1_1_1,
-        firebim:Member_6_1_2_1_1_2,
-        firebim:Member_6_1_2_1_1_3 .
+De <a href="http://example.com/firebimbuilding#Door">toegangsdeuren</a> tussen het <a href="http://example.com/firebimbuilding#Compartment">compartiment</a> en het <a href="http://example.com/firebimbuilding#ElevatorLobby">sas</a> hebben <a href="http://example.com/firebimbuilding#FireResistance">EI1 30</a> en zijn <a href="http://example.com/firebimbuilding#IsSelfClosing">zelfsluitend</a> of <a href="http://example.com/firebimbuilding#IsFireActivatedClosing">zelfsluitend bij brand</a>.
 
-firebim:Member_6_1_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#Door\">toegangsdeuren</a> tussen het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> en het <a href=\"http://example.com/firebimbuilding#Airlock\">sas</a> hebben <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI1 30</a> en zijn <a href=\"http://example.com/firebimbuilding#IsSelfClosing\">zelfsluitend</a> of <a href=\"http://example.com/firebimbuilding#IsFireActivatedClosing\">zelfsluitend bij brand</a>."""@nl .
+Als de <a href="http://example.com/firebimbuilding#CompartmentArea">oppervlakte</a> van het <a href="http://example.com/firebimbuilding#ElevatorLobby">sas</a> kleiner is dan de <a href="http://example.com/firebimbuilding#CompartmentArea">oppervlakte</a> van de <a href="http://example.com/firebimbuilding#ElevatorCar">kooi van de lift of goederenlift</a>, is de <a href="http://example.com/firebimbuilding#Door">toegangsdeur</a> tussen het <a href="http://example.com/firebimbuilding#Compartment">compartiment</a> en het <a href="http://example.com/firebimbuilding#ElevatorLobby">sas</a>, een <a href="http://example.com/firebimbuilding#IsFireActivatedClosing">bij brand zelfsluitend</a>e <a href="http://example.com/firebimbuilding#Door">draaideur</a> <a href="http://example.com/firebimbuilding#FireResistance">EI1 30</a> bediend door een <a href="http://example.com/firebimbuilding#FireDetectionSystem">branddetectie-installatie</a> die minstens het volgende omvat:
 
-firebim:Member_6_1_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Als de <a href=\"http://example.com/firebimbuilding#LevelArea\">oppervlakte van het sas</a> kleiner is dan de <a href=\"http://example.com/firebimbuilding#LevelArea\">oppervlakte van de kooi van de lift of goederenlift</a>, is de <a href=\"http://example.com/firebimbuilding#Door\">toegangsdeur</a> tussen het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> en het <a href=\"http://example.com/firebimbuilding#Airlock\">sas</a>, een <a href=\"http://example.com/firebimbuilding#IsFireActivatedClosing\">bij brand zelfsluitend</a> draaideur <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI1 30</a> bediend door een <a href=\"http://example.com/firebimbuilding#FireDetectionSystem\">branddetectie-installatie</a> die minstens het volgende omvat:"""@nl ;
-    firebim:hasMember firebim:Member_6_1_2_1_1_2_1,
-        firebim:Member_6_1_2_1_1_2_2 .
+- een <a href="http://example.com/firebimbuilding#SmokeDetection">rookdetectie</a> in de <a href="http://example.com/firebimbuilding#ElevatorShaft">schacht</a>;
+- en een <a href="http://example.com/firebimbuilding#SmokeDetection">rookdetectie</a> in het <a href="http://example.com/firebimbuilding#Compartment">compartiment</a> in de <a href="http://example.com/firebimbuilding#Location">omgeving van de toegangsdeur tot het sas</a>.
 
-firebim:Member_6_1_2_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText """- een <a href=\"http://example.com/firebimbuilding#SmokeDetection\">rookdetectie</a> in de <a href=\"http://example.com/firebimbuilding#Shaft\">schacht</a>;"""@nl .
+Het <a href="http://example.com/firebimbuilding#Landing">toegangsbordes</a> mag deel uitmaken van de <a href="http://example.com/firebimbuilding#EvacuationRoute">evacuatieweg</a>."""@nl .
 
-firebim:Member_6_1_2_1_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText """- en een <a href=\"http://example.com/firebimbuilding#SmokeDetection\">rookdetectie</a> in het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> in de <a href=\"http://example.com/firebimbuilding#Location\">omgeving van de toegangsdeur tot het sas</a>."""@nl .
-
-firebim:Member_6_1_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "Het <a href=\"http://example.com/firebimbuilding#Landing\">toegangsbordes</a> mag deel uitmaken van de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a>."@nl .

@@ -1,43 +1,49 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_7_2_1 a firebim:Section ;
-    firebim:hasID "6.7.2.1" ;
-    firebim:hasOriginalText "Luchtkanalen in <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a>."@nl ;
-    firebim:hasArticle firebim:Article_6_7_2_1_1 .
+fro:Section_6_7_2_1 a fro:Section ;
+    fro:hasArticle fro:Article_6_7_2_1_1 ;
+    fro:hasID "6.7.2.1" ;
+    fro:hasOriginalText "Luchtkanalen in evacuatiewegen."@nl .
 
-firebim:Article_6_7_2_1_1 a firebim:Article ;
-    firebim:hasID "A6.7.2.1.1" ;
-    firebim:hasMember firebim:Member_6_7_2_1_1_1,
-        firebim:Member_6_7_2_1_1_2,
-        firebim:Member_6_7_2_1_1_3,
-        firebim:Member_6_7_2_1_1_4 .
+fro:Article_6_7_2_1_1 a fro:Article ;
+    fro:hasID "A6.7.2.1.1" ;
+    fro:hasMember fro:Member_6_7_2_1_1_1,
+        fro:Member_6_7_2_1_1_2,
+        fro:Member_6_7_2_1_1_3,
+        fro:Member_6_7_2_1_1_4,
+        fro:Member_6_7_2_1_1_5 ;
+    fro:hasOriginalText "<a href=\"http://example.com/firebimbuilding#AirDuct\">Luchtkanalen</a> in <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a>."@nl ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_6_7_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """In de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a>, alsook in de <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">technische kokers</a> en op de plaatsen die niet bereikbaar zijn na afwerking van het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a>, zijn de <a href=\"http://example.com/firebimbuilding#AirDuct\">kanalen</a> vervaardigd uit <a href=\"http://example.com/firebimbuilding#MaterialClass\">materialen van klasse A1</a>; de <a href=\"http://example.com/firebimbuilding#Insulation\">isolatieproducten</a> met inbegrip van hun bekledingen zijn minstens van <a href=\"http://example.com/firebimbuilding#MaterialClass\">klasse A2-s1,d0</a>."""@nl .
+fro:Member_6_7_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "In de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a>, alsook in de <a href=\"http://example.com/firebimbuilding#VerticalShaft\">technische kokers</a> en op de plaatsen die niet bereikbaar zijn na afwerking van het gebouw, zijn de <a href=\"http://example.com/firebimbuilding#AirDuct\">kanalen</a> vervaardigd uit <a href=\"http://example.com/firebimbuilding#MaterialClass\">materialen van klasse</a> A1; de <a href=\"http://example.com/firebimbuilding#Insulation\">isolatieproducten</a> met inbegrip van hun <a href=\"http://example.com/firebimbuilding#InnerProtection\">bekledingen</a> zijn minstens van <a href=\"http://example.com/firebimbuilding#MaterialClass\">klasse</a> A2-s1,d0."@nl .
 
-firebim:Member_6_7_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#FlexibleDuct\">soepele leidingen</a> zijn ten minste van <a href=\"http://example.com/firebimbuilding#MaterialClass\">klasse B-s1, d0</a> en hun lengte is maximaal 1 m."""@nl .
+fro:Member_6_7_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#FlexibleDuct\">soepele leidingen</a> zijn ten minste van <a href=\"http://example.com/firebimbuilding#MaterialClass\">klasse</a> B-s1, d0 en hun <a href=\"http://example.com/firebimbuilding#Length\">lengte</a> is maximaal 1 m."@nl .
 
-firebim:Member_6_7_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#AirDuct\">luchtkanalen</a> in de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a> met hun <a href=\"http://example.com/firebimbuilding#DuctSuspension\">ophangingen</a> hebben een <a href=\"http://example.com/firebimbuilding#FireStability\">stabiliteit bij brand</a> van minstens ½ h."""@nl .
+fro:Member_6_7_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#AirDuct\">luchtkanalen</a> in de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a> met hun <a href=\"http://example.com/firebimbuilding#DuctSuspension\">ophangingen</a> hebben een <a href=\"http://example.com/firebimbuilding#FireStability\">stabiliteit bij brand</a> van minstens ½ h."@nl .
 
-firebim:Member_6_7_2_1_1_4 a firebim:Member ;
-    firebim:hasOriginalText """Aan deze bepaling is voldaan als:"""@nl ;
-    firebim:hasMember firebim:Member_6_7_2_1_1_4_1,
-        firebim:Member_6_7_2_1_1_4_2,
-        firebim:Member_6_7_2_1_1_4_3 .
+fro:Member_6_7_2_1_1_4 a fro:Member ;
+    fro:hasOriginalText "Aan deze bepaling is voldaan als:"@nl .
 
-firebim:Member_6_7_2_1_1_4_1 a firebim:Member ;
-    firebim:hasOriginalText """- ofwel de <a href=\"http://example.com/firebimbuilding#AirDuct\">kanalen</a> en hun <a href=\"http://example.com/firebimbuilding#DuctSuspension\">ophangingen</a> <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 30</a> (ho i o) of <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 30</a> (ve i o) hebben wanneer ze respectievelijk <a href=\"http://example.com/firebimbuilding#IsHorizontal\">horizontaal</a> of <a href=\"http://example.com/firebimbuilding#IsVertical\">verticaal</a> geplaatst worden;"""@nl .
+fro:Member_6_7_2_1_1_5 a fro:Member ;
+    fro:hasMember fro:Member_6_7_2_1_1_5_1,
+        fro:Member_6_7_2_1_1_5_2,
+        fro:Member_6_7_2_1_1_5_3 .
 
-firebim:Member_6_7_2_1_1_4_2 a firebim:Member ;
-    firebim:hasOriginalText """- ofwel de <a href=\"http://example.com/firebimbuilding#AirDuct\">kanalen</a> opgehangen worden zodat voldaan is aan de volgende voorschriften:"""@nl .
+fro:Member_6_7_2_1_1_5_1 a fro:Member ;
+    fro:hasOriginalText "- ofwel de <a href=\"http://example.com/firebimbuilding#AirDuct\">kanalen</a> en hun <a href=\"http://example.com/firebimbuilding#DuctSuspension\">ophangingen</a> EI 30 (ho i o) of EI 30 (ve i o) hebben wanneer ze respectievelijk <a href=\"http://example.com/firebimbuilding#IsHorizontal\">horizontaal</a> of <a href=\"http://example.com/firebimbuilding#IsVertical\">verticaal</a> geplaatst worden;"@nl .
 
-firebim:Member_6_7_2_1_1_4_3 a firebim:Member ;
-    firebim:hasOriginalText """De vereisten van dit punt zijn niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> die zijn uitgerust met een <a href=\"http://example.com/firebimbuilding#AutomaticSprinklerSystem\">automatische blusinstallatie van het type sprinkler</a> die is aangepast aan de aanwezige risico's."""@nl .
+fro:Member_6_7_2_1_1_5_2 a fro:Member ;
+    fro:hasOriginalText "- ofwel de <a href=\"http://example.com/firebimbuilding#AirDuct\">kanalen</a> opgehangen worden zodat voldaan is aan de volgende voorschriften:"@nl .
+
+fro:Member_6_7_2_1_1_5_3 a fro:Member ;
+    fro:hasOriginalText "De vereisten van dit punt zijn niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> die zijn uitgerust met een <a href=\"http://example.com/firebimbuilding#AutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> van het type <a href=\"http://example.com/firebimbuilding#AutomaticSprinklerSystem\">sprinkler</a> die is aangepast aan de aanwezige risico's."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

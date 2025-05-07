@@ -1,256 +1,256 @@
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-firebim:Belgian_Government a firebim:Authority ;
-    firebim:hasDocument firebim:RoyalDecree .
+fro:Belgian_Government a fro:Authority ;
+    fro:hasDocument fro:RoyalDecree .
 
-firebim:Article_2_1_1_1 a firebim:Article ;
-    firebim:hasID "A2.1.1.1" ;
-    firebim:hasMember firebim:Member_2_1_1_1_1,
-        firebim:Member_2_1_1_1_2 .
+fro:Article_2_1_1_1 a fro:Article ;
+    fro:hasID "A2.1.1.1" ;
+    fro:hasMember fro:Member_2_1_1_1_1,
+        fro:Member_2_1_1_1_2 .
 
-firebim:Article_2_1_2_1_1 a firebim:Article ;
-    firebim:hasFigure firebim:Figure_17 ;
-    firebim:hasID "A2.1.2.1.1" ;
-    firebim:hasMember firebim:Member_2_1_2_1_1_1,
-        firebim:Member_2_1_2_1_1_2,
-        firebim:Member_2_1_2_1_1_3,
-        firebim:Member_2_1_2_1_1_4,
-        firebim:Member_2_1_2_1_1_5,
-        firebim:Member_2_1_2_1_1_6,
-        firebim:Member_2_1_2_1_1_7,
-        firebim:Member_2_1_2_1_1_8,
-        firebim:Member_2_1_2_1_1_9 ;
-    firebim:hasTable firebim:Table_2_1_2_1_1,
-        firebim:Table_2_1_2_1_2 .
+fro:Article_2_1_2_1_1 a fro:Article ;
+    fro:hasFigure fro:Figure_17 ;
+    fro:hasID "A2.1.2.1.1" ;
+    fro:hasMember fro:Member_2_1_2_1_1_1,
+        fro:Member_2_1_2_1_1_2,
+        fro:Member_2_1_2_1_1_3,
+        fro:Member_2_1_2_1_1_4,
+        fro:Member_2_1_2_1_1_5,
+        fro:Member_2_1_2_1_1_6,
+        fro:Member_2_1_2_1_1_7,
+        fro:Member_2_1_2_1_1_8,
+        fro:Member_2_1_2_1_1_9 ;
+    fro:hasTable fro:Table_2_1_2_1_1,
+        fro:Table_2_1_2_1_2 .
 
-firebim:Article_2_1_2_2_1 a firebim:Article ;
-    firebim:hasID "A2.1.2.2.1" ;
-    firebim:hasMember firebim:Member_2_1_2_2_1_1,
-        firebim:Member_2_1_2_2_1_2 .
+fro:Article_2_1_2_2_1 a fro:Article ;
+    fro:hasID "A2.1.2.2.1" ;
+    fro:hasMember fro:Member_2_1_2_2_1_1,
+        fro:Member_2_1_2_2_1_2 .
 
-firebim:Article_2_1_2_3_1 a firebim:Article ;
-    firebim:hasID "A2.1.2.3.1" ;
-    firebim:hasMember firebim:Member_2_1_2_3_1_1,
-        firebim:Member_2_1_2_3_1_2 ;
-    firebim:hasTable firebim:Table_2_1_2_3_1 .
+fro:Article_2_1_2_3_1 a fro:Article ;
+    fro:hasID "A2.1.2.3.1" ;
+    fro:hasMember fro:Member_2_1_2_3_1_1,
+        fro:Member_2_1_2_3_1_2 ;
+    fro:hasTable fro:Table_2_1_2_3_1 .
 
-firebim:Article_2_1_2_4_1 a firebim:Article ;
-    firebim:hasID "A2.1.2.4.1" ;
-    firebim:hasMember firebim:Member_2_1_2_4_1_1 .
+fro:Article_2_1_2_4_1 a fro:Article ;
+    fro:hasID "A2.1.2.4.1" ;
+    fro:hasMember fro:Member_2_1_2_4_1_1 .
 
-firebim:Article_2_1_2_4_2 a firebim:Article ;
-    firebim:hasID "A2.1.2.4.2" ;
-    firebim:hasMember firebim:Member_2_1_2_4_2_1,
-        firebim:Member_2_1_2_4_2_2,
-        firebim:Member_2_1_2_4_2_3,
-        firebim:Member_2_1_2_4_2_4 .
+fro:Article_2_1_2_4_2 a fro:Article ;
+    fro:hasID "A2.1.2.4.2" ;
+    fro:hasMember fro:Member_2_1_2_4_2_1,
+        fro:Member_2_1_2_4_2_2,
+        fro:Member_2_1_2_4_2_3,
+        fro:Member_2_1_2_4_2_4 .
 
-firebim:Article_2_2_1_1 a firebim:Article ;
-    firebim:hasID "A2.2.1.1" ;
-    firebim:hasMember firebim:Member_2_2_1_1_1,
-        firebim:Member_2_2_1_1_2 .
+fro:Article_2_2_1_1 a fro:Article ;
+    fro:hasID "A2.2.1.1" ;
+    fro:hasMember fro:Member_2_2_1_1_1,
+        fro:Member_2_2_1_1_2 .
 
-firebim:Article_2_2_1_1_1 a firebim:Article ;
-    firebim:hasFigure firebim:Figure_19_24 ;
-    firebim:hasID "A2.2.1.1.1" ;
-    firebim:hasMember firebim:Member_2_2_1_1_1_1,
-        firebim:Member_2_2_1_1_1_2 .
+fro:Article_2_2_1_1_1 a fro:Article ;
+    fro:hasFigure fro:Figure_19_24 ;
+    fro:hasID "A2.2.1.1.1" ;
+    fro:hasMember fro:Member_2_2_1_1_1_1,
+        fro:Member_2_2_1_1_1_2 .
 
-firebim:Article_2_2_1_2_1 a firebim:Article ;
-    firebim:hasID "A2.2.1.2.1" ;
-    firebim:hasMember firebim:Member_2_2_1_2_1_1,
-        firebim:Member_2_2_1_2_1_2,
-        firebim:Member_2_2_1_2_1_3 .
+fro:Article_2_2_1_2_1 a fro:Article ;
+    fro:hasID "A2.2.1.2.1" ;
+    fro:hasMember fro:Member_2_2_1_2_1_1,
+        fro:Member_2_2_1_2_1_2,
+        fro:Member_2_2_1_2_1_3 .
 
-firebim:Article_2_2_1_3_1 a firebim:Article ;
-    firebim:hasID "A2.2.1.3.1" ;
-    firebim:hasMember firebim:Member_2_2_1_3_1_1,
-        firebim:Member_2_2_1_3_1_2,
-        firebim:Member_2_2_1_3_1_3,
-        firebim:Member_2_2_1_3_1_4,
-        firebim:Member_2_2_1_3_1_5,
-        firebim:Member_2_2_1_3_1_6,
-        firebim:Member_2_2_1_3_1_7,
-        firebim:Member_2_2_1_3_1_8 ;
-    firebim:hasTable firebim:Table_2,
-        firebim:Table_3 .
+fro:Article_2_2_1_3_1 a fro:Article ;
+    fro:hasID "A2.2.1.3.1" ;
+    fro:hasMember fro:Member_2_2_1_3_1_1,
+        fro:Member_2_2_1_3_1_2,
+        fro:Member_2_2_1_3_1_3,
+        fro:Member_2_2_1_3_1_4,
+        fro:Member_2_2_1_3_1_5,
+        fro:Member_2_2_1_3_1_6,
+        fro:Member_2_2_1_3_1_7,
+        fro:Member_2_2_1_3_1_8 ;
+    fro:hasTable fro:Table_2,
+        fro:Table_3 .
 
-firebim:Article_2_2_1_4_1 a firebim:Article ;
-    firebim:hasID "A2.2.1.4.1" ;
-    firebim:hasMember firebim:Member_2_2_1_4_1_1,
-        firebim:Member_2_2_1_4_1_2 .
+fro:Article_2_2_1_4_1 a fro:Article ;
+    fro:hasID "A2.2.1.4.1" ;
+    fro:hasMember fro:Member_2_2_1_4_1_1,
+        fro:Member_2_2_1_4_1_2 .
 
-firebim:Article_2_2_1_5_1 a firebim:Article ;
-    firebim:hasID "A2.2.1.5.1" ;
-    firebim:hasMember firebim:Member_2_2_1_5_1_1,
-        firebim:Member_2_2_1_5_1_2 .
+fro:Article_2_2_1_5_1 a fro:Article ;
+    fro:hasID "A2.2.1.5.1" ;
+    fro:hasMember fro:Member_2_2_1_5_1_1,
+        fro:Member_2_2_1_5_1_2 .
 
-firebim:Article_2_2_2_1_1 a firebim:Article ;
-    firebim:hasID "A2.2.2.1.1" ;
-    firebim:hasMember firebim:Member_2_2_2_1_1_1,
-        firebim:Member_2_2_2_1_1_2,
-        firebim:Member_2_2_2_1_1_3 .
+fro:Article_2_2_2_1_1 a fro:Article ;
+    fro:hasID "A2.2.2.1.1" ;
+    fro:hasMember fro:Member_2_2_2_1_1_1,
+        fro:Member_2_2_2_1_1_2,
+        fro:Member_2_2_2_1_1_3 .
 
-firebim:Article_2_2_2_2_1 a firebim:Article ;
-    firebim:hasID "A2.2.2.2.1" ;
-    firebim:hasMember firebim:Member_2_2_2_2_1_1,
-        firebim:Member_2_2_2_2_1_2 ;
-    firebim:hasTable firebim:Table_4,
-        firebim:Table_5 .
+fro:Article_2_2_2_2_1 a fro:Article ;
+    fro:hasID "A2.2.2.2.1" ;
+    fro:hasMember fro:Member_2_2_2_2_1_1,
+        fro:Member_2_2_2_2_1_2 ;
+    fro:hasTable fro:Table_4,
+        fro:Table_5 .
 
-firebim:Figure_17 a firebim:Figure ;
-    firebim:hasID "F17" ;
-    firebim:hasOriginalText "Fig. 17 Composantes de la charge en fonction de la pente de l'escalier."@fr .
+fro:Figure_17 a fro:Figure ;
+    fro:hasID "F17" ;
+    fro:hasOriginalText "Fig. 17 Composantes de la charge en fonction de la pente de l'escalier."@fr .
 
-firebim:Figure_18 a firebim:Figure ;
-    firebim:hasID "F18" .
+fro:Figure_18 a fro:Figure ;
+    fro:hasID "F18" .
 
-firebim:Figure_19_24 a firebim:Figure ;
-    firebim:hasID "F19-24" .
+fro:Figure_19_24 a fro:Figure ;
+    fro:hasID "F19-24" .
 
-firebim:Member_2_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Comme nous P'avons souligne en introduction; la resistance mecanique et la stabilite sont des exigences essentielles auxquelles doivent satisfaire les escaliers d'un batiment, selon les dispositions de la directive europeenne \"Produits de construction\" et ses commentaires."@fr .
+fro:Member_2_1_1_1_1 a fro:Member ;
+    fro:hasOriginalText "Comme nous P'avons souligne en introduction; la resistance mecanique et la stabilite sont des exigences essentielles auxquelles doivent satisfaire les escaliers d'un batiment, selon les dispositions de la directive europeenne \"Produits de construction\" et ses commentaires."@fr .
 
-firebim:Member_2_1_1_1_2 a firebim:Member ;
-    firebim:hasMember firebim:Member_2_1_1_1_2_1,
-        firebim:Member_2_1_1_1_2_2,
-        firebim:Member_2_1_1_1_2_3,
-        firebim:Member_2_1_1_1_2_4 ;
-    firebim:hasOriginalText "Il convient de distinguer:"@fr .
+fro:Member_2_1_1_1_2 a fro:Member ;
+    fro:hasMember fro:Member_2_1_1_1_2_1,
+        fro:Member_2_1_1_1_2_2,
+        fro:Member_2_1_1_1_2_3,
+        fro:Member_2_1_1_1_2_4 ;
+    fro:hasOriginalText "Il convient de distinguer:"@fr .
 
-firebim:Member_2_1_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "- la stabilite de l'ensemble et la resistance mecanique de chacun des elements constitutifs de l'escalier"@fr .
+fro:Member_2_1_1_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- la stabilite de l'ensemble et la resistance mecanique de chacun des elements constitutifs de l'escalier"@fr .
 
-firebim:Member_2_1_1_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "- la resistance des elements de l'escalier aux chocs d'objets durs et d'objets mous"@fr .
+fro:Member_2_1_1_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- la resistance des elements de l'escalier aux chocs d'objets durs et d'objets mous"@fr .
 
-firebim:Member_2_1_1_1_2_3 a firebim:Member ;
-    firebim:hasOriginalText "- la resistance aux rayures et à l'usure des surfaces de circulation en bois"@fr .
+fro:Member_2_1_1_1_2_3 a fro:Member ;
+    fro:hasOriginalText "- la resistance aux rayures et à l'usure des surfaces de circulation en bois"@fr .
 
-firebim:Member_2_1_1_1_2_4 a firebim:Member ;
-    firebim:hasOriginalText "- les aspects de durabilite qui concernent la resistance mecanique et la stabilite."@fr .
+fro:Member_2_1_1_1_2_4 a fro:Member ;
+    fro:hasOriginalText "- les aspects de durabilite qui concernent la resistance mecanique et la stabilite."@fr .
 
-firebim:Member_2_1_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "La structure portante doit avoir une stabilite et une resistance mecanique lui permettant de resister, sans effets dommageables, aux actions qu'elle peut subir durant sa construction et son utilisation; que ce soit directement ou indirectement (par exemple, par l'intermediaire des garde-corps). On se refera à cet effet aux prescriptions applicables aux constructions portantes et aux garde-corps, enoncees dans la Note d'information technique n° 196 relative aux balcons [7]."@fr .
+fro:Member_2_1_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "La structure portante doit avoir une stabilite et une resistance mecanique lui permettant de resister, sans effets dommageables, aux actions qu'elle peut subir durant sa construction et son utilisation; que ce soit directement ou indirectement (par exemple, par l'intermediaire des garde-corps). On se refera à cet effet aux prescriptions applicables aux constructions portantes et aux garde-corps, enoncees dans la Note d'information technique n° 196 relative aux balcons [7]."@fr .
 
-firebim:Member_2_1_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "Dans un escalier, la structure portante est constituee par les limons et les paliers : ceux-ci transmettent le poids propre de l'escalier et les charges d'exploitation, exercees sur les marches et les garde-corps, aux appuis de depart et d'arrivee de l'escalier ainsi qu'aux ancrages muraux."@fr .
+fro:Member_2_1_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "Dans un escalier, la structure portante est constituee par les limons et les paliers : ceux-ci transmettent le poids propre de l'escalier et les charges d'exploitation, exercees sur les marches et les garde-corps, aux appuis de depart et d'arrivee de l'escalier ainsi qu'aux ancrages muraux."@fr .
 
-firebim:Member_2_1_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "En ce qui concerne la structure portante, on tient compte de la pente de l'escalier : plus celle-ci est raide, plus la composante perpendiculaire aux limons augmente et plus la composante parallele aux limons diminue (figure 17)."@fr .
+fro:Member_2_1_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText "En ce qui concerne la structure portante, on tient compte de la pente de l'escalier : plus celle-ci est raide, plus la composante perpendiculaire aux limons augmente et plus la composante parallele aux limons diminue (figure 17)."@fr .
 
-firebim:Member_2_1_2_1_1_4 a firebim:Member ;
-    firebim:hasOriginalText "Les appuis et les ancrages des limons doivent reporter correctement les efforts de réaction des planchers des étages et sur les murs."@fr .
+fro:Member_2_1_2_1_1_4 a fro:Member ;
+    fro:hasOriginalText "Les appuis et les ancrages des limons doivent reporter correctement les efforts de réaction des planchers des étages et sur les murs."@fr .
 
-firebim:Member_2_1_2_1_1_5 a firebim:Member ;
-    firebim:hasOriginalText """Pour la structure portante de l'escalier\r
+fro:Member_2_1_2_1_1_5 a fro:Member ;
+    fro:hasOriginalText """Pour la structure portante de l'escalier\r
 Il y a lieu de tenir compte des sollicitations suivantes :\r
 - actions permanentes dues au poids propre (voir la norme NBN B 03-102 [17])\r
 - charges d'exploitation (norme NBN B 03-103 [18], savoir charges uniformément réparties, selon la destination de l'ouvrage :"""@fr ;
-    firebim:hasReference firebim:Reference_NBN_B_03_102,
-        firebim:Reference_NBN_B_03_103 .
+    fro:hasReference fro:Reference_NBN_B_03_102,
+        fro:Reference_NBN_B_03_103 .
 
-firebim:Member_2_1_2_1_1_6 a firebim:Member ;
-    firebim:hasOriginalText "Le garde-corps doit résister aux sollicitations définies par les STS 54 [12] [37]; le lecteur se référera à ce sujet à la NIT 196 déjà citée (8 2.1.2.1 B) [7]."@fr ;
-    firebim:hasReference firebim:Reference_NIT_196,
-        firebim:Reference_STS_54 .
+fro:Member_2_1_2_1_1_6 a fro:Member ;
+    fro:hasOriginalText "Le garde-corps doit résister aux sollicitations définies par les STS 54 [12] [37]; le lecteur se référera à ce sujet à la NIT 196 déjà citée (8 2.1.2.1 B) [7]."@fr ;
+    fro:hasReference fro:Reference_NIT_196,
+        fro:Reference_STS_54 .
 
-firebim:Member_2_1_2_1_1_7 a firebim:Member ;
-    firebim:hasOriginalText "Les assemblages garde-corps/limon et/ou garde-corps/surface de circulation en particulier seront exécutés de manière à ce qu'ils puissent reprendre les sollicitations."@fr .
+fro:Member_2_1_2_1_1_7 a fro:Member ;
+    fro:hasOriginalText "Les assemblages garde-corps/limon et/ou garde-corps/surface de circulation en particulier seront exécutés de manière à ce qu'ils puissent reprendre les sollicitations."@fr .
 
-firebim:Member_2_1_2_1_1_8 a firebim:Member ;
-    firebim:hasFigure firebim:Figure_18 ;
-    firebim:hasOriginalText "Plusieurs modes de fixation sont envisageables (figure 18, p 22). Dans les escaliers où les marches sont encastrées dans les limons, les balustres sont fixés dans les limons. Dans le cas de limons sciés en crémaillère ou de limons libres, les garde-corps sont fixés sur la face supérieure des marches ou sur la face latérale des limons. Dans un escalier suspendu, le système de suspension fait souvent office de garde-corps."@fr .
+fro:Member_2_1_2_1_1_8 a fro:Member ;
+    fro:hasFigure fro:Figure_18 ;
+    fro:hasOriginalText "Plusieurs modes de fixation sont envisageables (figure 18, p 22). Dans les escaliers où les marches sont encastrées dans les limons, les balustres sont fixés dans les limons. Dans le cas de limons sciés en crémaillère ou de limons libres, les garde-corps sont fixés sur la face supérieure des marches ou sur la face latérale des limons. Dans un escalier suspendu, le système de suspension fait souvent office de garde-corps."@fr .
 
-firebim:Member_2_1_2_1_1_9 a firebim:Member ;
-    firebim:hasOriginalText """Une solution qui s'écarte de la pratique courante fera l'objet d'une étude particulière.\r
+fro:Member_2_1_2_1_1_9 a fro:Member ;
+    fro:hasOriginalText """Une solution qui s'écarte de la pratique courante fera l'objet d'une étude particulière.\r
 \r
 Pour la mise en œuvre, on se reportera au chapitre 4 (p. 52) du présent document."""@fr .
 
-firebim:Member_2_1_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Les elements de l'escalier (limons, marches, garde-corps, et leurs fixations doivent resister aux charges dynamiques de securite (chocs) conformement aux STS 54 (8 12.22) [37]."@fr ;
-    firebim:hasReference firebim:Reference_STS_54 .
+fro:Member_2_1_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText "Les elements de l'escalier (limons, marches, garde-corps, et leurs fixations doivent resister aux charges dynamiques de securite (chocs) conformement aux STS 54 (8 12.22) [37]."@fr ;
+    fro:hasReference fro:Reference_STS_54 .
 
-firebim:Member_2_1_2_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText "Pour plus de details, on se refera au § 2.1.2.2 de la NIT 196 [7]."@fr ;
-    firebim:hasReference firebim:Reference_NIT_196 .
+fro:Member_2_1_2_2_1_2 a fro:Member ;
+    fro:hasOriginalText "Pour plus de details, on se refera au § 2.1.2.2 de la NIT 196 [7]."@fr ;
+    fro:hasReference fro:Reference_NIT_196 .
 
-firebim:Member_2_1_2_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText "La resistance aux rayures et à l'usure des surfaces de circulation en bois (marches, paliers) est essentiellement determinee par celle de la finition appliquee et par la durete superficielle des surfaces sous-jacentes en bois."@fr .
+fro:Member_2_1_2_3_1_1 a fro:Member ;
+    fro:hasOriginalText "La resistance aux rayures et à l'usure des surfaces de circulation en bois (marches, paliers) est essentiellement determinee par celle de la finition appliquee et par la durete superficielle des surfaces sous-jacentes en bois."@fr .
 
-firebim:Member_2_1_2_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText "La masse volumique moyenne est un critere indicatif de la durete superficielle du bois. Les bois couramment utilises dans les escaliers sont repris au tableau & (p. 48). La durete augmente pour une masse volumique croissante."@fr .
+fro:Member_2_1_2_3_1_2 a fro:Member ;
+    fro:hasOriginalText "La masse volumique moyenne est un critere indicatif de la durete superficielle du bois. Les bois couramment utilises dans les escaliers sont repris au tableau & (p. 48). La durete augmente pour une masse volumique croissante."@fr .
 
-firebim:Member_2_1_2_4_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Escaliers exterieurs posseder une durabilite suffisante vis-à-vis du climat exterieur et des attaques eventuelles. Tous les materiaux exposes à l'air libre doivent etre resistants au gel; ils doivent en outre posseder une resistance contre les champignons et les insectes. Les recommandations en la matiere sont decrites en detail au § 2.1.2.3 de la NIT 196 [7]."@fr ;
-    firebim:hasReference firebim:Reference_NIT_196 .
+fro:Member_2_1_2_4_1_1 a fro:Member ;
+    fro:hasOriginalText "Escaliers exterieurs posseder une durabilite suffisante vis-à-vis du climat exterieur et des attaques eventuelles. Tous les materiaux exposes à l'air libre doivent etre resistants au gel; ils doivent en outre posseder une resistance contre les champignons et les insectes. Les recommandations en la matiere sont decrites en detail au § 2.1.2.3 de la NIT 196 [7]."@fr ;
+    fro:hasReference fro:Reference_NIT_196 .
 
-firebim:Member_2_1_2_4_2_1 a firebim:Member ;
-    firebim:hasOriginalText "Lorsque la menuiserie interieure est susceptible d'etre attaquee par des insectes, il convient de traiter le bois au moyen d'un procede de preservation B, ce qui implique l'emploi d'un produit B homologue (ABPB, Association belge pour la protection du bois)."@fr .
+fro:Member_2_1_2_4_2_1 a fro:Member ;
+    fro:hasOriginalText "Lorsque la menuiserie interieure est susceptible d'etre attaquee par des insectes, il convient de traiter le bois au moyen d'un procede de preservation B, ce qui implique l'emploi d'un produit B homologue (ABPB, Association belge pour la protection du bois)."@fr .
 
-firebim:Member_2_1_2_4_2_2 a firebim:Member ;
-    firebim:hasOriginalText "En ce qui concerne les escaliers, une attaque par des insectes n'est à craindre que dans certains cas. Le lyctus (Lyctus spp.) peut attaquer l'aubier de certains feuillus (tels le chêne, l'orme, le meranti ou le lauan) contenant de grandes quantités d'amidon et dont le diamètre des vaisseaux est assez grand; les couches d'aubier présentes dans du multiplex peuvent également être attaquées par cet insecte."@fr .
+fro:Member_2_1_2_4_2_2 a fro:Member ;
+    fro:hasOriginalText "En ce qui concerne les escaliers, une attaque par des insectes n'est à craindre que dans certains cas. Le lyctus (Lyctus spp.) peut attaquer l'aubier de certains feuillus (tels le chêne, l'orme, le meranti ou le lauan) contenant de grandes quantités d'amidon et dont le diamètre des vaisseaux est assez grand; les couches d'aubier présentes dans du multiplex peuvent également être attaquées par cet insecte."@fr .
 
-firebim:Member_2_1_2_4_2_3 a firebim:Member ;
-    firebim:hasOriginalText "La petite vrillette (Anobium punctatum) s'attaque surtout à l'aubier des résineux et des essences feuillues d'Europe; en général, le duramen n'est susceptible d'être attaqué que si le bois a été préalablement contaminé par un champignon; comme par exemple dans le cas de meubles, lambris et éléments anciens en contact avec des murs humides ou dans les endroits où l'air ambiant est humide en permanence."@fr .
+fro:Member_2_1_2_4_2_3 a fro:Member ;
+    fro:hasOriginalText "La petite vrillette (Anobium punctatum) s'attaque surtout à l'aubier des résineux et des essences feuillues d'Europe; en général, le duramen n'est susceptible d'être attaqué que si le bois a été préalablement contaminé par un champignon; comme par exemple dans le cas de meubles, lambris et éléments anciens en contact avec des murs humides ou dans les endroits où l'air ambiant est humide en permanence."@fr .
 
-firebim:Member_2_1_2_4_2_4 a firebim:Member ;
-    firebim:hasOriginalText "Le Ptilinus pectinicornis est un coléoptère relativement rare, connu pour creuser ses galeries dans du bois humide provenant de certains arbres indigènes comme le hêtre, l'orme, le charme ou l'érable; il s'attaque aux troncs abattus et au bois mis en œuvre en milieu humide. Dès que le bois est sec, tout danger d'une nouvelle attaque est écarté, les conditions étant devenues défavorables au développement de l'insecte."@fr .
+fro:Member_2_1_2_4_2_4 a fro:Member ;
+    fro:hasOriginalText "Le Ptilinus pectinicornis est un coléoptère relativement rare, connu pour creuser ses galeries dans du bois humide provenant de certains arbres indigènes comme le hêtre, l'orme, le charme ou l'érable; il s'attaque aux troncs abattus et au bois mis en œuvre en milieu humide. Dès que le bois est sec, tout danger d'une nouvelle attaque est écarté, les conditions étant devenues défavorables au développement de l'insecte."@fr .
 
-firebim:Member_2_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "L'auteur de projet prend les mesures nécessaires en vue d'assurer la sécurité du bâtiment applicables en la matière. Ces dispositions consistent à prévoir des possibilités d'évacuation en cas d'incendie et ce, en fonction de la hauteur de l'immeuble et des dispositions judicieux."@fr .
+fro:Member_2_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "L'auteur de projet prend les mesures nécessaires en vue d'assurer la sécurité du bâtiment applicables en la matière. Ces dispositions consistent à prévoir des possibilités d'évacuation en cas d'incendie et ce, en fonction de la hauteur de l'immeuble et des dispositions judicieux."@fr .
 
-firebim:Member_2_2_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "La hauteur 'h' d'un immeuble est définie conventionnellement comme la distance entre le niveau fini du plancher de l'étage le plus élevé et le niveau le plus bas des voies entourant le bâtiment et utilisables par les véhicules des services d'incendie (figure 19-24)."@fr .
+fro:Member_2_2_1_1_1_1 a fro:Member ;
+    fro:hasOriginalText "La hauteur 'h' d'un immeuble est définie conventionnellement comme la distance entre le niveau fini du plancher de l'étage le plus élevé et le niveau le plus bas des voies entourant le bâtiment et utilisables par les véhicules des services d'incendie (figure 19-24)."@fr .
 
-firebim:Member_2_2_1_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "Lorsque la toiture ne comprend que des locaux à usage technique, ce niveau n'intervient pas dans le calcul de la hauteur."@fr .
+fro:Member_2_2_1_1_1_2 a fro:Member ;
+    fro:hasOriginalText "Lorsque la toiture ne comprend que des locaux à usage technique, ce niveau n'intervient pas dans le calcul de la hauteur."@fr .
 
-firebim:Member_2_2_1_1_2 a firebim:Member ;
-    firebim:hasMember firebim:Member_2_2_1_1_2_1,
-        firebim:Member_2_2_1_1_2_2,
-        firebim:Member_2_2_1_1_2_3 ;
-    firebim:hasOriginalText "De telles mesures sont nécessaires pour permettre en cas d'incendie :"@fr .
+fro:Member_2_2_1_1_2 a fro:Member ;
+    fro:hasMember fro:Member_2_2_1_1_2_1,
+        fro:Member_2_2_1_1_2_2,
+        fro:Member_2_2_1_1_2_3 ;
+    fro:hasOriginalText "De telles mesures sont nécessaires pour permettre en cas d'incendie :"@fr .
 
-firebim:Member_2_2_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "- d'évacuer le bâtiment dans les meilleurs délais"@fr .
+fro:Member_2_2_1_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- d'évacuer le bâtiment dans les meilleurs délais"@fr .
 
-firebim:Member_2_2_1_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "- de limiter les dégâts matériels"@fr .
+fro:Member_2_2_1_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- de limiter les dégâts matériels"@fr .
 
-firebim:Member_2_2_1_1_2_3 a firebim:Member ;
-    firebim:hasOriginalText "- d'assurer aux services d'incendie une intervention efficace et sans danger"@fr .
+fro:Member_2_2_1_1_2_3 a fro:Member ;
+    fro:hasOriginalText "- d'assurer aux services d'incendie une intervention efficace et sans danger"@fr .
 
-firebim:Member_2_2_1_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "L'évacuation d'un bâtiment peut se faire par les voies prévues à cet effet, telles que couloirs, escaliers, paliers, sas, terrasses d'évacuation, portes, etc."@fr .
+fro:Member_2_2_1_2_1_1 a fro:Member ;
+    fro:hasOriginalText "L'évacuation d'un bâtiment peut se faire par les voies prévues à cet effet, telles que couloirs, escaliers, paliers, sas, terrasses d'évacuation, portes, etc."@fr .
 
-firebim:Member_2_2_1_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText "Un chemin d'évacuation est une voie située à l'intérieur d'un bâtiment, présentant une pente de 10 % au maximum et donnant accès à une issue, une cage d'escalier ou une terrasse d'évacuation."@fr .
+fro:Member_2_2_1_2_1_2 a fro:Member ;
+    fro:hasOriginalText "Un chemin d'évacuation est une voie située à l'intérieur d'un bâtiment, présentant une pente de 10 % au maximum et donnant accès à une issue, une cage d'escalier ou une terrasse d'évacuation."@fr .
 
-firebim:Member_2_2_1_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText "Une terrasse d'évacuation est une voie située à l'extérieur du bâtiment, présentant une pente de 10 % au maximum et donnant accès à un escalier."@fr .
+fro:Member_2_2_1_2_1_3 a fro:Member ;
+    fro:hasOriginalText "Une terrasse d'évacuation est une voie située à l'extérieur du bâtiment, présentant une pente de 10 % au maximum et donnant accès à un escalier."@fr .
 
-firebim:Member_2_2_1_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Les escaliers faisant dans certains cas fonction de voies d'évacuation; ils constituent un élément essentiel de la protection contre l'incendie."@fr .
+fro:Member_2_2_1_3_1_1 a fro:Member ;
+    fro:hasOriginalText "Les escaliers faisant dans certains cas fonction de voies d'évacuation; ils constituent un élément essentiel de la protection contre l'incendie."@fr .
 
-firebim:Member_2_2_1_3_1_2 a firebim:Member ;
-    firebim:hasForwardReference firebim:Section_2_2_1_4,
-        firebim:Section_2_2_1_5 ;
-    firebim:hasOriginalText "De ce point de vue, les caractéristiques suivantes peuvent revêtir une certaine importance : largeur utile requise, hauteur des marches, giron et/ou pente de l'escalier; réaction au feu des matériaux mis en œuvre (voir § 2.2.1.5) et stabilité au feu de l'escalier (voir § 2.2.1.4)."@fr .
+fro:Member_2_2_1_3_1_2 a fro:Member ;
+    fro:hasForwardReference fro:Section_2_2_1_4,
+        fro:Section_2_2_1_5 ;
+    fro:hasOriginalText "De ce point de vue, les caractéristiques suivantes peuvent revêtir une certaine importance : largeur utile requise, hauteur des marches, giron et/ou pente de l'escalier; réaction au feu des matériaux mis en œuvre (voir § 2.2.1.5) et stabilité au feu de l'escalier (voir § 2.2.1.4)."@fr .
 
-firebim:Member_2_2_1_3_1_3 a firebim:Member ;
-    firebim:hasOriginalText "L'unité de passage est la largeur minimale requise pour le passage d'une personne. Elle est fixée par convention à 0,60 m. La largeur utile d'un chemin d'évacuation est la largeur libre de tout obstacle jusqu'à une hauteur d'au moins 2 m. On ne tient pas compte toutefois des saillies formées sur les murs par les plinthes, les limons et les socles lorsqu'elles ne dépassent pas 0,10 m et qu'elles ne surplombent pas les marches ou le plancher de plus de 1 m. La même règle s'applique aux garde-corps."@fr .
+fro:Member_2_2_1_3_1_3 a fro:Member ;
+    fro:hasOriginalText "L'unité de passage est la largeur minimale requise pour le passage d'une personne. Elle est fixée par convention à 0,60 m. La largeur utile d'un chemin d'évacuation est la largeur libre de tout obstacle jusqu'à une hauteur d'au moins 2 m. On ne tient pas compte toutefois des saillies formées sur les murs par les plinthes, les limons et les socles lorsqu'elles ne dépassent pas 0,10 m et qu'elles ne surplombent pas les marches ou le plancher de plus de 1 m. La même règle s'applique aux garde-corps."@fr .
 
-firebim:Member_2_2_1_3_1_4 a firebim:Member ;
-    firebim:hasOriginalText "Remarque : il convient de faire la distinction entre la notion de largeur utile définie par la norme belge NBN S 21-201 [23] et la largeur libre 'b' telle que définie par la norme NBN NEN 3509 [25], d'autre part (voir § titre 24 NIT 198 décembre 1995)."@fr ;
-    firebim:hasReference firebim:Reference_NBN_NEN_3509,
-        firebim:Reference_NBN_S_21_201,
-        firebim:Reference_NIT_198 .
+fro:Member_2_2_1_3_1_4 a fro:Member ;
+    fro:hasOriginalText "Remarque : il convient de faire la distinction entre la notion de largeur utile définie par la norme belge NBN S 21-201 [23] et la largeur libre 'b' telle que définie par la norme NBN NEN 3509 [25], d'autre part (voir § titre 24 NIT 198 décembre 1995)."@fr ;
+    fro:hasReference fro:Reference_NBN_NEN_3509,
+        fro:Reference_NBN_S_21_201,
+        fro:Reference_NIT_198 .
 
-firebim:Member_2_2_1_3_1_5 a firebim:Member ;
-    firebim:hasForwardReference firebim:Section_2_2_2_2 ;
-    firebim:hasOriginalText """Largeur utile théorique d'un chemin d'évacuation\r
+fro:Member_2_2_1_3_1_5 a fro:Member ;
+    fro:hasForwardReference fro:Section_2_2_2_2 ;
+    fro:hasOriginalText """Largeur utile théorique d'un chemin d'évacuation\r
 \r
 La largeur utile théorique b' (en m) d'un chemin d'évacuation est définie par la relation :\r
 \r
@@ -271,8 +271,8 @@ dans laquelle le terme int b représente la valeur de 0,60 arrondie à l'unité 
 \r
 La largeur utile requise pour les chemins d'évacuation est au minimum de 0,80 m (voir § 2.2.2.2, p. 27)."""@fr .
 
-firebim:Member_2_2_1_3_1_6 a firebim:Member ;
-    firebim:hasOriginalText """Niveau d'évacuation\r
+fro:Member_2_2_1_3_1_6 a fro:Member ;
+    fro:hasOriginalText """Niveau d'évacuation\r
 \r
 Un niveau d'évacuation ou niveau E comporte une ou plusieurs issues permettant une évacuation à l'extérieur : Les issues en question débouchent sur la voie publique ou sur un lieu donnant accès à la voie publique. Dans un bâtiment comportant plusieurs niveaux d'évacuation, on a :\r
 \r
@@ -281,13 +281,13 @@ Un niveau d'évacuation ou niveau E comporte une ou plusieurs issues permettant 
 \r
 La largeur totale de la voie publique et/ou du lieu d'évacuation communiquant avec les chemins d'évacuation du bâtiment ne peut être inférieure à la largeur utile totale requise pour les chemins d'évacuation."""@fr .
 
-firebim:Member_2_2_1_3_1_7 a firebim:Member ;
-    firebim:hasOriginalText """Exemple\r
+fro:Member_2_2_1_3_1_7 a fro:Member ;
+    fro:hasOriginalText """Exemple\r
 \r
 Un des étages d'un immeuble de bureaux comporte quatre compartiments d'une surface S' desservis par deux cages d'escaliers permettant de descendre vers les issues (voir figure 20), l'un des compartiments (n° 1) étant un local à destination particulière (salle de réunion de 100 personnes, n = 100); pour les autres compartiments, n = 10."""@fr .
 
-firebim:Member_2_2_1_3_1_8 a firebim:Member ;
-    firebim:hasOriginalText """Calculons la largeur utile requise b'\r
+fro:Member_2_2_1_3_1_8 a fro:Member ;
+    fro:hasOriginalText """Calculons la largeur utile requise b'\r
 \r
 b1 = amax (m)\r
 \r
@@ -308,330 +308,330 @@ b Xint 0,625 + 1X x 0,60\r
 b_ 1,20 m-\r
 \r
 Cette largeur utile requise *b1* est indiquee à la figure 21, parallelement à la largeur libre 'v' telle que definie par la norme NBN NEN 3509 [25]"""@fr ;
-    firebim:hasReference firebim:Reference_NBN_NEN_3509 .
+    fro:hasReference fro:Reference_NBN_NEN_3509 .
 
-firebim:Member_2_2_1_4_1_1 a firebim:Member ;
-    firebim:hasOriginalText "La resistance au feu d'un element de construction est le temps durant lequel il satisfait simultanement aux criteres de stabilite, d'etancheite aux flammes et d'isolation thermique. La resistance au feu d'un element de construction est testee conformement à la norme NBN 713-020 [24]."@fr ;
-    firebim:hasReference firebim:Reference_NBN_713_020 .
+fro:Member_2_2_1_4_1_1 a fro:Member ;
+    fro:hasOriginalText "La resistance au feu d'un element de construction est le temps durant lequel il satisfait simultanement aux criteres de stabilite, d'etancheite aux flammes et d'isolation thermique. La resistance au feu d'un element de construction est testee conformement à la norme NBN 713-020 [24]."@fr ;
+    fro:hasReference fro:Reference_NBN_713_020 .
 
-firebim:Member_2_2_1_4_1_2 a firebim:Member ;
-    firebim:hasOriginalText "En ce qui concerne les elements ne remplissant pas une fonction separative, tels les escaliers, seul le critere de stabilite au feu est pris en compte (voir tableau 4, p. 28)."@fr ;
-    firebim:hasReference firebim:Reference_Table_4 .
+fro:Member_2_2_1_4_1_2 a fro:Member ;
+    fro:hasOriginalText "En ce qui concerne les elements ne remplissant pas une fonction separative, tels les escaliers, seul le critere de stabilite au feu est pris en compte (voir tableau 4, p. 28)."@fr ;
+    fro:hasReference fro:Reference_Table_4 .
 
-firebim:Member_2_2_1_5_1_1 a firebim:Member ;
-    firebim:hasOriginalText "La réaction au feu d'un matériau de construction est l'ensemble de ses propriétés qui ont un rapport avec l'influence qu'il peut avoir sur la naissance et le développement d'un incendie."@fr .
+fro:Member_2_2_1_5_1_1 a fro:Member ;
+    fro:hasOriginalText "La réaction au feu d'un matériau de construction est l'ensemble de ses propriétés qui ont un rapport avec l'influence qu'il peut avoir sur la naissance et le développement d'un incendie."@fr .
 
-firebim:Member_2_2_1_5_1_2 a firebim:Member ;
-    firebim:hasMember firebim:Member_2_2_1_5_1_2_1,
-        firebim:Member_2_2_1_5_1_2_2,
-        firebim:Member_2_2_1_5_1_2_3,
-        firebim:Member_2_2_1_5_1_2_4 ;
-    firebim:hasOriginalText "Outre la classe des matériaux ininflammables A0 (plâtre, béton, maçonnerie), on distingue quatre classes de réaction au feu :"@fr .
+fro:Member_2_2_1_5_1_2 a fro:Member ;
+    fro:hasMember fro:Member_2_2_1_5_1_2_1,
+        fro:Member_2_2_1_5_1_2_2,
+        fro:Member_2_2_1_5_1_2_3,
+        fro:Member_2_2_1_5_1_2_4 ;
+    fro:hasOriginalText "Outre la classe des matériaux ininflammables A0 (plâtre, béton, maçonnerie), on distingue quatre classes de réaction au feu :"@fr .
 
-firebim:Member_2_2_1_5_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "- A1 : difficilement inflammable"@fr .
+fro:Member_2_2_1_5_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- A1 : difficilement inflammable"@fr .
 
-firebim:Member_2_2_1_5_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "- A2 : moyennement inflammable"@fr .
+fro:Member_2_2_1_5_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- A2 : moyennement inflammable"@fr .
 
-firebim:Member_2_2_1_5_1_2_3 a firebim:Member ;
-    firebim:hasOriginalText "- A3 : inflammable"@fr .
+fro:Member_2_2_1_5_1_2_3 a fro:Member ;
+    fro:hasOriginalText "- A3 : inflammable"@fr .
 
-firebim:Member_2_2_1_5_1_2_4 a firebim:Member ;
-    firebim:hasOriginalText "- A4 : facilement inflammable"@fr .
+fro:Member_2_2_1_5_1_2_4 a fro:Member ;
+    fro:hasOriginalText "- A4 : facilement inflammable"@fr .
 
-firebim:Member_2_2_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "L'arrêté royal du 7 juillet 1994 [33] définit les règles de base en matière de prévention des incendies et des explosions dans les nouveaux bâtiments. Dans certains cas, ces prescriptions sont complétées par des dispositions communautaires et/ou régionales et éventuellement par des règlements communaux."@fr ;
-    firebim:hasReference firebim:Reference_AR_1994_07_07 .
+fro:Member_2_2_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "L'arrêté royal du 7 juillet 1994 [33] définit les règles de base en matière de prévention des incendies et des explosions dans les nouveaux bâtiments. Dans certains cas, ces prescriptions sont complétées par des dispositions communautaires et/ou régionales et éventuellement par des règlements communaux."@fr ;
+    fro:hasReference fro:Reference_AR_1994_07_07 .
 
-firebim:Member_2_2_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "Les annexes techniques de l'arrêté sont essentiellement basées sur les normes en vigueur de la série NBN S 21 [22]. Les textes ayant été dépouillés des prescriptions spécifiques applicables à certaines catégories de bâtiments (immeubles de bureaux, immeubles appartements, etc.), l'arrêté définit un cadre général auquel tous les bâtiments doivent satisfaire. Il inclut en outre, dans la réglementation, les bâtiments bas (h < 10 m)."@fr ;
-    firebim:hasReference firebim:Reference_NBN_S_21 .
+fro:Member_2_2_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "Les annexes techniques de l'arrêté sont essentiellement basées sur les normes en vigueur de la série NBN S 21 [22]. Les textes ayant été dépouillés des prescriptions spécifiques applicables à certaines catégories de bâtiments (immeubles de bureaux, immeubles appartements, etc.), l'arrêté définit un cadre général auquel tous les bâtiments doivent satisfaire. Il inclut en outre, dans la réglementation, les bâtiments bas (h < 10 m)."@fr ;
+    fro:hasReference fro:Reference_NBN_S_21 .
 
-firebim:Member_2_2_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "L'arrêté s'applique à tous les immeubles neufs quelle que soit leur destination, à l'exception toutefois de ceux qui présentent un risque d'incendie réduit ; notamment les maisons unifamiliales."@fr .
+fro:Member_2_2_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText "L'arrêté s'applique à tous les immeubles neufs quelle que soit leur destination, à l'exception toutefois de ceux qui présentent un risque d'incendie réduit ; notamment les maisons unifamiliales."@fr .
 
-firebim:Member_2_2_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "Le tableau 4 (p: 28) donne un bref aperçu des dispositions applicables aux escaliers intérieurs faisant fonction de chemins d'évacuation en cas d'incendie. Les prescriptions sont valables pour tous les bâtiments, à l'exception des maisons unifamiliales."@fr .
+fro:Member_2_2_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText "Le tableau 4 (p: 28) donne un bref aperçu des dispositions applicables aux escaliers intérieurs faisant fonction de chemins d'évacuation en cas d'incendie. Les prescriptions sont valables pour tous les bâtiments, à l'exception des maisons unifamiliales."@fr .
 
-firebim:Member_2_2_2_2_1_2 a firebim:Member ;
-    firebim:hasMember firebim:Member_2_2_2_2_1_2_1,
-        firebim:Member_2_2_2_2_1_2_2,
-        firebim:Member_2_2_2_2_1_2_3,
-        firebim:Member_2_2_2_2_1_2_4,
-        firebim:Member_2_2_2_2_1_2_5 ;
-    firebim:hasOriginalText "La conception et la mise en œuvre des escaliers intérieurs doivent en outre répondre à un certain nombre d'exigences minimales complémentaires, à savoir :"@fr .
+fro:Member_2_2_2_2_1_2 a fro:Member ;
+    fro:hasMember fro:Member_2_2_2_2_1_2_1,
+        fro:Member_2_2_2_2_1_2_2,
+        fro:Member_2_2_2_2_1_2_3,
+        fro:Member_2_2_2_2_1_2_4,
+        fro:Member_2_2_2_2_1_2_5 ;
+    fro:hasOriginalText "La conception et la mise en œuvre des escaliers intérieurs doivent en outre répondre à un certain nombre d'exigences minimales complémentaires, à savoir :"@fr .
 
-firebim:Member_2_2_2_2_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "- giron : G = 200 mm minimum en tout point"@fr .
+fro:Member_2_2_2_2_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- giron : G = 200 mm minimum en tout point"@fr .
 
-firebim:Member_2_2_2_2_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "- hauteur des marches : H = 180 mm maximum"@fr .
+fro:Member_2_2_2_2_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- hauteur des marches : H = 180 mm maximum"@fr .
 
-firebim:Member_2_2_2_2_1_2_3 a firebim:Member ;
-    firebim:hasOriginalText "- pente : maximum 75 % (angle maximum d'inclinaison & = 37°)"@fr .
+fro:Member_2_2_2_2_1_2_3 a fro:Member ;
+    fro:hasOriginalText "- pente : maximum 75 % (angle maximum d'inclinaison & = 37°)"@fr .
 
-firebim:Member_2_2_2_2_1_2_4 a firebim:Member ;
-    firebim:hasOriginalText "- largeur utile : au moins 0,8 m, sans être inférieure à la largeur utile requise calculée selon l'annexe technique n° 1 de l'AR du 07/07/1994."@fr .
+fro:Member_2_2_2_2_1_2_4 a fro:Member ;
+    fro:hasOriginalText "- largeur utile : au moins 0,8 m, sans être inférieure à la largeur utile requise calculée selon l'annexe technique n° 1 de l'AR du 07/07/1994."@fr .
 
-firebim:Member_2_2_2_2_1_2_5 a firebim:Member ;
-    firebim:hasOriginalText "La largeur utile des volées d'escaliers et des paliers de la cage d'escalier d'un même compartiment ne peut s'écarter de plus d'une unité de passage. Les escaliers sont pourvus de garde-corps de part et d'autre. Toutefois, un seul garde-corps peut suffire dans les escaliers dont la largeur utile est inférieure à 1,2 m, pour autant qu'il n'y ait aucun risque de chute."@fr .
+fro:Member_2_2_2_2_1_2_5 a fro:Member ;
+    fro:hasOriginalText "La largeur utile des volées d'escaliers et des paliers de la cage d'escalier d'un même compartiment ne peut s'écarter de plus d'une unité de passage. Les escaliers sont pourvus de garde-corps de part et d'autre. Toutefois, un seul garde-corps peut suffire dans les escaliers dont la largeur utile est inférieure à 1,2 m, pour autant qu'il n'y ait aucun risque de chute."@fr .
 
-firebim:Reference_AR_1994_07_07 a firebim:Reference ;
-    firebim:hasID "33" .
+fro:Reference_AR_1994_07_07 a fro:Reference ;
+    fro:hasID "33" .
 
-firebim:Reference_NBN_713_020 a firebim:Reference ;
-    firebim:hasID "NBN 713-020" .
+fro:Reference_NBN_713_020 a fro:Reference ;
+    fro:hasID "NBN 713-020" .
 
-firebim:Reference_NBN_B_03_102 a firebim:Reference ;
-    firebim:hasID "NBN B 03-102" .
+fro:Reference_NBN_B_03_102 a fro:Reference ;
+    fro:hasID "NBN B 03-102" .
 
-firebim:Reference_NBN_B_03_103 a firebim:Reference ;
-    firebim:hasID "NBN B 03-103" .
+fro:Reference_NBN_B_03_103 a fro:Reference ;
+    fro:hasID "NBN B 03-103" .
 
-firebim:Reference_NBN_S_21 a firebim:Reference ;
-    firebim:hasID "22" .
+fro:Reference_NBN_S_21 a fro:Reference ;
+    fro:hasID "22" .
 
-firebim:Reference_NBN_S_21_201 a firebim:Reference ;
-    firebim:hasID "NBN S 21-201" .
+fro:Reference_NBN_S_21_201 a fro:Reference ;
+    fro:hasID "NBN S 21-201" .
 
-firebim:Reference_NIT_198 a firebim:Reference ;
-    firebim:hasID "NIT 198" .
+fro:Reference_NIT_198 a fro:Reference ;
+    fro:hasID "NIT 198" .
 
-firebim:Reference_Table_4 a firebim:Reference ;
-    firebim:hasID "Tableau 4" .
+fro:Reference_Table_4 a fro:Reference ;
+    fro:hasID "Tableau 4" .
 
-firebim:RoyalDecree a firebim:Document ;
-    firebim:hasID "RoyalDecree1994" ;
-    firebim:hasSection firebim:Section_2 ;
-    firebim:issued "1994-07-07"^^xsd:date .
+fro:RoyalDecree a fro:Document ;
+    fro:hasID "RoyalDecree1994" ;
+    fro:hasSection fro:Section_2 ;
+    fro:issued "1994-07-07"^^xsd:date .
 
-firebim:Section_2 a firebim:Section ;
-    firebim:hasID "2" ;
-    firebim:hasOriginalText "EXIGENCES ESSENTIELLES" ;
-    firebim:hasSection firebim:Section_2_1,
-        firebim:Section_2_2,
-        firebim:Section_2_3,
-        firebim:Section_2_4,
-        firebim:Section_2_5 .
+fro:Section_2 a fro:Section ;
+    fro:hasID "2" ;
+    fro:hasOriginalText "EXIGENCES ESSENTIELLES" ;
+    fro:hasSection fro:Section_2_1,
+        fro:Section_2_2,
+        fro:Section_2_3,
+        fro:Section_2_4,
+        fro:Section_2_5 .
 
-firebim:Section_2_1 a firebim:Section ;
-    firebim:hasID "2.1" ;
-    firebim:hasOriginalText "RESISTANCE MECANIQUE ET STABILITE" ;
-    firebim:hasSection firebim:Section_2_1_1,
-        firebim:Section_2_1_2 .
+fro:Section_2_1 a fro:Section ;
+    fro:hasID "2.1" ;
+    fro:hasOriginalText "RESISTANCE MECANIQUE ET STABILITE" ;
+    fro:hasSection fro:Section_2_1_1,
+        fro:Section_2_1_2 .
 
-firebim:Section_2_1_1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_1_1_1 ;
-    firebim:hasID "2.1.1" ;
-    firebim:hasOriginalText "ENONCE DU PROBLEME",
+fro:Section_2_1_1 a fro:Section ;
+    fro:hasArticle fro:Article_2_1_1_1 ;
+    fro:hasID "2.1.1" ;
+    fro:hasOriginalText "ENONCE DU PROBLEME",
         "ENONCE DU PROBLEME"@fr .
 
-firebim:Section_2_1_2 a firebim:Section ;
-    firebim:hasID "2.1.2" ;
-    firebim:hasOriginalText "PRESCRIPTIONS" ;
-    firebim:hasSection firebim:Section_2_1_2_1,
-        firebim:Section_2_1_2_2,
-        firebim:Section_2_1_2_3,
-        firebim:Section_2_1_2_4 .
+fro:Section_2_1_2 a fro:Section ;
+    fro:hasID "2.1.2" ;
+    fro:hasOriginalText "PRESCRIPTIONS" ;
+    fro:hasSection fro:Section_2_1_2_1,
+        fro:Section_2_1_2_2,
+        fro:Section_2_1_2_3,
+        fro:Section_2_1_2_4 .
 
-firebim:Section_2_1_2_1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_1_2_1_1 ;
-    firebim:hasID "2.1.2.1" ;
-    firebim:hasOriginalText "STABILITE DE L'ENSEMBLE ET RESISTANCE MECANIQUE",
+fro:Section_2_1_2_1 a fro:Section ;
+    fro:hasArticle fro:Article_2_1_2_1_1 ;
+    fro:hasID "2.1.2.1" ;
+    fro:hasOriginalText "STABILITE DE L'ENSEMBLE ET RESISTANCE MECANIQUE",
         "STABILITE DE L'ENSEMBLE ET RESISTANCE MECANIQUE"@fr .
 
-firebim:Section_2_1_2_2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_1_2_2_1 ;
-    firebim:hasID "2.1.2.2" ;
-    firebim:hasOriginalText "RESISTANCE AUX CHOCS DE CORPS DURS ET DE CORPS MOUS",
+fro:Section_2_1_2_2 a fro:Section ;
+    fro:hasArticle fro:Article_2_1_2_2_1 ;
+    fro:hasID "2.1.2.2" ;
+    fro:hasOriginalText "RESISTANCE AUX CHOCS DE CORPS DURS ET DE CORPS MOUS",
         "RESISTANCE AUX CHOCS DE CORPS DURS ET DE CORPS MOUS"@fr .
 
-firebim:Section_2_1_2_3 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_1_2_3_1 ;
-    firebim:hasID "2.1.2.3" ;
-    firebim:hasOriginalText "RESISTANCE DES SURFACES DE CIRCULATION A LA RAYURE ET A L'USURE",
+fro:Section_2_1_2_3 a fro:Section ;
+    fro:hasArticle fro:Article_2_1_2_3_1 ;
+    fro:hasID "2.1.2.3" ;
+    fro:hasOriginalText "RESISTANCE DES SURFACES DE CIRCULATION A LA RAYURE ET A L'USURE",
         "RESISTANCE DES SURFACES DE CIRCULATION A LA RAYURE ET A L'USURE"@fr .
 
-firebim:Section_2_1_2_4 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_1_2_4_1,
-        firebim:Article_2_1_2_4_2 ;
-    firebim:hasID "2.1.2.4" ;
-    firebim:hasOriginalText "DURABILITE EN RAPPORT AVEC LA RESISTANCE MECANIQUE ET LA STABILITE",
+fro:Section_2_1_2_4 a fro:Section ;
+    fro:hasArticle fro:Article_2_1_2_4_1,
+        fro:Article_2_1_2_4_2 ;
+    fro:hasID "2.1.2.4" ;
+    fro:hasOriginalText "DURABILITE EN RAPPORT AVEC LA RESISTANCE MECANIQUE ET LA STABILITE",
         "DURABILITE EN RAPPORT AVEC LA RESISTANCE MECANIQUE ET LA STABILITE"@fr .
 
-firebim:Section_2_2 a firebim:Section ;
-    firebim:hasID "2.2" ;
-    firebim:hasOriginalText "SECURITÉ EN CAS D'INCENDIE" ;
-    firebim:hasSection firebim:Section_2_2_1,
-        firebim:Section_2_2_2 .
+fro:Section_2_2 a fro:Section ;
+    fro:hasID "2.2" ;
+    fro:hasOriginalText "SECURITÉ EN CAS D'INCENDIE" ;
+    fro:hasSection fro:Section_2_2_1,
+        fro:Section_2_2_2 .
 
-firebim:Section_2_2_1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_2_1_1 ;
-    firebim:hasID "2.2.1" ;
-    firebim:hasOriginalText "ENONCE DU PROBLEME",
+fro:Section_2_2_1 a fro:Section ;
+    fro:hasArticle fro:Article_2_2_1_1 ;
+    fro:hasID "2.2.1" ;
+    fro:hasOriginalText "ENONCE DU PROBLEME",
         "ENONCE DU PROBLEME"@fr ;
-    firebim:hasSection firebim:Section_2_2_1_1,
-        firebim:Section_2_2_1_2,
-        firebim:Section_2_2_1_3,
-        firebim:Section_2_2_1_4,
-        firebim:Section_2_2_1_5 .
+    fro:hasSection fro:Section_2_2_1_1,
+        fro:Section_2_2_1_2,
+        fro:Section_2_2_1_3,
+        fro:Section_2_2_1_4,
+        fro:Section_2_2_1_5 .
 
-firebim:Section_2_2_1_1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_2_1_1_1 ;
-    firebim:hasID "2.2.1.1" ;
-    firebim:hasOriginalText "HAUTEUR 'H' D'UN IMEUBLE",
+fro:Section_2_2_1_1 a fro:Section ;
+    fro:hasArticle fro:Article_2_2_1_1_1 ;
+    fro:hasID "2.2.1.1" ;
+    fro:hasOriginalText "HAUTEUR 'H' D'UN IMEUBLE",
         "HAUTEUR 'h' D'UN IMEUBLE"@fr .
 
-firebim:Section_2_2_1_2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_2_1_2_1 ;
-    firebim:hasID "2.2.1.2" ;
-    firebim:hasOriginalText "EVACUATION",
+fro:Section_2_2_1_2 a fro:Section ;
+    fro:hasArticle fro:Article_2_2_1_2_1 ;
+    fro:hasID "2.2.1.2" ;
+    fro:hasOriginalText "EVACUATION",
         "EVACUATION"@fr .
 
-firebim:Section_2_2_1_3 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_2_1_3_1 ;
-    firebim:hasID "2.2.1.3" ;
-    firebim:hasOriginalText "ESCALIERS",
+fro:Section_2_2_1_3 a fro:Section ;
+    fro:hasArticle fro:Article_2_2_1_3_1 ;
+    fro:hasID "2.2.1.3" ;
+    fro:hasOriginalText "ESCALIERS",
         "ESCALIERS"@fr .
 
-firebim:Section_2_2_2 a firebim:Section ;
-    firebim:hasID "2.2.2" ;
-    firebim:hasOriginalText "PRESCRIPTIONS" ;
-    firebim:hasSection firebim:Section_2_2_2_1,
-        firebim:Section_2_2_2_2 .
+fro:Section_2_2_2 a fro:Section ;
+    fro:hasID "2.2.2" ;
+    fro:hasOriginalText "PRESCRIPTIONS" ;
+    fro:hasSection fro:Section_2_2_2_1,
+        fro:Section_2_2_2_2 .
 
-firebim:Section_2_2_2_1 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_2_2_1_1 ;
-    firebim:hasID "2.2.2.1" ;
-    firebim:hasOriginalText "REGLES DE BASE",
+fro:Section_2_2_2_1 a fro:Section ;
+    fro:hasArticle fro:Article_2_2_2_1_1 ;
+    fro:hasID "2.2.2.1" ;
+    fro:hasOriginalText "REGLES DE BASE",
         "REGLES DE BASE"@fr .
 
-firebim:Section_2_3 a firebim:Section ;
-    firebim:hasID "2.3" ;
-    firebim:hasOriginalText "HYGIENE, SANTE ET ENVIRONNEMENT" ;
-    firebim:hasSection firebim:Section_2_3_1,
-        firebim:Section_2_3_2 .
+fro:Section_2_3 a fro:Section ;
+    fro:hasID "2.3" ;
+    fro:hasOriginalText "HYGIENE, SANTE ET ENVIRONNEMENT" ;
+    fro:hasSection fro:Section_2_3_1,
+        fro:Section_2_3_2 .
 
-firebim:Section_2_3_1 a firebim:Section ;
-    firebim:hasID "2.3.1" ;
-    firebim:hasOriginalText "ENONCE DU PROBLEME" .
+fro:Section_2_3_1 a fro:Section ;
+    fro:hasID "2.3.1" ;
+    fro:hasOriginalText "ENONCE DU PROBLEME" .
 
-firebim:Section_2_3_2 a firebim:Section ;
-    firebim:hasID "2.3.2" ;
-    firebim:hasOriginalText "PRESCRIPTIONS" .
+fro:Section_2_3_2 a fro:Section ;
+    fro:hasID "2.3.2" ;
+    fro:hasOriginalText "PRESCRIPTIONS" .
 
-firebim:Section_2_4 a firebim:Section ;
-    firebim:hasID "2.4" ;
-    firebim:hasOriginalText "SÉCURITÉ D'UTILISATION" ;
-    firebim:hasSection firebim:Section_2_4_1,
-        firebim:Section_2_4_2 .
+fro:Section_2_4 a fro:Section ;
+    fro:hasID "2.4" ;
+    fro:hasOriginalText "SÉCURITÉ D'UTILISATION" ;
+    fro:hasSection fro:Section_2_4_1,
+        fro:Section_2_4_2 .
 
-firebim:Section_2_4_1 a firebim:Section ;
-    firebim:hasID "2.4.1" ;
-    firebim:hasOriginalText "ÉNONCÉ DU PROBLÈME" .
+fro:Section_2_4_1 a fro:Section ;
+    fro:hasID "2.4.1" ;
+    fro:hasOriginalText "ÉNONCÉ DU PROBLÈME" .
 
-firebim:Section_2_4_2 a firebim:Section ;
-    firebim:hasID "2.4.2" ;
-    firebim:hasOriginalText "PRESCRIPTIONS" ;
-    firebim:hasSection firebim:Section_2_4_2_1,
-        firebim:Section_2_4_2_10,
-        firebim:Section_2_4_2_11,
-        firebim:Section_2_4_2_12,
-        firebim:Section_2_4_2_13,
-        firebim:Section_2_4_2_14,
-        firebim:Section_2_4_2_3,
-        firebim:Section_2_4_2_4,
-        firebim:Section_2_4_2_5,
-        firebim:Section_2_4_2_6,
-        firebim:Section_2_4_2_7,
-        firebim:Section_2_4_2_8,
-        firebim:Section_2_4_2_9 .
+fro:Section_2_4_2 a fro:Section ;
+    fro:hasID "2.4.2" ;
+    fro:hasOriginalText "PRESCRIPTIONS" ;
+    fro:hasSection fro:Section_2_4_2_1,
+        fro:Section_2_4_2_10,
+        fro:Section_2_4_2_11,
+        fro:Section_2_4_2_12,
+        fro:Section_2_4_2_13,
+        fro:Section_2_4_2_14,
+        fro:Section_2_4_2_3,
+        fro:Section_2_4_2_4,
+        fro:Section_2_4_2_5,
+        fro:Section_2_4_2_6,
+        fro:Section_2_4_2_7,
+        fro:Section_2_4_2_8,
+        fro:Section_2_4_2_9 .
 
-firebim:Section_2_4_2_1 a firebim:Section ;
-    firebim:hasID "2.4.2.1" ;
-    firebim:hasOriginalText "IMPLANTATION DE L'ESCALIER DANS LE BATIMENT ET GEOMETRIE DE L'ESCALIER" .
+fro:Section_2_4_2_1 a fro:Section ;
+    fro:hasID "2.4.2.1" ;
+    fro:hasOriginalText "IMPLANTATION DE L'ESCALIER DANS LE BATIMENT ET GEOMETRIE DE L'ESCALIER" .
 
-firebim:Section_2_4_2_10 a firebim:Section ;
-    firebim:hasID "2.4.2.10" ;
-    firebim:hasOriginalText "EMMARCHEMENT OU LARGEUR LIBRE" .
+fro:Section_2_4_2_10 a fro:Section ;
+    fro:hasID "2.4.2.10" ;
+    fro:hasOriginalText "EMMARCHEMENT OU LARGEUR LIBRE" .
 
-firebim:Section_2_4_2_11 a firebim:Section ;
-    firebim:hasID "2.4.2.11" ;
-    firebim:hasOriginalText "ECHAPPEE" .
+fro:Section_2_4_2_11 a fro:Section ;
+    fro:hasID "2.4.2.11" ;
+    fro:hasOriginalText "ECHAPPEE" .
 
-firebim:Section_2_4_2_12 a firebim:Section ;
-    firebim:hasID "2.4.2.12" ;
-    firebim:hasOriginalText "PALIER" .
+fro:Section_2_4_2_12 a fro:Section ;
+    fro:hasID "2.4.2.12" ;
+    fro:hasOriginalText "PALIER" .
 
-firebim:Section_2_4_2_13 a firebim:Section ;
-    firebim:hasID "2.4.2.13" ;
-    firebim:hasOriginalText "PARACHEVEMENT DU PIAN DE MARCHE" .
+fro:Section_2_4_2_13 a fro:Section ;
+    fro:hasID "2.4.2.13" ;
+    fro:hasOriginalText "PARACHEVEMENT DU PIAN DE MARCHE" .
 
-firebim:Section_2_4_2_14 a firebim:Section ;
-    firebim:hasID "2.4.2.14" ;
-    firebim:hasOriginalText "SYNTHESE" .
+fro:Section_2_4_2_14 a fro:Section ;
+    fro:hasID "2.4.2.14" ;
+    fro:hasOriginalText "SYNTHESE" .
 
-firebim:Section_2_4_2_3 a firebim:Section ;
-    firebim:hasID "2.4.2.3" ;
-    firebim:hasOriginalText "MODULE DU PAS" .
+fro:Section_2_4_2_3 a fro:Section ;
+    fro:hasID "2.4.2.3" ;
+    fro:hasOriginalText "MODULE DU PAS" .
 
-firebim:Section_2_4_2_4 a firebim:Section ;
-    firebim:hasID "2.4.2.4" ;
-    firebim:hasOriginalText "DETERMINATION DE LA HAUTEUR DES MARCHES ET DE LEUR GIRON" .
+fro:Section_2_4_2_4 a fro:Section ;
+    fro:hasID "2.4.2.4" ;
+    fro:hasOriginalText "DETERMINATION DE LA HAUTEUR DES MARCHES ET DE LEUR GIRON" .
 
-firebim:Section_2_4_2_5 a firebim:Section ;
-    firebim:hasID "2.4.2.5" ;
-    firebim:hasOriginalText "NEZ DES MARCHES" .
+fro:Section_2_4_2_5 a fro:Section ;
+    fro:hasID "2.4.2.5" ;
+    fro:hasOriginalText "NEZ DES MARCHES" .
 
-firebim:Section_2_4_2_6 a firebim:Section ;
-    firebim:hasID "2.4.2.6" ;
-    firebim:hasOriginalText "LIGNE DE FOULEE" .
+fro:Section_2_4_2_6 a fro:Section ;
+    fro:hasID "2.4.2.6" ;
+    fro:hasOriginalText "LIGNE DE FOULEE" .
 
-firebim:Section_2_4_2_7 a firebim:Section ;
-    firebim:hasID "2.4.2.7" ;
-    firebim:hasOriginalText "BALANCEMENT DES MARCHES" .
+fro:Section_2_4_2_7 a fro:Section ;
+    fro:hasID "2.4.2.7" ;
+    fro:hasOriginalText "BALANCEMENT DES MARCHES" .
 
-firebim:Section_2_4_2_8 a firebim:Section ;
-    firebim:hasID "2.4.2.8" ;
-    firebim:hasOriginalText "PENTE DE L'ESCALIER" .
+fro:Section_2_4_2_8 a fro:Section ;
+    fro:hasID "2.4.2.8" ;
+    fro:hasOriginalText "PENTE DE L'ESCALIER" .
 
-firebim:Section_2_4_2_9 a firebim:Section ;
-    firebim:hasID "2.4.2.9" ;
-    firebim:hasOriginalText "GARDE CORPS" .
+fro:Section_2_4_2_9 a fro:Section ;
+    fro:hasID "2.4.2.9" ;
+    fro:hasOriginalText "GARDE CORPS" .
 
-firebim:Section_2_5 a firebim:Section ;
-    firebim:hasID "2.5" ;
-    firebim:hasOriginalText "PROTECTION CONTRE LE BRUIT" ;
-    firebim:hasSection firebim:Section_2_5_1,
-        firebim:Section_2_5_2 .
+fro:Section_2_5 a fro:Section ;
+    fro:hasID "2.5" ;
+    fro:hasOriginalText "PROTECTION CONTRE LE BRUIT" ;
+    fro:hasSection fro:Section_2_5_1,
+        fro:Section_2_5_2 .
 
-firebim:Section_2_5_1 a firebim:Section ;
-    firebim:hasID "2.5.1" ;
-    firebim:hasOriginalText "ENONCE DU PROBLEME" .
+fro:Section_2_5_1 a fro:Section ;
+    fro:hasID "2.5.1" ;
+    fro:hasOriginalText "ENONCE DU PROBLEME" .
 
-firebim:Section_2_5_2 a firebim:Section ;
-    firebim:hasID "2.5.2" ;
-    firebim:hasOriginalText "PRESCRIPTIONS" ;
-    firebim:hasSection firebim:Section_2_5_2_1,
-        firebim:Section_2_5_2_2,
-        firebim:Section_2_5_2_3 .
+fro:Section_2_5_2 a fro:Section ;
+    fro:hasID "2.5.2" ;
+    fro:hasOriginalText "PRESCRIPTIONS" ;
+    fro:hasSection fro:Section_2_5_2_1,
+        fro:Section_2_5_2_2,
+        fro:Section_2_5_2_3 .
 
-firebim:Section_2_5_2_1 a firebim:Section ;
-    firebim:hasID "2.5.2.1" ;
-    firebim:hasOriginalText "CRAQUEMENT DES MARCHES" .
+fro:Section_2_5_2_1 a fro:Section ;
+    fro:hasID "2.5.2.1" ;
+    fro:hasOriginalText "CRAQUEMENT DES MARCHES" .
 
-firebim:Section_2_5_2_2 a firebim:Section ;
-    firebim:hasID "2.5.2.2" ;
-    firebim:hasOriginalText "BRUITS DE CHOC" .
+fro:Section_2_5_2_2 a fro:Section ;
+    fro:hasID "2.5.2.2" ;
+    fro:hasOriginalText "BRUITS DE CHOC" .
 
-firebim:Section_2_5_2_3 a firebim:Section ;
-    firebim:hasID "2.5.2.3" ;
-    firebim:hasOriginalText "RESONANCE" .
+fro:Section_2_5_2_3 a fro:Section ;
+    fro:hasID "2.5.2.3" ;
+    fro:hasOriginalText "RESONANCE" .
 
-firebim:Table_2 a firebim:Table ;
-    firebim:hasID "T2" ;
-    firebim:hasOriginalText """Tableau 2 Classement des bâtiments selon leur hauteur:\r
+fro:Table_2 a fro:Table ;
+    fro:hasID "T2" ;
+    fro:hasOriginalText """Tableau 2 Classement des bâtiments selon leur hauteur:\r
 \r
 |TYPE DE BATIMENT|HAUTEUR DU BATIMENT|\r
 |---|---|\r
@@ -639,25 +639,25 @@ firebim:Table_2 a firebim:Table ;
 |Batiments moyens (BM)|10 m < h < 25 m|\r
 |Batiments bas (BB)|h < 10 m|"""@fr .
 
-firebim:Table_2_1_2_1_1 a firebim:Table ;
-    firebim:hasID "T2.1.2.1.1" ;
-    firebim:hasOriginalText """SURFACE DE CIRCULATION\r
+fro:Table_2_1_2_1_1 a fro:Table ;
+    fro:hasID "T2.1.2.1.1" ;
+    fro:hasOriginalText """SURFACE DE CIRCULATION\r
 |LONGUEUR DE LA MARCHE (m)|EPAISSEUR DE LA MARCHE (mm)|\r
 |---|---|\r
 |jusqu'à 0,8|35|\r
 |jusqu'à 1,0|40|\r
 |jusqu'à 1,2|45|"""@fr .
 
-firebim:Table_2_1_2_1_2 a firebim:Table ;
-    firebim:hasID "T2.1.2.1.2" ;
-    firebim:hasOriginalText "GARDE-CORPS"@fr .
+fro:Table_2_1_2_1_2 a fro:Table ;
+    fro:hasID "T2.1.2.1.2" ;
+    fro:hasOriginalText "GARDE-CORPS"@fr .
 
-firebim:Table_2_1_2_3_1 a firebim:Table ;
-    firebim:hasID "T2.1.2.3.1" .
+fro:Table_2_1_2_3_1 a fro:Table ;
+    fro:hasID "T2.1.2.3.1" .
 
-firebim:Table_3 a firebim:Table ;
-    firebim:hasID "T3" ;
-    firebim:hasOriginalText """COMPARTIMENT\r
+fro:Table_3 a fro:Table ;
+    fro:hasID "T3" ;
+    fro:hasOriginalText """COMPARTIMENT\r
 \r
 |Surface totale|S (m²)|maximum|50| | |\r
 |---|---|---|---|---|---|\r
@@ -666,9 +666,9 @@ firebim:Table_3 a firebim:Table ;
 | |50| |2,5| | |\r
 | | | |50| | |"""@fr .
 
-firebim:Table_4 a firebim:Table ;
-    firebim:hasID "T4" ;
-    firebim:hasOriginalText """Dispositions applicables, selon la hauteur du bâtiment, aux escaliers intérieurs laissant fonction de chemins d'évacuation en cas d'incendie\r
+fro:Table_4 a fro:Table ;
+    fro:hasID "T4" ;
+    fro:hasOriginalText """Dispositions applicables, selon la hauteur du bâtiment, aux escaliers intérieurs laissant fonction de chemins d'évacuation en cas d'incendie\r
 \r
 |CRITERE|BATIMENT BAS|BATIMENT MOYEN (10 < h ≤ 25 m)|BATIMENT ELEVE (h > 25 m)|\r
 |---|---|---|---|\r
@@ -680,9 +680,9 @@ firebim:Table_4 a firebim:Table ;
 |Réaction au feu du revêtement de sol|A2|A2|A2|\r
 |Réaction au feu des revêtements muraux|AI|AI|AI|"""@fr .
 
-firebim:Table_5 a firebim:Table ;
-    firebim:hasID "T5" ;
-    firebim:hasOriginalText """Module du pas 'M' (en mm) en fonction de 'H', compte tenu des critères imposés\r
+fro:Table_5 a fro:Table ;
+    fro:hasID "T5" ;
+    fro:hasOriginalText """Module du pas 'M' (en mm) en fonction de 'H', compte tenu des critères imposés\r
 \r
 |H|G = 180 mm|G = 175 mm|G = 170 mm|G = 165 mm|G = 160 mm|G = 155 mm|G = 150 mm|\r
 |---|---|---|---|---|---|---|---|\r
@@ -695,30 +695,30 @@ firebim:Table_5 a firebim:Table ;
 |155| | | |570|575|580|585|\r
 |150| | | | |570|575|580|"""@fr .
 
-firebim:Reference_NBN_NEN_3509 a firebim:Reference ;
-    firebim:hasID "NBN NEN 3509" .
+fro:Reference_NBN_NEN_3509 a fro:Reference ;
+    fro:hasID "NBN NEN 3509" .
 
-firebim:Reference_STS_54 a firebim:Reference ;
-    firebim:hasID "STS 54" .
+fro:Reference_STS_54 a fro:Reference ;
+    fro:hasID "STS 54" .
 
-firebim:Section_2_2_1_4 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_2_1_4_1 ;
-    firebim:hasID "2.2.1.4" ;
-    firebim:hasOriginalText "RESISTANCE AU FEU",
+fro:Section_2_2_1_4 a fro:Section ;
+    fro:hasArticle fro:Article_2_2_1_4_1 ;
+    fro:hasID "2.2.1.4" ;
+    fro:hasOriginalText "RESISTANCE AU FEU",
         "RESISTANCE AU FEU"@fr .
 
-firebim:Section_2_2_1_5 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_2_1_5_1 ;
-    firebim:hasID "2.2.1.5" ;
-    firebim:hasOriginalText "REACTION AU FEU",
+fro:Section_2_2_1_5 a fro:Section ;
+    fro:hasArticle fro:Article_2_2_1_5_1 ;
+    fro:hasID "2.2.1.5" ;
+    fro:hasOriginalText "REACTION AU FEU",
         "REACTION AU FEU"@fr .
 
-firebim:Section_2_2_2_2 a firebim:Section ;
-    firebim:hasArticle firebim:Article_2_2_2_2_1 ;
-    firebim:hasID "2.2.2.2" ;
-    firebim:hasOriginalText "SYNTHESE DES PRESCRIPTIONS APPLICABLES AUX ESCALIERS INTERIEURS",
+fro:Section_2_2_2_2 a fro:Section ;
+    fro:hasArticle fro:Article_2_2_2_2_1 ;
+    fro:hasID "2.2.2.2" ;
+    fro:hasOriginalText "SYNTHESE DES PRESCRIPTIONS APPLICABLES AUX ESCALIERS INTERIEURS",
         "SYNTHESE DES PRESCRIPTIONS APPLICABLES AUX ESCALIERS INTERIEURS"@fr .
 
-firebim:Reference_NIT_196 a firebim:Reference ;
-    firebim:hasID "NIT 196" .
+fro:Reference_NIT_196 a fro:Reference ;
+    fro:hasID "NIT 196" .
 

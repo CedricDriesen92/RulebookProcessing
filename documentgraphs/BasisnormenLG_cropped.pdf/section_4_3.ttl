@@ -1,44 +1,43 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_4_3 a firebim:Section ;
-    firebim:hasID "4.3" ;
-    firebim:hasOriginalText "Buitentrappenhuizen"@nl ;
-    firebim:hasArticle firebim:Article_4_3_1 .
+fro:Section_4 fro:hasSection fro:Section_4_3 .
 
-firebim:Article_4_3_1 a firebim:Article ;
-    firebim:hasID "A4.3.1" ;
-    firebim:hasMember firebim:Member_4_3_1_1,
-        firebim:Member_4_3_1_2,
-        firebim:Member_4_3_1_3,
-        firebim:Member_4_3_1_4,
-        firebim:Member_4_3_1_5 .
+fro:Article_4_3_1 a fro:Article ;
+    fro:hasID "A4.3.1" ;
+    fro:hasMember fro:Member_4_3_1_1,
+        fro:Member_4_3_1_2,
+        fro:Member_4_3_1_3,
+        fro:Member_4_3_1_4 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_4_3_1_1 a firebim:Member ;
-    firebim:hasID "M4.3.1.1" ;
-    firebim:hasOriginalText """<a href=\"http://example.com/firebimbuilding#ExternalStaircase\">Buitentrappen</a> moeten toegang geven tot een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a>."""@nl .
+fro:Member_4_3_1_1 a fro:Member ;
+    fro:hasOriginalText "<a href=\"http://example.com/firebimbuilding#ExternalStaircase\">Buitentrappen</a> moeten toegang geven tot een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a>."@nl .
 
-firebim:Member_4_3_1_2 a firebim:Member ;
-    firebim:hasID "M4.3.1.2" ;
-    firebim:hasOriginalText """De voorschriften van 4.2.3 zijn er op van toepassing met nochtans de volgende afwijking: er wordt geen <a href=\"http://example.com/firebimbuilding#FireStability\">stabiliteit bij brand</a> vereist, maar het <a href=\"http://example.com/firebimbuilding#MaterialClass\">materiaal</a> behoort tot klasse A1."""@nl .
+fro:Member_4_3_1_2 a fro:Member ;
+    fro:hasOriginalText "De voorschriften van 4.2.3 zijn er op van toepassing met nochtans de volgende afwijking: er wordt geen <a href=\"http://example.com/firebimbuilding#FireStability\">stabiliteit bij brand</a> vereist, maar het <a href=\"http://example.com/firebimbuilding#Material\">materiaal</a> behoort tot klasse A1."@nl .
 
-firebim:Member_4_3_1_3 a firebim:Member ;
-    firebim:hasID "M4.3.1.3" ;
-    firebim:hasOriginalText "De verbinding tussen het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> en een <a href=\"http://example.com/firebimbuilding#ExternalStaircase\">buitentrap</a> gebeurt:"@nl .
+fro:Member_4_3_1_3 a fro:Member ;
+    fro:hasMember fro:Member_4_3_1_3_1,
+        fro:Member_4_3_1_3_2 ;
+    fro:hasOriginalText "De verbinding tussen het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> en een <a href=\"http://example.com/firebimbuilding#ExternalStaircase\">buitentrap</a> gebeurt:"@nl .
 
-firebim:Member_4_3_1_4 a firebim:Member ;
-    firebim:hasID "M4.3.1.4" ;
-    firebim:hasOriginalText "- hetzij via een <a href=\"http://example.com/firebimbuilding#Door\">deur</a>;"@nl .
+fro:Member_4_3_1_3_1 a fro:Member ;
+    fro:hasOriginalText "- hetzij via een <a href=\"http://example.com/firebimbuilding#Door\">deur</a>;"@nl .
 
-firebim:Member_4_3_1_5 a firebim:Member ;
-    firebim:hasID "M4.3.1.5" ;
-    firebim:hasOriginalText "- hetzij via (een) <a href=\"http://example.com/firebimbuilding#EscapeTerrace\">vluchtterras</a>(sen)."@nl .
+fro:Member_4_3_1_3_2 a fro:Member ;
+    fro:hasOriginalText "- hetzij via (een) <a href=\"http://example.com/firebimbuilding#EscapeTerrace\">vluchtterras</a>(sen)."@nl .
 
-firebim:Member_4_3_1_6 a firebim:Member ;
-    firebim:hasID "M4.3.1.6" ;
-    firebim:hasOriginalText """Voor de verbinding tussen het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> en de onmiddellijk hoger gelegen <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> mag echter een <a href=\"http://example.com/firebimbuilding#Staircase\">trap</a> of gedeelte van <a href=\"http://example.com/firebimbuilding#Staircase\">trap</a> aangewend worden die inschuifbaar of geleed is."""@nl .
+fro:Member_4_3_1_4 a fro:Member ;
+    fro:hasOriginalText "Voor de verbinding tussen het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> en de onmiddellijk hoger gelegen <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> mag echter een <a href=\"http://example.com/firebimbuilding#Staircase\">trap</a> of gedeelte van <a href=\"http://example.com/firebimbuilding#Staircase\">trap</a> aangewend worden die inschuifbaar of geleed is."@nl .
+
+fro:Section_4_3 a fro:Section ;
+    fro:hasArticle fro:Article_4_3_1 ;
+    fro:hasID "4.3" ;
+    fro:hasOriginalText "Buitentrappenhuizen"@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

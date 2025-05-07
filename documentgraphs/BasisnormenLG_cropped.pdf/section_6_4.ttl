@@ -1,19 +1,21 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_4 a firebim:Section ;
-    firebim:hasID "6.4" ;
-    firebim:hasOriginalText "Speciale liften"@nl ;
-    firebim:hasArticle firebim:Article_6_4_1 .
+fro:Section_6_4 a fro:Section ;
+    fro:hasArticle fro:Article_6_4_1 ;
+    fro:hasID "6.4" ;
+    fro:hasOriginalText "Speciale liften"@nl .
 
-firebim:Article_6_4_1 a firebim:Article ;
-    firebim:hasID "A6.4.1" ;
-    firebim:hasMember firebim:Member_6_4_1_1 .
+fro:Article_6_4_1 a fro:Article ;
+    fro:hasID "A6.4.1" ;
+    fro:hasMember fro:Member_6_4_1_1 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_6_4_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De speciale <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> en de werking ervan bij <a href=\"http://example.com/firebimbuilding#Fire\">brand</a> beantwoorden aan de volgende voorschriften of elke andere regel van goed vakmanschap die een gelijkwaardig <a href=\"http://example.com/firebimbuilding#OccupantSafety\">veiligheidsniveau</a> biedt, overeenkomstig het koninklijk besluit van 12 april 2016 betreffende het op de markt brengen van liften en veiligheidscomponenten voor liften."""@nl .
+fro:Member_6_4_1_1 a fro:Member ;
+    fro:hasOriginalText "De speciale <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> en de werking ervan bij brand beantwoorden aan de volgende voorschriften of elke andere regel van goed vakmanschap die een gelijkwaardig veiligheidsniveau biedt, overeenkomstig het koninklijk besluit van 12 april 2016 betreffende het op de markt brengen van <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> en veiligheidscomponenten voor <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a>."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

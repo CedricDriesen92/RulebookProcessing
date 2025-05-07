@@ -3,25 +3,25 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_2_2_1_2 a firebim:Section ;
-    firebim:hasID "2.2.1.2" ;
-    firebim:hasOriginalText "EVACUATION"@fr ;
-    firebim:hasArticle firebim:Article_2_2_1_2_1 .
+fro:Section_2_2_1_2 a fro:Section ;
+    fro:hasID "2.2.1.2" ;
+    fro:hasOriginalText "EVACUATION"@fr ;
+    fro:hasArticle fro:Article_2_2_1_2_1 .
 
-firebim:Article_2_2_1_2_1 a firebim:Article ;
-    firebim:hasID "A2.2.1.2.1" ;
-    firebim:hasMember firebim:Member_2_2_1_2_1_1, firebim:Member_2_2_1_2_1_2, firebim:Member_2_2_1_2_1_3 .
+fro:Article_2_2_1_2_1 a fro:Article ;
+    fro:hasID "A2.2.1.2.1" ;
+    fro:hasMember fro:Member_2_2_1_2_1_1, fro:Member_2_2_1_2_1_2, fro:Member_2_2_1_2_1_3 .
 
-firebim:Member_2_2_1_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """L'évacuation d'un bâtiment peut se faire par les voies prévues à cet effet, telles que couloirs, escaliers, paliers, sas, terrasses d'évacuation, portes, etc."""@fr .
+fro:Member_2_2_1_2_1_1 a fro:Member ;
+    fro:hasOriginalText """L'évacuation d'un bâtiment peut se faire par les voies prévues à cet effet, telles que couloirs, escaliers, paliers, sas, terrasses d'évacuation, portes, etc."""@fr .
 
-firebim:Member_2_2_1_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Un chemin d'évacuation est une voie située à l'intérieur d'un bâtiment, présentant une pente de 10 % au maximum et donnant accès à une issue, une cage d'escalier ou une terrasse d'évacuation."""@fr .
+fro:Member_2_2_1_2_1_2 a fro:Member ;
+    fro:hasOriginalText """Un chemin d'évacuation est une voie située à l'intérieur d'un bâtiment, présentant une pente de 10 % au maximum et donnant accès à une issue, une cage d'escalier ou une terrasse d'évacuation."""@fr .
 
-firebim:Member_2_2_1_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Une terrasse d'évacuation est une voie située à l'extérieur du bâtiment, présentant une pente de 10 % au maximum et donnant accès à un escalier."""@fr .
+fro:Member_2_2_1_2_1_3 a fro:Member ;
+    fro:hasOriginalText """Une terrasse d'évacuation est une voie située à l'extérieur du bâtiment, présentant une pente de 10 % au maximum et donnant accès à un escalier."""@fr .
 
-firebim:Section_2_2_1 firebim:hasSection firebim:Section_2_2_1_2 .
+fro:Section_2_2_1 fro:hasSection fro:Section_2_2_1_2 .

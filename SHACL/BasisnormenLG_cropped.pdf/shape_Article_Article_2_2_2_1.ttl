@@ -1,58 +1,146 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix fbbo: <http://example.com/fbbo#> .
 @prefix bot: <https://w3id.org/bot#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix : <http://example.com/firebim#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fbbo-BE: <http://example.com/fbbo-BE#> .
+@prefix fbbo-DK: <http://example.com/fbbo-DK#> .
+@prefix fbbo-INT: <http://example.com/fbbo-INT#> .
+@prefix fbbo-NL: <http://example.com/fbbo-NL#> .
+@prefix fbbo-PT: <http://example.com/fbbo-PT#> .
+@prefix ifc: <http://ifcowl.openbimstandards.org/IFC4#> .
 
-# Shape derived from "De evacuatiewegen leiden ofwel: - naar buiten; - naar trappenhuizen; - naar trappen..."
-:Shape_Article_2_2_2_1_EvacuationRoute
-    a sh:NodeShape ;
-    sh:targetClass firebim:EvacuationRoute ;
-    rdfs:comment "Constraint based on Article 2.2.2.1: Evacuation routes must lead to Exterior, Stairwell, or Stairs." ;
+# Shape associated with Article 2.2.2.1
+# Source: <http://example.com/firebim#Article_2_2_2_1>
+# Note: This shape primarily targets Compartments based on the text.
+# Other parts of the text apply to Evacuation Routes, Stairs, and Storeys,
+# and may require separate shapes or more complex logic (e.g., SPARQL).
+# Parking areas might have different rules (see 5.2).
+fro:Shape_Article_2_2_2_1 a sh:NodeShape ;
+    sh:targetClass fro:Compartment ;
+    # Consider adding sh:not [ sh:class fro:ParkingGarage ] ; if parkings are excluded based on rule 5.2
+    sh:message "Constraints based on Article 2.2.2.1 regarding compartment exits and associated evacuation routes."@en ;
+    dcterms:source <http://example.com/firebim#Article_2_2_2_1> ;
+
+    # Rule 1: "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment."
     sh:property [
-        sh:path firebim:leadsTo ; # Assuming firebim:leadsTo points to the destination element or space type
-        sh:minCount 1 ; # An evacuation route must lead somewhere
-        sh:message "Evacuation route must lead to Exterior, Stairwell, or Stairs (Article 2.2.2.1)."@en, "Evacuatieweg moet leiden naar buiten, trappenhuis of trap (Artikel 2.2.2.1)."@nl ;
-        sh:or (
-            [ sh:class firebim:Exterior ]       # naar buiten
-            [ sh:class firebim:Stairwell ]      # naar trappenhuizen
-            [ sh:class firebim:Stairs ]         # naar trappen
-            # Note: Further constraints on stairs location (inside/outside) or compliance (4.4) might require additional shapes or logic.
-        )
-    ].
-
-# Shape derived from "Op een evacuatieniveau leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een evacuatieweg..."
-:Shape_Article_2_2_2_1_Stairs
-    a sh:NodeShape ;
-    sh:targetClass firebim:Stairs ;
-    rdfs:comment "Constraint based on Article 2.2.2.1: Stairs on an evacuation level must lead outside." ;
-    # This constraint applies only if the stair is on an evacuation level.
-    # We express this using sh:or: EITHER the stair is NOT on an evacuation level, OR it leads outside.
-    sh:or (
-        [ # Condition 1: The stair is NOT on an evacuation level
-            sh:not [
-                sh:property [
-                    sh:path bot:locatedIn ; # Assuming bot:locatedIn links Stair to Storey/Level
-                    sh:class firebim:EvacuationLevel ;
-                    sh:minCount 1 ; # Ensures it is linked to at least one evacuation level to trigger the 'not' condition correctly
-                ]
-            ]
-        ]
-        [ # Condition 2: The stair leads to the Exterior
-          # Assuming firebim:leadsTo points to the ultimate destination type (Exterior)
-          # This could be direct or via an intermediate EvacuationRoute. A property path might be needed for full accuracy,
-          # e.g., firebim:leadsTo | (firebim:leadsToRoute / firebim:leadsTo)
-          # For simplicity, assuming firebim:leadsTo captures the final destination type here.
+        sh:path fro:hasExit ; # Assuming fro:hasExit links Compartment to Exit
+        sh:minCount 2 ;
+        sh:message "Compartment must have at least two exits (Rule 2.2.2.1). The rule also requires them to be in opposite zones, which needs manual verification or advanced spatial checks."@en ;
+        # Nested check for the routes leading from these exits
+        sh:node [
+            a sh:NodeShape ;
+            sh:message "Check properties of each exit from the compartment."@en ;
             sh:property [
-                sh:path firebim:leadsTo ;
-                sh:class firebim:Exterior ;
-                sh:minCount 1 ; # If on an evacuation level, it must lead somewhere, specifically outside.
+                # Assuming fro:Exit -> fro:leadsToEvacuationRoute -> fro:EvacuationRoute
+                sh:path fro:leadsToEvacuationRoute ; # Or similar property linking Exit to Route
+                sh:minCount 1 ; # Each exit should lead to an evacuation route
+                sh:message "Each exit must lead to an evacuation route (Implicit from Rule 2.2.2.1)."@en ;
+                sh:node fro:EvacuationRouteDestinationCheckShape_Article_2_2_2_1 ; # Check the destination of the route using a helper shape
             ]
         ]
-    ) ;
-    sh:message "Stairs located on an evacuation level must lead to the exterior (directly or via a compliant evacuation route) (Article 2.2.2.1)."@en, "Trap op een evacatieniveau moet naar buiten leiden (rechtstreeks of via een conforme evacuatieweg) (Artikel 2.2.2.1)."@nl .
+    ] ;
 
-# Note: The constraint "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment" involves complex spatial reasoning beyond typical SHACL Core capabilities.
-# Note: The exception for underground storeys ("Wat de ondergrondse bouwlagen betreft...") modifies other requirements and involves specific properties (EI 30 walls/doors), making it complex to model without more context or potentially SPARQL.
-# Note: The reference to parking ("Voor de parking: zie 5.2.") indicates other rules apply, not a direct constraint here.
+    # Rule 3: "Wat de ondergrondse bouwlagen betreft..." - This rule provides an alternative for underground storeys.
+    # It allows a protected route (Walls EI 30, Doors EI1 30) to the outside to replace one required stairwell access.
+    # Modeling this conditional allowance accurately requires knowing the base requirement and likely SPARQL or sh:if.
+    # A separate shape for underground storeys or protected routes might be needed.
+    # Placeholder comment:
+    rdfs:comment "Article 2.2.2.1 includes specific provisions for exits/routes from underground storeys (alternative path with EI30 walls/doors)."@en ;
+
+    # Rule 5: "Op een evacuatieniveau leidt iedere trap naar buiten..." - This rule applies to stairs on evacuation levels.
+    # Modeling requires targeting bot:Stair and checking if its storey is an evacuation level.
+    # Placeholder comment:
+    rdfs:comment "Article 2.2.2.1 includes specific provisions for stairs on evacuation levels leading outside (directly or via compliant route)."@en .
+
+# Helper shape to check the destination of an evacuation route (Rule 2)
+fro:EvacuationRouteDestinationCheckShape_Article_2_2_2_1 a sh:NodeShape ;
+    sh:message "Checks the destination of an evacuation route based on Rule 2.2.2.1." ;
+    dcterms:source <http://example.com/firebim#Article_2_2_2_1> ;
+    sh:property [
+        sh:path fro:leadsTo ; # Assuming fro:EvacuationRoute -> fro:leadsTo -> Destination
+        sh:minCount 1 ;
+        sh:or (
+            [ sh:class fro:ExteriorEnvironment ; sh:message "Route leads outside."@en ]
+            [ sh:class fro:Stairwell ; sh:message "Route leads to a stairwell ('trappenhuis')."@en ]
+            [ sh:class bot:Stair ; sh:message "Route leads to stairs ('trappen')."@en ]
+            # Note: The original text mentions "trappenhuizen" (stairwells) and "trappen" (stairs) separately.
+            # Ensure fro:Stairwell and bot:Stair are distinct and correctly used in the data model.
+        ) ;
+        sh:message "Evacuation route must lead to: outside, a stairwell, or stairs (Rule 2.2.2.1)."@en ;
+    ] ;
+    # Reference to rule 4.4 for horizontal distances is noted but not modeled here.
+    rdfs:comment "Rule 2.2.2.1 also references rule 4.4 for horizontal distances, which may imply further constraints on the route."@en .
+
+# Potential shape for the protected route mentioned in Rule 3 (not fully integrated due to complexity)
+# This shape describes the required properties IF such a route is used as the alternative.
+fro:ProtectedEvacuationRouteProperties_Article_2_2_2_1 a sh:NodeShape ;
+    # This shape would typically be applied conditionally, e.g., using sh:node within a sh:if/sh:then structure or SPARQL.
+    sh:message "Describes properties of a protected evacuation route allowed as an alternative from underground storeys (Rule 2.2.2.1)."@en ;
+    dcterms:source <http://example.com/firebim#Article_2_2_2_1> ;
+    sh:property [
+        sh:path fro:leadsTo ;
+        sh:class fro:ExteriorEnvironment ;
+        sh:maxCount 1 ;
+        sh:minCount 1 ;
+        sh:message "Protected alternative route must lead directly outside."@en ;
+    ] ;
+    sh:property [
+        # Check walls: Assumes route contains walls (e.g., via bot:containsElement or a specific relation)
+        sh:path ( bot:containsElement [ rdf:type bot:Wall ] ) ; # Example path, adjust based on ontology
+        sh:minCount 1 ; # Must have at least one wall element specified? Or check all bounding walls? Needs clarification.
+        sh:node [
+             a sh:NodeShape ;
+             sh:property [
+                sh:path fro:hasFireResistance ;
+                sh:hasValue "EI 30" ; # Use literal or controlled vocabulary IRI if available
+                sh:message "Walls of the protected alternative route must have fire resistance EI 30."@en ;
+             ]
+        ] ;
+         sh:message "Check walls fire resistance (EI 30 required)."@en ;
+    ] ;
+     sh:property [
+        # Check doors: Assumes route contains doors (e.g., via bot:containsElement or specific relation along the path)
+        sh:path ( bot:containsElement [ rdf:type bot:Door ] ) ; # Example path, adjust based on ontology
+         sh:minCount 1 ; # Must have at least one door element specified? Or check all doors along the path? Needs clarification.
+         sh:node [
+             a sh:NodeShape ;
+             sh:property [
+                sh:path fro:hasFireResistance ;
+                sh:hasValue "EI1 30" ; # Use literal or controlled vocabulary IRI if available
+                sh:message "Doors of the protected alternative route must have fire resistance EI1 30."@en ;
+             ]
+        ] ;
+        sh:message "Check doors fire resistance (EI1 30 required)."@en ;
+    ] .
+
+# Placeholder for Rule 4.4 compliance check mentioned in Rule 5
+fro:EvacuationRouteCompliesWith4_4_Shape a sh:NodeShape ;
+    rdfs:label "Placeholder shape for Rule 4.4 compliance check"@en .

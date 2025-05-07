@@ -1,27 +1,28 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_4_1_8 a firebim:Section ;
-    firebim:hasID "6.4.1.8" ;
-    firebim:hasArticle firebim:Article_6_4_1_8_1 .
+fro:Section_6_4_1_8 a fro:Section ;
+    fro:hasArticle fro:Article_6_4_1_8_1 ;
+    fro:hasID "6.4.1.8" .
 
-firebim:Article_6_4_1_8_1 a firebim:Article ;
-    firebim:hasID "A6.4.1.8.1" ;
-    firebim:hasMember firebim:Member_6_4_1_8_1_1,
-        firebim:Member_6_4_1_8_1_2 .
+fro:Article_6_4_1_8_1 a fro:Article ;
+    fro:hasID "A6.4.1.8.1" ;
+    fro:hasMember fro:Member_6_4_1_8_1_1,
+        fro:Member_6_4_1_8_1_2,
+        fro:Member_6_4_1_8_1_3 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_6_4_1_8_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Met uitzondering van de <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> die slechts twee <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> bedienen, moet elk <a href=\"http://example.com/firebimbuilding#ElevatorLobby\">liftbordes</a> een <a href=\"http://example.com/firebimbuilding#CommunicationDevice\">intercomsysteem</a> bevatten dat mondelinge tweerichtingscommunicatie toelaat als de lift in evacuatiemodus is. Dit systeem moet toelaten om te communiceren tussen elk <a href=\"http://example.com/firebimbuilding#ElevatorLobby\">liftbordes</a>, het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> en de <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamer</a> of het paneel van de hulpverleningsoperaties, zodat de <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> waarop personen met beperkte mobiliteit die dienen geëvacueerd te worden zich bevinden kunnen herkend worden en deze informatie aan de persoon belast met de evacuatie kan doorgegeven worden."""@nl .
+fro:Member_6_4_1_8_1_1 a fro:Member ;
+    fro:hasOriginalText "Met uitzondering van de <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> die slechts twee <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> bedienen, moet elk <a href=\"http://example.com/firebimbuilding#Landing\">liftbordes</a> een <a href=\"http://example.com/firebimbuilding#CommunicationDevice\">intercomsysteem</a> bevatten dat mondelinge <a href=\"http://example.com/firebimbuilding#CommunicationDevice\">tweerichtingscommunicatie</a> toelaat als de <a href=\"http://example.com/firebimbuilding#Elevator\">lift</a> in <a href=\"http://example.com/firebimbuilding#EvacuationSafety\">evacuatiemodus</a> is. Dit systeem moet toelaten om te communiceren tussen elk <a href=\"http://example.com/firebimbuilding#Landing\">liftbordes</a>, het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> en de <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamer</a> of het <a href=\"http://example.com/firebimbuilding#CentralFireControlPanel\">paneel van de hulpverleningsoperaties</a>, zodat de <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> waarop <a href=\"http://example.com/firebimbuilding#AccessibilityForMobility\">personen met beperkte mobiliteit</a> die dienen geëvacueerd te worden zich bevinden kunnen herkend worden en deze informatie aan de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">persoon belast met de evacuatie</a> kan doorgegeven worden."@nl .
 
-firebim:Member_6_4_1_8_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#CommunicationDevice\">communicatie-uitrusting</a> op elk <a href=\"http://example.com/firebimbuilding#ElevatorLobby\">liftbordes</a> en op het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> moet een ingebouwde microfoon en luidspreker bevatten, een <a href=\"http://example.com/firebimbuilding#Telephone\">telefoon met hoorn</a> is niet toegelaten."""@nl .
+fro:Member_6_4_1_8_1_2 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#CommunicationDevice\">communicatie-uitrusting</a> op elk <a href=\"http://example.com/firebimbuilding#Landing\">liftbordes</a> en op het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> moet een ingebouwde <a href=\"http://example.com/firebimbuilding#CommunicationDevice\">microfoon</a> en <a href=\"http://example.com/firebimbuilding#CommunicationDevice\">luidspreker</a> bevatten, een <a href=\"http://example.com/firebimbuilding#Telephone\">telefoon met hoorn</a> is niet toegelaten."@nl .
 
-firebim:Article_6_4_1_8_1 firebim:hasMember firebim:Member_6_4_1_8_1_3 .
+fro:Member_6_4_1_8_1_3 a fro:Member ;
+    fro:hasOriginalText "Het <a href=\"http://example.com/firebimbuilding#CommunicationDevice\">communicatiesysteem</a> is zo ontworpen dat de werking ervan verzekerd blijft in geval van <a href=\"http://example.com/firebimbuilding#FaultDetection\">defect van het communicatiesysteem</a> van de <a href=\"http://example.com/firebimbuilding#ElevatorCar\">liftkooi</a> bedoeld in punt 6.4.1.7."@nl .
 
-firebim:Member_6_4_1_8_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Het <a href=\"http://example.com/firebimbuilding#CommunicationDevice\">communicatiesysteem</a> is zo ontworpen dat de werking ervan verzekerd blijft in geval van defect van het communicatiesysteem van de <a href=\"http://example.com/firebimbuilding#ElevatorCar\">liftkooi</a> bedoeld in punt 6.4.1.7."""@nl .
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

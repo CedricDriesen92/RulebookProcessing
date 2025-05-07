@@ -3,163 +3,163 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_3_5_2 a firebim:Section ;
-    firebim:hasID "3.5.2" ;
-    firebim:hasOriginalText "Dubbelwandige gevels."@nl ;
-    firebim:hasSection firebim:Section_3_5_2_1, firebim:Section_3_5_2_2, firebim:Section_3_5_2_3 .
+fro:Section_3_5_2 a fro:Section ;
+    fro:hasID "3.5.2" ;
+    fro:hasOriginalText "Dubbelwandige gevels."@nl ;
+    fro:hasSection fro:Section_3_5_2_1, fro:Section_3_5_2_2, fro:Section_3_5_2_3 .
 
-firebim:Section_3_5 firebim:hasSection firebim:Section_3_5_2 .
+fro:Section_3_5 fro:hasSection fro:Section_3_5_2 .
 
-firebim:Section_3_5_2_1 a firebim:Section ;
-    firebim:hasID "3.5.2.1" ;
-    firebim:hasOriginalText "Dubbelwandige gevel die onderbroken wordt door een compartimentering."@nl ;
-    firebim:hasArticle firebim:Article_3_5_2_1_1 .
+fro:Section_3_5_2_1 a fro:Section ;
+    fro:hasID "3.5.2.1" ;
+    fro:hasOriginalText "Dubbelwandige gevel die onderbroken wordt door een compartimentering."@nl ;
+    fro:hasArticle fro:Article_3_5_2_1_1 .
 
-firebim:Article_3_5_2_1_1 a firebim:Article ;
-    firebim:hasID "A3.5.2.1.1" ;
-    firebim:hasMember firebim:Member_3_5_2_1_1_1, firebim:Member_3_5_2_1_1_2, firebim:Member_3_5_2_1_1_3 .
+fro:Article_3_5_2_1_1 a fro:Article ;
+    fro:hasID "A3.5.2.1.1" ;
+    fro:hasMember fro:Member_3_5_2_1_1_1, fro:Member_3_5_2_1_1_2, fro:Member_3_5_2_1_1_3 .
 
-firebim:Member_3_5_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De spouw van de dubbelwandige gevel wordt in het verlengde van elke compartimentswand
+fro:Member_3_5_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText """De spouw van de dubbelwandige gevel wordt in het verlengde van elke compartimentswand
 onderbroken door een element dat minstens E 60 heeft. Dit element beslaat de volledige ruimte
 begrepen tussen de twee wanden en heeft een minimale lengte van 60 cm te tellen vanaf de
 binnenwand van de gevel."""@nl .
 
-firebim:Member_3_5_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Dit element mag openingen bevatten, op voorwaarde dat de continuïteit van de compartimentering
+fro:Member_3_5_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText """Dit element mag openingen bevatten, op voorwaarde dat de continuïteit van de compartimentering
 door de spouw heen verzekerd wordt door een bij brand zelfsluitende afsluitinrichting met een
 brandweerstand E 60. Deze inrichting wordt beproefd in zijn dragende constructie, volgens de
 richting van de compartimentswand; de sluiting ervan wordt bevolen:"""@nl ;
-    firebim:hasMember firebim:Member_3_5_2_1_1_2_1, firebim:Member_3_5_2_1_1_2_2 .
+    fro:hasMember fro:Member_3_5_2_1_1_2_1, fro:Member_3_5_2_1_1_2_2 .
 
-firebim:Member_3_5_2_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText """- hetzij door een thermische detectie ter hoogte van deze inrichting die reageert bij een
+fro:Member_3_5_2_1_1_2_1 a fro:Member ;
+    fro:hasOriginalText """- hetzij door een thermische detectie ter hoogte van deze inrichting die reageert bij een
   temperatuur van maximaal 100°C."""@nl .
 
-firebim:Member_3_5_2_1_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText """- hetzij door een rookdetectie in de spouw of in alle compartimenten langs de gevel, die voldoet
+fro:Member_3_5_2_1_1_2_2 a fro:Member ;
+    fro:hasOriginalText """- hetzij door een rookdetectie in de spouw of in alle compartimenten langs de gevel, die voldoet
   aan de voorwaarden in punt 3.5.2.3."""@nl .
 
-firebim:Member_3_5_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Wanneer er verluchtingsopeningen zijn tussen de spouw van de dubbelwandige gevel en de
+fro:Member_3_5_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText """Wanneer er verluchtingsopeningen zijn tussen de spouw van de dubbelwandige gevel en de
 binnenomgeving van het gebouw, is enkel een rookdetectie toegelaten in de spouw of in alle
 compartimenten langs de gevel. Zij voldoet aan de voorwaarden van punt 3.5.2.3."""@nl .
 
-firebim:Section_3_5_2_2 a firebim:Section ;
-    firebim:hasID "3.5.2.2" ;
-    firebim:hasOriginalText "Dubbelwandige gevel zonder compartimentering."@nl ;
-    firebim:hasArticle firebim:Article_3_5_2_2_1 ;
-    firebim:hasSection firebim:Section_3_5_2_2_1, firebim:Section_3_5_2_2_2 .
+fro:Section_3_5_2_2 a fro:Section ;
+    fro:hasID "3.5.2.2" ;
+    fro:hasOriginalText "Dubbelwandige gevel zonder compartimentering."@nl ;
+    fro:hasArticle fro:Article_3_5_2_2_1 ;
+    fro:hasSection fro:Section_3_5_2_2_1, fro:Section_3_5_2_2_2 .
 
-firebim:Article_3_5_2_2_1 a firebim:Article ;
-    firebim:hasID "A3.5.2.2.1" ;
-    firebim:hasMember firebim:Member_3_5_2_2_1_1 .
+fro:Article_3_5_2_2_1 a fro:Article ;
+    fro:hasID "A3.5.2.2.1" ;
+    fro:hasMember fro:Member_3_5_2_2_1_1 .
 
-firebim:Member_3_5_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De dubbelwandige gevels zonder compartimentering moeten in overeenstemming zijn met een
+fro:Member_3_5_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText """De dubbelwandige gevels zonder compartimentering moeten in overeenstemming zijn met een
 van de twee hierna opgenomen mogelijkheden."""@nl .
 
-firebim:Section_3_5_2_2_1 a firebim:Section ;
-    firebim:hasID "3.5.2.2.1" ;
-    firebim:hasOriginalText "Dubbelwandige gevel waarvan de binnenwand brandwerend is."@nl ;
-    firebim:hasArticle firebim:Article_3_5_2_2_1_1 .
+fro:Section_3_5_2_2_1 a fro:Section ;
+    fro:hasID "3.5.2.2.1" ;
+    fro:hasOriginalText "Dubbelwandige gevel waarvan de binnenwand brandwerend is."@nl ;
+    fro:hasArticle fro:Article_3_5_2_2_1_1 .
 
-firebim:Article_3_5_2_2_1_1 a firebim:Article ;
-    firebim:hasID "A3.5.2.2.1.1" ;
-    firebim:hasMember firebim:Member_3_5_2_2_1_1_1, firebim:Member_3_5_2_2_1_1_2 .
+fro:Article_3_5_2_2_1_1 a fro:Article ;
+    fro:hasID "A3.5.2.2.1.1" ;
+    fro:hasMember fro:Member_3_5_2_2_1_1_1, fro:Member_3_5_2_2_1_1_2 .
 
-firebim:Member_3_5_2_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De buitenwand van de dubbelwandige gevel bestaat tussen de verdiepingen voor minstens 50%
+fro:Member_3_5_2_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText """De buitenwand van de dubbelwandige gevel bestaat tussen de verdiepingen voor minstens 50%
 uit bouwelementen zonder specifieke brandweerstand."""@nl .
 
-firebim:Member_3_5_2_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "De binnenwand heeft:"@nl ;
-    firebim:hasMember firebim:Member_3_5_2_2_1_1_2_1, firebim:Member_3_5_2_2_1_1_2_2 .
+fro:Member_3_5_2_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "De binnenwand heeft:"@nl ;
+    fro:hasMember fro:Member_3_5_2_2_1_1_2_1, fro:Member_3_5_2_2_1_1_2_2 .
 
-firebim:Member_3_5_2_2_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "- hetzij, over de volledige hoogte, minstens een brandweerstand E 30 (i↔o);"@nl .
+fro:Member_3_5_2_2_1_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- hetzij, over de volledige hoogte, minstens een brandweerstand E 30 (i↔o);"@nl .
 
-firebim:Member_3_5_2_2_1_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "- hetzij afwisselend om de twee bouwlagen minstens een brandweerstand EI 30 (i↔o)."@nl .
+fro:Member_3_5_2_2_1_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- hetzij afwisselend om de twee bouwlagen minstens een brandweerstand EI 30 (i↔o)."@nl .
 
-firebim:Section_3_5_2_2_2 a firebim:Section ;
-    firebim:hasID "3.5.2.2.2" ;
-    firebim:hasOriginalText "Dubbelwandige gevel naar buiten toe open."@nl ;
-    firebim:hasArticle firebim:Article_3_5_2_2_2_1 .
+fro:Section_3_5_2_2_2 a fro:Section ;
+    fro:hasID "3.5.2.2.2" ;
+    fro:hasOriginalText "Dubbelwandige gevel naar buiten toe open."@nl ;
+    fro:hasArticle fro:Article_3_5_2_2_2_1 .
 
-firebim:Article_3_5_2_2_2_1 a firebim:Article ;
-    firebim:hasID "A3.5.2.2.2.1" ;
-    firebim:hasMember firebim:Member_3_5_2_2_2_1_1, firebim:Member_3_5_2_2_2_1_2, firebim:Member_3_5_2_2_2_1_3, firebim:Member_3_5_2_2_2_1_4 .
+fro:Article_3_5_2_2_2_1 a fro:Article ;
+    fro:hasID "A3.5.2.2.2.1" ;
+    fro:hasMember fro:Member_3_5_2_2_2_1_1, fro:Member_3_5_2_2_2_1_2, fro:Member_3_5_2_2_2_1_3, fro:Member_3_5_2_2_2_1_4 .
 
-firebim:Member_3_5_2_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De voorschriften voor enkelwandige gevels mogen toegepast worden op de binnenwand wanneer
+fro:Member_3_5_2_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText """De voorschriften voor enkelwandige gevels mogen toegepast worden op de binnenwand wanneer
 de buitenwand vaste of mobiele ventilatieopeningen bevat die automatisch openen bij brand."""@nl .
 
-firebim:Member_3_5_2_2_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De vaste ventilatieopeningen zijn geplaatst op 30 ± 10 graden naar de buitenkant en naar boven
+fro:Member_3_5_2_2_2_1_2 a fro:Member ;
+    fro:hasOriginalText """De vaste ventilatieopeningen zijn geplaatst op 30 ± 10 graden naar de buitenkant en naar boven
 toe ten opzichte van de horizontale, gelijkmatig verdeeld over ten minste 50% van de oppervlakte
 ervan."""@nl .
 
-firebim:Member_3_5_2_2_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText """De mobiele ventilatieopeningen voldoen, bij brand, aan dezelfde voorwaarden als de vaste
+fro:Member_3_5_2_2_2_1_3 a fro:Member ;
+    fro:hasOriginalText """De mobiele ventilatieopeningen voldoen, bij brand, aan dezelfde voorwaarden als de vaste
 ventilatieopeningen."""@nl .
 
-firebim:Member_3_5_2_2_2_1_4 a firebim:Member ;
-    firebim:hasOriginalText """De veiligheidsstand van de mobiele lamellen wordt in werking gesteld door een algemene
+fro:Member_3_5_2_2_2_1_4 a fro:Member ;
+    fro:hasOriginalText """De veiligheidsstand van de mobiele lamellen wordt in werking gesteld door een algemene
 branddetectie-installatie in de compartimenten langs gevels. De automatische bediening moet
 voldoen aan de voorwaarden voorzien in punt 3.5.2.3."""@nl .
 
-firebim:Section_3_5_2_3 a firebim:Section ;
-    firebim:hasID "3.5.2.3" ;
-    firebim:hasOriginalText "Automatische sluitings- / openingssystemen."@nl ;
-    firebim:hasSection firebim:Section_3_5_2_3_1, firebim:Section_3_5_2_3_2, firebim:Section_3_5_2_3_3 .
+fro:Section_3_5_2_3 a fro:Section ;
+    fro:hasID "3.5.2.3" ;
+    fro:hasOriginalText "Automatische sluitings- / openingssystemen."@nl ;
+    fro:hasSection fro:Section_3_5_2_3_1, fro:Section_3_5_2_3_2, fro:Section_3_5_2_3_3 .
 
-firebim:Section_3_5_2_3_1 a firebim:Section ;
-    firebim:hasID "3.5.2.3.1" ;
-    firebim:hasOriginalText "Bediening"@nl ;
-    firebim:hasArticle firebim:Article_3_5_2_3_1_1 .
+fro:Section_3_5_2_3_1 a fro:Section ;
+    fro:hasID "3.5.2.3.1" ;
+    fro:hasOriginalText "Bediening"@nl ;
+    fro:hasArticle fro:Article_3_5_2_3_1_1 .
 
-firebim:Article_3_5_2_3_1_1 a firebim:Article ;
-    firebim:hasID "A3.5.2.3.1.1" ;
-    firebim:hasMember firebim:Member_3_5_2_3_1_1_1, firebim:Member_3_5_2_3_1_1_2 .
+fro:Article_3_5_2_3_1_1 a fro:Article ;
+    fro:hasID "A3.5.2.3.1.1" ;
+    fro:hasMember fro:Member_3_5_2_3_1_1_1, fro:Member_3_5_2_3_1_1_2 .
 
-firebim:Member_3_5_2_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "De sluiting / opening wordt bevolen door een automatische branddetectie-installatie."@nl .
+fro:Member_3_5_2_3_1_1_1 a fro:Member ;
+    fro:hasOriginalText "De sluiting / opening wordt bevolen door een automatische branddetectie-installatie."@nl .
 
-firebim:Member_3_5_2_3_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De installatie wordt uitgerust met manuele openings- en sluitingssystemen. De bediening ervan is
+fro:Member_3_5_2_3_1_1_2 a fro:Member ;
+    fro:hasOriginalText """De installatie wordt uitgerust met manuele openings- en sluitingssystemen. De bediening ervan is
 voorbehouden aan de brandweer. De plaats ervan moet bepaald worden in akkoord met de
 brandweer."""@nl .
 
-firebim:Section_3_5_2_3_2 a firebim:Section ;
-    firebim:hasID "3.5.2.3.2" ;
-    firebim:hasOriginalText "Bedrijfszekerheid."@nl ;
-    firebim:hasArticle firebim:Article_3_5_2_3_2_1 .
+fro:Section_3_5_2_3_2 a fro:Section ;
+    fro:hasID "3.5.2.3.2" ;
+    fro:hasOriginalText "Bedrijfszekerheid."@nl ;
+    fro:hasArticle fro:Article_3_5_2_3_2_1 .
 
-firebim:Article_3_5_2_3_2_1 a firebim:Article ;
-    firebim:hasID "A3.5.2.3.2.1" ;
-    firebim:hasMember firebim:Member_3_5_2_3_2_1_1, firebim:Member_3_5_2_3_2_1_2 .
+fro:Article_3_5_2_3_2_1 a fro:Article ;
+    fro:hasID "A3.5.2.3.2.1" ;
+    fro:hasMember fro:Member_3_5_2_3_2_1_1, fro:Member_3_5_2_3_2_1_2 .
 
-firebim:Member_3_5_2_3_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Bij het uitvallen van de normale energiebron (elektrische energie, persluchtnet), zet de detectie-
+fro:Member_3_5_2_3_2_1_1 a fro:Member ;
+    fro:hasOriginalText """Bij het uitvallen van de normale energiebron (elektrische energie, persluchtnet), zet de detectie-
 installatie of het bedieningssysteem het sluitings-/openingssysteem in de veiligheidsstand."""@nl .
 
-firebim:Member_3_5_2_3_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Elk gebrek aan energiebron, voeding of elektrische of pneumatische bediening moet automatisch
+fro:Member_3_5_2_3_2_1_2 a fro:Member ;
+    fro:hasOriginalText """Elk gebrek aan energiebron, voeding of elektrische of pneumatische bediening moet automatisch
 gemeld worden aan de detectiecentrale."""@nl .
 
-firebim:Section_3_5_2_3_3 a firebim:Section ;
-    firebim:hasID "3.5.2.3.3" ;
-    firebim:hasOriginalText "Werking bij brand in een naburig compartiment."@nl ;
-    firebim:hasArticle firebim:Article_3_5_2_3_3_1 .
+fro:Section_3_5_2_3_3 a fro:Section ;
+    fro:hasID "3.5.2.3.3" ;
+    fro:hasOriginalText "Werking bij brand in een naburig compartiment."@nl ;
+    fro:hasArticle fro:Article_3_5_2_3_3_1 .
 
-firebim:Article_3_5_2_3_3_1 a firebim:Article ;
-    firebim:hasID "A3.5.2.3.3.1" ;
-    firebim:hasMember firebim:Member_3_5_2_3_3_1_1 .
+fro:Article_3_5_2_3_3_1 a fro:Article ;
+    fro:hasID "A3.5.2.3.3.1" ;
+    fro:hasMember fro:Member_3_5_2_3_3_1_1 .
 
-firebim:Member_3_5_2_3_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Wanneer de sluitings- / openingssystemen geen positieve veiligheid hebben, dan moeten de
+fro:Member_3_5_2_3_3_1_1 a fro:Member ;
+    fro:hasOriginalText """Wanneer de sluitings- / openingssystemen geen positieve veiligheid hebben, dan moeten de
 elektrische leidingen die het sluitings-/openingssysteem verbinden, voldoen aan punt 6.5.2."""@nl .

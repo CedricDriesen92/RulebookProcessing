@@ -3,30 +3,30 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_2_1_2_2 a firebim:Section ;
-    firebim:hasID "2.1.2.2" ;
-    firebim:hasOriginalText "RESISTANCE AUX CHOCS DE CORPS DURS ET DE CORPS MOUS"@fr ;
-    firebim:hasArticle firebim:Article_2_1_2_2_1 .
+fro:Section_2_1_2_2 a fro:Section ;
+    fro:hasID "2.1.2.2" ;
+    fro:hasOriginalText "RESISTANCE AUX CHOCS DE CORPS DURS ET DE CORPS MOUS"@fr ;
+    fro:hasArticle fro:Article_2_1_2_2_1 .
 
-firebim:Article_2_1_2_2_1 a firebim:Article ;
-    firebim:hasID "A2.1.2.2.1" ;
-    firebim:hasMember firebim:Member_2_1_2_2_1_1, firebim:Member_2_1_2_2_1_2 .
+fro:Article_2_1_2_2_1 a fro:Article ;
+    fro:hasID "A2.1.2.2.1" ;
+    fro:hasMember fro:Member_2_1_2_2_1_1, fro:Member_2_1_2_2_1_2 .
 
-firebim:Member_2_1_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Les elements de l'escalier (limons, marches, garde-corps, et leurs fixations doivent resister aux charges dynamiques de securite (chocs) conformement aux STS 54 (8 12.22) [37]."""@fr ;
-    firebim:hasReference firebim:Reference_STS_54 .
+fro:Member_2_1_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText """Les elements de l'escalier (limons, marches, garde-corps, et leurs fixations doivent resister aux charges dynamiques de securite (chocs) conformement aux STS 54 (8 12.22) [37]."""@fr ;
+    fro:hasReference fro:Reference_STS_54 .
 
-firebim:Member_2_1_2_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Pour plus de details, on se refera au § 2.1.2.2 de la NIT 196 [7]."""@fr ;
-    firebim:hasReference firebim:Reference_NIT_196 .
+fro:Member_2_1_2_2_1_2 a fro:Member ;
+    fro:hasOriginalText """Pour plus de details, on se refera au § 2.1.2.2 de la NIT 196 [7]."""@fr ;
+    fro:hasReference fro:Reference_NIT_196 .
 
-firebim:Reference_STS_54 a firebim:Reference ;
-    firebim:hasID "STS 54" .
+fro:Reference_STS_54 a fro:Reference ;
+    fro:hasID "STS 54" .
 
-firebim:Reference_NIT_196 a firebim:Reference ;
-    firebim:hasID "NIT 196" .
+fro:Reference_NIT_196 a fro:Reference ;
+    fro:hasID "NIT 196" .
 
-firebim:Section_2_1_2 firebim:hasSection firebim:Section_2_1_2_2 .
+fro:Section_2_1_2 fro:hasSection fro:Section_2_1_2_2 .

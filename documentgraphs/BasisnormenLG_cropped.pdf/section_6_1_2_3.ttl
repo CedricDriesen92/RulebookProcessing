@@ -1,27 +1,29 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_1_2_3 a firebim:Section ;
-    firebim:hasID "6.1.2.3" ;
-    firebim:hasOriginalText "De voorschriften van de punten 6.1.2.1 en 6.1.2.2 zijn niet vereist in de volgende gevallen:"@nl ;
-    firebim:hasArticle firebim:Article_6_1_2_3_1 .
+fro:Section_6_1_2_3 a fro:Section ;
+    fro:hasArticle fro:Article_6_1_2_3_1 ;
+    fro:hasID "6.1.2.3" ;
+    fro:hasOriginalText "De voorschriften van de punten 6.1.2.1 en 6.1.2.2 zijn niet vereist in de volgende gevallen:"@nl .
 
-firebim:Article_6_1_2_3_1 a firebim:Article ;
-    firebim:hasID "A6.1.2.3.1" ;
-    firebim:hasMember firebim:Member_6_1_2_3_1_1,
-        firebim:Member_6_1_2_3_1_2,
-        firebim:Member_6_1_2_3_1_3 .
+fro:Article_6_1_2_3_1 a fro:Article ;
+    fro:hasID "A6.1.2.3.1" ;
+    fro:hasMember fro:Member_6_1_2_3_1_1,
+        fro:Member_6_1_2_3_1_2,
+        fro:Member_6_1_2_3_1_3 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_6_1_2_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """1. op alle <a href="http://example.com/firebimbuilding#Floor">bouwlagen</a> bediend door de <a href="http://example.com/firebimbuilding#Elevator">lift of goederenlift</a>, indien deze <a href="http://example.com/firebimbuilding#Elevator">lift of goederenlift</a> de <a href="http://example.com/firebimbuilding#Floor">bouwlagen</a> van slechts één <a href="http://example.com/firebimbuilding#Compartment">compartiment</a> bestaande uit meerdere <a href="http://example.com/firebimbuilding#Floor">bouwlagen</a> bedient;"""@nl .
+fro:Member_6_1_2_3_1_1 a fro:Member ;
+    fro:hasOriginalText "1. op alle <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> bediend door de <a href=\"http://example.com/firebimbuilding#Elevator\">lift</a> of goederenlift, indien deze <a href=\"http://example.com/firebimbuilding#Elevator\">lift</a> of goederenlift de <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> van slechts één <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> bestaande uit meerdere <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> bedient;"@nl .
 
-firebim:Member_6_1_2_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """2. op de <a href="http://example.com/firebimbuilding#Floor">bouwla(a)g(en)</a> van slechts één van de <a href="http://example.com/firebimbuilding#Compartment">compartimenten</a> bediend door de <a href="http://example.com/firebimbuilding#Elevator">lift of goederenlift</a>, op voorwaarde dat dit <a href="http://example.com/firebimbuilding#Compartment">compartiment</a> geen <a href="http://example.com/firebimbuilding#Parking">parkeercompartiment</a> of een <a href="http://example.com/firebimbuilding#Apartment">appartement</a> is, en dat de opvatting van deze <a href="http://example.com/firebimbuilding#Elevator">lift of goederenlift</a> op de overige <a href="http://example.com/firebimbuilding#Floor">bouwlagen</a> wel voldoet aan de voorschriften van de punten 6.1.2.1 en 6.1.2.2 of aan punt c) hieronder;"""@nl .
+fro:Member_6_1_2_3_1_2 a fro:Member ;
+    fro:hasOriginalText "2. op de <a href=\"http://example.com/firebimbuilding#Floor\">bouwla(a)g(en)</a> van slechts één van de <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> bediend door de <a href=\"http://example.com/firebimbuilding#Elevator\">lift</a> of goederenlift, op voorwaarde dat dit <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> geen <a href=\"http://example.com/firebimbuilding#Parking\">parkeercompartiment</a> of een appartement is, en dat de <a href=\"http://example.com/firebimbuilding#DesignCompliance\">opvatting</a> van deze <a href=\"http://example.com/firebimbuilding#Elevator\">lift</a> of goederenlift op de overige <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> wel voldoet aan de voorschriften van de punten 6.1.2.1 en 6.1.2.2 of aan punt c) hieronder;"@nl .
 
-firebim:Member_6_1_2_3_1_3 a firebim:Member ;
-    firebim:hasOriginalText """3. op de <a href="http://example.com/firebimbuilding#Floor">bouwla(a)g(en)</a> waar de <a href="http://example.com/firebimbuilding#Elevator">lift of goederenlift</a> rechtstreeks in de <a href="http://example.com/firebimbuilding#External">buitenlucht</a> uitgeeft, op voorwaarde dat de opvatting van deze <a href="http://example.com/firebimbuilding#Elevator">lift of goederenlift</a> op de overige <a href="http://example.com/firebimbuilding#Floor">bouwlagen</a> wel voldoet."""@nl .
+fro:Member_6_1_2_3_1_3 a fro:Member ;
+    fro:hasOriginalText "3. op de <a href=\"http://example.com/firebimbuilding#Floor\">bouwla(a)g(en)</a> waar de <a href=\"http://example.com/firebimbuilding#Elevator\">lift</a> of goederenlift rechtstreeks in de <a href=\"http://example.com/firebimbuilding#External\">buitenlucht</a> uitgeeft, op voorwaarde dat de <a href=\"http://example.com/firebimbuilding#DesignCompliance\">opvatting</a> van deze <a href=\"http://example.com/firebimbuilding#Elevator\">lift</a> of goederenlift op de overige <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> wel voldoet."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

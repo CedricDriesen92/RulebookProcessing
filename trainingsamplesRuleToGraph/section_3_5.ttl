@@ -3,11 +3,11 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_3_5 a firebim:Section ;
-    firebim:hasID "3.5" ;
-    firebim:hasOriginalText "Gevels"@nl .
+fro:Section_3_5 a fro:Section ;
+    fro:hasID "3.5" ;
+    fro:hasOriginalText "Gevels"@nl .
 
-firebim:Section_3 firebim:hasSection firebim:Section_3_5 .
+fro:Section_3 fro:hasSection fro:Section_3_5 .

@@ -3,52 +3,52 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_1_3 a firebim:Section ;
-    firebim:hasID "1.3" ;
-    firebim:hasOriginalText "Horizontale afstand tussen gebouwen"@nl ;
-    firebim:hasArticle firebim:Article_1_3_1.
+fro:Section_1_3 a fro:Section ;
+    fro:hasID "1.3" ;
+    fro:hasOriginalText "Horizontale afstand tussen gebouwen"@nl ;
+    fro:hasArticle fro:Article_1_3_1.
 
-firebim:Section_1 firebim:hasSection firebim:Section_1_3 .
+fro:Section_1 fro:hasSection fro:Section_1_3 .
 
-firebim:Article_1_3_1 a firebim:Article ;
-    firebim:hasID "A1.3.1" ;
-    firebim:hasOriginalText "Om te vermijden dat een brand tussen twee gebouwen kan overslaan:"@nl ;
-    firebim:hasMember firebim:Member_1_3_1_1, firebim:Member_1_3_1_2 , firebim:Member_1_3_1_3 ;
-    firebim:hasFigure firebim:Figure_2_1 .
+fro:Article_1_3_1 a fro:Article ;
+    fro:hasID "A1.3.1" ;
+    fro:hasOriginalText "Om te vermijden dat een brand tussen twee gebouwen kan overslaan:"@nl ;
+    fro:hasMember fro:Member_1_3_1_1, fro:Member_1_3_1_2 , fro:Member_1_3_1_3 ;
+    fro:hasFigure fro:Figure_2_1 .
 
-firebim:Member_1_3_1_1 a firebim:Member ;
-    firebim:hasMember firebim:Member_1_3_1_1_1, firebim:Member_1_3_1_1_2 .
+fro:Member_1_3_1_1 a fro:Member ;
+    fro:hasMember fro:Member_1_3_1_1_1, fro:Member_1_3_1_1_2 .
 
-firebim:Member_1_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """a)   ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan
+fro:Member_1_3_1_1_1 a fro:Member ;
+    fro:hasOriginalText """a)   ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan
                  bedraagt de afstand (in m) tussen de geveldelen die niet minstens EI 60 of REI 60 hebben,
                  ten minste:
                       (h + 10)/2.5 cos(α) voor 0° ≤ α ≤ 90°
                       0 voor 90° < α ≤ 180° waarbij α de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.1)."""@nl ;
-    firebim:hasMember firebim:Member_1_3_1_1_1_1 ;
-    firebim:hasFigure firebim:Figure_2_1 .
+    fro:hasMember fro:Member_1_3_1_1_1_1 ;
+    fro:hasFigure fro:Figure_2_1 .
     
-firebim:Member_1_3_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is
+fro:Member_1_3_1_1_1_1 a fro:Member ;
+    fro:hasOriginalText """Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is
                  een horizontale afstand tussen de gebouwen van 6 m voldoende."""@nl .
 
-firebim:Member_1_3_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """b)   ofwel mag de straling van        een brand van een gebouw op een tegenoverstaand gebouw, en
+fro:Member_1_3_1_1_2 a fro:Member ;
+    fro:hasOriginalText """b)   ofwel mag de straling van        een brand van een gebouw op een tegenoverstaand gebouw, en
                  omgekeerd, niet meer dan 15 kW/m² bedragen."""@nl .
 
-firebim:Figure_2_1 a firebim:Figure ;
-    firebim:hasID "F2.1" .
+fro:Figure_2_1 a fro:Figure ;
+    fro:hasID "F2.1" .
 
-firebim:Member_1_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De wanden die aangrenzende gebouwen scheiden hebben EI 60, of REI 60 wanneer ze dragend
+fro:Member_1_3_1_2 a fro:Member ;
+    fro:hasOriginalText """De wanden die aangrenzende gebouwen scheiden hebben EI 60, of REI 60 wanneer ze dragend
             zijn. 
             In  deze  wanden  mag  een  verbinding  tussen  deze  gebouwen                   bestaan  via  een  deur  EI1 30,
             zelfsluitend of zelfsluitend in geval van brand."""@nl .
 
-firebim:Member_1_3_1_3 a firebim:Member ;
-    firebim:hasOriginalText """De voorwaarde van de afstand tussen een laag gebouw en een tegenoverstaand gebouw geldt
+fro:Member_1_3_1_3 a fro:Member ;
+    fro:hasOriginalText """De voorwaarde van de afstand tussen een laag gebouw en een tegenoverstaand gebouw geldt
             niet  voor  gebouwen  die  van  elkaar  gescheiden  worden  door  bestaande  straten,  wegen,...
             behorende tot het openbaar domein."""@nl .

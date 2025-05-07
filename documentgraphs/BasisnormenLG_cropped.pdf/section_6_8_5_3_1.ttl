@@ -1,35 +1,37 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_8_5_3_1 a firebim:Section ;
-    firebim:hasID "6.8.5.3.1" ;
-    firebim:hasOriginalText "HET AANTAL EN DE PLAATS VAN DEZE TOESTELLEN WORDEN BEPAALD DOOR DE AARD EN DE OMVANG VAN HET BRANDGEVAAR."@nl ;
-    firebim:hasArticle firebim:Article_6_8_5_3_1_1 .
+fro:Section_6_8_5_3_1 a fro:Section ;
+    fro:hasArticle fro:Article_6_8_5_3_1_1 ;
+    fro:hasID "6.8.5.3.1" ;
+    fro:hasOriginalText "HET AANTAL EN DE PLAATS VAN DEZE TOESTELLEN WORDEN BEPAALD DOOR DE AARD EN DE OMVANG VAN HET BRANDGEVAAR."@nl .
 
-firebim:Article_6_8_5_3_1_1 a firebim:Article ;
-    firebim:hasID "A6.8.5.3.1.1" ;
-    firebim:hasMember firebim:Member_6_8_5_3_1_1_1,
-        firebim:Member_6_8_5_3_1_1_2,
-        firebim:Member_6_8_5_3_1_1_3 .
+fro:Article_6_8_5_3_1_1 a fro:Article ;
+    fro:hasID "A6.8.5.3.1.1" ;
+    fro:hasMember fro:Member_6_8_5_3_1_1_1,
+        fro:Member_6_8_5_3_1_1_2,
+        fro:Member_6_8_5_3_1_1_3 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_6_8_5_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Indien de <a href="http://example.com/firebimbuilding#TotalArea">oppervlakte</a> van een <a href="http://example.com/firebimbuilding#Building">gebouw</a> kleiner is dan 500 m² is geen <a href="http://example.com/firebimbuilding#FireHoseReel">muurhaspel</a> verplicht (behoudens bij speciale risico’s)."""@nl .
+fro:Member_6_8_5_3_1_1_1 a fro:Member ;
+    fro:hasOriginalText "Het aantal en de plaats van deze toestellen worden bepaald door de aard en de omvang van het <a href=\"http://example.com/firebimbuilding#FirePreventionMeasures\">brandgevaar</a>."@nl .
 
-firebim:Member_6_8_5_3_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """In alle andere gevallen wordt het aantal <a href="http://example.com/firebimbuilding#FireHoseReel">muurhaspels</a> als volgt bepaald:"""@nl ;
-    firebim:hasMember firebim:Member_6_8_5_3_1_1_2_1,
-        firebim:Member_6_8_5_3_1_1_2_2 .
+fro:Member_6_8_5_3_1_1_2 a fro:Member ;
+    fro:hasMember fro:Member_6_8_5_3_1_1_2_1,
+        fro:Member_6_8_5_3_1_1_2_2 ;
+    fro:hasOriginalText "Indien de <a href=\"http://example.com/firebimbuilding#TotalFloorArea\">oppervlakte van een gebouw</a> kleiner is dan 500 m² is geen <a href=\"http://example.com/firebimbuilding#FireHoseReel\">muurhaspel</a> verplicht (behoudens bij speciale risico’s). In alle andere gevallen wordt het aantal <a href=\"http://example.com/firebimbuilding#FireHoseReel\">muurhaspels</a> als volgt bepaald:"@nl .
 
-firebim:Member_6_8_5_3_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "1. de waterstraal bereikt elk punt van een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>;"@nl .
+fro:Member_6_8_5_3_1_1_2_1 a fro:Member ;
+    fro:hasOriginalText "1. de <a href=\"http://example.com/firebimbuilding#WaterFlowReach\">waterstraal</a> bereikt elk punt van een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>;"@nl .
 
-firebim:Member_6_8_5_3_1_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "2. <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> groter dan 500 m² beschikken over ten minste 1 <a href=\"http://example.com/firebimbuilding#FireHoseReel\">muurhaspel</a>."@nl .
+fro:Member_6_8_5_3_1_1_2_2 a fro:Member ;
+    fro:hasOriginalText "2. <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> groter dan 500 m² beschikken over ten minste 1 <a href=\"http://example.com/firebimbuilding#FireHoseReel\">muurhaspel</a>."@nl .
 
-firebim:Member_6_8_5_3_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "Het perskoppelstuk van de eventuele <a href=\"http://example.com/firebimbuilding#FireHydrant\">muurhydranten</a> is aangepast aan de koppelingen gebruikt door de brandweer."@nl .
+fro:Member_6_8_5_3_1_1_3 a fro:Member ;
+    fro:hasOriginalText "Het perskoppelstuk van de eventuele <a href=\"http://example.com/firebimbuilding#FireHydrant\">muurhydranten</a> is aangepast aan de koppelingen gebruikt door de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a>."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

@@ -1,40 +1,41 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_5_4 a firebim:Section ;
-    firebim:hasID "6.5.4" ;
-    firebim:hasOriginalText "Veiligheidsverlichting."@nl ;
-    firebim:hasArticle firebim:Article_6_5_4_1 .
+fro:Section_6_5_4 a fro:Section ;
+    fro:hasArticle fro:Article_6_5_4_1 ;
+    fro:hasID "6.5.4" ;
+    fro:hasOriginalText "Veiligheidsverlichting."@nl .
 
-firebim:Article_6_5_4_1 a firebim:Article ;
-    firebim:hasID "A6.5.4.1" ;
-    firebim:hasOriginalText """---
-De <a href=\"http://example.com/firebimbuilding#SafetyLighting\">veiligheidsverlichting</a> voldoet aan de voorschriften van de normen NBN EN 1838, NBN EN 60598-2-22 en NBN EN 50172."""@nl ;
-    firebim:hasMember firebim:Member_6_5_4_1_1,
-        firebim:Member_6_5_4_1_2,
-        firebim:Member_6_5_4_1_3 .
+fro:Article_6_5_4_1 a fro:Article ;
+    fro:hasID "A6.5.4.1" ;
+    fro:hasMember fro:Member_6_5_4_1_1,
+        fro:Member_6_5_4_1_2,
+        fro:Member_6_5_4_1_3 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_6_5_4_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Deze <a href=\"http://example.com/firebimbuilding#SafetyLighting\">veiligheidsverlichting</a> mag gevoed worden door de normale <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">stroombron</a>, maar valt deze uit, dan moet de voeding geschieden door één of meerdere <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">autonome stroombron(nen)</a>."""@nl .
+fro:Member_6_5_4_1_1 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#SafetyLighting\">veiligheidsverlichting</a> voldoet aan de voorschriften van de normen NBN EN 1838, NBN EN 60598-2-22 en NBN EN 50172."@nl ;
+    fro:hasReference fro:Reference_NBN_EN_1838,
+        fro:Reference_NBN_EN_50172,
+        fro:Reference_NBN_EN_60598_2_22 .
 
-firebim:Member_6_5_4_1_2 a firebim:Member ;
-    firebim:hasOriginalText """<a href=\"http://example.com/firebimbuilding#AutonomousLightingFixtures\">Autonome verlichtingstoestellen</a> aangesloten op de <a href=\"http://example.com/firebimbuilding#ElectricalConduit\">kring</a> die de betrokken normale verlichting voedt, mogen eveneens gebruikt worden voor zover zij alle waarborgen voor een goede <a href=\"http://example.com/firebimbuilding#OperationType\">werking</a> bieden."""@nl .
+fro:Member_6_5_4_1_2 a fro:Member ;
+    fro:hasOriginalText "Deze <a href=\"http://example.com/firebimbuilding#SafetyLighting\">veiligheidsverlichting</a> mag gevoed worden door de normale stroombron, maar valt deze uit, dan moet de voeding geschieden door één of meerdere <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">autonome stroombron(nen)</a>."@nl .
 
-firebim:Member_6_5_4_1_3 a firebim:Member ;
-    firebim:hasReference firebim:Reference_NBN_EN_1838,
-        firebim:Reference_NBN_EN_60598_2_22,
-        firebim:Reference_NBN_EN_50172 .
+fro:Member_6_5_4_1_3 a fro:Member ;
+    fro:hasOriginalText "<a href=\"http://example.com/firebimbuilding#AutonomousLightingFixtures\">Autonome verlichtingstoestellen</a> aangesloten op de kring die de betrokken normale verlichting voedt, mogen eveneens gebruikt worden voor zover zij alle waarborgen voor een goede werking bieden."@nl .
 
-firebim:Reference_NBN_EN_1838 a firebim:Reference ;
-    firebim:hasID "NBN EN 1838" .
+fro:Reference_NBN_EN_1838 a fro:Reference ;
+    fro:hasID "NBN EN 1838" .
 
-firebim:Reference_NBN_EN_60598_2_22 a firebim:Reference ;
-    firebim:hasID "NBN EN 60598-2-22" .
+fro:Reference_NBN_EN_50172 a fro:Reference ;
+    fro:hasID "NBN EN 50172" .
 
-firebim:Reference_NBN_EN_50172 a firebim:Reference ;
-    firebim:hasID "NBN EN 50172" .
+fro:Reference_NBN_EN_60598_2_22 a fro:Reference ;
+    fro:hasID "NBN EN 60598-2-22" .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

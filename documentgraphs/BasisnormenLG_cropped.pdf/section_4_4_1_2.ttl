@@ -1,65 +1,73 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_4_4_1_2 a firebim:Section ;
-    firebim:hasID "4.4.1.2" ;
-    firebim:hasOriginalText "WORDT BESCHOUWD ALS EEN UITGANG VAN EEN COMPARTIMENT:"@nl ;
-    firebim:hasArticle firebim:Article_4_4_1_2_1 .
+fro:Section_4_4_1_2 a fro:Section ;
+    fro:hasArticle fro:Article_4_4_1_2_1 ;
+    fro:hasID "4.4.1.2" ;
+    fro:hasOriginalText "Wordt beschouwd als een <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a> van een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>:"@nl .
 
-firebim:Article_4_4_1_2_1 a firebim:Article ;
-    firebim:hasID "A4.4.1.2.1" ;
-    firebim:hasMember firebim:Member_4_4_1_2_1_1,
-        firebim:Member_4_4_1_2_1_2,
-        firebim:Member_4_4_1_2_1_3,
-        firebim:Member_4_4_1_2_1_4,
-        firebim:Member_4_4_1_2_1_5,
-        firebim:Member_4_4_1_2_1_6,
-        firebim:Member_4_4_1_2_1_7,
-        firebim:Member_4_4_1_2_1_8,
-        firebim:Member_4_4_1_2_1_9,
-        firebim:Member_4_4_1_2_1_10,
-        firebim:Member_4_4_1_2_1_11 .
+fro:Article_4_4_1_2_1 a fro:Article ;
+    fro:hasID "A4.4.1.2.1" ;
+    fro:hasMember fro:Member_4_4_1_2_1_1,
+        fro:Member_4_4_1_2_1_10,
+        fro:Member_4_4_1_2_1_11,
+        fro:Member_4_4_1_2_1_2,
+        fro:Member_4_4_1_2_1_3,
+        fro:Member_4_4_1_2_1_4,
+        fro:Member_4_4_1_2_1_5,
+        fro:Member_4_4_1_2_1_6,
+        fro:Member_4_4_1_2_1_7,
+        fro:Member_4_4_1_2_1_8,
+        fro:Member_4_4_1_2_1_9 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_4_4_1_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """- een <a href="http://example.com/firebimbuilding#Staircase">binnentrappenhuis</a> conform het punt 4.2;"""@nl .
+fro:Member_4_4_1_2_1_1 a fro:Member ;
+    fro:hasOriginalText "- een <a href=\"http://example.com/firebimbuilding#Staircase\">binnentrappenhuis</a> conform het punt 4.2;"@nl .
 
-firebim:Member_4_4_1_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """- een <a href="http://example.com/firebimbuilding#ExternalStaircase">buitentrappenhuis</a> conform het punt 4.3;"""@nl .
+fro:Member_4_4_1_2_1_10 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#EvacuationSafety\">evacuatie</a> van <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> of een geheel van <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> met <a href=\"http://example.com/firebimbuilding#NightOccupancy\">nachtbezetting</a> gebeurt via <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a> waarvan de <a href=\"http://example.com/firebimbuilding#Wall\">verticale wanden</a> <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 30</a> en de <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI1 30</a> hebben."@nl .
 
-firebim:Member_4_4_1_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText """- een rechtstreekse toegang tot de <a href="http://example.com/firebimbuilding#Outside">open lucht</a> op een <a href="http://example.com/firebimbuilding#EvacuationLevel">evacuatieniveau</a>;"""@nl .
+fro:Member_4_4_1_2_1_11 a fro:Member ;
+    fro:hasOriginalText "Deze eis is niet van toepassing voor de <a href=\"http://example.com/firebimbuilding#EvacuationSafety\">evacuatie</a> van deze <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> indien deze behoren bij de uitbating van een <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> met een <a href=\"http://example.com/firebimbuilding#NonIndustrialActivity\">commerciële functie</a>."@nl .
 
-firebim:Member_4_4_1_2_1_4 a firebim:Member ;
-    firebim:hasOriginalText """- een <a href="http://example.com/firebimbuilding#EvacuationRoute">evacuatieweg</a> op een <a href="http://example.com/firebimbuilding#EvacuationLevel">evacuatieniveau</a> waarvan de verticale <a href="http://example.com/firebimbuilding#InnerWall">binnenwanden</a> <a href="http://example.com/firebimbuilding#FireResistanceRating">EI 60</a> hebben en de <a href="http://example.com/firebimbuilding#Door">deuren</a> van de <a href="http://example.com/firebimbuilding#Room">lokalen</a> die op deze wegen uitgeven <a href="http://example.com/firebimbuilding#IsSelfClosing">zelfsluitend</a> of bij brand <a href="http://example.com/firebimbuilding#IsFireActivatedClosing">zelfsluitend</a> zijn en <a href="http://example.com/firebimbuilding#FireResistanceRating">EI1 30</a> hebben."""@nl .
+fro:Member_4_4_1_2_1_2 a fro:Member ;
+    fro:hasOriginalText "- een <a href=\"http://example.com/firebimbuilding#ExternalStaircase\">buitentrappenhuis</a> conform het punt 4.3;"@nl .
 
-firebim:Member_4_4_1_2_1_5 a firebim:Member ;
-    firebim:hasOriginalText """De in <a href="http://example.com/firebimbuilding#Outside">open lucht</a> af te leggen weg speelt geen rol bij het berekenen van deze afstanden."""@nl .
+fro:Member_4_4_1_2_1_3 a fro:Member ;
+    fro:hasOriginalText "- een rechtstreekse toegang tot de <a href=\"http://example.com/firebimbuilding#ExitsToOutside\">open lucht</a> op een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a>;"@nl .
 
-firebim:Member_4_4_1_2_1_6 a firebim:Member ;
-    firebim:hasOriginalText "---"@nl .
+fro:Member_4_4_1_2_1_4 a fro:Member ;
+    fro:hasOriginalText "- een <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a> op een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> waarvan de <a href=\"http://example.com/firebimbuilding#Wall\">verticale binnenwanden</a> <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a> hebben en de <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> van de <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> die op deze wegen uitgeven <a href=\"http://example.com/firebimbuilding#IsSelfClosing\">zelfsluitend</a> of <a href=\"http://example.com/firebimbuilding#IsFireActivatedClosing\">bij brand zelfsluitend</a> zijn en <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI1 30</a> hebben."@nl .
 
-firebim:Member_4_4_1_2_1_7 a firebim:Member ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#Door">deuren</a> op deze wegen mogen geen vergrendeling bezitten die de <a href="http://example.com/firebimbuilding#EvacuationSafety">evacuatie</a> kan belemmeren."""@nl .
+fro:Member_4_4_1_2_1_5 a fro:Member ;
+    fro:hasOriginalText "De in <a href=\"http://example.com/firebimbuilding#ExitsToOutside\">open lucht</a> af te leggen weg speelt geen rol bij het berekenen van deze afstanden."@nl .
 
-firebim:Member_4_4_1_2_1_8 a firebim:Member ;
-    firebim:hasOriginalText """De eventuele verticale <a href="http://example.com/firebimbuilding#InnerWall">binnenwanden</a> van de <a href="http://example.com/firebimbuilding#EvacuationRoute">evacuatiewegen</a> hebben <a href="http://example.com/firebimbuilding#FireResistanceRating">EI 30</a> en de toegangs<a href="http://example.com/firebimbuilding#Door">deuren</a> tot deze wegen <a href="http://example.com/firebimbuilding#FireResistanceRating">EI1 30</a>."""@nl .
+fro:Member_4_4_1_2_1_6 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> op deze wegen mogen geen vergrendeling bezitten die de <a href=\"http://example.com/firebimbuilding#EvacuationSafety\">evacuatie</a> kan belemmeren."@nl .
 
-firebim:Member_4_4_1_2_1_9 a firebim:Member ;
-    firebim:hasOriginalText """Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn niet van toepassing op de <a href="http://example.com/firebimbuilding#Compartment">compartimenten</a> met uitsluitend <a href="http://example.com/firebimbuilding#DayOccupancy">dagbezetting</a> waarvan de <a href="http://example.com/firebimbuilding#CompartmentArea">oppervlakte</a> geen 1250 m² bereikt."""@nl .
+fro:Member_4_4_1_2_1_7 a fro:Member ;
+    fro:hasOriginalText "De eventuele <a href=\"http://example.com/firebimbuilding#Wall\">verticale binnenwanden</a> van de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a> hebben <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 30</a> en de toegangs<a href=\"http://example.com/firebimbuilding#Door\">deuren</a> tot deze wegen <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI1 30</a>."@nl .
 
-firebim:Member_4_4_1_2_1_10 a firebim:Member ;
-    firebim:hasOriginalText """Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn ook niet van toepassing op de <a href="http://example.com/firebimbuilding#Compartment">compartimenten</a> met uitsluitend <a href="http://example.com/firebimbuilding#DayOccupancy">dagbezetting</a> waarvan de <a href="http://example.com/firebimbuilding#CompartmentArea">oppervlakte</a> kleiner is dan 2500 m² op voorwaarde:
+fro:Member_4_4_1_2_1_8 a fro:Member ;
+    fro:hasOriginalText "Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn niet van toepassing op de <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> met uitsluitend <a href=\"http://example.com/firebimbuilding#DayOccupancy\">dagbezetting</a> waarvan de <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> geen 1250 m² bereikt."@nl .
 
-- dat deze <a href="http://example.com/firebimbuilding#Compartment">compartimenten</a> zijn uitgerust met een <a href="http://example.com/firebimbuilding#AutomaticFireExtinguishingSystem">automatische blusinstallatie</a> van het type <a href="http://example.com/firebimbuilding#SprinklerSystem">sprinkler</a> die is aangepast aan de aanwezige risico's;
-- dat het <a href="http://example.com/firebimbuilding#Building">gebouw</a> is uitgerust met een <a href="http://example.com/firebimbuilding#AutomaticFireDetectionSystem">automatische branddetectie</a> van het type totale bewaking die automatisch een aanduiding van de brandmelding en de plaats ervan aangeeft en waarvan de detectoren aangepast zijn aan de aanwezige risico’s;
-- en dat de producten die gebruikt worden voor de bekleding van verticale <a href="http://example.com/firebimbuilding#Wall">wanden</a>, <a href="http://example.com/firebimbuilding#Ceiling">plafonds</a> en <a href="http://example.com/firebimbuilding#Floor">vloeren</a> van die <a href="http://example.com/firebimbuilding#Compartment">compartimenten</a> voldoen aan de vereisten inzake <a href="http://example.com/firebimbuilding#MaterialClass">reactie bij brand</a> op de <a href="http://example.com/firebimbuilding#EvacuationRoute">evacuatiewegen</a>."""@nl .
+fro:Member_4_4_1_2_1_9 a fro:Member ;
+    fro:hasMember fro:Member_4_4_1_2_1_9_1,
+        fro:Member_4_4_1_2_1_9_2,
+        fro:Member_4_4_1_2_1_9_3 ;
+    fro:hasOriginalText "Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn ook niet van toepassing op de <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> met uitsluitend <a href=\"http://example.com/firebimbuilding#DayOccupancy\">dagbezetting</a> waarvan de <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> kleiner is dan 2500 m² op voorwaarde:"@nl .
 
-firebim:Member_4_4_1_2_1_11 a firebim:Member ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#EvacuationSafety">evacuatie</a> van <a href="http://example.com/firebimbuilding#Room">lokalen</a> of een geheel van <a href="http://example.com/firebimbuilding#Room">lokalen</a> met <a href="http://example.com/firebimbuilding#NightOccupancy">nachtbezetting</a> gebeurt via <a href="http://example.com/firebimbuilding#EvacuationRoute">evacuatiewegen</a> waarvan de verticale <a href="http://example.com/firebimbuilding#Wall">wanden</a> <a href="http://example.com/firebimbuilding#FireResistanceRating">EI 30</a> en de <a href="http://example.com/firebimbuilding#Door">deuren</a> <a href="http://example.com/firebimbuilding#FireResistanceRating">EI1 30</a> hebben.
+fro:Member_4_4_1_2_1_9_1 a fro:Member ;
+    fro:hasOriginalText "- dat deze <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> zijn uitgerust met een <a href=\"http://example.com/firebimbuilding#AutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> van het type <a href=\"http://example.com/firebimbuilding#AutomaticSprinklerSystem\">sprinkler</a> die is aangepast aan de aanwezige risico's;"@nl .
 
-Deze eis is niet van toepassing voor de <a href="http://example.com/firebimbuilding#EvacuationSafety">evacuatie</a> van deze <a href="http://example.com/firebimbuilding#Room">lokalen</a> indien deze behoren bij de uitbating van een <a href="http://example.com/firebimbuilding#Building">gebouw</a> met een commerciële functie."""@nl .
+fro:Member_4_4_1_2_1_9_2 a fro:Member ;
+    fro:hasOriginalText "- dat het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> is uitgerust met een <a href=\"http://example.com/firebimbuilding#AutomaticFireDetection\">automatische branddetectie</a> van het type <a href=\"http://example.com/firebimbuilding#FireDetectionCoverage\">totale bewaking</a> die automatisch een aanduiding van de <a href=\"http://example.com/firebimbuilding#FireAlarmDevice\">brandmelding</a> en de plaats ervan aangeeft en waarvan de <a href=\"http://example.com/firebimbuilding#SmokeDetector\">detectoren</a> aangepast zijn aan de aanwezige risico’s;"@nl .
+
+fro:Member_4_4_1_2_1_9_3 a fro:Member ;
+    fro:hasOriginalText "- en dat de producten die gebruikt worden voor de bekleding van <a href=\"http://example.com/firebimbuilding#Wall\">verticale wanden</a>, <a href=\"http://example.com/firebimbuilding#Ceiling\">plafonds</a> en <a href=\"http://example.com/firebimbuilding#Floor\">vloeren</a> van die <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> voldoen aan de vereisten inzake <a href=\"http://example.com/firebimbuilding#MaterialClass\">reactie bij brand</a> op de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a>."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

@@ -2,7 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix firebim: <http://example.org/firebim#> .
+@prefix fro: <http://example.org/firebim#> .
 @prefix bot: <https://w3id.org/bot#> .
 @prefix bpo: <https://w3id.org/bpo#> .
 @prefix schema: <http://schema.org/> .
@@ -11,83 +11,83 @@
 @prefix ex: <http://example.org/> .
 
 # Compartments (without hardcoded areas)
-ex:Compartment_1 a firebim:Compartment ;
+ex:Compartment_1 a fro:Compartment ;
     rdfs:label "Compartment 1" ;
-    firebim:length 60.0 ;
-    firebim:isGroundFloor true ;
-    firebim:hasAutomaticFireExtinguishing false ;
-    firebim:hasSmokeAndHeatExtraction false ;
+    fro:length 60.0 ;
+    fro:isGroundFloor true ;
+    fro:hasAutomaticFireExtinguishing false ;
+    fro:hasSmokeAndHeatExtraction false ;
     bot:containsSpace ex:Room_101, ex:Room_102 .
 
-ex:Compartment_2 a firebim:Compartment ;
+ex:Compartment_2 a fro:Compartment ;
     rdfs:label "Compartment 2" ;
-    firebim:length 55.0 ;
-    firebim:isGroundFloor true ;
-    firebim:hasAutomaticFireExtinguishing false ;
-    firebim:hasSmokeAndHeatExtraction false ;
+    fro:length 55.0 ;
+    fro:isGroundFloor true ;
+    fro:hasAutomaticFireExtinguishing false ;
+    fro:hasSmokeAndHeatExtraction false ;
     bot:containsSpace ex:Room_103, ex:Room_104 .
 
-ex:Compartment_3 a firebim:Compartment ;
+ex:Compartment_3 a fro:Compartment ;
     rdfs:label "Compartment 3" ;
-    firebim:length 70.0 ;
-    firebim:isGroundFloor false ;
-    firebim:hasAutomaticFireExtinguishing false ;
-    firebim:hasSmokeAndHeatExtraction true ;
+    fro:length 70.0 ;
+    fro:isGroundFloor false ;
+    fro:hasAutomaticFireExtinguishing false ;
+    fro:hasSmokeAndHeatExtraction true ;
     bot:containsSpace ex:Room_201, ex:Room_202, ex:Room_203, ex:Room_204 .
 
 # Spaces (Rooms) remain the same
 ex:Room_101 a bot:Space ;
     rdfs:label "Room 101" ;
-    firebim:area 1000.0 ;
-    firebim:length 40.0 .
+    fro:area 1000.0 ;
+    fro:length 40.0 .
 
 ex:Room_102 a bot:Space ;
     rdfs:label "Room 102" ;
-    firebim:area 1000.0 ;
-    firebim:length 40.0 .
+    fro:area 1000.0 ;
+    fro:length 40.0 .
 
 ex:Room_103 a bot:Space ;
     rdfs:label "Room 103" ;
-    firebim:area 900.0 ;
-    firebim:length 30.0 .
+    fro:area 900.0 ;
+    fro:length 30.0 .
 
 ex:Room_104 a bot:Space ;
     rdfs:label "Room 104" ;
-    firebim:area 900.0 ;
-    firebim:length 30.0 .
+    fro:area 900.0 ;
+    fro:length 30.0 .
 
 ex:Room_201 a bot:Space ;
     rdfs:label "Room 201" ;
-    firebim:area 700.0 ;
-    firebim:length 35.0 .
+    fro:area 700.0 ;
+    fro:length 35.0 .
 
 ex:Room_202 a bot:Space ;
     rdfs:label "Room 202" ;
-    firebim:area 700.0 ;
-    firebim:length 35.0 .
+    fro:area 700.0 ;
+    fro:length 35.0 .
 
 ex:Room_203 a bot:Space ;
     rdfs:label "Room 203" ;
-    firebim:area 1000.0 ;
-    firebim:length 35.0 .
+    fro:area 1000.0 ;
+    fro:length 35.0 .
 
 ex:Room_204 a bot:Space ;
     rdfs:label "Room 204" ;
-    firebim:area 700.0 ;
-    firebim:length 35.0 .
+    fro:area 700.0 ;
+    fro:length 35.0 .
 
 # Fire Door (existing from previous example)
 ex:FireDoor_101 a bot:Element, bpo:Product ;
     rdfs:label "Fire Door 101" ;
     bot:adjacentElement ex:Wall_101 ;
-    firebim:hasState ex:FireDoor_101_State ;
+    fro:hasState ex:FireDoor_101_State ;
     bpo:hasAttribute ex:FireDoor_101_FireRating, ex:FireDoor_101_Material ;
     geo:hasGeometry ex:FireDoor_101_Geometry .
 
 # Fire Door State (existing from previous example)
-ex:FireDoor_101_State a firebim:State ;
+ex:FireDoor_101_State a fro:State ;
     rdfs:label "Fire Door 101 State" ;
-    firebim:currentState "Closed" .
+    fro:currentState "Closed" .
 
 # Fire Door Attributes (existing from previous example)
 ex:FireDoor_101_FireRating a bpo:Attribute ;

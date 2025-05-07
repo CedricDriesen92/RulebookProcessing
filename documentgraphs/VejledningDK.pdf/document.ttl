@@ -1,31 +1,31 @@
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-firebim:Belgian_Government a firebim:Authority ;
-    firebim:hasDocument firebim:RoyalDecree .
+fro:Belgian_Government a fro:Authority ;
+    fro:hasDocument fro:RoyalDecree .
 
-firebim:Section_4_2 firebim:hasSection firebim:Section_4_2_11,
-        firebim:Section_4_2_13,
-        firebim:Section_4_2_5,
-        firebim:Section_4_2_6 .
+fro:Section_4_2 fro:hasSection fro:Section_4_2_11,
+        fro:Section_4_2_13,
+        fro:Section_4_2_5,
+        fro:Section_4_2_6 .
 
-firebim:RoyalDecree a firebim:Document ;
-    firebim:hasID "RoyalDecree1994" ;
-    firebim:issued "1994-07-07"^^xsd:date .
+fro:RoyalDecree a fro:Document ;
+    fro:hasID "RoyalDecree1994" ;
+    fro:issued "1994-07-07"^^xsd:date .
 
-firebim:Section_4_2_11 a firebim:Section ;
-    firebim:hasID "4.2.11" ;
-    firebim:hasOriginalText "SAMMENBYGNING AF FACADE OG BRANDADSKILLENDE BYGNINGSDEL" .
+fro:Section_4_2_11 a fro:Section ;
+    fro:hasID "4.2.11" ;
+    fro:hasOriginalText "SAMMENBYGNING AF FACADE OG BRANDADSKILLENDE BYGNINGSDEL" .
 
-firebim:Section_4_2_13 a firebim:Section ;
-    firebim:hasID "4.2.13" ;
-    firebim:hasOriginalText "BRANDKAM VED BRANDSEKTIONSVÆG FOR HINDRING AF BRANDSPREDNING OVER TAG" .
+fro:Section_4_2_13 a fro:Section ;
+    fro:hasID "4.2.13" ;
+    fro:hasOriginalText "BRANDKAM VED BRANDSEKTIONSVÆG FOR HINDRING AF BRANDSPREDNING OVER TAG" .
 
-firebim:Section_4_2_5 a firebim:Section ;
-    firebim:hasID "4.2.5" ;
-    firebim:hasOriginalText "RISIKO FOR ANTÆNDELSE" .
+fro:Section_4_2_5 a fro:Section ;
+    fro:hasID "4.2.5" ;
+    fro:hasOriginalText "RISIKO FOR ANTÆNDELSE" .
 
-firebim:Section_4_2_6 a firebim:Section ;
-    firebim:hasID "4.2.6" ;
-    firebim:hasOriginalText "INDDELING I BRANDMÆSSIGE ENHEDER SAMT BRANDADSKILLENDE BYGNINGSDELE" .
+fro:Section_4_2_6 a fro:Section ;
+    fro:hasID "4.2.6" ;
+    fro:hasOriginalText "INDDELING I BRANDMÆSSIGE ENHEDER SAMT BRANDADSKILLENDE BYGNINGSDELE" .
 

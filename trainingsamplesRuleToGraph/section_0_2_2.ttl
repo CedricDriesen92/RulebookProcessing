@@ -3,26 +3,26 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_0_2_2 a firebim:Section ;
-    firebim:hasID "0.2.2" ;
-    firebim:hasArticle firebim:Article_0_2_2_1 .
+fro:Section_0_2_2 a fro:Section ;
+    fro:hasID "0.2.2" ;
+    fro:hasArticle fro:Article_0_2_2_1 .
 
-firebim:Article_0_2_2_1 a firebim:Article ;
-    firebim:hasID "A0.2.2.1" ;
-    firebim:hasOriginalText """Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:"""@nl ;
-    firebim:hasMember firebim:Member_0_2_2_1_1, firebim:Member_0_2_2_1_2, firebim:Member_0_2_2_1_3 .
+fro:Article_0_2_2_1 a fro:Article ;
+    fro:hasID "A0.2.2.1" ;
+    fro:hasOriginalText """Uitgesloten van het toepassingsgebied van deze bijlage zijn echter:"""@nl ;
+    fro:hasMember fro:Member_0_2_2_1_1, fro:Member_0_2_2_1_2, fro:Member_0_2_2_1_3 .
 
-firebim:Member_0_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "1.   de industriegebouwen;"@nl .
+fro:Member_0_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText "1.   de industriegebouwen;"@nl .
 
-firebim:Member_0_2_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """2.   de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner
+fro:Member_0_2_2_1_2 a fro:Member ;
+    fro:hasOriginalText """2.   de gebouwen bestaande uit maximaal twee bouwlagen en met een totale oppervlakte kleiner
                  dan of gelijk aan 100 m²;"""@nl .
 
-firebim:Member_0_2_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText "3.   de eengezinswoningen."@nl .
+fro:Member_0_2_2_1_3 a fro:Member ;
+    fro:hasOriginalText "3.   de eengezinswoningen."@nl .
 
-firebim:Section_0_2 firebim:hasSection firebim:Section_0_2_2 .
+fro:Section_0_2 fro:hasSection fro:Section_0_2_2 .

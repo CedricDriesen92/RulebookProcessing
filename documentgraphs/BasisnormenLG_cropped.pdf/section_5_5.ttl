@@ -1,44 +1,65 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_5_5 a firebim:Section ;
-    firebim:hasID "5.5" ;
-    firebim:hasOriginalText "Collectieve keukens"@nl ;
-    firebim:hasArticle firebim:Article_5_5_1 .
+fro:Section_5_5 a fro:Section ;
+    fro:hasArticle fro:Article_5_5_1,
+        fro:Article_5_5_2,
+        fro:Article_5_5_3,
+        fro:Article_5_5_4,
+        fro:Article_5_5_5 ;
+    fro:hasID "5.5" ;
+    fro:hasOriginalText "COLLECTIEVE KEUKENS"@nl .
 
-firebim:Article_5_5_1 a firebim:Article ;
-    firebim:hasID "A5.5.1" ;
-    firebim:hasMember firebim:Member_5_5_1_1,
-        firebim:Member_5_5_1_2,
-        firebim:Member_5_5_1_3,
-        firebim:Member_5_5_1_4,
-        firebim:Member_5_5_1_5,
-        firebim:Member_5_5_1_6 .
+fro:Article_5_5_1 a fro:Article ;
+    fro:hasID "A5.5.1" ;
+    fro:hasMember fro:Member_5_5_1_1 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_5_5_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#Kitchen">collectieve keukens</a>, eventueel met inbegrip van het <a href="http://example.com/firebimbuilding#Restaurant">restaurant</a>, worden van de andere <a href="http://example.com/firebimbuilding#Building">bouwdelen</a> gescheiden door <a href="http://example.com/firebimbuilding#Wall">wanden</a> <a href="http://example.com/firebimbuilding#FireResistanceRating">EI 60</a>."""@nl .
+fro:Article_5_5_2 a fro:Article ;
+    fro:hasID "A5.5.2" ;
+    fro:hasMember fro:Member_5_5_2_1 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_5_5_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Elke <a href="http://example.com/firebimbuilding#Door">doorgang</a> wordt afgesloten door een <a href="http://example.com/firebimbuilding#IsSelfClosing">zelfsluitende</a> of <a href="http://example.com/firebimbuilding#IsFireActivatedClosing">bij brand zelfsluitende</a> <a href="http://example.com/firebimbuilding#Door">deur</a> <a href="http://example.com/firebimbuilding#FireResistanceRating">EI1 30</a>."""@nl .
+fro:Article_5_5_3 a fro:Article ;
+    fro:hasID "A5.5.3" ;
+    fro:hasMember fro:Member_5_5_3_1 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_5_5_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Deze <a href="http://example.com/firebimbuilding#Door">deuren</a> draaien in de vluchtrichting van de <a href="http://example.com/firebimbuilding#Kitchen">keuken</a>."""@nl .
+fro:Article_5_5_4 a fro:Article ;
+    fro:hasID "A5.5.4" ;
+    fro:hasMember fro:Member_5_5_4_1 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_5_5_1_4 a firebim:Member ;
-    firebim:hasOriginalText """Wanneer de <a href="http://example.com/firebimbuilding#Kitchen">keuken</a> en het <a href="http://example.com/firebimbuilding#Restaurant">restaurant</a> van elkaar zijn <a href="http://example.com/firebimbuilding#CompartmentedFromKitchen">gecompartimenteerd</a>, moeten de <a href="http://example.com/firebimbuilding#TransportSystem">horizontale</a> en <a href="http://example.com/firebimbuilding#TransportSystem">verticale transportsystemen</a> tussen <a href="http://example.com/firebimbuilding#Kitchen">keuken</a> en <a href="http://example.com/firebimbuilding#Restaurant">restaurant</a> aan de volgende voorwaarden voldoen:"""@nl ;
-    firebim:hasMember firebim:Member_5_5_1_4_1,
-        firebim:Member_5_5_1_4_2 .
+fro:Article_5_5_5 a fro:Article ;
+    fro:hasID "A5.5.5" ;
+    fro:hasMember fro:Member_5_5_5_1 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_5_5_1_4_1 a firebim:Member ;
-    firebim:hasOriginalText """- dit <a href="http://example.com/firebimbuilding#TransportSystem">transport</a> gebeurt in <a href="http://example.com/firebimbuilding#Shaft">kokers</a> met <a href="http://example.com/firebimbuilding#Wall">wanden</a> <a href="http://example.com/firebimbuilding#FireResistanceRating">EI 60</a> wanneer het door andere <a href="http://example.com/firebimbuilding#Room">lokalen</a> gaat;"""@nl .
+fro:Member_5_5_1_1 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Kitchen\">collectieve keukens</a>, eventueel met inbegrip van het <a href=\"http://example.com/firebimbuilding#Restaurant\">restaurant</a>, worden van de andere <a href=\"http://example.com/firebimbuilding#Building\">bouwdelen</a> gescheiden door <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> EI 60."@nl .
 
-firebim:Member_5_5_1_4_2 a firebim:Member ;
-    firebim:hasOriginalText """- het <a href="http://example.com/firebimbuilding#TransportSystem">transportsysteem</a> wordt ter hoogte van de <a href="http://example.com/firebimbuilding#CompartmentBoundary">compartimentswand</a>(en) afgesloten met een <a href="http://example.com/firebimbuilding#ShaftBarrier">voorziening</a> <a href="http://example.com/firebimbuilding#FireResistanceRating">EI1 60</a>."""@nl .
+fro:Member_5_5_2_1 a fro:Member ;
+    fro:hasOriginalText "Elke doorgang wordt afgesloten door een zelfsluitende of bij <a href=\"http://example.com/firebimbuilding#FireSpreadPrevention\">brand</a> zelfsluitende <a href=\"http://example.com/firebimbuilding#Door\">deur</a> EI1 30."@nl .
 
-firebim:Member_5_5_1_5 a firebim:Member ;
-    firebim:hasOriginalText """Wanneer de <a href="http://example.com/firebimbuilding#Kitchen">keuken</a> niet <a href="http://example.com/firebimbuilding#CompartmentedFromKitchen">gecompartimenteerd</a> is ten opzichte van het <a href="http://example.com/firebimbuilding#Restaurant">restaurant</a>, is elk vast <a href="http://example.com/firebimbuilding#FryingEquipment">frituurtoestel</a> voorzien van een <a href="http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem">vaste automatische blusinstallatie</a> die gekoppeld wordt aan een toestel dat de toevoer van <a href="http://example.com/firebimbuilding#EnergySupplyInterruption">energie</a> naar het <a href="http://example.com/firebimbuilding#FryingEquipment">frituurtoestel</a> onderbreekt."""@nl .
+fro:Member_5_5_3_1 a fro:Member ;
+    fro:hasOriginalText "Deze <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> draaien in de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">vluchtrichting</a> van de <a href=\"http://example.com/firebimbuilding#Kitchen\">keuken</a>."@nl .
+
+fro:Member_5_5_4_1 a fro:Member ;
+    fro:hasMember fro:Member_5_5_4_1_1,
+        fro:Member_5_5_4_1_2 ;
+    fro:hasOriginalText "Wanneer de <a href=\"http://example.com/firebimbuilding#Kitchen\">keuken</a> en het <a href=\"http://example.com/firebimbuilding#Restaurant\">restaurant</a> van elkaar zijn <a href=\"http://example.com/firebimbuilding#Compartment\">gecompartimenteerd</a>, moeten de <a href=\"http://example.com/firebimbuilding#HorizontalShaft\">horizontale</a> en <a href=\"http://example.com/firebimbuilding#VerticalShaft\">verticale</a> <a href=\"http://example.com/firebimbuilding#TransportSystem\">transportsystemen</a> tussen <a href=\"http://example.com/firebimbuilding#Kitchen\">keuken</a> en <a href=\"http://example.com/firebimbuilding#Restaurant\">restaurant</a> aan de volgende voorwaarden voldoen:"@nl .
+
+fro:Member_5_5_4_1_1 a fro:Member ;
+    fro:hasOriginalText "- dit transport gebeurt in <a href=\"http://example.com/firebimbuilding#Shaft\">kokers</a> met <a href=\"http://example.com/firebimbuilding#ShaftWall\">wanden</a> EI 60 wanneer het door andere <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> gaat;"@nl .
+
+fro:Member_5_5_4_1_2 a fro:Member ;
+    fro:hasOriginalText "- het <a href=\"http://example.com/firebimbuilding#TransportSystem\">transportsysteem</a> wordt ter hoogte van de <a href=\"http://example.com/firebimbuilding#CompartmentBoundary\">compartimentswand</a>(en) afgesloten met een <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">voorziening</a> EI1 60."@nl .
+
+fro:Member_5_5_5_1 a fro:Member ;
+    fro:hasOriginalText "Wanneer de <a href=\"http://example.com/firebimbuilding#Kitchen\">keuken</a> niet <a href=\"http://example.com/firebimbuilding#Compartment\">gecompartimenteerd</a> is ten opzichte van het <a href=\"http://example.com/firebimbuilding#Restaurant\">restaurant</a>, is elk vast <a href=\"http://example.com/firebimbuilding#FryingEquipment\">frituurtoestel</a> voorzien van een vaste <a href=\"http://example.com/firebimbuilding#AutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> die gekoppeld wordt aan een toestel dat de toevoer van <a href=\"http://example.com/firebimbuilding#EnergySupplyInterruption\">energie</a> naar het <a href=\"http://example.com/firebimbuilding#FryingEquipment\">frituurtoestel</a> onderbreekt."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

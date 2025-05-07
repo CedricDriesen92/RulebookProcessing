@@ -1,25 +1,7 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 
-firebim:Section_3_5_2_2_1 a firebim:Section ;
-    firebim:hasID "3.5.2.2.1" ;
-    firebim:hasOriginalText "Dubbelwandige gevel waarvan de binnenwand brandwerend is."@nl ;
-    firebim:hasArticle firebim:Article_3_5_2_2_1_1 .
+fro:Section_3_5_2_2_1 a fro:Section ;
+    fro:hasID "3.5.2.2.1" ;
+    fro:hasOriginalText """<a href="http://example.com/firebimbuilding#DoubleSkinnedFacade">Dubbelwandige gevel</a> waarvan de <a href="http://example.com/firebimbuilding#InnerWallFireResistance">binnenwand</a> <a href="http://example.com/firebimbuilding#FireResistance">brandwerend</a> is.
+De <a href="http://example.com/firebimbuilding#Facade">buitenwand</a> van de <a href="http://example.com/firebimbuilding#DoubleSkinnedFacade">dubbelwandige gevel</a> bestaat <a href="http://example.com/firebimbuilding#FacadeSpandrel">tussen de verdiepingen</a> voor minstens 50%"""@nl .
 
-firebim:Article_3_5_2_2_1_1 a firebim:Article ;
-    firebim:hasID "A3.5.2.2.1.1" ;
-    firebim:hasMember firebim:Member_3_5_2_2_1_1_1,
-        firebim:Member_3_5_2_2_1_1_2 .
-
-firebim:Member_3_5_2_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """<a href=\"http://example.com/firebimbuilding#DoubleSkinnedFacade\">Dubbelwandige gevel</a> waarvan de <a href=\"http://example.com/firebimbuilding#InnerWall\">binnenwand</a> <a href=\"http://example.com/firebimbuilding#FireResistance\">brandwerend</a> is."""@nl .
-
-firebim:Member_3_5_2_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#Facade\">buitenwand</a> van de <a href=\"http://example.com/firebimbuilding#DoubleSkinnedFacade\">dubbelwandige gevel</a> bestaat tussen de <a href=\"http://example.com/firebimbuilding#Floor\">verdiepingen</a> voor minstens 50%"""@nl .
-
-firebim:Section_3_5_2_2 firebim:hasSection firebim:Section_3_5_2_2_1 .

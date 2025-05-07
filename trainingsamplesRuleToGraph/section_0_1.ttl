@@ -3,25 +3,25 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_0_1 a firebim:Section ;
-    firebim:hasID "0.1" ;
-    firebim:hasOriginalText "Doel."@nl ;
-    firebim:hasArticle firebim:Article_0_1_1 .
+fro:Section_0_1 a fro:Section ;
+    fro:hasID "0.1" ;
+    fro:hasOriginalText "Doel."@nl ;
+    fro:hasArticle fro:Article_0_1_1 .
 
-firebim:Article_0_1_1 a firebim:Article ;
-    firebim:hasID "A0.1.1" ;
-    firebim:hasOriginalText """Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de bouw en de
+fro:Article_0_1_1 a fro:Article ;
+    fro:hasID "A0.1.1" ;
+    fro:hasOriginalText """Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de bouw en de
 inrichting van lage gebouwen (LG) moeten voldoen om:"""@nl ;
-    firebim:hasMember firebim:Member_0_1_1_1, firebim:Member_0_1_1_2, firebim:Member_0_1_1_3 .
+    fro:hasMember fro:Member_0_1_1_1, fro:Member_0_1_1_2, fro:Member_0_1_1_3 .
 
-firebim:Member_0_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;"@nl .
+fro:Member_0_1_1_1 a fro:Member ;
+    fro:hasOriginalText "het ontstaan, de ontwikkeling en de voortplanting van brand te voorkomen;"@nl .
 
-firebim:Member_0_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "de veiligheid van de aanwezigen te waarborgen;"@nl .
+fro:Member_0_1_1_2 a fro:Member ;
+    fro:hasOriginalText "de veiligheid van de aanwezigen te waarborgen;"@nl .
 
-firebim:Member_0_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "preventief het ingrijpen van de brandweer te vergemakkelijken."@nl .
+fro:Member_0_1_1_3 a fro:Member ;
+    fro:hasOriginalText "preventief het ingrijpen van de brandweer te vergemakkelijken."@nl .

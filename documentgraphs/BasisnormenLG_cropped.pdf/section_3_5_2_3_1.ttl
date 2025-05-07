@@ -1,25 +1,25 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_3_5_2_3_1 a firebim:Section ;
-    firebim:hasID "3.5.2.3.1" ;
-    firebim:hasOriginalText "Bediening"@nl ;
-    firebim:hasArticle firebim:Article_3_5_2_3_1_1 .
+fro:Section_3_5_2_3_1 a fro:Section ;
+    fro:hasArticle fro:Article_3_5_2_3_1_1 ;
+    fro:hasID "3.5.2.3.1" ;
+    fro:hasOriginalText "Bediening"@nl .
 
-firebim:Section_3_5_2_3 firebim:hasSection firebim:Section_3_5_2_3_1 .
+fro:Article_3_5_2_3_1_1 a fro:Article ;
+    fro:hasID "A3.5.2.3.1.1" ;
+    fro:hasMember fro:Member_3_5_2_3_1_1_1,
+        fro:Member_3_5_2_3_1_1_2 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Article_3_5_2_3_1_1 a firebim:Article ;
-    firebim:hasID "A3.5.2.3.1.1" ;
-    firebim:hasMember firebim:Member_3_5_2_3_1_1_1,
-        firebim:Member_3_5_2_3_1_1_2 .
+fro:Member_3_5_2_3_1_1_1 a fro:Member ;
+    fro:hasOriginalText "De sluiting / opening wordt bevolen door een <a href=\"http://example.com/firebimbuilding#AutomaticFireDetectionSystem\">automatische branddetectie-installatie</a>."@nl .
 
-firebim:Member_3_5_2_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#ClosureActivation\">sluiting</a> / <a href=\"http://example.com/firebimbuilding#OpeningDirection\">opening</a> wordt bevolen door een automatische <a href=\"http://example.com/firebimbuilding#FireDetectionSystem\">branddetectie-installatie</a>."""@nl .
+fro:Member_3_5_2_3_1_1_2 a fro:Member ;
+    fro:hasOriginalText "De installatie wordt uitgerust met <a href=\"http://example.com/firebimbuilding#ManualControlSystem\">manuele openings- en sluitingssystemen</a>. De bediening ervan is voorbehouden aan de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a>. De plaats ervan moet bepaald worden in akkoord met de brandweer."@nl .
 
-firebim:Member_3_5_2_3_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De installatie wordt uitgerust met manuele <a href=\"http://example.com/firebimbuilding#ManualControlSystem\">openings- en sluitingssystemen</a>. De bediening ervan is voorbehouden aan de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a>. De plaats ervan moet bepaald worden in akkoord met de <a href=\"http://example.com/firebimbuilding#FireDepartmentApproval\">brandweer</a>."""@nl .
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

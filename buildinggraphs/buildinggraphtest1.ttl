@@ -2,7 +2,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix firebim: <http://example.org/firebim#> .
+@prefix fro: <http://example.org/firebim#> .
 @prefix bot: <https://w3id.org/bot#> .
 @prefix bpo: <https://w3id.org/bpo#> .
 @prefix schema: <http://schema.org/> .
@@ -13,7 +13,7 @@
 # Building
 ex:Building_A a bot:Building ;
     rdfs:label "Building A" ;
-    firebim:hasSpace ex:Floor_1 .
+    fro:hasSpace ex:Floor_1 .
 
 # Storey
 ex:Floor_1 a bot:Storey ;
@@ -26,21 +26,21 @@ ex:Room_101 a bot:Space ;
     rdfs:label "Room 101" ;
     bot:hasElement ex:FireDoor_101 ;
     bot:isPartOf ex:Floor_1 ;
-    firebim:hasArea 1000 ;
-    firebim:inCompartment ex:Compartment_1 .
+    fro:hasArea 1000 ;
+    fro:inCompartment ex:Compartment_1 .
 
 # Fire Door
 ex:FireDoor_101 a bot:Element, bpo:Product ;
     rdfs:label "Fire Door 101" ;
     bot:adjacentElement ex:Wall_101 ;
-    firebim:hasState ex:FireDoor_101_State ;
+    fro:hasState ex:FireDoor_101_State ;
     bpo:hasAttribute ex:FireDoor_101_FireRating, ex:FireDoor_101_Material ;
     geo:hasGeometry ex:FireDoor_101_Geometry .
 
 # Fire Door State
-ex:FireDoor_101_State a firebim:State ;
+ex:FireDoor_101_State a fro:State ;
     rdfs:label "Fire Door 101 State" ;
-    firebim:currentState "Closed" .
+    fro:currentState "Closed" .
 
 # Fire Door Attributes
 ex:FireDoor_101_FireRating a bpo:Attribute ;

@@ -66,7 +66,7 @@ SH = Namespace("http://www.w3.org/ns/shacl#")
 
 def extract_rule_text_from_ttl(ttl_content: str) -> dict[str, list[str]]:
     """
-    Parses TTL content to extract rule text (firebim:hasOriginalText) associated
+    Parses TTL content to extract rule text (fro:hasOriginalText) associated
     with each Article, including text from its Members.
     Returns a dictionary mapping {article_uri: [list_of_texts]}.
     """
@@ -81,16 +81,16 @@ def extract_rule_text_from_ttl(ttl_content: str) -> dict[str, list[str]]:
     article_texts_map = defaultdict(list)
 
     # Query for Articles and their optional direct text, and their Members' optional text.
-    # Assumes 'firebim:hasMember' links Articles to Members. Adjust if needed.
+    # Assumes 'fro:hasMember' links Articles to Members. Adjust if needed.
     query = """
     SELECT ?article ?articleText ?memberText
     WHERE {
-        ?article rdf:type firebim:Article .
-        OPTIONAL { ?article firebim:hasOriginalText ?articleText . }
+        ?article rdf:type fro:Article .
+        OPTIONAL { ?article fro:hasOriginalText ?articleText . }
         OPTIONAL {
-            ?article firebim:hasMember ?member .
-            ?member rdf:type firebim:Member .
-            ?member firebim:hasOriginalText ?memberText .
+            ?article fro:hasMember ?member .
+            ?member rdf:type fro:Member .
+            ?member fro:hasOriginalText ?memberText .
         }
     }
     """
@@ -355,7 +355,7 @@ def generate_shacl_from_rase(rase_annotated_rule: str, rule_subject_uri: str, bu
     shacl_placeholder = f"""
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix firebim: <{FIREBIM}> .
+@prefix fro: <{FIREBIM}> .
 # Add other prefixes (FBBO, INST, etc.)
 
 # SHACL Shape derived from inline RASE annotated text for {rule_subject_uri}
@@ -363,13 +363,13 @@ def generate_shacl_from_rase(rase_annotated_rule: str, rule_subject_uri: str, bu
 <{shape_name}>
     a sh:NodeShape ;
     # TODO: Determine target based on <a> tags and potentially outer tag {outer_tag}
-    sh:targetClass firebim:PlaceholderTarget ;
+    sh:targetClass fro:PlaceholderTarget ;
     sh:message "Placeholder shape based on inline RASE annotation (Outer: {outer_tag}) for {rule_subject_uri}" ;
     # TODO: Add constraints based on <r> tags
     # TODO: Add filters/negations based on <e> tags (potentially using sh:not if outer_tag is E)
     # TODO: Add logic based on <s> tags
     sh:property [
-        sh:path firebim:placeholderProperty ; # TODO: Determine property path
+        sh:path fro:placeholderProperty ; # TODO: Determine property path
         sh:minCount 1 ; # Example constraint
     ] .
 """

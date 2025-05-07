@@ -1,19 +1,21 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_1_2 a firebim:Section ;
-    firebim:hasID "1.2" ;
-    firebim:hasOriginalText "Bijgebouwen"@nl ;
-    firebim:hasArticle firebim:Article_1_2_1 .
+fro:Section_1_2 a fro:Section ;
+    fro:hasArticle fro:Article_1_2_1 ;
+    fro:hasID "1.2" ;
+    fro:hasOriginalText "Bijgebouwen"@nl .
 
-firebim:Article_1_2_1 a firebim:Article ;
-    firebim:hasID "A1.2.1" ;
-    firebim:hasMember firebim:Member_1_2_1_1 .
+fro:Article_1_2_1 a fro:Article ;
+    fro:hasID "A1.2.1" ;
+    fro:hasMember fro:Member_1_2_1_1 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_1_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """<a href=\"http://example.com/firebimbuilding#BuildingExtension\">Bijgebouwen</a>, <a href=\"http://example.com/firebimbuilding#OverhangingRoofs\">uitspringende daken</a>, <a href=\"http://example.com/firebimbuilding#Canopies\">luifels</a>, <a href=\"http://example.com/firebimbuilding#CantileveredParts\">uitkragende delen</a> of andere dergelijke toevoegingen zijn enkel toegelaten indien daardoor noch de <a href=\"http://example.com/firebimbuilding#EvacuationSafety\">evacuatie</a>, noch de <a href=\"http://example.com/firebimbuilding#UserSafety\">veiligheid van de gebruikers</a>, noch de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">actie van de brandweer</a> in het gedrang komen."""@nl .
+fro:Member_1_2_1_1 a fro:Member ;
+    fro:hasOriginalText "Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen zijn enkel toegelaten indien daardoor noch de <a href=\"http://example.com/firebimbuilding#EvacuationSafety\">evacuatie</a>, noch de <a href=\"http://example.com/firebimbuilding#UserSafety\">veiligheid van de gebruikers</a>, noch de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">actie van de brandweer</a> in het gedrang komen."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

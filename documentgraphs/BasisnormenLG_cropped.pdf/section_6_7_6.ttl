@@ -1,22 +1,25 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_7_6 a firebim:Section ;
-    firebim:hasID "6.7.6" ;
-    firebim:hasOriginalText "Bediening bij brand van de aëraulische installaties"@nl ;
-    firebim:hasArticle firebim:Article_6_7_6_1 .
+fro:Section_6_7_6 a fro:Section ;
+    fro:hasArticle fro:Article_6_7_6_1 ;
+    fro:hasID "6.7.6" ;
+    fro:hasOriginalText "Bediening bij brand van de aëraulische installaties"@nl .
 
-firebim:Article_6_7_6_1 a firebim:Article ;
-    firebim:hasID "A6.7.6.1" ;
-    firebim:hasMember firebim:Member_6_7_6_1_1, firebim:Member_6_7_6_1_2 .
+fro:Article_6_7_6_1 a fro:Article ;
+    fro:hasID "A6.7.6.1" ;
+    fro:hasMember fro:Member_6_7_6_1_1,
+        fro:Member_6_7_6_1_2 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_6_7_6_1_1 a firebim:Member ;
-    firebim:hasOriginalText """In de zones van het gebouw, die uitgerust zijn met een <a href=\"http://example.com/firebimbuilding#FireDetectionSystem\">branddetectie-installatie</a>, worden de <a href=\"http://example.com/firebimbuilding#AirHandlingUnit\">luchtbehandelingsgroepen</a> die enkel het geteisterde <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> bedienen, stilgelegd bij detectie van <a href=\"http://example.com/firebimbuilding#Fire\">brand</a>."""@nl .
+fro:Member_6_7_6_1_1 a fro:Member ;
+    fro:hasOriginalText "In de zones van het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a>, die uitgerust zijn met een <a href=\"http://example.com/firebimbuilding#FireDetectionSystem\">branddetectie-installatie</a>, worden de <a href=\"http://example.com/firebimbuilding#AirHandlingUnit\">luchtbehandelingsgroepen</a> die enkel het geteisterde <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> bedienen, stilgelegd bij detectie van <a href=\"http://example.com/firebimbuilding#Fire\">brand</a>."@nl .
 
-firebim:Member_6_7_6_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De plaatsing van een <a href=\"http://example.com/firebimbuilding#CentralFireControlPanel\">centraal brandbedieningsbord</a> om bepaalde elementen uit de <a href=\"http://example.com/firebimbuilding#AeraulicSystem\">aëraulische installaties</a> te bedienen, kan in bijzondere gevallen door de bevoegde brandweerdienst opgelegd worden. In dit geval wordt dit bord geplaatst op een punt dat gemakkelijk bereikbaar is voor de brandweer en dat gelegen is op het gebruikelijke <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">toegangsniveau</a>."""@nl .
+fro:Member_6_7_6_1_2 a fro:Member ;
+    fro:hasOriginalText "De plaatsing van een <a href=\"http://example.com/firebimbuilding#CentralFireControlPanel\">centraal brandbedieningsbord</a> om bepaalde elementen uit de <a href=\"http://example.com/firebimbuilding#AeraulicSystem\">aëraulische installaties</a> te bedienen, kan in bijzondere gevallen door de bevoegde <a href=\"http://example.com/firebimbuilding#FireDepartment\">brandweerdienst</a> opgelegd worden. In dit geval wordt dit bord geplaatst op een punt dat gemakkelijk bereikbaar is voor de <a href=\"http://example.com/firebimbuilding#Firefighter\">brandweer</a> en dat gelegen is op het gebruikelijke <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">toegangsniveau</a>."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

@@ -1,11 +1,6 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 
-firebim:Section_4_2_2_4 a firebim:Section ;
-    firebim:hasID "4.2.2.4" ;
-    firebim:hasOriginalText """Indien verscheidene <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> in eenzelfde horizontaal vlak liggen, mogen zij een of"""@nl .
+fro:Section_4_2_2_4 a fro:Section ;
+    fro:hasID "4.2.2.4" ;
+    fro:hasOriginalText "Indien verscheidene <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> in eenzelfde <a href=\"http://example.com/firebimbuilding#Floor\">horizontaal vlak</a> liggen, mogen zij een of"@nl .
+

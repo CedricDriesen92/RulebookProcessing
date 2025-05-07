@@ -1,19 +1,21 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_1 a firebim:Section ;
-    firebim:hasID "1" ;
-    firebim:hasOriginalText "INPLANTING EN <a href=\"http://example.com/firebimbuilding#AccessRoad\">TOEGANGSWEGEN</a>."@nl ;
-    firebim:hasArticle firebim:Article_1_1 .
+fro:Section_1 a fro:Section ;
+    fro:hasArticle fro:Article_1_1 ;
+    fro:hasID "1" ;
+    fro:hasOriginalText "INPLANTING EN <a href=\"http://example.com/firebimbuilding#AccessRoad\">TOEGANGSWEGEN</a>."@nl .
 
-firebim:Article_1_1 a firebim:Article ;
-    firebim:hasID "A1.1" ;
-    firebim:hasMember firebim:Member_1_1_1 .
+fro:Article_1_1 a fro:Article ;
+    fro:hasID "A1.1" ;
+    fro:hasMember fro:Member_1_1_1 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#AccessRoad\">toegangswegen</a> bedoeld in punt 1.1 worden bepaald in akkoord met de <a href=\"http://example.com/firebimbuilding#FireDepartmentApproval\">brandweer</a>, volgens de volgende leidraad."""@nl .
+fro:Member_1_1_1 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#AccessRoad\">toegangswegen</a> bedoeld in punt 1.1 worden bepaald in <a href=\"http://example.com/firebimbuilding#FireDepartmentApproval\">akkoord met de brandweer</a>, volgens de volgende leidraad."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

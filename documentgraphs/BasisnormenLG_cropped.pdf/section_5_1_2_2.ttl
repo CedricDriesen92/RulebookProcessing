@@ -1,19 +1,21 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_5_1_2_2 a firebim:Section ;
-    firebim:hasID "5.1.2.2" ;
-    firebim:hasOriginalText "Gemeenschappelijke bepalingen"@nl ;
-    firebim:hasArticle firebim:Article_5_1_2_2_1 .
+fro:Section_5_1_2_2 a fro:Section ;
+    fro:hasArticle fro:Article_5_1_2_2_1 ;
+    fro:hasID "5.1.2.2" ;
+    fro:hasOriginalText "Gemeenschappelijke bepalingen"@nl .
 
-firebim:Article_5_1_2_2_1 a firebim:Article ;
-    firebim:hasID "A5.1.2.2.1" ;
-    firebim:hasMember firebim:Member_5_1_2_2_1_1 .
+fro:Article_5_1_2_2_1 a fro:Article ;
+    fro:hasID "A5.1.2.2.1" ;
+    fro:hasMember fro:Member_5_1_2_2_1_1 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_5_1_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Het ontwerp, de <a href=\"http://example.com/firebimbuilding#ConstructionCompliance\">bouw</a> en de <a href=\"http://example.com/firebimbuilding#LayoutCompliance\">inrichting</a> van de <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookafdelingen</a> voldoen aan de bepalingen van punt 4 van bijlage 7."""@nl .
+fro:Member_5_1_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText "Het <a href=\"http://example.com/firebimbuilding#DesignCompliance\">ontwerp</a>, de <a href=\"http://example.com/firebimbuilding#ConstructionCompliance\">bouw</a> en de <a href=\"http://example.com/firebimbuilding#LayoutCompliance\">inrichting</a> van de <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookafdelingen</a> voldoen aan de bepalingen van <a href=\"http://example.com/firebimbuilding#SectionNumber\">punt 4</a> van <a href=\"http://example.com/firebimbuilding#Annexes\">bijlage 7</a>."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

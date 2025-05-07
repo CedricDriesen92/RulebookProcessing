@@ -1,76 +1,77 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_2_1 a firebim:Section ;
-    firebim:hasID "2.1" ;
-    firebim:hasOriginalText "Grootte van de compartimenten"@nl ;
-    firebim:hasArticle firebim:Article_2_1_1,
-        firebim:Article_2_1_2 .
+fro:Section_2_1 a fro:Section ;
+    fro:hasArticle fro:Article_2_1_1,
+        fro:Article_2_1_2 ;
+    fro:hasID "2.1" ;
+    fro:hasOriginalText "Grootte van de compartimenten"@nl .
 
-firebim:Article_2_1_1 a firebim:Article ;
-    firebim:hasID "A2.1.1" ;
-    firebim:hasMember firebim:Member_2_1_1_1,
-        firebim:Member_2_1_1_2,
-        firebim:Member_2_1_1_3,
-        firebim:Member_2_1_1_4 .
+fro:Article_2_1_1 a fro:Article ;
+    fro:hasID "A2.1.1" ;
+    fro:hasMember fro:Member_2_1_1_1,
+        fro:Member_2_1_1_2,
+        fro:Member_2_1_1_3,
+        fro:Member_2_1_1_4 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Het gebouw is verdeeld in <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> waarvan de <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> kleiner is dan 2500 m², met uitzondering van de <a href=\"http://example.com/firebimbuilding#Parking\">parkings</a> (zie 5.2)."""@nl ;
-    firebim:hasForwardReference firebim:Section_5_2 .
+fro:Article_2_1_2 a fro:Article ;
+    fro:hasID "A2.1.2" ;
+    fro:hasMember fro:Member_2_1_2_1,
+        fro:Member_2_1_2_2 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De maximale <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> van een <a href=\"http://example.com/firebimbuilding#Building\">gelijkvloers gebouw</a> bestaande uit één <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> mag 3500 m² bedragen."""@nl .
+fro:Member_2_1_1_1 a fro:Member ;
+    fro:hasForwardReference fro:Section_5_2 ;
+    fro:hasOriginalText "Het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> is verdeeld in <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> waarvan de <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> kleiner is dan 2500 m², met uitzondering van de <a href=\"http://example.com/firebimbuilding#Parking\">parkings</a> (zie 5.2)."@nl .
 
-firebim:Member_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#CompartmentLength\">lengte van dit compartiment</a> bedraagt niet meer dan 90 m."""@nl .
+fro:Member_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "De maximale <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> van een <a href=\"http://example.com/firebimbuilding#Building\">gelijkvloers gebouw</a> bestaande uit één <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> mag 3500 m² bedragen."@nl .
 
-firebim:Member_2_1_1_4 a firebim:Member ;
-    firebim:hasOriginalText """De maximale <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> van een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> mag, respectievelijk, groter dan ofwel 2500 m², ofwel 3500 m² bedragen indien het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> is uitgerust met een <a href=\"http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> en een <a href=\"http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem\">rook- en warmteafvoerinstallatie</a>."""@nl ;
-    firebim:hasMember firebim:Member_2_1_1_4_1 .
+fro:Member_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Length\">lengte</a> van dit <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> bedraagt niet meer dan 90 m."@nl .
 
-firebim:Member_2_1_1_4_1 a firebim:Member ;
-    firebim:hasOriginalText """De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de grootte van het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat een <a href=\"http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> en/of een <a href=\"http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem\">rook- en warmteafvoerinstallatie</a> moet voorzien worden."""@nl .
+fro:Member_2_1_1_4 a fro:Member ;
+    fro:hasMember fro:Member_2_1_1_4_1 ;
+    fro:hasOriginalText "De maximale <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> van een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> mag, respectievelijk, groter dan ofwel 2500 m², ofwel 3500 m² bedragen indien het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> is uitgerust met een <a href=\"http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> en een <a href=\"http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem\">rook- en warmteafvoerinstallatie</a>."@nl .
 
-firebim:Article_2_1_2 a firebim:Article ;
-    firebim:hasID "A2.1.2" ;
-    firebim:hasMember firebim:Member_2_1_2_1,
-        firebim:Member_2_1_2_2 .
+fro:Member_2_1_1_4_1 a fro:Member ;
+    fro:hasOriginalText "De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de grootte van het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> respectievelijk ofwel 2500 m² ofwel 3500 m² zonder dat een <a href=\"http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> en/of een <a href=\"http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem\">rook- en warmteafvoerinstallatie</a> moet voorzien worden."@nl .
 
-firebim:Member_2_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#CompartmentHeight\">hoogte van een compartiment</a> stemt overeen met de <a href=\"http://example.com/firebimbuilding#BuildingHeight\">hoogte van één bouwlaag</a>."""@nl .
+fro:Member_2_1_2_1 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#CompartmentHeight\">hoogte van een compartiment</a> stemt overeen met de <a href=\"http://example.com/firebimbuilding#BuildingHeight\">hoogte van één bouwlaag</a>."@nl .
 
-firebim:Member_2_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText """De volgende uitzonderingen zijn nochtans toegestaan:"""@nl ;
-    firebim:hasMember firebim:Member_2_1_2_2_1,
-        firebim:Member_2_1_2_2_2,
-        firebim:Member_2_1_2_2_3,
-        firebim:Member_2_1_2_2_4,
-        firebim:Member_2_1_2_2_5 .
+fro:Member_2_1_2_2 a fro:Member ;
+    fro:hasMember fro:Member_2_1_2_2_1,
+        fro:Member_2_1_2_2_2,
+        fro:Member_2_1_2_2_3,
+        fro:Member_2_1_2_2_4,
+        fro:Member_2_1_2_2_5 ;
+    fro:hasOriginalText "De volgende uitzonderingen zijn nochtans toegestaan:"@nl .
 
-firebim:Member_2_1_2_2_1 a firebim:Member ;
-    firebim:hasOriginalText """a)   de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> met <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> (zie 5.2);"""@nl ;
-    firebim:hasForwardReference firebim:Section_5_2 .
+fro:Member_2_1_2_2_1 a fro:Member ;
+    fro:hasForwardReference fro:Section_5_2 ;
+    fro:hasOriginalText "a)   de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> met <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> (zie 5.2);"@nl .
 
-firebim:Member_2_1_2_2_2 a firebim:Member ;
-    firebim:hasOriginalText """b)   een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> mag zich uitstrekken over twee boven elkaar gelegen <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> met een <a href=\"http://example.com/firebimbuilding#Staircase\">binnenverbindingstrap</a> (<a href=\"http://example.com/firebimbuilding#IsDuplex\">duplex</a>), indien de gecumuleerde <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> van die <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> niet groter is dan 2500 m²;"""@nl .
+fro:Member_2_1_2_2_2 a fro:Member ;
+    fro:hasOriginalText "b)   een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> mag zich uitstrekken over twee <a href=\"http://example.com/firebimbuilding#AdjacentFloors\">boven elkaar gelegen bouwlagen</a> met een <a href=\"http://example.com/firebimbuilding#Staircase\">binnenverbindingstrap</a> (duplex), indien de gecumuleerde <a href=\"http://example.com/firebimbuilding#LevelArea\">oppervlakte van die bouwlagen</a> niet groter is dan 2500 m²;"@nl .
 
-firebim:Member_2_1_2_2_3 a firebim:Member ;
-    firebim:hasOriginalText """c)   de  <a href=\"http://example.com/firebimbuilding#CompartmentHeight\">hoogte van een compartiment</a> mag zich uitstrekken over drie boven elkaar gelegen <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> met een <a href=\"http://example.com/firebimbuilding#Staircase\">binnenverbindingstrap</a> (<a href=\"http://example.com/firebimbuilding#IsTriplex\">triplex</a>), voor zover de som van hun gecumuleerde <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> de 300 m² niet overschrijdt, en dat dit <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> is  uitgerust  met  een <a href=\"http://example.com/firebimbuilding#AutomaticFireDetection\">automatische branddetectie</a> van het type totale bewaking die automatisch een aanduiding van de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico's;"""@nl .
+fro:Member_2_1_2_2_3 a fro:Member ;
+    fro:hasOriginalText "c)   de <a href=\"http://example.com/firebimbuilding#CompartmentHeight\">hoogte van een compartiment</a> mag zich uitstrekken over drie <a href=\"http://example.com/firebimbuilding#AdjacentFloors\">boven elkaar gelegen bouwlagen</a> met een <a href=\"http://example.com/firebimbuilding#Staircase\">binnenverbindingstrap</a> (triplex), voor zover de som van hun gecumuleerde <a href=\"http://example.com/firebimbuilding#LevelArea\">oppervlakte</a> de 300 m² niet overschrijdt, en dat dit <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> is uitgerust met een <a href=\"http://example.com/firebimbuilding#HasAutomaticFireDetectionSystem\">automatische branddetectie</a> van het type totale bewaking die automatisch een aanduiding van de <a href=\"http://example.com/firebimbuilding#FireAlarmDevicePresent\">brandmelding</a> geeft en waarvan de <a href=\"http://example.com/firebimbuilding#SmokeDetector\">detectoren</a> aangepast zijn aan de aanwezige risico's;"@nl .
 
-firebim:Member_2_1_2_2_4 a firebim:Member ;
-    firebim:hasOriginalText """d)   de  <a href=\"http://example.com/firebimbuilding#CompartmentHeight\">hoogte van een compartiment</a> mag zich uitstrekken over verscheidene boven elkaar geplaatste <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a>, indien dit <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> slechts <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">technische lokalen</a> omvat (zie 5.1.1)."""@nl ;
-    firebim:hasForwardReference firebim:Section_5_1_1 .
+fro:Member_2_1_2_2_4 a fro:Member ;
+    fro:hasForwardReference fro:Section_5_1_1 ;
+    fro:hasOriginalText "d)   de <a href=\"http://example.com/firebimbuilding#CompartmentHeight\">hoogte van een compartiment</a> mag zich uitstrekken over <a href=\"http://example.com/firebimbuilding#AdjacentFloors\">verscheidene boven elkaar geplaatste bouwlagen</a>, indien dit <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> slechts <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">technische lokalen</a> omvat (zie 5.1.1)."@nl .
 
-firebim:Member_2_1_2_2_5 a firebim:Member ;
-    firebim:hasOriginalText """e)   de <a href=\"http://example.com/firebimbuilding#CompartmentHeight\">hoogte van een compartiment</a> mag zich uitstrekken over verscheidene <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> (<a href=\"http://example.com/firebimbuilding#IsAtrium\">atrium</a>) op voorwaarde:"""@nl ;
-    firebim:hasMember firebim:Member_2_1_2_2_5_1 .
+fro:Member_2_1_2_2_5 a fro:Member ;
+    fro:hasMember fro:Member_2_1_2_2_5_1 ;
+    fro:hasOriginalText "e)   de <a href=\"http://example.com/firebimbuilding#CompartmentHeight\">hoogte van een compartiment</a> mag zich uitstrekken over verscheidene <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> (<a href=\"http://example.com/firebimbuilding#IsAtrium\">atrium</a>) op voorwaarde:"@nl .
 
-firebim:Member_2_1_2_2_5_1 a firebim:Member ;
-    firebim:hasOriginalText """dat dit <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> is uitgerust met een <a href=\"http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> en een <a href=\"http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem\">rook- en warmteafvoerinstallatie</a>. De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een <a href=\"http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> en een <a href=\"http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem\">rook- en warmteafvoerinstallatie</a>;"""@nl .
+fro:Member_2_1_2_2_5_1 a fro:Member ;
+    fro:hasOriginalText "-    dat dit <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> is uitgerust met een <a href=\"http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> en een <a href=\"http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem\">rook- en warmteafvoerinstallatie</a>. De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een <a href=\"http://example.com/firebimbuilding#HasAutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> en een <a href=\"http://example.com/firebimbuilding#HasSmokeAndHeatExhaustSystem\">rook- en warmteafvoerinstallatie</a>;"@nl .
 
-firebim:Section_2 firebim:hasSection firebim:Section_2_1 .
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

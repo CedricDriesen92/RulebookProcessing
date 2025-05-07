@@ -3,21 +3,21 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_1_2 a firebim:Section ;
-    firebim:hasID "1.2" ;
-    firebim:hasOriginalText "Bijgebouwen"@nl ;
-    firebim:hasArticle firebim:Article_1_2_1 .
+fro:Section_1_2 a fro:Section ;
+    fro:hasID "1.2" ;
+    fro:hasOriginalText "Bijgebouwen"@nl ;
+    fro:hasArticle fro:Article_1_2_1 .
 
-firebim:Section_1 firebim:hasSection firebim:Section_1_2 .
+fro:Section_1 fro:hasSection fro:Section_1_2 .
 
-firebim:Article_1_2_1 a firebim:Article ;
-    firebim:hasID "A1.2.1" ;
-    firebim:hasMember firebim:Member_1_2_1_1 .
+fro:Article_1_2_1 a fro:Article ;
+    fro:hasID "A1.2.1" ;
+    fro:hasMember fro:Member_1_2_1_1 .
 
-firebim:Member_1_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen
+fro:Member_1_2_1_1 a fro:Member ;
+    fro:hasOriginalText """Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen
 zijn enkel toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
 noch de actie van de brandweer in het gedrang komen."""@nl .

@@ -1,34 +1,33 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_3_5_2_1 a firebim:Section ;
-    firebim:hasID "3.5.2.1" ;
-    firebim:hasOriginalText "Dubbelwandige gevel die onderbroken wordt door een compartimentering."@nl ;
-    firebim:hasArticle firebim:Article_3_5_2_1_1 .
+fro:Section_3_5_2 fro:hasSection fro:Section_3_5_2_1 .
 
-firebim:Article_3_5_2_1_1 a firebim:Article ;
-    firebim:hasID "A3.5.2.1.1" ;
-    firebim:hasMember firebim:Member_3_5_2_1_1_1,
-        firebim:Member_3_5_2_1_1_2,
-        firebim:Member_3_5_2_1_1_3 .
+fro:Article_3_5_2_1_1 a fro:Article ;
+    fro:hasID "A3.5.2.1.1" ;
+    fro:hasMember fro:Member_3_5_2_1_1_1,
+        fro:Member_3_5_2_1_1_2,
+        fro:Member_3_5_2_1_1_3 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_3_5_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De spouw van de <a href="http://example.com/firebimbuilding#DoubleSkinnedFacade">dubbelwandige gevel</a> wordt in het verlengde van elke <a href="http://example.com/firebimbuilding#CompartmentSeparation">compartimentswand</a> onderbroken door een element dat minstens <a href="http://example.com/firebimbuilding#FireResistanceRating">E 60</a> heeft. Dit element beslaat de volledige ruimte begrepen tussen de twee wanden en heeft een minimale lengte van 60 cm te tellen vanaf de binnenwand van de <a href="http://example.com/firebimbuilding#Facade">gevel</a>."""@nl .
+fro:Member_3_5_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "Dit element mag openingen bevatten, op voorwaarde dat de continuïteit van de <a href=\"http://example.com/firebimbuilding#Compartment\">compartimentering</a> door de spouw heen verzekerd wordt door een bij brand zelfsluitende <a href=\"http://example.com/firebimbuilding#FireDamper\">afsluitinrichting</a> met een <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> E 60. Deze inrichting wordt beproefd in zijn dragende constructie, volgens de richting van de <a href=\"http://example.com/firebimbuilding#CompartmentBoundary\">compartimentswand</a>; de sluiting ervan wordt bevolen:"@nl .
 
-firebim:Member_3_5_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Dit element mag openingen bevatten, op voorwaarde dat de continuïteit van de <a href="http://example.com/firebimbuilding#CompartmentSeparation">compartimentering</a> door de spouw heen verzekerd wordt door een <a href="http://example.com/firebimbuilding#Door">bij brand zelfsluitende</a> <a href="http://example.com/firebimbuilding#ClosureActivation">afsluitinrichting</a> met een <a href="http://example.com/firebimbuilding#FireResistance">brandweerstand</a> <a href="http://example.com/firebimbuilding#FireResistanceRating">E 60</a>. Deze inrichting wordt beproefd in zijn <a href="http://example.com/firebimbuilding#StructuralElement">dragende constructie</a>, volgens de richting van de <a href="http://example.com/firebimbuilding#CompartmentBoundary">compartimentswand</a>; de sluiting ervan wordt bevolen:"""@nl ;
-    firebim:hasMember firebim:Member_3_5_2_1_1_2_1, firebim:Member_3_5_2_1_1_2_2 .
+fro:Member_3_5_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText """- hetzij door een thermische detectie ter hoogte van deze inrichting die reageert bij een temperatuur van maximaal 100°C.
+- hetzij door een <a href="http://example.com/firebimbuilding#SmokeDetector">rookdetectie</a> in de spouw of in alle <a href="http://example.com/firebimbuilding#Compartment">compartimenten</a> langs de <a href="http://example.com/firebimbuilding#Facade">gevel</a>, die voldoet aan de voorwaarden in punt 3.5.2.3."""@nl .
 
-firebim:Member_3_5_2_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText """- hetzij door een <a href="http://example.com/firebimbuilding#AutomaticFireDetection">thermische detectie</a> ter hoogte van deze inrichting die reageert bij een temperatuur van maximaal 100°C."""@nl .
+fro:Member_3_5_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText "Wanneer er <a href=\"http://example.com/firebimbuilding#FacadeVentilationOpening\">verluchtingsopeningen</a> zijn tussen de spouw van de dubbelwandige <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a> en de binnenomgeving van het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a>, is enkel een <a href=\"http://example.com/firebimbuilding#SmokeDetector\">rookdetectie</a> toegelaten in de spouw of in alle <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> langs de <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a>. Zij voldoet aan de voorwaarden van punt 3.5.2.3."@nl .
 
-firebim:Member_3_5_2_1_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText """- hetzij door een <a href="http://example.com/firebimbuilding#SmokeDetector">rookdetectie</a> in de spouw of in alle <a href="http://example.com/firebimbuilding#Compartment">compartimenten</a> langs de <a href="http://example.com/firebimbuilding#Facade">gevel</a>, die voldoet aan de voorwaarden in punt 3.5.2.3."""@nl .
+fro:Section_3_5_2_1 a fro:Section ;
+    fro:hasArticle fro:Article_3_5_2_1_1 ;
+    fro:hasID "3.5.2.1" ;
+    fro:hasOriginalText """Dubbelwandige <a href="http://example.com/firebimbuilding#Facade">gevel</a> die onderbroken wordt door een <a href="http://example.com/firebimbuilding#Compartment">compartimentering</a>.
+De spouw van de dubbelwandige <a href="http://example.com/firebimbuilding#Facade">gevel</a> wordt in het verlengde van elke <a href="http://example.com/firebimbuilding#CompartmentBoundary">compartimentswand</a> onderbroken door een element dat minstens E 60 heeft. Dit element beslaat de volledige ruimte begrepen tussen de twee wanden en heeft een minimale lengte van 60 cm te tellen vanaf de binnenwand van de <a href="http://example.com/firebimbuilding#Facade">gevel</a>."""@nl .
 
-firebim:Member_3_5_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Wanneer er <a href="http://example.com/firebimbuilding#FacadeVentilationOpening">verluchtingsopeningen</a> zijn tussen de spouw van de <a href="http://example.com/firebimbuilding#DoubleSkinnedFacade">dubbelwandige gevel</a> en de <a href="http://example.com/firebimbuilding#Room">binnenomgeving van het gebouw</a>, is enkel een <a href="http://example.com/firebimbuilding#SmokeDetector">rookdetectie</a> toegelaten in de spouw of in alle <a href="http://example.com/firebimbuilding#Compartment">compartimenten</a> langs de <a href="http://example.com/firebimbuilding#Facade">gevel</a>. Zij voldoet aan de voorwaarden van punt 3.5.2.3."""@nl .
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

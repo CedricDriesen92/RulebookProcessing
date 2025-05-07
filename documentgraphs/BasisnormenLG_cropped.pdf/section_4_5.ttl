@@ -1,23 +1,25 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_4_5 a firebim:Section ;
-    firebim:hasID "4.5" ;
-    firebim:hasOriginalText "Signalisatie."@nl ;
-    firebim:hasArticle firebim:Article_4_5_1 .
+fro:Section_4_5 a fro:Section ;
+    fro:hasArticle fro:Article_4_5_1 ;
+    fro:hasID "4.5" ;
+    fro:hasOriginalText "Signalisatie."@nl .
 
-firebim:Article_4_5_1 a firebim:Article ;
-    firebim:hasID "A4.5.1" ;
-    firebim:hasMember firebim:Member_4_5_1_1,
-        firebim:Member_4_5_1_2 .
+fro:Article_4_5_1 a fro:Article ;
+    fro:hasID "A4.5.1" ;
+    fro:hasMember fro:Member_4_5_1_1,
+        fro:Member_4_5_1_2 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_4_5_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Het volgnummer van elke <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> wordt duidelijk aangebracht op de <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> en in de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">vluchtruimten</a> bij <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> en <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a>."""@nl .
+fro:Member_4_5_1_1 a fro:Member ;
+    fro:hasOriginalText "Het volgnummer van elke <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> wordt duidelijk aangebracht op de <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> en in de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">vluchtruimten</a> bij <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> en <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a>."@nl .
 
-firebim:Member_4_5_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De aanduiding van de <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> en <a href=\"http://example.com/firebimbuilding#Exits\">nooduitgangen</a> dient te voldoen aan de bepalingen betreffende de <a href=\"http://example.com/firebimbuilding#SafetyLighting\">veiligheids- en gezondheidssignalering</a> op het werk."""@nl .
+fro:Member_4_5_1_2 a fro:Member ;
+    fro:hasOriginalText "De aanduiding van de <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> en nooduitgangen dient te voldoen aan de bepalingen betreffende de <a href=\"http://example.com/firebimbuilding#SafetyLighting\">veiligheids- en gezondheidssignalering</a> op het werk."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

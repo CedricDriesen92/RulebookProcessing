@@ -1,50 +1,54 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_1_3 a firebim:Section ;
-    firebim:hasID "1.3" ;
-    firebim:hasOriginalText "Horizontale afstand tussen gebouwen"@nl ;
-    firebim:hasArticle firebim:Article_1_3_1 .
+fro:Section_1_3 a fro:Section ;
+    fro:hasArticle fro:Article_1_3_1 ;
+    fro:hasID "1.3" ;
+    fro:hasOriginalText "Horizontale afstand tussen gebouwen"@nl .
 
-firebim:Article_1_3_1 a firebim:Article ;
-    firebim:hasID "A1.3.1" ;
-    firebim:hasOriginalText """Om te vermijden dat een <a href=\"http://example.com/firebimbuilding#FireSpreadPrevention\">brand tussen twee gebouwen kan overslaan</a>:"""@nl ;
-    firebim:hasMember firebim:Member_1_3_1_1,
-        firebim:Member_1_3_1_2 .
+fro:Article_1_3_1 a fro:Article ;
+    fro:hasFigure fro:Figure_F2_1 ;
+    fro:hasID "A1.3.1" ;
+    fro:hasMember fro:Member_1_3_1_1,
+        fro:Member_1_3_1_2,
+        fro:Member_1_3_1_3 ;
+    fro:hasOriginalText "Om te vermijden dat een <a href=\"http://example.com/firebimbuilding#FireSpreadPrevention\">brand</a> tussen twee <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> kan overslaan:"@nl ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_1_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """a) ofwel, als <a href=\"http://example.com/firebimbuilding#Facade\">gevels</a> tegenover elkaar staan of een <a href=\"http://example.com/firebimbuilding#AngleBetweenFacades\">inspringende tweevlakshoek</a> vormen, dan bedraagt de <a href=\"http://example.com/firebimbuilding#DistanceBetweenBuildings\">afstand</a> (in m) tussen de geveldelen die niet minstens <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a> of <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">REI 60</a> hebben, ten minste:"""@nl ;
-    firebim:hasTable firebim:Table_1_3_1_1 .
+fro:Figure_F2_1 a fro:Figure ;
+    fro:hasID "F2.1" ;
+    fro:hasOriginalText "Plaat 2.1 - Gevels tussen gebouwen"@nl .
 
-firebim:Table_1_3_1_1 a firebim:Table ;
-    firebim:hasID "T1.3.1.1" ;
-    firebim:hasOriginalText """
+fro:Member_1_3_1_1 a fro:Member ;
+    fro:hasMember fro:Member_1_3_1_1_1,
+        fro:Member_1_3_1_1_2 .
+
+fro:Member_1_3_1_1_1 a fro:Member ;
+    fro:hasMember fro:Member_1_3_1_1_1_1 ;
+    fro:hasOriginalText """a) ofwel, als <a href="http://example.com/firebimbuilding#Facade">gevels</a> tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de <a href="http://example.com/firebimbuilding#DistanceBetweenBuildings">afstand</a> (in m) tussen de <a href="http://example.com/firebimbuilding#Facade">geveldelen</a> die niet minstens <a href="http://example.com/firebimbuilding#FireResistanceRating">EI 60</a> of <a href="http://example.com/firebimbuilding#FireResistanceRating">REI 60</a> hebben, ten minste:
+
 |Hoek (α)|Afstand (m)|
 |---|---|
 |0° ≤ α ≤ 90°|h + 10cos α|
 |90° < α ≤ 180°|0|
-"""@nl ;
-    firebim:hasMember firebim:Member_1_3_1_1_1 .
 
-firebim:Member_1_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """waarbij α de ingesloten hoek is en h de <a href=\"http://example.com/firebimbuilding#BuildingHeight\">hoogte van het gebouw</a> in m (zie plaat 2.1)."""@nl ;
-    firebim:hasFigure firebim:Figure_2_1 .
+waarbij α de <a href="http://example.com/firebimbuilding#AngleBetweenFacades">ingesloten hoek</a> is en h de <a href="http://example.com/firebimbuilding#BuildingHeight">hoogte van het gebouw</a> in m (zie plaat 2.1)."""@nl .
 
-firebim:Member_1_3_1_1_1 firebim:hasMember firebim:Member_1_3_1_1_1_1 .
+fro:Member_1_3_1_1_1_1 a fro:Member ;
+    fro:hasOriginalText "Voor de <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is"@nl .
 
-firebim:Member_1_3_1_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is"""@nl .
+fro:Member_1_3_1_1_2 a fro:Member ;
+    fro:hasOriginalText "b) ofwel mag de <a href=\"http://example.com/firebimbuilding#RadiationLimit\">straling van een brand</a> van een <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> op een tegenoverstaand <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a>, en omgekeerd, niet meer dan 15 kW/m² bedragen."@nl .
 
-firebim:Member_1_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """b) ofwel mag de <a href=\"http://example.com/firebimbuilding#MaximumRadiationBetweenFacades\">straling van een brand</a> van een <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> op een <a href=\"http://example.com/firebimbuilding#Building\">tegenoverstaand gebouw</a>, en omgekeerd, niet meer dan 15 kW/m² bedragen."""@nl .
+fro:Member_1_3_1_2 a fro:Member ;
+    fro:hasOriginalText """De <a href="http://example.com/firebimbuilding#SeparationWall">wanden die aangrenzende gebouwen scheiden</a> hebben <a href="http://example.com/firebimbuilding#FireResistanceRating">EI 60</a>, of <a href="http://example.com/firebimbuilding#FireResistanceRating">REI 60</a> wanneer ze dragend zijn.
+In deze <a href="http://example.com/firebimbuilding#Wall">wanden</a> mag een verbinding tussen deze <a href="http://example.com/firebimbuilding#Building">gebouwen</a> bestaan via een <a href="http://example.com/firebimbuilding#Door">deur</a> <a href="http://example.com/firebimbuilding#FireResistanceRating">EI1 30</a>, zelfsluitend of zelfsluitend in geval van <a href="http://example.com/firebimbuilding#Fire">brand</a>."""@nl .
 
-firebim:Figure_2_1 a firebim:Figure ;
-    firebim:hasID "F2.1" ;
-    firebim:hasOriginalText "Plaat 2.1 - Gevels tussen gebouwen"@nl .
+fro:Member_1_3_1_3 a fro:Member ;
+    fro:hasOriginalText "De voorwaarde van de <a href=\"http://example.com/firebimbuilding#DistanceBetweenBuildings\">afstand</a> tussen een laag <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> en een tegenoverstaand <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> geldt niet voor <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> die van elkaar gescheiden worden door bestaande straten, wegen,... behorende tot het openbaar domein."@nl .
 
-firebim:Section_1 firebim:hasSection firebim:Section_1_3 .
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

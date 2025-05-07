@@ -1,39 +1,30 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_3_5_1_2 a firebim:Section ;
-    firebim:hasID "3.5.1.2" ;
-    firebim:hasOriginalText "Tegenover elkaar staande gevels en gevels die een tweevlakshoek vormen"@nl ;
-    firebim:hasArticle firebim:Article_3_5_1_2_1 .
+fro:Section_3_5_1 fro:hasSection fro:Section_3_5_1_2 .
 
-firebim:Section_3_5 firebim:hasSection firebim:Section_3_5_1_2 .
+fro:Article_3_5_1_2_1 a fro:Article ;
+    fro:hasID "A3.5.1.2.1" ;
+    fro:hasMember fro:Member_3_5_1_2_1_1 ;
+    fro:hasOriginalText "Om te vermijden dat een <a href=\"http://example.com/firebimbuilding#FireSpreadPrevention\">brand</a> tussen twee <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> kan overslaan:"@nl ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Article_3_5_1_2_1 a firebim:Article ;
-    firebim:hasID "A3.5.1.2.1" ;
-    firebim:hasOriginalText "Om te vermijden dat een brand tussen twee compartimenten kan overslaan:"@nl ;
-    firebim:hasMember firebim:Member_3_5_1_2_1_1 .
+fro:Member_3_5_1_2_1_1 a fro:Member ;
+    fro:hasOriginalText """a) ofwel, als <a href="http://example.com/firebimbuilding#Facade">gevels</a> tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de <a href="http://example.com/firebimbuilding#DistanceBetweenBuildings">afstand</a> (in m) tussen de <a href="http://example.com/firebimbuilding#Facade">geveldelen</a> die niet minstens E 30 of E 30 (o→i) hebben, ten minste:
 
-firebim:Member_3_5_1_2_1_1 a firebim:Member ;
-    firebim:hasMember firebim:Member_3_5_1_2_1_1_1,
-        firebim:Member_3_5_1_2_1_1_2,
-        firebim:Member_3_5_1_2_1_1_3 .
-
-firebim:Member_3_5_1_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """a) ofwel, als <a href=\"http://example.com/firebimbuilding#Facade\">gevels</a> tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de <a href=\"http://example.com/firebimbuilding#DistanceBetweenBuildings\">afstand</a> (in m) tussen de <a href=\"http://example.com/firebimbuilding#Facade\">geveldelen</a> die niet minstens E 30 of E 30 (o→i) hebben, ten minste:"""@nl .
-
-firebim:Member_3_5_1_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """- h + 10cos α voor 0° ≤ α ≤ 90°
+- h + 10cos α voor 0° ≤ α ≤ 90°
 - 2,5
-- 0 voor 90° < α ≤ 180°"""@nl .
+- 0 voor 90° < α ≤ 180°
 
-firebim:Member_3_5_1_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """waarbij α de ingesloten <a href=\"http://example.com/firebimbuilding#Angle\">hoek</a> is en h de <a href=\"http://example.com/firebimbuilding#BuildingHeight\">hoogte van het gebouw</a> in m (zie plaat 2.2)."""@nl ;
-    firebim:hasFigure firebim:Figure_2_2 .
+waarbij α de ingesloten hoek is en h de <a href="http://example.com/firebimbuilding#BuildingHeight">hoogte van het gebouw</a> in m (zie plaat 2.2)."""@nl .
 
-firebim:Figure_2_2 a firebim:Figure ;
-    firebim:hasID "F2.2" .
+fro:Section_3_5_1_2 a fro:Section ;
+    fro:hasArticle fro:Article_3_5_1_2_1 ;
+    fro:hasID "3.5.1.2" ;
+    fro:hasOriginalText "Tegenover elkaar staande <a href=\"http://example.com/firebimbuilding#Facade\">gevels</a> en <a href=\"http://example.com/firebimbuilding#Facade\">gevels</a> die een tweevlakshoek vormen"@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

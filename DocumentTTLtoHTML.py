@@ -18,7 +18,7 @@ sh = Namespace("http://www.w3.org/ns/shacl#")
 # Define SPARQL query for finding related shapes
 query = prepareQuery("""
     PREFIX sh: <http://www.w3.org/ns/shacl#>
-    PREFIX firebim: <http://example.com/firebim#>
+    PREFIX fro: <http://example.com/firebim#>
     
     SELECT DISTINCT ?shape
     WHERE {

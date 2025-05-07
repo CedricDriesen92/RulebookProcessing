@@ -1,23 +1,9 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 
-firebim:Section_3_5_2_3_2 a firebim:Section ;
-    firebim:hasID "3.5.2.3.2" ;
-    firebim:hasOriginalText "Bedrijfszekerheid."@nl ;
-    firebim:hasArticle firebim:Article_3_5_2_3_2_1 .
+fro:Section_3_5_2_3_2 a fro:Section ;
+    fro:hasID "3.5.2.3.2" ;
+    fro:hasOriginalText """Bedrijfszekerheid.
+Bij het uitvallen van de normale <a href="http://example.com/firebimbuilding#ElectricalSystem">energiebron</a> (elektrische energie, persluchtnet), zet de <a href="http://example.com/firebimbuilding#FireDetectionSystem">detectie-installatie</a> of het <a href="http://example.com/firebimbuilding#ControlAccessibility">bedieningssysteem</a> het <a href="http://example.com/firebimbuilding#ClosureActivation">sluitings-/openingssysteem</a> in de <a href="http://example.com/firebimbuilding#SafetyPosition">veiligheidsstand</a>.
 
-firebim:Article_3_5_2_3_2_1 a firebim:Article ;
-    firebim:hasID "A3.5.2.3.2.1" ;
-    firebim:hasMember firebim:Member_3_5_2_3_2_1_1,
-        firebim:Member_3_5_2_3_2_1_2 .
+Elk gebrek aan <a href="http://example.com/firebimbuilding#ElectricalSystem">energiebron</a>, voeding of elektrische of pneumatische bediening moet automatisch gemeld worden aan de <a href="http://example.com/firebimbuilding#CentralFireControlPanel">detectiecentrale</a>."""@nl .
 
-firebim:Member_3_5_2_3_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Bij het uitvallen van de normale <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">energiebron</a> (<a href=\"http://example.com/firebimbuilding#ElectricalSystem\">elektrische energie</a>, <a href=\"http://example.com/firebimbuilding#AeraulicSystem\">persluchtnet</a>), zet de <a href=\"http://example.com/firebimbuilding#FireDetectionSystem\">detectie-installatie</a> of het <a href=\"http://example.com/firebimbuilding#ManualControlSystem\">bedieningssysteem</a> het <a href=\"http://example.com/firebimbuilding#ClosureActivation\">sluitings-/openingssysteem</a> in de <a href=\"http://example.com/firebimbuilding#SafetyPosition\">veiligheidsstand</a>."""@nl .
-
-firebim:Member_3_5_2_3_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Elk gebrek aan <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">energiebron</a>, <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">voeding</a> of <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">elektrische</a> of <a href=\"http://example.com/firebimbuilding#AeraulicSystem\">pneumatische bediening</a> moet automatisch gemeld worden aan de <a href=\"http://example.com/firebimbuilding#CentralFireControlPanel\">detectiecentrale</a>."""@nl .

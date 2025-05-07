@@ -3,26 +3,26 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_2_1_2_3 a firebim:Section ;
-    firebim:hasID "2.1.2.3" ;
-    firebim:hasOriginalText "RESISTANCE DES SURFACES DE CIRCULATION A LA RAYURE ET A L'USURE"@fr ;
-    firebim:hasArticle firebim:Article_2_1_2_3_1 .
+fro:Section_2_1_2_3 a fro:Section ;
+    fro:hasID "2.1.2.3" ;
+    fro:hasOriginalText "RESISTANCE DES SURFACES DE CIRCULATION A LA RAYURE ET A L'USURE"@fr ;
+    fro:hasArticle fro:Article_2_1_2_3_1 .
 
-firebim:Article_2_1_2_3_1 a firebim:Article ;
-    firebim:hasID "A2.1.2.3.1" ;
-    firebim:hasMember firebim:Member_2_1_2_3_1_1, firebim:Member_2_1_2_3_1_2 ;
-    firebim:hasTable firebim:Table_2_1_2_3_1 .
+fro:Article_2_1_2_3_1 a fro:Article ;
+    fro:hasID "A2.1.2.3.1" ;
+    fro:hasMember fro:Member_2_1_2_3_1_1, fro:Member_2_1_2_3_1_2 ;
+    fro:hasTable fro:Table_2_1_2_3_1 .
 
-firebim:Member_2_1_2_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """La resistance aux rayures et à l'usure des surfaces de circulation en bois (marches, paliers) est essentiellement determinee par celle de la finition appliquee et par la durete superficielle des surfaces sous-jacentes en bois."""@fr .
+fro:Member_2_1_2_3_1_1 a fro:Member ;
+    fro:hasOriginalText """La resistance aux rayures et à l'usure des surfaces de circulation en bois (marches, paliers) est essentiellement determinee par celle de la finition appliquee et par la durete superficielle des surfaces sous-jacentes en bois."""@fr .
 
-firebim:Member_2_1_2_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """La masse volumique moyenne est un critere indicatif de la durete superficielle du bois. Les bois couramment utilises dans les escaliers sont repris au tableau & (p. 48). La durete augmente pour une masse volumique croissante."""@fr .
+fro:Member_2_1_2_3_1_2 a fro:Member ;
+    fro:hasOriginalText """La masse volumique moyenne est un critere indicatif de la durete superficielle du bois. Les bois couramment utilises dans les escaliers sont repris au tableau & (p. 48). La durete augmente pour une masse volumique croissante."""@fr .
 
-firebim:Table_2_1_2_3_1 a firebim:Table ;
-    firebim:hasID "T2.1.2.3.1" .
+fro:Table_2_1_2_3_1 a fro:Table ;
+    fro:hasID "T2.1.2.3.1" .
 
-firebim:Section_2_1_2 firebim:hasSection firebim:Section_2_1_2_3 .
+fro:Section_2_1_2 fro:hasSection fro:Section_2_1_2_3 .

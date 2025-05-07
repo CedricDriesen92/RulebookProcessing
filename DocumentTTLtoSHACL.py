@@ -42,7 +42,7 @@ Remember to:
 3. Use sh:sparql for complex rules that require SPARQL queries.
 4. Use sh:pyFn for rules that require Python and IfcOpenShell logic (embedding Python code as a string).
 5. Assign meaningful names to your shapes, preferably based on the section or article IDs from the original rules.
-6. Add a link to the document ontology by using sh:yourshape firebim:rulesource (use this exact term: "firebim: rulesource", the yourshape and yoursource should be replaced by the relevant names) firebim:yoursource (this should link to the article the rule is from originally).
+6. Add a link to the document ontology by using sh:yourshape fro:rulesource (use this exact term: "fro: rulesource", the yourshape and yoursource should be replaced by the relevant names) fro:yoursource (this should link to the article the rule is from originally).
 
 Start your output with the prefix declarations mentioned above, then provide the SHACL shapes.
 """

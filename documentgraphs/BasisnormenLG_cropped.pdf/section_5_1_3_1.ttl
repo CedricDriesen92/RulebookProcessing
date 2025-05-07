@@ -1,39 +1,42 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_5_1_3_1 a firebim:Section ;
-    firebim:hasID "5.1.3.1" ;
-    firebim:hasOriginalText "Algemeen"@nl ;
-    firebim:hasArticle firebim:Article_5_1_3_1_1 .
+fro:Section_5_1_3_1 a fro:Section ;
+    fro:hasArticle fro:Article_5_1_3_1_1 ;
+    fro:hasID "5.1.3.1" ;
+    fro:hasOriginalText "Algemeen."@nl .
 
-firebim:Article_5_1_3_1_1 a firebim:Article ;
-    firebim:hasID "A5.1.3.1.1" ;
-    firebim:hasMember firebim:Member_5_1_3_1_1_1,
-        firebim:Member_5_1_3_1_1_2,
-        firebim:Member_5_1_3_1_1_3 .
+fro:Article_5_1_3_1_1 a fro:Article ;
+    fro:hasID "A5.1.3.1.1" ;
+    fro:hasMember fro:Member_5_1_3_1_1_1,
+        fro:Member_5_1_3_1_1_2,
+        fro:Member_5_1_3_1_1_3,
+        fro:Member_5_1_3_1_1_4 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_5_1_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Zij voldoen aan de voorschriften van het Algemeen reglement op de <a href=\"http://example.com/firebimbuilding#ElectricalInstallationRegulationCompliance\">elektrische installaties</a> (A.R.E.I.)."""@nl .
+fro:Member_5_1_3_1_1_1 a fro:Member ;
+    fro:hasOriginalText "Zij voldoen aan de voorschriften van het Algemeen reglement op de <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">elektrische installaties</a> (A.R.E.I.)."@nl .
 
-firebim:Member_5_1_3_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "Verder geldt dat:"@nl ;
-    firebim:hasMember firebim:Member_5_1_3_1_1_2_1,
-        firebim:Member_5_1_3_1_1_2_2,
-        firebim:Member_5_1_3_1_1_2_3 .
+fro:Member_5_1_3_1_1_2 a fro:Member ;
+    fro:hasMember fro:Member_5_1_3_1_1_2_1,
+        fro:Member_5_1_3_1_1_2_2,
+        fro:Member_5_1_3_1_1_2_3 ;
+    fro:hasOriginalText "Verder geldt dat:"@nl .
 
-firebim:Member_5_1_3_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "- de <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> EI 60 hebben, behalve de <a href=\"http://example.com/firebimbuilding#ExternalWall\">buitenmuren</a>;"@nl .
+fro:Member_5_1_3_1_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- de <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> <a href=\"http://example.com/firebimbuilding#FireResistance\">EI 60</a> hebben, behalve de <a href=\"http://example.com/firebimbuilding#Facade\">buitenmuren</a>;"@nl .
 
-firebim:Member_5_1_3_1_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "- de <a href=\"http://example.com/firebimbuilding#Door\">binnendeuren</a> EI1 30 hebben;"@nl .
+fro:Member_5_1_3_1_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- de <a href=\"http://example.com/firebimbuilding#Door\">binnendeuren</a> <a href=\"http://example.com/firebimbuilding#FireResistance\">EI1 30</a> hebben;"@nl .
 
-firebim:Member_5_1_3_1_1_2_3 a firebim:Member ;
-    firebim:hasOriginalText """- indien <a href=\"http://example.com/firebimbuilding#WaterSupplySystem\">water</a> (van om het even welke herkomst, dus ook bluswater) de <a href=\"http://example.com/firebimbuilding#Floor\">vloer</a> kan bereiken, bij voorbeeld door infiltratie of via <a href=\"http://example.com/firebimbuilding#ElectricalConduit\">kabelgoten</a>, dan dienen alle maatregelen te worden getroffen opdat het waterpeil constant en automatisch beneden het niveau van de vitale gedeelten blijft van de <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">elektrische installatie</a>, zolang ze in gebruik is."""@nl .
+fro:Member_5_1_3_1_1_2_3 a fro:Member ;
+    fro:hasOriginalText "- indien <a href=\"http://example.com/firebimbuilding#WaterSupplySystem\">water</a> (van om het even welke herkomst, dus ook bluswater) de <a href=\"http://example.com/firebimbuilding#Floor\">vloer</a> kan bereiken, bij voorbeeld door infiltratie of via <a href=\"http://example.com/firebimbuilding#ElectricalConduit\">kabelgoten</a>, dan dienen alle maatregelen te worden getroffen opdat het waterpeil constant en automatisch beneden het niveau van de vitale gedeelten blijft van de <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">elektrische installatie</a>, zolang ze in gebruik is."@nl .
 
-firebim:Member_5_1_3_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Indien de <a href=\"http://example.com/firebimbuilding#OilContent\">olie-inhoud</a> van het geheel der toestellen 50 l of meer bereikt, moeten de voorschriften van NBN C 18-200 "Richtlijnen voor de brandbeveiliging van de <a href=\"http://example.com/firebimbuilding#TransformerRoom\">lokalen van elektriciteitstransformatie</a>" toegepast worden."""@nl .
+fro:Member_5_1_3_1_1_3 a fro:Member ;
+    fro:hasOriginalText "Indien de <a href=\"http://example.com/firebimbuilding#OilContent\">olie-inhoud</a> van het geheel der toestellen 50 l of meer bereikt, moeten de voorschriften van NBN C 18-200 \"Richtlijnen voor de <a href=\"http://example.com/firebimbuilding#FirePreventionMeasures\">brandbeveiliging</a> van de <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">lokalen</a> van <a href=\"http://example.com/firebimbuilding#TransformerRoom\">elektriciteitstransformatie</a>\" toegepast worden."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

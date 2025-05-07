@@ -1,23 +1,25 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_4_2_3_2 a firebim:Section ;
-    firebim:hasID "4.2.3.2" ;
-    firebim:hasOriginalText "Nuttige breedte van <a href=\"http://example.com/firebimbuilding#Staircase\">traparmen</a>, <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> en sassen."@nl ;
-    firebim:hasArticle firebim:Article_4_2_3_2_1 .
+fro:Section_4_2_3_2 a fro:Section ;
+    fro:hasArticle fro:Article_4_2_3_2_1 ;
+    fro:hasID "4.2.3.2" ;
+    fro:hasOriginalText "Nuttige breedte van traparmen, overlopen en sassen."@nl .
 
-firebim:Article_4_2_3_2_1 a firebim:Article ;
-    firebim:hasID "A4.2.3.2.1" ;
-    firebim:hasMember firebim:Member_4_2_3_2_1_1,
-        firebim:Member_4_2_3_2_1_2 .
+fro:Article_4_2_3_2_1 a fro:Article ;
+    fro:hasID "A4.2.3.2.1" ;
+    fro:hasMember fro:Member_4_2_3_2_1_1,
+        fro:Member_4_2_3_2_1_2 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_4_2_3_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Deze <a href=\"http://example.com/firebimbuilding#UsefulWidth\">nuttige breedte</a> is ten minste gelijk aan 0,80 m en bereikt ten minste de vereiste <a href=\"http://example.com/firebimbuilding#RequiredUsefulWidth\">nuttige breedte</a> br berekend volgens bijlage 1 "Terminologie"."""@nl .
+fro:Member_4_2_3_2_1_1 a fro:Member ;
+    fro:hasOriginalText "Deze <a href=\"http://example.com/firebimbuilding#UsefulWidth\">nuttige breedte</a> is ten minste gelijk aan 0,80 m en bereikt ten minste de vereiste <a href=\"http://example.com/firebimbuilding#RequiredUsefulWidth\">nuttige breedte</a> br berekend volgens bijlage 1 \"Terminologie\"."@nl .
 
-firebim:Member_4_2_3_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#Staircase\">traparmen</a> en de <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> der <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> van één zelfde <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> mogen in hun <a href=\"http://example.com/firebimbuilding#UsefulWidth\">nuttige breedte</a> niet meer dan één doorgangseenheid verschillen."""@nl .
+fro:Member_4_2_3_2_1_2 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Staircase\">traparmen</a> en de <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> der <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> van één zelfde <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> mogen in hun <a href=\"http://example.com/firebimbuilding#UsefulWidth\">nuttige breedte</a> niet meer dan één doorgangseenheid verschillen."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

@@ -1,12 +1,21 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_4_2 a firebim:Section ;
-    firebim:hasID "6.4.2" ;
-    firebim:hasOriginalText """<a href=\"http://example.com/firebimbuilding#FirefighterElevator\">Liften bestemd voor de brandweer</a>
-Als het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> uitgerust is met een of meer <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> bestemd voor de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a>, moet deze voldoen aan de volgende <a href=\"http://example.com/firebimbuilding#FirePreventionMeasures\">voorschriften</a> bovenop de voorschriften opgenomen in punt 6.1."""@nl .
+fro:Section_6_4_2 a fro:Section ;
+    fro:hasArticle fro:Article_6_4_2_1 ;
+    fro:hasID "6.4.2" ;
+    fro:hasOriginalText "Liften bestemd voor de brandweer"@nl .
+
+fro:Article_6_4_2_1 a fro:Article ;
+    fro:hasID "A6.4.2.1" ;
+    fro:hasMember fro:Member_6_4_2_1_1 ;
+    fro:hasVersion fro:v0_1 .
+
+fro:Member_6_4_2_1_1 a fro:Member ;
+    fro:hasOriginalText "Als het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> uitgerust is met een of meer <a href=\"http://example.com/firebimbuilding#FirefighterElevator\">liften bestemd voor de brandweer</a>, moet deze voldoen aan de volgende voorschriften bovenop de voorschriften opgenomen in punt 6.1."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

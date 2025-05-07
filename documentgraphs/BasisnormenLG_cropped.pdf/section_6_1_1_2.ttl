@@ -1,12 +1,24 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_1_1_2 a firebim:Section ;
-    firebim:hasID "6.1.1.2" ;
-    firebim:hasOriginalText """In geval van abnormale stijging van de <a href=\"http://example.com/firebimbuilding#TemperatureBehavior\">temperatuur</a> van de <a href=\"http://example.com/firebimbuilding#MachineRoom\">machine</a> en/of van de andere <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">elektrische uitrustingen</a>, moeten de <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> stoppen op een <a href=\"http://example.com/firebimbuilding#Landing\">bordes</a> zodat de <a href=\"http://example.com/firebimbuilding#UserSafety\">passagiers</a> kunnen uitstappen.
-Een <a href=\"http://example.com/firebimbuilding#AutomaticReturnToNormalOperation\">automatische terugkeer naar de normale werking</a> is enkel mogelijk na voldoende afkoeling."""@nl .
+fro:Section_6_1_1_2 a fro:Section ;
+    fro:hasArticle fro:Article_6_1_1_2_1 ;
+    fro:hasID "6.1.1.2" .
+
+fro:Article_6_1_1_2_1 a fro:Article ;
+    fro:hasID "A6.1.1.2.1" ;
+    fro:hasMember fro:Member_6_1_1_2_1_1,
+        fro:Member_6_1_1_2_1_2 ;
+    fro:hasVersion fro:v0_1 .
+
+fro:Member_6_1_1_2_1_1 a fro:Member ;
+    fro:hasOriginalText "In geval van abnormale stijging van de temperatuur van de <a href=\"http://example.com/firebimbuilding#MachineRoom\">machine</a> en/of van de andere <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">elektrische uitrustingen</a>, moeten de <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> stoppen op een <a href=\"http://example.com/firebimbuilding#Landing\">bordes</a> zodat de passagiers kunnen uitstappen."@nl .
+
+fro:Member_6_1_1_2_1_2 a fro:Member ;
+    fro:hasOriginalText "Een automatische terugkeer naar de normale werking is enkel mogelijk na voldoende afkoeling."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

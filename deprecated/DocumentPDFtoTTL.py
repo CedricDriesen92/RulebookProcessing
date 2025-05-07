@@ -120,8 +120,8 @@ You are tasked with converting building code rulebook sections into Turtle (.ttl
 {ontology}
 Here is some more info on the firebim ontology and how you should use it:
 
-The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the firebim:Authority (which represents the legal body that publishes and maintains the regulatory document), the firebim:DocumentSubdivision (which represents documents or parts of documents), and the firebim:Reference (which represents references to other representations of the regulation, or similar regulations). The firebim:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
-The created data graph should be modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can contain submembers, or they can have references to other members, using the firebim:hasBackwardReference and firebim:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
+The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the fro:Authority (which represents the legal body that publishes and maintains the regulatory document), the fro:DocumentSubdivision (which represents documents or parts of documents), and the fro:Reference (which represents references to other representations of the regulation, or similar regulations). The fro:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
+The created data graph should be modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can contain submembers, or they can have references to other members, using the fro:hasBackwardReference and fro:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
 
 Not every section needs to have their own sections/articles/members, if the section text is empty no articles are needed...
 In your .ttl, if your section is not a base numbered section (i.e. 0, 1, 2...) make a hasSection from the parent section to this section. Adding all originaltext, in order, from all DocumentSubdivisions should recreate the rules part of the document. For the section itself don't include the full originaltext, only the titles. Make everything that includes a subdivision of the title (e.g. 4.3.1.2 if you are doing section 4.3.1) its own section with as originaltext the title attached to the number, with the following text split up in articles, split up in members. NEVER repeat text, it should ALWAYS be used only once, ALL originaltext will be added automatically so any doubles ruin the format.
@@ -159,7 +159,7 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
                 max_tokens=8000,
                 messages=[
                     {"role": "user", "content": prompt},
-                    {"role": "assistant", "content": "firebim:Section_" + str(section_number) +" a"}
+                    {"role": "assistant", "content": "fro:Section_" + str(section_number) +" a"}
                 ],
                 model="claude-3-5-sonnet-v2@20241022"
             )
@@ -172,9 +172,9 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .\n\n"""
-    full_ttl_content += "firebim:Section_" + str(section_number) +" a " + response.content[0].text.strip()
+    full_ttl_content += "fro:Section_" + str(section_number) +" a " + response.content[0].text.strip()
     return full_ttl_content
 
 def create_and_combine_section_ttl(section_number, section_text, ontology, main_graph, examples_str, starting_graph, output_folder):

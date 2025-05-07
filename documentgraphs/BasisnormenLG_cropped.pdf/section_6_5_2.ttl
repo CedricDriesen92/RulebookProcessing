@@ -1,61 +1,63 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_6_5_2 a firebim:Section ;
-    firebim:hasID "6.5.2" ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#ElectricalConduit">elektrische leidingen</a> die installaties of toestellen voeden die bij <a href="http://example.com/firebimbuilding#Fire">brand</a> absoluut in dienst moeten blijven, worden zodanig geplaatst dat de risico’s van algehele buitendienststelling gespreid zijn.
-Op hun tracé tot aan het <a href="http://example.com/firebimbuilding#Compartment">compartiment</a> waar de installatie zich bevindt, hebben de <a href="http://example.com/firebimbuilding#ElectricalConduit">elektrische leidingen</a> de volgende <a href="http://example.com/firebimbuilding#FireResistance">brandweerstand</a>:"""@nl ;
-    firebim:hasArticle firebim:Article_6_5_2_1,
-        firebim:Article_6_5_2_2 .
+fro:Section_6_5_2 a fro:Section ;
+    fro:hasArticle fro:Article_6_5_2_1 ;
+    fro:hasID "6.5.2" ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#ElectricalConduit\">elektrische leidingen</a> die installaties of toestellen voeden die bij brand absoluut in dienst moeten blijven, worden zodanig geplaatst dat de risico’s van algehele buitendienststelling gespreid zijn."@nl .
 
-firebim:Article_6_5_2_1 a firebim:Article ;
-    firebim:hasID "A6.5.2.1" ;
-    firebim:hasOriginalText "1. ofwel een intrinsieke <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">brandweerstand</a> die minimaal"@nl ;
-    firebim:hasMember firebim:Member_6_5_2_1_1,
-        firebim:Member_6_5_2_1_2 .
+fro:Article_6_5_2_1 a fro:Article ;
+    fro:hasID "A6.5.2.1" ;
+    fro:hasMember fro:Member_6_5_2_1_1,
+        fro:Member_6_5_2_1_2,
+        fro:Member_6_5_2_1_3,
+        fro:Member_6_5_2_1_4,
+        fro:Member_6_5_2_2,
+        fro:Member_6_5_2_3 ;
+    fro:hasOriginalText "Op hun tracé tot aan het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> waar de installatie zich bevindt, hebben de <a href=\"http://example.com/firebimbuilding#ElectricalConduit\">elektrische leidingen</a> de volgende <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a>:"@nl ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_6_5_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """- PH 60 bedraagt volgens NBN EN 50200 voor leidingen waarvan de <a href="http://example.com/firebimbuilding#ElectricalCableDiameter">buitendiameter</a> kleiner is dan of gelijk aan 20 mm en waarvan de <a href="http://example.com/firebimbuilding#ElectricalCableConductorCrossSection">doorsnede van de geleiders</a> kleiner is dan of gelijk aan 2,5 mm²;"""@nl .
+fro:Member_6_5_2_1_1 a fro:Member ;
+    fro:hasOriginalText "1. ofwel een intrinsieke <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> die minimaal"@nl .
 
-firebim:Member_6_5_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """- Rf 1 h bedraagt volgens add. 3 van NBN 713-020 voor leidingen waarvan de <a href="http://example.com/firebimbuilding#ElectricalCableDiameter">buitendiameter</a> groter is dan 20 mm of waarvan de <a href="http://example.com/firebimbuilding#ElectricalCableConductorCrossSection">doorsnede van de geleiders</a> groter is dan 2,5 mm²;"""@nl .
+fro:Member_6_5_2_1_2 a fro:Member ;
+    fro:hasOriginalText "- PH 60 bedraagt volgens NBN EN 50200 voor leidingen waarvan de buitendiameter kleiner is dan of gelijk aan 20 mm en waarvan de doorsnede van de geleiders kleiner is dan of gelijk aan 2,5 mm²;"@nl .
 
-firebim:Article_6_5_2_2 a firebim:Article ;
-    firebim:hasID "A6.5.2.2" ;
-    firebim:hasOriginalText "2. ofwel Rf 1 h, volgens add. 3 van NBN 713-020, voor leidingen zonder intrinsieke <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">brandweerstand</a> die in <a href=\"http://example.com/firebimbuilding#ElectricalConduit\">kokers</a> zijn geplaatst."@nl .
+fro:Member_6_5_2_1_3 a fro:Member ;
+    fro:hasOriginalText "- Rf 1 h bedraagt volgens add. 3 van NBN 713-020 voor leidingen waarvan de buitendiameter groter is dan 20 mm of waarvan de doorsnede van de geleiders groter is dan 2,5 mm²;"@nl .
 
-firebim:Section_6_5_2 firebim:hasArticle firebim:Article_6_5_2_3, firebim:Article_6_5_2_4 .
+fro:Member_6_5_2_1_4 a fro:Member ;
+    fro:hasOriginalText "2. ofwel Rf 1 h, volgens add. 3 van NBN 713-020, voor leidingen zonder intrinsieke <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> die in <a href=\"http://example.com/firebimbuilding#ElectricalConduit\">kokers</a> zijn geplaatst."@nl .
 
-firebim:Article_6_5_2_3 a firebim:Article ;
-    firebim:hasID "A6.5.2.3" ;
-    firebim:hasOriginalText "Deze vereisten zijn niet van toepassing indien de werking van de installaties of toestellen verzekerd blijft zelfs bij het uitvallen van de energievoeding."@nl .
+fro:Member_6_5_2_2 a fro:Member ;
+    fro:hasOriginalText "Deze vereisten zijn niet van toepassing indien de werking van de installaties of toestellen verzekerd blijft zelfs bij het uitvallen van de energievoeding."@nl .
 
-firebim:Article_6_5_2_4 a firebim:Article ;
-    firebim:hasID "A6.5.2.4" ;
-    firebim:hasOriginalText "De bedoelde installaties of toestellen zijn:"@nl ;
-    firebim:hasMember firebim:Member_6_5_2_4_1,
-        firebim:Member_6_5_2_4_2,
-        firebim:Member_6_5_2_4_3,
-        firebim:Member_6_5_2_4_4,
-        firebim:Member_6_5_2_4_5 .
+fro:Member_6_5_2_3 a fro:Member ;
+    fro:hasMember fro:Member_6_5_2_3_1,
+        fro:Member_6_5_2_3_2,
+        fro:Member_6_5_2_3_3,
+        fro:Member_6_5_2_3_4,
+        fro:Member_6_5_2_3_5 ;
+    fro:hasOriginalText "De bedoelde installaties of toestellen zijn:"@nl .
 
-firebim:Member_6_5_2_4_1 a firebim:Member ;
-    firebim:hasOriginalText "1. de <a href=\"http://example.com/firebimbuilding#SafetyLighting\">veiligheidsverlichting</a> en eventueel de <a href=\"http://example.com/firebimbuilding#BackupLighting\">vervangingsverlichting</a>;"@nl .
+fro:Member_6_5_2_3_1 a fro:Member ;
+    fro:hasOriginalText "1. de <a href=\"http://example.com/firebimbuilding#SafetyLighting\">veiligheidsverlichting</a> en eventueel de vervangingsverlichting;"@nl .
 
-firebim:Member_6_5_2_4_2 a firebim:Member ;
-    firebim:hasOriginalText "2. de <a href=\"http://example.com/firebimbuilding#FireAlarmSystem\">installaties voor melding, waarschuwing en alarm</a>;"@nl .
+fro:Member_6_5_2_3_2 a fro:Member ;
+    fro:hasOriginalText "2. de installaties voor melding, waarschuwing en <a href=\"http://example.com/firebimbuilding#FireAlarmSystem\">alarm</a>;"@nl .
 
-firebim:Member_6_5_2_4_3 a firebim:Member ;
-    firebim:hasOriginalText "3. de <a href=\"http://example.com/firebimbuilding#SmokeExtractionSystem\">installaties voor rookafvoer</a>;"@nl .
+fro:Member_6_5_2_3_3 a fro:Member ;
+    fro:hasOriginalText "3. de installaties voor <a href=\"http://example.com/firebimbuilding#SmokeExtractionSystem\">rookafvoer</a>;"@nl .
 
-firebim:Member_6_5_2_4_4 a firebim:Member ;
-    firebim:hasOriginalText "4. de <a href=\"http://example.com/firebimbuilding#FireFightingWaterPumps\">waterpompen voor de brandbestrijding</a> en eventueel de <a href=\"http://example.com/firebimbuilding#DrainagePumps\">ledigingspompen</a>;"@nl .
+fro:Member_6_5_2_3_4 a fro:Member ;
+    fro:hasOriginalText "4. de <a href=\"http://example.com/firebimbuilding#WaterSupplySystem\">waterpompen</a> voor de <a href=\"http://example.com/firebimbuilding#FirefightingEquipment\">brandbestrijding</a> en eventueel de ledigingspompen;"@nl .
 
-firebim:Member_6_5_2_4_5 a firebim:Member ;
-    firebim:hasOriginalText "5. de <a href=\"http://example.com/firebimbuilding#Elevator\">speciale liften</a> bedoeld in punt 6.4."@nl ;
-    firebim:hasForwardReference firebim:Section_6_4 .
+fro:Member_6_5_2_3_5 a fro:Member ;
+    fro:hasForwardReference fro:Section_6_4 ;
+    fro:hasOriginalText "5. de speciale liften bedoeld in punt 6.4."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

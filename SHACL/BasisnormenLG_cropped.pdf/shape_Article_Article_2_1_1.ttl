@@ -1,103 +1,109 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix fbbo: <http://example.com/fbbo#> .
 @prefix bot: <https://w3id.org/bot#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix : <http://example.com/firebim#> . # Assuming local namespace for helper shapes/conditions
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fbbo-BE: <http://example.com/fbbo-BE#> .
+@prefix fbbo-DK: <http://example.com/fbbo-DK#> .
+@prefix fbbo-INT: <http://example.com/fbbo-INT#> .
+@prefix fbbo-NL: <http://example.com/fbbo-NL#> .
+@prefix fbbo-PT: <http://example.com/fbbo-PT#> .
+@prefix ifc: <http://ifcowl.openbimstandards.org/IFC4#> .
 
-# Prefixes used in SPARQL queries below
-_:sparqlPrefixes a sh:PrefixDeclaration ;
-    sh:declare
-        [ sh:prefix "bot" ; sh:namespace "https://w3id.org/bot#"^^xsd:anyURI ] ,
-        [ sh:prefix "fbbo" ; sh:namespace "http://example.com/fbbo#"^^xsd:anyURI ] ,
-        [ sh:prefix "firebim" ; sh:namespace "http://example.com/firebim#"^^xsd:anyURI ] ,
-        [ sh:prefix "sh" ; sh:namespace "http://www.w3.org/ns/shacl#"^^xsd:anyURI ] .
+# Shape corresponding to Article 2.1.1
+# Focuses on the properties required for a compartment based on its type and context (partially implicit).
+fro:Shape_Article_2_1_1 a sh:NodeShape ;
+  rdfs:label "SHACL Shape for Article 2.1.1 - Compartment Area/Length/Equipment"@en ;
+  rdfs:comment """Validates fire compartments based on Article 2.1.1.
+Checks area limits (<2500m² standard, <=3500m² if single ground-floor comp.),
+length limit (<=90m if single ground-floor comp.),
+parking status,
+or required equipment (extinguishing + smoke/heat evacuation) if limits are exceeded.
+Note: The context 'single compartment in ground-floor building' is checked implicitly by allowing the corresponding limits. Ministerial exceptions are not modeled."""@en ;
+  sh:targetClass fro:Compartment ; # The rule applies to compartments
 
-# Helper SPARQL Condition: Checks if $this is the single compartment in a ground floor building
-:IsSingleGroundFloorCompartmentCondition a sh:SPARQLSelectConstraint ; # Reusing constraint syntax for condition logic
-    sh:message "Condition for single compartment in ground floor building" ; # Informative message
-    sh:prefixes _:sparqlPrefixes ;
-    sh:select """
-        SELECT $this WHERE {
-          ?building bot:hasSpace $this .
-          ?building fbbo:isGroundFloorOnly true .
-          # Check if there are OTHER spaces/compartments in the same building
-          FILTER NOT EXISTS {
-            ?building bot:hasSpace ?otherSpace .
-            FILTER (?otherSpace != $this)
-          }
-        }
-    """ .
+  sh:or (
+    # Case 1: The compartment is a Parking. Parkings are excluded from the area limits mentioned here (refers to 5.2).
+    [
+      sh:message "Compartment is a Parking, specific area rules from Art 2.1.1 do not apply (see 5.2)." ;
+      sh:class fro:Parking ; # Assumes fro:Parking is a class, could also be sh:hasValue fro:ParkingType on a property
+    ]
 
-# Helper SPARQL Condition: Checks if $this meets the default criteria (not parking, not sprinkler/smoke, not single ground floor)
-:DefaultAreaCondition a sh:SPARQLSelectConstraint ;
-    sh:message "Condition for default area limit (< 2500 m²)" ; # Informative message
-    sh:prefixes _:sparqlPrefixes ;
-    sh:select """
-        SELECT $this WHERE {
-            BIND ($this AS ?focusNode) . # Ensure $this is bound for filters
-
-            # Condition: NOT Parking
-            FILTER NOT EXISTS { $focusNode a fbbo:Parking . }
-
-            # Condition: NOT (Sprinkler AND SmokeHeat)
-            FILTER NOT EXISTS {
-                $focusNode fbbo:hasEquipment firebim:AutomaticExtinguishingSystem .
-                $focusNode fbbo:hasEquipment firebim:SmokeAndHeatEvacuationSystem .
-            }
-
-            # Condition: NOT SingleGroundFloorCompartment
-            FILTER NOT EXISTS {
-                ?building bot:hasSpace $focusNode .
-                ?building fbbo:isGroundFloorOnly true .
-                FILTER NOT EXISTS {
-                    ?building bot:hasSpace ?otherSpace .
-                    FILTER (?otherSpace != $focusNode)
-                }
-            }
-        }
-    """ .
-
-# Main Shape for Article 2.1.1
-firebim:Article_2_1_1 a sh:NodeShape ;
-    sh:targetClass fbbo:Compartment ;
-    rdfs:label "Shape for Article 2.1.1 - Compartment Size Limits"@en ;
-    rdfs:comment """Checks compartment area and length limits based on Article 2.1.1.
-- Default area < 2500 m².
-- Exception 1: Parking compartments are exempt from these area limits.
-- Exception 2: Single compartment in a ground-floor-only building: max area 3500 m², max length 90 m.
-- Exception 3: Compartments with automatic extinguishing AND smoke/heat evacuation systems are exempt from these area limits.
-- Note: Further exceptions based on Ministerial Decree are not modeled here."""@en ;
-
-    # Rule for the Single Ground Floor Compartment Case (Area <= 3500, Length <= 90)
-    sh:rule [
-        a sh:SPARQLRule ;
-        sh:condition :IsSingleGroundFloorCompartmentCondition ;
-        sh:property [
-            sh:path fbbo:hasArea ;
-            sh:maxInclusive 3500 ;
-            sh:message "Area of single compartment in ground floor building must be <= 3500 m² (unless exempted by equipment or decree)."@en ;
-            sh:message "Oppervlakte van enkel compartiment in gelijkvloers gebouw moet <= 3500 m² zijn (tenzij vrijgesteld door uitrusting of besluit)."@nl ;
-        ] ;
-        sh:property [
-            sh:path fbbo:hasLength ;
-            sh:maxInclusive 90 ;
-            sh:message "Length of single compartment in ground floor building must be <= 90 m."@en ;
-            sh:message "Lengte van enkel compartiment in gelijkvloers gebouw moet <= 90 m zijn."@nl ;
+    # Case 2: The compartment is NOT a Parking. It must satisfy one of the following conditions.
+    [
+      sh:message "Non-parking compartment fails validation against Art 2.1.1 conditions (standard limit, ground-floor single comp. limit, or equipped exception)." ;
+      sh:not [ sh:class fro:Parking ] ; # Condition: Must NOT be a parking
+      sh:or (
+        # Condition 2a: Standard area limit met (< 2500 m²)
+        [
+          sh:message "Standard compartment area must be present and < 2500 m²." ;
+          sh:property [
+            sh:path fro:hasArea ;
+            sh:maxExclusive 2500.0 ;
+            sh:datatype xsd:decimal ; # Assuming area is stored as decimal m²
+            sh:minCount 1 ; # Area must be specified
+          ]
         ]
-    ] ;
-
-    # Rule for the Default Area Case (< 2500)
-    # This applies only if the compartment is NOT Parking, NOT equipped with Sprinkler+Smoke/Heat, AND NOT the single ground floor case.
-    sh:rule [
-        a sh:SPARQLRule ;
-        sh:condition :DefaultAreaCondition ;
-        sh:property [
-            sh:path fbbo:hasArea ;
-            sh:maxExclusive 2500 ;
-            sh:message "Compartment area must be < 2500 m² (default case)."@en ;
-            sh:message "Compartimentoppervlakte moet < 2500 m² zijn (standaardgeval)."@nl ;
+        # Condition 2b: Ground-floor, single-compartment building context limits met (Area <= 3500 m², Length <= 90 m)
+        [
+          sh:message "Compartment meets limits potentially applicable to single ground-floor context (Area <= 3500 m², Length <= 90 m)." ;
+          # This branch allows these limits. The applicability (is it REALLY this context?) is not checked here.
+          sh:property [
+            sh:path fro:hasArea ;
+            sh:maxInclusive 3500.0 ;
+            sh:datatype xsd:decimal ;
+            sh:minCount 1 ;
+          ] ;
+          sh:property [
+            sh:path fro:hasLength ;
+            sh:maxInclusive 90.0 ;
+            sh:datatype xsd:decimal ;
+            sh:minCount 1 ;
+          ]
         ]
-    ] .
+        # Condition 2c: Equipped exception (Automatic Extinguishing AND Smoke/Heat Evacuation)
+        [
+          sh:message "Compartment area/length limits potentially exceeded, but meets equipment exception (Extinguishing + Smoke/Heat)." ;
+          sh:property [
+            sh:path fro:hasAutomaticExtinguishingSystem ;
+            sh:hasValue true ; # Assuming boolean representation (xsd:boolean)
+            sh:minCount 1 ; # Ensure property exists and is true
+          ] ;
+          sh:property [
+            sh:path fro:hasSmokeAndHeatEvacuationSystem ;
+            sh:hasValue true ; # Assuming boolean representation (xsd:boolean)
+            sh:minCount 1 ; # Ensure property exists and is true
+          ]
+        ]
+        # Condition 2d: Ministerial Exception (Cannot be modeled without details)
+        # This possibility is acknowledged by the regulation but not specified here.
+      )
+    ]
+  ) .

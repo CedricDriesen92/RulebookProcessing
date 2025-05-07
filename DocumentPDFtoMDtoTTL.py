@@ -8,7 +8,7 @@ import anthropic
 from typing import List, Dict
 import re
 from rdflib import Graph, Namespace, Literal, URIRef
-from rdflib.namespace import RDF, RDFS, XSD
+from rdflib.namespace import RDF, RDFS, XSD, OWL
 import os
 import glob
 import time
@@ -18,9 +18,13 @@ from dotenv import load_dotenv
 import os
 import google.generativeai as genai
 import pandas as pd
+import datetime
 
 load_dotenv()
 
+# Define the current version
+current_version = "0.1"
+now = datetime.datetime.now().isoformat()
 
 google_key = os.getenv("GEMINI_API_KEY")
 input_file = os.getenv("INPUT_FILE")
@@ -40,7 +44,7 @@ if model_provider == "gemini":
     }
 
     model = genai.GenerativeModel(
-    model_name="gemini-2.0-flash-thinking-exp-1219",
+    model_name="gemini-2.5-pro-preview-03-25",
     generation_config=gemini_config,
     )
 
@@ -110,15 +114,16 @@ def create_empty_section_ttl(section_number):
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_{section_number.replace('.', '_')} a firebim:Section ;
-    firebim:hasID "{section_number}" .
+fro:Section_{section_number.replace('.', '_')} a fro:Section ;
+    fro:hasID "{section_number}" .
 """
     return ttl_content
 
 FIREBIM = Namespace("http://example.com/firebim#")
+XML = Namespace("http://www.w3.org/XML/1998/namespace")
 
 
 def create_initial_graph():
@@ -146,8 +151,8 @@ You are tasked with converting building code rulebook sections into Turtle (.ttl
 
 Here is some more info on the firebim ontology and how you should use it:
 
-The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the firebim:Authority (which represents the legal body that publishes and maintains the regulatory document), the firebim:DocumentSubdivision (which represents documents or parts of documents), and the firebim:Reference (which represents references to other representations of the regulation, or similar regulations). The firebim:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
-The created data graph should be modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can contain submembers, or they can have references to other members, using the firebim:hasBackwardReference and firebim:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
+The firebim regulation ontology maps one-to-one to parts of the AEC3PO ontology, however, it is more lightweight, following best practices from the W3C Linked Building Data Community Group. It consists of three main classes, the fro:Authority (which represents the legal body that publishes and maintains the regulatory document), the fro:DocumentSubdivision (which represents documents or parts of documents), and the fro:Reference (which represents references to other representations of the regulation, or similar regulations). The fro:DocumentSubdivision class has a subclass tree that defines a document, a section, an article, and a member. The latter typically holds the one or multiple bodies of text that an article exists of. We introduce multiple types of sections, such as chapters, subchapters, paragraphs, appendices, tables, and figures.
+The created data graph should be modeled as a tree structure with multiple members per article and multiple articles per paragraph. Members can contain submembers, or they can have references to other members, using the fro:hasBackwardReference and fro:hasForwardReference object properties. This enables members to refer to other members if they for example contain constraints for the other member, as could be seen in Figure 2. This first part of the FireBIM ontology stack does not semantically enrich the regulation or the building itself; the regulatory member text is simply added to the graph as a literal.
 
 Not every section needs to have their own sections/articles/members, if the section text is empty no articles are needed...
 In your .ttl, if your section is not a base numbered section (i.e. 0, 1, 2...) make a hasSection from the parent section to this section. Adding all originaltext, in order, from all DocumentSubdivisions should recreate the rules part of the document. For the section itself don't include the full originaltext, only the titles. Make everything that includes a subdivision of the title (e.g. 4.3.1.2 if you are doing section 4.3.1) its own section with as originaltext the title attached to the number, with the following text split up in articles, split up in members. NEVER repeat text, it should ALWAYS be used only once, ALL originaltext will be added automatically so any doubles ruin the format.
@@ -162,9 +167,9 @@ Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be c
 
 {starting_graph}
 
-Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following the ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned.
+Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following the ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned. Prefixes will be added afterwards automatically so ALWAYS start off with fro:Section_..., NEVER define any prefixes.
 
-Additionally, you must now enhance the text by adding HTML links to relevant ontology concepts via the buliding ontology list below. When you identify terms that match concepts from the ontology, wrap them in HTML anchor tags that link to their URI definitions. For example:
+Additionally, you must now enhance the text by adding HTML links to relevant ontology concepts via the building ontology list below. When you identify terms that match concepts from the ontology, wrap them in HTML anchor tags that link to their URI definitions. For example:
 - If discussing compartment areas, use: <a href="http://example.com/firebimbuilding#CompartmentArea">area of the compartment</a>
 - For fire resistance requirements: <a href="http://example.com/firebimbuilding#FireResistance">fire resistance</a>
 
@@ -184,7 +189,7 @@ IMPORTANT FORMATTING RULES:
 3. For simple text without HTML, you can use single quotes
 
 Example format:
-firebim:hasOriginalText \"\"\"Text with <a href=\\"http://example.com/firebimbuilding#Term\\">linked term</a>\"\"\"@nl ;
+fro:hasOriginalText \"\"\"Text with <a href=\\"http://example.com/firebimbuilding#Term\\">linked term</a>\"\"\"@nl ;
 """
     prompt2 = f"""
 Section number: {section_number}
@@ -195,6 +200,7 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
 
 {examples_str}
 """
+    print(section_text)
     with open("pdftottl_instructions.txt", 'w', encoding='utf-8') as file:
         file.write(prompt)
     prompt = prompt + prompt2
@@ -224,7 +230,7 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
                             "content": [
                                 {
                                     "type": "text",
-                                    "text": "firebim:Section_" + str(section_number) +" a"
+                                    "text": "fro:Section_" + str(section_number) +" a"
                                 }
                             ]
                         }
@@ -252,11 +258,11 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .\n\n"""
 
-            # Only append the response if it doesn't start with "firebim:Section_"
-            if not response.startswith("firebim:Section_"):
+            # Only append the response if it doesn't start with "fro:Section_"
+            if not response.startswith("fro:Section_"):
                 full_ttl_content += response
             else:
                 full_ttl_content += response.strip()
@@ -268,47 +274,110 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
             time.sleep(5)
     return full_ttl_content
 
-def create_and_combine_section_ttl(section_number, section_text, ontology, main_graph, examples_str, starting_graph, output_folder):
+def create_and_combine_section_ttl(section_number, section_text, ontology, main_graph, examples_str, starting_graph, output_folder, first_section):
     file_name = os.path.join(output_folder, f"section_{section_number.replace('.', '_')}.ttl")
     
     if os.path.exists(file_name):
         try:
-            main_graph.parse(file_name, format="turtle", publicID=FIREBIM)
-            return True
+            # Try parsing the existing file into the main graph
+            g_temp_load = Graph()
+            g_temp_load.parse(file_name, format="turtle", publicID=FIREBIM)
+            for s, p, o in g_temp_load:
+                if (s, p, o) not in main_graph:
+                    main_graph.add((s, p, o))
+            print(f"Loaded existing section {section_number} from file.")
+            return True # Successfully loaded existing file
         except Exception as e:
-            print(f"Error loading existing section {section_number}: {e}")
+            print(f"Error loading existing section {section_number}: {e}. Regenerating...")
+            # Proceed to regenerate if loading failed
     
     #if section_number not in ['4_1']:
     #    print(f"Skipping section {section_number}.")
     #    return False # Keeps the code from engaging the AI.
     if False:#section_number not in ['4_2_6','4_2_6_1', '4_2_6_2', '4_2_6_3', '4_2_6_4', '4_2_6_5', '4_2_6_6', '4_2_6_7', '4_2_6_8']:
         print(f"Skipping section {section_number}.")
-        return False # Keeps the code from engaging the AI.
-    ttl_content = None
-    for attempt in range(3):
-        try:
-            ttl_content = process_section_to_ttl(section_number, section_text, ontology, examples_str, starting_graph)
-            main_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
+        return False 
 
-            os.makedirs(output_folder, exist_ok=True)
-            with open(file_name, 'w', encoding='utf-8') as f:
-                f.write(ttl_content)
+    ttl_content = None
+    for attempt in range(3): # Retain retry logic
+        try:
+            # 1. Get TTL content from LLM
+            ttl_content = process_section_to_ttl(section_number, section_text, ontology, examples_str, starting_graph)
             
-            return True
+            # 2. Parse LLM output into a temporary graph
+            temp_graph = Graph()
+            # Bind prefixes to the temporary graph for cleaner serialization
+            temp_graph.bind("owl", OWL)
+            temp_graph.bind("rdf", RDF)
+            temp_graph.bind("xml", XML)
+            temp_graph.bind("xsd", XSD)
+            temp_graph.bind("rdfs", RDFS)
+            temp_graph.bind("firebim", FIREBIM)
+            temp_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
+
+            # 3. Find articles and add version info to temp_graph for first article
+            
+            
+            now_date_str = now.split('T')[0]
+            articles_in_section = list(temp_graph.subjects(RDF.type, FIREBIM.Article))
+            
+            if articles_in_section:
+                print(f"Found {len(articles_in_section)} articles in section {section_number}. Adding version info to temp graph...")
+                for article_uri in articles_in_section:
+                    version_uri_str = f"v{current_version.replace('.', '_')}"
+                    version_uri = URIRef(FIREBIM[version_uri_str])
+                    
+                    # Add version triples to the temporary graph
+                    temp_graph.add((article_uri, FIREBIM.hasVersion, version_uri))
+                    temp_graph.add((version_uri, RDF.type, FIREBIM.Version))
+                    temp_graph.add((version_uri, FIREBIM.hasDate, Literal(now, datatype=XSD.dateTime)))
+                    temp_graph.add((version_uri, FIREBIM.hasVersionNumber, Literal(current_version)))
+                    temp_graph.add((version_uri, FIREBIM.hasDescription, Literal(f"Version {current_version} of the document")))
+
+            # 4. Add all triples from the (potentially modified) temp_graph to the main_graph
+            for s, p, o in temp_graph:
+                 if (s, p, o) not in main_graph: 
+                      main_graph.add((s,p,o))
+
+            # 5. Save the modified temp_graph (including versioning) to the individual section file
+            os.makedirs(output_folder, exist_ok=True)
+            with open(file_name, 'wb') as f: 
+                # Serialize the temp_graph which now includes versioning
+                # rdflib handles encoding when writing to a binary stream
+                temp_graph.serialize(f, format="turtle") 
+            
+            print(f"Successfully processed section {section_number} and saved with version info.")
+            return True # Success
+
         except Exception as e:
             print(f"Error processing section {section_number} (Attempt {attempt + 1}): {e}")
+            # Keep existing error handling and retry logic
             if ttl_content:
-                print(f"Generated TTL content:\n{ttl_content}")
+                 # Try to print the raw TTL content that caused the error during parsing/processing
+                 print(f"Problematic raw TTL content snippet:\n{ttl_content[:500]}...") 
             else:
-                print("probably rate limit exceeded... waiting")
-                time.sleep(20)
-            if attempt < 3:
-                print("Retrying with AI...")
-                section_text += f"\n\nPrevious attempt failed with error: {str(e)}. Please try again and ensure valid Turtle syntax."
+                 print("LLM call might have failed or produced no content.")
+
+            # Wait before retrying, especially for potential rate limits
+            if "rate limit" in str(e).lower():
+                 print("Rate limit potentially exceeded... waiting longer.")
+                 time.sleep(60) 
             else:
-                print(f"Failed to process section {section_number} after 6 attempts")
-    
-    return False
+                 time.sleep(5) # Short wait for other errors
+
+            if attempt < 2: # Adjusted to check attempt < 2 for 3 attempts total
+                print("Retrying...")
+                # Optionally adjust section_text for retry if needed (as in original code)
+                # section_text += f"\n\nPrevious attempt failed with error: {str(e)}. Please ensure valid Turtle syntax and structure."
+            else:
+                print(f"Failed to process section {section_number} after 3 attempts.")
+                # Optionally save the failed TTL content for debugging
+                if ttl_content:
+                     fail_file_name = os.path.join(output_folder, f"section_{section_number.replace('.', '_')}_FAILED.ttl")
+                     with open(fail_file_name, 'w', encoding='utf-8') as f_fail:
+                          f_fail.write(f"# Processing failed with error: {e}\n\n{ttl_content}")
+
+    return False # Failed after retries
 
 def compare_section_numbers(a, b):
     a_parts = [int(n) for n in a.split('.')]
@@ -324,8 +393,8 @@ def load_building_terms():
     building_terms = objects_df.iloc[:, 0].tolist() + properties_df.iloc[:, 0].tolist()
     return building_terms
 
-def main():
-    ontology = load_ontology('FireBIM_Document_Ontology.ttl')
+def main(): ,
+    ontology = load_ontology('FireBIM_Document_Ontology_Alex.ttl')
     building_terms = load_building_terms()
     #pdf_filename = 'NIT_198_crop.pdf'
     pdf_filename = input_file
@@ -391,11 +460,18 @@ def main():
     
     # Load training examples
     training_examples = load_training_examples('trainingsamplesRuleToGraph')
-    examples_str = "\n\n".join([f"Input:\n{ex['input']}\n\nExpected output:\n{str(ex['output']).split('@base <http://example.com/firebim> .\n\n', 1)[-1]}\n" for ex in training_examples])
-    
+    # Clean examples string generation slightly
+    examples_str = "\n\n---\n\n".join([
+        f"Input Text:\n{ex['input']}\n\nExpected TTL Output (fragment):\n{str(ex['output']).split('@base <http://example.com/firebim> .', 1)[-1].strip()}" 
+        for ex in training_examples
+    ])
+    # Add building terms to prompt context if needed by process_section_to_ttl
+    building_terms_list = load_building_terms() # Load once
+
     # Process sections
     curNum = 0
     totalNum = len(sections)
+    first_section = True
     for section_number, section_title, section_content in sections:
         curNum += 1
         section_number_underscore = section_number.replace('.', '_')
@@ -411,7 +487,8 @@ def main():
         elif True:#section_number_underscore.startswith('4_2_6'):
             # Process sections with content through the LLM
             full_content = f"{section_title}\n{section_content}" if section_title else section_content
-            processed_bool = create_and_combine_section_ttl(section_number_underscore, full_content, ontology, main_graph, examples_str, starting_graph, output_folder)
+            processed_bool = create_and_combine_section_ttl(section_number_underscore, full_content, ontology, main_graph, examples_str, starting_graph, output_folder, first_section)
+            first_section = False
         if processed_bool:
             print(f"Processed section {section_number}, nr. {curNum} / {totalNum}")
     

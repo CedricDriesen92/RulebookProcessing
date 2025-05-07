@@ -1,43 +1,35 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_3_4_2 a firebim:Section ;
-    firebim:hasID "3.4.2" ;
-    firebim:hasArticle firebim:Article_3_4_2_1 .
+fro:Section_3_4 fro:hasSection fro:Section_3_4_2 .
 
-firebim:Section_3_4 firebim:hasSection firebim:Section_3_4_2 .
+fro:Article_3_4_2_1 a fro:Article ;
+    fro:hasID "A3.4.2.1" ;
+    fro:hasMember fro:Member_3_4_2_1_1 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Article_3_4_2_1 a firebim:Article ;
-    firebim:hasID "A3.4.2.1" ;
-    firebim:hasMember firebim:Member_3_4_2_1_1,
-        firebim:Member_3_4_2_1_2 .
+fro:Member_3_4_2_1_1 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> waarvoor <a href=\"http://example.com/firebimbuilding#FireResistance\">brandwerendheid</a> vereist is, lopen door in de ruimte tussen het <a href=\"http://example.com/firebimbuilding#Ceiling\">plafond</a> en het <a href=\"http://example.com/firebimbuilding#SuspendedCeiling\">verlaagd plafond</a>."@nl .
 
-firebim:Member_3_4_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De <a href="http://example.com/firebimbuilding#Wall">wanden</a> waarvoor <a href="http://example.com/firebimbuilding#FireResistance">brandwerendheid</a> vereist is, lopen door in de <a href="http://example.com/firebimbuilding#CeilingVoid">ruimte tussen het plafond en het verlaagd plafond</a>."""@nl .
+fro:Section_3_4_2 a fro:Section ;
+    fro:hasArticle fro:Article_3_4_2_1 ;
+    fro:hasID "3.4.2" ;
+    fro:hasTable fro:Table_2_1 .
 
-firebim:Member_3_4_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Indien de <a href="http://example.com/firebimbuilding#CeilingVoid">ruimte tussen het plafond en het verlaagd plafond</a> niet is uitgerust met een <a href="http://example.com/firebimbuilding#AutomaticFireExtinguishingSystem">automatische blusinstallatie</a>, moet deze <a href="http://example.com/firebimbuilding#CeilingVoid">ruimte</a> worden verdeeld in <a href="http://example.com/firebimbuilding#CeilingVoidCompartment">volumes</a> waarvan de <a href="http://example.com/firebimbuilding#HorizontalSurface">horizontale projectie</a> kan ingeschreven worden in een vierkant van maximum 25 m <a href="http://example.com/firebimbuilding#Length">zijde</a>."""@nl ;
-    firebim:hasMember firebim:Member_3_4_2_1_2_1 .
+fro:Table_2_1 a fro:Table ;
+    fro:hasID "T2.1" ;
+    fro:hasOriginalText """# Tabel 2.1 - Brandweerstand van structurele elementen.
 
-firebim:Member_3_4_2_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "Deze <a href=\"http://example.com/firebimbuilding#CeilingVoidCompartment\">volumes</a> worden gescheiden door <a href=\"http://example.com/firebimbuilding#CeilingVoidSeparationScreen\">verticale schermen</a> met de volgende kenmerken:"@nl ;
-    firebim:hasMember firebim:Member_3_4_2_1_2_1_1,
-        firebim:Member_3_4_2_1_2_1_2,
-        firebim:Member_3_4_2_1_2_1_3 .
+|Structurele elementen van het dak|Overige structurele elementen|
+|---|---|
+|Boven de vloer van Ei|R 30 (*)|
+|Meerdere bouwlagen|R 30 (*)|
+|Onder E,i|Niet van toepassing|
 
-firebim:Member_3_4_2_1_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "-    zij bestaan uit een <a href=\"http://example.com/firebimbuilding#MaterialClass\">materiaal van klasse</a> A1 en/of A2-s1,d0;"@nl .
+(*) Geen eisen voor de structurele elementen van het dak indien het aan de binnenkant beschermd is door middel van een bouwelement EI 30."""@nl .
 
-firebim:Member_3_4_2_1_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText "-    zij beslaan de gehele <a href=\"http://example.com/firebimbuilding#CeilingVoid\">ruimte tussen de leidingen</a>;"@nl .
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
 
-firebim:Member_3_4_2_1_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText "-    zij hebben <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 30</a>."@nl .
-
-firebim:Table_2_1 a firebim:Table ;
-    firebim:hasID "T2.1" .

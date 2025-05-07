@@ -55,7 +55,7 @@ Remember to:
 3. Use sh:sparql for complex rules that require SPARQL queries.
 4. Use sh:pyFn for rules that require Python and IfcOpenShell logic (embedding Python code as a string).
 5. Assign meaningful names to your shapes, preferably based on the section or article IDs from the original rules.
-6. Add a link to the document ontology by using sh:yourshape firebim:rulesource (use this exact term: "firebim:rulesource", the yourshape should be replaced by the relevant name) firebim:yoursource (this should link to the section the rule is from originally, which is {base_name.capitalize()}).
+6. Add a link to the document ontology by using sh:yourshape fro:rulesource (use this exact term: "fro:rulesource", the yourshape should be replaced by the relevant name) fro:yoursource (this should link to the section the rule is from originally, which is {base_name.capitalize()}).
 7. Use the exact URIs provided in the Mermaid diagram for all relevant entities and properties.
 8. Optimize the SHACL shapes for clarity, conciseness, and effectiveness in rule validation.
 
@@ -88,7 +88,7 @@ Remember to:
 3. Use sh:sparql for complex rules that require SPARQL queries.
 4. Use sh:pyFn for rules that require Python and IfcOpenShell logic (embedding Python code as a string).
 5. Assign meaningful names to your shapes, preferably based on the section or article IDs from the original rules.
-6. Add a link to the document ontology by using sh:yourshape firebim:rulesource (use this exact term: "firebim:rulesource", the yourshape should be replaced by the relevant name) firebim:yoursource (this should link to the section the rule is from originally, which is {base_name.capitalize()}).
+6. Add a link to the document ontology by using sh:yourshape fro:rulesource (use this exact term: "fro:rulesource", the yourshape should be replaced by the relevant name) fro:yoursource (this should link to the section the rule is from originally, which is {base_name.capitalize()}).
 7. Use the exact URIs provided in the Mermaid diagram for all relevant entities and properties.
 8. Optimize the SHACL shapes for clarity, conciseness, and effectiveness in rule validation.
 

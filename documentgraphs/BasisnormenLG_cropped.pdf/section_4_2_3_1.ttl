@@ -1,40 +1,42 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_4_2_3_1 a firebim:Section ;
-    firebim:hasID "4.2.3.1" ;
-    firebim:hasOriginalText "Constructiebepalingen."@nl ;
-    firebim:hasArticle firebim:Article_4_2_3_1_1 .
+fro:Section_4_2_3_1 a fro:Section ;
+    fro:hasArticle fro:Article_4_2_3_1_1 ;
+    fro:hasID "4.2.3.1" ;
+    fro:hasOriginalText "Constructiebepalingen."@nl .
 
-firebim:Article_4_2_3_1_1 a firebim:Article ;
-    firebim:hasID "A4.2.3.1.1" ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#Staircase\">trappen</a> hebben de volgende kenmerken:"""@nl ;
-    firebim:hasMember firebim:Member_4_2_3_1_1_1,
-        firebim:Member_4_2_3_1_1_2,
-        firebim:Member_4_2_3_1_1_3,
-        firebim:Member_4_2_3_1_1_4,
-        firebim:Member_4_2_3_1_1_5,
-        firebim:Member_4_2_3_1_1_6 .
+fro:Article_4_2_3_1_1 a fro:Article ;
+    fro:hasID "A4.2.3.1.1" ;
+    fro:hasMember fro:Member_4_2_3_1_1_1,
+        fro:Member_4_2_3_1_1_2,
+        fro:Member_4_2_3_1_1_3,
+        fro:Member_4_2_3_1_1_4,
+        fro:Member_4_2_3_1_1_5,
+        fro:Member_4_2_3_1_1_6 ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Staircase\">trappen</a> hebben de volgende kenmerken:"@nl ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_4_2_3_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """1.   evenals de <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> hebben zij R 30 of zijn op dezelfde manier ontworpen als een <a href=\"http://example.com/firebimbuilding#Floor\">betonplaat</a> met R 30. Er wordt evenwel geen <a href=\"http://example.com/firebimbuilding#FireStability\">stabiliteit bij brand</a> vereist voor de <a href=\"http://example.com/firebimbuilding#Staircase\">trappen</a> en de <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> die uitsluitend zijn samengesteld uit <a href=\"http://example.com/firebimbuilding#MaterialClass\">materialen van klasse A1</a>, met een smelttemperatuur groter dan 727°C (staal voldoet bijvoorbeeld aan deze voorwaarde, aluminium en glas voldoen niet aan deze voorwaarde);"""@nl .
+fro:Member_4_2_3_1_1_1 a fro:Member ;
+    fro:hasOriginalText "1. evenals de <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> hebben zij <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">R 30</a> of zijn op dezelfde manier ontworpen als een <a href=\"http://example.com/firebimbuilding#StructuralElement\">betonplaat</a> met <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">R 30</a>. Er wordt evenwel geen <a href=\"http://example.com/firebimbuilding#FireStability\">stabiliteit bij brand</a> vereist voor de <a href=\"http://example.com/firebimbuilding#Staircase\">trappen</a> en de <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> die uitsluitend zijn samengesteld uit <a href=\"http://example.com/firebimbuilding#MaterialClass\">materialen van klasse A1</a>, met een smelttemperatuur groter dan 727°C (staal voldoet bijvoorbeeld aan deze voorwaarde, aluminium en glas voldoen niet aan deze voorwaarde);"@nl .
 
-firebim:Member_4_2_3_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """2.   zij zijn aan beide zijden uitgerust met <a href=\"http://example.com/firebimbuilding#Handrail\">leuningen</a>. Voor de <a href=\"http://example.com/firebimbuilding#Staircase\">trappen</a> met een <a href=\"http://example.com/firebimbuilding#UsefulWidth\">nuttige breedte</a>, kleiner dan 1,20 m, is één leuning voldoende, voor zover er geen gevaar is voor het vallen;"""@nl .
+fro:Member_4_2_3_1_1_2 a fro:Member ;
+    fro:hasOriginalText "2. zij zijn aan beide zijden uitgerust met <a href=\"http://example.com/firebimbuilding#Handrail\">leuningen</a>. Voor de <a href=\"http://example.com/firebimbuilding#Staircase\">trappen</a> met een <a href=\"http://example.com/firebimbuilding#UsefulWidth\">nuttige breedte</a>, kleiner dan 1,20 m, is één <a href=\"http://example.com/firebimbuilding#Handrail\">leuning</a> voldoende, voor zover er geen gevaar is voor het vallen;"@nl .
 
-firebim:Member_4_2_3_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "3.   de <a href=\"http://example.com/firebimbuilding#TreadDepth\">aantrede van de treden</a> is in elk punt ten minste 20 cm;"@nl .
+fro:Member_4_2_3_1_1_3 a fro:Member ;
+    fro:hasOriginalText "3. de <a href=\"http://example.com/firebimbuilding#TreadDepth\">aantrede van de treden</a> is in elk punt ten minste 20 cm;"@nl .
 
-firebim:Member_4_2_3_1_1_4 a firebim:Member ;
-    firebim:hasOriginalText "4.   de <a href=\"http://example.com/firebimbuilding#RiserHeight\">optrede van de treden</a> mag niet meer dan 18 cm bedragen;"@nl .
+fro:Member_4_2_3_1_1_4 a fro:Member ;
+    fro:hasOriginalText "4. de <a href=\"http://example.com/firebimbuilding#RiserHeight\">optrede van de treden</a> mag niet meer dan 18 cm bedragen;"@nl .
 
-firebim:Member_4_2_3_1_1_5 a firebim:Member ;
-    firebim:hasOriginalText "5.   hun <a href=\"http://example.com/firebimbuilding#MaximumSlope\">helling</a> mag niet meer dan 75 % bedragen (maximale hellingshoek 37°);"@nl .
+fro:Member_4_2_3_1_1_5 a fro:Member ;
+    fro:hasOriginalText "5. hun <a href=\"http://example.com/firebimbuilding#MaximumSlope\">helling</a> mag niet meer dan 75 % bedragen (maximale hellingshoek 37°);"@nl .
 
-firebim:Member_4_2_3_1_1_6 a firebim:Member ;
-    firebim:hasOriginalText """6.   zij zijn van het "rechte type". Maar, "<a href=\"http://example.com/firebimbuilding#StaircaseType\">wenteltrappen</a>" worden toegestaan zo ze verdreven <a href=\"http://example.com/firebimbuilding#TreadDepth\">treden</a> hebben en zo hun <a href=\"http://example.com/firebimbuilding#TreadDepth\">treden</a>, naast de hiervoor vermelde vereisten, (met uitzondering van voornoemd punt 3), ten minste 24 cm <a href=\"http://example.com/firebimbuilding#TreadDepth\">aantrede</a> hebben op de looplijn."""@nl .
+fro:Member_4_2_3_1_1_6 a fro:Member ;
+    fro:hasOriginalText "6. zij zijn van het \"rechte type\". Maar, \"wenteltrappen\" worden toegestaan zo ze verdreven <a href=\"http://example.com/firebimbuilding#Tread\">treden</a> hebben en zo hun <a href=\"http://example.com/firebimbuilding#Tread\">treden</a>, naast de hiervoor vermelde vereisten, (met uitzondering van voornoemd punt 3), ten minste 24 cm <a href=\"http://example.com/firebimbuilding#TreadDepth\">aantrede</a> hebben op de looplijn."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

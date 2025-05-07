@@ -3,18 +3,18 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_1 a firebim:Section ;
-    firebim:hasID "1" ;
-    firebim:hasOriginalText "INPLANTING EN TOEGANGSWEGEN."@nl ;
-    firebim:hasArticle firebim:Article_1_1 .
+fro:Section_1 a fro:Section ;
+    fro:hasID "1" ;
+    fro:hasOriginalText "INPLANTING EN TOEGANGSWEGEN."@nl ;
+    fro:hasArticle fro:Article_1_1 .
 
-firebim:Article_1_1 a firebim:Article ;
-    firebim:hasID "A1.1" ;
-    firebim:hasMember firebim:Member_1_1_1 .
+fro:Article_1_1 a fro:Article ;
+    fro:hasID "A1.1" ;
+    fro:hasMember fro:Member_1_1_1 .
 
-firebim:Member_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """De toegangswegen bedoeld in punt 1.1 worden bepaald in akkoord met de brandweer, volgens de
+fro:Member_1_1_1 a fro:Member ;
+    fro:hasOriginalText """De toegangswegen bedoeld in punt 1.1 worden bepaald in akkoord met de brandweer, volgens de
 volgende leidraad."""@nl .

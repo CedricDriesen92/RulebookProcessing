@@ -1,45 +1,52 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
 
-firebim:Section_2_2_2 a firebim:Section ;
-    firebim:hasID "2.2.2" ;
-    firebim:hasOriginalText "De uitgangen."@nl ;
-    firebim:hasArticle firebim:Article_2_2_2_1 .
+fro:Section_2_2_2 a fro:Section ;
+    fro:hasArticle fro:Article_2_2_2_1 ;
+    fro:hasID "2.2.2" ;
+    fro:hasOriginalText "De uitgangen."@nl .
 
-firebim:Article_2_2_2_1 a firebim:Article ;
-    firebim:hasID "A2.2.2.1" ;
-    firebim:hasMember firebim:Member_2_2_2_1_1, firebim:Member_2_2_2_1_2, firebim:Member_2_2_2_1_3, firebim:Member_2_2_2_1_4, firebim:Member_2_2_2_1_5 .
+fro:Article_2_2_2_1 a fro:Article ;
+    fro:hasID "A2.2.2.1" ;
+    fro:hasMember fro:Member_2_2_2_1_1,
+        fro:Member_2_2_2_1_2,
+        fro:Member_2_2_2_1_3,
+        fro:Member_2_2_2_1_4,
+        fro:Member_2_2_2_1_5 ;
+    fro:hasVersion fro:v0_1 .
 
-firebim:Member_2_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText "De uitgangen zijn gelegen in tegenovergestelde zones van het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>."@nl .
+fro:Member_2_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> zijn gelegen in tegenovergestelde zones van het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>."@nl .
 
-firebim:Member_2_2_2_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a> leiden ofwel:"""@nl ;
-    firebim:hasMember firebim:Member_2_2_2_1_2_1, firebim:Member_2_2_2_1_2_2, firebim:Member_2_2_2_1_2_3 .
+fro:Member_2_2_2_1_2 a fro:Member ;
+    fro:hasForwardReference fro:Section_4_4 ;
+    fro:hasMember fro:Member_2_2_2_1_2_1,
+        fro:Member_2_2_2_1_2_2,
+        fro:Member_2_2_2_1_2_3 ;
+    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a> leiden ofwel:"@nl .
 
-firebim:Member_2_2_2_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "-    naar buiten;"@nl .
+fro:Member_2_2_2_1_2_1 a fro:Member ;
+    fro:hasOriginalText "naar buiten;"@nl .
 
-firebim:Member_2_2_2_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "-    naar <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a>;"@nl .
+fro:Member_2_2_2_1_2_2 a fro:Member ;
+    fro:hasOriginalText "naar <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a>;"@nl .
 
-firebim:Member_2_2_2_1_2_3 a firebim:Member ;
-    firebim:hasOriginalText "-    naar trappen, binnen of buiten het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> gelegen (voor de horizontale afstanden zie 4.4)."@nl .
+fro:Member_2_2_2_1_2_3 a fro:Member ;
+    fro:hasOriginalText "naar <a href=\"http://example.com/firebimbuilding#Staircase\">trappen</a>, binnen of buiten het gebouw gelegen (voor de <a href=\"http://example.com/firebimbuilding#DistanceBetweenBuildings\">horizontale afstanden</a> zie 4.4)."@nl .
 
-firebim:Member_2_2_2_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Wat de <a href=\"http://example.com/firebimbuilding#UndergroundFloor\">ondergrondse bouwlagen</a> betreft mag één uitgang naar buiten via een <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a> met <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> EI 30 en <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> EI1 30 de vereiste toegang tot één der <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> vervangen."""@nl .
+fro:Member_2_2_2_1_3 a fro:Member ;
+    fro:hasOriginalText "Wat de <a href=\"http://example.com/firebimbuilding#UndergroundFloor\">ondergrondse bouwlagen</a> betreft mag één <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a> naar buiten via een <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a> met <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> EI 30 en <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> EI1 30 de vereiste toegang tot één der <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> vervangen."@nl .
 
-firebim:Member_2_2_2_1_4 a firebim:Member ;
-    firebim:hasOriginalText "Voor de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a>: zie 5.2."@nl ;
-    firebim:hasForwardReference firebim:Section_5_2 .
+fro:Member_2_2_2_1_4 a fro:Member ;
+    fro:hasForwardReference fro:Section_5_2 ;
+    fro:hasOriginalText "Voor de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a>: zie 5.2."@nl .
 
-firebim:Member_2_2_2_1_5 a firebim:Member ;
-    firebim:hasOriginalText """Op een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a> die beantwoordt aan de voorschriften van 4.4."""@nl ;
-    firebim:hasForwardReference firebim:Section_4_4 .
+fro:Member_2_2_2_1_5 a fro:Member ;
+    fro:hasForwardReference fro:Section_4_4 ;
+    fro:hasOriginalText "Op een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> leidt iedere <a href=\"http://example.com/firebimbuilding#Staircase\">trap</a> naar buiten, hetzij rechtstreeks, hetzij over een <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a> die beantwoordt aan de voorschriften van 4.4."@nl .
 
-firebim:Section_2_2 firebim:hasSection firebim:Section_2_2_2 .
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

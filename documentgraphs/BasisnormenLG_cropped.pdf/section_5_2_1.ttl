@@ -3,42 +3,41 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_5_2_1 a firebim:Section ;
-    firebim:hasID "5.2.1" ;
-    firebim:hasOriginalText "Structurele elementen"@nl ;
-    firebim:hasArticle firebim:Article_5_2_1_1 .
+fro:Section_5_2_1 a fro:Section ;
+    fro:hasID "5.2.1" ;
+    fro:hasOriginalText "Structurele elementen"@nl ;
+    fro:hasArticle fro:Article_5_2_1_1 .
 
-firebim:Article_5_2_1_1 a firebim:Article ;
-    firebim:hasID "A5.2.1.1" ;
-    firebim:hasMember firebim:Member_5_2_1_1_1,
-        firebim:Member_5_2_1_1_2,
-        firebim:Member_5_2_1_1_3 .
+fro:Article_5_2_1_1 a fro:Article ;
+    fro:hasID "A5.2.1.1" ;
+    fro:hasMember fro:Member_5_2_1_1_1,
+        fro:Member_5_2_1_1_2,
+        fro:Member_5_2_1_1_3 .
 
-firebim:Member_5_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """In afwijking van het punt 3.2 hebben de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> R 120 en de <a href=\"http://example.com/firebimbuilding#Floor\">vloeren</a> van de <a href=\"http://example.com/firebimbuilding#Parking\">parkeerbouwlagen</a> en van de <a href=\"http://example.com/firebimbuilding#Ramp\">hellingen</a> hebben R 120."""@nl ;
-    firebim:hasBackwardReference firebim:Section_3_2 .
+fro:Member_5_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText """In afwijking van het punt 3.2 hebben de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> R 120 en de <a href=\"http://example.com/firebimbuilding#Floor\">vloeren</a> van de parkeerbouwlagen en van de hellingen hebben R 120."""@nl .
 
-firebim:Member_5_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Wanneer het <a href=\"http://example.com/firebimbuilding#Roof\">dak</a> geen andere <a href=\"http://example.com/firebimbuilding#RoofFunction\">functie</a> heeft dan alleen het beschermen van de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> tegen de weersomstandigheden:"""@nl ;
-    firebim:hasMember firebim:Member_5_2_1_1_2_1,
-        firebim:Member_5_2_1_1_2_2 .
+fro:Member_5_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText """Wanneer het <a href=\"http://example.com/firebimbuilding#Roof\">dak</a> geen andere functie heeft dan alleen het beschermen van de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> tegen de weersomstandigheden:"""@nl ;
+    fro:hasMember fro:Member_5_2_1_1_2_1,
+        fro:Member_5_2_1_1_2_2 .
 
-firebim:Member_5_2_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "- hebben de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van het <a href=\"http://example.com/firebimbuilding#Roof\">dak</a> R 30;"@nl .
+fro:Member_5_2_1_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- hebben de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van het <a href=\"http://example.com/firebimbuilding#Roof\">dak</a> R 30;"@nl .
 
-firebim:Member_5_2_1_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "- of worden de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van het <a href=\"http://example.com/firebimbuilding#Roof\">dak</a> gescheiden van de rest van de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> door een <a href=\"http://example.com/firebimbuilding#StructuralElement\">bouwelement</a> EI 30."@nl .
+fro:Member_5_2_1_1_2_2 a fro:Member ;
+    fro:hasOriginalText """- of worden de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van het <a href=\"http://example.com/firebimbuilding#Roof\">dak</a> gescheiden van de rest van de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> door een <a href=\"http://example.com/firebimbuilding#BuildingElement\">bouwelement</a> EI 30."""@nl .
 
-firebim:Member_5_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """Voor de <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkeerbouwlagen</a> worden de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> aan geen enkele vereiste onderworpen inzake <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a>, op voorwaarde:"""@nl ;
-    firebim:hasMember firebim:Member_5_2_1_1_3_1,
-        firebim:Member_5_2_1_1_3_2 .
+fro:Member_5_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText """Voor de <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkeerbouwlagen</a> worden de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> aan geen enkele vereiste onderworpen inzake <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a>, op voorwaarde:"""@nl ;
+    fro:hasMember fro:Member_5_2_1_1_3_1,
+        fro:Member_5_2_1_1_3_2 .
 
-firebim:Member_5_2_1_1_3_1 a firebim:Member ;
-    firebim:hasOriginalText "- dat de <a href=\"http://example.com/firebimbuilding#Floor\">vloeren</a> van deze <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkeerbouwlagen</a> en de <a href=\"http://example.com/firebimbuilding#Ramp\">hellingen</a> tussen deze <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkeerbouwlagen</a> minstens REI 60 hebben;"@nl .
+fro:Member_5_2_1_1_3_1 a fro:Member ;
+    fro:hasOriginalText """- dat de <a href=\"http://example.com/firebimbuilding#Floor\">vloeren</a> van deze <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkeerbouwlagen</a> en de hellingen tussen deze <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkeerbouwlagen</a> minstens REI 60 hebben;"""@nl .
 
-firebim:Member_5_2_1_1_3_2 a firebim:Member ;
-    firebim:hasOriginalText "- en dat deze <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> geen ander <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> dragen."@nl .
+fro:Member_5_2_1_1_3_2 a fro:Member ;
+    fro:hasOriginalText """- en dat deze <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> geen ander <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> dragen."""@nl .

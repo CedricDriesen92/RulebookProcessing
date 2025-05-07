@@ -3,35 +3,35 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_2_2_2_1 a firebim:Section ;
-    firebim:hasID "2.2.2.1" ;
-    firebim:hasOriginalText "REGLES DE BASE"@fr ;
-    firebim:hasArticle firebim:Article_2_2_2_1_1 .
+fro:Section_2_2_2_1 a fro:Section ;
+    fro:hasID "2.2.2.1" ;
+    fro:hasOriginalText "REGLES DE BASE"@fr ;
+    fro:hasArticle fro:Article_2_2_2_1_1 .
 
-firebim:Article_2_2_2_1_1 a firebim:Article ;
-    firebim:hasID "A2.2.2.1.1" ;
-    firebim:hasMember firebim:Member_2_2_2_1_1_1, firebim:Member_2_2_2_1_1_2, firebim:Member_2_2_2_1_1_3 .
+fro:Article_2_2_2_1_1 a fro:Article ;
+    fro:hasID "A2.2.2.1.1" ;
+    fro:hasMember fro:Member_2_2_2_1_1_1, fro:Member_2_2_2_1_1_2, fro:Member_2_2_2_1_1_3 .
 
-firebim:Member_2_2_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """L'arrêté royal du 7 juillet 1994 [33] définit les règles de base en matière de prévention des incendies et des explosions dans les nouveaux bâtiments. Dans certains cas, ces prescriptions sont complétées par des dispositions communautaires et/ou régionales et éventuellement par des règlements communaux."""@fr .
+fro:Member_2_2_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText """L'arrêté royal du 7 juillet 1994 [33] définit les règles de base en matière de prévention des incendies et des explosions dans les nouveaux bâtiments. Dans certains cas, ces prescriptions sont complétées par des dispositions communautaires et/ou régionales et éventuellement par des règlements communaux."""@fr .
 
-firebim:Member_2_2_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Les annexes techniques de l'arrêté sont essentiellement basées sur les normes en vigueur de la série NBN S 21 [22]. Les textes ayant été dépouillés des prescriptions spécifiques applicables à certaines catégories de bâtiments (immeubles de bureaux, immeubles appartements, etc.), l'arrêté définit un cadre général auquel tous les bâtiments doivent satisfaire. Il inclut en outre, dans la réglementation, les bâtiments bas (h < 10 m)."""@fr .
+fro:Member_2_2_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText """Les annexes techniques de l'arrêté sont essentiellement basées sur les normes en vigueur de la série NBN S 21 [22]. Les textes ayant été dépouillés des prescriptions spécifiques applicables à certaines catégories de bâtiments (immeubles de bureaux, immeubles appartements, etc.), l'arrêté définit un cadre général auquel tous les bâtiments doivent satisfaire. Il inclut en outre, dans la réglementation, les bâtiments bas (h < 10 m)."""@fr .
 
-firebim:Member_2_2_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText """L'arrêté s'applique à tous les immeubles neufs quelle que soit leur destination, à l'exception toutefois de ceux qui présentent un risque d'incendie réduit ; notamment les maisons unifamiliales."""@fr .
+fro:Member_2_2_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText """L'arrêté s'applique à tous les immeubles neufs quelle que soit leur destination, à l'exception toutefois de ceux qui présentent un risque d'incendie réduit ; notamment les maisons unifamiliales."""@fr .
 
-firebim:Member_2_2_2_1_1_1 firebim:hasReference firebim:Reference_AR_1994_07_07 .
+fro:Member_2_2_2_1_1_1 fro:hasReference fro:Reference_AR_1994_07_07 .
 
-firebim:Reference_AR_1994_07_07 a firebim:Reference ;
-    firebim:hasID "33" .
+fro:Reference_AR_1994_07_07 a fro:Reference ;
+    fro:hasID "33" .
 
-firebim:Member_2_2_2_1_1_2 firebim:hasReference firebim:Reference_NBN_S_21 .
+fro:Member_2_2_2_1_1_2 fro:hasReference fro:Reference_NBN_S_21 .
 
-firebim:Reference_NBN_S_21 a firebim:Reference ;
-    firebim:hasID "22" .
+fro:Reference_NBN_S_21 a fro:Reference ;
+    fro:hasID "22" .
 
-firebim:Section_2_2_2 firebim:hasSection firebim:Section_2_2_2_1 .
+fro:Section_2_2_2 fro:hasSection fro:Section_2_2_2_1 .

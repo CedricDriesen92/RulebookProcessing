@@ -3,98 +3,98 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_5_1_2 a firebim:Section ;
-    firebim:hasID "5.1.2" ;
-    firebim:hasOriginalText "Stookafdelingen."@nl ;
-    firebim:hasSection firebim:Section_5_1_2_1, firebim:Section_5_1_2_2, firebim:Section_5_1_2_3 .
+fro:Section_5_1_2 a fro:Section ;
+    fro:hasID "5.1.2" ;
+    fro:hasOriginalText "Stookafdelingen."@nl ;
+    fro:hasSection fro:Section_5_1_2_1, fro:Section_5_1_2_2, fro:Section_5_1_2_3 .
 
-firebim:Section_5_1_2_1 a firebim:Section ;
-    firebim:hasID "5.1.2.1" ;
-    firebim:hasOriginalText "Stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan of gelijk aan 75 kW en brandstofopslagruimtes."@nl ;
-    firebim:hasArticle firebim:Article_5_1_2_1_1 .
+fro:Section_5_1_2_1 a fro:Section ;
+    fro:hasID "5.1.2.1" ;
+    fro:hasOriginalText "Stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan of gelijk aan 75 kW en brandstofopslagruimtes."@nl ;
+    fro:hasArticle fro:Article_5_1_2_1_1 .
 
-firebim:Article_5_1_2_1_1 a firebim:Article ;
-    firebim:hasID "A5.1.2.1.1" ;
-    firebim:hasOriginalText """De stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan
+fro:Article_5_1_2_1_1 a fro:Article ;
+    fro:hasID "A5.1.2.1.1" ;
+    fro:hasOriginalText """De stooklokalen met verbrandingstoestellen met een gecumuleerd verbrandingsdebiet groter dan
 of gelijk aan 75 kW en de brandstofopslagruimtes, zijn technische lokalen.
 De voorschriften van punt 5.1.1 zijn van toepassing, mits volgende wijzigingen:"""@nl ;
-    firebim:hasMember firebim:Member_5_1_2_1_1_1, firebim:Member_5_1_2_1_1_2, firebim:Member_5_1_2_1_1_3, firebim:Member_5_1_2_1_1_4, firebim:Member_5_1_2_1_1_5 .
+    fro:hasMember fro:Member_5_1_2_1_1_1, fro:Member_5_1_2_1_1_2, fro:Member_5_1_2_1_1_3, fro:Member_5_1_2_1_1_4, fro:Member_5_1_2_1_1_5 .
 
-firebim:Member_5_1_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText "-    Elke stooklokaal en brandstofopslagruimte moet een afzonderlijk compartiment vormen;"@nl .
+fro:Member_5_1_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "-    Elke stooklokaal en brandstofopslagruimte moet een afzonderlijk compartiment vormen;"@nl .
 
-firebim:Member_5_1_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText "-    De binnenwanden van deze stooklokalen en brandstofopslagruimtes EI 60 hebben;"@nl .
+fro:Member_5_1_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "-    De binnenwanden van deze stooklokalen en brandstofopslagruimtes EI 60 hebben;"@nl .
 
-firebim:Member_5_1_2_1_1_3 a firebim:Member ;
-    firebim:hasOriginalText "-    Toegang tot deze stooklokalen en brandstofopslagruimtes:"@nl ;
-    firebim:hasMember firebim:Member_5_1_2_1_1_3_1, firebim:Member_5_1_2_1_1_3_2, firebim:Member_5_1_2_1_1_3_3, firebim:Member_5_1_2_1_1_3_4 .
+fro:Member_5_1_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText "-    Toegang tot deze stooklokalen en brandstofopslagruimtes:"@nl ;
+    fro:hasMember fro:Member_5_1_2_1_1_3_1, fro:Member_5_1_2_1_1_3_2, fro:Member_5_1_2_1_1_3_3, fro:Member_5_1_2_1_1_3_4 .
 
-firebim:Member_5_1_2_1_1_3_1 a firebim:Member ;
-    firebim:hasOriginalText "-    Hetzij via een zelfsluitende deur EI1 60;"@nl .
+fro:Member_5_1_2_1_1_3_1 a fro:Member ;
+    fro:hasOriginalText "-    Hetzij via een zelfsluitende deur EI1 60;"@nl .
 
-firebim:Member_5_1_2_1_1_3_2 a firebim:Member ;
-    firebim:hasOriginalText "-    Hetzij via een sas met de volgende kenmerken:"@nl ;
-    firebim:hasMember firebim:Member_5_1_2_1_1_3_2_1, firebim:Member_5_1_2_1_1_3_2_2, firebim:Member_5_1_2_1_1_3_2_3 .
+fro:Member_5_1_2_1_1_3_2 a fro:Member ;
+    fro:hasOriginalText "-    Hetzij via een sas met de volgende kenmerken:"@nl ;
+    fro:hasMember fro:Member_5_1_2_1_1_3_2_1, fro:Member_5_1_2_1_1_3_2_2, fro:Member_5_1_2_1_1_3_2_3 .
 
-firebim:Member_5_1_2_1_1_3_2_1 a firebim:Member ;
-    firebim:hasOriginalText "1.   het bevat zelfsluitende deuren EI1 30;"@nl .
+fro:Member_5_1_2_1_1_3_2_1 a fro:Member ;
+    fro:hasOriginalText "1.   het bevat zelfsluitende deuren EI1 30;"@nl .
 
-firebim:Member_5_1_2_1_1_3_2_2 a firebim:Member ;
-    firebim:hasOriginalText "2.   de wanden hebben EI 60;"@nl .
+fro:Member_5_1_2_1_1_3_2_2 a fro:Member ;
+    fro:hasOriginalText "2.   de wanden hebben EI 60;"@nl .
 
-firebim:Member_5_1_2_1_1_3_2_3 a firebim:Member ;
-    firebim:hasOriginalText "3.   de oppervlakte bedraagt minimum 2 m²;"@nl .
+fro:Member_5_1_2_1_1_3_2_3 a fro:Member ;
+    fro:hasOriginalText "3.   de oppervlakte bedraagt minimum 2 m²;"@nl .
 
-firebim:Member_5_1_2_1_1_3_3 a firebim:Member ;
-    firebim:hasOriginalText "-    Hetzij via een uitgang in open lucht, derwijze dat een evacuatieniveau bereikbaar is."@nl .
+fro:Member_5_1_2_1_1_3_3 a fro:Member ;
+    fro:hasOriginalText "-    Hetzij via een uitgang in open lucht, derwijze dat een evacuatieniveau bereikbaar is."@nl .
 
-firebim:Member_5_1_2_1_1_3_4 a firebim:Member ;
-    firebim:hasOriginalText "De deuren draaien open in de vluchtzin."@nl .
+fro:Member_5_1_2_1_1_3_4 a fro:Member ;
+    fro:hasOriginalText "De deuren draaien open in de vluchtzin."@nl .
 
-firebim:Member_5_1_2_1_1_4 a firebim:Member ;
-    firebim:hasOriginalText """-    Geen enkel punt van deze stooklokalen en brandstofopslagruimtes mag zich verder bevinden
+fro:Member_5_1_2_1_1_4 a fro:Member ;
+    fro:hasOriginalText """-    Geen enkel punt van deze stooklokalen en brandstofopslagruimtes mag zich verder bevinden
      dan 15 m van de dichtstbijzijnde uitgang."""@nl .
 
-firebim:Member_5_1_2_1_1_5 a firebim:Member ;
-    firebim:hasOriginalText """De capaciteit van een brandstofopslagruimte wordt beperkt zodat de totale brandlast van de
+fro:Member_5_1_2_1_1_5 a fro:Member ;
+    fro:hasOriginalText """De capaciteit van een brandstofopslagruimte wordt beperkt zodat de totale brandlast van de
 brandstofopslagruimte kleiner is dan of gelijk aan 750 GJ."""@nl .
 
-firebim:Section_5_1_2_2 a firebim:Section ;
-    firebim:hasID "5.1.2.2" ;
-    firebim:hasOriginalText "Gemeenschappelijke bepalingen."@nl ;
-    firebim:hasArticle firebim:Article_5_1_2_2_1 .
+fro:Section_5_1_2_2 a fro:Section ;
+    fro:hasID "5.1.2.2" ;
+    fro:hasOriginalText "Gemeenschappelijke bepalingen."@nl ;
+    fro:hasArticle fro:Article_5_1_2_2_1 .
 
-firebim:Article_5_1_2_2_1 a firebim:Article ;
-    firebim:hasID "A5.1.2.2.1" ;
-    firebim:hasOriginalText """Het ontwerp, de bouw en de inrichting van de stookafdelingen voldoen aan de bepalingen van
+fro:Article_5_1_2_2_1 a fro:Article ;
+    fro:hasID "A5.1.2.2.1" ;
+    fro:hasOriginalText """Het ontwerp, de bouw en de inrichting van de stookafdelingen voldoen aan de bepalingen van
 punt 4 van bijlage 7."""@nl ;
-    firebim:hasMember firebim:Member_5_1_2_2_1_1 .
+    fro:hasMember fro:Member_5_1_2_2_1_1 .
 
-firebim:Member_5_1_2_2_1_1 a firebim:Member ;
-    firebim:hasOriginalText """Het ontwerp, de bouw en de inrichting van de stookafdelingen voldoen aan de bepalingen van
+fro:Member_5_1_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText """Het ontwerp, de bouw en de inrichting van de stookafdelingen voldoen aan de bepalingen van
 punt 4 van bijlage 7."""@nl .
 
-firebim:Section_5_1_2_3 a firebim:Section ;
-    firebim:hasID "5.1.2.3" ;
-    firebim:hasOriginalText "Afwijkende bepalingen."@nl ;
-    firebim:hasArticle firebim:Article_5_1_2_3_1 .
+fro:Section_5_1_2_3 a fro:Section ;
+    fro:hasID "5.1.2.3" ;
+    fro:hasOriginalText "Afwijkende bepalingen."@nl ;
+    fro:hasArticle fro:Article_5_1_2_3_1 .
 
-firebim:Article_5_1_2_3_1 a firebim:Article ;
-    firebim:hasID "A5.1.2.3.1" ;
-    firebim:hasOriginalText """Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, gelden
+fro:Article_5_1_2_3_1 a fro:Article ;
+    fro:hasID "A5.1.2.3.1" ;
+    fro:hasOriginalText """Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, gelden
 de volgende afwijkende bepalingen:"""@nl ;
-    firebim:hasMember firebim:Member_5_1_2_3_1_1, firebim:Member_5_1_2_3_1_2 .
+    fro:hasMember fro:Member_5_1_2_3_1_1, fro:Member_5_1_2_3_1_2 .
 
-firebim:Member_5_1_2_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """-    Punt 5.1.2.1: Niet van toepassing op de stookafdelingen met verbrandingstoestellen met een
+fro:Member_5_1_2_3_1_1 a fro:Member ;
+    fro:hasOriginalText """-    Punt 5.1.2.1: Niet van toepassing op de stookafdelingen met verbrandingstoestellen met een
      totaal nuttig warmtevermogen (ook totaal nominaal vermogen genoemd) kleiner dan 70 kW;"""@nl .
 
-firebim:Member_5_1_2_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """-    Punt 5.1.2.1: Niet van toepassing op de stookafdelingen met verbrandingstoestellen met een
+fro:Member_5_1_2_3_1_2 a fro:Member ;
+    fro:hasOriginalText """-    Punt 5.1.2.1: Niet van toepassing op de stookafdelingen met verbrandingstoestellen met een
      totaal nuttig warmtevermogen (ook totaal nominaal vermogen genoemd) groter dan of gelijk
      aan 70 kW als de toegang tot de stookafdeling en de brandwerendheid van de muren,
      vloeren, plafonds en deuren van de stookafdeling voldoen aan de voorschriften van de norm
@@ -104,7 +104,7 @@ firebim:Member_5_1_2_3_1_2 a firebim:Member ;
      deze niet uitgeeft op een trappenhuis noch op een liftoverloop noch in een lokaal met
      bijzonder risico. De deur draait in de vluchtzin."""@nl .
 
-firebim:Member_5_1_2_3_1_2 firebim:hasReference firebim:Reference_NBN_B_61_001_A1_1996 .
+fro:Member_5_1_2_3_1_2 fro:hasReference fro:Reference_NBN_B_61_001_A1_1996 .
 
-firebim:Reference_NBN_B_61_001_A1_1996 a firebim:Reference ;
-    firebim:hasID "NBN B 61-001 +A1 : 1996" .
+fro:Reference_NBN_B_61_001_A1_1996 a fro:Reference ;
+    fro:hasID "NBN B 61-001 +A1 : 1996" .

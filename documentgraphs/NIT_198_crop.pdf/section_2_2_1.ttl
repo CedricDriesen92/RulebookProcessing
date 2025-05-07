@@ -3,32 +3,32 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_2_2_1 a firebim:Section ;
-    firebim:hasID "2.2.1" ;
-    firebim:hasOriginalText "ENONCE DU PROBLEME"@fr ;
-    firebim:hasArticle firebim:Article_2_2_1_1 .
+fro:Section_2_2_1 a fro:Section ;
+    fro:hasID "2.2.1" ;
+    fro:hasOriginalText "ENONCE DU PROBLEME"@fr ;
+    fro:hasArticle fro:Article_2_2_1_1 .
 
-firebim:Article_2_2_1_1 a firebim:Article ;
-    firebim:hasID "A2.2.1.1" ;
-    firebim:hasMember firebim:Member_2_2_1_1_1, firebim:Member_2_2_1_1_2 .
+fro:Article_2_2_1_1 a fro:Article ;
+    fro:hasID "A2.2.1.1" ;
+    fro:hasMember fro:Member_2_2_1_1_1, fro:Member_2_2_1_1_2 .
 
-firebim:Member_2_2_1_1_1 a firebim:Member ;
-    firebim:hasOriginalText """L'auteur de projet prend les mesures nécessaires en vue d'assurer la sécurité du bâtiment applicables en la matière. Ces dispositions consistent à prévoir des possibilités d'évacuation en cas d'incendie et ce, en fonction de la hauteur de l'immeuble et des dispositions judicieux."""@fr .
+fro:Member_2_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText """L'auteur de projet prend les mesures nécessaires en vue d'assurer la sécurité du bâtiment applicables en la matière. Ces dispositions consistent à prévoir des possibilités d'évacuation en cas d'incendie et ce, en fonction de la hauteur de l'immeuble et des dispositions judicieux."""@fr .
 
-firebim:Member_2_2_1_1_2 a firebim:Member ;
-    firebim:hasOriginalText """De telles mesures sont nécessaires pour permettre en cas d'incendie :"""@fr ;
-    firebim:hasMember firebim:Member_2_2_1_1_2_1, firebim:Member_2_2_1_1_2_2, firebim:Member_2_2_1_1_2_3 .
+fro:Member_2_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText """De telles mesures sont nécessaires pour permettre en cas d'incendie :"""@fr ;
+    fro:hasMember fro:Member_2_2_1_1_2_1, fro:Member_2_2_1_1_2_2, fro:Member_2_2_1_1_2_3 .
 
-firebim:Member_2_2_1_1_2_1 a firebim:Member ;
-    firebim:hasOriginalText "- d'évacuer le bâtiment dans les meilleurs délais"@fr .
+fro:Member_2_2_1_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- d'évacuer le bâtiment dans les meilleurs délais"@fr .
 
-firebim:Member_2_2_1_1_2_2 a firebim:Member ;
-    firebim:hasOriginalText "- de limiter les dégâts matériels"@fr .
+fro:Member_2_2_1_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- de limiter les dégâts matériels"@fr .
 
-firebim:Member_2_2_1_1_2_3 a firebim:Member ;
-    firebim:hasOriginalText "- d'assurer aux services d'incendie une intervention efficace et sans danger"@fr .
+fro:Member_2_2_1_1_2_3 a fro:Member ;
+    fro:hasOriginalText "- d'assurer aux services d'incendie une intervention efficace et sans danger"@fr .
 
-firebim:Section_2_2 firebim:hasSection firebim:Section_2_2_1 .
+fro:Section_2_2 fro:hasSection fro:Section_2_2_1 .

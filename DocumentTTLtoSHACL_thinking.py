@@ -12,8 +12,9 @@ from rdflib.namespace import RDF, RDFS, DCTERMS
 load_dotenv()
 
 # --- Configuration ---
+
 google_key = os.getenv("GEMINI_API_KEY")
-input_file_base = os.getenv("INPUT_FILE") # e.g., 'NIT_198_crop.pdf'
+input_file_base = os.getenv("INPUT_FILE")
 if not input_file_base:
     raise ValueError("INPUT_FILE environment variable not set.")
 
@@ -21,12 +22,13 @@ if not input_file_base:
 doc_graph_dir = f"documentgraphs/{input_file_base}"
 # No RASE output needed
 shacl_output_dir = f"SHACL/{input_file_base}" # Or a single file like f"SHACL/{input_file_base}.shacl.ttl"
-shacl_docs_path = "SHACLdocs.html" # Path to the SHACL documentation file
+shacl_docs_path = "SHACLdocs.txt" # Path to the SHACL documentation file
 
 # Ensure output directory exists
 os.makedirs(shacl_output_dir, exist_ok=True)
 
 # --- Gemini Model Setup ---
+
 if not google_key:
     raise ValueError("GEMINI_API_KEY environment variable not set.")
 
@@ -34,19 +36,17 @@ genai.configure(api_key=google_key)
 
 # Configure the Gemini model
 gemini_config = {
-    "temperature": 0.2, # Lower temperature for more deterministic SHACL generation
+    "temperature": 0.5, # Lower temperature for more deterministic SHACL generation
     "top_p": 0.95,
     "top_k": 64,
-    "max_output_tokens": 65536, # Allow for potentially complex SHACL shapes
-    "response_mime_type": "text/plain", # Expecting TTL as text
+    "max_output_tokens": 65536,
+    "response_mime_type": "text/plain",
 }
 
-# Use a Gemini 2.5 Pro model (or adjust as needed)
-model_name = "gemini-2.5-pro-exp-03-25"
+model_name = "gemini-2.5-pro-preview-03-25"
 model = genai.GenerativeModel(
     model_name=model_name,
     generation_config=gemini_config,
-    # system_instruction can be set here or per-request
 )
 
 print(f"Using Gemini model: {model_name}")
@@ -54,19 +54,19 @@ print(f"Input TTL directory: {doc_graph_dir}")
 print(f"SHACL output directory: {shacl_output_dir}")
 
 # --- Namespaces ---
+
 FIREBIM = Namespace("http://example.com/firebim#") # Adjust if your namespace is different
 SH = Namespace("http://www.w3.org/ns/shacl#")
 XSD = Namespace("http://www.w3.org/2001/XMLSchema#")
-# Add other relevant namespaces (e.g., from your building ontology)
-FBBO = Namespace("http://example.com/fbbo#") # Example
+FBBO = Namespace("http://example.com/fbbo#") 
 
 # --- Helper Functions ---
 
 def extract_article_member_text_from_ttl(ttl_content: str) -> list[tuple[str, str]]:
     """
-    Parses TTL content to extract the original text (firebim:hasOriginalText)
-    associated with firebim:Article subjects, recursively gathering text from
-    all nested firebim:Member subjects linked via firebim:hasMember.
+    Parses TTL content to extract the original text (fro:hasOriginalText)
+    associated with fro:Article subjects, recursively gathering text from
+    all nested fro:Member subjects linked via fro:hasMember.
 
     Args:
         ttl_content: The Turtle content as a string.
@@ -92,7 +92,7 @@ def extract_article_member_text_from_ttl(ttl_content: str) -> list[tuple[str, st
     article_query = """
     SELECT ?article
     WHERE {
-        ?article rdf:type firebim:Article .
+        ?article rdf:type fro:Article .
     }
     """
     try:
@@ -103,20 +103,20 @@ def extract_article_member_text_from_ttl(ttl_content: str) -> list[tuple[str, st
         return []
 
     if not articles:
-        print("Warning: No firebim:Article subjects found in the graph.")
+        print("Warning: No fro:Article subjects found in the graph.")
         return []
 
     combined_texts_data = []
 
     # Query 2: For each article, find all text within its hierarchy
-    # Uses SPARQL property path `firebim:hasMember*` to find the article itself (0 steps)
-    # and all nodes reachable via one or more `firebim:hasMember` links.
-    # Then retrieves `firebim:hasOriginalText` from any of these nodes.
+    # Uses SPARQL property path `fro:hasMember*` to find the article itself (0 steps)
+    # and all nodes reachable via one or more `fro:hasMember` links.
+    # Then retrieves `fro:hasOriginalText` from any of these nodes.
     text_hierarchy_query_template = """
     SELECT ?text
     WHERE {{
-        <{article_uri}> firebim:hasMember* ?node .
-        ?node firebim:hasOriginalText ?text .
+        <{article_uri}> fro:hasMember* ?node .
+        ?node fro:hasOriginalText ?text .
     }}
     """
     # Note: We query text separately for each article to keep texts grouped.
@@ -201,14 +201,14 @@ def generate_shacl_from_text(rule_text: str, rule_subject_uri: str, building_ont
 **Input:**
 1.  **Regulatory Text:** The original text content of a specific rule, article, or section from a building code document.
 2.  **Subject URI:** The unique identifier (`<{rule_subject_uri}>`) for this rule within its source document graph.
-3.  **Ontology Context:** Assume the existence of relevant building ontology terms (prefixes provided below). Use appropriate terms from common building ontologies or the FIREBIM namespace (`firebim:`) where applicable.
+3.  **Ontology Context:** Assume the existence of relevant building ontology terms (prefixes provided below). Use appropriate terms from common building ontologies or the FIREBIM namespace (`fro:`) where applicable.
 4.  **SHACL Documentation:** Reference information from the SHACL specification is included below.
 
 **Ontology Prefixes Available:**
 ```turtle
 @prefix sh: <{SH}> .
 @prefix xsd: <{XSD}> .
-@prefix firebim: <{FIREBIM}> .
+@prefix fro: <{FIREBIM}> .
 @prefix fbbo: <{FBBO}> . # Example Building Ontology namespace
 # Add other relevant prefixes as needed
 {ontology_prefixes}
@@ -228,7 +228,7 @@ Analyze the provided **Regulatory Text**. Identify the core requirements, condit
 *   Start directly with `@prefix` or the NodeShape definition. Do **not** include explanations, apologies, or any text outside the Turtle syntax.
 *   Create a `sh:NodeShape` (e.g., `:Shape_rule_subject_uri_local_name`).
 *   Define `sh:target` appropriately.
-*   Use relevant ontology properties (e.g., `firebim:hasFireResistance`). Use placeholders if needed.
+*   Use relevant ontology properties (e.g., `fro:hasFireResistance`). Use placeholders if needed.
 *   Include clear `sh:message` properties.
 *   Ensure syntactically correct Turtle.
 
@@ -344,7 +344,7 @@ def main():
 
     for ttl_file_path in sorted(ttl_files):
         filename = os.path.basename(ttl_file_path)
-        if "section_2_1" not in filename: # Remove or adjust any specific file filtering if needed
+        if "section_2" not in filename: # Remove or adjust any specific file filtering if needed
             continue
         print(f"\nProcessing {filename}...")
 

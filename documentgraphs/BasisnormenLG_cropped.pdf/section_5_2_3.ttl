@@ -3,23 +3,23 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <http://example.com/firebim> .
 
-firebim:Section_5_2_3 a firebim:Section ;
-    firebim:hasID "5.2.3" ;
-    firebim:hasOriginalText "Parking onder verschillende gebouwen"@nl ;
-    firebim:hasArticle firebim:Article_5_2_3_1 .
 
-firebim:Article_5_2_3_1 a firebim:Article ;
-    firebim:hasID "A5.2.3.1" ;
-    firebim:hasMember firebim:Member_5_2_3_1_1, firebim:Member_5_2_3_1_2, firebim:Member_5_2_3_1_3 .
+fro:Section_5_2_3 a fro:Section ;
+    fro:hasID "5.2.3" ;
+    fro:hasOriginalText "Parking onder verschillende gebouwen"@nl ;
+    fro:hasArticle fro:Article_5_2_3_1 .
 
-firebim:Member_5_2_3_1_1 a firebim:Member ;
-    firebim:hasOriginalText """In afwijking van het punt 1.3 moeten de <a href=\"http://example.com/firebimbuilding#Parking\">parkings</a> van aangrenzende gebouwen niet door een <a href=\"http://example.com/firebimbuilding#SeparationWall\">wand</a> worden afgescheiden."""@nl .
+fro:Article_5_2_3_1 a fro:Article ;
+    fro:hasID "A5.2.3.1" ;
+    fro:hasMember fro:Member_5_2_3_1_1,
+        fro:Member_5_2_3_1_2 .
 
-firebim:Member_5_2_3_1_2 a firebim:Member ;
-    firebim:hasOriginalText """Die <a href=\"http://example.com/firebimbuilding#Parking\">parkings</a> vormen bijgevolg slechts één en dezelfde <a href=\"http://example.com/firebimbuilding#Parking\">parking</a>."""@nl .
+fro:Member_5_2_3_1_1 a fro:Member ;
+    fro:hasOriginalText """In afwijking van het punt 1.3 moeten de <a href=\"http://example.com/firebimbuilding#Parking\">parkings</a> van aangrenzende <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> niet door een <a href=\"http://example.com/firebimbuilding#Wall\">wand</a> worden afgescheiden. Die <a href=\"http://example.com/firebimbuilding#Parking\">parkings</a> vormen bijgevolg slechts één en dezelfde <a href=\"http://example.com/firebimbuilding#Parking\">parking</a>."""@nl ;
+    fro:hasBackwardReference fro:Section_1_3 .
 
-firebim:Member_5_2_3_1_3 a firebim:Member ;
-    firebim:hasOriginalText """In dat geval hebben de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van de gehele <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">R 120</a>, met inbegrip van de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van de <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkeerbouwlagen</a>."""@nl .
+fro:Member_5_2_3_1_2 a fro:Member ;
+    fro:hasOriginalText """In dat geval hebben de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van de gehele <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> <a href=\"http://example.com/firebimbuilding#FireResistance\">R 120</a>, met inbegrip van de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van de <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkeerbouwlagen</a>."""@nl .

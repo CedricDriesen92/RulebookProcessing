@@ -1,11 +1,6 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix firebim: <http://example.com/firebim#> .
-@base <http://example.com/firebim> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 
-firebim:Section_6_4_2_6 a firebim:Section ;
-    firebim:hasID "6.4.2.6" ;
-    firebim:hasOriginalText "Op het <a href=\"http://example.com/firebimbuilding#Landing\">bordes</a> van het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">toegangsniveau</a> van de <a href=\"http://example.com/firebimbuilding#Firefighter\">brandweer</a> is een schakelaar met “<a href=\"http://example.com/firebimbuilding#FirefighterKey\">brandweersleutel</a>” voorzien die de <a href=\"http://example.com/firebimbuilding#Firefighter\">brandweer</a> toelaat om de <a href=\"http://example.com/firebimbuilding#ManualControl\">bediening</a> van de <a href=\"http://example.com/firebimbuilding#Elevator\">lift</a> over te nemen."@nl .
+fro:Section_6_4_2_6 a fro:Section ;
+    fro:hasID "6.4.2.6" ;
+    fro:hasOriginalText "Op het <a href=\"http://example.com/firebimbuilding#Landing\">bordes</a> van het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">toegangsniveau</a> van de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a> is een schakelaar met “<a href=\"http://example.com/firebimbuilding#HasFirefighterKey\">brandweersleutel</a>” voorzien die de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a> toelaat om de <a href=\"http://example.com/firebimbuilding#ElevatorOperation\">bediening van de lift</a> over te nemen."@nl .
+
