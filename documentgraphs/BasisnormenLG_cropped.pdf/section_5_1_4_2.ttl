@@ -11,13 +11,13 @@ fro:Article_5_1_4_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_5_1_4_2_1_1 a fro:Member ;
-    fro:hasOriginalText "<a href=\"http://example.com/firebimbuilding#WasteStorageRoom\">Lokaal voor de opslag van het huisvuil</a>"@nl .
+    fro:hasOriginalText "<a href=\"https://ontology.firebim.be/ontology/fbo#WasteStorageRoom\">Lokaal voor de opslag van het huisvuil</a>"@nl .
 
 fro:Member_5_1_4_2_1_2 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> hebben <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a>."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> hebben <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 60</a>."@nl .
 
 fro:Member_5_1_4_2_1_3 a fro:Member ;
-    fro:hasOriginalText "Het <a href=\"http://example.com/firebimbuilding#WasteStorageRoom\">lokaal</a> is toegankelijk via een <a href=\"http://example.com/firebimbuilding#IsSelfClosing\">zelfsluitende</a> <a href=\"http://example.com/firebimbuilding#Door\">deur</a> <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI1 30</a>."@nl .
+    fro:hasOriginalText "Het <a href=\"https://ontology.firebim.be/ontology/fbo#WasteStorageRoom\">lokaal</a> is toegankelijk via een <a href=\"https://ontology.firebim.be/ontology/fbo#IsSelfClosing\">zelfsluitende</a> <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deur</a> <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI1 30</a>."@nl .
 
 fro:Section_5_1_4_2 a fro:Section ;
     fro:hasArticle fro:Article_5_1_4_2_1 ;

@@ -16,7 +16,7 @@ input_file = os.getenv("INPUT_FILE")
 model_provider = os.getenv("MODEL_PROVIDER", "anthropic")
 
 # Define namespaces
-FIREBIM = Namespace("http://example.com/firebim#")
+FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
 SHACL = Namespace("http://www.w3.org/ns/shacl#")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 
@@ -82,7 +82,7 @@ Output Requirements:
 
 Example Structure:
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix fbb: <https://ontology.firebim.be/ontology/fbo#> .
 
 fbb:FireDoorShape
     a sh:NodeShape ;
@@ -155,7 +155,7 @@ Please output only the SHACL shapes in Turtle format, without any explanations. 
 
 Use the following prefixes:
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix fbb: <https://ontology.firebim.be/ontology/fbo#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
@@ -219,7 +219,7 @@ The source text:
                                 {
                                     "type": "text",
                                     "text": """@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix fbb: <https://ontology.firebim.be/ontology/fbo#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> ."""
                                 }
                             ]
@@ -227,7 +227,7 @@ The source text:
                     ]
                 )
                 shacl_output = final_response.content[0].text.strip()
-                return f"""@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix fbb: <http://example.com/firebimbuilding#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n{shacl_output.strip()}"""
+                return f"""@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix fbb: <https://ontology.firebim.be/ontology/fbo#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n{shacl_output.strip()}"""
         
             elif model_provider == "gemini":
                 model = genai.GenerativeModel(
@@ -251,7 +251,7 @@ def load_articles_from_graph(graph_path):
     g = Graph()
     g.parse(graph_path, format="turtle")
     
-    FIREBIM = Namespace("http://example.com/firebim#")
+    FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
     articles = []
     
     query = """
@@ -267,7 +267,7 @@ def load_articles_from_graph(graph_path):
     ORDER BY ?article ?member
     """
     
-    results = g.query(query, initNs={'firebim': FIREBIM})
+    results = g.query(query, initNs={'firebim': FRO})
     
     current_article = None
     current_text = []

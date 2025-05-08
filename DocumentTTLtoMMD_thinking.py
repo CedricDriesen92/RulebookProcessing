@@ -13,7 +13,7 @@ load_dotenv()
 anthropic_key = os.getenv("ANTHROPIC_API_KEY")
 input_file = os.getenv("INPUT_FILE")
 # Define namespaces
-FIREBIM = Namespace("http://example.com/firebim#")
+FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
 SHACL = Namespace("http://www.w3.org/ns/shacl#")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 
@@ -210,7 +210,7 @@ def load_articles_from_graph(graph_path):
     g = Graph()
     g.parse(graph_path, format="turtle")
     
-    FIREBIM = Namespace("http://example.com/firebim#")
+    FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
     articles = []
     
     query = """
@@ -226,7 +226,7 @@ def load_articles_from_graph(graph_path):
     ORDER BY ?article ?member
     """
     
-    results = g.query(query, initNs={'firebim': FIREBIM})
+    results = g.query(query, initNs={'firebim': FRO})
     
     current_article = None
     current_text = []

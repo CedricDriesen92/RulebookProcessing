@@ -5,10 +5,10 @@
 @prefix bot: <https://w3id.org/bot#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix : <http://example.com/firebim#> .
+@prefix : <https://ontology.firebim.be/ontology/fro#> .
 
 # Shape generated from Regulatory Text for Article 2.2.1.1
-# Subject URI: <http://example.com/firebim#Article_2_2_1_1>
+# Subject URI: <https://ontology.firebim.be/ontology/fro#Article_2_2_1_1>
 # Text: "Elk compartiment heeft minimum: - één uitgang indien de maximale bezetting minder dan 100 personen bedraagt; - twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt; - 2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt. Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en de configuratie van de lokalen. Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten."
 
 :Shape_Article_2_2_1_1 a sh:NodeShape ;
@@ -44,7 +44,7 @@
         sh:prefixes [
             sh:declare [
                 sh:prefix "firebim" ;
-                sh:namespace "http://example.com/firebim#"^^xsd:anyURI ;
+                sh:namespace "https://ontology.firebim.be/ontology/fro#"^^xsd:anyURI ;
             ] ;
              sh:declare [
                 sh:prefix "xsd" ;

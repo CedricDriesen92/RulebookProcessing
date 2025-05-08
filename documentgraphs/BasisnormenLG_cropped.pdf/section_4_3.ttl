@@ -12,24 +12,24 @@ fro:Article_4_3_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_4_3_1_1 a fro:Member ;
-    fro:hasOriginalText "<a href=\"http://example.com/firebimbuilding#ExternalStaircase\">Buitentrappen</a> moeten toegang geven tot een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a>."@nl .
+    fro:hasOriginalText "<a href=\"https://ontology.firebim.be/ontology/fbo#ExternalStaircase\">Buitentrappen</a> moeten toegang geven tot een <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a>."@nl .
 
 fro:Member_4_3_1_2 a fro:Member ;
-    fro:hasOriginalText "De voorschriften van 4.2.3 zijn er op van toepassing met nochtans de volgende afwijking: er wordt geen <a href=\"http://example.com/firebimbuilding#FireStability\">stabiliteit bij brand</a> vereist, maar het <a href=\"http://example.com/firebimbuilding#Material\">materiaal</a> behoort tot klasse A1."@nl .
+    fro:hasOriginalText "De voorschriften van 4.2.3 zijn er op van toepassing met nochtans de volgende afwijking: er wordt geen <a href=\"https://ontology.firebim.be/ontology/fbo#FireStability\">stabiliteit bij brand</a> vereist, maar het <a href=\"https://ontology.firebim.be/ontology/fbo#Material\">materiaal</a> behoort tot klasse A1."@nl .
 
 fro:Member_4_3_1_3 a fro:Member ;
     fro:hasMember fro:Member_4_3_1_3_1,
         fro:Member_4_3_1_3_2 ;
-    fro:hasOriginalText "De verbinding tussen het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> en een <a href=\"http://example.com/firebimbuilding#ExternalStaircase\">buitentrap</a> gebeurt:"@nl .
+    fro:hasOriginalText "De verbinding tussen het <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> en een <a href=\"https://ontology.firebim.be/ontology/fbo#ExternalStaircase\">buitentrap</a> gebeurt:"@nl .
 
 fro:Member_4_3_1_3_1 a fro:Member ;
-    fro:hasOriginalText "- hetzij via een <a href=\"http://example.com/firebimbuilding#Door\">deur</a>;"@nl .
+    fro:hasOriginalText "- hetzij via een <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deur</a>;"@nl .
 
 fro:Member_4_3_1_3_2 a fro:Member ;
-    fro:hasOriginalText "- hetzij via (een) <a href=\"http://example.com/firebimbuilding#EscapeTerrace\">vluchtterras</a>(sen)."@nl .
+    fro:hasOriginalText "- hetzij via (een) <a href=\"https://ontology.firebim.be/ontology/fbo#EscapeTerrace\">vluchtterras</a>(sen)."@nl .
 
 fro:Member_4_3_1_4 a fro:Member ;
-    fro:hasOriginalText "Voor de verbinding tussen het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> en de onmiddellijk hoger gelegen <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> mag echter een <a href=\"http://example.com/firebimbuilding#Staircase\">trap</a> of gedeelte van <a href=\"http://example.com/firebimbuilding#Staircase\">trap</a> aangewend worden die inschuifbaar of geleed is."@nl .
+    fro:hasOriginalText "Voor de verbinding tussen het <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a> en de onmiddellijk hoger gelegen <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> mag echter een <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trap</a> of gedeelte van <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trap</a> aangewend worden die inschuifbaar of geleed is."@nl .
 
 fro:Section_4_3 a fro:Section ;
     fro:hasArticle fro:Article_4_3_1 ;

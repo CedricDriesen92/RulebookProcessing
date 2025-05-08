@@ -12,7 +12,7 @@ fro:Article_6_8_5_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_8_5_2_1_1 a fro:Member ;
-    fro:hasOriginalText "Deze toestellen worden bepaald door de aard en de omvang van het <a href=\"http://example.com/firebimbuilding#FireHazard\">gevaar</a>."@nl .
+    fro:hasOriginalText "Deze toestellen worden bepaald door de aard en de omvang van het <a href=\"https://ontology.firebim.be/ontology/fbo#FireHazard\">gevaar</a>."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

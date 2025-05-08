@@ -10,10 +10,10 @@ fro:Article_5_1_3_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_5_1_3_2_1_1 a fro:Member ;
-    fro:hasOriginalText "Een ter plaatse gemonteerde post of een prefab-post wordt opgesteld in een daartoe bestemd <a href=\"http://example.com/firebimbuilding#Room\">lokaal</a>, met <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a>."@nl .
+    fro:hasOriginalText "Een ter plaatse gemonteerde post of een prefab-post wordt opgesteld in een daartoe bestemd <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokaal</a>, met <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 60</a>."@nl .
 
 fro:Member_5_1_3_2_1_2 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#AccessToEvacuationLevel\">toegang</a>, zo die niet van buitenaf geschiedt, gaat via een <a href=\"http://example.com/firebimbuilding#Door\">deur</a> <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI1 30</a>."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#AccessToEvacuationLevel\">toegang</a>, zo die niet van buitenaf geschiedt, gaat via een <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deur</a> <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI1 30</a>."@nl .
 
 fro:Section_5_1_3_2 a fro:Section ;
     fro:hasArticle fro:Article_5_1_3_2_1 ;

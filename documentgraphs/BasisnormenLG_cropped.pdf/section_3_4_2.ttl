@@ -9,7 +9,7 @@ fro:Article_3_4_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_3_4_2_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> waarvoor <a href=\"http://example.com/firebimbuilding#FireResistance\">brandwerendheid</a> vereist is, lopen door in de ruimte tussen het <a href=\"http://example.com/firebimbuilding#Ceiling\">plafond</a> en het <a href=\"http://example.com/firebimbuilding#SuspendedCeiling\">verlaagd plafond</a>."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> waarvoor <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandwerendheid</a> vereist is, lopen door in de ruimte tussen het <a href=\"https://ontology.firebim.be/ontology/fbo#Ceiling\">plafond</a> en het <a href=\"https://ontology.firebim.be/ontology/fbo#SuspendedCeiling\">verlaagd plafond</a>."@nl .
 
 fro:Section_3_4_2 a fro:Section ;
     fro:hasArticle fro:Article_3_4_2_1 ;

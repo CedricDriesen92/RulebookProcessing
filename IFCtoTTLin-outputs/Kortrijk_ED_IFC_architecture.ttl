@@ -2,7 +2,7 @@
 @prefix fbbo: <http://example.com/fbbo#> .
 @prefix fbbo-INT: <http://example.com/fbbo-INT#> .
 @prefix inst: <http://example.org/project#> .
-@prefix ns1: <http://example.com/firebim#> .
+@prefix ns1: <https://ontology.firebim.be/ontology/fro#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 

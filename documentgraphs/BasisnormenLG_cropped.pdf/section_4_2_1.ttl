@@ -13,10 +13,10 @@ fro:Article_4_2_1_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_4_2_1_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Staircase\">trappen</a> die verscheidene <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> verbinden zijn omsloten."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappen</a> die verscheidene <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> verbinden zijn omsloten."@nl .
 
 fro:Member_4_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText "De grondbeginselen van \"<a href=\"http://example.com/firebimbuilding#Compartment\">Compartimentering</a> en <a href=\"http://example.com/firebimbuilding#EvacuationSafety\">evacuatie</a>\" zijn erop van toepassing."@nl .
+    fro:hasOriginalText "De grondbeginselen van \"<a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">Compartimentering</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationSafety\">evacuatie</a>\" zijn erop van toepassing."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

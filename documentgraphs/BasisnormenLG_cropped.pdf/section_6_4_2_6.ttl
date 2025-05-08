@@ -2,5 +2,5 @@
 
 fro:Section_6_4_2_6 a fro:Section ;
     fro:hasID "6.4.2.6" ;
-    fro:hasOriginalText "Op het <a href=\"http://example.com/firebimbuilding#Landing\">bordes</a> van het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">toegangsniveau</a> van de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a> is een schakelaar met “<a href=\"http://example.com/firebimbuilding#HasFirefighterKey\">brandweersleutel</a>” voorzien die de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a> toelaat om de <a href=\"http://example.com/firebimbuilding#ElevatorOperation\">bediening van de lift</a> over te nemen."@nl .
+    fro:hasOriginalText "Op het <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">bordes</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">toegangsniveau</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAction\">brandweer</a> is een schakelaar met “<a href=\"https://ontology.firebim.be/ontology/fbo#HasFirefighterKey\">brandweersleutel</a>” voorzien die de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAction\">brandweer</a> toelaat om de <a href=\"https://ontology.firebim.be/ontology/fbo#ElevatorOperation\">bediening van de lift</a> over te nemen."@nl .
 

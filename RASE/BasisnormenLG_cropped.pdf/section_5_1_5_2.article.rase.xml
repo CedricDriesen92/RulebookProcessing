@@ -1,5 +1,5 @@
 <articles>
-  <!-- Article Source: http://example.com/firebim#Article_5_1_5_2_1_1 -->
+  <!-- Article Source: https://ontology.firebim.be/ontology/fro#Article_5_1_5_2_1_1 -->
   <R><A>Wanneer <a>horizontale kokers</a> <a>door verticale wanden dringen waarvoor een brandweerstand vereist is</a>,</A> <R>geldt één van de volgende drie maatregelen:</R>
 
 <R>1. <a>de wanden van de horizontale kokers</a> en <a>de valluiken en deurtjes</a> <r>hebben minstens de vereiste brandweerstand van de verticale wand</r>;</R>
@@ -7,7 +7,7 @@
 <R>2. <a>ter hoogte van de doorvoering</a> <r>bevindt zich een bouwelement met minstens de vereiste brandweerstand van de verticale wand</r>;</R>
 
 <R>3. <a>de wanden van de horizontale kokers</a> <r>hebben EI 30</r>; <a>de valluiken en deurtjes</a> <r>EI1 30</r>; <a>de kokers</a> <r>worden <a>ter hoogte van elk compartiment</a> onderbroken door verticale schermen met de volgende kenmerken</r>:</R></R>
-  <!-- Article Source: http://example.com/firebim#Article_5_1_5_2_2_1 -->
+  <!-- Article Source: https://ontology.firebim.be/ontology/fro#Article_5_1_5_2_2_1 -->
   <R># <A>Wanneer <a>verticale kokers</a> door <a>horizontale wanden</a> dringen <a>waarvoor een brandweerstand vereist is</a>, geldt één van de volgende drie maatregelen:</A>
 
 <R>1. de <a>wanden van de verticale kokers</a> <r>hebben een brandweerstand EI 60</r>; de <a>valluiken en deurtjes</a> <r>hebben EI1 30</r>.</R>
@@ -18,7 +18,7 @@
 
 <A>Indien de <a>vrije verluchtingsdoorsnede van een koker</a> <a>uitgerust is met een gemotoriseerde verluchtingsklep</a>,</A> <R>moeten de <a>eventuele gasleidingen in deze koker</a> <r>beantwoorden aan de voorschriften van de norm NBN D 51-003</r> of <r>van de norm NBN D 51-006 voor de leidingen en verbindingen in een niet-verluchte technische koker</r>.</R>
 </R>
-  <!-- Article Source: http://example.com/firebim#Article_5_1_5_2_2_2 -->
+  <!-- Article Source: https://ontology.firebim.be/ontology/fro#Article_5_1_5_2_2_2 -->
   <R>
 <R>2. <a>ter hoogte van de doorvoering</a> <r>bevindt zich een bouwelement met minstens de vereiste brandweerstand van de horizontale wand</r>;</R>
 

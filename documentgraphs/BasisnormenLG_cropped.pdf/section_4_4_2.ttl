@@ -12,7 +12,7 @@ fro:Article_4_4_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_4_4_2_1_1 a fro:Member ;
-    fro:hasOriginalText "Op een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> mogen geen <a href=\"http://example.com/firebimbuilding#DisplayWindow\">uitstalramen</a> van bouwdelen met een commerciële functie, die geen <a href=\"http://example.com/firebimbuilding#FireResistance\">EI 30</a> hebben, uitgeven op de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a> die de uitgangen van andere bouwdelen verbindt met de openbare weg, met uitzondering van de laatste 3 m van deze <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a>."@nl .
+    fro:hasOriginalText "Op een <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a> mogen geen <a href=\"https://ontology.firebim.be/ontology/fbo#DisplayWindow\">uitstalramen</a> van bouwdelen met een commerciële functie, die geen <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">EI 30</a> hebben, uitgeven op de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatieweg</a> die de uitgangen van andere bouwdelen verbindt met de openbare weg, met uitzondering van de laatste 3 m van deze <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatieweg</a>."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

@@ -4,7 +4,7 @@
 fro:Section_2_2_1 a fro:Section ;
     fro:hasArticle fro:Article_2_2_1_1 ;
     fro:hasID "2.2.1" ;
-    fro:hasOriginalText "Aantal <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a>."@nl .
+    fro:hasOriginalText "Aantal <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a>."@nl .
 
 fro:Article_2_2_1_1 a fro:Article ;
     fro:hasID "A2.2.1.1" ;
@@ -17,22 +17,22 @@ fro:Member_2_2_1_1_1 a fro:Member ;
     fro:hasMember fro:Member_2_2_1_1_1_1,
         fro:Member_2_2_1_1_1_2,
         fro:Member_2_2_1_1_1_3 ;
-    fro:hasOriginalText "Elk <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> heeft minimum:"@nl .
+    fro:hasOriginalText "Elk <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> heeft minimum:"@nl .
 
 fro:Member_2_2_1_1_1_1 a fro:Member ;
-    fro:hasOriginalText "-    één <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a> indien de <a href=\"http://example.com/firebimbuilding#MaximumOccupancy\">maximale bezetting</a> minder dan 100 personen bedraagt;"@nl .
+    fro:hasOriginalText "-    één <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgang</a> indien de <a href=\"https://ontology.firebim.be/ontology/fbo#MaximumOccupancy\">maximale bezetting</a> minder dan 100 personen bedraagt;"@nl .
 
 fro:Member_2_2_1_1_1_2 a fro:Member ;
-    fro:hasOriginalText "-    twee <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> indien de <a href=\"http://example.com/firebimbuilding#Occupancy\">bezetting</a> 100 of meer dan 100 en minder dan 500 personen bedraagt;"@nl .
+    fro:hasOriginalText "-    twee <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> indien de <a href=\"https://ontology.firebim.be/ontology/fbo#Occupancy\">bezetting</a> 100 of meer dan 100 en minder dan 500 personen bedraagt;"@nl .
 
 fro:Member_2_2_1_1_1_3 a fro:Member ;
-    fro:hasOriginalText "-    2 + n <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de <a href=\"http://example.com/firebimbuilding#MaximumOccupancy\">maximale bezetting</a> van het <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>, indien de <a href=\"http://example.com/firebimbuilding#Occupancy\">bezetting</a> 500 of meer dan 500 personen bedraagt."@nl .
+    fro:hasOriginalText "-    2 + n <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de <a href=\"https://ontology.firebim.be/ontology/fbo#MaximumOccupancy\">maximale bezetting</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a>, indien de <a href=\"https://ontology.firebim.be/ontology/fbo#Occupancy\">bezetting</a> 500 of meer dan 500 personen bedraagt."@nl .
 
 fro:Member_2_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText "Het minimum aantal <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> kan door de <a href=\"http://example.com/firebimbuilding#FireDepartmentApproval\">brandweer</a> verhoogd worden in functie van de <a href=\"http://example.com/firebimbuilding#Occupancy\">bezetting</a> en de configuratie van de <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a>."@nl .
+    fro:hasOriginalText "Het minimum aantal <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> kan door de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDepartmentApproval\">brandweer</a> verhoogd worden in functie van de <a href=\"https://ontology.firebim.be/ontology/fbo#Occupancy\">bezetting</a> en de configuratie van de <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a>."@nl .
 
 fro:Member_2_2_1_1_3 a fro:Member ;
-    fro:hasOriginalText "Het aantal <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> van <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> en <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> wordt bepaald zoals voor de <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a>."@nl .
+    fro:hasOriginalText "Het aantal <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> van <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlagen</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> wordt bepaald zoals voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a>."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

@@ -12,7 +12,7 @@ fro:Article_1_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_1_2_1_1 a fro:Member ;
-    fro:hasOriginalText "Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen zijn enkel toegelaten indien daardoor noch de <a href=\"http://example.com/firebimbuilding#EvacuationSafety\">evacuatie</a>, noch de <a href=\"http://example.com/firebimbuilding#UserSafety\">veiligheid van de gebruikers</a>, noch de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">actie van de brandweer</a> in het gedrang komen."@nl .
+    fro:hasOriginalText "Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen zijn enkel toegelaten indien daardoor noch de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationSafety\">evacuatie</a>, noch de <a href=\"https://ontology.firebim.be/ontology/fbo#UserSafety\">veiligheid van de gebruikers</a>, noch de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAction\">actie van de brandweer</a> in het gedrang komen."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

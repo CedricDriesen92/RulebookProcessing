@@ -10,15 +10,15 @@ fro:Article_1_1_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_1_1_1_1 a fro:Member ;
-    fro:hasOriginalText "Voor de <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> met één <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> moeten de voertuigen van de brandweer ten minste tot op 60 m van een <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a> van het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> kunnen naderen."@nl .
+    fro:hasOriginalText "Voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> met één <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> moeten de voertuigen van de brandweer ten minste tot op 60 m van een <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevel</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> kunnen naderen."@nl .
 
 fro:Member_1_1_1_2 a fro:Member ;
-    fro:hasOriginalText "Voor de <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> met meer dan één <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> moeten de voertuigen van de brandweer ten minste in één punt een <a href=\"http://example.com/firebimbuilding#Facade\">gevel</a> kunnen bereiken die op herkenbare plaatsen <a href=\"http://example.com/firebimbuilding#AccessToEvacuationLevel\">toegang geeft tot</a>"@nl .
+    fro:hasOriginalText "Voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> met meer dan één <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> moeten de voertuigen van de brandweer ten minste in één punt een <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevel</a> kunnen bereiken die op herkenbare plaatsen <a href=\"https://ontology.firebim.be/ontology/fbo#AccessToEvacuationLevel\">toegang geeft tot</a>"@nl .
 
 fro:Section_1_1 a fro:Section ;
     fro:hasArticle fro:Article_1_1_1 ;
     fro:hasID "1.1" ;
-    fro:hasOriginalText "<a href=\"http://example.com/firebimbuilding#FirefighterAccessibility\">Bereikbaarheid en opstelmogelijkheden brandweer</a>"@nl .
+    fro:hasOriginalText "<a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAccessibility\">Bereikbaarheid en opstelmogelijkheden brandweer</a>"@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

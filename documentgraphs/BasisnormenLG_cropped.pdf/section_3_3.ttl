@@ -17,22 +17,22 @@ fro:Article_3_3_1 a fro:Article ;
 fro:Member_3_3_1_1 a fro:Member ;
     fro:hasForwardReference fro:Section_4_1,
         fro:Section_4_4 ;
-    fro:hasOriginalText "Voor de <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> en de <a href=\"http://example.com/firebimbuilding#Door\">deuren</a>, die <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> afbakenen, geldt 4.1; bakenen zij <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a> af dan geldt 4.4."@nl .
+    fro:hasOriginalText "Voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deuren</a>, die <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> afbakenen, geldt 4.1; bakenen zij <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatiewegen</a> af dan geldt 4.4."@nl .
 
 fro:Member_3_3_1_2 a fro:Member ;
-    fro:hasOriginalText "De verticale <a href=\"http://example.com/firebimbuilding#InnerWall\">binnenwanden</a> die <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> of het geheel van <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> met <a href=\"http://example.com/firebimbuilding#NightOccupancy\">nachtbezetting</a> afbakenen hebben een <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a>, aangegeven in tabel 2.2."@nl .
+    fro:hasOriginalText "De verticale <a href=\"https://ontology.firebim.be/ontology/fbo#InnerWall\">binnenwanden</a> die <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> of het geheel van <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> met <a href=\"https://ontology.firebim.be/ontology/fbo#NightOccupancy\">nachtbezetting</a> afbakenen hebben een <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a>, aangegeven in tabel 2.2."@nl .
 
 fro:Member_3_3_1_3 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> in deze <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> hebben EI1 30."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deuren</a> in deze <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> hebben EI1 30."@nl .
 
 fro:Table_2_2 a fro:Table ;
     fro:hasID "T2.2" ;
     fro:hasOriginalText """
-|Wanden|Boven de <a href="http://example.com/firebimbuilding#Floor">vloer</a> van Ei|Eén <a href="http://example.com/firebimbuilding#NumberOfStoreys">bouwlaag</a>|Meerdere <a href="http://example.com/firebimbuilding#NumberOfStoreys">bouwlagen</a>|Onder E,i|met inbegrip van de <a href="http://example.com/firebimbuilding#Floor">vloer</a> van Ei|
+|Wanden|Boven de <a href="https://ontology.firebim.be/ontology/fbo#Floor">vloer</a> van Ei|Eén <a href="https://ontology.firebim.be/ontology/fbo#NumberOfStoreys">bouwlaag</a>|Meerdere <a href="https://ontology.firebim.be/ontology/fbo#NumberOfStoreys">bouwlagen</a>|Onder E,i|met inbegrip van de <a href="https://ontology.firebim.be/ontology/fbo#Floor">vloer</a> van Ei|
 |---|---|---|---|---|---|
 | |EI 30|EI 60|EI 60| | |
 
-Tabel 2.2 – <a href="http://example.com/firebimbuilding#FireResistance">Brandweerstand</a> van verticale <a href="http://example.com/firebimbuilding#InnerWall">binnenwanden</a>
+Tabel 2.2 – <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">Brandweerstand</a> van verticale <a href="https://ontology.firebim.be/ontology/fbo#InnerWall">binnenwanden</a>
 """@nl .
 
 fro:v0_1 a fro:Version ;

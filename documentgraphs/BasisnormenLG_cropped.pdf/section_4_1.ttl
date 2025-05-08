@@ -19,10 +19,10 @@ fro:Article_4_1_2 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_4_1_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#SeparationWall\">wanden tussen compartimenten</a> hebben minstens de <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> aangegeven in tabel 2.3."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#SeparationWall\">wanden tussen compartimenten</a> hebben minstens de <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> aangegeven in tabel 2.3."@nl .
 
 fro:Member_4_1_2_1 a fro:Member ;
-    fro:hasOriginalText "De verbinding tussen twee <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> is slechts toegestaan indien zij geschiedt via een <a href=\"http://example.com/firebimbuilding#IsSelfClosing\">zelfsluitende</a> of <a href=\"http://example.com/firebimbuilding#IsFireActivatedClosing\">bij brand zelfsluitende</a> <a href=\"http://example.com/firebimbuilding#Door\">deur</a> EI1 30."@nl .
+    fro:hasOriginalText "De verbinding tussen twee <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> is slechts toegestaan indien zij geschiedt via een <a href=\"https://ontology.firebim.be/ontology/fbo#IsSelfClosing\">zelfsluitende</a> of <a href=\"https://ontology.firebim.be/ontology/fbo#IsFireActivatedClosing\">bij brand zelfsluitende</a> <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deur</a> EI1 30."@nl .
 
 fro:Table_2_3 a fro:Table ;
     fro:hasID "T2.3" ;
@@ -30,13 +30,13 @@ fro:Table_2_3 a fro:Table ;
 
 # Boven de vloer van Ei
 
-|Type|<a href="http://example.com/firebimbuilding#FireResistance">Brandweerstand</a>|
+|Type|<a href="https://ontology.firebim.be/ontology/fbo#FireResistance">Brandweerstand</a>|
 |---|---|
 |Eén bouwlaag|EI 30|
 |Meerdere bouwlagen|EI 60|
 |Onder E,i met inbegrip van de vloer van Ei|EI 60|
 
-Tabel 2.3 – <a href="http://example.com/firebimbuilding#FireResistance">Brandweerstand</a> van <a href="http://example.com/firebimbuilding#SeparationWall">wanden tussen compartimenten</a>."""@nl .
+Tabel 2.3 – <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">Brandweerstand</a> van <a href="https://ontology.firebim.be/ontology/fbo#SeparationWall">wanden tussen compartimenten</a>."""@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

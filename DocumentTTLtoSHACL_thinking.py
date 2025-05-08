@@ -55,7 +55,7 @@ print(f"SHACL output directory: {shacl_output_dir}")
 
 # --- Namespaces ---
 
-FIREBIM = Namespace("http://example.com/firebim#") # Adjust if your namespace is different
+FRO = Namespace("https://ontology.firebim.be/ontology/fro#") # Adjust if your namespace is different
 SH = Namespace("http://www.w3.org/ns/shacl#")
 XSD = Namespace("http://www.w3.org/2001/XMLSchema#")
 FBBO = Namespace("http://example.com/fbbo#") 
@@ -81,7 +81,7 @@ def extract_article_member_text_from_ttl(ttl_content: str) -> list[tuple[str, st
     try:
         g.parse(data=ttl_content, format="turtle")
         # Bind necessary prefixes for the query
-        g.bind("firebim", FIREBIM)
+        g.bind("firebim", FRO)
         g.bind("rdf", RDF)
     except Exception as e:
         print(f"Warning: Could not parse TTL content: {e}")
@@ -196,19 +196,19 @@ def generate_shacl_from_text(rule_text: str, rule_subject_uri: str, building_ont
     ontology_prefixes = "\n".join([f"@prefix {prefix}: <{namespace}> ." for prefix, namespace in building_ontology_graph.namespaces()])
 
     # Dynamically create the system prompt including the loaded SHACL docs
-    system_prompt = f"""You are an AI expert specializing in building regulations, Semantic Web technologies, SHACL, and building ontologies (like FIREBIM, BOT, etc.). Your task is to translate a given piece of regulatory text directly into a SHACL shape expressed in Turtle format. Use the provided SHACL documentation as a reference.
+    system_prompt = f"""You are an AI expert specializing in building regulations, Semantic Web technologies, SHACL, and building ontologies (like FRO, BOT, etc.). Your task is to translate a given piece of regulatory text directly into a SHACL shape expressed in Turtle format. Use the provided SHACL documentation as a reference.
 
 **Input:**
 1.  **Regulatory Text:** The original text content of a specific rule, article, or section from a building code document.
 2.  **Subject URI:** The unique identifier (`<{rule_subject_uri}>`) for this rule within its source document graph.
-3.  **Ontology Context:** Assume the existence of relevant building ontology terms (prefixes provided below). Use appropriate terms from common building ontologies or the FIREBIM namespace (`fro:`) where applicable.
+3.  **Ontology Context:** Assume the existence of relevant building ontology terms (prefixes provided below). Use appropriate terms from common building ontologies or the FRO namespace (`fro:`) where applicable.
 4.  **SHACL Documentation:** Reference information from the SHACL specification is included below.
 
 **Ontology Prefixes Available:**
 ```turtle
 @prefix sh: <{SH}> .
 @prefix xsd: <{XSD}> .
-@prefix fro: <{FIREBIM}> .
+@prefix fro: <{FRO}> .
 @prefix fbbo: <{FBBO}> . # Example Building Ontology namespace
 # Add other relevant prefixes as needed
 {ontology_prefixes}
@@ -333,7 +333,7 @@ def main():
     # Bind namespaces
     combined_shacl_graph.bind("sh", SH)
     combined_shacl_graph.bind("xsd", XSD)
-    combined_shacl_graph.bind("firebim", FIREBIM)
+    combined_shacl_graph.bind("firebim", FRO)
     combined_shacl_graph.bind("fbbo", FBBO)
     combined_shacl_graph.bind("dcterms", DCTERMS) # Add dcterms binding
     for prefix, namespace in building_ontology_graph.namespaces():

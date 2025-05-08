@@ -2,5 +2,5 @@
 
 fro:Section_4_2_2_4 a fro:Section ;
     fro:hasID "4.2.2.4" ;
-    fro:hasOriginalText "Indien verscheidene <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> in eenzelfde <a href=\"http://example.com/firebimbuilding#Floor\">horizontaal vlak</a> liggen, mogen zij een of"@nl .
+    fro:hasOriginalText "Indien verscheidene <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> in eenzelfde <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">horizontaal vlak</a> liggen, mogen zij een of"@nl .
 

@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@base <http://example.com/firebim> .
+@base <https://ontology.firebim.be/ontology/fro> .
 
 fro:Section_6_1_2 a fro:Section ;
     fro:hasID "6.1.2" .

@@ -4,11 +4,11 @@
 fro:Section_3_5_2_2 a fro:Section ;
     fro:hasArticle fro:Article_3_5_2_2_1 ;
     fro:hasID "3.5.2.2" ;
-    fro:hasOriginalText "<a href=\"http://example.com/firebimbuilding#DoubleSkinnedFacade\">Dubbelwandige gevel</a> zonder compartimentering."@nl .
+    fro:hasOriginalText "<a href=\"https://ontology.firebim.be/ontology/fbo#DoubleSkinnedFacade\">Dubbelwandige gevel</a> zonder compartimentering."@nl .
 
 fro:Article_3_5_2_2_1 a fro:Article ;
     fro:hasID "A3.5.2.2.1" ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#DoubleSkinnedFacade\">dubbelwandige gevels</a> zonder <a href=\"http://example.com/firebimbuilding#CompartmentSeparation\">compartimentering</a> moeten in overeenstemming zijn met een van de twee hierna opgenomen mogelijkheden."@nl ;
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#DoubleSkinnedFacade\">dubbelwandige gevels</a> zonder <a href=\"https://ontology.firebim.be/ontology/fbo#CompartmentSeparation\">compartimentering</a> moeten in overeenstemming zijn met een van de twee hierna opgenomen mogelijkheden."@nl ;
     fro:hasVersion fro:v0_1 .
 
 fro:v0_1 a fro:Version ;

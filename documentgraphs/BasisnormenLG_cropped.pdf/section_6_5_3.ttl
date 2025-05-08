@@ -13,10 +13,10 @@ fro:Article_6_5_3_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_5_3_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">stroomkringen</a> waarvan sprake in 6.5.2 moeten kunnen gevoed worden door één of meer <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">autonome stroombronnen</a>; het vermogen van die bronnen moet voldoende zijn om gelijktijdig alle aan die <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">stroomkringen</a> aangesloten <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">installaties</a> te voeden."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalSystem\">stroomkringen</a> waarvan sprake in 6.5.2 moeten kunnen gevoed worden door één of meer <a href=\"https://ontology.firebim.be/ontology/fbo#AutonomousPowerSource\">autonome stroombronnen</a>; het vermogen van die bronnen moet voldoende zijn om gelijktijdig alle aan die <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalSystem\">stroomkringen</a> aangesloten <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalSystem\">installaties</a> te voeden."@nl .
 
 fro:Member_6_5_3_1_2 a fro:Member ;
-    fro:hasOriginalText "Zodra de <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">normale stroom</a> uitvalt, verzekeren de <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">autonome bronnen</a> automatisch en binnen één minuut, de werking gedurende één uur van de bovenvermelde <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">installaties</a>."@nl .
+    fro:hasOriginalText "Zodra de <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalSystem\">normale stroom</a> uitvalt, verzekeren de <a href=\"https://ontology.firebim.be/ontology/fbo#AutonomousPowerSource\">autonome bronnen</a> automatisch en binnen één minuut, de werking gedurende één uur van de bovenvermelde <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalSystem\">installaties</a>."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

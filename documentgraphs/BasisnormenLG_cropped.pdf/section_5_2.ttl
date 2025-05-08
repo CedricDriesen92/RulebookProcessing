@@ -13,7 +13,7 @@ fro:Article_5_2_1 a fro:Article ;
 
 fro:Member_5_2_1_1 a fro:Member ;
     fro:hasForwardReference fro:Section_2_1 ;
-    fro:hasOriginalText "Bij afwijking van het in punt 2.1 gestelde grondbeginsel kan een <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> vormen waarvan de <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> niet beperkt is, zelfs wanneer er verscheidene communicerende <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> zijn."@nl .
+    fro:hasOriginalText "Bij afwijking van het in punt 2.1 gestelde grondbeginsel kan een <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> een <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> vormen waarvan de <a href=\"https://ontology.firebim.be/ontology/fbo#CompartmentArea\">oppervlakte</a> niet beperkt is, zelfs wanneer er verscheidene communicerende <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlagen</a> zijn."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

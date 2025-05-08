@@ -14,16 +14,16 @@ fro:Article_6_5_4_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_5_4_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#SafetyLighting\">veiligheidsverlichting</a> voldoet aan de voorschriften van de normen NBN EN 1838, NBN EN 60598-2-22 en NBN EN 50172."@nl ;
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#SafetyLighting\">veiligheidsverlichting</a> voldoet aan de voorschriften van de normen NBN EN 1838, NBN EN 60598-2-22 en NBN EN 50172."@nl ;
     fro:hasReference fro:Reference_NBN_EN_1838,
         fro:Reference_NBN_EN_50172,
         fro:Reference_NBN_EN_60598_2_22 .
 
 fro:Member_6_5_4_1_2 a fro:Member ;
-    fro:hasOriginalText "Deze <a href=\"http://example.com/firebimbuilding#SafetyLighting\">veiligheidsverlichting</a> mag gevoed worden door de normale stroombron, maar valt deze uit, dan moet de voeding geschieden door één of meerdere <a href=\"http://example.com/firebimbuilding#AutonomousPowerSource\">autonome stroombron(nen)</a>."@nl .
+    fro:hasOriginalText "Deze <a href=\"https://ontology.firebim.be/ontology/fbo#SafetyLighting\">veiligheidsverlichting</a> mag gevoed worden door de normale stroombron, maar valt deze uit, dan moet de voeding geschieden door één of meerdere <a href=\"https://ontology.firebim.be/ontology/fbo#AutonomousPowerSource\">autonome stroombron(nen)</a>."@nl .
 
 fro:Member_6_5_4_1_3 a fro:Member ;
-    fro:hasOriginalText "<a href=\"http://example.com/firebimbuilding#AutonomousLightingFixtures\">Autonome verlichtingstoestellen</a> aangesloten op de kring die de betrokken normale verlichting voedt, mogen eveneens gebruikt worden voor zover zij alle waarborgen voor een goede werking bieden."@nl .
+    fro:hasOriginalText "<a href=\"https://ontology.firebim.be/ontology/fbo#AutonomousLightingFixtures\">Autonome verlichtingstoestellen</a> aangesloten op de kring die de betrokken normale verlichting voedt, mogen eveneens gebruikt worden voor zover zij alle waarborgen voor een goede werking bieden."@nl .
 
 fro:Reference_NBN_EN_1838 a fro:Reference ;
     fro:hasID "NBN EN 1838" .

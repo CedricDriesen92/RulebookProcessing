@@ -11,25 +11,25 @@ fro:Article_6_7_5_1 a fro:Article ;
     fro:hasMember fro:Member_6_7_5_1_1,
         fro:Member_6_7_5_1_2,
         fro:Member_6_7_5_1_3 ;
-    fro:hasOriginalText "Een <a href=\"http://example.com/firebimbuilding#SmokeValve\">rookklep</a> voldoet aan de volgende voorwaarden:"@nl ;
+    fro:hasOriginalText "Een <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">rookklep</a> voldoet aan de volgende voorwaarden:"@nl ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_7_5_1_1 a fro:Member ;
     fro:hasMember fro:Member_6_7_5_1_1_1,
         fro:Member_6_7_5_1_1_2 ;
-    fro:hasOriginalText "1. de dichtheid van de <a href=\"http://example.com/firebimbuilding#SmokeValve\">klep</a> moet één van volgende kwaliteiten hebben:"@nl .
+    fro:hasOriginalText "1. de dichtheid van de <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">klep</a> moet één van volgende kwaliteiten hebben:"@nl .
 
 fro:Member_6_7_5_1_1_1 a fro:Member ;
-    fro:hasOriginalText "1. in gesloten stand en bij een statisch drukverschil van 500 Pa mag het <a href=\"http://example.com/firebimbuilding#AirFlowRate\">luchtverlies</a> niet meer bedragen dan 60 l/s.m²;"@nl .
+    fro:hasOriginalText "1. in gesloten stand en bij een statisch drukverschil van 500 Pa mag het <a href=\"https://ontology.firebim.be/ontology/fbo#AirFlowRate\">luchtverlies</a> niet meer bedragen dan 60 l/s.m²;"@nl .
 
 fro:Member_6_7_5_1_1_2 a fro:Member ;
-    fro:hasOriginalText "2. <a href=\"http://example.com/firebimbuilding#LeakageClass\">klasse</a> 3 volgens de norm <a href=\"http://example.com/firebimbuilding#CompliesWithStandard\">NBN EN 1751</a>;"@nl .
+    fro:hasOriginalText "2. <a href=\"https://ontology.firebim.be/ontology/fbo#LeakageClass\">klasse</a> 3 volgens de norm <a href=\"https://ontology.firebim.be/ontology/fbo#CompliesWithStandard\">NBN EN 1751</a>;"@nl .
 
 fro:Member_6_7_5_1_2 a fro:Member ;
-    fro:hasOriginalText "2. de pakking die gebruikt wordt om deze <a href=\"http://example.com/firebimbuilding#LeakageRate\">dichtheid</a> te bekomen, moet gedurende 2 h bestand zijn tegen temperaturen die schommelen van -20°C tot 100°C, waarna de <a href=\"http://example.com/firebimbuilding#SmokeValve\">klep</a> aan de bovenvermelde dichtheidsproef nog voldoet;"@nl .
+    fro:hasOriginalText "2. de pakking die gebruikt wordt om deze <a href=\"https://ontology.firebim.be/ontology/fbo#LeakageRate\">dichtheid</a> te bekomen, moet gedurende 2 h bestand zijn tegen temperaturen die schommelen van -20°C tot 100°C, waarna de <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">klep</a> aan de bovenvermelde dichtheidsproef nog voldoet;"@nl .
 
 fro:Member_6_7_5_1_3 a fro:Member ;
-    fro:hasOriginalText "3. het <a href=\"http://example.com/firebimbuilding#ClosureActivation\">sluitingssysteem</a> van de <a href=\"http://example.com/firebimbuilding#SmokeValve\">rookklep</a> heeft een <a href=\"http://example.com/firebimbuilding#PositiveSafetySystem\">positieve veiligheid</a>."@nl .
+    fro:hasOriginalText "3. het <a href=\"https://ontology.firebim.be/ontology/fbo#ClosureActivation\">sluitingssysteem</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">rookklep</a> heeft een <a href=\"https://ontology.firebim.be/ontology/fbo#PositiveSafetySystem\">positieve veiligheid</a>."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

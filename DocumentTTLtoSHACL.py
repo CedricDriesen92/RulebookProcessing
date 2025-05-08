@@ -5,7 +5,7 @@ from anthropic import AnthropicVertex
 import time
 
 # Define namespaces
-FIREBIM = Namespace("http://example.com/firebim#")
+FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
 SHACL = Namespace("http://www.w3.org/ns/shacl#")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 
@@ -33,7 +33,7 @@ Please output only the SHACL shapes in Turtle format, without any explanations. 
 
 Use the following prefixes:
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix fbb: <http://example.com/firebimbuilding#> .
+@prefix fbb: <https://ontology.firebim.be/ontology/fbo#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 Remember to:

@@ -11,7 +11,7 @@ fro:Article_6_1_1_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_1_1_1 a fro:Member ;
-    fro:hasOriginalText "De machine en de bijhorende onderdelen van een <a href=\"http://example.com/firebimbuilding#Elevator\">lift</a> of goederenlift zijn niet toegankelijk, behalve voor het onderhoud, de controle en de noodgevallen."@nl .
+    fro:hasOriginalText "De machine en de bijhorende onderdelen van een <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">lift</a> of goederenlift zijn niet toegankelijk, behalve voor het onderhoud, de controle en de noodgevallen."@nl .
 
 fro:Member_6_1_1_2 a fro:Member ;
     fro:hasMember fro:Member_6_1_1_2_1,
@@ -19,13 +19,13 @@ fro:Member_6_1_1_2 a fro:Member ;
     fro:hasOriginalText "De aandrijving bevindt zich:"@nl .
 
 fro:Member_6_1_1_2_1 a fro:Member ;
-    fro:hasOriginalText "- ofwel in een <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamer</a>;"@nl .
+    fro:hasOriginalText "- ofwel in een <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machinekamer</a>;"@nl .
 
 fro:Member_6_1_1_2_2 a fro:Member ;
-    fro:hasOriginalText "- ofwel in de <a href=\"http://example.com/firebimbuilding#Shaft\">schacht</a>."@nl .
+    fro:hasOriginalText "- ofwel in de <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">schacht</a>."@nl .
 
 fro:Member_6_1_1_3 a fro:Member ;
-    fro:hasOriginalText "De controleorganen mogen toegankelijk zijn vanaf het <a href=\"http://example.com/firebimbuilding#Landing\">bordes</a>, op voorwaarde dat ze de vereiste <a href=\"http://example.com/firebimbuilding#FireResistance\">brandwerendheid</a> van de <a href=\"http://example.com/firebimbuilding#LandingWall\">bordeswand</a> of de wand van de <a href=\"http://example.com/firebimbuilding#Shaft\">schacht</a> waarin ze worden geplaatst niet nadelig beïnvloeden."@nl .
+    fro:hasOriginalText "De controleorganen mogen toegankelijk zijn vanaf het <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">bordes</a>, op voorwaarde dat ze de vereiste <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandwerendheid</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#LandingWall\">bordeswand</a> of de wand van de <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">schacht</a> waarin ze worden geplaatst niet nadelig beïnvloeden."@nl .
 
 fro:Section_6_1_1 a fro:Section ;
     fro:hasArticle fro:Article_6_1_1_1 ;

@@ -4,7 +4,7 @@
 fro:Section_6_7_1_2 a fro:Section ;
     fro:hasArticle fro:Article_6_7_1_2_1 ;
     fro:hasID "6.7.1.2" ;
-    fro:hasOriginalText "Gebruik van de <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> voor <a href=\"http://example.com/firebimbuilding#AirTransportSystem\">luchttransport</a>"@nl .
+    fro:hasOriginalText "Gebruik van de <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappenhuizen</a> voor <a href=\"https://ontology.firebim.be/ontology/fbo#AirTransportSystem\">luchttransport</a>"@nl .
 
 fro:Article_6_7_1_2_1 a fro:Article ;
     fro:hasID "A6.7.1.2.1" ;
@@ -12,7 +12,7 @@ fro:Article_6_7_1_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_7_1_2_1_1 a fro:Member ;
-    fro:hasOriginalText "Geen enkel <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuis</a> mag worden gebruikt voor de aanvoer of de afvoer van lucht uit andere <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a>."@nl .
+    fro:hasOriginalText "Geen enkel <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappenhuis</a> mag worden gebruikt voor de aanvoer of de afvoer van lucht uit andere <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a>."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

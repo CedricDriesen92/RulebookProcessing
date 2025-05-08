@@ -11,15 +11,15 @@ fro:Article_6_1_2_4_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_1_2_4_1_1 a fro:Member ;
-    fro:hasOriginalText "<a href=\"http://example.com/firebimbuilding#Elevator\">Liften</a> en <a href=\"http://example.com/firebimbuilding#Elevator\">goederenliften</a> waarvan de aandrijving zich in een <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamer</a> bevindt."@nl .
+    fro:hasOriginalText "<a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">Liften</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">goederenliften</a> waarvan de aandrijving zich in een <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machinekamer</a> bevindt."@nl .
 
 fro:Member_6_1_2_4_1_2 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#InnerWallFireResistance\">binnenwanden</a> van de <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamer</a> die niet uitgeven op de <a href=\"http://example.com/firebimbuilding#Shaft\">schacht</a> hebben <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">EI 60</a>."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#InnerWallFireResistance\">binnenwanden</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machinekamer</a> die niet uitgeven op de <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">schacht</a> hebben <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 60</a>."@nl .
 
 fro:Member_6_1_2_4_1_3 a fro:Member ;
-    fro:hasOriginalText """De <a href="http://example.com/firebimbuilding#Door">deuren</a> of <a href="http://example.com/firebimbuilding#ShaftHatch">valluiken</a> in deze <a href="http://example.com/firebimbuilding#Wall">wanden</a> hebben <a href="http://example.com/firebimbuilding#FireResistanceRating">EI1 30</a>.
+    fro:hasOriginalText """De <a href="https://ontology.firebim.be/ontology/fbo#Door">deuren</a> of <a href="https://ontology.firebim.be/ontology/fbo#ShaftHatch">valluiken</a> in deze <a href="https://ontology.firebim.be/ontology/fbo#Wall">wanden</a> hebben <a href="https://ontology.firebim.be/ontology/fbo#FireResistanceRating">EI1 30</a>.
 
-De brandweer is verzekerd van de <a href="http://example.com/firebimbuilding#FirefighterAccessibility">toegang</a> tot de <a href="http://example.com/firebimbuilding#MachineRoom">machinekamer</a>."""@nl .
+De brandweer is verzekerd van de <a href="https://ontology.firebim.be/ontology/fbo#FirefighterAccessibility">toegang</a> tot de <a href="https://ontology.firebim.be/ontology/fbo#MachineRoom">machinekamer</a>."""@nl .
 
 fro:Section_6_1_2_4 a fro:Section ;
     fro:hasArticle fro:Article_6_1_2_4_1 ;

@@ -3,7 +3,7 @@
 fro:Section_3_5_2_3_2 a fro:Section ;
     fro:hasID "3.5.2.3.2" ;
     fro:hasOriginalText """Bedrijfszekerheid.
-Bij het uitvallen van de normale <a href="http://example.com/firebimbuilding#ElectricalSystem">energiebron</a> (elektrische energie, persluchtnet), zet de <a href="http://example.com/firebimbuilding#FireDetectionSystem">detectie-installatie</a> of het <a href="http://example.com/firebimbuilding#ControlAccessibility">bedieningssysteem</a> het <a href="http://example.com/firebimbuilding#ClosureActivation">sluitings-/openingssysteem</a> in de <a href="http://example.com/firebimbuilding#SafetyPosition">veiligheidsstand</a>.
+Bij het uitvallen van de normale <a href="https://ontology.firebim.be/ontology/fbo#ElectricalSystem">energiebron</a> (elektrische energie, persluchtnet), zet de <a href="https://ontology.firebim.be/ontology/fbo#FireDetectionSystem">detectie-installatie</a> of het <a href="https://ontology.firebim.be/ontology/fbo#ControlAccessibility">bedieningssysteem</a> het <a href="https://ontology.firebim.be/ontology/fbo#ClosureActivation">sluitings-/openingssysteem</a> in de <a href="https://ontology.firebim.be/ontology/fbo#SafetyPosition">veiligheidsstand</a>.
 
-Elk gebrek aan <a href="http://example.com/firebimbuilding#ElectricalSystem">energiebron</a>, voeding of elektrische of pneumatische bediening moet automatisch gemeld worden aan de <a href="http://example.com/firebimbuilding#CentralFireControlPanel">detectiecentrale</a>."""@nl .
+Elk gebrek aan <a href="https://ontology.firebim.be/ontology/fbo#ElectricalSystem">energiebron</a>, voeding of elektrische of pneumatische bediening moet automatisch gemeld worden aan de <a href="https://ontology.firebim.be/ontology/fbo#CentralFireControlPanel">detectiecentrale</a>."""@nl .
 

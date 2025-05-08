@@ -6,7 +6,7 @@ from anthropic import AnthropicVertex
 import time
 
 # Define namespaces
-FIREBIM = Namespace("http://example.com/firebim#")
+FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
 SHACL = Namespace("http://www.w3.org/ns/shacl#")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 

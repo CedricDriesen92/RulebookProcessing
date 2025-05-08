@@ -16,21 +16,21 @@ fro:Article_6_2_1_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_2_1_1_1 a fro:Member ;
-    fro:hasOriginalText "Deze toestellen hebben hun eigen <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamers</a>, <a href=\"http://example.com/firebimbuilding#Shaft\">schachten</a> en <a href=\"http://example.com/firebimbuilding#Landing\">bordessen</a>."@nl .
+    fro:hasOriginalText "Deze toestellen hebben hun eigen <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machinekamers</a>, <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">schachten</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">bordessen</a>."@nl .
 
 fro:Member_6_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamers</a> bevinden zich bovenaan de <a href=\"http://example.com/firebimbuilding#Shaft\">schacht</a>."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machinekamers</a> bevinden zich bovenaan de <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">schacht</a>."@nl .
 
 fro:Member_6_2_1_1_3 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#InnerWall\">binnenwanden</a> van de <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamers</a> en van de <a href=\"http://example.com/firebimbuilding#Shaft\">schachten</a> hebben <a href=\"http://example.com/firebimbuilding#FireResistance\">EI 60</a>."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#InnerWall\">binnenwanden</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machinekamers</a> en van de <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">schachten</a> hebben <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">EI 60</a>."@nl .
 
 fro:Member_6_2_1_1_4 a fro:Member ;
-    fro:hasOriginalText "De binnentoegangs<a href=\"http://example.com/firebimbuilding#Door\">deuren</a> hebben <a href=\"http://example.com/firebimbuilding#FireResistance\">EI1 30</a>."@nl .
+    fro:hasOriginalText "De binnentoegangs<a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deuren</a> hebben <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">EI1 30</a>."@nl .
 
 fro:Member_6_2_1_1_5 a fro:Member ;
-    fro:hasOriginalText """De <a href="http://example.com/firebimbuilding#ShaftWall">schachtwanden</a> aan de kant van het <a href="http://example.com/firebimbuilding#Landing">bordes</a> en de <a href="http://example.com/firebimbuilding#ShaftHatch">toezichtluiken</a> in deze <a href="http://example.com/firebimbuilding#Wall">wanden</a> hebben <a href="http://example.com/firebimbuilding#FireResistance">EI 30</a>.
+    fro:hasOriginalText """De <a href="https://ontology.firebim.be/ontology/fbo#ShaftWall">schachtwanden</a> aan de kant van het <a href="https://ontology.firebim.be/ontology/fbo#Landing">bordes</a> en de <a href="https://ontology.firebim.be/ontology/fbo#ShaftHatch">toezichtluiken</a> in deze <a href="https://ontology.firebim.be/ontology/fbo#Wall">wanden</a> hebben <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">EI 30</a>.
 
-De <a href="http://example.com/firebimbuilding#ShaftDoor">schachtdeuren</a> of <a href="http://example.com/firebimbuilding#ShaftHatch">toegangsluiken</a> van deze toestellen werken automatisch en zijn normaal gesloten."""@nl .
+De <a href="https://ontology.firebim.be/ontology/fbo#ShaftDoor">schachtdeuren</a> of <a href="https://ontology.firebim.be/ontology/fbo#ShaftHatch">toegangsluiken</a> van deze toestellen werken automatisch en zijn normaal gesloten."""@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

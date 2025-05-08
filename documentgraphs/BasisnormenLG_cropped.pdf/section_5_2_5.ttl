@@ -12,16 +12,16 @@ fro:Article_5_2_5_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_5_2_5_1_1 a fro:Member ;
-    fro:hasOriginalText "De punten 5.2.1 tot 5.2.4 zijn niet van toepassing op de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> van een <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> waarvoor de aanvraag voor de <a href=\"http://example.com/firebimbuilding#Building\">bouw</a> werd ingediend vóór 1 juli 2022 als het voldoet aan de volgende voorwaarden."@nl .
+    fro:hasOriginalText "De punten 5.2.1 tot 5.2.4 zijn niet van toepassing op de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> van een <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> waarvoor de aanvraag voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">bouw</a> werd ingediend vóór 1 juli 2022 als het voldoet aan de volgende voorwaarden."@nl .
 
 fro:Member_5_2_5_1_2 a fro:Member ;
-    fro:hasOriginalText "In afwijking van het punt 3.2, worden er geen eisen voor <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> gesteld aan de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkings</a> waarvan de horizontale <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> REI 60 bezitten."@nl .
+    fro:hasOriginalText "In afwijking van het punt 3.2, worden er geen eisen voor <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> gesteld aan de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> van <a href=\"https://ontology.firebim.be/ontology/fbo#OpenParking\">open parkings</a> waarvan de horizontale <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> REI 60 bezitten."@nl .
 
 fro:Member_5_2_5_1_3 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> tussen de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> en de rest van het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> hebben EI 60."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> tussen de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> en de rest van het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> hebben EI 60."@nl .
 
 fro:Member_5_2_5_1_4 a fro:Member ;
-    fro:hasOriginalText "In het <a href=\"http://example.com/firebimbuilding#Compartment\">parkeercompartiment</a> mogen sommige, niet voor verblijf bestemde lokalen worden opgenomen, zoals: <a href=\"http://example.com/firebimbuilding#TransformerRoom\">transformatorlokalen</a>, bergingen, archieflokalen, <a href=\"http://example.com/firebimbuilding#TechnicalRoom\">technische ruimten</a> …"@nl .
+    fro:hasOriginalText "In het <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">parkeercompartiment</a> mogen sommige, niet voor verblijf bestemde lokalen worden opgenomen, zoals: <a href=\"https://ontology.firebim.be/ontology/fbo#TransformerRoom\">transformatorlokalen</a>, bergingen, archieflokalen, <a href=\"https://ontology.firebim.be/ontology/fbo#TechnicalRoom\">technische ruimten</a> …"@nl .
 
 fro:Section_5_2_5 a fro:Section ;
     fro:hasArticle fro:Article_5_2_5_1 ;

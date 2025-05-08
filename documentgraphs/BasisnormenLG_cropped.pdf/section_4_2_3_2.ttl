@@ -13,10 +13,10 @@ fro:Article_4_2_3_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_4_2_3_2_1_1 a fro:Member ;
-    fro:hasOriginalText "Deze <a href=\"http://example.com/firebimbuilding#UsefulWidth\">nuttige breedte</a> is ten minste gelijk aan 0,80 m en bereikt ten minste de vereiste <a href=\"http://example.com/firebimbuilding#RequiredUsefulWidth\">nuttige breedte</a> br berekend volgens bijlage 1 \"Terminologie\"."@nl .
+    fro:hasOriginalText "Deze <a href=\"https://ontology.firebim.be/ontology/fbo#UsefulWidth\">nuttige breedte</a> is ten minste gelijk aan 0,80 m en bereikt ten minste de vereiste <a href=\"https://ontology.firebim.be/ontology/fbo#RequiredUsefulWidth\">nuttige breedte</a> br berekend volgens bijlage 1 \"Terminologie\"."@nl .
 
 fro:Member_4_2_3_2_1_2 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Staircase\">traparmen</a> en de <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> der <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> van één zelfde <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> mogen in hun <a href=\"http://example.com/firebimbuilding#UsefulWidth\">nuttige breedte</a> niet meer dan één doorgangseenheid verschillen."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">traparmen</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">overlopen</a> der <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappenhuizen</a> van één zelfde <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> mogen in hun <a href=\"https://ontology.firebim.be/ontology/fbo#UsefulWidth\">nuttige breedte</a> niet meer dan één doorgangseenheid verschillen."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

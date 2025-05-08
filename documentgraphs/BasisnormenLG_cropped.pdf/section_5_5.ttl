@@ -36,27 +36,27 @@ fro:Article_5_5_5 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_5_5_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Kitchen\">collectieve keukens</a>, eventueel met inbegrip van het <a href=\"http://example.com/firebimbuilding#Restaurant\">restaurant</a>, worden van de andere <a href=\"http://example.com/firebimbuilding#Building\">bouwdelen</a> gescheiden door <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> EI 60."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Kitchen\">collectieve keukens</a>, eventueel met inbegrip van het <a href=\"https://ontology.firebim.be/ontology/fbo#Restaurant\">restaurant</a>, worden van de andere <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">bouwdelen</a> gescheiden door <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> EI 60."@nl .
 
 fro:Member_5_5_2_1 a fro:Member ;
-    fro:hasOriginalText "Elke doorgang wordt afgesloten door een zelfsluitende of bij <a href=\"http://example.com/firebimbuilding#FireSpreadPrevention\">brand</a> zelfsluitende <a href=\"http://example.com/firebimbuilding#Door\">deur</a> EI1 30."@nl .
+    fro:hasOriginalText "Elke doorgang wordt afgesloten door een zelfsluitende of bij <a href=\"https://ontology.firebim.be/ontology/fbo#FireSpreadPrevention\">brand</a> zelfsluitende <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deur</a> EI1 30."@nl .
 
 fro:Member_5_5_3_1 a fro:Member ;
-    fro:hasOriginalText "Deze <a href=\"http://example.com/firebimbuilding#Door\">deuren</a> draaien in de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">vluchtrichting</a> van de <a href=\"http://example.com/firebimbuilding#Kitchen\">keuken</a>."@nl .
+    fro:hasOriginalText "Deze <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deuren</a> draaien in de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">vluchtrichting</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#Kitchen\">keuken</a>."@nl .
 
 fro:Member_5_5_4_1 a fro:Member ;
     fro:hasMember fro:Member_5_5_4_1_1,
         fro:Member_5_5_4_1_2 ;
-    fro:hasOriginalText "Wanneer de <a href=\"http://example.com/firebimbuilding#Kitchen\">keuken</a> en het <a href=\"http://example.com/firebimbuilding#Restaurant\">restaurant</a> van elkaar zijn <a href=\"http://example.com/firebimbuilding#Compartment\">gecompartimenteerd</a>, moeten de <a href=\"http://example.com/firebimbuilding#HorizontalShaft\">horizontale</a> en <a href=\"http://example.com/firebimbuilding#VerticalShaft\">verticale</a> <a href=\"http://example.com/firebimbuilding#TransportSystem\">transportsystemen</a> tussen <a href=\"http://example.com/firebimbuilding#Kitchen\">keuken</a> en <a href=\"http://example.com/firebimbuilding#Restaurant\">restaurant</a> aan de volgende voorwaarden voldoen:"@nl .
+    fro:hasOriginalText "Wanneer de <a href=\"https://ontology.firebim.be/ontology/fbo#Kitchen\">keuken</a> en het <a href=\"https://ontology.firebim.be/ontology/fbo#Restaurant\">restaurant</a> van elkaar zijn <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">gecompartimenteerd</a>, moeten de <a href=\"https://ontology.firebim.be/ontology/fbo#HorizontalShaft\">horizontale</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#VerticalShaft\">verticale</a> <a href=\"https://ontology.firebim.be/ontology/fbo#TransportSystem\">transportsystemen</a> tussen <a href=\"https://ontology.firebim.be/ontology/fbo#Kitchen\">keuken</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#Restaurant\">restaurant</a> aan de volgende voorwaarden voldoen:"@nl .
 
 fro:Member_5_5_4_1_1 a fro:Member ;
-    fro:hasOriginalText "- dit transport gebeurt in <a href=\"http://example.com/firebimbuilding#Shaft\">kokers</a> met <a href=\"http://example.com/firebimbuilding#ShaftWall\">wanden</a> EI 60 wanneer het door andere <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> gaat;"@nl .
+    fro:hasOriginalText "- dit transport gebeurt in <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">kokers</a> met <a href=\"https://ontology.firebim.be/ontology/fbo#ShaftWall\">wanden</a> EI 60 wanneer het door andere <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> gaat;"@nl .
 
 fro:Member_5_5_4_1_2 a fro:Member ;
-    fro:hasOriginalText "- het <a href=\"http://example.com/firebimbuilding#TransportSystem\">transportsysteem</a> wordt ter hoogte van de <a href=\"http://example.com/firebimbuilding#CompartmentBoundary\">compartimentswand</a>(en) afgesloten met een <a href=\"http://example.com/firebimbuilding#FireResistanceRating\">voorziening</a> EI1 60."@nl .
+    fro:hasOriginalText "- het <a href=\"https://ontology.firebim.be/ontology/fbo#TransportSystem\">transportsysteem</a> wordt ter hoogte van de <a href=\"https://ontology.firebim.be/ontology/fbo#CompartmentBoundary\">compartimentswand</a>(en) afgesloten met een <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">voorziening</a> EI1 60."@nl .
 
 fro:Member_5_5_5_1 a fro:Member ;
-    fro:hasOriginalText "Wanneer de <a href=\"http://example.com/firebimbuilding#Kitchen\">keuken</a> niet <a href=\"http://example.com/firebimbuilding#Compartment\">gecompartimenteerd</a> is ten opzichte van het <a href=\"http://example.com/firebimbuilding#Restaurant\">restaurant</a>, is elk vast <a href=\"http://example.com/firebimbuilding#FryingEquipment\">frituurtoestel</a> voorzien van een vaste <a href=\"http://example.com/firebimbuilding#AutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> die gekoppeld wordt aan een toestel dat de toevoer van <a href=\"http://example.com/firebimbuilding#EnergySupplyInterruption\">energie</a> naar het <a href=\"http://example.com/firebimbuilding#FryingEquipment\">frituurtoestel</a> onderbreekt."@nl .
+    fro:hasOriginalText "Wanneer de <a href=\"https://ontology.firebim.be/ontology/fbo#Kitchen\">keuken</a> niet <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">gecompartimenteerd</a> is ten opzichte van het <a href=\"https://ontology.firebim.be/ontology/fbo#Restaurant\">restaurant</a>, is elk vast <a href=\"https://ontology.firebim.be/ontology/fbo#FryingEquipment\">frituurtoestel</a> voorzien van een vaste <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> die gekoppeld wordt aan een toestel dat de toevoer van <a href=\"https://ontology.firebim.be/ontology/fbo#EnergySupplyInterruption\">energie</a> naar het <a href=\"https://ontology.firebim.be/ontology/fbo#FryingEquipment\">frituurtoestel</a> onderbreekt."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

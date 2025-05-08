@@ -7,11 +7,11 @@ fro:Section_0_3 a fro:Section ;
 
 fro:Figure_2_1 a fro:Figure ;
     fro:hasID "F2.1" ;
-    fro:hasOriginalText "Plaat 2.1 - <a href=\"http://example.com/firebimbuilding#Facade\">Gevels</a> tussen <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a>"@nl .
+    fro:hasOriginalText "Plaat 2.1 - <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">Gevels</a> tussen <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a>"@nl .
 
 fro:Figure_2_2 a fro:Figure ;
     fro:hasID "F2.2" ;
-    fro:hasOriginalText "Plaat 2.2 - <a href=\"http://example.com/firebimbuilding#Facade\">Gevels</a> tussen <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a>"@nl .
+    fro:hasOriginalText "Plaat 2.2 - <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">Gevels</a> tussen <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a>"@nl .
 
 fro:Section_0_3_1 a fro:Section ;
     fro:hasFigure fro:Figure_2_1,
@@ -19,7 +19,7 @@ fro:Section_0_3_1 a fro:Section ;
     fro:hasID "0.3.1" ;
     fro:hasOriginalText """[De platen zijn opgenomen bij de betreffende tekst]
 
-Plaat 2.1 - <a href="http://example.com/firebimbuilding#Facade">Gevels</a> tussen <a href="http://example.com/firebimbuilding#Building">gebouwen</a>
+Plaat 2.1 - <a href="https://ontology.firebim.be/ontology/fbo#Facade">Gevels</a> tussen <a href="https://ontology.firebim.be/ontology/fbo#Building">gebouwen</a>
 
-Plaat 2.2 - <a href="http://example.com/firebimbuilding#Facade">Gevels</a> tussen <a href="http://example.com/firebimbuilding#Compartment">compartimenten</a>"""@nl .
+Plaat 2.2 - <a href="https://ontology.firebim.be/ontology/fbo#Facade">Gevels</a> tussen <a href="https://ontology.firebim.be/ontology/fbo#Compartment">compartimenten</a>"""@nl .
 

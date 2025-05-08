@@ -12,7 +12,7 @@ fro:Article_5_1_2_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_5_1_2_2_1_1 a fro:Member ;
-    fro:hasOriginalText "Het <a href=\"http://example.com/firebimbuilding#DesignCompliance\">ontwerp</a>, de <a href=\"http://example.com/firebimbuilding#ConstructionCompliance\">bouw</a> en de <a href=\"http://example.com/firebimbuilding#LayoutCompliance\">inrichting</a> van de <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookafdelingen</a> voldoen aan de bepalingen van <a href=\"http://example.com/firebimbuilding#SectionNumber\">punt 4</a> van <a href=\"http://example.com/firebimbuilding#Annexes\">bijlage 7</a>."@nl .
+    fro:hasOriginalText "Het <a href=\"https://ontology.firebim.be/ontology/fbo#DesignCompliance\">ontwerp</a>, de <a href=\"https://ontology.firebim.be/ontology/fbo#ConstructionCompliance\">bouw</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#LayoutCompliance\">inrichting</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#BoilerRoom\">stookafdelingen</a> voldoen aan de bepalingen van <a href=\"https://ontology.firebim.be/ontology/fbo#SectionNumber\">punt 4</a> van <a href=\"https://ontology.firebim.be/ontology/fbo#Annexes\">bijlage 7</a>."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

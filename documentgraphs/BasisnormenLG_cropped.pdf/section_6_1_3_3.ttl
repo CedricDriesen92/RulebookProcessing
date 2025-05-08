@@ -4,7 +4,7 @@
 fro:Section_6_1_3_3 a fro:Section ;
     fro:hasArticle fro:Article_6_1_3_3_1 ;
     fro:hasID "6.1.3.3" ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#VentilationOpening\">verluchtingsopeningen</a> mogen uitgerust worden met <a href=\"http://example.com/firebimbuilding#MotorizedVentilationFlap\">gemotoriseerde verluchtingskleppen</a> waarvan de opening als volgt bevolen:"@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#VentilationOpening\">verluchtingsopeningen</a> mogen uitgerust worden met <a href=\"https://ontology.firebim.be/ontology/fbo#MotorizedVentilationFlap\">gemotoriseerde verluchtingskleppen</a> waarvan de opening als volgt bevolen:"@nl .
 
 fro:Article_6_1_3_3_1 a fro:Article ;
     fro:hasID "A6.1.3.3.1" ;
@@ -17,22 +17,22 @@ fro:Article_6_1_3_3_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_1_3_3_1_1 a fro:Member ;
-    fro:hasOriginalText "- automatisch bevolen wordt om de <a href=\"http://example.com/firebimbuilding#UserSafety\">gebruikers van de lift</a> een toereikende verluchting te verzekeren, zelfs bij een langdurige stilstand;"@nl .
+    fro:hasOriginalText "- automatisch bevolen wordt om de <a href=\"https://ontology.firebim.be/ontology/fbo#UserSafety\">gebruikers van de lift</a> een toereikende verluchting te verzekeren, zelfs bij een langdurige stilstand;"@nl .
 
 fro:Member_6_1_3_3_1_2 a fro:Member ;
-    fro:hasOriginalText "- automatisch bevolen wordt bij een <a href=\"http://example.com/firebimbuilding#AbnormalTemperatureBehavior\">abnormale temperatuursstijging van de machine</a> en/of de controleorganen;"@nl .
+    fro:hasOriginalText "- automatisch bevolen wordt bij een <a href=\"https://ontology.firebim.be/ontology/fbo#AbnormalTemperatureBehavior\">abnormale temperatuursstijging van de machine</a> en/of de controleorganen;"@nl .
 
 fro:Member_6_1_3_3_1_3 a fro:Member ;
-    fro:hasOriginalText "- automatisch bevolen wordt bij de <a href=\"http://example.com/firebimbuilding#AutomaticFireDetection\">detectie van een brand</a> in de <a href=\"http://example.com/firebimbuilding#Shaft\">schacht</a> en/of in de <a href=\"http://example.com/firebimbuilding#MachineRoom\">machinekamer</a>;"@nl .
+    fro:hasOriginalText "- automatisch bevolen wordt bij de <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireDetection\">detectie van een brand</a> in de <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">schacht</a> en/of in de <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machinekamer</a>;"@nl .
 
 fro:Member_6_1_3_3_1_4 a fro:Member ;
-    fro:hasOriginalText "- automatisch bevolen wordt bij de <a href=\"http://example.com/firebimbuilding#AutomaticFireDetection\">detectie van een brand</a> in het <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a>, indien dit uitgerust is met een <a href=\"http://example.com/firebimbuilding#AutomaticFireDetectionSystem\">algemene branddetectie-installatie</a>;"@nl .
+    fro:hasOriginalText "- automatisch bevolen wordt bij de <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireDetection\">detectie van een brand</a> in het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a>, indien dit uitgerust is met een <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireDetectionSystem\">algemene branddetectie-installatie</a>;"@nl .
 
 fro:Member_6_1_3_3_1_5 a fro:Member ;
-    fro:hasOriginalText "- automatisch bevolen wordt bij een defect aan de <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">energiebron</a>, de <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">voeding</a> of de <a href=\"http://example.com/firebimbuilding#ManualControlSystem\">bediening</a> (<a href=\"http://example.com/firebimbuilding#PositiveSafetySystem\">toestel met positieve veiligheid</a>);"@nl .
+    fro:hasOriginalText "- automatisch bevolen wordt bij een defect aan de <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalSystem\">energiebron</a>, de <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalSystem\">voeding</a> of de <a href=\"https://ontology.firebim.be/ontology/fbo#ManualControlSystem\">bediening</a> (<a href=\"https://ontology.firebim.be/ontology/fbo#PositiveSafetySystem\">toestel met positieve veiligheid</a>);"@nl .
 
 fro:Member_6_1_3_3_1_6 a fro:Member ;
-    fro:hasOriginalText "- manueel via een <a href=\"http://example.com/firebimbuilding#ManualControlSystem\">bediening</a> op een <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a>."@nl .
+    fro:hasOriginalText "- manueel via een <a href=\"https://ontology.firebim.be/ontology/fbo#ManualControlSystem\">bediening</a> op een <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a>."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

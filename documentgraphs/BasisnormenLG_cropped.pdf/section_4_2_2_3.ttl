@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@base <http://example.com/firebim> .
+@base <https://ontology.firebim.be/ontology/fro> .
 
 fro:Section_4_2_2_3 a fro:Section ;
     fro:hasID "4.2.2.3" ;
@@ -20,26 +20,26 @@ fro:Article_4_2_2_3_1 a fro:Article ;
         fro:Member_4_2_2_3_1_3 .
 
 fro:Member_4_2_2_3_1_1 a fro:Member ;
-    fro:hasOriginalText """Op iedere <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a> wordt de verbinding tussen het <a href="http://example.com/firebimbuilding#Compartment">compartiment</a> en het <a href="http://example.com/firebimbuilding#Staircase">trappenhuis</a> verzekerd door een <a href="http://example.com/firebimbuilding#Door">deur</a> EI1 30."""@nl .
+    fro:hasOriginalText """Op iedere <a href="https://ontology.firebim.be/ontology/fbo#Floor">bouwlaag</a> wordt de verbinding tussen het <a href="https://ontology.firebim.be/ontology/fbo#Compartment">compartiment</a> en het <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuis</a> verzekerd door een <a href="https://ontology.firebim.be/ontology/fbo#Door">deur</a> EI1 30."""@nl .
 
 fro:Member_4_2_2_3_1_2 a fro:Member ;
-    fro:hasOriginalText """Een rechtstreekse verbinding van elke <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a> van een <a href="http://example.com/firebimbuilding#IsDuplex">duplex</a> met het <a href="http://example.com/firebimbuilding#Staircase">trappenhuis</a> is niet vereist, op voorwaarde dat:"""@nl ;
+    fro:hasOriginalText """Een rechtstreekse verbinding van elke <a href="https://ontology.firebim.be/ontology/fbo#Floor">bouwlaag</a> van een <a href="https://ontology.firebim.be/ontology/fbo#IsDuplex">duplex</a> met het <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuis</a> is niet vereist, op voorwaarde dat:"""@nl ;
     fro:hasMember fro:Member_4_2_2_3_1_2_1,
         fro:Member_4_2_2_3_1_2_2 .
 
 fro:Member_4_2_2_3_1_2_1 a fro:Member ;
-    fro:hasOriginalText """- de totale <a href="http://example.com/firebimbuilding#TotalArea">oppervlakte</a> van het <a href="http://example.com/firebimbuilding#DuplexCompartment">duplexcompartiment</a> of het duplexappartement kleiner is dan of gelijk is aan 300 m²;"""@nl .
+    fro:hasOriginalText """- de totale <a href="https://ontology.firebim.be/ontology/fbo#TotalArea">oppervlakte</a> van het <a href="https://ontology.firebim.be/ontology/fbo#DuplexCompartment">duplexcompartiment</a> of het duplexappartement kleiner is dan of gelijk is aan 300 m²;"""@nl .
 
 fro:Member_4_2_2_3_1_2_2 a fro:Member ;
-    fro:hasOriginalText """- de <a href="http://example.com/firebimbuilding#LevelArea">oppervlakte</a> van de <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a> van de <a href="http://example.com/firebimbuilding#Duplex">duplex</a> die niet rechtstreeks <a href="http://example.com/firebimbuilding#EvacuationRoute">evacueert</a> via het <a href="http://example.com/firebimbuilding#Staircase">trappenhuis</a>, kleiner is dan of gelijk is aan 150 m²."""@nl .
+    fro:hasOriginalText """- de <a href="https://ontology.firebim.be/ontology/fbo#LevelArea">oppervlakte</a> van de <a href="https://ontology.firebim.be/ontology/fbo#Floor">bouwlaag</a> van de <a href="https://ontology.firebim.be/ontology/fbo#Duplex">duplex</a> die niet rechtstreeks <a href="https://ontology.firebim.be/ontology/fbo#EvacuationRoute">evacueert</a> via het <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuis</a>, kleiner is dan of gelijk is aan 150 m²."""@nl .
 
 fro:Member_4_2_2_3_1_3 a fro:Member ;
-    fro:hasOriginalText """De rechtstreekse verbinding van elke <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a> van een <a href="http://example.com/firebimbuilding#IsTriplex">triplex</a> met het <a href="http://example.com/firebimbuilding#Staircase">trappenhuis</a> is niet vereist, op voorwaarde dat:"""@nl ;
+    fro:hasOriginalText """De rechtstreekse verbinding van elke <a href="https://ontology.firebim.be/ontology/fbo#Floor">bouwlaag</a> van een <a href="https://ontology.firebim.be/ontology/fbo#IsTriplex">triplex</a> met het <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuis</a> is niet vereist, op voorwaarde dat:"""@nl ;
     fro:hasMember fro:Member_4_2_2_3_1_3_1,
         fro:Member_4_2_2_3_1_3_2 .
 
 fro:Member_4_2_2_3_1_3_1 a fro:Member ;
-    fro:hasOriginalText """- de <a href="http://example.com/firebimbuilding#LevelArea">oppervlakte</a> van elke <a href="http://example.com/firebimbuilding#Floor">bouwlaag</a> van de <a href="http://example.com/firebimbuilding#Triplex">triplex</a> die niet rechtstreeks <a href="http://example.com/firebimbuilding#EvacuationRoute">evacueert</a> via het <a href="http://example.com/firebimbuilding#Staircase">trappenhuis</a>, kleiner is dan of gelijk is aan 100 m²;"""@nl .
+    fro:hasOriginalText """- de <a href="https://ontology.firebim.be/ontology/fbo#LevelArea">oppervlakte</a> van elke <a href="https://ontology.firebim.be/ontology/fbo#Floor">bouwlaag</a> van de <a href="https://ontology.firebim.be/ontology/fbo#Triplex">triplex</a> die niet rechtstreeks <a href="https://ontology.firebim.be/ontology/fbo#EvacuationRoute">evacueert</a> via het <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuis</a>, kleiner is dan of gelijk is aan 100 m²;"""@nl .
 
 fro:Member_4_2_2_3_1_3_2 a fro:Member ;
-    fro:hasOriginalText """- de verbinding met de <a href=\"http://example.com/firebimbuilding#Triplex\">triplex</a> minstens gebeurt:"""@nl .
+    fro:hasOriginalText """- de verbinding met de <a href=\"https://ontology.firebim.be/ontology/fbo#Triplex\">triplex</a> minstens gebeurt:"""@nl .

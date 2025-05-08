@@ -58,7 +58,7 @@ print(f"SHACL output directory: {shacl_output_dir}")
 
 
 # --- Namespaces ---
-FIREBIM = Namespace("http://example.com/firebim#")
+FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
 # Add other namespaces if needed (FBBO, SHACL, etc.)
 SH = Namespace("http://www.w3.org/ns/shacl#")
 
@@ -98,7 +98,7 @@ def extract_rule_text_from_ttl(ttl_content: str) -> dict[str, list[str]]:
     processed_member_texts = defaultdict(set) # Track added member texts per article
 
     try:
-        results = g.query(query, initNs={"firebim": FIREBIM, "rdf": RDF})
+        results = g.query(query, initNs={"firebim": FRO, "rdf": RDF})
         for row in results:
             article_uri = str(row.article)
             article_text = str(row.articleText).strip() if row.articleText else None
@@ -355,7 +355,7 @@ def generate_shacl_from_rase(rase_annotated_rule: str, rule_subject_uri: str, bu
     shacl_placeholder = f"""
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix fro: <{FIREBIM}> .
+@prefix fro: <{FRO}> .
 # Add other prefixes (FBBO, INST, etc.)
 
 # SHACL Shape derived from inline RASE annotated text for {rule_subject_uri}
@@ -468,7 +468,7 @@ def main():
 
     combined_shacl_graph = Graph()
     combined_shacl_graph.bind("sh", SH)
-    combined_shacl_graph.bind("firebim", FIREBIM)
+    combined_shacl_graph.bind("firebim", FRO)
     # Add other necessary namespaces
 
     shacl_count = 0

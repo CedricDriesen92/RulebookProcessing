@@ -21,7 +21,7 @@ BPO = Namespace("https://w3id.org/bpo#")
 OPM = Namespace("https://w3id.org/opm#")
 IFC = Namespace("http://example.org/IFC#")
 INST = Namespace("http://example.org/project#")
-FIREBIM = Namespace("http://example.com/firebim#")
+FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
 
 # Function to get the appropriate namespace based on country code
 def get_country_namespace(country_code):
@@ -327,7 +327,7 @@ class IFCtoFBBConverter:
             storey_name = getattr(storey, "Name", f"Storey_{storey.id()}")
             self.g.add((storey_uri, RDFS.label, Literal(self.sanitize_name(storey_name))))
             
-            self.g.add((building_uri, FIREBIM.hasStorey, storey_uri))
+            self.g.add((building_uri, FRO.hasStorey, storey_uri))
             self.add_properties(storey, storey_uri)
 
     def process_spaces(self) -> None:
@@ -346,7 +346,7 @@ class IFCtoFBBConverter:
                 if storey.is_a("IfcBuildingStorey"):
                     storey_global_id = getattr(storey, "GlobalId", f"Storey_{storey.id()}")
                     storey_uri = self.create_uri(INST, "IfcBuildingStorey", storey_global_id)
-                    self.g.add((storey_uri, FIREBIM.hasSpace, space_uri))
+                    self.g.add((storey_uri, FRO.hasSpace, space_uri))
             
             self.add_properties(space, space_uri)
 
@@ -394,7 +394,7 @@ class IFCtoFBBConverter:
             if containing_storey.is_a("IfcBuildingStorey"):
                 storey_global_id = getattr(containing_storey, "GlobalId", f"Storey_{containing_storey.id()}")
                 storey_uri = self.create_uri(INST, "IfcBuildingStorey", storey_global_id)
-                self.g.add((storey_uri, FIREBIM.containsElement, element_uri))
+                self.g.add((storey_uri, FRO.containsElement, element_uri))
         
         self.add_properties(element, element_uri)
 

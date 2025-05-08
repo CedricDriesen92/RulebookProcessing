@@ -29,10 +29,10 @@ fro:Article_5_3_2_2_1_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_5_3_2_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> die deze <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> of geheel van <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> vormen, voldoen niet alleen aan de reglementaire voorschriften die op deze ruimten van toepassing zijn, maar hebben bovendien dezelfde <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> als de <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> van een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a>."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> die deze <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> of geheel van <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> vormen, voldoen niet alleen aan de reglementaire voorschriften die op deze ruimten van toepassing zijn, maar hebben bovendien dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> als de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> van een <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a>."@nl .
 
 fro:Member_5_3_2_1_2 a fro:Member ;
-    fro:hasOriginalText "Elke doorgang in de verticale <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> is afgesloten door een <a href=\"http://example.com/firebimbuilding#IsSelfClosing\">zelfsluitende</a> of bij brand <a href=\"http://example.com/firebimbuilding#IsFireActivatedClosing\">zelfsluitende</a> <a href=\"http://example.com/firebimbuilding#Door\">deur</a> EI1 30."@nl .
+    fro:hasOriginalText "Elke doorgang in de verticale <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> is afgesloten door een <a href=\"https://ontology.firebim.be/ontology/fbo#IsSelfClosing\">zelfsluitende</a> of bij brand <a href=\"https://ontology.firebim.be/ontology/fbo#IsFireActivatedClosing\">zelfsluitende</a> <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deur</a> EI1 30."@nl .
 
 fro:Member_5_3_2_1_3 a fro:Member ;
     fro:hasOriginalText "Stookafdelingen"@nl .
@@ -49,48 +49,48 @@ fro:Member_5_3_2_2_1_1_1 a fro:Member ;
         fro:Member_5_3_2_2_1_1_1_3,
         fro:Member_5_3_2_2_1_1_1_4,
         fro:Member_5_3_2_2_1_1_1_5 ;
-    fro:hasOriginalText "Op elke <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> is de <a href=\"http://example.com/firebimbuilding#Evacuation\">evacuatie</a> als volgt geregeld:"@nl .
+    fro:hasOriginalText "Op elke <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> is de <a href=\"https://ontology.firebim.be/ontology/fbo#Evacuation\">evacuatie</a> als volgt geregeld:"@nl .
 
 fro:Member_5_3_2_2_1_1_1_1 a fro:Member ;
     fro:hasForwardReference fro:Section_4_2,
         fro:Section_4_3 ;
-    fro:hasOriginalText "- ten minste twee <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> of <a href=\"http://example.com/firebimbuilding#ExternalStaircase\">buitentrappen</a> voldoen aan de voorschriften vervat in 4.2 of 4.3 en zijn vanuit ieder punt van de <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> toegankelijk; de af te leggen weg naar de dichtstbijzijnde <a href=\"http://example.com/firebimbuilding#Staircase\">trap</a> mag niet meer dan 45 m bedragen; de minimale nuttige breedte van deze <a href=\"http://example.com/firebimbuilding#Staircase\">trappen</a> bedraagt 0,80 m;"@nl .
+    fro:hasOriginalText "- ten minste twee <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappenhuizen</a> of <a href=\"https://ontology.firebim.be/ontology/fbo#ExternalStaircase\">buitentrappen</a> voldoen aan de voorschriften vervat in 4.2 of 4.3 en zijn vanuit ieder punt van de <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> toegankelijk; de af te leggen weg naar de dichtstbijzijnde <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trap</a> mag niet meer dan 45 m bedragen; de minimale nuttige breedte van deze <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappen</a> bedraagt 0,80 m;"@nl .
 
 fro:Member_5_3_2_2_1_1_1_2 a fro:Member ;
     fro:hasForwardReference fro:Section_2_2_2 ;
-    fro:hasOriginalText "- zoals gesteld in 2.2.2, derde lid, mag op de beschouwde <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> de vereiste toegang tot één van de twee <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> vervangen worden door een rechtstreekse <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a> naar de open lucht;"@nl .
+    fro:hasOriginalText "- zoals gesteld in 2.2.2, derde lid, mag op de beschouwde <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> de vereiste toegang tot één van de twee <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappenhuizen</a> vervangen worden door een rechtstreekse <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgang</a> naar de open lucht;"@nl .
 
 fro:Member_5_3_2_2_1_1_1_3 a fro:Member ;
-    fro:hasOriginalText "- op de <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> die het dichtst bij het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">uitritniveau</a> ligt, mag de <a href=\"http://example.com/firebimbuilding#Ramp\">hellende rijweg</a> één der <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> of <a href=\"http://example.com/firebimbuilding#ExternalStaircase\">buitentrappen</a> vervangen indien de <a href=\"http://example.com/firebimbuilding#MaximumSlope\">helling</a> gemeten in haar hartlijn niet meer dan 10 % bedraagt;"@nl .
+    fro:hasOriginalText "- op de <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> die het dichtst bij het <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">uitritniveau</a> ligt, mag de <a href=\"https://ontology.firebim.be/ontology/fbo#Ramp\">hellende rijweg</a> één der <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappenhuizen</a> of <a href=\"https://ontology.firebim.be/ontology/fbo#ExternalStaircase\">buitentrappen</a> vervangen indien de <a href=\"https://ontology.firebim.be/ontology/fbo#MaximumSlope\">helling</a> gemeten in haar hartlijn niet meer dan 10 % bedraagt;"@nl .
 
 fro:Member_5_3_2_2_1_1_1_4 a fro:Member ;
-    fro:hasOriginalText "- de beperking van de <a href=\"http://example.com/firebimbuilding#MaximumSlope\">helling</a> tot 10% geldt niet voor de <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> waarvan de <a href=\"http://example.com/firebimbuilding#CompartmentArea\">oppervlakte</a> gelijk of kleiner is dan 500 m², indien <a href=\"http://example.com/firebimbuilding#Evacuation\">evacuatie</a> via de <a href=\"http://example.com/firebimbuilding#Ramp\">helling</a> mogelijk blijft;"@nl .
+    fro:hasOriginalText "- de beperking van de <a href=\"https://ontology.firebim.be/ontology/fbo#MaximumSlope\">helling</a> tot 10% geldt niet voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> waarvan de <a href=\"https://ontology.firebim.be/ontology/fbo#CompartmentArea\">oppervlakte</a> gelijk of kleiner is dan 500 m², indien <a href=\"https://ontology.firebim.be/ontology/fbo#Evacuation\">evacuatie</a> via de <a href=\"https://ontology.firebim.be/ontology/fbo#Ramp\">helling</a> mogelijk blijft;"@nl .
 
 fro:Member_5_3_2_2_1_1_1_5 a fro:Member ;
     fro:hasForwardReference fro:Section_4_5 ;
-    fro:hasOriginalText "- buiten de signalisatie bepaald in 4.5 worden de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a>, op elke <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a>, ook nog aangeduid op de <a href=\"http://example.com/firebimbuilding#Floor\">vloer</a> of juist erboven."@nl .
+    fro:hasOriginalText "- buiten de signalisatie bepaald in 4.5 worden de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatiewegen</a>, op elke <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a>, ook nog aangeduid op de <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">vloer</a> of juist erboven."@nl .
 
 fro:Member_5_3_2_2_1_1_2 a fro:Member ;
     fro:hasMember fro:Member_5_3_2_2_1_1_2_1,
         fro:Member_5_3_2_2_1_1_2_2,
         fro:Member_5_3_2_2_1_1_2_3,
         fro:Member_5_3_2_2_1_1_2_4 ;
-    fro:hasOriginalText "Eén enkele <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a> per <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> (<a href=\"http://example.com/firebimbuilding#Staircase\">binnentrappenhuis</a>, <a href=\"http://example.com/firebimbuilding#ExternalStaircase\">buitentrap</a>, rechtstreekse <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a> naar de open lucht of <a href=\"http://example.com/firebimbuilding#Ramp\">hellende rijweg</a> op de <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> die het dichtst bij het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">uitritniveau</a> ligt) is evenwel voldoende op voorwaarde:"@nl .
+    fro:hasOriginalText "Eén enkele <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgang</a> per <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> (<a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">binnentrappenhuis</a>, <a href=\"https://ontology.firebim.be/ontology/fbo#ExternalStaircase\">buitentrap</a>, rechtstreekse <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgang</a> naar de open lucht of <a href=\"https://ontology.firebim.be/ontology/fbo#Ramp\">hellende rijweg</a> op de <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> die het dichtst bij het <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">uitritniveau</a> ligt) is evenwel voldoende op voorwaarde:"@nl .
 
 fro:Member_5_3_2_2_1_1_2_1 a fro:Member ;
-    fro:hasOriginalText "- dat de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> zich in de hoogte uitstrekt over maximum twee <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a>;"@nl .
+    fro:hasOriginalText "- dat de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> zich in de hoogte uitstrekt over maximum twee <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlagen</a>;"@nl .
 
 fro:Member_5_3_2_2_1_1_2_2 a fro:Member ;
-    fro:hasOriginalText "- dat geen enkele van deze beide <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> zich op meer dan twee <a href=\"http://example.com/firebimbuilding#Floor\">bouwlagen</a> boven of onder het <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">uitritniveau</a> voor voertuigen bevindt;"@nl .
+    fro:hasOriginalText "- dat geen enkele van deze beide <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlagen</a> zich op meer dan twee <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlagen</a> boven of onder het <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">uitritniveau</a> voor voertuigen bevindt;"@nl .
 
 fro:Member_5_3_2_2_1_1_2_3 a fro:Member ;
-    fro:hasOriginalText "- dat geen enkel punt van de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> zich op een afstand verder dan 15 m van de toegang tot de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a> naar de <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a> bevindt;"@nl .
+    fro:hasOriginalText "- dat geen enkel punt van de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> zich op een afstand verder dan 15 m van de toegang tot de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatieweg</a> naar de <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgang</a> bevindt;"@nl .
 
 fro:Member_5_3_2_2_1_1_2_4 a fro:Member ;
-    fro:hasOriginalText "- en dat geen enkel punt van de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> zich op een afstand verder dan 30 m van de toegang tot de <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a> bevindt."@nl .
+    fro:hasOriginalText "- en dat geen enkel punt van de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> zich op een afstand verder dan 30 m van de toegang tot de <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgang</a> bevindt."@nl .
 
 fro:Member_5_3_2_2_1_1_3 a fro:Member ;
-    fro:hasOriginalText "In de gesloten <a href=\"http://example.com/firebimbuilding#Parking\">parkings</a> met een <a href=\"http://example.com/firebimbuilding#TotalArea\">totale oppervlakte</a> groter dan 2500 m², moeten de maatregelen genomen worden die noodzakelijk zijn om de <a href=\"http://example.com/firebimbuilding#SmokePrevention\">verspreiding van rook te voorkomen</a>."@nl .
+    fro:hasOriginalText "In de gesloten <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parkings</a> met een <a href=\"https://ontology.firebim.be/ontology/fbo#TotalArea\">totale oppervlakte</a> groter dan 2500 m², moeten de maatregelen genomen worden die noodzakelijk zijn om de <a href=\"https://ontology.firebim.be/ontology/fbo#SmokePrevention\">verspreiding van rook te voorkomen</a>."@nl .
 
 fro:Section_5_3_2_2_1 a fro:Section ;
     fro:hasArticle fro:Article_5_3_2_2_1_1 ;

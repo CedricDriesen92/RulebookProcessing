@@ -115,30 +115,30 @@ def create_empty_section_ttl(section_number):
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@base <http://example.com/firebim> .
+@base <https://ontology.firebim.be/ontology/fro#> .
 
 fro:Section_{section_number.replace('.', '_')} a fro:Section ;
     fro:hasID "{section_number}" .
 """
     return ttl_content
 
-FIREBIM = Namespace("http://example.com/firebim#")
+FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
 XML = Namespace("http://www.w3.org/XML/1998/namespace")
 
 
 def create_initial_graph():
     g = Graph()
-    g.bind("firebim", FIREBIM)
+    g.bind("fro", FRO)
     
-    document = URIRef(FIREBIM.RoyalDecree)
-    authority = URIRef(FIREBIM.Belgian_Government)
+    document = URIRef(FRO.RoyalDecree)
+    authority = URIRef(FRO.Belgian_Government)
     
-    g.add((document, RDF.type, FIREBIM.Document))
-    g.add((document, FIREBIM.hasID, Literal("RoyalDecree1994")))
-    g.add((document, FIREBIM.issued, Literal("1994-07-07", datatype=XSD.date)))
+    g.add((document, RDF.type, FRO.Document))
+    g.add((document, FRO.hasID, Literal("RoyalDecree1994")))
+    g.add((document, FRO.issued, Literal("1994-07-07", datatype=XSD.date)))
     
-    g.add((authority, RDF.type, FIREBIM.Authority))
-    g.add((authority, FIREBIM.hasDocument, document))
+    g.add((authority, RDF.type, FRO.Authority))
+    g.add((authority, FRO.hasDocument, document))
     
     return g
 
@@ -170,8 +170,8 @@ Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be c
 Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following the ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned. Prefixes will be added afterwards automatically so ALWAYS start off with fro:Section_..., NEVER define any prefixes.
 
 Additionally, you must now enhance the text by adding HTML links to relevant ontology concepts via the building ontology list below. When you identify terms that match concepts from the ontology, wrap them in HTML anchor tags that link to their URI definitions. For example:
-- If discussing compartment areas, use: <a href="http://example.com/firebimbuilding#CompartmentArea">area of the compartment</a>
-- For fire resistance requirements: <a href="http://example.com/firebimbuilding#FireResistance">fire resistance</a>
+- If discussing compartment areas, use: <a href="https://ontology.firebim.be/ontology/fbo#CompartmentArea">area of the compartment</a>
+- For fire resistance requirements: <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">fire resistance</a>
 
 The links should be added to the originalText properties in the output TTL. Make sure to:
 1. Only link to terms that actually exist in the building ontology
@@ -181,7 +181,7 @@ The links should be added to the originalText properties in the output TTL. Make
 Available building ontology terms for linking:
 {', '.join(load_building_terms())}
 
-Use these terms with the URI pattern: http://example.com/firebimbuilding#term
+Use these terms with the URI pattern: https://ontology.firebim.be/ontology/fbo#term
 
 IMPORTANT FORMATTING RULES:
 1. Always use triple quotes (\"\"\" \"\"\") for originalText properties that contain HTML links
@@ -189,7 +189,7 @@ IMPORTANT FORMATTING RULES:
 3. For simple text without HTML, you can use single quotes
 
 Example format:
-fro:hasOriginalText \"\"\"Text with <a href=\\"http://example.com/firebimbuilding#Term\\">linked term</a>\"\"\"@nl ;
+fro:hasOriginalText \"\"\"Text with <a href=\\"https://ontology.firebim.be/ontology/fbo#Term\\">linked term</a>\"\"\"@nl ;
 """
     prompt2 = f"""
 Section number: {section_number}
@@ -259,7 +259,7 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@base <http://example.com/firebim> .\n\n"""
+@base <https://ontology.firebim.be/ontology/fro> .\n\n"""
 
             # Only append the response if it doesn't start with "fro:Section_"
             if not response.startswith("fro:Section_"):
@@ -281,7 +281,7 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
         try:
             # Try parsing the existing file into the main graph
             g_temp_load = Graph()
-            g_temp_load.parse(file_name, format="turtle", publicID=FIREBIM)
+            g_temp_load.parse(file_name, format="turtle", publicID=FRO)
             for s, p, o in g_temp_load:
                 if (s, p, o) not in main_graph:
                     main_graph.add((s, p, o))
@@ -312,27 +312,27 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
             temp_graph.bind("xml", XML)
             temp_graph.bind("xsd", XSD)
             temp_graph.bind("rdfs", RDFS)
-            temp_graph.bind("firebim", FIREBIM)
-            temp_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
+            temp_graph.bind("firebim", FRO)
+            temp_graph.parse(data=ttl_content, format="turtle", publicID=FRO)
 
             # 3. Find articles and add version info to temp_graph for first article
             
             
             now_date_str = now.split('T')[0]
-            articles_in_section = list(temp_graph.subjects(RDF.type, FIREBIM.Article))
+            articles_in_section = list(temp_graph.subjects(RDF.type, FRO.Article))
             
             if articles_in_section:
                 print(f"Found {len(articles_in_section)} articles in section {section_number}. Adding version info to temp graph...")
                 for article_uri in articles_in_section:
                     version_uri_str = f"v{current_version.replace('.', '_')}"
-                    version_uri = URIRef(FIREBIM[version_uri_str])
+                    version_uri = URIRef(FRO[version_uri_str])
                     
                     # Add version triples to the temporary graph
-                    temp_graph.add((article_uri, FIREBIM.hasVersion, version_uri))
-                    temp_graph.add((version_uri, RDF.type, FIREBIM.Version))
-                    temp_graph.add((version_uri, FIREBIM.hasDate, Literal(now, datatype=XSD.dateTime)))
-                    temp_graph.add((version_uri, FIREBIM.hasVersionNumber, Literal(current_version)))
-                    temp_graph.add((version_uri, FIREBIM.hasDescription, Literal(f"Version {current_version} of the document")))
+                    temp_graph.add((article_uri, FRO.hasVersion, version_uri))
+                    temp_graph.add((version_uri, RDF.type, FRO.Version))
+                    temp_graph.add((version_uri, FRO.hasDate, Literal(now, datatype=XSD.dateTime)))
+                    temp_graph.add((version_uri, FRO.hasVersionNumber, Literal(current_version)))
+                    temp_graph.add((version_uri, FRO.hasDescription, Literal(f"Version {current_version} of the document")))
 
             # 4. Add all triples from the (potentially modified) temp_graph to the main_graph
             for s, p, o in temp_graph:
@@ -415,7 +415,7 @@ def main():
     section_numbers = [section_number for section_number, _, _ in sections]
     section_titles = [section_title for _, section_title, _ in sections]
     
-    document = URIRef(FIREBIM.RoyalDecree)
+    document = URIRef(FRO.RoyalDecree)
     
     # Preprocess sections to combine non-section content with previous sections
     processed_sections = []
@@ -437,21 +437,21 @@ def main():
     print(f"Number of processed sections: {len(sections)}")
     
     for i, section_number in enumerate(section_numbers):
-        section_uri = URIRef(FIREBIM['Section_' + section_number.replace('.', '_')])
-        main_graph.add((section_uri, RDF.type, FIREBIM.Section))
-        main_graph.add((section_uri, FIREBIM.hasID, Literal(section_number)))
-        main_graph.add((section_uri, FIREBIM.hasOriginalText, Literal(section_titles[i].upper())))
+        section_uri = URIRef(FRO['Section_' + section_number.replace('.', '_')])
+        main_graph.add((section_uri, RDF.type, FRO.Section))
+        main_graph.add((section_uri, FRO.hasID, Literal(section_number)))
+        main_graph.add((section_uri, FRO.hasOriginalText, Literal(section_titles[i].upper())))
         
         # Link top-level sections to the document
         if '.' not in section_number:
-            main_graph.add((document, FIREBIM.hasSection, section_uri))
+            main_graph.add((document, FRO.hasSection, section_uri))
         
         # Link child sections to parent sections
         parts = section_number.split('.')
         if len(parts) > 1:
             parent_number = '.'.join(parts[:-1])
-            parent_uri = URIRef(FIREBIM['Section_' + parent_number.replace('.', '_')])
-            main_graph.add((parent_uri, FIREBIM.hasSection, section_uri))
+            parent_uri = URIRef(FRO['Section_' + parent_number.replace('.', '_')])
+            main_graph.add((parent_uri, FRO.hasSection, section_uri))
     
     # Serialize the initial structure
     os.makedirs(output_folder, exist_ok=True)
@@ -462,7 +462,7 @@ def main():
     training_examples = load_training_examples('trainingsamplesRuleToGraph')
     # Clean examples string generation slightly
     examples_str = "\n\n---\n\n".join([
-        f"Input Text:\n{ex['input']}\n\nExpected TTL Output (fragment):\n{str(ex['output']).split('@base <http://example.com/firebim> .', 1)[-1].strip()}" 
+        f"Input Text:\n{ex['input']}\n\nExpected TTL Output (fragment):\n{str(ex['output']).split('@base <https://ontology.firebim.be/ontology/fro> .', 1)[-1].strip()}" 
         for ex in training_examples
     ])
     # Add building terms to prompt context if needed by process_section_to_ttl
@@ -483,7 +483,7 @@ def main():
             ttl_content = create_empty_section_ttl(section_number)
             with open(file_name, 'w', encoding='utf-8') as f:
                 f.write(ttl_content)
-            main_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
+            main_graph.parse(data=ttl_content, format="turtle", publicID=FRO)
         elif True:#section_number_underscore.startswith('4_2_6'):
             # Process sections with content through the LLM
             full_content = f"{section_title}\n{section_content}" if section_title else section_content

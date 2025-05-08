@@ -14,22 +14,22 @@ fro:Article_6_7_1_3_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_7_1_3_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Air\">lucht</a> afgezogen uit lokalen met een bijzonder brandgevaar, <a href=\"http://example.com/firebimbuilding#FuelStorageRoom\">opslagplaats voor ontvlambare producten</a>, <a href=\"http://example.com/firebimbuilding#BoilerRoom\">stookplaats</a>, <a href=\"http://example.com/firebimbuilding#Kitchen\">keuken</a>, <a href=\"http://example.com/firebimbuilding#Parking\">garage</a>, <a href=\"http://example.com/firebimbuilding#Parking\">parking</a>, <a href=\"http://example.com/firebimbuilding#TransformerRoom\">transformatorlokaal</a>, <a href=\"http://example.com/firebimbuilding#WasteStorageRoom\">lokaal voor de opslag van vuilnis</a>, mag niet opnieuw worden rondgestuurd en moet naar buiten worden afgevoerd."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Air\">lucht</a> afgezogen uit lokalen met een bijzonder brandgevaar, <a href=\"https://ontology.firebim.be/ontology/fbo#FuelStorageRoom\">opslagplaats voor ontvlambare producten</a>, <a href=\"https://ontology.firebim.be/ontology/fbo#BoilerRoom\">stookplaats</a>, <a href=\"https://ontology.firebim.be/ontology/fbo#Kitchen\">keuken</a>, <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">garage</a>, <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a>, <a href=\"https://ontology.firebim.be/ontology/fbo#TransformerRoom\">transformatorlokaal</a>, <a href=\"https://ontology.firebim.be/ontology/fbo#WasteStorageRoom\">lokaal voor de opslag van vuilnis</a>, mag niet opnieuw worden rondgestuurd en moet naar buiten worden afgevoerd."@nl .
 
 fro:Member_6_7_1_3_1_2 a fro:Member ;
     fro:hasMember fro:Member_6_7_1_3_1_2_1,
         fro:Member_6_7_1_3_1_2_2 ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#Air\">lucht</a> afgezogen uit andere lokalen mag:"@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Air\">lucht</a> afgezogen uit andere lokalen mag:"@nl .
 
 fro:Member_6_7_1_3_1_2_1 a fro:Member ;
     fro:hasForwardReference fro:Section_6_7_5 ;
-    fro:hasOriginalText "- ofwel opnieuw rondgestuurd worden naar dezelfde lokalen, op voorwaarde dat in het <a href=\"http://example.com/firebimbuilding#AirDuct\">recyclagekanaal</a> een <a href=\"http://example.com/firebimbuilding#SmokeValve\">rookklep</a> conform punt 6.7.5 wordt geplaatst;"@nl .
+    fro:hasOriginalText "- ofwel opnieuw rondgestuurd worden naar dezelfde lokalen, op voorwaarde dat in het <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">recyclagekanaal</a> een <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">rookklep</a> conform punt 6.7.5 wordt geplaatst;"@nl .
 
 fro:Member_6_7_1_3_1_2_2 a fro:Member ;
-    fro:hasOriginalText "- ofwel ingeblazen worden in nog andere lokalen om er als compensatielucht te dienen voor mechanische extractiesystemen met rechtstreekse afvoer naar buiten, op voorwaarde dat bijkomend een <a href=\"http://example.com/firebimbuilding#SmokeValve\">rookklep</a> en een <a href=\"http://example.com/firebimbuilding#ExhaustDuct\">kanaalsysteem voor rechtstreekse afvoer naar buiten</a> van deze recyclagelucht wordt voorzien."@nl .
+    fro:hasOriginalText "- ofwel ingeblazen worden in nog andere lokalen om er als compensatielucht te dienen voor mechanische extractiesystemen met rechtstreekse afvoer naar buiten, op voorwaarde dat bijkomend een <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">rookklep</a> en een <a href=\"https://ontology.firebim.be/ontology/fbo#ExhaustDuct\">kanaalsysteem voor rechtstreekse afvoer naar buiten</a> van deze recyclagelucht wordt voorzien."@nl .
 
 fro:Member_6_7_1_3_1_3 a fro:Member ;
-    fro:hasOriginalText "In beide gevallen moet een <a href=\"http://example.com/firebimbuilding#SmokeDetector\">rookdetectie</a> worden geïnstalleerd in de recyclagelucht voor de <a href=\"http://example.com/firebimbuilding#SmokeValve\">rookklep</a>. Als er rook wordt gedetecteerd in de recyclagelucht worden de"@nl .
+    fro:hasOriginalText "In beide gevallen moet een <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeDetector\">rookdetectie</a> worden geïnstalleerd in de recyclagelucht voor de <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">rookklep</a>. Als er rook wordt gedetecteerd in de recyclagelucht worden de"@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

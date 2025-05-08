@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@base <http://example.com/firebim> .
+@base <https://ontology.firebim.be/ontology/fro> .
 
 fro:Section_0_2_2 a fro:Section ;
     fro:hasID "0.2.2" ;
@@ -17,11 +17,11 @@ fro:Article_0_2_2_1 a fro:Article ;
     fro:hasMember fro:Member_0_2_2_1_1, fro:Member_0_2_2_1_2, fro:Member_0_2_2_1_3 .
 
 fro:Member_0_2_2_1_1 a fro:Member ;
-    fro:hasOriginalText """1.   de <a href=\"http://example.com/firebimbuilding#IndustrialBuilding\">industriegebouwen</a>;"""@nl .
+    fro:hasOriginalText """1.   de <a href=\"https://ontology.firebim.be/ontology/fbo#IndustrialBuilding\">industriegebouwen</a>;"""@nl .
 
 fro:Member_0_2_2_1_2 a fro:Member ;
-    fro:hasOriginalText """2.   de <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> bestaande uit maximaal twee <a href=\"http://example.com/firebimbuilding#NumberOfStoreys\">bouwlagen</a> en met een <a href=\"http://example.com/firebimbuilding#TotalFloorArea\">totale oppervlakte</a> kleiner
+    fro:hasOriginalText """2.   de <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> bestaande uit maximaal twee <a href=\"https://ontology.firebim.be/ontology/fbo#NumberOfStoreys\">bouwlagen</a> en met een <a href=\"https://ontology.firebim.be/ontology/fbo#TotalFloorArea\">totale oppervlakte</a> kleiner
                  dan of gelijk aan 100 m²;"""@nl .
 
 fro:Member_0_2_2_1_3 a fro:Member ;
-    fro:hasOriginalText """3.   de <a href=\"http://example.com/firebimbuilding#SingleFamilyHouse\">eengezinswoningen</a>."""@nl .
+    fro:hasOriginalText """3.   de <a href=\"https://ontology.firebim.be/ontology/fbo#SingleFamilyHouse\">eengezinswoningen</a>."""@nl .

@@ -13,7 +13,7 @@ fro:Article_3_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_3_2_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> beschikken, in functie van hun situatie, over een <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> zoals weergegeven in <a href=\"http://example.com/firebimbuilding#Table\">tabel</a> 2.1, waarin Ei het laagst gelegen <a href=\"http://example.com/firebimbuilding#EvacuationLevel\">evacuatieniveau</a> voorstelt."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> beschikken, in functie van hun situatie, over een <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> zoals weergegeven in <a href=\"https://ontology.firebim.be/ontology/fbo#Table\">tabel</a> 2.1, waarin Ei het laagst gelegen <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a> voorstelt."@nl .
 
 fro:Table_2_1 a fro:Table ;
     fro:hasID "T2.1" .

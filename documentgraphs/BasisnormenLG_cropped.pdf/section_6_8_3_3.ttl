@@ -13,10 +13,10 @@ fro:Article_6_8_3_3_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_8_3_3_1_1 a fro:Member ;
-    fro:hasOriginalText "Elk <a href=\"http://example.com/firebimbuilding#FireAlarmDevice\">toestel</a> dat de verbinding tot stand kan brengen mits <a href=\"http://example.com/firebimbuilding#RequiresHumanIntervention\">menselijke interventie</a>, draagt een <a href=\"http://example.com/firebimbuilding#HasDestinationInformation\">bericht</a> over zijn <a href=\"http://example.com/firebimbuilding#HasDestinationInformation\">bestemming</a> en <a href=\"http://example.com/firebimbuilding#HasUsageInstructions\">gebruiksaanwijzing</a>."@nl .
+    fro:hasOriginalText "Elk <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmDevice\">toestel</a> dat de verbinding tot stand kan brengen mits <a href=\"https://ontology.firebim.be/ontology/fbo#RequiresHumanIntervention\">menselijke interventie</a>, draagt een <a href=\"https://ontology.firebim.be/ontology/fbo#HasDestinationInformation\">bericht</a> over zijn <a href=\"https://ontology.firebim.be/ontology/fbo#HasDestinationInformation\">bestemming</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#HasUsageInstructions\">gebruiksaanwijzing</a>."@nl .
 
 fro:Member_6_8_3_3_1_2 a fro:Member ;
-    fro:hasOriginalText "Gaat het om een <a href=\"http://example.com/firebimbuilding#Telephone\">telefoontoestel</a>, dan vermeldt dit bericht het te vormen <a href=\"http://example.com/firebimbuilding#HasPhoneNumber\">oproepnummer</a>, tenzij de <a href=\"http://example.com/firebimbuilding#IsDirectConnection\">verbinding rechtstreeks</a> of <a href=\"http://example.com/firebimbuilding#IsAutomaticConnection\">automatisch</a> geschiedt."@nl .
+    fro:hasOriginalText "Gaat het om een <a href=\"https://ontology.firebim.be/ontology/fbo#Telephone\">telefoontoestel</a>, dan vermeldt dit bericht het te vormen <a href=\"https://ontology.firebim.be/ontology/fbo#HasPhoneNumber\">oproepnummer</a>, tenzij de <a href=\"https://ontology.firebim.be/ontology/fbo#IsDirectConnection\">verbinding rechtstreeks</a> of <a href=\"https://ontology.firebim.be/ontology/fbo#IsAutomaticConnection\">automatisch</a> geschiedt."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

@@ -4,7 +4,7 @@
 fro:Section_1 a fro:Section ;
     fro:hasArticle fro:Article_1_1 ;
     fro:hasID "1" ;
-    fro:hasOriginalText "INPLANTING EN <a href=\"http://example.com/firebimbuilding#AccessRoad\">TOEGANGSWEGEN</a>."@nl .
+    fro:hasOriginalText "INPLANTING EN <a href=\"https://ontology.firebim.be/ontology/fbo#AccessRoad\">TOEGANGSWEGEN</a>."@nl .
 
 fro:Article_1_1 a fro:Article ;
     fro:hasID "A1.1" ;
@@ -12,7 +12,7 @@ fro:Article_1_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_1_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#AccessRoad\">toegangswegen</a> bedoeld in punt 1.1 worden bepaald in <a href=\"http://example.com/firebimbuilding#FireDepartmentApproval\">akkoord met de brandweer</a>, volgens de volgende leidraad."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#AccessRoad\">toegangswegen</a> bedoeld in punt 1.1 worden bepaald in <a href=\"https://ontology.firebim.be/ontology/fbo#FireDepartmentApproval\">akkoord met de brandweer</a>, volgens de volgende leidraad."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

@@ -132,7 +132,7 @@ fro:Shape_Article_2_2_1_1 a sh:NodeShape ;
             sh:minInclusive 1 ;
             sh:path fro:numberOfExits ] ;
     sh:sparql [ sh:message "Het aantal uitgangen ({?numExits}) voldoet niet aan de minimumeis ({?requiredExits}) gebaseerd op de maximale bezetting ({?occupancy}) (Art. 2.2.1.1)."@nl ;
-            sh:prefixes [ sh:declare [ sh:namespace "http://example.com/firebim#"^^xsd:anyURI ;
+            sh:prefixes [ sh:declare [ sh:namespace "https://ontology.firebim.be/ontology/fro#"^^xsd:anyURI ;
                             sh:prefix "firebim" ],
                         [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
                             sh:prefix "xsd" ] ] ;

@@ -12,7 +12,7 @@ fro:Article_1_3_1 a fro:Article ;
     fro:hasMember fro:Member_1_3_1_1,
         fro:Member_1_3_1_2,
         fro:Member_1_3_1_3 ;
-    fro:hasOriginalText "Om te vermijden dat een <a href=\"http://example.com/firebimbuilding#FireSpreadPrevention\">brand</a> tussen twee <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> kan overslaan:"@nl ;
+    fro:hasOriginalText "Om te vermijden dat een <a href=\"https://ontology.firebim.be/ontology/fbo#FireSpreadPrevention\">brand</a> tussen twee <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> kan overslaan:"@nl ;
     fro:hasVersion fro:v0_1 .
 
 fro:Figure_F2_1 a fro:Figure ;
@@ -25,27 +25,27 @@ fro:Member_1_3_1_1 a fro:Member ;
 
 fro:Member_1_3_1_1_1 a fro:Member ;
     fro:hasMember fro:Member_1_3_1_1_1_1 ;
-    fro:hasOriginalText """a) ofwel, als <a href="http://example.com/firebimbuilding#Facade">gevels</a> tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de <a href="http://example.com/firebimbuilding#DistanceBetweenBuildings">afstand</a> (in m) tussen de <a href="http://example.com/firebimbuilding#Facade">geveldelen</a> die niet minstens <a href="http://example.com/firebimbuilding#FireResistanceRating">EI 60</a> of <a href="http://example.com/firebimbuilding#FireResistanceRating">REI 60</a> hebben, ten minste:
+    fro:hasOriginalText """a) ofwel, als <a href="https://ontology.firebim.be/ontology/fbo#Facade">gevels</a> tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de <a href="https://ontology.firebim.be/ontology/fbo#DistanceBetweenBuildings">afstand</a> (in m) tussen de <a href="https://ontology.firebim.be/ontology/fbo#Facade">geveldelen</a> die niet minstens <a href="https://ontology.firebim.be/ontology/fbo#FireResistanceRating">EI 60</a> of <a href="https://ontology.firebim.be/ontology/fbo#FireResistanceRating">REI 60</a> hebben, ten minste:
 
 |Hoek (α)|Afstand (m)|
 |---|---|
 |0° ≤ α ≤ 90°|h + 10cos α|
 |90° < α ≤ 180°|0|
 
-waarbij α de <a href="http://example.com/firebimbuilding#AngleBetweenFacades">ingesloten hoek</a> is en h de <a href="http://example.com/firebimbuilding#BuildingHeight">hoogte van het gebouw</a> in m (zie plaat 2.1)."""@nl .
+waarbij α de <a href="https://ontology.firebim.be/ontology/fbo#AngleBetweenFacades">ingesloten hoek</a> is en h de <a href="https://ontology.firebim.be/ontology/fbo#BuildingHeight">hoogte van het gebouw</a> in m (zie plaat 2.1)."""@nl .
 
 fro:Member_1_3_1_1_1_1 a fro:Member ;
-    fro:hasOriginalText "Voor de <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is"@nl .
+    fro:hasOriginalText "Voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, is"@nl .
 
 fro:Member_1_3_1_1_2 a fro:Member ;
-    fro:hasOriginalText "b) ofwel mag de <a href=\"http://example.com/firebimbuilding#RadiationLimit\">straling van een brand</a> van een <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> op een tegenoverstaand <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a>, en omgekeerd, niet meer dan 15 kW/m² bedragen."@nl .
+    fro:hasOriginalText "b) ofwel mag de <a href=\"https://ontology.firebim.be/ontology/fbo#RadiationLimit\">straling van een brand</a> van een <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> op een tegenoverstaand <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a>, en omgekeerd, niet meer dan 15 kW/m² bedragen."@nl .
 
 fro:Member_1_3_1_2 a fro:Member ;
-    fro:hasOriginalText """De <a href="http://example.com/firebimbuilding#SeparationWall">wanden die aangrenzende gebouwen scheiden</a> hebben <a href="http://example.com/firebimbuilding#FireResistanceRating">EI 60</a>, of <a href="http://example.com/firebimbuilding#FireResistanceRating">REI 60</a> wanneer ze dragend zijn.
-In deze <a href="http://example.com/firebimbuilding#Wall">wanden</a> mag een verbinding tussen deze <a href="http://example.com/firebimbuilding#Building">gebouwen</a> bestaan via een <a href="http://example.com/firebimbuilding#Door">deur</a> <a href="http://example.com/firebimbuilding#FireResistanceRating">EI1 30</a>, zelfsluitend of zelfsluitend in geval van <a href="http://example.com/firebimbuilding#Fire">brand</a>."""@nl .
+    fro:hasOriginalText """De <a href="https://ontology.firebim.be/ontology/fbo#SeparationWall">wanden die aangrenzende gebouwen scheiden</a> hebben <a href="https://ontology.firebim.be/ontology/fbo#FireResistanceRating">EI 60</a>, of <a href="https://ontology.firebim.be/ontology/fbo#FireResistanceRating">REI 60</a> wanneer ze dragend zijn.
+In deze <a href="https://ontology.firebim.be/ontology/fbo#Wall">wanden</a> mag een verbinding tussen deze <a href="https://ontology.firebim.be/ontology/fbo#Building">gebouwen</a> bestaan via een <a href="https://ontology.firebim.be/ontology/fbo#Door">deur</a> <a href="https://ontology.firebim.be/ontology/fbo#FireResistanceRating">EI1 30</a>, zelfsluitend of zelfsluitend in geval van <a href="https://ontology.firebim.be/ontology/fbo#Fire">brand</a>."""@nl .
 
 fro:Member_1_3_1_3 a fro:Member ;
-    fro:hasOriginalText "De voorwaarde van de <a href=\"http://example.com/firebimbuilding#DistanceBetweenBuildings\">afstand</a> tussen een laag <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> en een tegenoverstaand <a href=\"http://example.com/firebimbuilding#Building\">gebouw</a> geldt niet voor <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> die van elkaar gescheiden worden door bestaande straten, wegen,... behorende tot het openbaar domein."@nl .
+    fro:hasOriginalText "De voorwaarde van de <a href=\"https://ontology.firebim.be/ontology/fbo#DistanceBetweenBuildings\">afstand</a> tussen een laag <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> en een tegenoverstaand <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> geldt niet voor <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> die van elkaar gescheiden worden door bestaande straten, wegen,... behorende tot het openbaar domein."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

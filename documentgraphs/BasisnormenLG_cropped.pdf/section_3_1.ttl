@@ -10,7 +10,7 @@ fro:Article_3_1_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_3_1_1_1 a fro:Member ;
-    fro:hasOriginalText "Doorvoeringen doorheen <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> van <a href=\"http://example.com/firebimbuilding#Pipe\">leidingen</a> voor fluïda of voor <a href=\"http://example.com/firebimbuilding#ElectricalConduit\">elektriciteit</a> en de <a href=\"http://example.com/firebimbuilding#ExpansionJoint\">uitzetvoegen</a> van <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> mogen de vereiste <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> van de <a href=\"http://example.com/firebimbuilding#StructuralElement\">bouwelementen</a> niet nadelig beïnvloeden."@nl .
+    fro:hasOriginalText "Doorvoeringen doorheen <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> van <a href=\"https://ontology.firebim.be/ontology/fbo#Pipe\">leidingen</a> voor fluïda of voor <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalConduit\">elektriciteit</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#ExpansionJoint\">uitzetvoegen</a> van <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> mogen de vereiste <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">bouwelementen</a> niet nadelig beïnvloeden."@nl .
 
 fro:Member_3_1_1_2 a fro:Member ;
     fro:hasOriginalText "De bepalingen van bijlage 7 “Gemeenschappelijke bepalingen”, hoofdstuk 1, zijn van toepassing."@nl ;

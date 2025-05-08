@@ -1,19 +1,19 @@
 flowchart TD
-    S1["Start: Check Required Exits"] --> A["For each <a href='http://example.com/firebimbuilding#FireCompartment' style='color:pink;'>fire compartment</a>"]
-    A --> B["Get <a href='http://example.com/firebimbuilding#Occupant' style='color:pink;'>occupant</a> <a href='#OccupancyCount' style='color:purple;'>occupancy count</a>"]
+    S1["Start: Check Required Exits"] --> A["For each <a href='https://ontology.firebim.be/ontology/fbo#FireCompartment' style='color:pink;'>fire compartment</a>"]
+    A --> B["Get <a href='https://ontology.firebim.be/ontology/fbo#Occupant' style='color:pink;'>occupant</a> <a href='#OccupancyCount' style='color:purple;'>occupancy count</a>"]
     B --> C["<a href='#OccupancyCount' style='color:purple;'>occupancy count</a> < 100?"]
-    C -- Yes --> D["Require minimum 1 <a href='http://example.com/firebimbuilding#Exit' style='color:pink;'>exit</a>"]
+    C -- Yes --> D["Require minimum 1 <a href='https://ontology.firebim.be/ontology/fbo#Exit' style='color:pink;'>exit</a>"]
     C -- No --> E["<a href='#OccupancyCount' style='color:purple;'>occupancy count</a> < 500?"]
-    E -- Yes --> F["Require minimum 2 <a href='http://example.com/firebimbuilding#Exit' style='color:pink;'>exit</a>s"]
+    E -- Yes --> F["Require minimum 2 <a href='https://ontology.firebim.be/ontology/fbo#Exit' style='color:pink;'>exit</a>s"]
     E -- No --> G["Calculate n = ceiling(<a href='#OccupancyCount' style='color:purple;'>occupancy count</a> / 1000)"]
-    G --> H["Require minimum (2 + n) <a href='http://example.com/firebimbuilding#Exit' style='color:pink;'>exit</a>s"]
+    G --> H["Require minimum (2 + n) <a href='https://ontology.firebim.be/ontology/fbo#Exit' style='color:pink;'>exit</a>s"]
     
     D --> I["Check Fire Department Override"]
     F --> I
     H --> I
     
     I --> J["Fire Department requires\nmore exits?"]
-    J -- Yes --> K["Increase minimum required <a href='http://example.com/firebimbuilding#Exit' style='color:pink;'>exit</a>s"]
+    J -- Yes --> K["Increase minimum required <a href='https://ontology.firebim.be/ontology/fbo#Exit' style='color:pink;'>exit</a>s"]
     J -- No --> L["Keep calculated minimum"]
     
     K --> M["Compare actual vs required"]

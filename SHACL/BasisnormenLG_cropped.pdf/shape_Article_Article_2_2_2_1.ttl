@@ -38,7 +38,7 @@
 @prefix ifc: <http://ifcowl.openbimstandards.org/IFC4#> .
 
 # Shape associated with Article 2.2.2.1
-# Source: <http://example.com/firebim#Article_2_2_2_1>
+# Source: <https://ontology.firebim.be/ontology/fro#Article_2_2_2_1>
 # Note: This shape primarily targets Compartments based on the text.
 # Other parts of the text apply to Evacuation Routes, Stairs, and Storeys,
 # and may require separate shapes or more complex logic (e.g., SPARQL).
@@ -47,7 +47,7 @@ fro:Shape_Article_2_2_2_1 a sh:NodeShape ;
     sh:targetClass fro:Compartment ;
     # Consider adding sh:not [ sh:class fro:ParkingGarage ] ; if parkings are excluded based on rule 5.2
     sh:message "Constraints based on Article 2.2.2.1 regarding compartment exits and associated evacuation routes."@en ;
-    dcterms:source <http://example.com/firebim#Article_2_2_2_1> ;
+    dcterms:source <https://ontology.firebim.be/ontology/fro#Article_2_2_2_1> ;
 
     # Rule 1: "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment."
     sh:property [
@@ -83,7 +83,7 @@ fro:Shape_Article_2_2_2_1 a sh:NodeShape ;
 # Helper shape to check the destination of an evacuation route (Rule 2)
 fro:EvacuationRouteDestinationCheckShape_Article_2_2_2_1 a sh:NodeShape ;
     sh:message "Checks the destination of an evacuation route based on Rule 2.2.2.1." ;
-    dcterms:source <http://example.com/firebim#Article_2_2_2_1> ;
+    dcterms:source <https://ontology.firebim.be/ontology/fro#Article_2_2_2_1> ;
     sh:property [
         sh:path fro:leadsTo ; # Assuming fro:EvacuationRoute -> fro:leadsTo -> Destination
         sh:minCount 1 ;
@@ -104,7 +104,7 @@ fro:EvacuationRouteDestinationCheckShape_Article_2_2_2_1 a sh:NodeShape ;
 fro:ProtectedEvacuationRouteProperties_Article_2_2_2_1 a sh:NodeShape ;
     # This shape would typically be applied conditionally, e.g., using sh:node within a sh:if/sh:then structure or SPARQL.
     sh:message "Describes properties of a protected evacuation route allowed as an alternative from underground storeys (Rule 2.2.2.1)."@en ;
-    dcterms:source <http://example.com/firebim#Article_2_2_2_1> ;
+    dcterms:source <https://ontology.firebim.be/ontology/fro#Article_2_2_2_1> ;
     sh:property [
         sh:path fro:leadsTo ;
         sh:class fro:ExteriorEnvironment ;

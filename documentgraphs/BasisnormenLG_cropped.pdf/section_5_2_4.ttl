@@ -12,7 +12,7 @@ fro:Article_5_2_4_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_5_2_4_1_1 a fro:Member ;
-    fro:hasOriginalText "Het ontwerp, de bouw en de inrichting van de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> voldoen aan de bepalingen van het punt 3 van de bijlage 7."@nl ;
+    fro:hasOriginalText "Het ontwerp, de bouw en de inrichting van de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> voldoen aan de bepalingen van het punt 3 van de bijlage 7."@nl ;
     fro:hasReference fro:Reference_Bijlage_7 .
 
 fro:Reference_Bijlage_7 a fro:Reference ;

@@ -11,14 +11,14 @@ import datetime
 load_dotenv()
 
 # Define namespaces
-FIREBIM = Namespace("http://example.com/firebim#")
+FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
 rdf = Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#")
 sh = Namespace("http://www.w3.org/ns/shacl#")
 
 # Define SPARQL query for finding related shapes
 query = prepareQuery("""
     PREFIX sh: <http://www.w3.org/ns/shacl#>
-    PREFIX fro: <http://example.com/firebim#>
+    PREFIX fro: <https://ontology.firebim.be/ontology/fro#>
     
     SELECT DISTINCT ?shape
     WHERE {
@@ -63,7 +63,7 @@ def normalize_text(text):
     return text.strip()
 
 def get_text(entity):
-    text = g.value(entity, FIREBIM.hasOriginalText)
+    text = g.value(entity, FRO.hasOriginalText)
     if not text:
         return ""
     
@@ -89,11 +89,11 @@ def get_text(entity):
     return ''.join(escaped_parts)
 
 def get_id(entity):
-    id_value = g.value(entity, FIREBIM.hasID)
+    id_value = g.value(entity, FRO.hasID)
     return str(id_value) if id_value else ""
 
 def get_uri_id(entity):
-    id_value = g.value(entity, FIREBIM.hasID)
+    id_value = g.value(entity, FRO.hasID)
     if id_value:
         return str(id_value)
     else:
@@ -108,7 +108,7 @@ def get_keywords_from_graph():
     keywords = set()
     # Query for all keywords in the graph
     print("Searching for keywords...")
-    for keyword in g.subjects(rdf.type, FIREBIM.Keyword):
+    for keyword in g.subjects(rdf.type, FRO.Keyword):
         keyword_id = str(keyword).split('#')[-1].replace('_', ' ')
         keywords.add(keyword_id)
         print(f"Found keyword: {keyword_id}")
@@ -122,7 +122,7 @@ def get_keywords_from_graph():
             print(f"{prefix}: {namespace}")
         
         print("\nSearching for any Keyword-related triples:")
-        for s, p, o in g.triples((None, None, FIREBIM.Keyword)):
+        for s, p, o in g.triples((None, None, FRO.Keyword)):
             print(f"Found Keyword triple: {s} {p} {o}")
     
     result = sorted(list(keywords))
@@ -131,17 +131,17 @@ def get_keywords_from_graph():
 
 def has_keyword(section, keyword):
     # Direct keyword check
-    keyword_uri = URIRef(FIREBIM[keyword.replace(' ', '_')])
-    if (section, FIREBIM.hasKeyword, keyword_uri) in g:
+    keyword_uri = URIRef(FRO[keyword.replace(' ', '_')])
+    if (section, FRO.hasKeyword, keyword_uri) in g:
         return True
     
     # Check parent sections for inherited keywords
     current = section
     while True:
-        parent = g.value(None, FIREBIM.hasSection, current)
+        parent = g.value(None, FRO.hasSection, current)
         if not parent:
             break
-        if (parent, FIREBIM.hasKeyword, keyword_uri) in g:
+        if (parent, FRO.hasKeyword, keyword_uri) in g:
             return True
         current = parent
     
@@ -152,12 +152,12 @@ def get_inherited_keywords(entity):
     keywords = set()
     
     # Get direct keywords
-    for keyword in g.objects(entity, FIREBIM.hasKeyword):
+    for keyword in g.objects(entity, FRO.hasKeyword):
         keyword_id = str(keyword).split('#')[-1].replace('_', ' ')
         keywords.add(keyword_id)
     
     # Get parent's keywords
-    parent = g.value(None, FIREBIM.hasSection, entity)
+    parent = g.value(None, FRO.hasSection, entity)
     if parent:
         parent_keywords = get_inherited_keywords(parent)
         keywords.update(parent_keywords)
@@ -189,11 +189,11 @@ def process_section(section, level=1):
         """
     
     # Process articles
-    for article in g.objects(section, FIREBIM.hasArticle):
+    for article in g.objects(section, FRO.hasArticle):
         html_content += process_article(article, keywords)  # Pass parent keywords
 
     # Process subsections
-    for subsection in g.objects(section, FIREBIM.hasSection):
+    for subsection in g.objects(section, FRO.hasSection):
         html_content += process_section(subsection, level + 1)
 
     html_content += process_tables_and_figures(section)
@@ -207,7 +207,7 @@ def process_article(article, parent_keywords=None):
     
     # Combine parent keywords with article's own keywords
     keywords = set(parent_keywords) if parent_keywords else set()
-    for keyword in g.objects(article, FIREBIM.hasKeyword):
+    for keyword in g.objects(article, FRO.hasKeyword):
         keyword_id = str(keyword).split('#')[-1].replace('_', ' ')
         keywords.add(keyword_id)
     
@@ -227,7 +227,7 @@ def process_article(article, parent_keywords=None):
     """
     
     # Process top-level members
-    top_level_members = list(g.objects(article, FIREBIM.hasMember))
+    top_level_members = list(g.objects(article, FRO.hasMember))
     html_content += process_members(top_level_members, keywords)  # Pass keywords to members
 
     html_content += process_tables_and_figures(article)
@@ -245,7 +245,7 @@ def process_members(members, parent_keywords=None, level=0):
         
         # Combine parent keywords with member's own keywords
         keywords = set(parent_keywords) if parent_keywords else set()
-        for keyword in g.objects(member, FIREBIM.hasKeyword):
+        for keyword in g.objects(member, FRO.hasKeyword):
             keyword_id = str(keyword).split('#')[-1].replace('_', ' ')
             keywords.add(keyword_id)
         
@@ -275,7 +275,7 @@ def process_members(members, parent_keywords=None, level=0):
         #    print(f"No related shapes found for member: {member_id}")
         
         # Process nested members with inherited keywords
-        nested_members = list(g.objects(member, FIREBIM.hasMember))
+        nested_members = list(g.objects(member, FRO.hasMember))
         if nested_members:
             html_content += process_members(nested_members, keywords, level + 1)
         
@@ -293,9 +293,9 @@ def sort_members(members):
 
 def process_references(entity):
     html_content = ""
-    forward_refs = list(g.objects(entity, FIREBIM.hasForwardReference))
-    backward_refs = list(g.objects(entity, FIREBIM.hasBackwardReference))
-    external_refs = list(g.objects(entity, FIREBIM.hasReference))
+    forward_refs = list(g.objects(entity, FRO.hasForwardReference))
+    backward_refs = list(g.objects(entity, FRO.hasBackwardReference))
+    external_refs = list(g.objects(entity, FRO.hasReference))
     
     if forward_refs or backward_refs or external_refs:
         html_content += "<div class='references'>"
@@ -317,13 +317,13 @@ def process_tables_and_figures(entity):
     html_content = ""
     
     # Process tables
-    for table in g.objects(entity, FIREBIM.hasTable):
+    for table in g.objects(entity, FRO.hasTable):
         table_id = get_id(table)
         table_text = get_text(table)
         html_content += process_table_or_figure(table_id, table_text, 'table')
 
     # Process figures
-    for figure in g.objects(entity, FIREBIM.hasFigure):
+    for figure in g.objects(entity, FRO.hasFigure):
         figure_id = get_id(figure)
         figure_text = get_text(figure)
         html_content += process_table_or_figure(figure_id, figure_text, 'figure')
@@ -345,7 +345,7 @@ def process_table_or_figure(item_id, item_text, item_type):
 
 def generate_table_of_contents(g, document):
     toc_html = "<h2>Table of Contents</h2><ul>"
-    for section in g.objects(document, FIREBIM.hasSection):
+    for section in g.objects(document, FRO.hasSection):
         if get_id(section).count('.') == 0:
             toc_html += process_toc_section(g, section, 1)
     toc_html += "</ul>"
@@ -360,7 +360,7 @@ def process_toc_section(g, section, level):
         html = f"<li><a href='#{section_id}' onclick='scrollToElement(\"{section_id}\"); return false;'>{section_id}</a>"
     
     if level < 2:  # Only process subsections for the first two levels
-        subsections = list(g.objects(section, FIREBIM.hasSection))
+        subsections = list(g.objects(section, FRO.hasSection))
         if subsections:
             html += "<ul>"
             for subsection in subsections:
@@ -940,8 +940,8 @@ html_content = """
 """
 
 # Process top-level sections
-document = URIRef(FIREBIM.RoyalDecree)
-for section in g.objects(document, FIREBIM.hasSection):
+document = URIRef(FRO.RoyalDecree)
+for section in g.objects(document, FRO.hasSection):
     if get_id(section).count('.') == 0:
         html_content += process_section(section)
 

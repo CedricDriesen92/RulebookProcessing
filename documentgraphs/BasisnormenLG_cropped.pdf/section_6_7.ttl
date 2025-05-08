@@ -12,7 +12,7 @@ fro:Article_6_7_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_7_1_1 a fro:Member ;
-    fro:hasOriginalText "Indien er een <a href=\"http://example.com/firebimbuilding#AeraulicSystem\">aëraulische installatie</a> aanwezig is, dient deze te voldoen aan de volgende voorwaarden."@nl .
+    fro:hasOriginalText "Indien er een <a href=\"https://ontology.firebim.be/ontology/fbo#AeraulicSystem\">aëraulische installatie</a> aanwezig is, dient deze te voldoen aan de volgende voorwaarden."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

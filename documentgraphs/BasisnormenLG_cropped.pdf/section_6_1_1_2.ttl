@@ -12,7 +12,7 @@ fro:Article_6_1_1_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_1_1_2_1_1 a fro:Member ;
-    fro:hasOriginalText "In geval van abnormale stijging van de temperatuur van de <a href=\"http://example.com/firebimbuilding#MachineRoom\">machine</a> en/of van de andere <a href=\"http://example.com/firebimbuilding#ElectricalSystem\">elektrische uitrustingen</a>, moeten de <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> stoppen op een <a href=\"http://example.com/firebimbuilding#Landing\">bordes</a> zodat de passagiers kunnen uitstappen."@nl .
+    fro:hasOriginalText "In geval van abnormale stijging van de temperatuur van de <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machine</a> en/of van de andere <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalSystem\">elektrische uitrustingen</a>, moeten de <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a> stoppen op een <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">bordes</a> zodat de passagiers kunnen uitstappen."@nl .
 
 fro:Member_6_1_1_2_1_2 a fro:Member ;
     fro:hasOriginalText "Een automatische terugkeer naar de normale werking is enkel mogelijk na voldoende afkoeling."@nl .

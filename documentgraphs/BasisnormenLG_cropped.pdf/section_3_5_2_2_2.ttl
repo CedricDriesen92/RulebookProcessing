@@ -15,16 +15,16 @@ fro:Article_3_5_2_2_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_3_5_2_2_2_1_1 a fro:Member ;
-    fro:hasOriginalText "De voorschriften voor enkelwandige <a href=\"http://example.com/firebimbuilding#Facade\">gevels</a> mogen toegepast worden op de binnenwand wanneer de buitenwand vaste of mobiele <a href=\"http://example.com/firebimbuilding#VentilationOpening\">ventilatieopeningen</a> bevat die automatisch openen bij brand."@nl .
+    fro:hasOriginalText "De voorschriften voor enkelwandige <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevels</a> mogen toegepast worden op de binnenwand wanneer de buitenwand vaste of mobiele <a href=\"https://ontology.firebim.be/ontology/fbo#VentilationOpening\">ventilatieopeningen</a> bevat die automatisch openen bij brand."@nl .
 
 fro:Member_3_5_2_2_2_1_2 a fro:Member ;
-    fro:hasOriginalText "De vaste <a href=\"http://example.com/firebimbuilding#VentilationOpening\">ventilatieopeningen</a> zijn geplaatst op 30 ± 10 graden naar de buitenkant en naar boven toe ten opzichte van de horizontale, gelijkmatig verdeeld over ten minste 50% van de oppervlakte ervan."@nl .
+    fro:hasOriginalText "De vaste <a href=\"https://ontology.firebim.be/ontology/fbo#VentilationOpening\">ventilatieopeningen</a> zijn geplaatst op 30 ± 10 graden naar de buitenkant en naar boven toe ten opzichte van de horizontale, gelijkmatig verdeeld over ten minste 50% van de oppervlakte ervan."@nl .
 
 fro:Member_3_5_2_2_2_1_3 a fro:Member ;
-    fro:hasOriginalText "De mobiele <a href=\"http://example.com/firebimbuilding#VentilationOpening\">ventilatieopeningen</a> voldoen, bij brand, aan dezelfde voorwaarden als de vaste <a href=\"http://example.com/firebimbuilding#VentilationOpening\">ventilatieopeningen</a>."@nl .
+    fro:hasOriginalText "De mobiele <a href=\"https://ontology.firebim.be/ontology/fbo#VentilationOpening\">ventilatieopeningen</a> voldoen, bij brand, aan dezelfde voorwaarden als de vaste <a href=\"https://ontology.firebim.be/ontology/fbo#VentilationOpening\">ventilatieopeningen</a>."@nl .
 
 fro:Member_3_5_2_2_2_1_4 a fro:Member ;
-    fro:hasOriginalText "De veiligheidsstand van de mobiele lamellen wordt in werking gesteld door een algemene <a href=\"http://example.com/firebimbuilding#AutomaticFireDetectionSystem\">branddetectie-installatie</a> in de <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> langs <a href=\"http://example.com/firebimbuilding#Facade\">gevels</a>. De automatische bediening moet voldoen aan de voorwaarden voorzien in punt 3.5.2.3."@nl .
+    fro:hasOriginalText "De veiligheidsstand van de mobiele lamellen wordt in werking gesteld door een algemene <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireDetectionSystem\">branddetectie-installatie</a> in de <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> langs <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevels</a>. De automatische bediening moet voldoen aan de voorwaarden voorzien in punt 3.5.2.3."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

@@ -9,12 +9,12 @@ fro:Section_6_8_5_1 a fro:Section ;
 
 fro:Article_6_8_5_1_1 a fro:Article ;
     fro:hasID "A6.8.5.1.1" ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#FirefightingEquipment\">brandbestrijdingsmiddelen</a> bestaan uit <a href=\"http://example.com/firebimbuilding#FirefightingEquipment\">toestellen</a> of <a href=\"http://example.com/firebimbuilding#FirefightingEquipment\">installaties</a> die al dan niet automatisch zijn."@nl ;
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#FirefightingEquipment\">brandbestrijdingsmiddelen</a> bestaan uit <a href=\"https://ontology.firebim.be/ontology/fbo#FirefightingEquipment\">toestellen</a> of <a href=\"https://ontology.firebim.be/ontology/fbo#FirefightingEquipment\">installaties</a> die al dan niet automatisch zijn."@nl ;
     fro:hasVersion fro:v0_1 .
 
 fro:Article_6_8_5_1_2 a fro:Article ;
     fro:hasID "A6.8.5.1.2" ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#FireExtinguisher\">snelblussers</a> en de <a href=\"http://example.com/firebimbuilding#FireHoseReel\">muurhaspels</a> dienen voor eerste interventie, dat wil zeggen dat zij bestemd zijn voor gebruik door <a href=\"http://example.com/firebimbuilding#Occupant\">bewoners</a>."@nl ;
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#FireExtinguisher\">snelblussers</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#FireHoseReel\">muurhaspels</a> dienen voor eerste interventie, dat wil zeggen dat zij bestemd zijn voor gebruik door <a href=\"https://ontology.firebim.be/ontology/fbo#Occupant\">bewoners</a>."@nl ;
     fro:hasVersion fro:v0_1 .
 
 fro:v0_1 a fro:Version ;

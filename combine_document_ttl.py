@@ -19,7 +19,7 @@ keyword_mapping = {
     '4_2_2': ['Complex'],
 }
 
-FIREBIM = Namespace("http://example.com/firebim#")
+FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
 
 input_file = os.getenv("INPUT_FILE")
 document_name = f"documentgraphs/{input_file}"
@@ -27,7 +27,7 @@ document_name = f"documentgraphs/{input_file}"
 def combine_ttl_files(document_name):
     input_folder = document_name
     combined_graph = Graph()
-    combined_graph.bind('fbd', FIREBIM)
+    combined_graph.bind('fbd', FRO)
 
     for ttl_file in os.listdir(input_folder):
         if ttl_file.endswith('.ttl') and ttl_file != 'combined.ttl':
@@ -36,7 +36,7 @@ def combine_ttl_files(document_name):
             section_graph.parse(file_path, format='turtle')
 
             # Process all entities that might have text content
-            for s, p, o in section_graph.triples((None, FIREBIM.hasOriginalText, None)):
+            for s, p, o in section_graph.triples((None, FRO.hasOriginalText, None)):
                 text = str(o)
                 # Find all href links in the text using regex
                 href_pattern = r'href="http://example\.com/firebimbuilding#([^"]*)"'
@@ -44,9 +44,9 @@ def combine_ttl_files(document_name):
                 
                 # Add keywords for each match
                 for keyword in matches:
-                    keyword_uri = URIRef(FIREBIM[keyword])
-                    section_graph.add((keyword_uri, RDF.type, FIREBIM.Keyword))
-                    section_graph.add((s, FIREBIM.hasKeyword, keyword_uri))
+                    keyword_uri = URIRef(FRO[keyword])
+                    section_graph.add((keyword_uri, RDF.type, FRO.Keyword))
+                    section_graph.add((s, FRO.hasKeyword, keyword_uri))
                     #print(f"Added keyword {keyword} to {s}")
 
             combined_graph += section_graph # Merge the section graph into the combined graph

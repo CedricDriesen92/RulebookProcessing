@@ -4,7 +4,7 @@ import textwrap
 
 # Namespaces
 SH = Namespace("http://www.w3.org/ns/shacl#")
-FBB = Namespace("http://example.com/firebimbuilding#")
+FBB = Namespace("https://ontology.firebim.be/ontology/fbo#")
 
 def clean_string_for_mermaid(s):
     """Clean and escape a string for Mermaid"""

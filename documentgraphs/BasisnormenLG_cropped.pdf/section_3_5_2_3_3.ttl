@@ -13,7 +13,7 @@ fro:Article_3_5_2_3_3_1 a fro:Article ;
 
 fro:Member_3_5_2_3_3_1_1 a fro:Member ;
     fro:hasForwardReference fro:Section_6_5_2 ;
-    fro:hasOriginalText "Wanneer de sluitings- / openingssystemen geen positieve veiligheid hebben, dan moeten de <a href=\"http://example.com/firebimbuilding#ElectricalConduit\">elektrische leidingen</a> die het sluitings-/openingssysteem verbinden, voldoen aan punt 6.5.2."@nl .
+    fro:hasOriginalText "Wanneer de sluitings- / openingssystemen geen positieve veiligheid hebben, dan moeten de <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalConduit\">elektrische leidingen</a> die het sluitings-/openingssysteem verbinden, voldoen aan punt 6.5.2."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

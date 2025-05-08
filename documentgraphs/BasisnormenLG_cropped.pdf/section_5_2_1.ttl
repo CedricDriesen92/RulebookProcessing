@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@base <http://example.com/firebim> .
+@base <https://ontology.firebim.be/ontology/fro> .
 
 fro:Section_5_2_1 a fro:Section ;
     fro:hasID "5.2.1" ;
@@ -18,26 +18,26 @@ fro:Article_5_2_1_1 a fro:Article ;
         fro:Member_5_2_1_1_3 .
 
 fro:Member_5_2_1_1_1 a fro:Member ;
-    fro:hasOriginalText """In afwijking van het punt 3.2 hebben de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> R 120 en de <a href=\"http://example.com/firebimbuilding#Floor\">vloeren</a> van de parkeerbouwlagen en van de hellingen hebben R 120."""@nl .
+    fro:hasOriginalText """In afwijking van het punt 3.2 hebben de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> R 120 en de <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">vloeren</a> van de parkeerbouwlagen en van de hellingen hebben R 120."""@nl .
 
 fro:Member_5_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText """Wanneer het <a href=\"http://example.com/firebimbuilding#Roof\">dak</a> geen andere functie heeft dan alleen het beschermen van de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> tegen de weersomstandigheden:"""@nl ;
+    fro:hasOriginalText """Wanneer het <a href=\"https://ontology.firebim.be/ontology/fbo#Roof\">dak</a> geen andere functie heeft dan alleen het beschermen van de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> tegen de weersomstandigheden:"""@nl ;
     fro:hasMember fro:Member_5_2_1_1_2_1,
         fro:Member_5_2_1_1_2_2 .
 
 fro:Member_5_2_1_1_2_1 a fro:Member ;
-    fro:hasOriginalText "- hebben de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van het <a href=\"http://example.com/firebimbuilding#Roof\">dak</a> R 30;"@nl .
+    fro:hasOriginalText "- hebben de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#Roof\">dak</a> R 30;"@nl .
 
 fro:Member_5_2_1_1_2_2 a fro:Member ;
-    fro:hasOriginalText """- of worden de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van het <a href=\"http://example.com/firebimbuilding#Roof\">dak</a> gescheiden van de rest van de <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> door een <a href=\"http://example.com/firebimbuilding#BuildingElement\">bouwelement</a> EI 30."""@nl .
+    fro:hasOriginalText """- of worden de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#Roof\">dak</a> gescheiden van de rest van de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> door een <a href=\"https://ontology.firebim.be/ontology/fbo#BuildingElement\">bouwelement</a> EI 30."""@nl .
 
 fro:Member_5_2_1_1_3 a fro:Member ;
-    fro:hasOriginalText """Voor de <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkeerbouwlagen</a> worden de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> aan geen enkele vereiste onderworpen inzake <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a>, op voorwaarde:"""@nl ;
+    fro:hasOriginalText """Voor de <a href=\"https://ontology.firebim.be/ontology/fbo#OpenParking\">open parkeerbouwlagen</a> worden de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> aan geen enkele vereiste onderworpen inzake <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a>, op voorwaarde:"""@nl ;
     fro:hasMember fro:Member_5_2_1_1_3_1,
         fro:Member_5_2_1_1_3_2 .
 
 fro:Member_5_2_1_1_3_1 a fro:Member ;
-    fro:hasOriginalText """- dat de <a href=\"http://example.com/firebimbuilding#Floor\">vloeren</a> van deze <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkeerbouwlagen</a> en de hellingen tussen deze <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkeerbouwlagen</a> minstens REI 60 hebben;"""@nl .
+    fro:hasOriginalText """- dat de <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">vloeren</a> van deze <a href=\"https://ontology.firebim.be/ontology/fbo#OpenParking\">open parkeerbouwlagen</a> en de hellingen tussen deze <a href=\"https://ontology.firebim.be/ontology/fbo#OpenParking\">open parkeerbouwlagen</a> minstens REI 60 hebben;"""@nl .
 
 fro:Member_5_2_1_1_3_2 a fro:Member ;
-    fro:hasOriginalText """- en dat deze <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> geen ander <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> dragen."""@nl .
+    fro:hasOriginalText """- en dat deze <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> geen ander <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> dragen."""@nl .

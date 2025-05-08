@@ -9,8 +9,8 @@ fro:Article_6_8_4_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_8_4_1_1 a fro:Member ;
-    fro:hasOriginalText """<a href="http://example.com/firebimbuilding#WarningSystem">Waarschuwings</a>- en <a href="http://example.com/firebimbuilding#FireAlarmSystem">alarmsysteem</a>.
-De <a href="http://example.com/firebimbuilding#WarningMessageAudibility">waarschuwings-</a> en <a href="http://example.com/firebimbuilding#AlarmMessageAudibility">alarmseinen</a> of -berichten kunnen door alle betrokken personen opgevangen worden en mogen niet onder elkaar noch met andere seinen kunnen worden verward."""@nl .
+    fro:hasOriginalText """<a href="https://ontology.firebim.be/ontology/fbo#WarningSystem">Waarschuwings</a>- en <a href="https://ontology.firebim.be/ontology/fbo#FireAlarmSystem">alarmsysteem</a>.
+De <a href="https://ontology.firebim.be/ontology/fbo#WarningMessageAudibility">waarschuwings-</a> en <a href="https://ontology.firebim.be/ontology/fbo#AlarmMessageAudibility">alarmseinen</a> of -berichten kunnen door alle betrokken personen opgevangen worden en mogen niet onder elkaar noch met andere seinen kunnen worden verward."""@nl .
 
 fro:Section_6_8_4 a fro:Section ;
     fro:hasArticle fro:Article_6_8_4_1 ;

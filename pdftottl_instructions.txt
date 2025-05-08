@@ -1,16 +1,16 @@
 
 You are tasked with converting building code rulebook sections into Turtle (.ttl) format following the FireBIM Document Ontology. Here's the complete ontology for your reference:
 
-@prefix : <http://example.com/firebim#> .
+@prefix : <https://ontology.firebim.be/ontology/fro#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@base <http://example.com/firebim#> .
+@base <https://ontology.firebim.be/ontology/fro#> .
 
-<http://example.com/firebim> rdf:type owl:Ontology ;
+<https://ontology.firebim.be/ontology/fro> rdf:type owl:Ontology ;
                               rdfs:comment "An ontology for representing fire safety regulations documents"@en ;
                               rdfs:label "FireBIM Document Ontology"@en .
 
@@ -18,7 +18,7 @@ You are tasked with converting building code rulebook sections into Turtle (.ttl
 #    Object Properties
 #################################################################
 
-###  http://example.com/firebim#hasAppendix
+###  https://ontology.firebim.be/ontology/fro#hasAppendix
 fro:hasAppendix rdf:type owl:ObjectProperty ;
                     rdfs:subPropertyOf fro:hasSubdivision ;
                     rdfs:domain fro:DocumentSubdivision ;
@@ -26,7 +26,7 @@ fro:hasAppendix rdf:type owl:ObjectProperty ;
                     rdfs:label "has appendix"@en .
 
 
-###  http://example.com/firebim#hasArticle
+###  https://ontology.firebim.be/ontology/fro#hasArticle
 fro:hasArticle rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf fro:hasSubdivision ;
                    rdfs:domain fro:Section ;
@@ -34,7 +34,7 @@ fro:hasArticle rdf:type owl:ObjectProperty ;
                    rdfs:label "has article"@en .
 
 
-###  http://example.com/firebim#hasBackwardReference
+###  https://ontology.firebim.be/ontology/fro#hasBackwardReference
 fro:hasBackwardReference rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf fro:hasReference ;
                              owl:inverseOf fro:hasForwardReference ;
@@ -43,7 +43,7 @@ fro:hasBackwardReference rdf:type owl:ObjectProperty ;
                              rdfs:label "has backward reference"@en .
 
 
-###  http://example.com/firebim#hasChapter
+###  https://ontology.firebim.be/ontology/fro#hasChapter
 fro:hasChapter rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf fro:hasSubdivision ;
                    rdfs:domain fro:DocumentSubdivision ;
@@ -51,14 +51,14 @@ fro:hasChapter rdf:type owl:ObjectProperty ;
                    rdfs:label "has chapter"@en .
 
 
-###  http://example.com/firebim#hasDocument
+###  https://ontology.firebim.be/ontology/fro#hasDocument
 fro:hasDocument rdf:type owl:ObjectProperty ;
                     rdfs:domain fro:Authority ;
                     rdfs:range fro:Document ;
                     rdfs:label "has document"@en .
 
 
-###  http://example.com/firebim#hasFigure
+###  https://ontology.firebim.be/ontology/fro#hasFigure
 fro:hasFigure rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf fro:hasSubdivision ;
                   rdfs:domain fro:DocumentSubdivision ;
@@ -66,7 +66,7 @@ fro:hasFigure rdf:type owl:ObjectProperty ;
                   rdfs:label "has figure"@en .
 
 
-###  http://example.com/firebim#hasForwardReference
+###  https://ontology.firebim.be/ontology/fro#hasForwardReference
 fro:hasForwardReference rdf:type owl:ObjectProperty ;
                             rdfs:subPropertyOf fro:hasReference ;
                             rdfs:domain fro:DocumentSubdivision ;
@@ -74,7 +74,7 @@ fro:hasForwardReference rdf:type owl:ObjectProperty ;
                             rdfs:label "has forward reference"@en .
 
 
-###  http://example.com/firebim#hasMember
+###  https://ontology.firebim.be/ontology/fro#hasMember
 fro:hasMember rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf fro:hasSubdivision ;
                   rdfs:domain fro:Article ,
@@ -83,7 +83,7 @@ fro:hasMember rdf:type owl:ObjectProperty ;
                   rdfs:label "has member"@en .
 
 
-###  http://example.com/firebim#hasParagraph
+###  https://ontology.firebim.be/ontology/fro#hasParagraph
 fro:hasParagraph rdf:type owl:ObjectProperty ;
                      rdfs:subPropertyOf fro:hasSubdivision ;
                      rdfs:domain fro:DocumentSubdivision ;
@@ -91,7 +91,7 @@ fro:hasParagraph rdf:type owl:ObjectProperty ;
                      rdfs:label "has paragraph"@en .
 
 
-###  http://example.com/firebim#hasReference
+###  https://ontology.firebim.be/ontology/fro#hasReference
 fro:hasReference rdf:type owl:ObjectProperty ;
                      rdfs:domain fro:DocumentSubdivision ;
                      rdfs:range fro:DocumentSubdivision ,
@@ -99,7 +99,7 @@ fro:hasReference rdf:type owl:ObjectProperty ;
                      rdfs:label "has reference"@en .
 
 
-###  http://example.com/firebim#hasSection
+###  https://ontology.firebim.be/ontology/fro#hasSection
 fro:hasSection rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf fro:hasSubdivision ;
                    rdfs:domain fro:DocumentSubdivision ;
@@ -107,7 +107,7 @@ fro:hasSection rdf:type owl:ObjectProperty ;
                    rdfs:label "has section"@en .
 
 
-###  http://example.com/firebim#hasSubchapter
+###  https://ontology.firebim.be/ontology/fro#hasSubchapter
 fro:hasSubchapter rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf fro:hasSubdivision ;
                       rdfs:domain fro:DocumentSubdivision ;
@@ -115,7 +115,7 @@ fro:hasSubchapter rdf:type owl:ObjectProperty ;
                       rdfs:label "has subchapter"@en .
 
 
-###  http://example.com/firebim#hasSubdivision
+###  https://ontology.firebim.be/ontology/fro#hasSubdivision
 fro:hasSubdivision rdf:type owl:ObjectProperty ,
                                 owl:TransitiveProperty ;
                        rdfs:domain fro:DocumentSubdivision ;
@@ -123,7 +123,7 @@ fro:hasSubdivision rdf:type owl:ObjectProperty ,
                        rdfs:label "has subdivision"@en .
 
 
-###  http://example.com/firebim#hasTable
+###  https://ontology.firebim.be/ontology/fro#hasTable
 fro:hasTable rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf fro:hasSubdivision ;
                  rdfs:domain fro:DocumentSubdivision ;
@@ -131,7 +131,7 @@ fro:hasTable rdf:type owl:ObjectProperty ;
                  rdfs:label "has table"@en .
 
 
-### http://example.com/firebim#hasVersion
+### https://ontology.firebim.be/ontology/fro#hasVersion
 fro:hasVersion rdf:type owl:ObjectProperty ;
                    rdfs:domain fro:Article ;
                    rdfs:range fro:Version ;
@@ -142,49 +142,49 @@ fro:hasVersion rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
-###  http://example.com/firebim#hasID
+###  https://ontology.firebim.be/ontology/fro#hasID
 fro:hasID rdf:type owl:DatatypeProperty ;
               rdfs:domain fro:DocumentSubdivision ;
               rdfs:range xsd:string ;
               rdfs:label "has ID"@en .
 
 
-###  http://example.com/firebim#hasOriginalText
+###  https://ontology.firebim.be/ontology/fro#hasOriginalText
 fro:hasOriginalText rdf:type owl:DatatypeProperty ;
                         rdfs:domain fro:DocumentSubdivision ;
                         rdfs:range xsd:string ;
                         rdfs:label "has original text"@en .
 
 
-###  http://example.com/firebim#issued
+###  https://ontology.firebim.be/ontology/fro#issued
 fro:issued rdf:type owl:DatatypeProperty ;
                rdfs:domain fro:Document ;
                rdfs:range xsd:dateTime ;
                rdfs:label "issued"@en .
 
 
-###  http://example.com/firebim#hasKeyword
+###  https://ontology.firebim.be/ontology/fro#hasKeyword
 fro:hasKeyword rdf:type owl:ObjectProperty ;
                     rdfs:domain fro:DocumentSubdivision ;
                     rdfs:range fro:Keyword ;
                     rdfs:label "has keyword"@en .
 
 
-### http://example.com/firebim#hasDate
+### https://ontology.firebim.be/ontology/fro#hasDate
 fro:hasDate rdf:type owl:DatatypeProperty ;
                 rdfs:domain fro:Version ;
                 rdfs:range xsd:dateTime ;
                 rdfs:label "has date"@en .
 
 
-### http://example.com/firebim#hasVersionNumber
+### https://ontology.firebim.be/ontology/fro#hasVersionNumber
 fro:hasVersionNumber rdf:type owl:DatatypeProperty ;
                          rdfs:domain fro:Version ;
                          rdfs:range xsd:string ;
                          rdfs:label "has version number"@en .
 
 
-### http://example.com/firebim#hasDescription
+### https://ontology.firebim.be/ontology/fro#hasDescription
 fro:hasDescription rdf:type owl:DatatypeProperty ;
                        rdfs:domain fro:Version ;
                        rdfs:range xsd:string ;
@@ -195,94 +195,94 @@ fro:hasDescription rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://example.com/firebim#Appendix
+###  https://ontology.firebim.be/ontology/fro#Appendix
 fro:Appendix rdf:type owl:Class ;
                  rdfs:subClassOf fro:Section ;
                  rdfs:label "Appendix"@en .
 
 
-###  http://example.com/firebim#Article
+###  https://ontology.firebim.be/ontology/fro#Article
 fro:Article rdf:type owl:Class ;
                 rdfs:subClassOf fro:DocumentSubdivision ;
                 rdfs:comment "A separate rule \"article\", a subdivision of a section as the smallest containing text of a rule."@en ;
                 rdfs:label "Article"@en .
 
 
-###  http://example.com/firebim#Authority
+###  https://ontology.firebim.be/ontology/fro#Authority
 fro:Authority rdf:type owl:Class ;
                   rdfs:comment "Represents the legal body that publishes and maintains the regulatory document"@en ;
                   rdfs:label "Authority"@en .
 
 
-###  http://example.com/firebim#Chapter
+###  https://ontology.firebim.be/ontology/fro#Chapter
 fro:Chapter rdf:type owl:Class ;
                 rdfs:subClassOf fro:Section ;
                 rdfs:label "Chapter"@en .
 
 
-###  http://example.com/firebim#Document
+###  https://ontology.firebim.be/ontology/fro#Document
 fro:Document rdf:type owl:Class ;
                  rdfs:subClassOf fro:DocumentSubdivision ;
                  rdfs:comment "The individual document containing the rules, this can be a law, guidelines, etc."@en ;
                  rdfs:label "Document"@en .
 
 
-###  http://example.com/firebim#DocumentSubdivision
+###  https://ontology.firebim.be/ontology/fro#DocumentSubdivision
 fro:DocumentSubdivision rdf:type owl:Class ;
                             rdfs:comment "Represents documents or parts of documents"@en ;
                             rdfs:label "Document Subdivision"@en .
 
 
-###  http://example.com/firebim#Figure
+###  https://ontology.firebim.be/ontology/fro#Figure
 fro:Figure rdf:type owl:Class ;
                rdfs:subClassOf fro:Section ;
                rdfs:label "Figure"@en .
 
 
-###  http://example.com/firebim#Member
+###  https://ontology.firebim.be/ontology/fro#Member
 fro:Member rdf:type owl:Class ;
                rdfs:subClassOf fro:DocumentSubdivision ;
                rdfs:comment "Typically holds the one or multiple bodies of text that an article exists of, the individual rule conditions."@en ;
                rdfs:label "Member"@en .
 
 
-###  http://example.com/firebim#Paragraph
+###  https://ontology.firebim.be/ontology/fro#Paragraph
 fro:Paragraph rdf:type owl:Class ;
                   rdfs:subClassOf fro:Section ;
                   rdfs:label "Paragraph"@en .
 
 
-###  http://example.com/firebim#Reference
+###  https://ontology.firebim.be/ontology/fro#Reference
 fro:Reference rdf:type owl:Class ;
                   rdfs:comment "Represents references to other representations of the regulation, or similar regulations"@en ;
                   rdfs:label "Reference"@en .
 
 
-###  http://example.com/firebim#Section
+###  https://ontology.firebim.be/ontology/fro#Section
 fro:Section rdf:type owl:Class ;
                 rdfs:subClassOf fro:DocumentSubdivision ;
                 rdfs:comment "Any subdivision of a document, wether it's a large section itself, a subsection, a table, a figure, a paragraph..."@en ;
                 rdfs:label "Section"@en .
 
 
-###  http://example.com/firebim#Subchapter
+###  https://ontology.firebim.be/ontology/fro#Subchapter
 fro:Subchapter rdf:type owl:Class ;
                    rdfs:subClassOf fro:Section ;
                    rdfs:label "Subchapter"@en .
 
 
-###  http://example.com/firebim#Table
+###  https://ontology.firebim.be/ontology/fro#Table
 fro:Table rdf:type owl:Class ;
               rdfs:subClassOf fro:Section ;
               rdfs:label "Table"@en .
 
 
-###  http://example.com/firebim#Keyword
+###  https://ontology.firebim.be/ontology/fro#Keyword
 fro:Keyword rdf:type owl:Class ;
                rdfs:label "Keyword" .
 
 
-### http://example.com/firebim#Version
+### https://ontology.firebim.be/ontology/fro#Version
 fro:Version rdf:type owl:Class ;
                 rdfs:comment "Represents a specific version of an article, including metadata like date and description."@en ;
                 rdfs:label "Version"@en .
@@ -1215,8 +1215,8 @@ fro:Section_6_8_5_4_3 a fro:Section ;
 Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following the ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned. Prefixes will be added afterwards automatically so ALWAYS start off with fro:Section_..., NEVER define any prefixes.
 
 Additionally, you must now enhance the text by adding HTML links to relevant ontology concepts via the buliding ontology list below. When you identify terms that match concepts from the ontology, wrap them in HTML anchor tags that link to their URI definitions. For example:
-- If discussing compartment areas, use: <a href="http://example.com/firebimbuilding#CompartmentArea">area of the compartment</a>
-- For fire resistance requirements: <a href="http://example.com/firebimbuilding#FireResistance">fire resistance</a>
+- If discussing compartment areas, use: <a href="https://ontology.firebim.be/ontology/fbo#CompartmentArea">area of the compartment</a>
+- For fire resistance requirements: <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">fire resistance</a>
 
 The links should be added to the originalText properties in the output TTL. Make sure to:
 1. Only link to terms that actually exist in the building ontology
@@ -1226,7 +1226,7 @@ The links should be added to the originalText properties in the output TTL. Make
 Available building ontology terms for linking:
 Building, Wall, Compartment, AccessRoad, Door, Floor, Staircase, TechnicalRoom, Room, EvacuationRoute, UndergroundFloor, EvacuationLevel, Pipe, ElectricalConduit, ExpansionJoint, StructuralElement, Roof, SuspendedCeiling, CeilingVoid, CeilingVoidCompartment, CeilingVoidSeparationScreen, CurtainWall, Facade, DoubleSkinnedFacade, FacadeSpandrel, FacadeSpandrelClosure, FacadeVentilationOpening, Landing, Handrail, ExternalStaircase, EscapeBalcony, RetractableStair, EscapeTerrace, DisplayWindow, Elevator, BoilerRoom, FuelStorageRoom, Airlock, ElectricalRoom, TransformerRoom, PrefabElectricalPost, WasteStorageRoom, VerticalShaft, HorizontalShaft, ShaftWall, ShaftHatch, VentilationFlap, GasPipe, ShaftBarrier, Parking, Ramp, OpenParking, UndergroundRoom, ShoppingComplex, Gallery, SeparationWall, ShopUnit, Kitchen, Restaurant, TransportSystem, FryingEquipment, ElevatorShaft, MachineRoom, LandingWall, ElevatorDoor, OilHydraulicElevator, Escalator, ElevatorLobby, ElevatorCar, ElectricalSystem, SafetyLighting, GasInstallation, AeraulicSystem, AirDuct, AirHandlingUnit, SmokeDetector, SmokeValve, Insulation, FlexibleDuct, DuctSuspension, ExhaustDuct, Shaft, FireDamper, InspectionDoor, CentralFireControlPanel, FireExtinguisher, FireAlarmDevice, CommunicationDevice, Telephone, FireHoseReel, FireHydrant, WaterSupplySystem, SectionNumber, BuildingHeight, FirePreventionMeasures, OccupantSafety, FirefighterAccessibility, IndustrialActivity, TotalAreaIndustrialActivity, NonIndustrialActivity, NightOccupancy, BuildingExtension, ApplicationDate, BuildingType, NumberOfStoreys, TotalFloorArea, IsIndustrialBuilding, IsSingleFamilyHouse, FireResistanceRating, Location, IsExternal, CompartmentType, AccessRoadsDetermination, FireDepartmentApproval, FireVehicleApproachDistance, AccessibleFacade, MinimumWidth, MinimumInnerTurningRadius, MinimumOuterTurningRadius, MinimumClearanceHeight, MaximumSlope, LoadBearingCapacity, MaximumAxleLoad, Annexes, OverhangingRoofs, Canopies, CantileveredParts, OtherAdditions, EvacuationSafety, UserSafety, FirefighterAction, FireSpreadPrevention, DistanceBetweenBuildings, AngleBetweenFacades, RadiationLimit, IsSeparatingWall, IsSelfClosing, IsFireActivatedClosing, ExemptFromDistanceRule, CompartmentArea, CompartmentHeight, CompartmentLength, HasAutomaticFireExtinguishingSystem, HasSmokeAndHeatExhaustSystem, NumberOfFloors, ContainsTechnicalRooms, IsAtrium, IsInternalConnection, IsCompartment, HasAutomaticFireDetectionSystem, FireDetectionCoverage, MinimumNumberOfExits, Occupancy, AdditionalExitsRequired, Exits, RouteDestination, WallFireResistance, DoorFireResistance, LeadsToOutside, HasAlternativeExit, HasExitToOutside, WallPenetrationFireResistance, ExpansionJointFireResistance, InnerProtectionFireResistance, IsEvacuationLevel, IsInternal, IsCompartmentBoundary, IsEvacuationRouteBoundary, IsOccupiedAtNight, SuspendedCeilingFireResistance, FireStability, CeilingVoidCompartmentMaxSideLength, MaterialClass, ExtendsThroughEntireSpace, CompartmentSeparation, LinearJointSeal, DistanceToOpposingFacade, MaximumRadiationBetweenFacades, InnerWallFireResistance, OuterWallOpenings, AutomaticFireDetection, Length, ClosureActivation, Angle, Distribution, SafetyPosition, ManualControlSystem, PowerFailureSafetyMode, FaultDetection, ElectricalCablingFireResistance, IsEnclosed, ConnectsCompartments, ExternalWallGlazing, AccessToEvacuationLevel, UpperVentilationOpening, IsGlazed, TotalArea, IsMultiLevel, LevelArea, IsUnderground, VentilationOpeningArea, VentilationOpeningLocation, VentilationOpeningControl, VentilationDuctCrossSection, HasHandrails, TreadDepth, RiserHeight, StaircaseType, UsefulWidth, RequiredUsefulWidth, WidthDifference, ConnectsEvacuationLevel, MaxDistanceToEvacuationRoute, MaxDistanceToNearestExit, MaxDistanceToSecondExit, MaxDeadEndLength, MinimumUsefulWidth, HasEvacuationRoute, HasEscapeTerrace, IsOnEvacuationLevel, IsLocked, HasDisplayWindows, IsOnEvacuationRoute, ConnectsToPublicRoad, FloorNumber, HasFloorNumberIndicator, HasExitSignage, NumberOfExits, MaxDistanceToExit, MaxDistanceBetweenExits, NumberOfServiceFloors, CombustionRate, IsTechnicalRoom, TotalFireLoad, MinimumArea, IsWaterProtected, OilContent, HasExternalAccess, WasteDisposalChutesProhibited, HatchFireResistance, HasMotorizedVentilationFlap, IsMotorized, CompliesWithStandard, IsParking, HasCommunicatingFloors, RoofFunction, IsOpenParking, SupportsOtherCompartment, IsAdjacent, FormsSingleParking, DesignCompliance, ConstructionCompliance, LayoutCompliance, StructuralElementFireResistance, HorizontalSurfaceFireResistance, ContainsNonOccupiedRooms, AccessibleDistance, HasFloorIndicators, ReplacesStaircase, SmokePrevention, MaximumOccupancy, LowestFloorLevel, DistanceToEvacuationLevel, OpeningDirection, GalleryLevel, AdjacentFloors, HasSeparationWalls, HasIndependentExits, HasSprinklerSystem, IsAdjacentToEvacuationLevel, HasFireResistantWalls, HasSuspendedCeiling, IsCollective, HasRestaurant, IsCompartmentedFromKitchen, HasTransportSystem, IsHorizontal, IsVertical, ShaftWallFireResistance, CompartmentBoundaryFireResistance, HasEnergySupplyInterruption, AccessibilityForMaintenance, AccessibilityForEmergency, DriveLocation, ControlAccessibility, AbnormalTemperatureBehavior, AutomaticReturnToNormalOperation, WaterExtinguishingSystemPresence, HasGlazedExteriorWalls, HasSmokeDetection, ComplianceWithStandard, HasElevator, ServesMultipleCompartments, ServesParkingCompartment, ServesApartment, HasExteriorAccess, OilContainmentCapacity, ElectricalEquipmentElevation, SharesLandingWithElevator, HasNaturalVentilation, VentilationLocation, HasMotorizedVentilationFlaps, AutomaticControl, ManualControl, ElevatorOperation, EvacuationLevelLandingDesignation, ManualCallDevice, FireDetectionSignal, ShaftSmokeDetection, AlternativeLandingRedirection, OpenDoorParking, AuthorizedReactivation, LandingWallFireResistance, InspectionHatchFireResistance, IsAutomaticClosing, CompartmentDestination, ServesMultipleLevels, ServesParking, ExitsToOutside, AccessibilityForMobility, MinimumDepth, HasEvacuationKey, HasSignage, HasIntercomSystem, HasElevatorLobby, IsFirefighterElevator, DoorMinimumUsefulWidth, HasFirefighterKey, MaximumTravelTime, IsAirlock, HasFireSeparation, ElectricalInstallationRegulationCompliance, ElectricalCableFireResistance, ElectricalCableDiameter, ElectricalCableConductorCrossSection, ElectricalCableConduitFireResistance, HasSafetyLighting, HasBackupLighting, HasAlarmSystem, HasSmokeExtractionSystem, HasFireFightingWaterPumps, HasDrainagePumps, HasAutonomousPowerSource, AutomaticSwitchoverTime, BackupPowerDuration, SafetyLightingStandardCompliance, SafetyLightingPowerSource, HasAutonomousLightingFixtures, ComplianceWithStandards, ComplianceWithConditions, IntegratedInAirDuctNetwork, UsedForAirTransport, AirRecirculationAllowed, HasSmokeValveInRecirculationDuct, HasSmokeDetectionInRecirculationAir, HasDirectExhaustSystem, AirFlowRate, ServesMultipleRooms, SuspensionStability, MaximumLength, MaterialType, MaximumSpacing, MaximumForce, MaximumStress, MaximumDistance, MaximumShearStress, DayOccupancy, ContainsAirHandlingUnits, OperationType, AutomaticClosureTemperature, RemoteControlClosure, PositiveSafetySystem, ExternalEnergyRequirement, AutomaticClosureOnDetection, CycleTestPassed, CorrosionResistant, NoPeriodicLubricationRequired, HasPositionIndicator, HasAirflowDirectionArrow, HasNameplate, CanBeResetAfterOperation, StabilityIndependentOfDucts, HasInspectionDoor, HasVisibleMarking, LeakageRate, LeakageClass, GasketTemperatureResistance, FireDetectionSystem, ServesCompartment, ShutdownOnFireDetection, HasFireDetectionSystem, IsRequired, Accessibility, FireAlarmSystem, WarningSystem, FirefightingEquipment, NumberOfFireExtinguishers, FireExtinguisherDistribution, RequiresHumanIntervention, IsAccessible, IsProtectedFromWeather, SignageCompliance, FireAlarmDevicePresent, FloorArea, CommunicationMethod, PermanentConnection, ImmediateConnection, HasUsageInstructions, HasDestinationInformation, HasPhoneNumber, IsDirectConnection, IsAutomaticConnection, WarningSignalAudibility, AlarmSignalAudibility, WarningMessageAudibility, AlarmMessageAudibility, SignalDistinctiveness, IsPortable, IsMobile, HasAxialFeed, WaterFlowReach, IsAboveground, FeedWaterPipeDiameter, WaterSource, MinimumWaterCapacity, HasAutomaticSprinklerSystem, PipeDiameter, WaterPressure, IsDuplex, IsTriplex, IsGroundFloor
 
-Use these terms with the URI pattern: http://example.com/firebimbuilding#term
+Use these terms with the URI pattern: https://ontology.firebim.be/ontology/fbo#term
 
 IMPORTANT FORMATTING RULES:
 1. Always use triple quotes (""" """) for originalText properties that contain HTML links
@@ -1234,4 +1234,4 @@ IMPORTANT FORMATTING RULES:
 3. For simple text without HTML, you can use single quotes
 
 Example format:
-fro:hasOriginalText """Text with <a href=\"http://example.com/firebimbuilding#Term\">linked term</a>"""@nl ;
+fro:hasOriginalText """Text with <a href=\"https://ontology.firebim.be/ontology/fbo#Term\">linked term</a>"""@nl ;

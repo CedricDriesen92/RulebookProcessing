@@ -13,10 +13,10 @@ fro:Article_6_8_2_1_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_8_2_1_1_1 a fro:Member ;
-    fro:hasOriginalText "Het aantal <a href=\"http://example.com/firebimbuilding#FirefightingEquipment\">toestellen</a> wordt bepaald door de <a href=\"http://example.com/firebimbuilding#FloorArea\">afmetingen</a>, de toestand en het risico in de <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a>."@nl .
+    fro:hasOriginalText "Het aantal <a href=\"https://ontology.firebim.be/ontology/fbo#FirefightingEquipment\">toestellen</a> wordt bepaald door de <a href=\"https://ontology.firebim.be/ontology/fbo#FloorArea\">afmetingen</a>, de toestand en het risico in de <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a>."@nl .
 
 fro:Member_6_8_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#FirefightingEquipment\">toestellen</a> worden in voldoende aantal oordeelkundig gespreid, zodat zij elk punt van de betrokken ruimte kunnen bedienen."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#FirefightingEquipment\">toestellen</a> worden in voldoende aantal oordeelkundig gespreid, zodat zij elk punt van de betrokken ruimte kunnen bedienen."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

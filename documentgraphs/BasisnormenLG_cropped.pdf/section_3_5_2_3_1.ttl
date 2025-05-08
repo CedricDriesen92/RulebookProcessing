@@ -13,10 +13,10 @@ fro:Article_3_5_2_3_1_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_3_5_2_3_1_1_1 a fro:Member ;
-    fro:hasOriginalText "De sluiting / opening wordt bevolen door een <a href=\"http://example.com/firebimbuilding#AutomaticFireDetectionSystem\">automatische branddetectie-installatie</a>."@nl .
+    fro:hasOriginalText "De sluiting / opening wordt bevolen door een <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireDetectionSystem\">automatische branddetectie-installatie</a>."@nl .
 
 fro:Member_3_5_2_3_1_1_2 a fro:Member ;
-    fro:hasOriginalText "De installatie wordt uitgerust met <a href=\"http://example.com/firebimbuilding#ManualControlSystem\">manuele openings- en sluitingssystemen</a>. De bediening ervan is voorbehouden aan de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a>. De plaats ervan moet bepaald worden in akkoord met de brandweer."@nl .
+    fro:hasOriginalText "De installatie wordt uitgerust met <a href=\"https://ontology.firebim.be/ontology/fbo#ManualControlSystem\">manuele openings- en sluitingssystemen</a>. De bediening ervan is voorbehouden aan de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAction\">brandweer</a>. De plaats ervan moet bepaald worden in akkoord met de brandweer."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

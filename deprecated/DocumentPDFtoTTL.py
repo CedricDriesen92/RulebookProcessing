@@ -95,21 +95,21 @@ def split_into_sections(text):
     print("Final sections:", final_sections)
     return final_sections
 
-FIREBIM = Namespace("http://example.com/firebim#")
+FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
 
 def create_initial_graph():
     g = Graph()
-    g.bind("firebim", FIREBIM)
+    g.bind("firebim", FRO)
     
-    document = URIRef(FIREBIM.RoyalDecree)
-    authority = URIRef(FIREBIM.Belgian_Government)
+    document = URIRef(FRO.RoyalDecree)
+    authority = URIRef(FRO.Belgian_Government)
     
-    g.add((document, RDF.type, FIREBIM.Document))
-    g.add((document, FIREBIM.hasID, Literal("RoyalDecree1994")))
-    g.add((document, FIREBIM.issued, Literal("1994-07-07", datatype=XSD.date)))
+    g.add((document, RDF.type, FRO.Document))
+    g.add((document, FRO.hasID, Literal("RoyalDecree1994")))
+    g.add((document, FRO.issued, Literal("1994-07-07", datatype=XSD.date)))
     
-    g.add((authority, RDF.type, FIREBIM.Authority))
-    g.add((authority, FIREBIM.hasDocument, document))
+    g.add((authority, RDF.type, FRO.Authority))
+    g.add((authority, FRO.hasDocument, document))
     
     return g
 
@@ -173,7 +173,7 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@base <http://example.com/firebim> .\n\n"""
+@base <https://ontology.firebim.be/ontology/fro> .\n\n"""
     full_ttl_content += "fro:Section_" + str(section_number) +" a " + response.content[0].text.strip()
     return full_ttl_content
 
@@ -182,7 +182,7 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
     
     if os.path.exists(file_name):
         try:
-            main_graph.parse(file_name, format="turtle", publicID=FIREBIM)
+            main_graph.parse(file_name, format="turtle", publicID=FRO)
             return True
         except Exception as e:
             print(f"Error loading existing section {section_number}: {e}")
@@ -191,7 +191,7 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
     for attempt in range(3):
         try:
             ttl_content = process_section_to_ttl(section_number, section_text, ontology, examples_str, starting_graph)
-            main_graph.parse(data=ttl_content, format="turtle", publicID=FIREBIM)
+            main_graph.parse(data=ttl_content, format="turtle", publicID=FRO)
             
             os.makedirs(output_folder, exist_ok=True)
             with open(file_name, 'w', encoding='utf-8') as f:
@@ -231,30 +231,30 @@ def main():
                 with open(txt_file_name, 'w', encoding='utf-8') as f:
                     f.write(f"Section number: {section_number}\nSection text:\n{section_content}")
     training_examples = load_training_examples('trainingsamplesRuleToGraph')
-    examples_str = "\n\n".join([f"Input:\n{ex['input']}\n\nExpected output:\n{str(ex['output']).split("@base <http://example.com/firebim> .\n\n", 1)[-1]}\n" for ex in training_examples])
+    examples_str = "\n\n".join([f"Input:\n{ex['input']}\n\nExpected output:\n{str(ex['output']).split("@base <https://ontology.firebim.be/ontology/fro> .\n\n", 1)[-1]}\n" for ex in training_examples])
     with open("current_training_total.txt", "w", encoding="utf-8") as f:
         f.write(examples_str)
     
-    document = URIRef(FIREBIM.RoyalDecree)
+    document = URIRef(FRO.RoyalDecree)
     
     # Sort section numbers to ensure parent sections are created before child sections
     section_numbers.sort(key=lambda x: [int(n) for n in x.split('_')])
     
     for section_number in section_numbers:
-        section_uri = URIRef(FIREBIM['Section_' + section_number])
-        main_graph.add((section_uri, RDF.type, FIREBIM.Section))
-        main_graph.add((section_uri, FIREBIM.hasID, Literal(section_number.replace('_', '.'))))
+        section_uri = URIRef(FRO['Section_' + section_number])
+        main_graph.add((section_uri, RDF.type, FRO.Section))
+        main_graph.add((section_uri, FRO.hasID, Literal(section_number.replace('_', '.'))))
         
         # Link top-level sections to the document
         if '_' not in section_number:
-            main_graph.add((document, FIREBIM.hasSection, section_uri))
+            main_graph.add((document, FRO.hasSection, section_uri))
         
         # Link child sections to parent sections
         parts = section_number.split('_')
         if len(parts) > 1:
             parent_number = '_'.join(parts[:-1])
-            parent_uri = URIRef(FIREBIM['Section_' + parent_number])
-            main_graph.add((parent_uri, FIREBIM.hasSection, section_uri))
+            parent_uri = URIRef(FRO['Section_' + parent_number])
+            main_graph.add((parent_uri, FRO.hasSection, section_uri))
     
     # Serialize the initial structure
     output_folder = f"documentgraphs/{os.path.splitext(pdf_filename)[0]}"

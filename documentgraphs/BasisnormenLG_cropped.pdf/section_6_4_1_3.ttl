@@ -13,10 +13,10 @@ fro:Article_6_4_1_3_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_4_1_3_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#ElevatorCar\">liftkooien</a> zijn ten minste <a href=\"http://example.com/firebimbuilding#AccessibilityForMobility\">toegankelijk voor een persoon in een rolstoel en een begeleidende persoon</a>."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#ElevatorCar\">liftkooien</a> zijn ten minste <a href=\"https://ontology.firebim.be/ontology/fbo#AccessibilityForMobility\">toegankelijk voor een persoon in een rolstoel en een begeleidende persoon</a>."@nl .
 
 fro:Member_6_4_1_3_1_2 a fro:Member ;
-    fro:hasOriginalText "De minimale afmetingen van de <a href=\"http://example.com/firebimbuilding#ElevatorCar\">liftkooien</a> zijn 1,1 m (breedte) x 1,4 m (diepte)."@nl .
+    fro:hasOriginalText "De minimale afmetingen van de <a href=\"https://ontology.firebim.be/ontology/fbo#ElevatorCar\">liftkooien</a> zijn 1,1 m (breedte) x 1,4 m (diepte)."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

@@ -2,18 +2,18 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 fro:Member_4_4_1_1_1_3 a fro:Member ;
-    fro:hasOriginalText "De lengte van doodlopende <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a> mag niet meer dan 15 m bedragen."@nl .
+    fro:hasOriginalText "De lengte van doodlopende <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatiewegen</a> mag niet meer dan 15 m bedragen."@nl .
 
 fro:Member_4_4_1_1_1_4 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#UsefulWidth\">nuttige breedte</a> van de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a>, <a href=\"http://example.com/firebimbuilding#EscapeTerrace\">vluchtterrassen</a> en van hun toegangs-, uitgangs- of doorgangs<a href=\"http://example.com/firebimbuilding#Door\">deuren</a> is groter dan of gelijk aan de vereiste <a href=\"http://example.com/firebimbuilding#UsefulWidth\">nuttige breedte</a> (zie bijlage 1 \"Terminologie\"). Zij bedraagt ten minste 0,80 m voor de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a> en de <a href=\"http://example.com/firebimbuilding#Door\">deuren</a>, en ten minste 0,60 m voor de <a href=\"http://example.com/firebimbuilding#EscapeTerrace\">vluchtterrassen</a>."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#UsefulWidth\">nuttige breedte</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatiewegen</a>, <a href=\"https://ontology.firebim.be/ontology/fbo#EscapeTerrace\">vluchtterrassen</a> en van hun toegangs-, uitgangs- of doorgangs<a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deuren</a> is groter dan of gelijk aan de vereiste <a href=\"https://ontology.firebim.be/ontology/fbo#UsefulWidth\">nuttige breedte</a> (zie bijlage 1 \"Terminologie\"). Zij bedraagt ten minste 0,80 m voor de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatiewegen</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deuren</a>, en ten minste 0,60 m voor de <a href=\"https://ontology.firebim.be/ontology/fbo#EscapeTerrace\">vluchtterrassen</a>."@nl .
 
 fro:Member_4_4_1_1_1_5 a fro:Member ;
-    fro:hasOriginalText "In een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> gaat de verbinding tussen en naar de <a href=\"http://example.com/firebimbuilding#Staircase\">trappen</a> via <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatiewegen</a> of over <a href=\"http://example.com/firebimbuilding#EscapeTerrace\">vluchtterrassen</a>."@nl .
+    fro:hasOriginalText "In een <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> gaat de verbinding tussen en naar de <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappen</a> via <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatiewegen</a> of over <a href=\"https://ontology.firebim.be/ontology/fbo#EscapeTerrace\">vluchtterrassen</a>."@nl .
 
 fro:Section_4_4_1_1 a fro:Section ;
     fro:hasArticle fro:Article_4_4_1_1_1 ;
     fro:hasID "4.4.1.1" ;
-    fro:hasOriginalText "Geen enkel punt van een <a href=\"http://example.com/firebimbuilding#Compartment\">compartiment</a> mag zich verder bevinden dan:"@nl .
+    fro:hasOriginalText "Geen enkel punt van een <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> mag zich verder bevinden dan:"@nl .
 
 fro:Article_4_4_1_1_1 a fro:Article ;
     fro:hasID "A4.4.1.1.1" ;
@@ -26,34 +26,34 @@ fro:Member_4_4_1_1_1_1 a fro:Member ;
     fro:hasMember fro:Member_4_4_1_1_1_1_1,
         fro:Member_4_4_1_1_1_1_2,
         fro:Member_4_4_1_1_1_1_3 ;
-    fro:hasOriginalText "a)   voor <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> met uitsluitend <a href=\"http://example.com/firebimbuilding#DayOccupancy\">dagbezetting</a>:"@nl .
+    fro:hasOriginalText "a)   voor <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> met uitsluitend <a href=\"https://ontology.firebim.be/ontology/fbo#DayOccupancy\">dagbezetting</a>:"@nl .
 
 fro:Member_4_4_1_1_1_1_1 a fro:Member ;
-    fro:hasOriginalText "     -    30 m van de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a> die de <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> verbindt;"@nl .
+    fro:hasOriginalText "     -    30 m van de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatieweg</a> die de <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> verbindt;"@nl .
 
 fro:Member_4_4_1_1_1_1_2 a fro:Member ;
-    fro:hasOriginalText "     -    45 m van de toegang tot de dichtstbijzijnde <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a>;"@nl .
+    fro:hasOriginalText "     -    45 m van de toegang tot de dichtstbijzijnde <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgang</a>;"@nl .
 
 fro:Member_4_4_1_1_1_1_3 a fro:Member ;
-    fro:hasOriginalText "     -    80 m van de toegang tot een tweede <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a>."@nl .
+    fro:hasOriginalText "     -    80 m van de toegang tot een tweede <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgang</a>."@nl .
 
 fro:Member_4_4_1_1_1_2 a fro:Member ;
     fro:hasMember fro:Member_4_4_1_1_1_2_1,
         fro:Member_4_4_1_1_1_2_2,
         fro:Member_4_4_1_1_1_2_3 ;
-    fro:hasOriginalText "b)   voor <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> of geheel van <a href=\"http://example.com/firebimbuilding#Room\">lokalen</a> met <a href=\"http://example.com/firebimbuilding#NightOccupancy\">nachtbezetting</a>:"@nl .
+    fro:hasOriginalText "b)   voor <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> of geheel van <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> met <a href=\"https://ontology.firebim.be/ontology/fbo#NightOccupancy\">nachtbezetting</a>:"@nl .
 
 fro:Member_4_4_1_1_1_2_1 a fro:Member ;
-    fro:hasOriginalText "     -    20 m van de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">evacuatieweg</a> die de <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> verbindt;"@nl .
+    fro:hasOriginalText "     -    20 m van de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatieweg</a> die de <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> verbindt;"@nl .
 
 fro:Member_4_4_1_1_1_2_2 a fro:Member ;
-    fro:hasOriginalText "     -    30 m van de toegang tot de dichtstbijzijnde <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a>;"@nl .
+    fro:hasOriginalText "     -    30 m van de toegang tot de dichtstbijzijnde <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgang</a>;"@nl .
 
 fro:Member_4_4_1_1_1_2_3 a fro:Member ;
-    fro:hasOriginalText "     -    60 m van de toegang tot een tweede <a href=\"http://example.com/firebimbuilding#Exits\">uitgang</a>."@nl .
+    fro:hasOriginalText "     -    60 m van de toegang tot een tweede <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgang</a>."@nl .
 
 fro:Member_4_4_1_1_1_6 a fro:Member ;
-    fro:hasOriginalText "De bepalingen van dit punt zijn niet van toepassing op <a href=\"http://example.com/firebimbuilding#Parking\">parkings</a> (zie 5.2)."@nl .
+    fro:hasOriginalText "De bepalingen van dit punt zijn niet van toepassing op <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parkings</a> (zie 5.2)."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

@@ -2,6 +2,6 @@
 
 fro:Section_3_5_2_2_1 a fro:Section ;
     fro:hasID "3.5.2.2.1" ;
-    fro:hasOriginalText """<a href="http://example.com/firebimbuilding#DoubleSkinnedFacade">Dubbelwandige gevel</a> waarvan de <a href="http://example.com/firebimbuilding#InnerWallFireResistance">binnenwand</a> <a href="http://example.com/firebimbuilding#FireResistance">brandwerend</a> is.
-De <a href="http://example.com/firebimbuilding#Facade">buitenwand</a> van de <a href="http://example.com/firebimbuilding#DoubleSkinnedFacade">dubbelwandige gevel</a> bestaat <a href="http://example.com/firebimbuilding#FacadeSpandrel">tussen de verdiepingen</a> voor minstens 50%"""@nl .
+    fro:hasOriginalText """<a href="https://ontology.firebim.be/ontology/fbo#DoubleSkinnedFacade">Dubbelwandige gevel</a> waarvan de <a href="https://ontology.firebim.be/ontology/fbo#InnerWallFireResistance">binnenwand</a> <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">brandwerend</a> is.
+De <a href="https://ontology.firebim.be/ontology/fbo#Facade">buitenwand</a> van de <a href="https://ontology.firebim.be/ontology/fbo#DoubleSkinnedFacade">dubbelwandige gevel</a> bestaat <a href="https://ontology.firebim.be/ontology/fbo#FacadeSpandrel">tussen de verdiepingen</a> voor minstens 50%"""@nl .
 

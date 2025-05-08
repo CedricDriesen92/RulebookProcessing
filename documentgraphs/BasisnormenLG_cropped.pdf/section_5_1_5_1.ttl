@@ -2,5 +2,5 @@
 
 fro:Section_5_1_5_1 a fro:Section ;
     fro:hasID "5.1.5.1" ;
-    fro:hasOriginalText "Verticale <a href=\"http://example.com/firebimbuilding#VerticalShaft\">kokers</a>"@nl .
+    fro:hasOriginalText "Verticale <a href=\"https://ontology.firebim.be/ontology/fbo#VerticalShaft\">kokers</a>"@nl .
 

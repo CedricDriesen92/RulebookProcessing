@@ -13,10 +13,10 @@ fro:Article_4_5_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_4_5_1_1 a fro:Member ;
-    fro:hasOriginalText "Het volgnummer van elke <a href=\"http://example.com/firebimbuilding#Floor\">bouwlaag</a> wordt duidelijk aangebracht op de <a href=\"http://example.com/firebimbuilding#Landing\">overlopen</a> en in de <a href=\"http://example.com/firebimbuilding#EvacuationRoute\">vluchtruimten</a> bij <a href=\"http://example.com/firebimbuilding#Staircase\">trappenhuizen</a> en <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a>."@nl .
+    fro:hasOriginalText "Het volgnummer van elke <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> wordt duidelijk aangebracht op de <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">overlopen</a> en in de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">vluchtruimten</a> bij <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappenhuizen</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a>."@nl .
 
 fro:Member_4_5_1_2 a fro:Member ;
-    fro:hasOriginalText "De aanduiding van de <a href=\"http://example.com/firebimbuilding#Exits\">uitgangen</a> en nooduitgangen dient te voldoen aan de bepalingen betreffende de <a href=\"http://example.com/firebimbuilding#SafetyLighting\">veiligheids- en gezondheidssignalering</a> op het werk."@nl .
+    fro:hasOriginalText "De aanduiding van de <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> en nooduitgangen dient te voldoen aan de bepalingen betreffende de <a href=\"https://ontology.firebim.be/ontology/fbo#SafetyLighting\">veiligheids- en gezondheidssignalering</a> op het werk."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

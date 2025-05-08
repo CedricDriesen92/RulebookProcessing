@@ -3,8 +3,8 @@
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix bot:  <https://w3id.org/bot#> .
-@prefix fbb:  <http://example.com/firebimbuilding#> .
-@prefix fbd:  <http://example.com/firebimdocument#> .
+@prefix fbb:  <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbd:  <https://ontology.firebim.be/ontology/frodocument#> .
 
 #################################################################
 # Ontology metadata

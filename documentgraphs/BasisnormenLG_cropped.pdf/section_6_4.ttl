@@ -12,7 +12,7 @@ fro:Article_6_4_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_4_1_1 a fro:Member ;
-    fro:hasOriginalText "De speciale <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> en de werking ervan bij brand beantwoorden aan de volgende voorschriften of elke andere regel van goed vakmanschap die een gelijkwaardig veiligheidsniveau biedt, overeenkomstig het koninklijk besluit van 12 april 2016 betreffende het op de markt brengen van <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> en veiligheidscomponenten voor <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a>."@nl .
+    fro:hasOriginalText "De speciale <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a> en de werking ervan bij brand beantwoorden aan de volgende voorschriften of elke andere regel van goed vakmanschap die een gelijkwaardig veiligheidsniveau biedt, overeenkomstig het koninklijk besluit van 12 april 2016 betreffende het op de markt brengen van <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a> en veiligheidscomponenten voor <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a>."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

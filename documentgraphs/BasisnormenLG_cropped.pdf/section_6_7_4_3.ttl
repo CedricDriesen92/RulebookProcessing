@@ -14,13 +14,13 @@ fro:Article_6_7_4_3_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_7_4_3_1_1 a fro:Member ;
-    fro:hasOriginalText "De klep wordt zodanig in de <a href=\"http://example.com/firebimbuilding#Wall\">wand</a> bevestigd en vastgezet dat de stabiliteit van de klep gewaarborgd is, onafhankelijk van de twee aansluitkanalen, zelfs indien één van de twee kanalen verdwijnt."@nl .
+    fro:hasOriginalText "De klep wordt zodanig in de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> bevestigd en vastgezet dat de stabiliteit van de klep gewaarborgd is, onafhankelijk van de twee aansluitkanalen, zelfs indien één van de twee kanalen verdwijnt."@nl .
 
 fro:Member_6_7_4_3_1_2 a fro:Member ;
-    fro:hasOriginalText "Voor het nazicht en onderhoud van de klep wordt een gemakkelijk bereikbaar <a href=\"http://example.com/firebimbuilding#InspectionDoor\">inspectiedeurtje</a> op de klepkast of op de koker in de onmiddellijke nabijheid van de klep geplaatst. Dit deurtje heeft dezelfde <a href=\"http://example.com/firebimbuilding#FireResistance\">brandweerstand</a> als vereist voor het kanaal."@nl .
+    fro:hasOriginalText "Voor het nazicht en onderhoud van de klep wordt een gemakkelijk bereikbaar <a href=\"https://ontology.firebim.be/ontology/fbo#InspectionDoor\">inspectiedeurtje</a> op de klepkast of op de koker in de onmiddellijke nabijheid van de klep geplaatst. Dit deurtje heeft dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> als vereist voor het kanaal."@nl .
 
 fro:Member_6_7_4_3_1_3 a fro:Member ;
-    fro:hasOriginalText "Om de lokalisatie van de <a href=\"http://example.com/firebimbuilding#FireDamper\">brandwerende klep</a> te vergemakkelijken wordt een goed zichtbaar en onuitwisbaar merkteken aangebracht dat een brandbeveiligingstoestel aanduidt samen met de"@nl .
+    fro:hasOriginalText "Om de lokalisatie van de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">brandwerende klep</a> te vergemakkelijken wordt een goed zichtbaar en onuitwisbaar merkteken aangebracht dat een brandbeveiligingstoestel aanduidt samen met de"@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

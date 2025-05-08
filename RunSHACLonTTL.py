@@ -36,8 +36,8 @@ def load_document_data(file_path):
     return rdflib.Graph().parse(file_path, format="turtle")
 
 def get_member_text(document_graph, member_id):
-    firebim = Namespace("http://example.com/firebim#")
-    member_uri = URIRef(f"http://example.com/firebim#Member_{member_id.replace('.', '_')}")
+    firebim = Namespace("https://ontology.firebim.be/ontology/fro#")
+    member_uri = URIRef(f"https://ontology.firebim.be/ontology/fro#Member_{member_id.replace('.', '_')}")
     original_text = document_graph.value(subject=member_uri, predicate=firebim.hasOriginalText)
     return str(original_text) if original_text else "Original text not found"
 
@@ -48,7 +48,7 @@ def parse_member_references(shapes_graph):
     
     Returns: Dictionary mapping shape URIs to their member IDs
     """
-    firebim = Namespace("http://example.com/firebim#")
+    firebim = Namespace("https://ontology.firebim.be/ontology/fro#")
     ex = Namespace("http://example.org/")
     sh = Namespace("http://www.w3.org/ns/shacl#")
     member_refs = {}
@@ -64,13 +64,13 @@ def parse_member_references(shapes_graph):
     return member_refs
 
 def get_section_text(document_graph, section_id):
-    firebim = Namespace("http://example.com/firebim#")
-    section_uri = URIRef(f"http://example.com/firebim#Section_{section_id.replace('.', '_')}")
+    firebim = Namespace("https://ontology.firebim.be/ontology/fro#")
+    section_uri = URIRef(f"https://ontology.firebim.be/ontology/fro#Section_{section_id.replace('.', '_')}")
     original_text = document_graph.value(subject=section_uri, predicate=firebim.hasOriginalText)
     return str(original_text) if original_text else "Original text not found"
 
 def parse_section_references(shapes_graph):
-    firebim = Namespace("http://example.com/firebim#")
+    firebim = Namespace("https://ontology.firebim.be/ontology/fro#")
     ex = Namespace("http://example.org/")
     sh = Namespace("http://www.w3.org/ns/shacl#")
     section_refs = {}
@@ -139,7 +139,7 @@ def process_validation_results(results_graph, member_refs, section_refs, documen
     return processed_results, failed_nodes
 
 def parse_flowchart_nodes(results_graph, shapes_graph):
-    fbb = Namespace("http://example.com/firebimbuilding#")
+    fbb = Namespace("https://ontology.firebim.be/ontology/fbo#")
     sh = Namespace("http://www.w3.org/ns/shacl#")
     # Track nodes with their highest severity
     failed_nodes = {}  # Changed from set to dict to store severity

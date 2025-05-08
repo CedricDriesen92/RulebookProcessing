@@ -4,7 +4,7 @@
 fro:Section_4_2_2_5 a fro:Section ;
     fro:hasArticle fro:Article_4_2_2_5_1 ;
     fro:hasID "4.2.2.5" ;
-    fro:hasOriginalText """De <a href="http://example.com/firebimbuilding#Staircase">trappenhuizen</a> die de <a href="http://example.com/firebimbuilding#UndergroundFloor">ondergrondse bouwlagen</a> bedienen, mogen niet rechtstreeks het verlengde zijn van degene die de bouwlagen boven een <a href="http://example.com/firebimbuilding#EvacuationLevel">evacuatieniveau</a> bedienen.
+    fro:hasOriginalText """De <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuizen</a> die de <a href="https://ontology.firebim.be/ontology/fbo#UndergroundFloor">ondergrondse bouwlagen</a> bedienen, mogen niet rechtstreeks het verlengde zijn van degene die de bouwlagen boven een <a href="https://ontology.firebim.be/ontology/fbo#EvacuationLevel">evacuatieniveau</a> bedienen.
 Dit sluit niet uit dat het ene boven het andere mag liggen, mits volgende voorwaarden:"""@nl .
 
 fro:Article_4_2_2_5_1 a fro:Article ;
@@ -14,10 +14,10 @@ fro:Article_4_2_2_5_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_4_2_2_5_1_1 a fro:Member ;
-    fro:hasOriginalText "1. de <a href=\"http://example.com/firebimbuilding#Wall\">wanden</a> die ze scheiden hebben <a href=\"http://example.com/firebimbuilding#FireResistance\">EI 60</a>."@nl .
+    fro:hasOriginalText "1. de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> die ze scheiden hebben <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">EI 60</a>."@nl .
 
 fro:Member_4_2_2_5_1_2 a fro:Member ;
-    fro:hasOriginalText "2. de toegang tot ieder trappenhuis geschiedt via een <a href=\"http://example.com/firebimbuilding#Door\">zelfsluitende</a> of <a href=\"http://example.com/firebimbuilding#IsFireActivatedClosing\">bij brand zelfsluitende</a> <a href=\"http://example.com/firebimbuilding#Door\">deur</a> <a href=\"http://example.com/firebimbuilding#FireResistance\">EI1 30</a>."@nl .
+    fro:hasOriginalText "2. de toegang tot ieder trappenhuis geschiedt via een <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">zelfsluitende</a> of <a href=\"https://ontology.firebim.be/ontology/fbo#IsFireActivatedClosing\">bij brand zelfsluitende</a> <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deur</a> <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">EI1 30</a>."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

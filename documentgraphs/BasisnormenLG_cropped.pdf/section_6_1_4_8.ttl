@@ -9,12 +9,12 @@ fro:Article_6_1_4_8_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_1_4_8_1_1 a fro:Member ;
-    fro:hasOriginalText "- Punt 6.1.4.1: Enkel van toepassing op <a href=\"http://example.com/firebimbuilding#Elevator\">liften</a> die ontworpen of gemoderniseerd werden na 31 maart 2017."@nl .
+    fro:hasOriginalText "- Punt 6.1.4.1: Enkel van toepassing op <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a> die ontworpen of gemoderniseerd werden na 31 maart 2017."@nl .
 
 fro:Section_6_1_4_8 a fro:Section ;
     fro:hasArticle fro:Article_6_1_4_8_1 ;
     fro:hasID "6.1.4.8" ;
-    fro:hasOriginalText "Voor de <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> waarvoor de aanvraag voor de <a href=\"http://example.com/firebimbuilding#Building\">bouw</a> werd ingediend voor 1 april 2017, gelden de volgende afwijkende bepalingen:"@nl .
+    fro:hasOriginalText "Voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> waarvoor de aanvraag voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">bouw</a> werd ingediend voor 1 april 2017, gelden de volgende afwijkende bepalingen:"@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

@@ -9,7 +9,7 @@ fro:Section_6_7_4_2 a fro:Section ;
 
 fro:Article_6_7_4_2_1 a fro:Article ;
     fro:hasID "A6.7.4.2.1" ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#FireDamper\">brandwerende klep</a> geplaatst in de <a href=\"http://example.com/firebimbuilding#WallPenetration\">doorgangen van wanden</a> heeft volgende prestaties:"@nl ;
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">brandwerende klep</a> geplaatst in de <a href=\"https://ontology.firebim.be/ontology/fbo#WallPenetration\">doorgangen van wanden</a> heeft volgende prestaties:"@nl ;
     fro:hasTable fro:Table_2_4 ;
     fro:hasVersion fro:v0_1 .
 
@@ -20,28 +20,28 @@ fro:Article_6_7_4_2_2 a fro:Article ;
         fro:Member_6_7_4_2_2_3,
         fro:Member_6_7_4_2_2_4,
         fro:Member_6_7_4_2_2_5 ;
-    fro:hasOriginalText "Bij gebrek aan CE-markering voldoet de <a href=\"http://example.com/firebimbuilding#FireDamper\">klep</a> aan de volgende eisen:"@nl ;
+    fro:hasOriginalText "Bij gebrek aan CE-markering voldoet de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> aan de volgende eisen:"@nl ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_7_4_2_2_1 a fro:Member ;
     fro:hasID "M6.7.4.2.2.1" ;
-    fro:hasOriginalText "1. na 250 opeenvolgende cyclussen van openen en sluiten mag een <a href=\"http://example.com/firebimbuilding#FireDamper\">klep</a> van dezelfde fabricage nergens vervormd of beschadigd zijn;"@nl .
+    fro:hasOriginalText "1. na 250 opeenvolgende cyclussen van openen en sluiten mag een <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> van dezelfde fabricage nergens vervormd of beschadigd zijn;"@nl .
 
 fro:Member_6_7_4_2_2_2 a fro:Member ;
     fro:hasID "M6.7.4.2.2.2" ;
-    fro:hasOriginalText "2. de <a href=\"http://example.com/firebimbuilding#FireDamper\">klep</a> weerstaat aan de corrosieve atmosfeer waarin ze geplaatst is;"@nl .
+    fro:hasOriginalText "2. de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> weerstaat aan de corrosieve atmosfeer waarin ze geplaatst is;"@nl .
 
 fro:Member_6_7_4_2_2_3 a fro:Member ;
     fro:hasID "M6.7.4.2.2.3" ;
-    fro:hasOriginalText "3. geen enkele periodieke smering is vereist voor de goede werking van de <a href=\"http://example.com/firebimbuilding#FireDamper\">klep</a>;"@nl .
+    fro:hasOriginalText "3. geen enkele periodieke smering is vereist voor de goede werking van de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a>;"@nl .
 
 fro:Member_6_7_4_2_2_4 a fro:Member ;
     fro:hasID "M6.7.4.2.2.4" ;
-    fro:hasOriginalText "4. de <a href=\"http://example.com/firebimbuilding#FireDamper\">klepkast</a> bevat aan de bovenzijde een <a href=\"http://example.com/firebimbuilding#HasPositionIndicator\">klepstandaanwijzer</a> en een onuitwisbare pijl die de richting van de luchtstroom aanduidt. Een <a href=\"http://example.com/firebimbuilding#HasNameplate\">kenplaat</a> vermeldt de binnenafmetingen van de <a href=\"http://example.com/firebimbuilding#FireDamper\">klep</a>, de naam van de constructeur, het fabricagenummer en fabricagejaar; ze draagt tevens een goed zichtbaar en onuitwisbaar merkteken dat een <a href=\"http://example.com/firebimbuilding#FireAlarmDevice\">brandbeveiligingstoestel</a> aanduidt;"@nl .
+    fro:hasOriginalText "4. de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klepkast</a> bevat aan de bovenzijde een <a href=\"https://ontology.firebim.be/ontology/fbo#HasPositionIndicator\">klepstandaanwijzer</a> en een onuitwisbare pijl die de richting van de luchtstroom aanduidt. Een <a href=\"https://ontology.firebim.be/ontology/fbo#HasNameplate\">kenplaat</a> vermeldt de binnenafmetingen van de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a>, de naam van de constructeur, het fabricagenummer en fabricagejaar; ze draagt tevens een goed zichtbaar en onuitwisbaar merkteken dat een <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmDevice\">brandbeveiligingstoestel</a> aanduidt;"@nl .
 
 fro:Member_6_7_4_2_2_5 a fro:Member ;
     fro:hasID "M6.7.4.2.2.5" ;
-    fro:hasOriginalText "5. na werking van de <a href=\"http://example.com/firebimbuilding#FireDamper\">klep</a> moet ze terug kunnen uitgeschakeld worden."@nl .
+    fro:hasOriginalText "5. na werking van de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> moet ze terug kunnen uitgeschakeld worden."@nl .
 
 fro:Table_2_4 a fro:Table ;
     fro:hasID "T2.4" ;

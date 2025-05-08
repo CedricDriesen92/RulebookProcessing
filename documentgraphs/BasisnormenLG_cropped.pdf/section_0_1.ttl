@@ -11,17 +11,17 @@ fro:Article_0_1_1 a fro:Article ;
     fro:hasMember fro:Member_0_1_1_1,
         fro:Member_0_1_1_2,
         fro:Member_0_1_1_3 ;
-    fro:hasOriginalText "Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de <a href=\"http://example.com/firebimbuilding#Building\">bouw</a> en de inrichting van <a href=\"http://example.com/firebimbuilding#Building\">lage gebouwen</a> (LG) moeten voldoen om:"@nl ;
+    fro:hasOriginalText "Deze basisreglementering bepaalt de minimale eisen waaraan de opvatting, de <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">bouw</a> en de inrichting van <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">lage gebouwen</a> (LG) moeten voldoen om:"@nl ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_0_1_1_1 a fro:Member ;
-    fro:hasOriginalText "-    het ontstaan, de ontwikkeling en de voortplanting van <a href=\"http://example.com/firebimbuilding#Fire\">brand</a> te voorkomen;"@nl .
+    fro:hasOriginalText "-    het ontstaan, de ontwikkeling en de voortplanting van <a href=\"https://ontology.firebim.be/ontology/fbo#Fire\">brand</a> te voorkomen;"@nl .
 
 fro:Member_0_1_1_2 a fro:Member ;
-    fro:hasOriginalText "-    de <a href=\"http://example.com/firebimbuilding#OccupantSafety\">veiligheid van de aanwezigen</a> te waarborgen;"@nl .
+    fro:hasOriginalText "-    de <a href=\"https://ontology.firebim.be/ontology/fbo#OccupantSafety\">veiligheid van de aanwezigen</a> te waarborgen;"@nl .
 
 fro:Member_0_1_1_3 a fro:Member ;
-    fro:hasOriginalText "-    preventief het ingrijpen van de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a> te vergemakkelijken."@nl .
+    fro:hasOriginalText "-    preventief het ingrijpen van de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAction\">brandweer</a> te vergemakkelijken."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

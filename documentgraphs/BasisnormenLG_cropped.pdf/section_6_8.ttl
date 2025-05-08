@@ -12,7 +12,7 @@ fro:Article_6_8_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_8_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"http://example.com/firebimbuilding#FireAlarmDevice\">melding</a>, de <a href=\"http://example.com/firebimbuilding#WarningSystem\">waarschuwing</a>, het <a href=\"http://example.com/firebimbuilding#FireAlarmSystem\">alarm</a> en de <a href=\"http://example.com/firebimbuilding#FirefightingEquipment\">brandbestrijdingsmiddelen</a> worden bepaald in akkoord met de <a href=\"http://example.com/firebimbuilding#FirefighterAction\">brandweer</a>, volgens de volgende leidraad."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmDevice\">melding</a>, de <a href=\"https://ontology.firebim.be/ontology/fbo#WarningSystem\">waarschuwing</a>, het <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmSystem\">alarm</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefightingEquipment\">brandbestrijdingsmiddelen</a> worden bepaald in akkoord met de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAction\">brandweer</a>, volgens de volgende leidraad."@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

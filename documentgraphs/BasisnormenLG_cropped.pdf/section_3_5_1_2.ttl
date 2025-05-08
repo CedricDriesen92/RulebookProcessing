@@ -6,22 +6,22 @@ fro:Section_3_5_1 fro:hasSection fro:Section_3_5_1_2 .
 fro:Article_3_5_1_2_1 a fro:Article ;
     fro:hasID "A3.5.1.2.1" ;
     fro:hasMember fro:Member_3_5_1_2_1_1 ;
-    fro:hasOriginalText "Om te vermijden dat een <a href=\"http://example.com/firebimbuilding#FireSpreadPrevention\">brand</a> tussen twee <a href=\"http://example.com/firebimbuilding#Compartment\">compartimenten</a> kan overslaan:"@nl ;
+    fro:hasOriginalText "Om te vermijden dat een <a href=\"https://ontology.firebim.be/ontology/fbo#FireSpreadPrevention\">brand</a> tussen twee <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> kan overslaan:"@nl ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_3_5_1_2_1_1 a fro:Member ;
-    fro:hasOriginalText """a) ofwel, als <a href="http://example.com/firebimbuilding#Facade">gevels</a> tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de <a href="http://example.com/firebimbuilding#DistanceBetweenBuildings">afstand</a> (in m) tussen de <a href="http://example.com/firebimbuilding#Facade">geveldelen</a> die niet minstens E 30 of E 30 (o→i) hebben, ten minste:
+    fro:hasOriginalText """a) ofwel, als <a href="https://ontology.firebim.be/ontology/fbo#Facade">gevels</a> tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de <a href="https://ontology.firebim.be/ontology/fbo#DistanceBetweenBuildings">afstand</a> (in m) tussen de <a href="https://ontology.firebim.be/ontology/fbo#Facade">geveldelen</a> die niet minstens E 30 of E 30 (o→i) hebben, ten minste:
 
 - h + 10cos α voor 0° ≤ α ≤ 90°
 - 2,5
 - 0 voor 90° < α ≤ 180°
 
-waarbij α de ingesloten hoek is en h de <a href="http://example.com/firebimbuilding#BuildingHeight">hoogte van het gebouw</a> in m (zie plaat 2.2)."""@nl .
+waarbij α de ingesloten hoek is en h de <a href="https://ontology.firebim.be/ontology/fbo#BuildingHeight">hoogte van het gebouw</a> in m (zie plaat 2.2)."""@nl .
 
 fro:Section_3_5_1_2 a fro:Section ;
     fro:hasArticle fro:Article_3_5_1_2_1 ;
     fro:hasID "3.5.1.2" ;
-    fro:hasOriginalText "Tegenover elkaar staande <a href=\"http://example.com/firebimbuilding#Facade\">gevels</a> en <a href=\"http://example.com/firebimbuilding#Facade\">gevels</a> die een tweevlakshoek vormen"@nl .
+    fro:hasOriginalText "Tegenover elkaar staande <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevels</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevels</a> die een tweevlakshoek vormen"@nl .
 
 fro:v0_1 a fro:Version ;
     fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;

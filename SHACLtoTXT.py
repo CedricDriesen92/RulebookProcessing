@@ -3,8 +3,8 @@ from rdflib import Graph, Namespace, URIRef, RDFS
 from rdflib.namespace import RDF
 
 SH = Namespace("http://www.w3.org/ns/shacl#")
-FIREBIM = Namespace("http://example.com/firebim#")
-FBB = Namespace("http://example.com/firebimbuilding#")
+FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
+FBB = Namespace("https://ontology.firebim.be/ontology/fbo#")
 
 # Templates for common constraints
 CONSTRAINT_TEMPLATES = {
@@ -95,7 +95,7 @@ def describe_node_constraint(shapes_graph, ontology_graph, node_shape, indent=0)
     descriptions = []
 
     # Add rule source if present
-    rule_sources = list(shapes_graph.objects(node_shape, FIREBIM.rulesource))
+    rule_sources = list(shapes_graph.objects(node_shape, FRO.rulesource))
     if rule_sources:
         source_label = get_label(ontology_graph, rule_sources[0])
         descriptions.append(format_line(indent, f"Rule source: {source_label}"))
@@ -136,7 +136,7 @@ def describe_node_constraint(shapes_graph, ontology_graph, node_shape, indent=0)
                         if line and not line.startswith('FILTER'):
                             parts = line.split()
                             if len(parts) >= 3 and parts[1].startswith('fbb:'):
-                                prop_label = get_label(ontology_graph, URIRef("http://example.com/firebimbuilding#" + parts[1][4:]))
+                                prop_label = get_label(ontology_graph, URIRef("https://ontology.firebim.be/ontology/fbo#" + parts[1][4:]))
                                 descriptions.append(format_line(indent+3, f"{prop_label} must be {parts[2]}"))
                         elif line.startswith('FILTER'):
                             descriptions.append(format_line(indent+3, line))

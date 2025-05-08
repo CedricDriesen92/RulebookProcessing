@@ -4,7 +4,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@base <http://example.com/firebim> .
+@base <https://ontology.firebim.be/ontology/fro> .
 
 
 fro:Section_5_2_3 a fro:Section ;
@@ -18,8 +18,8 @@ fro:Article_5_2_3_1 a fro:Article ;
         fro:Member_5_2_3_1_2 .
 
 fro:Member_5_2_3_1_1 a fro:Member ;
-    fro:hasOriginalText """In afwijking van het punt 1.3 moeten de <a href=\"http://example.com/firebimbuilding#Parking\">parkings</a> van aangrenzende <a href=\"http://example.com/firebimbuilding#Building\">gebouwen</a> niet door een <a href=\"http://example.com/firebimbuilding#Wall\">wand</a> worden afgescheiden. Die <a href=\"http://example.com/firebimbuilding#Parking\">parkings</a> vormen bijgevolg slechts één en dezelfde <a href=\"http://example.com/firebimbuilding#Parking\">parking</a>."""@nl ;
+    fro:hasOriginalText """In afwijking van het punt 1.3 moeten de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parkings</a> van aangrenzende <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> niet door een <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> worden afgescheiden. Die <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parkings</a> vormen bijgevolg slechts één en dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a>."""@nl ;
     fro:hasBackwardReference fro:Section_1_3 .
 
 fro:Member_5_2_3_1_2 a fro:Member ;
-    fro:hasOriginalText """In dat geval hebben de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van de gehele <a href=\"http://example.com/firebimbuilding#Parking\">parking</a> <a href=\"http://example.com/firebimbuilding#FireResistance\">R 120</a>, met inbegrip van de <a href=\"http://example.com/firebimbuilding#StructuralElement\">structurele elementen</a> van de <a href=\"http://example.com/firebimbuilding#OpenParking\">open parkeerbouwlagen</a>."""@nl .
+    fro:hasOriginalText """In dat geval hebben de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> van de gehele <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">R 120</a>, met inbegrip van de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#OpenParking\">open parkeerbouwlagen</a>."""@nl .
