@@ -162,37 +162,6 @@ def describe_constraints_on_shape(shapes_graph, ontology_graph, shape_uri, inden
             descriptions.append(format_line(indent_level + 1, "The following conditions must NOT be met:"))
             descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, not_shapes[0], indent_level + 2, is_property_context=False))
             processed_constraints.add(SH["not"])
-
-    # Conditional Constraints (sh:if, sh:then, sh:else)
-    if_condition_shapes = list(shapes_graph.objects(shape_uri, SH["if"]))
-    if if_condition_shapes and SH["if"] not in processed_constraints:
-        if_shape_to_describe = if_condition_shapes[0]
-        descriptions.append(format_line(indent_level + 1, "IF the following conditions hold for the current context/value:"))
-        if list(shapes_graph.objects(if_shape_to_describe, SH.path)):
-            descriptions.extend(describe_property_constraints(shapes_graph, ontology_graph, if_shape_to_describe, indent_level + 2))
-        else:
-            descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, if_shape_to_describe, indent_level + 2, is_property_context=False))
-        processed_constraints.add(SH["if"])
-
-        then_shapes = list(shapes_graph.objects(shape_uri, SH["then"]))
-        if then_shapes:
-            then_shape_to_describe = then_shapes[0]
-            descriptions.append(format_line(indent_level + 1, "THEN the following constraints apply:"))
-            if list(shapes_graph.objects(then_shape_to_describe, SH.path)):
-                 descriptions.extend(describe_property_constraints(shapes_graph, ontology_graph, then_shape_to_describe, indent_level + 2))
-            else:
-                 descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, then_shape_to_describe, indent_level + 2, is_property_context=False))
-            processed_constraints.add(SH["then"])
-
-        else_shapes = list(shapes_graph.objects(shape_uri, SH["else"]))
-        if else_shapes:
-            else_shape_to_describe = else_shapes[0]
-            descriptions.append(format_line(indent_level + 1, "ELSE (if the IF conditions are not met) the following constraints apply:"))
-            if list(shapes_graph.objects(else_shape_to_describe, SH.path)):
-                 descriptions.extend(describe_property_constraints(shapes_graph, ontology_graph, else_shape_to_describe, indent_level + 2))
-            else:
-                 descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, else_shape_to_describe, indent_level + 2, is_property_context=False))
-            processed_constraints.add(SH["else"])
         
     # 3. Node Constraints (sh:node - links to another shape)
     if SH.node not in processed_constraints:
