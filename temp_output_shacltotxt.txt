@@ -1,0 +1,33 @@
+
+--- Constraints for NodeShape: SHACL Shape for Article 2.1.1 - Compartment Area/Length/Equipment ---
+Shape: SHACL Shape for Article 2.1.1 - Compartment Area/Length/Equipment
+	Applies to instances of: Compartment
+		- AT LEAST ONE of the following must be true:
+			• Option 1:
+				◆ (Comment: Compartment is a Parking, specific area rules from Art 2.1.1 do not apply (see 5.2).)
+				◆ Must be an instance of Parking.
+			• Option 2:
+				◆ (Comment: Non-parking compartment fails validation against Art 2.1.1 conditions (standard limit, ground-floor single comp. limit, or equipped exception).)
+					◇ AT LEAST ONE of the following must be true:
+						- Option 1:
+							• (Comment: Standard compartment area must be present and < 2500 m².)
+								◆ Property 'hasArea' must appear at least 1 time(s).
+								◆ Property 'hasArea' must be of datatype a Decimal.
+								◆ Property 'hasArea' must be less than 2500.0.
+						- Option 2:
+							• (Comment: Compartment meets limits potentially applicable to single ground-floor context (Area <= 3500 m², Length <= 90 m).)
+								◆ Property 'hasArea' must appear at least 1 time(s).
+								◆ Property 'hasArea' must be of datatype a Decimal.
+								◆ Property 'hasArea' must be at most 3500.0.
+								◆ Property 'hasLength' must appear at least 1 time(s).
+								◆ Property 'hasLength' must be of datatype a Decimal.
+								◆ Property 'hasLength' must be at most 90.0.
+						- Option 3:
+							• (Comment: Compartment area/length limits potentially exceeded, but meets equipment exception (Extinguishing + Smoke/Heat).)
+								◆ Property 'hasAutomaticExtinguishingSystem' must appear at least 1 time(s).
+								◆ Property 'hasAutomaticExtinguishingSystem' must be exactly true.
+								◆ Property 'hasSmokeAndHeatEvacuationSystem' must appear at least 1 time(s).
+								◆ Property 'hasSmokeAndHeatEvacuationSystem' must be exactly true.
+					◇ The following conditions must NOT be met:
+						- Must be an instance of Parking.
+
