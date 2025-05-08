@@ -1,7 +1,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@prefix fbbo: <http://example.com/fbbo#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
 @prefix bot: <https://w3id.org/bot#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -30,11 +30,11 @@
 @prefix wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix fbbo-BE: <http://example.com/fbbo-BE#> .
-@prefix fbbo-DK: <http://example.com/fbbo-DK#> .
-@prefix fbbo-INT: <http://example.com/fbbo-INT#> .
-@prefix fbbo-NL: <http://example.com/fbbo-NL#> .
-@prefix fbbo-PT: <http://example.com/fbbo-PT#> .
+@prefix fbo-BE: <https://ontology.firebim.be/ontology/fbo-BE#> .
+@prefix fbo-DK: <https://ontology.firebim.be/ontology/fbo-DK#> .
+@prefix fbo-INT: <https://ontology.firebim.be/ontology/fbo-INT#> .
+@prefix fbo-NL: <https://ontology.firebim.be/ontology/fbo-NL#> .
+@prefix fbo-PT: <https://ontology.firebim.be/ontology/fbo-PT#> .
 @prefix ifc: <http://ifcowl.openbimstandards.org/IFC4#> .
 
 # Shape associated with Article 2.2.2.1

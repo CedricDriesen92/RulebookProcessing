@@ -129,23 +129,23 @@ def create_ontology():
     g = Graph()
     
     # Define namespaces
-    FBBO = Namespace("http://example.com/fbbo#")  # General FireBIM Building Ontology
+    FBO = Namespace("https://ontology.firebim.be/ontology/fbo#")  # General FireBIM Building Ontology
     # Country-specific namespaces
-    FBBO_BE = Namespace("http://example.com/fbbo-BE#")
-    FBBO_NL = Namespace("http://example.com/fbbo-NL#")
-    FBBO_DK = Namespace("http://example.com/fbbo-DK#")
-    FBBO_PT = Namespace("http://example.com/fbbo-PT#")
-    FBBO_INT = Namespace("http://example.com/fbbo-INT#")  # International
+    FBO_BE = Namespace("https://ontology.firebim.be/ontology/fbo-BE#")
+    FBO_NL = Namespace("https://ontology.firebim.be/ontology/fbo-NL#")
+    FBO_DK = Namespace("https://ontology.firebim.be/ontology/fbo-DK#")
+    FBO_PT = Namespace("https://ontology.firebim.be/ontology/fbo-PT#")
+    FBO_INT = Namespace("https://ontology.firebim.be/ontology/fbo-INT#")  # International
     
     BOT = Namespace("https://w3id.org/bot#")
     IFC = Namespace("http://ifcowl.openbimstandards.org/IFC4#")
     
-    g.bind("fbbo", FBBO)
-    g.bind("fbbo-BE", FBBO_BE)
-    g.bind("fbbo-NL", FBBO_NL)
-    g.bind("fbbo-DK", FBBO_DK)
-    g.bind("fbbo-PT", FBBO_PT)
-    g.bind("fbbo-INT", FBBO_INT)
+    g.bind("fbo", FBO)
+    g.bind("fbo-BE", FBO_BE)
+    g.bind("fbo-NL", FBO_NL)
+    g.bind("fbo-DK", FBO_DK)
+    g.bind("fbo-PT", FBO_PT)
+    g.bind("fbo-INT", FBO_INT)
     g.bind("bot", BOT)
     g.bind("owl", OWL)
     g.bind("rdfs", RDFS)
@@ -153,114 +153,114 @@ def create_ontology():
     g.bind("rdf", RDF)
     
     # Create FireBIM ontology class
-    g.add((FBBO.FireBIMOntology, RDF.type, OWL.Ontology))
-    g.add((FBBO.FireBIMOntology, RDFS.label, Literal("FireBIM Building Ontology")))
+    g.add((FBO.FireBIMOntology, RDF.type, OWL.Ontology))
+    g.add((FBO.FireBIMOntology, RDFS.label, Literal("FireBIM Building Ontology")))
     
     # Create country-specific ontologies
-    g.add((FBBO_BE.FireBIMOntology, RDF.type, OWL.Ontology))
-    g.add((FBBO_BE.FireBIMOntology, RDFS.label, Literal("FireBIM Building Ontology - Belgium")))
-    g.add((FBBO_BE.FireBIMOntology, OWL.imports, FBBO.FireBIMOntology))
+    g.add((FBO_BE.FireBIMOntology, RDF.type, OWL.Ontology))
+    g.add((FBO_BE.FireBIMOntology, RDFS.label, Literal("FireBIM Building Ontology - Belgium")))
+    g.add((FBO_BE.FireBIMOntology, OWL.imports, FBO.FireBIMOntology))
     
-    g.add((FBBO_NL.FireBIMOntology, RDF.type, OWL.Ontology))
-    g.add((FBBO_NL.FireBIMOntology, RDFS.label, Literal("FireBIM Building Ontology - Netherlands")))
-    g.add((FBBO_NL.FireBIMOntology, OWL.imports, FBBO.FireBIMOntology))
+    g.add((FBO_NL.FireBIMOntology, RDF.type, OWL.Ontology))
+    g.add((FBO_NL.FireBIMOntology, RDFS.label, Literal("FireBIM Building Ontology - Netherlands")))
+    g.add((FBO_NL.FireBIMOntology, OWL.imports, FBO.FireBIMOntology))
     
-    g.add((FBBO_DK.FireBIMOntology, RDF.type, OWL.Ontology))
-    g.add((FBBO_DK.FireBIMOntology, RDFS.label, Literal("FireBIM Building Ontology - Denmark")))
-    g.add((FBBO_DK.FireBIMOntology, OWL.imports, FBBO.FireBIMOntology))
+    g.add((FBO_DK.FireBIMOntology, RDF.type, OWL.Ontology))
+    g.add((FBO_DK.FireBIMOntology, RDFS.label, Literal("FireBIM Building Ontology - Denmark")))
+    g.add((FBO_DK.FireBIMOntology, OWL.imports, FBO.FireBIMOntology))
     
-    g.add((FBBO_PT.FireBIMOntology, RDF.type, OWL.Ontology))
-    g.add((FBBO_PT.FireBIMOntology, RDFS.label, Literal("FireBIM Building Ontology - Portugal")))
-    g.add((FBBO_PT.FireBIMOntology, OWL.imports, FBBO.FireBIMOntology))
+    g.add((FBO_PT.FireBIMOntology, RDF.type, OWL.Ontology))
+    g.add((FBO_PT.FireBIMOntology, RDFS.label, Literal("FireBIM Building Ontology - Portugal")))
+    g.add((FBO_PT.FireBIMOntology, OWL.imports, FBO.FireBIMOntology))
     
-    g.add((FBBO_INT.FireBIMOntology, RDF.type, OWL.Ontology))
-    g.add((FBBO_INT.FireBIMOntology, RDFS.label, Literal("FireBIM Building Ontology - International")))
-    g.add((FBBO_INT.FireBIMOntology, OWL.imports, FBBO.FireBIMOntology))
+    g.add((FBO_INT.FireBIMOntology, RDF.type, OWL.Ontology))
+    g.add((FBO_INT.FireBIMOntology, RDFS.label, Literal("FireBIM Building Ontology - International")))
+    g.add((FBO_INT.FireBIMOntology, OWL.imports, FBO.FireBIMOntology))
     
     # Define all custom properties in the ontology
     print("Defining ontology properties...")
     
     # Define isLinkedTo property (bidirectional with hasProperty)
-    g.add((FBBO.isLinkedTo, RDF.type, OWL.ObjectProperty))
-    g.add((FBBO.isLinkedTo, RDFS.label, Literal("is linked to", lang="en")))
-    g.add((FBBO.isLinkedTo, RDFS.comment, Literal("Links a property to an object it describes", lang="en")))
-    g.add((FBBO.isLinkedTo, OWL.inverseOf, FBBO.hasProperty))
+    g.add((FBO.isLinkedTo, RDF.type, OWL.ObjectProperty))
+    g.add((FBO.isLinkedTo, RDFS.label, Literal("is linked to", lang="en")))
+    g.add((FBO.isLinkedTo, RDFS.comment, Literal("Links a property to an object it describes", lang="en")))
+    g.add((FBO.isLinkedTo, OWL.inverseOf, FBO.hasProperty))
     
     # Define hasProperty property
-    g.add((FBBO.hasProperty, RDF.type, OWL.ObjectProperty))
-    g.add((FBBO.hasProperty, RDFS.label, Literal("has property", lang="en")))
-    g.add((FBBO.hasProperty, RDFS.comment, Literal("Links an object to a property that describes it", lang="en")))
+    g.add((FBO.hasProperty, RDF.type, OWL.ObjectProperty))
+    g.add((FBO.hasProperty, RDFS.label, Literal("has property", lang="en")))
+    g.add((FBO.hasProperty, RDFS.comment, Literal("Links an object to a property that describes it", lang="en")))
     
     # Define hasDefinition property
-    g.add((FBBO.hasDefinition, RDF.type, OWL.DatatypeProperty))
-    g.add((FBBO.hasDefinition, RDFS.label, Literal("has definition", lang="en")))
-    g.add((FBBO.hasDefinition, RDFS.comment, Literal("Links an entity to its definition", lang="en")))
+    g.add((FBO.hasDefinition, RDF.type, OWL.DatatypeProperty))
+    g.add((FBO.hasDefinition, RDFS.label, Literal("has definition", lang="en")))
+    g.add((FBO.hasDefinition, RDFS.comment, Literal("Links an entity to its definition", lang="en")))
     
     # Define hasISODefinition property
-    g.add((FBBO.hasISODefinition, RDF.type, OWL.DatatypeProperty))
-    g.add((FBBO.hasISODefinition, RDFS.label, Literal("has ISO definition", lang="en")))
-    g.add((FBBO.hasISODefinition, RDFS.comment, Literal("Links an entity to its ISO definition", lang="en")))
-    g.add((FBBO.hasISODefinition, RDFS.subPropertyOf, FBBO.hasDefinition))
+    g.add((FBO.hasISODefinition, RDF.type, OWL.DatatypeProperty))
+    g.add((FBO.hasISODefinition, RDFS.label, Literal("has ISO definition", lang="en")))
+    g.add((FBO.hasISODefinition, RDFS.comment, Literal("Links an entity to its ISO definition", lang="en")))
+    g.add((FBO.hasISODefinition, RDFS.subPropertyOf, FBO.hasDefinition))
     
     # Define hasUnit property
-    g.add((FBBO.hasUnit, RDF.type, OWL.DatatypeProperty))
-    g.add((FBBO.hasUnit, RDFS.label, Literal("has unit", lang="en")))
-    g.add((FBBO.hasUnit, RDFS.comment, Literal("Specifies the unit of measurement for a property", lang="en")))
+    g.add((FBO.hasUnit, RDF.type, OWL.DatatypeProperty))
+    g.add((FBO.hasUnit, RDFS.label, Literal("has unit", lang="en")))
+    g.add((FBO.hasUnit, RDFS.comment, Literal("Specifies the unit of measurement for a property", lang="en")))
     
     # Define hasDomain property
-    g.add((FBBO.hasDomain, RDF.type, OWL.DatatypeProperty))
-    g.add((FBBO.hasDomain, RDFS.label, Literal("has domain", lang="en")))
-    g.add((FBBO.hasDomain, RDFS.comment, Literal("Specifies the domain an entity belongs to", lang="en")))
+    g.add((FBO.hasDomain, RDF.type, OWL.DatatypeProperty))
+    g.add((FBO.hasDomain, RDFS.label, Literal("has domain", lang="en")))
+    g.add((FBO.hasDomain, RDFS.comment, Literal("Specifies the domain an entity belongs to", lang="en")))
     
     # Define hasRemark property
-    g.add((FBBO.hasRemark, RDF.type, OWL.DatatypeProperty))
-    g.add((FBBO.hasRemark, RDFS.label, Literal("has remark", lang="en")))
-    g.add((FBBO.hasRemark, RDFS.comment, Literal("Additional remarks about an entity", lang="en")))
+    g.add((FBO.hasRemark, RDF.type, OWL.DatatypeProperty))
+    g.add((FBO.hasRemark, RDFS.label, Literal("has remark", lang="en")))
+    g.add((FBO.hasRemark, RDFS.comment, Literal("Additional remarks about an entity", lang="en")))
     
     # Define hasType property
-    g.add((FBBO.hasType, RDF.type, OWL.DatatypeProperty))
-    g.add((FBBO.hasType, RDFS.label, Literal("has type", lang="en")))
-    g.add((FBBO.hasType, RDFS.comment, Literal("Specifies the type of a property", lang="en")))
+    g.add((FBO.hasType, RDF.type, OWL.DatatypeProperty))
+    g.add((FBO.hasType, RDFS.label, Literal("has type", lang="en")))
+    g.add((FBO.hasType, RDFS.comment, Literal("Specifies the type of a property", lang="en")))
     
     # Define hasValueType property
-    g.add((FBBO.hasValueType, RDF.type, OWL.DatatypeProperty))
-    g.add((FBBO.hasValueType, RDFS.label, Literal("has value type", lang="en")))
-    g.add((FBBO.hasValueType, RDFS.comment, Literal("Specifies the data type of a property's value", lang="en")))
+    g.add((FBO.hasValueType, RDF.type, OWL.DatatypeProperty))
+    g.add((FBO.hasValueType, RDFS.label, Literal("has value type", lang="en")))
+    g.add((FBO.hasValueType, RDFS.comment, Literal("Specifies the data type of a property's value", lang="en")))
     
     # Define hasCountryCode property
-    g.add((FBBO.hasCountryCode, RDF.type, OWL.DatatypeProperty))
-    g.add((FBBO.hasCountryCode, RDFS.label, Literal("has country code", lang="en")))
-    g.add((FBBO.hasCountryCode, RDFS.comment, Literal("Specifies the country an entity is associated with", lang="en")))
+    g.add((FBO.hasCountryCode, RDF.type, OWL.DatatypeProperty))
+    g.add((FBO.hasCountryCode, RDFS.label, Literal("has country code", lang="en")))
+    g.add((FBO.hasCountryCode, RDFS.comment, Literal("Specifies the country an entity is associated with", lang="en")))
     
     # Define hasRegion property
-    g.add((FBBO.hasRegion, RDF.type, OWL.DatatypeProperty))
-    g.add((FBBO.hasRegion, RDFS.label, Literal("has region", lang="en")))
-    g.add((FBBO.hasRegion, RDFS.comment, Literal("Specifies the region within a country", lang="en")))
+    g.add((FBO.hasRegion, RDF.type, OWL.DatatypeProperty))
+    g.add((FBO.hasRegion, RDFS.label, Literal("has region", lang="en")))
+    g.add((FBO.hasRegion, RDFS.comment, Literal("Specifies the region within a country", lang="en")))
     
     # Define hasIFCEntity property
-    g.add((FBBO.hasIFCEntity, RDF.type, OWL.DatatypeProperty))
-    g.add((FBBO.hasIFCEntity, RDFS.label, Literal("has IFC entity", lang="en")))
-    g.add((FBBO.hasIFCEntity, RDFS.comment, Literal("Specifies the IFC entity name", lang="en")))
+    g.add((FBO.hasIFCEntity, RDF.type, OWL.DatatypeProperty))
+    g.add((FBO.hasIFCEntity, RDFS.label, Literal("has IFC entity", lang="en")))
+    g.add((FBO.hasIFCEntity, RDFS.comment, Literal("Specifies the IFC entity name", lang="en")))
     
     # Define correspondsToIFC property
-    g.add((FBBO.correspondsToIFC, RDF.type, OWL.ObjectProperty))
-    g.add((FBBO.correspondsToIFC, RDFS.label, Literal("corresponds to IFC", lang="en")))
-    g.add((FBBO.correspondsToIFC, RDFS.comment, Literal("Links to the corresponding IFC entity", lang="en")))
+    g.add((FBO.correspondsToIFC, RDF.type, OWL.ObjectProperty))
+    g.add((FBO.correspondsToIFC, RDFS.label, Literal("corresponds to IFC", lang="en")))
+    g.add((FBO.correspondsToIFC, RDFS.comment, Literal("Links to the corresponding IFC entity", lang="en")))
     
     # Define hasISOTermLink property
-    g.add((FBBO.hasISOTermLink, RDF.type, OWL.ObjectProperty))
-    g.add((FBBO.hasISOTermLink, RDFS.label, Literal("has ISO term link", lang="en")))
-    g.add((FBBO.hasISOTermLink, RDFS.comment, Literal("Links to the ISO term definition", lang="en")))
+    g.add((FBO.hasISOTermLink, RDF.type, OWL.ObjectProperty))
+    g.add((FBO.hasISOTermLink, RDFS.label, Literal("has ISO term link", lang="en")))
+    g.add((FBO.hasISOTermLink, RDFS.comment, Literal("Links to the ISO term definition", lang="en")))
     
     # Define hasBSDDLink property
-    g.add((FBBO.hasBSDDLink, RDF.type, OWL.ObjectProperty))
-    g.add((FBBO.hasBSDDLink, RDFS.label, Literal("has bSDD link", lang="en")))
-    g.add((FBBO.hasBSDDLink, RDFS.comment, Literal("Links to the buildingSMART Data Dictionary entry", lang="en")))
+    g.add((FBO.hasBSDDLink, RDF.type, OWL.ObjectProperty))
+    g.add((FBO.hasBSDDLink, RDFS.label, Literal("has bSDD link", lang="en")))
+    g.add((FBO.hasBSDDLink, RDFS.comment, Literal("Links to the buildingSMART Data Dictionary entry", lang="en")))
     
     # Define hasBIMidsLink property
-    g.add((FBBO.hasBIMidsLink, RDF.type, OWL.ObjectProperty))
-    g.add((FBBO.hasBIMidsLink, RDFS.label, Literal("has BIMids link", lang="en")))
-    g.add((FBBO.hasBIMidsLink, RDFS.comment, Literal("Links to the BIMids.eu entry", lang="en")))
+    g.add((FBO.hasBIMidsLink, RDF.type, OWL.ObjectProperty))
+    g.add((FBO.hasBIMidsLink, RDFS.label, Literal("has BIMids link", lang="en")))
+    g.add((FBO.hasBIMidsLink, RDFS.comment, Literal("Links to the BIMids.eu entry", lang="en")))
     
     # First, get all countries to use for URI creation
     print("Fetching countries data...")
@@ -281,15 +281,15 @@ def create_ontology():
     # Function to get the appropriate namespace based on country code
     def get_country_namespace(country_code):
         if country_code == "BE":
-            return FBBO_BE
+            return FBO_BE
         elif country_code == "NL":
-            return FBBO_NL
+            return FBO_NL
         elif country_code == "DK":
-            return FBBO_DK
+            return FBO_DK
         elif country_code == "PT":
-            return FBBO_PT
+            return FBO_PT
         else:
-            return FBBO_INT
+            return FBO_INT
     
     # First pass: Create a mapping of object IDs to their URIs and collect parent-child relationships
     print("Building object URI mapping...")
@@ -314,8 +314,8 @@ def create_ontology():
         # Create normalized name (without country code)
         normalized_name = normalize_name(name_en)
         
-        # Create general concept URI (in the FBBO namespace)
-        general_uri = URIRef(FBBO[normalized_name])
+        # Create general concept URI (in the FBO namespace)
+        general_uri = URIRef(FBO[normalized_name])
         
         # Create country-specific URI in the appropriate namespace
         country_ns = get_country_namespace(country_code)
@@ -361,7 +361,7 @@ def create_ontology():
         normalized_name = normalize_name("property_" + name_en)
         
         # Create general property URI
-        general_property_uri = URIRef(FBBO[normalized_name])
+        general_property_uri = URIRef(FBO[normalized_name])
         
         # Create country-specific property URI
         country_ns = get_country_namespace(country_code)
@@ -384,47 +384,47 @@ def create_ontology():
         # Add definitions with appropriate language tags directly to the property
         definition_en = get_rich_text_content(props.get("Definition (English)"))
         if definition_en:
-            g.add((property_uri, FBBO.hasDefinition, Literal(definition_en, lang="en")))
+            g.add((property_uri, FBO.hasDefinition, Literal(definition_en, lang="en")))
         
         definition_native = get_rich_text_content(props.get("Definition (Native Language)"))
         if definition_native:
-            g.add((property_uri, FBBO.hasDefinition, Literal(definition_native, lang=language)))
+            g.add((property_uri, FBO.hasDefinition, Literal(definition_native, lang=language)))
         
         # Add unit if available
         unit = get_rich_text_content(props.get("Unit"))
         if unit:
-            g.add((property_uri, FBBO.hasUnit, Literal(unit)))
+            g.add((property_uri, FBO.hasUnit, Literal(unit)))
         
         # Add domain if available
         domain = get_rich_text_content(props.get("Domain"))
         if domain:
-            g.add((property_uri, FBBO.hasDomain, Literal(domain)))
+            g.add((property_uri, FBO.hasDomain, Literal(domain)))
         
         # Add remark if available
         remark = get_rich_text_content(props.get("Remark"))
         if remark:
-            g.add((property_uri, FBBO.hasRemark, Literal(remark)))
+            g.add((property_uri, FBO.hasRemark, Literal(remark)))
         
         # Add type information
         prop_type = get_select_value(props.get("Type"))
         if prop_type:
-            g.add((property_uri, FBBO.hasType, Literal(prop_type)))
+            g.add((property_uri, FBO.hasType, Literal(prop_type)))
         
         # Add value type if available
         value_type = get_select_value(props.get("Value"))
         if value_type:
-            g.add((property_uri, FBBO.hasValueType, Literal(value_type)))
+            g.add((property_uri, FBO.hasValueType, Literal(value_type)))
         
         # Add "property is linked to" relationships
         linked_object_ids = get_relation_ids(props.get("Property is linked to"))
         for linked_id in linked_object_ids:
             if linked_id in object_id_to_uri:
                 linked_uri = object_id_to_uri[linked_id]
-                g.add((property_uri, FBBO.isLinkedTo, linked_uri))
+                g.add((property_uri, FBO.isLinkedTo, linked_uri))
         
         # Add country information
         if country_code != "INT":
-            g.add((property_uri, FBBO.hasCountryCode, Literal(country_code)))
+            g.add((property_uri, FBO.hasCountryCode, Literal(country_code)))
     
     # Process objects - first pass to assign BOT types to top-level objects
     print("Fetching objects data...")
@@ -463,7 +463,7 @@ def create_ontology():
         
         # Add country information if not international
         if country_code != "INT":
-            g.add((country_uri, FBBO.hasCountryCode, Literal(country_code)))
+            g.add((country_uri, FBO.hasCountryCode, Literal(country_code)))
         
         # Check if this is a top-level object (no parent)
         is_top_level = object_id not in [child_id for child_ids in parent_child_relations.values() for child_id in child_ids]
@@ -492,12 +492,12 @@ def create_ontology():
         # Add ISO definition with language tag
         iso_definition = get_rich_text_content(props.get("ISO Definition"))
         if iso_definition:
-            g.add((country_uri, FBBO.hasISODefinition, Literal(iso_definition, lang="en")))
+            g.add((country_uri, FBO.hasISODefinition, Literal(iso_definition, lang="en")))
         
         # Add English definition with language tag
         definition_en = get_rich_text_content(props.get("Definition (English)"))
         if definition_en:
-            g.add((country_uri, FBBO.hasDefinition, Literal(definition_en, lang="en")))
+            g.add((country_uri, FBO.hasDefinition, Literal(definition_en, lang="en")))
         
         # Add native definition with language tag
         definition_native = get_rich_text_content(props.get("Definition (Native Language)"))
@@ -513,12 +513,12 @@ def create_ontology():
             elif country_code == "NL":
                 lang_tag = "nl-NL"
             
-            g.add((country_uri, FBBO.hasDefinition, Literal(definition_native, lang=lang_tag)))
+            g.add((country_uri, FBO.hasDefinition, Literal(definition_native, lang=lang_tag)))
         
         # Add IFC mapping if available
         ifc_entity = get_rich_text_content(props.get("Entity (IFC4)"))
         if ifc_entity:
-            g.add((country_uri, FBBO.hasIFCEntity, Literal(ifc_entity)))
+            g.add((country_uri, FBO.hasIFCEntity, Literal(ifc_entity)))
             
             # Handle multiple IFC entities (comma-separated)
             ifc_entities = [e.strip() for e in ifc_entity.split(',')]
@@ -527,27 +527,27 @@ def create_ontology():
                 ifc_class = entity.split('.')[0] if '.' in entity else entity
                 # Create a reference to the IFC entity
                 ifc_ref = URIRef(IFC[ifc_class])
-                g.add((country_uri, FBBO.correspondsToIFC, ifc_ref))
+                g.add((country_uri, FBO.correspondsToIFC, ifc_ref))
         
         # Add ISO Term link if available
         iso_term_url = props.get("ISO Term", {}).get("url")
         if iso_term_url:
-            g.add((country_uri, FBBO.hasISOTermLink, URIRef(iso_term_url)))
+            g.add((country_uri, FBO.hasISOTermLink, URIRef(iso_term_url)))
         
         # Add bSDD link if available
         bsdd_url = props.get("bSDD", {}).get("url")
         if bsdd_url:
-            g.add((country_uri, FBBO.hasBSDDLink, URIRef(bsdd_url)))
+            g.add((country_uri, FBO.hasBSDDLink, URIRef(bsdd_url)))
         
         # Add BIMids.eu link if available
         bimids_url = props.get("BIMids.eu", {}).get("url")
         if bimids_url:
-            g.add((country_uri, FBBO.hasBIMidsLink, URIRef(bimids_url)))
+            g.add((country_uri, FBO.hasBIMidsLink, URIRef(bimids_url)))
         
         # Add remark if available
         remark = get_rich_text_content(props.get("Remark"))
         if remark:
-            g.add((country_uri, FBBO.hasRemark, Literal(remark)))
+            g.add((country_uri, FBO.hasRemark, Literal(remark)))
     
     # Process parent-child relationships
     for child_id, parent_ids in parent_child_relations.items():

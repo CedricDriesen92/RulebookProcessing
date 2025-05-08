@@ -59,7 +59,7 @@ print(f"SHACL output directory: {shacl_output_dir}")
 
 # --- Namespaces ---
 FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
-# Add other namespaces if needed (FBBO, SHACL, etc.)
+# Add other namespaces if needed (FBO, SHACL, etc.)
 SH = Namespace("http://www.w3.org/ns/shacl#")
 
 # --- Helper Functions ---
@@ -356,7 +356,7 @@ def generate_shacl_from_rase(rase_annotated_rule: str, rule_subject_uri: str, bu
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix fro: <{FRO}> .
-# Add other prefixes (FBBO, INST, etc.)
+# Add other prefixes (FBO, INST, etc.)
 
 # SHACL Shape derived from inline RASE annotated text for {rule_subject_uri}
 # Outer RASE tag detected: {outer_tag}

@@ -9,12 +9,12 @@ from typing import List, Tuple, Dict
 import unicodedata
 
 # Define namespaces
-FBBO = Namespace("http://example.com/fbbo#")  # General FireBIM Building Ontology
-FBBO_BE = Namespace("http://example.com/fbbo-BE#")
-FBBO_NL = Namespace("http://example.com/fbbo-NL#")
-FBBO_DK = Namespace("http://example.com/fbbo-DK#")
-FBBO_PT = Namespace("http://example.com/fbbo-PT#")
-FBBO_INT = Namespace("http://example.com/fbbo-INT#")  # International
+FBO = Namespace("https://ontology.firebim.be/ontology/fbo#")  # General FireBIM Building Ontology
+FBO_BE = Namespace("https://ontology.firebim.be/ontology/fbo-BE#")
+FBO_NL = Namespace("https://ontology.firebim.be/ontology/fbo-NL#")
+FBO_DK = Namespace("https://ontology.firebim.be/ontology/fbo-DK#")
+FBO_PT = Namespace("https://ontology.firebim.be/ontology/fbo-PT#")
+FBO_INT = Namespace("https://ontology.firebim.be/ontology/fbo-INT#")  # International
 
 BOT = Namespace("https://w3id.org/bot#")
 BPO = Namespace("https://w3id.org/bpo#")
@@ -26,15 +26,15 @@ FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
 # Function to get the appropriate namespace based on country code
 def get_country_namespace(country_code):
     if country_code == "BE":
-        return FBBO_BE
+        return FBO_BE
     elif country_code == "NL":
-        return FBBO_NL
+        return FBO_NL
     elif country_code == "DK":
-        return FBBO_DK
+        return FBO_DK
     elif country_code == "PT":
-        return FBBO_PT
+        return FBO_PT
     else:
-        return FBBO_INT
+        return FBO_INT
 
 # Load the FireBIM ontology
 def load_firebim_ontology(ontology_path="buildingontologies/firebim_ontology_notion.ttl", preferred_country="BE"):
@@ -77,15 +77,15 @@ def build_ifc_bot_mapping(ontology_graph, preferred_country="BE"):
     # Query for objects that have an IFC entity mapping
     # First try to find country-specific classes
     query = f"""
-    PREFIX fbbo: <http://example.com/fbbo#>
-    PREFIX fbbo-{preferred_country}: <http://example.com/fbbo-{preferred_country}#>
+    PREFIX fbo: <https://ontology.firebim.be/ontology/fbo#>
+    PREFIX fbo-{preferred_country}: <https://ontology.firebim.be/ontology/fbo-{preferred_country}#>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     
     SELECT ?firebimClass ?ifcEntity
     WHERE {{
-        ?firebimClass fbbo:hasIFCEntity ?ifcEntity .
+        ?firebimClass fbo:hasIFCEntity ?ifcEntity .
         ?firebimClass rdfs:subClassOf ?generalClass .
-        FILTER(STRSTARTS(STR(?firebimClass), STR(fbbo-{preferred_country}:)))
+        FILTER(STRSTARTS(STR(?firebimClass), STR(fbo-{preferred_country}:)))
     }}
     """
     
@@ -94,12 +94,12 @@ def build_ifc_bot_mapping(ontology_graph, preferred_country="BE"):
     # If no country-specific classes found, try general classes
     if not results:
         query = """
-        PREFIX fbbo: <http://example.com/fbbo#>
+        PREFIX fbo: <https://ontology.firebim.be/ontology/fbo#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         
         SELECT ?firebimClass ?ifcEntity
         WHERE {
-            ?firebimClass fbbo:hasIFCEntity ?ifcEntity .
+            ?firebimClass fbo:hasIFCEntity ?ifcEntity .
         }
         """
         results = ontology_graph.query(query)
@@ -159,8 +159,8 @@ def extract_properties_from_ontology(ontology_graph, preferred_country="BE"):
     
     # Query for properties and their English labels, prioritizing country-specific properties
     query = f"""
-    PREFIX fbbo: <http://example.com/fbbo#>
-    PREFIX fbbo-{preferred_country}: <http://example.com/fbbo-{preferred_country}#>
+    PREFIX fbo: <https://ontology.firebim.be/ontology/fbo#>
+    PREFIX fbo-{preferred_country}: <https://ontology.firebim.be/ontology/fbo-{preferred_country}#>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -171,16 +171,16 @@ def extract_properties_from_ontology(ontology_graph, preferred_country="BE"):
         ?property rdfs:label ?label .
         FILTER(LANG(?label) = "en" || LANG(?label) = "")
         
-        OPTIONAL {{ ?property fbbo:hasDomain ?domain }}
+        OPTIONAL {{ ?property fbo:hasDomain ?domain }}
         OPTIONAL {{ 
-            ?property fbbo:isFireSafetyProperty ?isFireSafety 
+            ?property fbo:isFireSafetyProperty ?isFireSafety 
             FILTER(?isFireSafety = true)
         }}
         
         # Prioritize country-specific properties
         OPTIONAL {{ 
             ?property rdfs:subPropertyOf ?generalProperty .
-            FILTER(STRSTARTS(STR(?property), STR(fbbo-{preferred_country}:)))
+            FILTER(STRSTARTS(STR(?property), STR(fbo-{preferred_country}:)))
         }}
     }}
     ORDER BY DESC(BOUND(?generalProperty))
@@ -258,12 +258,12 @@ class IFCtoFBBConverter:
     def _bind_namespaces(self) -> None:
         # Bind all namespaces including country-specific ones
         for prefix, namespace in [
-            ("fbbo", FBBO), 
-            ("fbbo-BE", FBBO_BE),
-            ("fbbo-NL", FBBO_NL),
-            ("fbbo-DK", FBBO_DK),
-            ("fbbo-PT", FBBO_PT),
-            ("fbbo-INT", FBBO_INT),
+            ("fbo", FBO), 
+            ("fbo-BE", FBO_BE),
+            ("fbo-NL", FBO_NL),
+            ("fbo-DK", FBO_DK),
+            ("fbo-PT", FBO_PT),
+            ("fbo-INT", FBO_INT),
             ("bot", BOT), 
             ("bpo", BPO), 
             ("opm", OPM), 
@@ -421,7 +421,7 @@ class IFCtoFBBConverter:
             if compartment_name not in self.compartments:
                 self.compartments.add(compartment_name)
                 compartment_uri = INST[f"compartment_{sanitized_compartment_name}"]
-                self.g.add((compartment_uri, RDF.type, FBBO.Compartment))
+                self.g.add((compartment_uri, RDF.type, FBO.Compartment))
                 self.g.add((compartment_uri, BPO.name, Literal(compartment_name)))
             
             # Link the entity to the compartment
@@ -446,7 +446,7 @@ class IFCtoFBBConverter:
             self.g.add((entity_uri, property_uri, Literal(prop_value_formatted)))
             self.g.add((property_uri, RDF.type, BPO.Attribute))
             self.g.add((property_uri, RDFS.label, Literal(prop_name)))
-            self.g.add((property_uri, FBBO.isFireSafetyProperty, Literal(True)))
+            self.g.add((property_uri, FBO.isFireSafetyProperty, Literal(True)))
 
     def save_ttl(self) -> None:
         self.g.serialize(destination=self.output_ttl_path, format="turtle")

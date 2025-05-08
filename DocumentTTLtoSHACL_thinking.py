@@ -58,7 +58,7 @@ print(f"SHACL output directory: {shacl_output_dir}")
 FRO = Namespace("https://ontology.firebim.be/ontology/fro#") # Adjust if your namespace is different
 SH = Namespace("http://www.w3.org/ns/shacl#")
 XSD = Namespace("http://www.w3.org/2001/XMLSchema#")
-FBBO = Namespace("http://example.com/fbbo#") 
+FBO = Namespace("https://ontology.firebim.be/ontology/fbo#") 
 
 # --- Helper Functions ---
 
@@ -209,7 +209,7 @@ def generate_shacl_from_text(rule_text: str, rule_subject_uri: str, building_ont
 @prefix sh: <{SH}> .
 @prefix xsd: <{XSD}> .
 @prefix fro: <{FRO}> .
-@prefix fbbo: <{FBBO}> . # Example Building Ontology namespace
+@prefix fbo: <{FBO}> . # Example Building Ontology namespace
 # Add other relevant prefixes as needed
 {ontology_prefixes}
 ```
@@ -334,7 +334,7 @@ def main():
     combined_shacl_graph.bind("sh", SH)
     combined_shacl_graph.bind("xsd", XSD)
     combined_shacl_graph.bind("firebim", FRO)
-    combined_shacl_graph.bind("fbbo", FBBO)
+    combined_shacl_graph.bind("fbo", FBO)
     combined_shacl_graph.bind("dcterms", DCTERMS) # Add dcterms binding
     for prefix, namespace in building_ontology_graph.namespaces():
         combined_shacl_graph.bind(prefix, namespace)
