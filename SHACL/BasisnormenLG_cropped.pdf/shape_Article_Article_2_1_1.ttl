@@ -1,41 +1,7 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
-@prefix bot: <https://w3id.org/bot#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix brick: <https://brickschema.org/schema/Brick#> .
-@prefix csvw: <http://www.w3.org/ns/csvw#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dcam: <http://purl.org/dc/dcam/> .
-@prefix doap: <http://usefulinc.com/ns/doap#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix prof: <http://www.w3.org/ns/dx/prof/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix qb: <http://purl.org/linked-data/cube#> .
-@prefix schema: <https://schema.org/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix sosa: <http://www.w3.org/ns/sosa/> .
-@prefix ssn: <http://www.w3.org/ns/ssn/> .
-@prefix time: <http://www.w3.org/2006/time#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
-@prefix void: <http://rdfs.org/ns/void#> .
-@prefix wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix fbo-BE: <https://ontology.firebim.be/ontology/fbo-BE#> .
-@prefix fbo-DK: <https://ontology.firebim.be/ontology/fbo-DK#> .
-@prefix fbo-INT: <https://ontology.firebim.be/ontology/fbo-INT#> .
-@prefix fbo-NL: <https://ontology.firebim.be/ontology/fbo-NL#> .
-@prefix fbo-PT: <https://ontology.firebim.be/ontology/fbo-PT#> .
-@prefix ifc: <http://ifcowl.openbimstandards.org/IFC4#> .
 
 # Shape corresponding to Article 2.1.1
 # Focuses on the properties required for a compartment based on its type and context (partially implicit).
@@ -107,3 +73,4 @@ Note: The context 'single compartment in ground-floor building' is checked impli
       )
     ]
   ) .
+  

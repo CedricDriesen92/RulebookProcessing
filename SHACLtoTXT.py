@@ -121,7 +121,7 @@ def describe_constraints_on_shape(shapes_graph, ontology_graph, shape_uri, inden
     shape_name = get_friendly_uri_name(shapes_graph, shape_uri, ontology_graph)
     for msg_literal in shapes_graph.objects(shape_uri, SH.message):
         if not is_property_context or (SH["if"] in processed_constraints or SH["then"] in processed_constraints or SH["else"] in processed_constraints) :
-             descriptions.append(format_line(indent_level, f"(Comment: {str(msg_literal)})"))
+             descriptions.append(format_line(indent_level+1, f"(Comment: {str(msg_literal)})"))
         processed_constraints.add(SH.message)
 
     if not is_property_context and not isinstance(shape_uri, BNode):
@@ -147,27 +147,27 @@ def describe_constraints_on_shape(shapes_graph, ontology_graph, shape_uri, inden
         if op_pred not in processed_constraints:
             op_lists = list(shapes_graph.objects(shape_uri, op_pred))
             if op_lists:
-                descriptions.append(format_line(indent_level + 1, op_message))
+                descriptions.append(format_line(indent_level + 0, op_message))
                 shapes_in_list = rdf_list_to_python_list(shapes_graph, op_lists[0])
                 for i, sub_shape_uri_in_list in enumerate(shapes_in_list):
-                    current_indent_for_sub_shape = indent_level + (3 if op_pred == SH["or"] or op_pred == SH.xone else 2)
+                    current_indent_for_sub_shape = indent_level + (2 if op_pred == SH["or"] or op_pred == SH.xone else 2)
                     if op_pred == SH["or"] or op_pred == SH.xone:
-                         descriptions.append(format_line(indent_level + 2, f"Option {i+1}:"))
+                         descriptions.append(format_line(indent_level + 1, f"Option {i+1}:"))
                     descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, sub_shape_uri_in_list, current_indent_for_sub_shape, is_property_context=False ))
                 processed_constraints.add(op_pred)
 
     if SH["not"] not in processed_constraints:
         not_shapes = list(shapes_graph.objects(shape_uri, SH["not"]))
         if not_shapes:
-            descriptions.append(format_line(indent_level + 1, "The following conditions must NOT be met:"))
-            descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, not_shapes[0], indent_level + 2, is_property_context=False))
+            descriptions.append(format_line(indent_level + 0, "The following conditions must NOT be met:"))
+            descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, not_shapes[0], indent_level + 1, is_property_context=False))
             processed_constraints.add(SH["not"])
         
     # 3. Node Constraints (sh:node - links to another shape)
     if SH.node not in processed_constraints:
         for linked_node_shape_uri in shapes_graph.objects(shape_uri, SH.node):
             linked_shape_name = get_friendly_uri_name(shapes_graph, linked_node_shape_uri, ontology_graph)
-            descriptions.append(format_line(indent_level + 1, f"Must also conform to shape: {linked_shape_name}."))
+            descriptions.append(format_line(indent_level + 0, f"Must also conform to shape: {linked_shape_name}."))
         if list(shapes_graph.objects(shape_uri, SH.node)):
             processed_constraints.add(SH.node)
 
