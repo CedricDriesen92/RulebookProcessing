@@ -43,7 +43,7 @@ gemini_config = {
     "response_mime_type": "text/plain",
 }
 
-model_name = "gemini-2.5-pro-preview-03-25"
+model_name = "gemini-2.5-pro-preview-05-06"
 model = genai.GenerativeModel(
     model_name=model_name,
     generation_config=gemini_config,
@@ -81,7 +81,7 @@ def extract_article_member_text_from_ttl(ttl_content: str) -> list[tuple[str, st
     try:
         g.parse(data=ttl_content, format="turtle")
         # Bind necessary prefixes for the query
-        g.bind("firebim", FRO)
+        g.bind("fro", FRO)
         g.bind("rdf", RDF)
     except Exception as e:
         print(f"Warning: Could not parse TTL content: {e}")
@@ -319,7 +319,7 @@ def main():
         return
 
     # Load the building ontology
-    building_ontology_path = "buildingontologies/firebim_ontology_notion.ttl"
+    building_ontology_path = "buildingontologies/firebim_ontology_alex.ttl"
     building_ontology_graph = Graph()
     try:
         print(f"Loading building ontology from {building_ontology_path}...")
@@ -333,7 +333,7 @@ def main():
     # Bind namespaces
     combined_shacl_graph.bind("sh", SH)
     combined_shacl_graph.bind("xsd", XSD)
-    combined_shacl_graph.bind("firebim", FRO)
+    combined_shacl_graph.bind("fro", FRO)
     combined_shacl_graph.bind("fbo", FBO)
     combined_shacl_graph.bind("dcterms", DCTERMS) # Add dcterms binding
     for prefix, namespace in building_ontology_graph.namespaces():

@@ -1,145 +1,147 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@prefix bot: <https://w3id.org/bot#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix brick: <https://brickschema.org/schema/Brick#> .
-@prefix : <https://ontology.firebim.be/ontology/fro#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 
-# Shape generated from rule: Article_2_1_2
-# Rule Text (NL): De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag. De volgende uitzonderingen zijn nochtans toegestaan: a) de parking met bouwlagen (zie 5.2); b) een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een binnenverbindingstrap (duplex), indien de gecumuleerde oppervlakte van die bouwlagen niet groter is dan 2500 m²; c) de hoogte van een compartiment mag zich uitstrekken over drie boven elkaar gelegen bouwlagen met een binnenverbindingstrap (triplex), voor zover de som van hun gecumuleerde oppervlakte de 300 m² niet overschrijdt, en dat dit compartiment is uitgerust met een automatische branddetectie van het type totale bewaking die automatisch een aanduiding van de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico's; d) de hoogte van een compartiment mag zich uitstrekken over verscheidene boven elkaar geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1). e) de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium) op voorwaarde: - dat dit compartiment is uitgerust met een automatische blusinstallatie en een rook- en warmteafvoerinstallatie. De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische blusinstallatie en een rook- en warmteafvoerinstallatie;
-# Rule Text (EN): The height of a compartment corresponds to the height of one storey. However, the following exceptions are permitted: a) the parking with storeys (see 5.2); b) a compartment may extend over two superimposed storeys with an internal connecting staircase (duplex), if the cumulative area of those storeys does not exceed 2500 m²; c) the height of a compartment may extend over three superimposed storeys with an internal connecting staircase (triplex), provided that the sum of their cumulative area does not exceed 300 m², and that this compartment is equipped with an automatic fire detection system of the total surveillance type which automatically gives an indication of the fire alarm and whose detectors are adapted to the risks present; d) the height of a compartment may extend over several superimposed storeys, if this compartment only comprises technical rooms (see 5.1.1). e) the height of a compartment may extend over several storeys (atrium) provided: - that this compartment is equipped with an automatic extinguishing system and a smoke and heat extraction system. The Minister of the Interior determines the conditions under which exceptions are possible to the mandatory installation of an automatic extinguishing system and a smoke and heat extraction system;
-
-:Shape_Article_2_1_2
+fro:Shape_Article_2_1_2
     a sh:NodeShape ;
-    sh:targetClass fro:Compartment ; # Target: Fire Compartments
-    # Filter: Exclude Parking compartments, as they are handled by rule 5.2 (Exception a)
-    sh:filterShape [
-        sh:not [
-            sh:class fro:Parking ; # Assuming fro:Parking is a class for parking compartments
-        ]
-    ] ;
-
-    # A compartment must meet the main rule (1 storey) OR one of the exception conditions (b, c, d, e)
+    sh:targetClass fbo:Compartment ;
+    sh:message "Een compartimenthoogte moet overeenstemmen met één bouwlaag, tenzij specifieke uitzonderingen van toepassing zijn (parking, duplex, triplex, technische lokalen, atrium). Zie KB Basisnormen Bijlage 2 Art. 2.1.2."@nl ;
     sh:or (
-        # Option 1: Main Rule - Compartment spans exactly one storey
+        # Hoofdregel: Hoogte compartiment = 1 bouwlaag
         [
             a sh:NodeShape ;
             sh:property [
-                sh:path fro:spansStorey ; # Property linking compartment to storeys it spans (placeholder)
-                sh:minCount 1 ;
-                sh:maxCount 1 ;
-            ]
+                sh:path fro:numberOfStoreysSpanned ;
+                sh:hasValue 1 ;
+                sh:datatype xsd:integer ;
+                sh:message "Hoofdregel: Hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag."@nl ;
+            ] ;
         ]
-
-        # Option 2: Exception b) - Duplex
+        # Uitzondering a: Parking met bouwlagen (zie 5.2)
         [
             a sh:NodeShape ;
-            sh:property [ # Must span exactly 2 storeys
-                sh:path fro:spansStorey ;
-                sh:minCount 2 ;
-                sh:maxCount 2 ;
+            sh:property [
+                sh:path rdf:type ;
+                sh:hasValue fbo:MultiStoreyParkingCompartment ; # Assuming this type implies multiple storeys or specific rules
+                # fro:referencesRegulationSection <fro:Article_5_2> ; # Metadata, not a direct SHACL constraint here
+                sh:message "Uitzondering a: De parking met bouwlagen."@nl ;
             ] ;
-            sh:property [ # Must have an internal staircase
-                sh:path fro:hasInternalStaircase ; # Placeholder property, could be boolean or link to staircase object
-                sh:minCount 1 ; # Check for existence or hasValue true depending on modeling
-                # sh:hasValue true ; # Alternative if boolean
-            ] ;
-            sh:property [ # Cumulative area must be <= 2500 m^2
-                sh:path fro:cumulativeStoreyArea ; # Placeholder property for area in m^2
-                sh:maxInclusive 2500 ;
-                sh:datatype xsd:decimal ; # Assuming decimal value for area
-            ]
         ]
-
-        # Option 3: Exception c) - Triplex
+        # Uitzondering b: Duplex
         [
             a sh:NodeShape ;
-            sh:property [ # Must span exactly 3 storeys
-                sh:path fro:spansStorey ;
-                sh:minCount 3 ;
-                sh:maxCount 3 ;
+            sh:property [
+                sh:path fro:numberOfStoreysSpanned ;
+                sh:hasValue 2 ;
+                sh:datatype xsd:integer ;
             ] ;
-            sh:property [ # Must have an internal staircase
-                sh:path fro:hasInternalStaircase ; # Placeholder property
-                sh:minCount 1 ;
-                # sh:hasValue true ;
+            sh:property [
+                sh:path fro:internalConnectingStaircase ; # Assumes fro:internalConnectingStaircase links to a fbo:Staircase object
+                sh:minCount 1 ; # Checks for the existence of at least one such staircase
             ] ;
-            sh:property [ # Cumulative area must be <= 300 m^2
-                sh:path fro:cumulativeStoreyArea ; # Placeholder property for area in m^2
-                sh:maxInclusive 300 ;
+            sh:property [
+                sh:path fro:cumulativeStoreyAreaInM2 ;
+                sh:maxInclusive 2500.0 ;
                 sh:datatype xsd:decimal ;
             ] ;
-            sh:property [ # Must have a specific automatic fire detection system
-                sh:path fro:hasFireDetectionSystem ; # Placeholder property linking to system
-                sh:minCount 1 ;
-                sh:node [ # Check properties of the detection system
-                    a sh:NodeShape ;
-                    sh:property [
-                        sh:path fro:detectionType ; # Placeholder property for type
-                        sh:hasValue fro:TotalSurveillance ; # Placeholder value for type
-                    ] ;
-                    sh:property [
-                        sh:path fro:givesAutomaticIndication ; # Placeholder boolean property
-                        sh:hasValue true ;
-                    ] ;
-                    sh:property [
-                        sh:path fro:detectorsAdaptedToRisk ; # Placeholder boolean property
-                        sh:hasValue true ;
-                    ]
-                ]
-            ]
+            sh:message "Uitzondering b: Duplex (2 bouwlagen, interne trap, gecumuleerde opp. <= 2500 m²)."@nl ;
         ]
-
-        # Option 4: Exception d) - Contains Only Technical Rooms
+        # Uitzondering c: Triplex
         [
             a sh:NodeShape ;
-            # Condition: Compartment only contains technical rooms (simplified using a placeholder property)
-            # Alternative: Use sh:class fro:TechnicalCompartment if defined, or complex SPARQL check
             sh:property [
-                sh:path fro:containsOnlyTechnicalRooms ; # Placeholder boolean property
+                sh:path fro:numberOfStoreysSpanned ;
+                sh:hasValue 3 ;
+                sh:datatype xsd:integer ;
+            ] ;
+            sh:property [
+                sh:path fro:internalConnectingStaircase ;
+                sh:minCount 1 ;
+            ] ;
+            sh:property [
+                sh:path fro:cumulativeStoreyAreaInM2 ;
+                sh:maxInclusive 300.0 ;
+                sh:datatype xsd:decimal ;
+            ] ;
+            sh:property [
+                sh:path fro:automaticFireDetectionSystem ; # Assumes this links to an instance of fro:AutomaticFireDetectionSystem
+                sh:minCount 1 ; # Ensure at least one such system exists
+                sh:node [ # The linked system(s) must conform to these properties
+                    a sh:NodeShape ;
+                    sh:property [ sh:path rdf:type ; sh:hasValue fro:AutomaticFireDetectionSystem ] ; # Explicit type check on the system
+                    sh:property [ sh:path fro:detectionType ; sh:hasValue fro:TotalSurveillance ] ;
+                    sh:property [ sh:path fro:providesAutomaticAlarmIndication ; sh:hasValue true ] ;
+                    sh:property [ sh:path fro:hasRiskAdaptedDetectors ; sh:hasValue true ] ;
+                ] ;
+            ] ;
+            sh:message "Uitzondering c: Triplex (3 bouwlagen, interne trap, gecumuleerde opp. <= 300 m², specifieke branddetectie)."@nl ;
+        ]
+        # Uitzondering d: Technische lokalen (zie 5.1.1)
+        [
+            a sh:NodeShape ;
+            # fro:numberOfStoreysSpanned > 1 is implied if this exception is distinct from the main rule
+            sh:property [
+                sh:path fro:containsOnlyTechnicalRooms ; # Assumes a boolean property on the compartment
                 sh:hasValue true ;
+                # fro:referencesRegulationSection <fro:Article_5_1_1> ; # Metadata
+                sh:message "Uitzondering d: Compartiment met enkel technische lokalen over meerdere bouwlagen."@nl ;
             ] ;
-            # Allows spanning multiple storeys (implicitly >= 1)
-            sh:property [
-                sh:path fro:spansStorey ;
-                sh:minCount 1 ;
-            ]
         ]
-
-        # Option 5: Exception e) - Atrium
+        # Uitzondering e: Atrium
         [
             a sh:NodeShape ;
-            # Condition 1: Must be an Atrium
-            sh:or ( # Allow identifying Atrium via class or property
-                [ sh:class fro:AtriumCompartment ] # Placeholder class
-                [ sh:property [ sh:path fro:isAtrium ; sh:hasValue true ] ] # Placeholder boolean property
-            ) ;
-             # Condition 2: Must have an automatic extinguishing system (unless ministerial exception applies - not modeled)
+            # fro:numberOfStoreysSpanned > 1 is implied
             sh:property [
-                sh:path fro:hasExtinguishingSystem ; # Placeholder property linking to system
-                sh:minCount 1 ; # Check system exists
-                sh:node [ # Check system properties
+                sh:path rdf:type ; # Compartment is of type AtriumCompartment
+                sh:hasValue fbo:AtriumCompartment ;
+            ] ;
+            sh:or ( # The compartment must either have the systems or a ministerial exception
+                [ # Standaard geval: beide systemen aanwezig
                     a sh:NodeShape ;
                     sh:property [
-                        sh:path fro:systemType ; # Placeholder property for type
-                        sh:hasValue fro:Automatic ; # Placeholder value for type
-                    ]
+                        sh:path fro:automaticExtinguishingSystem ; # Assumes link to fbo:FireExtinguishingSystem
+                        sh:minCount 1 ;
+                    ] ;
+                    sh:property [
+                        sh:path fro:smokeAndHeatExtractionSystem ; # Assumes link to fbo:SmokeAndHeatExtractionSystem
+                        sh:minCount 1 ;
+                    ] ;
                 ]
-            ] ;
-             # Condition 3: Must have a smoke and heat extraction system (unless ministerial exception applies - not modeled)
-            sh:property [
-                sh:path fro:hasSmokeHeatExtractionSystem ; # Placeholder property linking to system
-                sh:minCount 1 ; # Check system exists
-            ] ;
-            # Allows spanning multiple storeys
-            sh:property [
-                sh:path fro:spansStorey ;
-                sh:minCount 1 ;
-            ]
+                [ # Ministeriële uitzondering
+                    a sh:NodeShape ;
+                    sh:property [
+                        sh:path fro:hasMinisterialExceptionForAtriumSystems ; # Assumes a boolean property
+                        sh:hasValue true ;
+                    ] ;
+                ]
+            ) ;
+            sh:message "Uitzondering e: Atrium over meerdere bouwlagen met vereiste systemen of ministeriële uitzondering."@nl ;
         ]
-    ) ;
-
-    sh:message "A compartment must span exactly one storey, unless it meets specific conditions for Duplex (2 storeys, <=2500m², internal stairs), Triplex (3 storeys, <=300m², internal stairs, specific fire detection), contains only technical rooms, or is an Atrium with required safety systems (extinguishing, smoke/heat extraction). Parkings are excluded from this rule (ref 5.2)."@en ;
-    sh:message "Een compartiment overspant exact één bouwlaag, tenzij het voldoet aan specifieke voorwaarden voor Duplex (2 lagen, <=2500m², binnentrap), Triplex (3 lagen, <=300m², binnentrap, specifieke branddetectie), enkel technische lokalen bevat, of een Atrium is met vereiste veiligheidssystemen (blussing, RWA). Parkings zijn uitgesloten van deze regel (zie 5.2)."@nl .
+    ) .

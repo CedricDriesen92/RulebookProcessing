@@ -119,21 +119,21 @@ def describe_constraints_on_shape(shapes_graph, ontology_graph, shape_uri, inden
 
     # 0. Handle sh:message, sh:name, sh:description on the shape_uri itself
     shape_name = get_friendly_uri_name(shapes_graph, shape_uri, ontology_graph)
-    for msg_literal in shapes_graph.objects(shape_uri, SH.message):
-        if not is_property_context or (SH["if"] in processed_constraints or SH["then"] in processed_constraints or SH["else"] in processed_constraints) :
-             descriptions.append(format_line(indent_level+1, f"(Comment: {str(msg_literal)})"))
-        processed_constraints.add(SH.message)
+    #for msg_literal in shapes_graph.objects(shape_uri, SH.message):
+    #    if not is_property_context or (SH["if"] in processed_constraints or SH["then"] in processed_constraints or SH["else"] in processed_constraints) :
+    #         descriptions.append(format_line(indent_level+1, f"(Comment: {str(msg_literal)})"))
+    #    processed_constraints.add(SH.message)
 
-    if not is_property_context and not isinstance(shape_uri, BNode):
-        for name_literal in shapes_graph.objects(shape_uri, SH.name):
-            pass
-        for desc_literal in shapes_graph.objects(shape_uri, SH.description):
-            descriptions.append(format_line(indent_level, f"Description: {str(desc_literal)}"))
+    #if not is_property_context and not isinstance(shape_uri, BNode):
+    #    for name_literal in shapes_graph.objects(shape_uri, SH.name):
+    #        pass
+    #    for desc_literal in shapes_graph.objects(shape_uri, SH.description):
+    #        descriptions.append(format_line(indent_level, f"Description: {str(desc_literal)}"))
 
     # 1. Property Constraints (sh:property)
     if SH.property not in processed_constraints:
         for prop_shape_uri_inner in shapes_graph.objects(shape_uri, SH.property):
-            descriptions.extend(describe_property_constraints(shapes_graph, ontology_graph, prop_shape_uri_inner, indent_level +1))
+            descriptions.extend(describe_property_constraints(shapes_graph, ontology_graph, prop_shape_uri_inner, indent_level))
         if list(shapes_graph.objects(shape_uri, SH.property)):
             processed_constraints.add(SH.property)
 
@@ -284,8 +284,8 @@ def describe_property_constraints(shapes_graph, ontology_graph, prop_shape_uri, 
     base_property_text = f"Property '{prop_label}'"
 
     # Overall message for the property shape
-    for msg in shapes_graph.objects(prop_shape_uri, SH.message):
-        descriptions.append(format_line(indent_level, f"{base_property_text}: {str(msg)}"))
+    #for msg in shapes_graph.objects(prop_shape_uri, SH.message):
+    #    descriptions.append(format_line(indent_level, f"{base_property_text}: {str(msg)}"))
         # If a general message exists, we might skip detailed ones, or show them as "Additionally..."
         # For now, we show both.
 

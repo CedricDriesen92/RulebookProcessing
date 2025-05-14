@@ -1,0 +1,2063 @@
+@prefix : <http://www.firebim.org/ontologies/FBO#> .
+@prefix fbo: <http://www.firebim.org/ontologies/FBO#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix core: <http://www.w3.org/2024/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@base <http://www.firebim.org/ontologies/FBO#> .
+
+<http://www.firebim.org/ontologies/FBO#> rdf:type owl:Ontology ;
+                                          owl:versionIRI <http://www.firebim.org/ontologies/FBO-240402025#> ;
+                                          terms:creator fbo:AlexDonkers ;
+                                          terms:title "FireBIM Building Ontology"@en ;
+                                          vann:preferredNamespacePrefix "FBO" ;
+                                          vann:preferredNamespaceUri "http://www.firebim.org/ontologies/FBO#" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/created
+terms:created rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+terms:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+terms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+terms:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+terms:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/affiliation
+schema:affiliation rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/domainIncludes
+schema:domainIncludes rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/email
+schema:email rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/name
+schema:name rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/rangeIncludes
+schema:rangeIncludes rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/url
+schema:url rdf:type owl:AnnotationProperty .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasBIMIDSEquivalent
+fbo:hasBIMIDSEquivalent rdf:type owl:AnnotationProperty .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasIFC4.3Equivalent
+fbo:hasIFC4.3Equivalent rdf:type owl:AnnotationProperty .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasISOEquivalent
+fbo:hasISOEquivalent rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2024/02/skos/core#definition
+core:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2024/02/skos/core#example
+core:example rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2024/02/skos/core#note
+core:note rdf:type owl:AnnotationProperty .
+
+
+###  https://qudt.org/3.1.0/schema/qudt/hasApplicableUnit
+<https://qudt.org/3.1.0/schema/qudt/hasApplicableUnit> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.firebim.org/ontologies/FBO#hasArea
+fbo:hasArea rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf fbo:hasGeometricProperty ;
+            rdfs:range <http://qudt.org/3.1.0/vocab/quantitykind/Area> ;
+            fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Area> ;
+            skos:altLabel "has surface area"@en ;
+            skos:prefLabel "has area"@en ,
+                           "heeft oppervlakte"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasBuildingHeight
+fbo:hasBuildingHeight rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf fbo:hasHeight ;
+                      skos:prefLabel "has building height"@en ,
+                                     "heeft gebouwhoogte"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasCompartmentArea
+fbo:hasCompartmentArea rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf fbo:hasArea ;
+                       skos:prefLabel "has compartment area"@en ,
+                                      "heeft compartimentsoppervlakte"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasCompartmentLength
+fbo:hasCompartmentLength rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf fbo:hasLength ;
+                         skos:prefLabel "has compartment length"@en ,
+                                        "heeft compartimentslengte"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasCompartmentWidth
+fbo:hasCompartmentWidth rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf fbo:hasWidth ;
+                        skos:prefLabel "has compartment width"@en ,
+                                       "heeft compartimentsbreedte"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasDistance
+fbo:hasDistance rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf fbo:hasGeometricProperty ;
+                rdfs:range fbo:Distance ;
+                skos:prefLabel "has distance"@en ,
+                               "heeft afstand"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasElevation
+fbo:hasElevation rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf fbo:hasGeometricProperty ;
+                 fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Elevation> ;
+                 skos:prefLabel "has elevation"@en ,
+                                "heeft verhoging"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasGeometricProperty
+fbo:hasGeometricProperty rdf:type owl:ObjectProperty ;
+                         skos:prefLabel "has geometric property"@en ,
+                                        "heeft geometrische eigenschap"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasHeight
+fbo:hasHeight rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf fbo:hasGeometricProperty ;
+              rdfs:range <http://qudt.org/3.1.0/vocab/quantitykind/Height> ;
+              fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Height> ;
+              skos:prefLabel "has height"@en ,
+                             "heeft hoogte"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasLength
+fbo:hasLength rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf fbo:hasGeometricProperty ;
+              rdfs:range <http://qudt.org/3.1.0/vocab/quantitykind/Length> ;
+              fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Length> ;
+              skos:prefLabel "has length"@en ,
+                             "heeft lengte"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasMaterial
+fbo:hasMaterial rdf:type owl:ObjectProperty ;
+                rdfs:range fbo:Material ;
+                skos:prefLabel "has material"@en ,
+                               "heeft materiaal"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasRiserHeight
+fbo:hasRiserHeight rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf fbo:hasHeight ;
+                   fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/RiserHeight> ;
+                   skos:prefLabel "has riser height"@en ,
+                                  "heeft optrede"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasSlope
+fbo:hasSlope rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf fbo:hasGeometricProperty ;
+             rdfs:range <http://qudt.org/3.1.0/vocab/quantitykind/Angle> ;
+             fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Slope> ;
+             skos:prefLabel "has slope"@en ,
+                            "heeft helling"@nl ;
+             <https://qudt.org/3.1.0/schema/qudt/hasApplicableUnit> <http://qudt.org/3.1.0/vocab/unit/DEG> .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasTravelDistance
+fbo:hasTravelDistance rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf fbo:hasDistance ;
+                      rdfs:domain schema:Person ;
+                      rdfs:range fbo:Distance ;
+                      fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.456> ;
+                      skos:prefLabel "has travel distance"@en ,
+                                     "heeft reisafstand"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasUsableArea
+fbo:hasUsableArea rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf fbo:hasArea ;
+                  skos:prefLabel "has usable area"@en ,
+                                 "heeft gebruiksoppervlakte"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasUsageFunction
+fbo:hasUsageFunction rdf:type owl:ObjectProperty .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasVolume
+fbo:hasVolume rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf fbo:hasGeometricProperty ;
+              fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Volume> ;
+              skos:prefLabel "has volume"@en ,
+                             "heeft volume"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasWidth
+fbo:hasWidth rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf fbo:hasGeometricProperty ;
+             rdfs:range <http://qudt.org/3.1.0/vocab/quantitykind/Width> ;
+             fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Width> ;
+             skos:prefLabel "has width"@en ,
+                            "heeft breedte"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#hasActualTravelDistance
+<http://www.firebim.org/ontologies/FBO-DK#hasActualTravelDistance> rdf:type owl:ObjectProperty ;
+                                                                   rdfs:subPropertyOf fbo:hasTravelDistance ;
+                                                                   skos:prefLabel "har ganglængde"@da ,
+                                                                                  "has actual travel distance"@en ,
+                                                                                  "heeft werkelijke loopafstand"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#hasDirectTravelDistance
+<http://www.firebim.org/ontologies/FBO-DK#hasDirectTravelDistance> rdf:type owl:ObjectProperty ;
+                                                                   rdfs:subPropertyOf fbo:hasTravelDistance ;
+                                                                   skos:prefLabel "har gangafstand"@da ,
+                                                                                  "has direct travel distance"@en ,
+                                                                                  "heeft theoretische loopafstand"@nl .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.firebim.org/ontologies/FBO#hasActiveFireProtection
+fbo:hasActiveFireProtection rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf owl:topDataProperty ;
+                            rdfs:range xsd:boolean ;
+                            owl:propertyDisjointWith fbo:hasPassiveFireProtection ;
+                            skos:prefLabel "has active fire protection"@en ,
+                                           "heeft actieve brandbescherming"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasAutomaticFireExtinguishingSystem
+fbo:hasAutomaticFireExtinguishingSystem rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain fbo:Space ;
+                                        fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/bca/singapore/1.0.1/prop/FireDetectionAndSuppressionSystem> ;
+                                        skos:prefLabel "has automatic fire extinguishing system"@en ,
+                                                       "heeft automatisch brandblussysteem"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasDate
+fbo:hasDate rdf:type owl:DatatypeProperty ;
+            skos:prefLabel "has date"@en ,
+                           "heeft datum"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasDaytimeOccupancy
+fbo:hasDaytimeOccupancy rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf fbo:hasOccupancy ;
+                        skos:prefLabel "has daytime occupancy"@en ,
+                                       "heeft overdag bezetting"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasExposedSurface
+fbo:hasExposedSurface rdf:type owl:DatatypeProperty ;
+                      rdfs:domain fbo:Element ;
+                      rdfs:range xsd:boolean ;
+                      skos:prefLabel "has exposed surface"@en ,
+                                     "heeft blootgesteld oppervlak"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasFireClass
+fbo:hasFireClass rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf fbo:hasFireProperty ;
+                 skos:prefLabel "has fire class"@en ,
+                                "heeft brandklasse"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasFireIntegrity
+fbo:hasFireIntegrity rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf fbo:hasFireProperty ;
+                     rdfs:domain fbo:Element ;
+                     fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.157> ;
+                     skos:prefLabel "has fire integrity"@en ,
+                                    "heeft brandintegriteit"@nl ;
+                     <https://qudt.org/3.1.0/schema/qudt/hasApplicableUnit> <https://qudt.org/3.1.0/vocab/unit/MIN> .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasFireLoad
+fbo:hasFireLoad rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf fbo:hasFireProperty ;
+                fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.158> ;
+                skos:prefLabel "has fire load"@en ,
+                               "heeft brandbelasting"@nl ;
+                <https://qudt.org/3.1.0/schema/qudt/hasApplicableUnit> <https://qudt.org/3.1.0/vocab/unit/MegaJ> .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasFireLoadDensity
+fbo:hasFireLoadDensity rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf fbo:hasFireProperty ;
+                       fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.159> ;
+                       skos:prefLabel "has fire load density"@en ,
+                                      "heeft brandbelastingsdichtheid"@nl ;
+                       <https://qudt.org/3.1.0/schema/qudt/hasApplicableUnit> <https://qudt.org/3.1.0/vocab/unit/MegaJ-PER-M2> .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasFireProperty
+fbo:hasFireProperty rdf:type owl:DatatypeProperty ;
+                    skos:prefLabel "has fire property"@en ,
+                                   "heeft brandeigenschap"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasFireResistance
+fbo:hasFireResistance rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf fbo:hasFireProperty ;
+                      fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/FireRating> ;
+                      fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.165> ;
+                      skos:prefLabel "has fire resistance"@en ,
+                                     "heeft brandwerendheid"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasFireStability
+fbo:hasFireStability rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf fbo:hasFireProperty ;
+                     rdfs:domain fbo:Element ;
+                     fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.179> ;
+                     skos:prefLabel "has fire stability"@en ,
+                                    "heeft brandstabiliteit"@nl ;
+                     <https://qudt.org/3.1.0/schema/qudt/hasApplicableUnit> <https://qudt.org/3.1.0/vocab/unit/MIN> .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasMaximumOccupancyNumber
+fbo:hasMaximumOccupancyNumber rdf:type owl:DatatypeProperty ;
+                              schema:domainIncludes fbo:Space ;
+                              fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/OccupancyNumberPeak> ;
+                              skos:prefLabel "has maximum occupancy number"@en ,
+                                             "heeft maximaal bezettingsaantal"@nl ;
+                              <https://qudt.org/3.1.0/schema/qudt/hasApplicableUnit> <https://qudt.org/3.1.0/vocab/unit/NUM> .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasNighttimeOccupancy
+fbo:hasNighttimeOccupancy rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf fbo:hasOccupancy ;
+                          schema:domainIncludes fbo:Space ;
+                          skos:prefLabel "has nighttime occupancy"@en ,
+                                         "heeft 's nachts bezetting"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasNominalPower
+fbo:hasNominalPower rdf:type owl:DatatypeProperty ;
+                    fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/NominalPower> ;
+                    skos:prefLabel "has nominal power"@en ,
+                                   "heeft nominale kracht"@nl ;
+                    <https://qudt.org/3.1.0/schema/qudt/hasApplicableUnit> <https://qudt.org/3.1.0/vocab/unit/KiloW> .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasOccupancy
+fbo:hasOccupancy rdf:type owl:DatatypeProperty ;
+                 schema:domainIncludes fbo:FireCompartment ,
+                                       fbo:Space ;
+                 skos:prefLabel "has occupancy"@en ,
+                                "heeft bezetting"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasOccupancyNumber
+fbo:hasOccupancyNumber rdf:type owl:DatatypeProperty ;
+                       schema:domainIncludes fbo:Space ;
+                       fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/OccupancyNumber> ;
+                       skos:prefLabel "has occupancy number"@en ,
+                                      "heeft bezettingsaantal"@nl ;
+                       <https://qudt.org/3.1.0/schema/qudt/hasApplicableUnit> <https://qudt.org/3.1.0/vocab/unit/NUM> .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasPassiveFireProtection
+fbo:hasPassiveFireProtection rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf owl:topDataProperty ;
+                             rdfs:range xsd:boolean ;
+                             fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.328> ;
+                             skos:prefLabel "has passive fire protection"@en ,
+                                            "heeft passieve brandbescherming"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasPublicAccessibility
+fbo:hasPublicAccessibility rdf:type owl:DatatypeProperty ;
+                           skos:prefLabel "has public accessibility"@en ,
+                                          "heeft publieke toegankelijkheid"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasSmokeClass
+fbo:hasSmokeClass rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf fbo:hasFireProperty ;
+                  skos:prefLabel "has smoke class"@en ,
+                                 "heeft rookklasse"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasSwingDirection
+fbo:hasSwingDirection rdf:type owl:DatatypeProperty ;
+                      schema:domainIncludes fbo:Door ;
+                      skos:prefLabel "has swing direction"@en ,
+                                     "heeft draairichting"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#hasThermalConductivity
+fbo:hasThermalConductivity rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf fbo:hasFireProperty ;
+                           fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.430> ;
+                           skos:prefLabel "has thermal conductivity"@en ,
+                                          "heeft warmtegeleidingscoëfficient"@nl ;
+                           <https://qudt.org/3.1.0/schema/qudt/hasApplicableUnit> <http://qudt.org/3.1.0/vocab/unit/W-PER-M-K> .
+
+
+###  http://www.firebim.org/ontologies/FBO#isAutomatic
+fbo:isAutomatic rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:range xsd:boolean ;
+                schema:domainIncludes fbo:FireExtinguishingSystem ;
+                skos:prefLabel "is automatic"@en ,
+                               "is automatisch"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#isCollectiveSpace
+fbo:isCollectiveSpace rdf:type owl:DatatypeProperty ;
+                      rdfs:domain fbo:Space ;
+                      rdfs:range xsd:boolean ;
+                      skos:prefLabel "is collectieve ruimte"@nl ,
+                                     "is collective space"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#isCompartmentationElement
+fbo:isCompartmentationElement rdf:type owl:DatatypeProperty ;
+                              rdfs:domain fbo:BuiltElement ;
+                              rdfs:range xsd:boolean ;
+                              fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/Compartmentation> ;
+                              fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.141> ;
+                              skos:prefLabel "is compartimenteringselement"@nl ,
+                                             "is compartmentation element"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#isEmergencyExitLight
+fbo:isEmergencyExitLight rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf fbo:isFireExitElement ;
+                         rdfs:domain fbo:Lighting ;
+                         rdfs:range xsd:boolean ;
+                         skos:prefLabel "is emergency exit light"@en ,
+                                        "is nooduitgangverlichting"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#isEmergencyStaircase
+fbo:isEmergencyStaircase rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf fbo:isFireExitElement ;
+                         rdfs:domain fbo:Transport ;
+                         rdfs:range xsd:boolean ;
+                         skos:prefLabel "is emergency staircase"@en ,
+                                        "is noodtrap"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#isEscapeDoor
+fbo:isEscapeDoor rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf fbo:isFireExitElement ;
+                 rdfs:domain fbo:Door ;
+                 rdfs:range xsd:boolean ;
+                 fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.120> ;
+                 skos:prefLabel "er flugtvejsdør"@da ,
+                                "is escape door"@en ,
+                                "is nooduitgang"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#isEscapeRouteCorridor
+fbo:isEscapeRouteCorridor rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf fbo:isFireExitElement ;
+                          rdfs:range xsd:boolean ;
+                          skos:altLabel "is evacuatieroutecorridor"@nl ,
+                                        "is evacuation route corridor"@en ;
+                          skos:prefLabel "is escape route corridor"@en ,
+                                         "is vluchtroutecorridor"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#isExternal
+fbo:isExternal rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:boolean ;
+               fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/IsExternal> ;
+               skos:prefLabel "is buiten"@nl ,
+                              "is external"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#isFireExitElement
+fbo:isFireExitElement rdf:type owl:DatatypeProperty ;
+                      rdfs:range xsd:boolean ;
+                      schema:domainIncludes <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/FireExit> ;
+                      skos:prefLabel "is fire exit element"@en ,
+                                     "is vluchtroute-element"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#isFlammableStorage
+fbo:isFlammableStorage rdf:type owl:DatatypeProperty ;
+                       rdfs:domain fbo:Space ;
+                       rdfs:range xsd:boolean ;
+                       fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/FlammableStorage> ;
+                       skos:prefLabel "is flammable storage"@en ,
+                                      "is opslag van brandbare stoffen"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#isFreeStanding
+fbo:isFreeStanding rdf:type owl:DatatypeProperty ;
+                   rdfs:range xsd:boolean ;
+                   schema:domainIncludes fbo:Element ;
+                   skos:prefLabel "is free standing"@en ,
+                                  "is vrijstaand"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#isLoadBearing
+fbo:isLoadBearing rdf:type owl:DatatypeProperty ;
+                  rdfs:domain fbo:Element ;
+                  rdfs:range xsd:boolean ;
+                  fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/prop/LoadBearing> ;
+                  skos:prefLabel "is dragend"@nl ,
+                                 "is load bearing"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#isProtruding
+fbo:isProtruding rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:range xsd:boolean ;
+                 skos:prefLabel "is protruding"@en ,
+                                "is uitstekend"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#isSelfClosing
+fbo:isSelfClosing rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:boolean ;
+                  skos:altLabel "is zelfsluitend"@nl ;
+                  skos:prefLabel "is self closing"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#isSingleFamilyBuilding
+fbo:isSingleFamilyBuilding rdf:type owl:DatatypeProperty ;
+                           rdfs:domain fbo:Building ;
+                           rdfs:range xsd:boolean ;
+                           skos:altLabel "is eensgezinswoning"@nl ;
+                           skos:prefLabel "is single family building"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#isStructuralElement
+fbo:isStructuralElement rdf:type owl:DatatypeProperty ;
+                        rdfs:domain fbo:Element ;
+                        rdfs:range xsd:boolean ;
+                        skos:altLabel "is constructief element"@nl ;
+                        skos:prefLabel "is structural element"@en ,
+                                       "é elemento estrutural"@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#hasFireLoad
+<http://www.firebim.org/ontologies/FBO-DK#hasFireLoad> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:subPropertyOf fbo:hasFireLoad ;
+                                                       rdfs:domain fbo:Space ;
+                                                       rdfs:comment """Den samlede energimængde i MJ/m² gulvareal, der frigøres ved fuldstændig forbrænding af alt brændbart materiale. Der skelnes mellem tre typer af brandbelastning: Variabel
+  brandbelastning, permanent brandbelastning og samlet brandbelastning. Den variable brandbelastning består af inventar og oplag og benyttes generelt i bygningsreglementet og dets vejledninger ved fastlæggelse af brandbelastningen. Den opdeles i følgende grupper:
+    - Ultra lav brandbelastning: Højst 50 MJ/m²
+    - Meget lav brandbelastning: Fra 50 MJ/m² og højst 250 MJ/m²
+    - Lav brandbelastning: Fra 250 MJ/m² og højst 800 MJ/m²
+    - Stor brandbelastning: Fra 800 MJ/m² og højst 1.600 MJ/m²
+    - Meget stor brandbelastning: Større end 1.600 MJ/m²
+Den permanente brandbelastning består af bygningens brændbare konstruktioner, overflader og faste materialer. Den samlede brandbelastning er summen af den variable og den permanente brandbelastning og benyttes ved beregning af konstruktioners brandmodstandsevne."""@da ,
+                                                                    """The total amount of energy in MJ/m² floor area released by the complete combustion of all combustible material. There are three types of fire load: Variable fire load, permanent fire load and total fire load. The variable fire load consists of fixtures and fittings and is generally used in the building regulations and its guidelines
+  when determining the fire load. It is divided into the following groups:
+    - Ultra low fire load: Maximum 50 MJ/m²
+    - Very low fire load: From 50 MJ/m² and maximum 250 MJ/m²
+    - Low fire load: From 250 MJ/m² and maximum 800 MJ/m²
+    - High fire load: From 800 MJ/m² and maximum 1,600 MJ/m²
+    - Very high fire load: Greater than 1,600 MJ/m²
+The permanent fire load consists of the building's combustible structures, surfaces and solid materials. The total fire load is the sum of the variable and permanent fire loads and is used to calculate the fire resistance of structures."""@en ;
+                                                       skos:prefLabel "har brandbelastning"@da ,
+                                                                      "has fire load"@en ,
+                                                                      "heeft brandbelasting"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#hasUseCategory
+<http://www.firebim.org/ontologies/FBO-DK#hasUseCategory> rdf:type owl:DatatypeProperty ;
+                                                          rdfs:domain fbo:Building ;
+                                                          skos:prefLabel "has use category"@en ,
+                                                                         "heeft gebruikscategorie"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#isEmergencySafetyStaircase
+<http://www.firebim.org/ontologies/FBO-DK#isEmergencySafetyStaircase> rdf:type owl:DatatypeProperty ;
+                                                                      rdfs:subPropertyOf fbo:isEmergencyStaircase ;
+                                                                      rdfs:comment "Escape stairs designed to minimize the likelihood of smoke spreading to or developing in the stairwell in order to maintain its function as an escape and entry route. The safety measures may include, among other things, that the staircase is equipped with pressurization systems (ATA systems) or with access via an airlock and stricter requirements for surfaces etc. in the stairwell."@en ,
+                                                                                   "Flugtvejstrappe, der er udformet, så der er meget lille sandsynlighed for røgspredning til eller røgudvikling i trapperummet, for at opretholde funktionen som flugtvej og indtrængningsvej. Sikringen kan blandt andet omfatte, at trappen udføres med tryksætningsanlæg (ATA-anlæg) eller med adgang over luftsluse samt skærpede krav til overflader mv. i trapperummet."@da ;
+                                                                      skos:prefLabel "er sikkerhedstrappe"@da ,
+                                                                                     "is emergency safety staircase"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#isFireCompartmentboundary
+<http://www.firebim.org/ontologies/FBO-DK#isFireCompartmentboundary> rdf:type owl:DatatypeProperty ;
+                                                                     rdfs:subPropertyOf fbo:isCompartmentationElement ;
+                                                                     rdfs:domain <http://www.firebim.org/ontologies/FBO-DK#FireCompartment> ;
+                                                                     rdfs:comment "A wall or floor construction designed to prevent a fire from spreading to other fire compartments within the time required for evacuation and emergency response."@en ,
+                                                                                  "En væg eller etageadskillelse, der er udformet, så en brand ikke spredes til andre brandsektioner inden for den tid, der er nødvendig for evakuering og redningsberedskabets indsats."@da ;
+                                                                     skos:prefLabel "er brandsektionsadskillelse"@da ,
+                                                                                    "is fire compartment boundary"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#isIndependentEvacuationRoute
+<http://www.firebim.org/ontologies/FBO-DK#isIndependentEvacuationRoute> rdf:type owl:DatatypeProperty ;
+                                                                        rdfs:comment "Flugtveje, der uafhængigt af hinanden fører til terræn i det fri og er indbyrdes brandmæssigt adskilte i deres fulde udstrækning."@da ;
+                                                                        skos:prefLabel "er uafhængig flugtvej"@da ,
+                                                                                       "is independent evacuation route"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#isIndependentExit
+<http://www.firebim.org/ontologies/FBO-DK#isIndependentExit> rdf:type owl:DatatypeProperty ;
+                                                             rdfs:comment "Udgange i flugtvejssystem til uafhængige flugtveje. Begrebet benyttes også om uafhængige udgangsdøre fra brandmæssige enheder."@da ;
+                                                             skos:prefLabel "er uafhængig udgang"@da ,
+                                                                            "is independent exit"@en ,
+                                                                            "is onafhankelijke uitgang"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#isPrimaryEvacuationRoute
+<http://www.firebim.org/ontologies/FBO-DK#isPrimaryEvacuationRoute> rdf:type owl:DatatypeProperty ;
+                                                                    rdfs:comment "Escape route that people will intuitively head towards during evacuation, typically the normal access route to a building or room."@en ,
+                                                                                 "Flugtvej, som personer intuitivt vil søge imod ved evakuering, typisk den normale adgangsvej til en bygning eller et rum."@da ;
+                                                                    skos:prefLabel "er primær flugtvej"@da ,
+                                                                                   "is primary evacuation route"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#isRescueOpening
+<http://www.firebim.org/ontologies/FBO-DK#isRescueOpening> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:range xsd:boolean ;
+                                                           schema:domainIncludes fbo:OpeningElement ;
+                                                           skos:altLabel "is vluchtopening"@nl ;
+                                                           skos:prefLabel "is rescue opening"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#isSharedEvacuationRoute
+<http://www.firebim.org/ontologies/FBO-DK#isSharedEvacuationRoute> rdf:type owl:DatatypeProperty ;
+                                                                   rdfs:comment "Escape route that is designed as an escape route for several building sections simultaneously."@en ,
+                                                                                "Flugtvej, der er udlagt som flugtvej for flere bygningsafsnit samtidig."@da ;
+                                                                   skos:prefLabel "er fælles flugtvej"@da ,
+                                                                                  "is shared evacuation route"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#isSubcompartmentBoundary
+<http://www.firebim.org/ontologies/FBO-DK#isSubcompartmentBoundary> rdf:type owl:DatatypeProperty ;
+                                                                    rdfs:subPropertyOf fbo:isCompartmentationElement ;
+                                                                    rdfs:domain <http://www.firebim.org/ontologies/FBO-DK#Subcompartment> ;
+                                                                    rdfs:comment "Building element, e.g. wall, floor construction or door, which is used to create a fire compartment."@en ,
+                                                                                 "Bygningsdel, f.eks. væg, etageadskillelse eller dør, som indgår ved etablering af en brandcelle."@da ;
+                                                                    skos:prefLabel "er brandcelleadskillelse"@da ,
+                                                                                   "is subcompartment boundary"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-NL#isExtraProtectedEvacuationRoute
+<http://www.firebim.org/ontologies/FBO-NL#isExtraProtectedEvacuationRoute> rdf:type owl:DatatypeProperty ;
+                                                                           skos:prefLabel "is extra beschermde vluchtroute"@nl ,
+                                                                                          "is extra protected evacuation route"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#hasFireActivationRisk
+<http://www.firebim.org/ontologies/FBO-PT#hasFireActivationRisk> rdf:type owl:DatatypeProperty ;
+                                                                 rdfs:domain fbo:Space ;
+                                                                 rdfs:comment "Parameter that takes into account the probability of ignition, depending on the area of the room and occupancy."@en ,
+                                                                              "Parâmetro que tem em conta a probabilidade de ignição, função da área do compartimento e da ocupação."@pt ;
+                                                                 skos:prefLabel "has fire activation risk"@en ,
+                                                                                "heeft brandactiveringsrisico"@nl ,
+                                                                                "tem risco de ativação de incêndio"@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#hasModifiedFireLoadDensity
+<http://www.firebim.org/ontologies/FBO-PT#hasModifiedFireLoadDensity> rdf:type owl:DatatypeProperty ;
+                                                                      rdfs:subPropertyOf fbo:hasFireLoadDensity ;
+                                                                      rdfs:comment "A densidade da carga de incêndio é afetada por coeficientes relativos ao grau de perigo e ao índice de ativação do combustível, determinados com base nos critérios referidos no nº 4 do artigo 12º."@pt ,
+                                                                                   "The fire load density affected by coefficients relating to the degree of danger and the fuel activation index, determined on the basis of the criteria referred to in Article 12(4)."@en ;
+                                                                      skos:prefLabel "has modified fire load density"@en ,
+                                                                                     "tem densidade da carga de incêndio modificada"@pt ;
+                                                                      <https://qudt.org/3.1.0/schema/qudt/hasApplicableUnit> <https://qudt.org/3.1.0/vocab/unit/MegaJ-PER-M2> .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#hasRiskCategory
+<http://www.firebim.org/ontologies/FBO-PT#hasRiskCategory> rdf:type owl:DatatypeProperty ;
+                                                           rdfs:domain fbo:Building ;
+                                                           rdfs:comment "Classification into four levels of fire risk of any standard use of a building and premises, taking into account various risk factors, such as its height, the number of occupantes, the number of occupants in risk locations, the modified fire load density and the existence of floors below the reference plane, under the terms of article 12 of the RJ-SCIE"@en ,
+                                                                        "Classificação em quatro níveis de risco de incêndio de qualquer utilização-tipo de um edifício e recinto, atendendo a diversos fatores de risco, como a sua altura, o efetivo, o efetivo em locais de risco, a densidade de carga de incêndio modificada e a existência de pisos abaixo do plano de referência, nos termos previstos no artigo 12.º do RJ-SCIE."@pt ;
+                                                           skos:prefLabel "has risk category"@en ,
+                                                                          "heeft risicocategorie"@nl ,
+                                                                          "tem categoria de risco"@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#hasStandardFireResistance
+<http://www.firebim.org/ontologies/FBO-PT#hasStandardFireResistance> rdf:type owl:DatatypeProperty ;
+                                                                     schema:domainIncludes fbo:Building ,
+                                                                                           fbo:Element ;
+                                                                     rdfs:comment "Ability of a structure or part of a structure (usually just the elements) to fulfil its intended functions (structural resistance function and/or compartmentation function) in relation to heat exposure, according to the standard fire curve for a specified combination of actions and over a specified period of time."@en ,
+                                                                                  "Capacidade de uma estrutura ou de parte de uma estrutura (normalmente apenas os elementos) para desempenhar as funções pretendidas (função de resistência estrutural e/ou função de compartimentação) relativamente à exposição ao calor, de acordo com a curva de incêndio padrão para uma combinação de acções especificada e durante um período de tempo específico."@pt ;
+                                                                     skos:prefLabel "has standard fire resistance"@en ,
+                                                                                    "heeft standaard brandweerstand"@nl ,
+                                                                                    "tem resistência ao fogo padrão"@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#isCompartmentBoundary
+<http://www.firebim.org/ontologies/FBO-PT#isCompartmentBoundary> rdf:type owl:DatatypeProperty ;
+                                                                 rdfs:subPropertyOf fbo:isCompartmentationElement ;
+                                                                 rdfs:domain <http://www.firebim.org/ontologies/FBO-PT#FireCompartment> ;
+                                                                 rdfs:comment "Elemento resistente ou não resistente (por exemplo, uma parede) que faz parte da envolvente de um compartimento de incêndio."@pt ,
+                                                                              "Resistant or non-resistant element (e.g. a wall) forming part of the envelope of a fire compartment."@en ;
+                                                                 skos:prefLabel "is compartment boundary"@en ,
+                                                                                "é elemento de compartimentação"@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#isCoveredSpace
+<http://www.firebim.org/ontologies/FBO-PT#isCoveredSpace> rdf:type owl:DatatypeProperty ;
+                                                          skos:prefLabel "is beschutte ruimte"@nl ,
+                                                                         "is covered space"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#isIndependentBuilding
+<http://www.firebim.org/ontologies/FBO-PT#isIndependentBuilding> rdf:type owl:DatatypeProperty ;
+                                                                 rdfs:domain fbo:Building ;
+                                                                 rdfs:range xsd:boolean ;
+                                                                 rdfs:comment "Buildings with independent structures, with no internal communication between them or, when there is one, it is exclusively through a fire chamber, and which comply with the provisions of Fire Safety in Buildings Regulation, regarding the fire resistance of the construction elements that isolate them from each other, as well as parts of the same building with a common structure, with no internal communication between them or, where there is one, it is carried out exclusively through a fire chamber and they comply with the provisions of Fire Safety in Buildings Regulation in relation to the fire resistance of the construction elements that isolate them from each other and neither part depends on the other to comply with the regulatory evacuation conditions."@en ,
+                                                                              "Edifícios dotados de estruturas independentes, sem comunicação interior entre eles ou, quando exista, a mesma seja efetuada exclusivamente através de câmara corta-fogo, e que cumpram as disposições de SCIE, relativamente à resistência ao fogo dos elementos de construção que os isolam entre si, bem como as partes de um mesmo edifício com estrutura comum, sem comunicação interior entre elas ou, quando exista, a mesma seja efetuada exclusivamente através de câmara corta-fogo e cumpram as disposições de SCIE, relativamente à resistência ao fogo dos elementos de construção que as isolam entre si e nenhuma das partes dependa da outra para cumprir as condições regulamentares de evacuação."@pt ;
+                                                                 skos:prefLabel "is gebouw met onafhankelijke structuur"@nl ,
+                                                                                "is independent building"@en ,
+                                                                                "é edifício independentes "@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#isIsolatedBuilding
+<http://www.firebim.org/ontologies/FBO-PT#isIsolatedBuilding> rdf:type owl:DatatypeProperty ;
+                                                              rdfs:domain fbo:Building ;
+                                                              rdfs:range xsd:boolean ;
+                                                              rdfs:comment """Do ponto de vista de propagação do fogo entre fachadas, edifícios que obedecem a uma das seguintes características:
+a) Possuam fachadas em confronto com outros edifícios afastadas de uma distância igual ou superior a 8 m;
+b) Possuam fachadas em confronto com outros edifícios, desde que cumpram a alínea a) do n.º 8 do art.º 7.º do RT-SCIE."""@pt ,
+                                                                           """From the point of view of the propagation of fire between façades, buildings that comply with one of the following characteristics:
+a) Have façades facing other buildings at a distance of 8 m or more;
+b) They have façades facing other buildings, provided that they comply with paragraph a) of Art. 7(8) of of Technical Regulation - Fire Safety in Buildings."""@en ;
+                                                              skos:prefLabel "is isolated building"@en ,
+                                                                             "is omsloten gebouw"@nl ,
+                                                                             "é edifício isolados"@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#isReferencePlane
+<http://www.firebim.org/ontologies/FBO-PT#isReferencePlane> rdf:type owl:DatatypeProperty ;
+                                                            rdfs:domain fbo:Storey ;
+                                                            rdfs:range xsd:boolean ;
+                                                            rdfs:comment "O nível do plano, ao nível do piso de acesso dos veículos de socorro, medido perpendicularmente a uma saída direta para o exterior do edifício; se existir mais do que um plano de referência, considera-se o plano mais favorável às operações dos bombeiros."@pt ,
+                                                                         "The level plane, at the floor level of the access for rescue vehicles, measured perpendicular to a direct exit to the outside of the building; if there is more than one reference plane, the most favorable plane for fire department operations is considered."@en ;
+                                                            skos:prefLabel "is reference plane"@en ,
+                                                                           "is referentievlak"@nl ,
+                                                                           "é plano de referência"@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#isRiskLocation
+<http://www.firebim.org/ontologies/FBO-PT#isRiskLocation> rdf:type owl:DatatypeProperty ;
+                                                          rdfs:subPropertyOf owl:topDataProperty ;
+                                                          rdfs:comment "Classification of any area of a building or enclosure according to the nature of the fire risk, in accordance with the provisions of Art.10 of Legal Regime - Fire Safety in Buildings."@en ,
+                                                                       "Classificação de qualquer área de um edifício ou recinto, em função da natureza do risco de incêndio, em conformidade com o disposto no art.º 10.º do RJ-SCIE."@pt ;
+                                                          skos:altLabel "is risicolocatie"@nl ;
+                                                          skos:prefLabel "is risk location"@en ,
+                                                                         "é locais de risco"@pt .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://qudt.org/3.1.0/schema/qudt/QuantityKind
+<http://qudt.org/3.1.0/schema/qudt/QuantityKind> rdf:type owl:Class .
+
+
+###  http://qudt.org/3.1.0/schema/qudt/Unit
+<http://qudt.org/3.1.0/schema/qudt/Unit> rdf:type owl:Class .
+
+
+###  http://qudt.org/3.1.0/vocab/quantitykind/Angle
+<http://qudt.org/3.1.0/vocab/quantitykind/Angle> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/QuantityKind> .
+
+
+###  http://qudt.org/3.1.0/vocab/quantitykind/Area
+<http://qudt.org/3.1.0/vocab/quantitykind/Area> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/QuantityKind> .
+
+
+###  http://qudt.org/3.1.0/vocab/quantitykind/EnergyPerArea
+<http://qudt.org/3.1.0/vocab/quantitykind/EnergyPerArea> rdf:type owl:Class ;
+                                                         rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/QuantityKind> .
+
+
+###  http://qudt.org/3.1.0/vocab/quantitykind/HeatingValue
+<http://qudt.org/3.1.0/vocab/quantitykind/HeatingValue> rdf:type owl:Class ;
+                                                        rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/QuantityKind> .
+
+
+###  http://qudt.org/3.1.0/vocab/quantitykind/Height
+<http://qudt.org/3.1.0/vocab/quantitykind/Height> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/QuantityKind> .
+
+
+###  http://qudt.org/3.1.0/vocab/quantitykind/Length
+<http://qudt.org/3.1.0/vocab/quantitykind/Length> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/QuantityKind> .
+
+
+###  http://qudt.org/3.1.0/vocab/quantitykind/Time
+<http://qudt.org/3.1.0/vocab/quantitykind/Time> rdf:type owl:Class ;
+                                                rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/QuantityKind> .
+
+
+###  http://qudt.org/3.1.0/vocab/quantitykind/Volume
+<http://qudt.org/3.1.0/vocab/quantitykind/Volume> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/QuantityKind> .
+
+
+###  http://qudt.org/3.1.0/vocab/quantitykind/Width
+<http://qudt.org/3.1.0/vocab/quantitykind/Width> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/QuantityKind> .
+
+
+###  http://qudt.org/3.1.0/vocab/unit/DEG
+<http://qudt.org/3.1.0/vocab/unit/DEG> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/Unit> .
+
+
+###  http://qudt.org/3.1.0/vocab/unit/W-PER-M-K
+<http://qudt.org/3.1.0/vocab/unit/W-PER-M-K> rdf:type owl:Class ;
+                                             rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/Unit> .
+
+
+###  http://qudt.org/3.1/vocab/quantitykind/ThermalConductivity
+<http://qudt.org/3.1/vocab/quantitykind/ThermalConductivity> rdf:type owl:Class ;
+                                                             rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/QuantityKind> .
+
+
+###  http://schema.org/Person
+schema:Person rdf:type owl:Class .
+
+
+###  http://www.firebim.org/ontologies/FBO#Alarm
+fbo:Alarm rdf:type owl:Class ;
+          rdfs:subClassOf fbo:DistributionControlElement ;
+          fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcAlarm> ;
+          skos:prefLabel "Alarm"@en ,
+                         "Alarm"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Beam
+fbo:Beam rdf:type owl:Class ;
+         rdfs:subClassOf fbo:BuiltElement ;
+         fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/beam> ;
+         fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcBeam> ;
+         fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.1.11> ;
+         skos:prefLabel "Beam"@en ,
+                        "Ligger"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Building
+fbo:Building rdf:type owl:Class ;
+             rdfs:subClassOf fbo:Facility ;
+             fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcBuilding> ;
+             fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.1.3> ;
+             skos:altLabel "Pand"@nl ;
+             skos:prefLabel "Building"@en ,
+                            "Edifício"@pt ,
+                            "Gebouw"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#BuildingHeight
+fbo:BuildingHeight rdf:type owl:Class ;
+                   rdfs:subClassOf fbo:Geometry ;
+                   skos:prefLabel "Building height"@en ,
+                                  "Gebouwhoogte"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#BuiltElement
+fbo:BuiltElement rdf:type owl:Class ;
+                 rdfs:subClassOf fbo:Element ;
+                 fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcBuiltElement> ;
+                 fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.5.4> ;
+                 skos:prefLabel "Bouwkundig element"@nl ,
+                                "Built element"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#BuiltSystem
+fbo:BuiltSystem rdf:type owl:Class ;
+                rdfs:subClassOf fbo:System ;
+                fbo:hasISOEquivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcBuiltSystem> ;
+                skos:prefLabel "Bouwkundig systeem"@nl ,
+                               "Built system"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Ceiling
+fbo:Ceiling rdf:type owl:Class ;
+            rdfs:subClassOf fbo:Covering ;
+            fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/suspended-ceiling> ;
+            fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcCoveringCEILING> ;
+            fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.18> ;
+            skos:prefLabel "Ceiling"@en ,
+                           "Plafond"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Cladding
+fbo:Cladding rdf:type owl:Class ;
+             rdfs:subClassOf fbo:Covering ;
+             fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcCoveringCLADDING> ;
+             fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:sec:3.3.2.43> ;
+             skos:prefLabel "Cladding"@en ,
+                            "Gevelbekleding"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Column
+fbo:Column rdf:type owl:Class ;
+           rdfs:subClassOf fbo:BuiltElement ;
+           fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/column> ;
+           fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcColumn> ;
+           fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.1.10> ;
+           skos:prefLabel "Column"@en ,
+                          "Kolom"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Covering
+fbo:Covering rdf:type owl:Class ;
+             rdfs:subClassOf fbo:BuiltElement ;
+             fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcCovering> ;
+             skos:prefLabel "Afwerking"@nl ,
+                            "Covering"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#CurtainWall
+fbo:CurtainWall rdf:type owl:Class ;
+                rdfs:subClassOf fbo:BuiltElement ;
+                fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/curtain-wall> ;
+                fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcCurtainWall> ;
+                fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.55> ;
+                skos:prefLabel "Curtain wall"@en ,
+                               "Vliesgevel"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Damper
+fbo:Damper rdf:type owl:Class ;
+           rdfs:subClassOf fbo:FlowController ;
+           fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDamper> ;
+           skos:prefLabel "Damper"@en ,
+                          "Registo"@pt ,
+                          "Volumeregelaar"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Distance
+fbo:Distance rdf:type owl:Class ;
+             fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.2.2.8> ;
+             skos:prefLabel "Afstand"@nl ,
+                            "Distance"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#DistributionControlElement
+fbo:DistributionControlElement rdf:type owl:Class ;
+                               rdfs:subClassOf fbo:DistributionElement ;
+                               fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDistributionControlElement> ;
+                               skos:prefLabel "Distribution control element"@en ,
+                                              "Verdeler"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#DistributionElement
+fbo:DistributionElement rdf:type owl:Class ;
+                        rdfs:subClassOf fbo:Element ;
+                        fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDistributionElement> ;
+                        skos:prefLabel "Distributie-element"@nl ,
+                                       "Distribution element"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#DistributionFlowElement
+fbo:DistributionFlowElement rdf:type owl:Class ;
+                            rdfs:subClassOf fbo:DistributionElement ;
+                            fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDistributionFlowElement> ;
+                            skos:prefLabel "Distribution flow element"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#DistributionSystem
+fbo:DistributionSystem rdf:type owl:Class ;
+                       rdfs:subClassOf fbo:System ;
+                       fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDistributionSystem> ;
+                       skos:prefLabel "Distributiesysteem"@nl ,
+                                      "Distribution system"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Door
+fbo:Door rdf:type owl:Class ;
+         rdfs:subClassOf fbo:BuiltElement ;
+         fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/door> ;
+         fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDoor> ;
+         fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.3.3> ;
+         skos:prefLabel "Deur"@nl ,
+                        "Door"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Element
+fbo:Element rdf:type owl:Class ;
+            fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcElement> ;
+            fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.5.4> ;
+            skos:prefLabel "Element"@en ,
+                           "Element"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Elevator
+fbo:Elevator rdf:type owl:Class ;
+             rdfs:subClassOf fbo:TransportElement ;
+             fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/lift> ;
+             fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcTransportElementELEVATOR> ;
+             fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.4.29> ;
+             skos:prefLabel "Elevator"@en ,
+                            "Lift"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#ElevatorShaft
+fbo:ElevatorShaft rdf:type owl:Class ;
+                  rdfs:subClassOf fbo:Transport ;
+                  fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:sec:3.2.4.14> ;
+                  skos:altLabel "Lift well"@en ;
+                  skos:prefLabel "Elevator shaft"@en ,
+                                 "Liftschacht"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#EmergencyExitLight
+fbo:EmergencyExitLight rdf:type owl:Class ;
+                       rdfs:subClassOf fbo:Lighting ;
+                       fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcLightFixtureSECURITYLIGHTING> ;
+                       skos:prefLabel "Emergency exit light"@en ,
+                                      "Nooduitgangverlichting"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#EmergencyLight
+fbo:EmergencyLight rdf:type owl:Class ;
+                   rdfs:subClassOf fbo:Lighting ;
+                   fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcLightFixtureSECURITYLIGHTING> ;
+                   skos:prefLabel "Emergency light"@en ,
+                                  "Noodverlichting"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#EscapeRouteCorridor
+fbo:EscapeRouteCorridor rdf:type owl:Class ;
+                        rdfs:subClassOf fbo:Transport ;
+                        skos:prefLabel "Escape route corridor"@en ,
+                                       "Vluchtroutecorridor"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#EscapeRouteSystem
+fbo:EscapeRouteSystem rdf:type owl:Class ;
+                      rdfs:subClassOf fbo:System ;
+                      skos:altLabel "Evacuatieroutesysteem"@nl ,
+                                    "Evacuation route system"@en ;
+                      skos:prefLabel "Escape route system"@en ,
+                                     "Vluchtroutesysteem"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#EvacuationRoute
+fbo:EvacuationRoute rdf:type owl:Class ;
+                    rdfs:subClassOf fbo:Path ;
+                    skos:altLabel "Escape route"@en ,
+                                  "Vluchtroute"@nl ;
+                    skos:prefLabel "Evacuatieroute"@nl ,
+                                   "Evacuation route"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#EvacuationTime
+fbo:EvacuationTime rdf:type owl:Class ;
+                   rdfs:subClassOf fbo:Time ;
+                   skos:altLabel "Escape time"@en ,
+                                 "Vluchttijd"@nl ;
+                   skos:prefLabel "Evacuatietijd"@nl ,
+                                  "Evacuation time"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Expert
+fbo:Expert rdf:type owl:Class ;
+           rdfs:subClassOf schema:Person ;
+           skos:prefLabel "Expert"@en ,
+                          "Expert"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#ExternalSpatialStructureElement
+fbo:ExternalSpatialStructureElement rdf:type owl:Class ;
+                                    rdfs:subClassOf fbo:SpatialElement ;
+                                    fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcExternalSpatialStructureElement> ;
+                                    skos:prefLabel "Extern ruimtelijk structuurelement"@nl ,
+                                                   "External spatial structure element"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Facade
+fbo:Facade rdf:type owl:Class ;
+           rdfs:subClassOf fbo:BuiltSystem ;
+           fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcBuiltSystemOUTERSHELL> ;
+           fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.44> ;
+           skos:prefLabel "Facade"@en ,
+                          "Gevel"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Facility
+fbo:Facility rdf:type owl:Class ;
+             rdfs:subClassOf fbo:SpatialStructureElement ;
+             fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcFacility> ;
+             skos:prefLabel "Faciliteit"@nl ,
+                            "Facility"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#FeatureElement
+fbo:FeatureElement rdf:type owl:Class ;
+                   rdfs:subClassOf fbo:Element ;
+                   fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcFeatureElement> ;
+                   skos:prefLabel "Feature element"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#FeatureElementSubtraction
+fbo:FeatureElementSubtraction rdf:type owl:Class ;
+                              rdfs:subClassOf fbo:FeatureElement ;
+                              fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcFeatureElementSubtraction> ;
+                              skos:prefLabel "Feature element subtraction"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#FireAlarmSystem
+fbo:FireAlarmSystem rdf:type owl:Class ;
+                    rdfs:subClassOf fbo:DistributionSystem ;
+                    skos:prefLabel "Brandalarmsysteem"@nl ,
+                                   "Fire alarm system"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#FireCompartment
+fbo:FireCompartment rdf:type owl:Class ;
+                    rdfs:subClassOf fbo:SpatialZone ;
+                    fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpatialZoneFIRESAFETY> ;
+                    fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.144> ;
+                    skos:prefLabel "Brandcompartiment"@nl ,
+                                   "Fire compartment"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#FireExtinguishingSystem
+fbo:FireExtinguishingSystem rdf:type owl:Class ;
+                            rdfs:subClassOf fbo:DistributionSystem ;
+                            fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDistributionSystemFIREPROTECTION> ;
+                            skos:prefLabel "Brandblussysteem"@nl ,
+                                           "Fire extinguishing system"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#FireHydrant
+fbo:FireHydrant rdf:type owl:Class ;
+                rdfs:subClassOf fbo:FireSuppressionTerminal ;
+                fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/fire-hydrant> ;
+                fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcFireSuppressionTerminalFIREHYDRANT> ;
+                skos:prefLabel "Brandkraan"@nl ,
+                               "Fire hydrant"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#FireSensor
+fbo:FireSensor rdf:type owl:Class ;
+               rdfs:subClassOf fbo:DistributionControlElement ;
+               fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSensorFIRESENSOR> ;
+               skos:prefLabel "Brandmelder"@nl ,
+                              "Fire sensor"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#FireSuppressionTerminal
+fbo:FireSuppressionTerminal rdf:type owl:Class ;
+                            rdfs:subClassOf fbo:FlowTerminal ;
+                            fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcFireSuppressionTerminal> ;
+                            fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:7165:ed-3:v1:en:term:3.11> ;
+                            skos:altLabel "Brandblusser"@nl ,
+                                          "Fire extinguisher"@en ;
+                            skos:prefLabel "Brandbestrijdingspunt"@nl ,
+                                           "Fire suppression terminal"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#FlowController
+fbo:FlowController rdf:type owl:Class ;
+                   rdfs:subClassOf fbo:DistributionFlowElement ;
+                   fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcFlowController> ;
+                   skos:prefLabel "Flow controller"@en ,
+                                  "Stroomregelaar"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#FlowTerminal
+fbo:FlowTerminal rdf:type owl:Class ;
+                 rdfs:subClassOf fbo:DistributionFlowElement ;
+                 fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcFlowTerminal> ;
+                 skos:prefLabel "Flow terminal"@en ,
+                                "Stroompunt"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Geometry
+fbo:Geometry rdf:type owl:Class ;
+             skos:prefLabel "Geometrie"@nl ,
+                            "Geometry"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#HorizontalShaft
+fbo:HorizontalShaft rdf:type owl:Class ;
+                    rdfs:subClassOf fbo:Shaft ;
+                    skos:prefLabel "Horizontal shaft"@en ,
+                                   "Horizontale schacht"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#HoseReel
+fbo:HoseReel rdf:type owl:Class ;
+             rdfs:subClassOf fbo:FireSuppressionTerminal ;
+             fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/fire-hose-reel> ;
+             fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcFireSuppressionTerminalHOSEREEL> ;
+             skos:prefLabel "Brandslanghaspel"@nl ,
+                            "Hose reel"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#HousingUnit
+fbo:HousingUnit rdf:type owl:Class ;
+                rdfs:subClassOf fbo:Zone ;
+                fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.4.2> ;
+                skos:altLabel "Dwelling"@en ;
+                skos:prefLabel "Housing unit"@en ,
+                               "Wooneenheid"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#IndustrialBuilding
+fbo:IndustrialBuilding rdf:type owl:Class ;
+                       rdfs:subClassOf fbo:Building ;
+                       skos:prefLabel "Industrial building"@en ,
+                                      "Industriegebouw"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Lighting
+fbo:Lighting rdf:type owl:Class ;
+             rdfs:subClassOf fbo:Element ;
+             fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcLightFixture> ;
+             skos:altLabel "Lichtarmatuur"@nl ,
+                           "Light fixture"@en ;
+             skos:prefLabel "Lighting"@en ,
+                            "Verlichting"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#LinearPositioningElement
+fbo:LinearPositioningElement rdf:type owl:Class ;
+                             rdfs:subClassOf fbo:PositioningElement ;
+                             fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcLinearPositioningElement> ;
+                             skos:prefLabel "Lineair positioneringselement"@nl ,
+                                            "Linear positioning element"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Material
+fbo:Material rdf:type owl:Class ;
+             fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcMaterial> ;
+             fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.4.1.1> ;
+             skos:prefLabel "Materiaal"@nl ,
+                            "Material"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Mezzanine
+fbo:Mezzanine rdf:type owl:Class ;
+              rdfs:subClassOf fbo:Storey ;
+              fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:sec:3.2.2.8> ;
+              skos:altLabel "Entresol"@nl ,
+                            "Insteekverdieping"@nl ,
+                            "Mezzanine"@nl ,
+                            "Tussenverdieping"@nl ;
+              skos:prefLabel "Mezanino"@pt ,
+                             "Mezzanine"@en ,
+                             "Tussenvloer"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Niche
+fbo:Niche rdf:type owl:Class ;
+          rdfs:subClassOf fbo:OpeningElement ;
+          fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcOpeningElementRECESS> ;
+          fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:sec:3.7.3.1> ;
+          skos:altLabel "Recess"@en ,
+                        "Uitsparing"@nl ;
+          skos:prefLabel "Niche"@en ,
+                         "Nis"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Occupant
+fbo:Occupant rdf:type owl:Class ;
+             rdfs:subClassOf schema:Person ;
+             fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.321> ;
+             skos:prefLabel "Gebruiker"@nl ,
+                            "Occupant"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#OpeningElement
+fbo:OpeningElement rdf:type owl:Class ;
+                   rdfs:subClassOf fbo:FeatureElementSubtraction ;
+                   fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcOpeningElement> ;
+                   fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:sec:3.3.3.1> ;
+                   skos:prefLabel "Opening element"@en ,
+                                  "Openingselement"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Path
+fbo:Path rdf:type owl:Class ;
+         rdfs:subClassOf fbo:LinearPositioningElement ;
+         skos:prefLabel "Pad"@nl ,
+                        "Path"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#PositioningElement
+fbo:PositioningElement rdf:type owl:Class ;
+                       fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcPositioningElement> ;
+                       skos:prefLabel "Positioneringselement"@nl ,
+                                      "Positioning element"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Railing
+fbo:Railing rdf:type owl:Class ;
+            rdfs:subClassOf fbo:BuiltElement ;
+            fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcRailing> ;
+            fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.69> ;
+            skos:prefLabel "Railing"@en ,
+                           "Reling"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Ramp
+fbo:Ramp rdf:type owl:Class ;
+         rdfs:subClassOf fbo:BuiltElement ;
+         fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/ramp> ;
+         fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcRamp> ;
+         fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.5.33> ;
+         skos:prefLabel "Hellingbaan"@nl ,
+                        "Ramp"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#ResidentialBuilding
+fbo:ResidentialBuilding rdf:type owl:Class ;
+                        rdfs:subClassOf fbo:Building ;
+                        skos:prefLabel "Residential building"@en ,
+                                       "Woongebouw"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Road
+fbo:Road rdf:type owl:Class ;
+         rdfs:subClassOf fbo:Facility ;
+         fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcRoad> ;
+         fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.3.1> ;
+         skos:prefLabel "Road"@en ,
+                        "Weg"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Roof
+fbo:Roof rdf:type owl:Class ;
+         rdfs:subClassOf fbo:BuiltElement ;
+         fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/roof> ;
+         fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcRoof> ;
+         fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.21> ;
+         skos:prefLabel "Dak"@nl ,
+                        "Roof"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#SafeRefuge
+fbo:SafeRefuge rdf:type owl:Class ;
+               rdfs:subClassOf fbo:SpatialZone ;
+               fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpatialZoneFIRESAFETY> ;
+               fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.376> ;
+               skos:prefLabel "Safe refuge"@en ,
+                              "Sikkert sted"@da ,
+                              "Veilige plek"@nl ,
+                              "Zona de refúgio"@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO#Shaft
+fbo:Shaft rdf:type owl:Class ;
+          rdfs:subClassOf fbo:DistributionFlowElement ;
+          fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:sec:3.1.2.13> ;
+          skos:prefLabel "Schacht"@nl ,
+                         "Shaft"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Site
+fbo:Site rdf:type owl:Class ;
+         rdfs:subClassOf fbo:SpatialStructureElement ;
+         fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSite> ;
+         fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.1.5> ;
+         skos:prefLabel "Locatie"@nl ,
+                        "Site"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Skylight
+fbo:Skylight rdf:type owl:Class ;
+             rdfs:subClassOf fbo:Window ;
+             fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcWindowLIGHTDOME> ,
+                                     <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcWindowSKYLIGHT> ;
+             fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.3.14> ;
+             skos:prefLabel "Dakraam"@nl ,
+                            "Skylight"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Slab
+fbo:Slab rdf:type owl:Class ;
+         rdfs:subClassOf fbo:BuiltElement ;
+         fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/slab> ;
+         fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSlab> ;
+         fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.5.12> ;
+         skos:prefLabel "Slab"@en ,
+                        "Vloer"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#SmokeAlarmSystem
+fbo:SmokeAlarmSystem rdf:type owl:Class ;
+                     rdfs:subClassOf fbo:DistributionSystem ;
+                     skos:prefLabel "Rookalarmsysteem"@nl ,
+                                    "Smoke alarm system"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#SmokeAndHeatExtractionSystem
+fbo:SmokeAndHeatExtractionSystem rdf:type owl:Class ;
+                                 rdfs:subClassOf fbo:Damper ;
+                                 fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDamperFIRESMOKEDAMPER> ;
+                                 skos:prefLabel "Rook- en brandklep"@nl ,
+                                                "Smoke and heat damper"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#SmokeDamper
+fbo:SmokeDamper rdf:type owl:Class ;
+                rdfs:subClassOf fbo:Damper ;
+                fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDamperSMOKEDAMPER> ;
+                skos:prefLabel "Rookklep"@nl ,
+                               "Smoke damper"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#SmokeSensor
+fbo:SmokeSensor rdf:type owl:Class ;
+                rdfs:subClassOf fbo:DistributionControlElement ;
+                fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSensorSMOKESENSOR> ;
+                skos:prefLabel "Rookmelder"@nl ,
+                               "Smoke sensor"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Space
+fbo:Space rdf:type owl:Class ;
+          rdfs:subClassOf fbo:SpatialStructureElement ;
+          fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/space> ;
+          fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpace> ;
+          fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.2.1.1> ;
+          skos:altLabel "Kamer"@nl ,
+                        "Lokaal"@nl-be ;
+          skos:prefLabel "Ruimte"@nl ,
+                         "Ruimte"@nl-be ,
+                         "Space"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#SpatialElement
+fbo:SpatialElement rdf:type owl:Class ;
+                   fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpatialElement> ;
+                   skos:prefLabel "Ruimtelijk element"@nl ,
+                                  "Spatial element"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#SpatialStructureElement
+fbo:SpatialStructureElement rdf:type owl:Class ;
+                            rdfs:subClassOf fbo:SpatialElement ;
+                            fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpatialStructureElement> ;
+                            skos:prefLabel "Ruimtelijk structuurelement"@nl ,
+                                           "Spatial structure element"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#SpatialZone
+fbo:SpatialZone rdf:type owl:Class ;
+                rdfs:subClassOf fbo:SpatialElement ;
+                fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpatialZone> ;
+                skos:prefLabel "Ruimtelijke zone"@nl ,
+                               "Spatial zone"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Sprinkler
+fbo:Sprinkler rdf:type owl:Class ;
+              rdfs:subClassOf fbo:FireSuppressionTerminal ;
+              fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcFireSuppressionTerminalSPRINKLER> ;
+              fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.4.47> ;
+              skos:prefLabel "Sprinkler"@en ,
+                             "Sprinkler"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Stair
+fbo:Stair rdf:type owl:Class ;
+          rdfs:subClassOf fbo:BuiltElement ;
+          fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcStair> ;
+          fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.5.22> ;
+          skos:prefLabel "Stair"@en ,
+                         "Trap"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Stairwell
+fbo:Stairwell rdf:type owl:Class ;
+              rdfs:subClassOf fbo:Transport ;
+              fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:sec:3.2.4.15> ;
+              skos:prefLabel "Stairwell"@en ,
+                             "Trappenhuis"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Storey
+fbo:Storey rdf:type owl:Class ;
+           rdfs:subClassOf fbo:SpatialStructureElement ;
+           fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcBuildingStorey> ;
+           fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.2.1.2> ;
+           skos:prefLabel "Storey"@en ,
+                          "Verdieping"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Sub-FireCompartment
+fbo:Sub-FireCompartment rdf:type owl:Class ;
+                        rdfs:subClassOf fbo:FireCompartment ;
+                        fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpatialZoneFIRESAFETY> ;
+                        fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.144> ;
+                        skos:prefLabel "Sub-brandcompartiment"@nl ,
+                                       "Sub-fire compartment"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#SuspendedCeiling
+fbo:SuspendedCeiling rdf:type owl:Class ;
+                     rdfs:subClassOf fbo:Ceiling ;
+                     fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:sec:3.3.2.20> ;
+                     skos:prefLabel "Verlaagd plafond"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#System
+fbo:System rdf:type owl:Class ;
+           fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSystem> ;
+           skos:prefLabel "Systeem"@nl ,
+                          "System"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Time
+fbo:Time rdf:type owl:Class ;
+         skos:prefLabel "Time"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Transport
+fbo:Transport rdf:type owl:Class ;
+              rdfs:subClassOf fbo:SpatialZone ;
+              fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpatialZoneTRANSPORT> ;
+              skos:prefLabel "Transport"@en ,
+                             "Vervoersruimte"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#TransportElement
+fbo:TransportElement rdf:type owl:Class ;
+                     rdfs:subClassOf fbo:TransportationDevice ;
+                     fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcTransportElement> ;
+                     skos:prefLabel "Transportation element"@en ,
+                                    "Transportelement"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#TransportSystem
+fbo:TransportSystem rdf:type owl:Class ;
+                    rdfs:subClassOf fbo:BuiltSystem ;
+                    fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcBuiltSystemTRANSPORT> ;
+                    skos:prefLabel "Transport system"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#TransportationDevice
+fbo:TransportationDevice rdf:type owl:Class ;
+                         rdfs:subClassOf fbo:Element ;
+                         fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcTransportationDevice> ;
+                         skos:prefLabel "Transportation device"@en ,
+                                        "Transportmiddel"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#UsageFunction
+fbo:UsageFunction rdf:type owl:Class .
+
+
+###  http://www.firebim.org/ontologies/FBO#VentilationSystem
+fbo:VentilationSystem rdf:type owl:Class ;
+                      rdfs:subClassOf fbo:DistributionSystem ;
+                      fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcDistributionSystemVENTILATION> ;
+                      skos:prefLabel "Ventilatiesysteem"@nl ,
+                                     "Ventilation system"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#VerticalShaft
+fbo:VerticalShaft rdf:type owl:Class ;
+                  rdfs:subClassOf fbo:Shaft ;
+                  skos:prefLabel "Vertical shaft"@en ,
+                                 "Verticale schacht"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#WalkingTime
+fbo:WalkingTime rdf:type owl:Class ;
+                rdfs:subClassOf fbo:Time ;
+                skos:prefLabel "Walking time"@en ,
+                               "Wandeltijd"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO#Wall
+fbo:Wall rdf:type owl:Class ;
+         rdfs:subClassOf fbo:BuiltElement ;
+         fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/wall> ;
+         fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcWall> ;
+         fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.2.46> ;
+         skos:prefLabel "Muur"@nl ,
+                        "Wall"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#WarningSystem
+fbo:WarningSystem rdf:type owl:Class ;
+                  rdfs:subClassOf fbo:DistributionSystem ;
+                  skos:prefLabel "Waarschuwingssysteem"@nl ,
+                                 "Warning system"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#WellHole
+fbo:WellHole rdf:type owl:Class ;
+             rdfs:subClassOf fbo:SpatialZone ;
+             skos:prefLabel "Schalmgat"@nl ,
+                            "Well hole"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Window
+fbo:Window rdf:type owl:Class ;
+           rdfs:subClassOf fbo:BuiltElement ;
+           fbo:hasBIMIDSEquivalent <https://www.bimids.eu/be-en/elements/window> ;
+           fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcWindow> ;
+           fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.3.5> ;
+           skos:prefLabel "Raam"@nl ,
+                          "Window"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO#Zone
+fbo:Zone rdf:type owl:Class ;
+         rdfs:subClassOf fbo:System ;
+         fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcZone> ;
+         skos:prefLabel "Zone"@en ,
+                        "Zone"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO-BE#Apartment
+<http://www.firebim.org/ontologies/FBO-BE#Apartment> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://www.firebim.org/ontologies/FBO-BE#SingleStoreyHouse> ;
+                                                     fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.4.3> ;
+                                                     skos:prefLabel "Apartment"@en ,
+                                                                    "Appartement"@nl .
+
+
+###  http://www.firebim.org/ontologies/FBO-BE#Building
+<http://www.firebim.org/ontologies/FBO-BE#Building> rdf:type owl:Class ;
+                                                    rdfs:subClassOf fbo:Building ;
+                                                    rdfs:comment "Any building structure forming a covered space accessible to people, wholly or partially enclosed by walls; industrial plants (such as chemical plants and tank farms) and engineering structures (bridges, tunnels, etc.) are not considered buildings."@en ,
+                                                                 "Elke bouwconstructie die een voor mensen toegankelijke overdekte ruimte vormt, geheel of gedeeltelijk met wanden omsloten; industriële installaties (zoals chemische installaties en tankparken) en kunstwerken (bruggen, tunnels, …) worden niet beschouwd als gebouwen."@nl-be ;
+                                                    skos:prefLabel "Building"@en ,
+                                                                   "Gebouw"@nl-be .
+
+
+###  http://www.firebim.org/ontologies/FBO-BE#Compartment
+<http://www.firebim.org/ontologies/FBO-BE#Compartment> rdf:type owl:Class ;
+                                                       rdfs:subClassOf fbo:FireCompartment ;
+                                                       rdfs:comment "Deel van een gebouw begrensd door wanden die de brandvoortplanting naar het aanliggende compartiment of compartimenten gedurende een bepaalde tijd dienen te beletten. Een compartiment is al dan niet onderverdeeld in lokalen."@nl-be ,
+                                                                    "Part of a building bounded by walls that serve to prevent the spread of fire to the adjacent compartment or compartments for a certain period of time. A compartment may or may not be divided into rooms."@en ;
+                                                       skos:prefLabel "Compartiment"@nl-be ,
+                                                                      "Compartment"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-BE#Duplex
+<http://www.firebim.org/ontologies/FBO-BE#Duplex> rdf:type owl:Class ;
+                                                  rdfs:subClassOf fbo:HousingUnit ;
+                                                  fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.4.4> ;
+                                                  skos:altLabel "Duplex"@en ,
+                                                                "Maisonette"@en ;
+                                                  skos:prefLabel "Duplex"@nl-be ,
+                                                                 "Maisonnette"@nl ,
+                                                                 "Two-storey apartment"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-BE#EvacuationPath
+<http://www.firebim.org/ontologies/FBO-BE#EvacuationPath> rdf:type owl:Class ;
+                                                          rdfs:subClassOf fbo:EvacuationRoute ;
+                                                          rdfs:comment "Maximum 10% hellende weg, binnen het gebouw, die toegang geeft tot trappenhuizen, vluchtterrassen of uitgangen."@nl-be ,
+                                                                       "Maximum 10% sloping road, inside the building, that provides access to stairwells, emergency exits or exits."@en ;
+                                                          skos:prefLabel "Evacuatieweg"@nl-be ,
+                                                                         "Evacuation path"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-BE#SingleStoreyHouse
+<http://www.firebim.org/ontologies/FBO-BE#SingleStoreyHouse> rdf:type owl:Class ;
+                                                             rdfs:subClassOf fbo:HousingUnit ;
+                                                             fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.4.6> ;
+                                                             skos:altLabel "Bungalow"@en ,
+                                                                           "Bungalow"@nl ;
+                                                             skos:prefLabel "Gelijkvloerse woning"@nl ,
+                                                                            "Single-storey house"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-BE#Triplex
+<http://www.firebim.org/ontologies/FBO-BE#Triplex> rdf:type owl:Class ;
+                                                   rdfs:subClassOf fbo:HousingUnit ;
+                                                   skos:altLabel "Triplex"@en ;
+                                                   skos:prefLabel "Appartement met drie bouwlagen"@nl ,
+                                                                  "Three-storey apartment"@en ,
+                                                                  "Triplex"@nl-be .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#EscapeRouteCorridor
+<http://www.firebim.org/ontologies/FBO-DK#EscapeRouteCorridor> rdf:type owl:Class ;
+                                                               rdfs:subClassOf fbo:EscapeRouteCorridor ;
+                                                               rdfs:comment "A corridor that is primarily designed for escape route function and provides access to one or more exits. An escape route corridor is designed in its own fire compartment (nomaly a Subcompartment) to protect people from critical conditions during evacuation. There are special requirements for the design of escape routes and the fire load in an escape route must not exceed 50 MJ/m2, corresponding to ultra low fire load."@en ,
+                                                                            "Gang, der primært er indrettet til flugtvejsfunktion, og som giver adgang til en eller flere udgange. En flugtvejsgang indrettes i egen brandmæssige enhed, for at beskytte personer mod kritiske forhold under evakuering. Der er særlige krav til indretningen af flugtvejsgange og brandbelastning en en flugtvejsgang må højst være 50 MJ/m2, svarende til ultra lav brandbelastning."@da ;
+                                                               skos:prefLabel "Escape route corridor"@en ,
+                                                                              "Flugtvejsgang"@da .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#FireCompartment
+<http://www.firebim.org/ontologies/FBO-DK#FireCompartment> rdf:type owl:Class ;
+                                                           rdfs:subClassOf fbo:FireCompartment ;
+                                                           rdfs:comment "A detached (in terms of fire spread) building or a defined area of a building that is constructed with fire compartment separations from other rooms and buildings. A fire compartment consists of one or more Subcompartments."@en ,
+                                                                        "En brandmæssigt fritliggende bygning eller et afgrænset område af en bygning, som er udført med brandsektionsadskillelser mod andre rum og bygninger. En brandsektion består af en eller flere brandceller."@da ;
+                                                           skos:prefLabel "Brandsektion"@da ,
+                                                                          "Fire compartment"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#Subcompartment
+<http://www.firebim.org/ontologies/FBO-DK#Subcompartment> rdf:type owl:Class ;
+                                                          rdfs:subClassOf fbo:Sub-FireCompartment ;
+                                                          rdfs:comment "Et eller flere rum, hvorfra branden ikke spredes til andre brandceller i den tid, der kræves til evakuering og redningsberedskabets redningsindsats i tilstødende brandceller."@da ,
+                                                                       "One or more rooms from which the fire does not spread to other subcompartments during the time required for evacuation and rescue efforts in adjacent subcompartments."@en ;
+                                                          skos:prefLabel "Brandcelle"@da ,
+                                                                         "Subcompartment"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-NL#ExternalSpace
+<http://www.firebim.org/ontologies/FBO-NL#ExternalSpace> rdf:type owl:Class ;
+                                                         rdfs:subClassOf fbo:Space ;
+                                                         fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpaceEXTERNAL> ;
+                                                         skos:prefLabel "Buitenruimte"@nl ,
+                                                                        "External space"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-NL#FireCompartment
+<http://www.firebim.org/ontologies/FBO-NL#FireCompartment> rdf:type owl:Class ;
+                                                           rdfs:subClassOf fbo:FireCompartment ;
+                                                           rdfs:comment "Gedeelte van een of meer bouwwerken bestemd als maximaal uitbreidingsgebied van brand."@nl ,
+                                                                        "Part of one or more buildings designated as a maximum fire expansion area."@en ;
+                                                           skos:prefLabel "Brandcompartiment"@nl ,
+                                                                          "Fire compartment"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-NL#InternalSpace
+<http://www.firebim.org/ontologies/FBO-NL#InternalSpace> rdf:type owl:Class ;
+                                                         rdfs:subClassOf fbo:Space ;
+                                                         fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpaceINTERNAL> ;
+                                                         skos:prefLabel "Binnenruimte"@nl ,
+                                                                        "Internal space"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#BankOfElevators
+<http://www.firebim.org/ontologies/FBO-PT#BankOfElevators> rdf:type owl:Class ;
+                                                           rdfs:subClassOf fbo:TransportSystem ;
+                                                           rdfs:comment "A bank of elevators with the same rated speed, serving the same floors, with landing doors simultaneously visible or nearby, electrically interconnected, with common call controls."@en ,
+                                                                        "Conjunto de elevadores com a mesma velocidade nominal, servindo os mesmos pisos, com portas de patamar simultaneamente visíveis ou próximas, interligados eletricamente, dispondo de comandos de chamada comuns."@pt ;
+                                                           skos:prefLabel "Bank of elevators"@en ,
+                                                                          "Bateria de elevadores"@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#Building
+<http://www.firebim.org/ontologies/FBO-PT#Building> rdf:type owl:Class ;
+                                                    rdfs:subClassOf fbo:Building ;
+                                                    rdfs:comment "Any building intended for human use that has, in whole or in part, a usable interior space, covering the realities referred to in Art. 8(1) of Legal Regime - Fire Safety in Buildings  [identification of Use-Types]."@en ,
+                                                                 "Toda e qualquer edificação destinada à utilização humana que disponha, na totalidade ou em parte, de um espaço interior utilizável, abrangendo as realidades referidas no n.º 1 do art.º 8.º do RJ-SCIE [identificação das utilizações-tipo]."@pt ;
+                                                    skos:prefLabel "Building"@en ,
+                                                                   "Edifício"@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#ExpansionJoint
+<http://www.firebim.org/ontologies/FBO-PT#ExpansionJoint> rdf:type owl:Class ;
+                                                          rdfs:subClassOf fbo:BuiltElement ;
+                                                          rdfs:comment "A building element designed to absorb movements and dimensional variations resulting from changes in temperature, humidity and other environmental factors. It allows materials to expand and contract without causing damage to the structure, avoiding cracks and other problems that could compromise the integrity of the building."@en ,
+                                                                       "Elemento construtivo projectado para absorver movimentos e variações dimensionais que resultam das mudanças de temperatura, humidade e outros factores ambientais. Permite que os materiais se expandam e contraiam sem causar danos à estrutura, evitando fissuras e outros problemas que podem comprometer a integridade do edifício."@pt ;
+                                                          skos:prefLabel "Expansion joint"@en ,
+                                                                         "Junta de dilatação"@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#FireCompartment
+<http://www.firebim.org/ontologies/FBO-PT#FireCompartment> rdf:type owl:Class ;
+                                                           rdfs:subClassOf fbo:FireCompartment ;
+                                                           rdfs:comment "Part of a building, comprising one or more spaces, divisions or floors, delimited by fire-resistant construction elements suitable for ensuring the protection of the building or preventing the spread of fire to the rest of the building, or for fractionating the fire load, during a given period of time."@en ,
+                                                                        "Parte de um edifício, compreendendo um ou mais espaços, divisões ou pisos, delimitada por elementos de construção com resistência ao fogo adequada a, durante um período de tempo determinado, garantir a proteção do edifício ou impedir a propagação do incêndio ao resto do edifício ou, ainda, a fraccionar a carga de incêndio."@pt ;
+                                                           skos:prefLabel "Compartimento corta-fogo"@pt ,
+                                                                          "Fire compartment"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#FireScenario
+<http://www.firebim.org/ontologies/FBO-PT#FireScenario> rdf:type owl:Class ;
+                                                        rdfs:comment "Descrição qualitativa da evolução de um incêndio com o tempo, identificando os principais acontecimentos que caracterizam o incêndio e o diferenciam de outros incêndios possíveis. Define, tipicamente, a ignição e o processo de crescimento do incêndio, a fase do incêndio totalmente desenvolvido, a fase de arrefecimento, assim como as condições ambientes e os sistemas do edifício que terão impacto na evolução do incêndio."@pt ,
+                                                                     "Qualitative description of the evolution of a fire over time, identifying the main events that characterise the fire and differentiate it from other possible fires. It typically defines the ignition and growth process of the fire, the fully developed fire phase, the cooling phase, as well as the ambient conditions and building systems that will have an impact on the evolution of the fire."@en ;
+                                                        skos:prefLabel "Brandscenario"@nl ,
+                                                                       "Cenário de incêndio"@pt ,
+                                                                       "Fire scenario"@en .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#GableWall
+<http://www.firebim.org/ontologies/FBO-PT#GableWall> rdf:type owl:Class ;
+                                                     rdfs:subClassOf fbo:Wall ;
+                                                     rdfs:comment "Elemento construtivo projectado para absorver movimentos e variações dimensionais que resultam das mudanças de temperatura, humidade e outros factores ambientais. Permite que os materiais se expandam e contraiam sem causar danos à estrutura, evitando fissuras e outros problemas que podem comprometer a integridade do edifício."@pt ,
+                                                                  "Side wall of a building, without openings, with the function of isolation from adjoining buildings, already existing or to be built."@en ;
+                                                     skos:prefLabel "Gable wall"@en ,
+                                                                    "Parede de empena"@pt .
+
+
+###  http://www.firebim.org/ontologies/FBO-PT#RefugeSpace
+<http://www.firebim.org/ontologies/FBO-PT#RefugeSpace> rdf:type owl:Class ;
+                                                       rdfs:subClassOf fbo:SafeRefuge ;
+                                                       rdfs:comment "Local num edifício, temporariamente seguro, especialmente dotado de meios de proteção, de modo a que as pessoas não venham a sofrer dos efeitos diretos de um incêndio no edifício."@pt ,
+                                                                    "Temporarily safe place in a building specially equipped with means of protection so that people do not suffer from the direct effects of a fire in the building."@en ;
+                                                       skos:prefLabel "RefugeSpace"@en ,
+                                                                      "Zona de refúgio"@pt .
+
+
+###  http://www.firebim.org/ontologies/FRO-BE#BuildingLayer
+<http://www.firebim.org/ontologies/FRO-BE#BuildingLayer> rdf:type owl:Class ;
+                                                         rdfs:subClassOf fbo:Storey ;
+                                                         rdfs:comment "De ruimte tussen een vloer en het daarboven liggend plafond. De bouwlagen gelegen onder het niveau Ei zijn kelderverdiepingen en komen niet in aanmerking voor het bepalen van het aantal bouwlagen van een gebouw."@nl-be ,
+                                                                      "The space between a floor and the ceiling above it. The floors located below level Ei are basement floors and are not eligible for determining the number of floors of a building."@en ;
+                                                         skos:prefLabel "Bouwlaag"@nl-be ,
+                                                                        "Building layer"@en .
+
+
+###  http://www.firebim.org/ontologies/FRO-PT#Floor
+<http://www.firebim.org/ontologies/FRO-PT#Floor> rdf:type owl:Class ;
+                                                 rdfs:subClassOf fbo:Storey ;
+                                                 rdfs:comment "Part of a building, comprising one or more spaces or divisions delimited by horizontal construction elements."@en ,
+                                                              "Parte de um edifício, compreendendo um ou mais espaços ou divisões delimitadas por elementos de construção horizontais."@pt ;
+                                                 skos:prefLabel "Floor"@en ,
+                                                                "Piso"@pt .
+
+
+###  http://www.firebim.org/ontologies/FRO-PT#IndependentPartOfABuilding
+<http://www.firebim.org/ontologies/FRO-PT#IndependentPartOfABuilding> rdf:type owl:Class ;
+                                                                      rdfs:subClassOf fbo:Zone ;
+                                                                      rdfs:comment "Corpos distintos de um mesmo edifício que disponham de estrutura independente e que cumpram as disposições de SCIE, relativamente à resistência ao fogo dos elementos de construção que os isolam entre si e às disposições construtivas referentes ao isolamento das suas comunicações interiores comuns."@pt ,
+                                                                                   "Separate parts of the same building that have an independent structure and comply with the provisions of Fire Safety in Buildings Regulation, regarding the fire resistance of the construction elements that isolate them from each other and the constructive provisions regarding the isolation of their common interior communications."@en ;
+                                                                      skos:prefLabel "Corpo independente de um edifício"@pt ,
+                                                                                     "Independent part of a building"@en .
+
+
+###  http://www.firebim.org/ontologies/FRO-PT#Mezzanine
+<http://www.firebim.org/ontologies/FRO-PT#Mezzanine> rdf:type owl:Class ;
+                                                     rdfs:subClassOf fbo:Mezzanine ;
+                                                     rdfs:comment "Andar intermédio construído geralmente entre o solo e o tecto de um piso com pé-direito alto."@pt ,
+                                                                  "Intermediate floor usually built between the ground and the ceiling of a room with a high ceiling height."@en ;
+                                                     skos:prefLabel "Mezanino"@pt ,
+                                                                    "Mezzanine"@en .
+
+
+###  https://qudt.org/3.1.0/vocab/unit/KiloW
+<https://qudt.org/3.1.0/vocab/unit/KiloW> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/Unit> .
+
+
+###  https://qudt.org/3.1.0/vocab/unit/M
+<https://qudt.org/3.1.0/vocab/unit/M> rdf:type owl:Class ;
+                                      rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/Unit> .
+
+
+###  https://qudt.org/3.1.0/vocab/unit/M2
+<https://qudt.org/3.1.0/vocab/unit/M2> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/Unit> .
+
+
+###  https://qudt.org/3.1.0/vocab/unit/M3
+<https://qudt.org/3.1.0/vocab/unit/M3> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/Unit> .
+
+
+###  https://qudt.org/3.1.0/vocab/unit/MIN
+<https://qudt.org/3.1.0/vocab/unit/MIN> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/Unit> .
+
+
+###  https://qudt.org/3.1.0/vocab/unit/MegaJ
+<https://qudt.org/3.1.0/vocab/unit/MegaJ> rdf:type owl:Class ;
+                                          rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/Unit> .
+
+
+###  https://qudt.org/3.1.0/vocab/unit/MegaJ-PER-M2
+<https://qudt.org/3.1.0/vocab/unit/MegaJ-PER-M2> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/Unit> .
+
+
+###  https://qudt.org/3.1.0/vocab/unit/NUM
+<https://qudt.org/3.1.0/vocab/unit/NUM> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://qudt.org/3.1.0/schema/qudt/Unit> .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.firebim.org/ontologies/FBO#AlexDonkers
+fbo:AlexDonkers rdf:type owl:NamedIndividual ,
+                         schema:Person ;
+                schema:affiliation <http://www.tue.nl> ;
+                schema:email "a.j.a.donkers@tue.nl" ;
+                schema:name "Alex Donkers" ;
+                schema:url <https://research.tue.nl/nl/persons/alex-ja-donkers> .
+
+
+###  http://www.firebim.org/ontologies/FBO#Atrium
+fbo:Atrium rdf:type owl:NamedIndividual ,
+                    fbo:Space .
+
+
+###  http://www.firebim.org/ontologies/FBO#Attic
+fbo:Attic rdf:type owl:NamedIndividual ,
+                   fbo:Space .
+
+
+###  http://www.firebim.org/ontologies/FBO#Bathroom
+fbo:Bathroom rdf:type owl:NamedIndividual ,
+                      fbo:Space .
+
+
+###  http://www.firebim.org/ontologies/FBO#Classroom
+fbo:Classroom rdf:type owl:NamedIndividual ,
+                       fbo:Space .
+
+
+###  http://www.firebim.org/ontologies/FBO#Corridor
+fbo:Corridor rdf:type owl:NamedIndividual ,
+                      fbo:Space .
+
+
+###  http://www.firebim.org/ontologies/FBO#Kitchen
+fbo:Kitchen rdf:type owl:NamedIndividual ,
+                     fbo:Space .
+
+
+###  http://www.firebim.org/ontologies/FBO#Parking
+fbo:Parking rdf:type owl:NamedIndividual ,
+                     fbo:Space ;
+            fbo:hasIFC4.3Equivalent <https://identifier.buildingsmart.org/uri/buildingsmart/ifc/4.3/class/IfcSpacePARKING> ;
+            fbo:hasISOEquivalent <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.1.3.59> .
+
+
+###  http://www.firebim.org/ontologies/FBO#TechnicalSpace
+fbo:TechnicalSpace rdf:type owl:NamedIndividual ,
+                            fbo:Space .
+
+
+###  http://www.firebim.org/ontologies/FBO#Toilet
+fbo:Toilet rdf:type owl:NamedIndividual ,
+                    fbo:Space .
+
+
+###  http://www.firebim.org/ontologies/FBO-BE#High
+<http://www.firebim.org/ontologies/FBO-BE#High> rdf:type owl:NamedIndividual ,
+                                                         fbo:BuildingHeight .
+
+
+###  http://www.firebim.org/ontologies/FBO-BE#Low
+<http://www.firebim.org/ontologies/FBO-BE#Low> rdf:type owl:NamedIndividual ,
+                                                        fbo:BuildingHeight .
+
+
+###  http://www.firebim.org/ontologies/FBO-BE#Middle
+<http://www.firebim.org/ontologies/FBO-BE#Middle> rdf:type owl:NamedIndividual ,
+                                                           fbo:BuildingHeight .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#AssemblyRoom
+<http://www.firebim.org/ontologies/FBO-DK#AssemblyRoom> rdf:type owl:NamedIndividual ,
+                                                                 fbo:Space ;
+                                                        rdfs:comment "Rooms for gathering several people, such as a theater hall, cinema hall, restaurant, banquet room, conference room, canteen, disco, nightclub, concert hall, exhibition hall, trade fair hall, sports hall, church hall and other rooms used for similar purposes."@en ,
+                                                                     "Rum til samling af flere personer, f.eks. teatersal, biografsal, restaurationslokale, selskabslokale, konferencerum, kantine, diskotek, natklub, koncertsal, udstillingslokale, messehal, idrætshal, kirkerum og andre lokaler, der anvendes til lignende formål."@da ;
+                                                        skos:prefLabel "assembly room"@en ,
+                                                                       "forsamlingslokale"@da .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#FreeSpace
+<http://www.firebim.org/ontologies/FBO-DK#FreeSpace> rdf:type owl:NamedIndividual ,
+                                                              fbo:Space ;
+                                                     rdfs:comment "Indendørs areal, der er friholdt for oplag, inventar og lignende."@da ,
+                                                                  "Indoor area that is kept free of storage, inventory and the like."@en ;
+                                                     skos:prefLabel "Free space"@en ,
+                                                                    "Friareal"@da .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#Kitchenette
+<http://www.firebim.org/ontologies/FBO-DK#Kitchenette> rdf:type owl:NamedIndividual ,
+                                                                fbo:Space ;
+                                                       rdfs:comment "A kitchenette is a room without heating surfaces such as an oven, hob or fryer, but where a microwave, kettle, dishwasher, refrigerator and coffee machines or coffee makers may be present. This type of kitchen, where no food is produced, is not considered a room with a particular fire hazard. Similarly, smaller kitchens that include an oven, hob or deep fryer are considered a special fire hazard and are therefore not a Kitchenette or Sideboard Kitchen."@en ,
+                                                                    "Te- eller anretterkøkken er et rum uden varmeflader i form af ovn, kogeplade eller friture, men hvor der kan forefindes mikrobølgeovn, elkedel, opvaskemaskine, køleskab og kaffeautomater eller –maskiner. Denne type køkken, hvor der ikke produceres mad, anses ikke som et rum med en særlig brandfare. Tilsvarende mindre køkkener, hvor der indgår ovn, kogeplade eller friture, anses at udgøre en særlig brandfare og er dermed ikke et Te- eller anretterkøkken."@da ;
+                                                       skos:prefLabel "kitchenette or sideboard kitchen"@en ,
+                                                                      "te- eller anretterkøkken"@da .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#Office
+<http://www.firebim.org/ontologies/FBO-DK#Office> rdf:type owl:NamedIndividual ,
+                                                           fbo:Space .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#ProductionKitchen
+<http://www.firebim.org/ontologies/FBO-DK#ProductionKitchen> rdf:type owl:NamedIndividual ,
+                                                                      fbo:Space ;
+                                                             rdfs:comment "Production kitchen is a commercial kitchen that is a workplace where food is prepared using hobs, griddles, ovens, grills, fryers and the like."@en ,
+                                                                          "Produktionskøkken er et storkøkken, der udgør en arbejdsplads, hvor der foregår tilberedning af mad ved brug af kogeplader, stegeplader, ovne, grill, friture og lignende."@da ;
+                                                             skos:prefLabel "production kitchen"@en ,
+                                                                            "produktionskøkken"@da .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#SchoolKitchen
+<http://www.firebim.org/ontologies/FBO-DK#SchoolKitchen> rdf:type owl:NamedIndividual ,
+                                                                  fbo:Space ;
+                                                         rdfs:comment "School kitchen is a kitchen used for teaching."@en ,
+                                                                      "Skolekøkken er et køkken, der bruges til undervisning."@da ;
+                                                         skos:prefLabel "school kitchen"@en ,
+                                                                        "skolekøkken"@da .
+
+
+###  http://www.firebim.org/ontologies/FBO-DK#SleepingArea
+<http://www.firebim.org/ontologies/FBO-DK#SleepingArea> rdf:type owl:NamedIndividual ,
+                                                                 fbo:Space ;
+                                                        skos:prefLabel "Soveplads"@da .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

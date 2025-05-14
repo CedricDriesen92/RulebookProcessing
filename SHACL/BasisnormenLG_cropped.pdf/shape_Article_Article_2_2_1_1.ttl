@@ -2,80 +2,99 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
-@prefix bot: <https://w3id.org/bot#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix : <https://ontology.firebim.be/ontology/fro#> .
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
-# Shape generated from Regulatory Text for Article 2.2.1.1
-# Subject URI: <https://ontology.firebim.be/ontology/fro#Article_2_2_1_1>
-# Text: "Elk compartiment heeft minimum: - één uitgang indien de maximale bezetting minder dan 100 personen bedraagt; - twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt; - 2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt. Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en de configuratie van de lokalen. Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten."
+fro:Shape_Article_2_2_1_1
+    a sh:NodeShape ;
+    sh:targetClass fbo:Compartment, fbo:Storey, fbo:Room ;
+    schema:name "Shape for Article 2.2.1.1: Minimum exits based on occupancy"@en ;
+    schema:description "Validates that each compartment, storey, or room has the minimum required number of exits based on its maximum occupancy, as per Article 2.2.1.1. Elk compartiment heeft minimum: - één uitgang indien de maximale bezetting minder dan 100 personen bedraagt; - twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt; - 2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt. Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten."@nl ;
+    dcterms:source <https://ontology.firebim.be/ontology/fro#Article_2_2_1_1> ;
 
-:Shape_Article_2_2_1_1 a sh:NodeShape ;
-    sh:targetClass fro:Compartment, bot:Storey, bot:Space ; # Applies to compartments, storeys, and spaces (lokalen)
-    sh:message "Validatie shape voor Artikel 2.2.1.1 betreffende minimum aantal uitgangen gebaseerd op bezetting."@nl ;
-    sh:description """Checks if the minimum number of exits meets the requirements based on maximum occupancy:
-- Occupancy < 100: min 1 exit
-- 100 <= Occupancy < 500: min 2 exits
-- Occupancy >= 500: min 2 + n exits, where n = floor(occupancy / 1000) + 1 (i.e., min 3 + floor(occupancy / 1000) exits)"""@en ;
-
-    # Pre-condition: Ensure maximumOccupancy exists and is a valid integer for the calculation
+    # General prerequisite: occupancy must be defined for the rule to apply.
     sh:property [
-        sh:path fro:maximumOccupancy ;
+        sh:path fro:hasOccupancy ;
         sh:minCount 1 ;
-        sh:maxCount 1 ;
+        sh:maxCount 1 ; # Assuming a single maximum occupancy value per entity
         sh:datatype xsd:integer ;
-        sh:minInclusive 0 ; # Occupancy cannot be negative
-        sh:message "Maximale bezetting moet opgegeven zijn als een enkel, niet-negatief geheel getal voor de berekening van het aantal uitgangen (Art. 2.2.1.1)."@nl ;
-    ] ;
-    # Pre-condition: Ensure numberOfExits exists and is a valid integer for comparison
-    sh:property [
-        sh:path fro:numberOfExits ;
-        sh:minCount 1 ;
-        # sh:maxCount 1 ; # A space/compartment usually has one value for numberOfExits, but let's assume it's the total count if multiple properties exist. Let's stick to minCount 1.
-        sh:datatype xsd:integer ;
-        sh:minInclusive 1 ; # Must have at least one exit according to the rule logic
-        sh:message "Aantal uitgangen moet opgegeven zijn als een positief geheel getal voor validatie (Art. 2.2.1.1)."@nl ;
+        sh:message "Article 2.2.1.1: Maximum occupancy (fro:hasOccupancy) must be specified as a single integer value to determine the required number of exits."@en ;
+        sh:severity sh:Violation ;
     ] ;
 
-    # Core logic validation using SPARQL due to calculation requirement
-    sh:sparql [
-        sh:message "Het aantal uitgangen ({?numExits}) voldoet niet aan de minimumeis ({?requiredExits}) gebaseerd op de maximale bezetting ({?occupancy}) (Art. 2.2.1.1)."@nl ;
-        sh:prefixes [
-            sh:declare [
-                sh:prefix "firebim" ;
-                sh:namespace "https://ontology.firebim.be/ontology/fro#"^^xsd:anyURI ;
+    # The node must satisfy one of the following conditions based on its occupancy.
+    # If it satisfies none, this sh:or constraint is violated.
+    sh:or (
+        # Condition 1: Occupancy < 100 persons (i.e., 0-99) requires >= 1 exit
+        [
+            a sh:NodeShape ;
+            sh:property [
+                sh:path fro:hasOccupancy ;
+                sh:maxInclusive 99 ;
+                sh:minInclusive 0 ; # Assuming occupancy cannot be negative
             ] ;
-             sh:declare [
-                sh:prefix "xsd" ;
-                sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+            sh:property [
+                sh:path fro:hasExit ;
+                sh:minCount 1 ;
+                sh:message "Article 2.2.1.1 (Condition 1): For occupancy less than 100, at least 1 exit is required. Found fewer."@en ;
+            ]
+        ]
+
+        # Condition 2: Occupancy 100 to 499 persons (inclusive) requires >= 2 exits
+        [
+            a sh:NodeShape ;
+            sh:property [
+                sh:path fro:hasOccupancy ;
+                sh:minInclusive 100 ;
+                sh:maxInclusive 499 ;
             ] ;
-        ] ;
-        # This query selects focus nodes ($this) that violate the minimum exit requirement.
-        sh:select """
-            SELECT $this ?occupancy ?numExits ?requiredExits
-            WHERE {
-                # Get the occupancy and number of exits for the target node ($this)
-                $this fro:maximumOccupancy ?occupancy .
-                $this fro:numberOfExits ?numExits .
+            sh:property [
+                sh:path fro:hasExit ;
+                sh:minCount 2 ;
+                sh:message "Article 2.2.1.1 (Condition 2): For occupancy between 100 and 499 (inclusive), at least 2 exits are required. Found fewer."@en ;
+            ]
+        ]
 
-                # Calculate required minimum number of exits based on occupancy rules
-                BIND (
-                    IF(?occupancy < 100, 1,                          # Case 1: occupancy < 100 -> 1 exit
-                    IF(?occupancy < 500, 2,                          # Case 2: 100 <= occupancy < 500 -> 2 exits
-                       # Case 3: occupancy >= 500 -> 2 + n exits
-                       # n = 'het geheel getal is onmiddellijk groter dan het quotiënt' = floor(quotient) + 1
-                       # So, required = 2 + (floor(occupancy / 1000) + 1) = 3 + floor(occupancy / 1000)
-                       # Use xsd:decimal for division to handle potential non-integer results before FLOOR
-                       3 + FLOOR(xsd:decimal(?occupancy) / 1000.0)
-                    ))
-                    AS ?requiredExitsDecimal # Intermediate result might be decimal if occupancy is large
-                )
-                # Ensure requiredExits is treated as integer for comparison
-                BIND(xsd:integer(?requiredExitsDecimal) AS ?requiredExits)
+        # Condition 3: Occupancy >= 500 persons requires 2 + ceil(occupancy / 1000) exits
+        [
+            a sh:NodeShape ;
+            sh:property [ # Ensures this branch is considered only for occupancy >= 500
+                sh:path fro:hasOccupancy ;
+                sh:minInclusive 500 ;
+            ] ;
+            # SPARQL constraint for the calculated number of exits
+            sh:sparql [
+                sh:message "Article 2.2.1.1 (Condition 3): For occupancy {?occupancy_val}, at least {?requiredExits_val} exits (calculated as 2 + ceil(Occupancy/1000)) are required. Found {?actualExits_val} for path fro:hasExit."@en ;
+                sh:prefixes fro:, xsd: ; # Assumes fro and xsd are defined globally for the shapes graph
+                sh:select """
+                    SELECT $this (?actualExits AS ?actualExits_val) (?occupancy AS ?occupancy_val) (?requiredExits AS ?requiredExits_val) (fro:hasExit AS ?path)
+                    WHERE {
+                        $this fro:hasOccupancy ?occupancy .
+                        # This filter is technically redundant if this SPARQL is only reached when the sh:property above is met,
+                        # but kept for clarity and robustness if the SPARQL query is used independently.
+                        FILTER (?occupancy >= 500)
 
-                # Filter for violations: actual number of exits < calculated required minimum exits
-                FILTER (?numExits < ?requiredExits)
-            }
-            """ ;
-    ] .
+                        # Calculate n = ceil(occupancy / 1000)
+                        # Ensure division is floating point for ceil by casting one operand or using 1000.0
+                        BIND (xsd:integer(ceil(xsd:decimal(?occupancy) / 1000.0)) AS ?n_calc)
+                        # Required exits = 2 + n
+                        BIND (2 + ?n_calc AS ?requiredExits)
+
+                        # Count actual exits for $this
+                        OPTIONAL {
+                            SELECT $this (COUNT(?exit_instance) AS ?count_exits)
+                            WHERE {
+                                $this fro:hasExit ?exit_instance .
+                            } GROUP BY $this
+                        }
+                        BIND (COALESCE(?count_exits, 0) AS ?actualExits)
+
+                        # Violation if actual exits are less than required
+                        FILTER (?actualExits < ?requiredExits)
+                    }
+                    """ ;
+            ]
+        ]
+    ) ;
+    sh:message "Article 2.2.1.1: The number of exits does not meet the requirements for the specified occupancy. The entity must satisfy one of the three conditions based on its occupancy level."@en ;
+.
