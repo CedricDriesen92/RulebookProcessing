@@ -165,11 +165,38 @@ def describe_constraints_on_shape(shapes_graph, ontology_graph, shape_uri, inden
         
     # 3. Node Constraints (sh:node - links to another shape)
     if SH.node not in processed_constraints:
-        for linked_node_shape_uri in shapes_graph.objects(shape_uri, SH.node):
-            linked_shape_name = get_friendly_uri_name(shapes_graph, linked_node_shape_uri, ontology_graph)
-            descriptions.append(format_line(indent_level + 0, f"Must also conform to shape: {linked_shape_name}."))
-        if list(shapes_graph.objects(shape_uri, SH.node)):
-            processed_constraints.add(SH.node)
+        node_shape_links = list(shapes_graph.objects(shape_uri, SH.node))
+        if node_shape_links:
+            # Determine the indent level for the content of the linked shape.
+            # It should generally be one level deeper than the current shape's description context.
+            linked_shape_constraints_start_indent = indent_level + 1
+
+            for linked_node_shape_uri in node_shape_links:
+                # If this sh:node is a direct constraint (not via property context where
+                # describe_property_constraints already prints a header like "Additionally, values of..."),
+                # then we print a header here.
+                if not is_property_context:
+                    linked_shape_friendly_name = get_friendly_uri_name(shapes_graph, linked_node_shape_uri, ontology_graph)
+                    header_text = ""
+                    if isinstance(linked_node_shape_uri, BNode):
+                        header_text = "The value must conform to an embedded shape with the following constraints:"
+                    else:
+                        header_text = f"The value must also conform to shape '{linked_shape_friendly_name}', which has the following constraints:"
+                    # This header is at the current shape's main indent level.
+                    descriptions.append(format_line(indent_level, header_text))
+                
+                # Recursively describe the linked shape.
+                # Its constraints will start at 'linked_shape_constraints_start_indent'.
+                # 'is_property_context' is False because the linked shape itself is being described,
+                # so its own constraints are direct, not specific to a property's value context from its viewpoint.
+                descriptions.extend(describe_constraints_on_shape(
+                    shapes_graph, ontology_graph, 
+                    linked_node_shape_uri, 
+                    linked_shape_constraints_start_indent, 
+                    is_property_context=False 
+                ))
+            if node_shape_links: # Check again, as the list might have been empty
+                processed_constraints.add(SH.node)
 
     # 3.5 Direct Shape Constraints (sh:class, sh:datatype, sh:nodeKind)
     # Create explicit URIRef objects for direct constraints to avoid naming issues
@@ -502,38 +529,45 @@ def shacl_to_text(shapes_file_path: str, ontology_file_path: str = None) -> list
         except Exception as e:
             print(f"Warning: Could not parse ontology file {ontology_file_path}: {e}", file=sys.stderr)
 
-    # Bind namespaces for nicer output if get_friendly_uri_name falls back to qname
     shapes_graph.bind("sh", SH)
     shapes_graph.bind("xsd", XSD)
     if FIREBIM: shapes_graph.bind("firebim", FIREBIM)
     if FBB: shapes_graph.bind("fbb", FBB)
-    # You might want to bind namespaces from the ontology_graph as well
 
     all_descriptions = []
-    node_shapes = set(shapes_graph.subjects(RDF.type, SH.NodeShape))
     
-    # Also consider shapes that are subjects of sh:targetClass etc. but not explicitly typed NodeShape
+    # Identify top-level shapes to describe.
+    # These are shapes explicitly targeted (e.g., by sh:targetClass) or named sh:NodeShapes.
+    # BNode sh:NodeShapes are generally treated as components and described inline,
+    # unless they are explicitly targeted by a sh:targetClass (or similar targeting mechanism).
+    top_level_shapes_to_describe = set()
+
+    # Add shapes that are subjects of sh:targetClass (can be URIs or BNodes)
     for s, p, o in shapes_graph.triples((None, SH.targetClass, None)):
-        node_shapes.add(s)
-    # Add more robust NodeShape discovery if needed
+        top_level_shapes_to_describe.add(s)
+    # Consider adding other targeting mechanisms if used, e.g., sh:targetNode, sh:targetSubjectsOf, sh:targetObjectsOf
 
-    if not node_shapes:
-        return ["No NodeShapes found in the SHACL file."]
+    # Add all named (URIRef) sh:NodeShapes if not already included
+    for ns_uri_candidate in shapes_graph.subjects(RDF.type, SH.NodeShape):
+        if isinstance(ns_uri_candidate, URIRef):
+            top_level_shapes_to_describe.add(ns_uri_candidate)
+        # BNode sh:NodeShapes are only added if they were captured by sh:targetClass etc. above.
 
-    sorted_node_shapes = sorted(list(node_shapes), key=lambda x: str(x)) # Sort for consistent output
+    if not top_level_shapes_to_describe:
+        # Check if there are any sh:NodeShapes at all, even if not "top-level" by the definition above
+        if not set(shapes_graph.subjects(RDF.type, SH.NodeShape)):
+             return ["No NodeShapes found in the SHACL file."]
+        else:
+             return ["No clearly top-level NodeShapes (e.g., via sh:targetClass or named NodeShapes) found to describe. There might be component shapes defined."]
+
+
+    sorted_node_shapes = sorted(list(top_level_shapes_to_describe), key=lambda x: str(x))
 
     for ns_uri in sorted_node_shapes:
-        # Filter out PropertyShapes that might also be typed as NodeShape (less common but possible)
-        # A primary NodeShape typically won't have sh:path directly.
-        if (ns_uri, SH.path, None) in shapes_graph and not any(shapes_graph.objects(ns_uri, SH.targetClass)):
-            # This looks more like a PropertyShape that might have been accidentally typed as NodeShape
-            # or is a shape used within sh:node. Skip describing it as a top-level NodeShape.
-            continue
-
         all_descriptions.append(f"\n--- Constraints for NodeShape: {get_friendly_uri_name(shapes_graph, ns_uri, ontology_graph)} ---")
         shape_descriptions = describe_node_shape(shapes_graph, ontology_graph, ns_uri)
         all_descriptions.extend(shape_descriptions)
-        all_descriptions.append("") # Blank line for readability
+        all_descriptions.append("")
 
     return all_descriptions
 

@@ -12,16 +12,11 @@ Shape: SHACL Shape for FRO Article 2.1.1 - Compartment Sizing and Equipment
 				◆ Property 'type' must be exactly Parking.
 		- Option 3:
 			• Additionally, values of 'isPartOfBuilding' must satisfy:
-				◆ Must also conform to shape: nc4967faa92d44a68a4c1d7bcb4c443e6b9.
+					◇ Property 'isGroundFloorOnly' must be exactly true.
+					◇ Property 'hasNumberOfCompartments' must be exactly 1.
 			• Property 'has area' must be at most 3500.
 			• Property 'hasLength' must be at most 90.
 		- Option 4:
 			• Property 'hasAutomaticExtinguishingSystem' must appear at least 1 time(s).
 			• Property 'hasSmokeAndHeatEvacuationSystem' must appear at least 1 time(s).
-
-
---- Constraints for NodeShape: nc4967faa92d44a68a4c1d7bcb4c443e6b9 ---
-Shape (Anonymous Node):
-	Property 'isGroundFloorOnly' must be exactly true.
-	Property 'hasNumberOfCompartments' must be exactly 1.
 
