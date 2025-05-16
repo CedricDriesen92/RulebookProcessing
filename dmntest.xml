@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/"
+             xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/"
+             xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/"
+             xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/"
+             xmlns:feel="https://www.omg.org/spec/DMN/20191111/FEEL/"
+             id="froArticle211Compliance"
+             name="FRO Article 2.1.1 Compliance"
+             namespace="http://example.com/dmn/fro-compliance">
+
+  <decision id="Decision_CompartmentCompliance" name="Compartment Compliance Status">
+    <decisionTable id="DecisionTable_CompartmentCompliance" hitPolicy="FIRST">
+      <input id="Input_CompartmentType" label="Compartment Type">
+        <inputExpression id="InputExpression_CompartmentType" typeRef="string">
+          <text>CompartmentType</text>
+        </inputExpression>
+      </input>
+      <input id="Input_Area" label="Area (m²)">
+        <inputExpression id="InputExpression_Area" typeRef="number">
+          <text>Area</text>
+        </inputExpression>
+      </input>
+      <input id="Input_Length" label="Length (m)">
+        <inputExpression id="InputExpression_Length" typeRef="number">
+          <text>Length</text>
+        </inputExpression>
+      </input>
+      <input id="Input_IsGroundFloorOnly" label="Building Is Ground Floor Only">
+        <inputExpression id="InputExpression_IsGroundFloorOnly" typeRef="boolean">
+          <text>IsGroundFloorOnly</text>
+        </inputExpression>
+      </input>
+      <input id="Input_NumCompartments" label="Building Number of Compartments">
+        <inputExpression id="InputExpression_NumCompartments" typeRef="number"> <!-- DMN spec uses "number" for integers too -->
+          <text>NumCompartments</text>
+        </inputExpression>
+      </input>
+      <input id="Input_HasAutoExtinguish" label="Has Automatic Extinguishing System">
+        <inputExpression id="InputExpression_HasAutoExtinguish" typeRef="boolean">
+          <text>HasAutoExtinguish</text>
+        </inputExpression>
+      </input>
+      <input id="Input_HasSmokeEvac" label="Has Smoke and Heat Evacuation System">
+        <inputExpression id="InputExpression_HasSmokeEvac" typeRef="boolean">
+          <text>HasSmokeEvac</text>
+        </inputExpression>
+      </input>
+      <output id="Output_ComplianceStatus" name="Compliance Status" typeRef="string" />
+
+      <rule id="Rule_1_Parking">
+        <description>Option 1: Is Parking</description>
+        <inputEntry id="InputEntry_1_1">
+          <text>"Parking"</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_1_2">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_1_3">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_1_4">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_1_5">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_1_6">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_1_7">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="OutputEntry_1_1">
+          <text>"Compliant"</text>
+        </outputEntry>
+      </rule>
+
+      <rule id="Rule_2_NotParkingArea">
+        <description>Option 2: Not Parking, Area &lt; 2500</description>
+        <inputEntry id="InputEntry_2_1">
+          <text>not("Parking")</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_2_2">
+          <text>&lt; 2500</text> <!-- XML escaped: < becomes &lt; -->
+        </inputEntry>
+        <inputEntry id="InputEntry_2_3">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_2_4">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_2_5">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_2_6">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_2_7">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="OutputEntry_2_1">
+          <text>"Compliant"</text>
+        </outputEntry>
+      </rule>
+
+      <rule id="Rule_3_GroundFloorSingle">
+        <description>Option 3: Ground floor, 1 comp, etc.</description>
+        <inputEntry id="InputEntry_3_1">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_3_2">
+          <text>&lt;= 3500</text> <!-- XML escaped: < becomes &lt; -->
+        </inputEntry>
+        <inputEntry id="InputEntry_3_3">
+          <text>&lt;= 90</text>  <!-- XML escaped: < becomes &lt; -->
+        </inputEntry>
+        <inputEntry id="InputEntry_3_4">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_3_5">
+          <text>1</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_3_6">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_3_7">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="OutputEntry_3_1">
+          <text>"Compliant"</text>
+        </outputEntry>
+      </rule>
+
+      <rule id="Rule_4_SafetySystems">
+        <description>Option 4: Has both safety systems</description>
+        <inputEntry id="InputEntry_4_1">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_4_2">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_4_3">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_4_4">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_4_5">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_4_6">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_4_7">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="OutputEntry_4_1">
+          <text>"Compliant"</text>
+        </outputEntry>
+      </rule>
+
+      <rule id="Rule_5_DefaultNonCompliant">
+        <description>Default: No option met</description>
+        <inputEntry id="InputEntry_5_1">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_5_2">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_5_3">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_5_4">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_5_5">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_5_6">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="InputEntry_5_7">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="OutputEntry_5_1">
+          <text>"Non-Compliant"</text>
+        </outputEntry>
+      </rule>
+
+    </decisionTable>
+  </decision>
+</definitions>

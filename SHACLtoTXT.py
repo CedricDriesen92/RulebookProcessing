@@ -9,7 +9,7 @@ FIREBIM = Namespace("http://example.com/firebim#") # Example custom namespace
 FBB = Namespace("http://example.com/firebimbuilding#") # Example custom namespace
 
 # New list for markers at different indentation levels
-LIST_MARKERS = ["- ", "• ", "◆ ", "◇ "] 
+# LIST_MARKERS = ["- ", "• ", "◆ ", "◇ "] # Removed for Markdown
 
 # Friendly names for common URIs
 FRIENDLY_URI_NAMES = {
@@ -32,22 +32,15 @@ FRIENDLY_URI_NAMES = {
 }
 
 def format_line(level: int, text: str) -> str:
-    """Formats a line with appropriate indentation and symbol."""
-    prefix = ""
-    if level == 0:
-        # No indentation or marker for level 0
-        prefix = ""
-    elif level == 1:
-        # Level 1 is just a single tab indent
-        prefix = "\t"
-    elif level >= 2:
-        # Levels 2 and above get (level) tabs and a marker
-        # Marker index cycles through LIST_MARKERS
-        # Level 2 gets marker_idx 0, Level 3 gets 1, etc.
-        marker_idx = (level - 2) % len(LIST_MARKERS)
-        prefix = ("\t" * level) + LIST_MARKERS[marker_idx]
-    
-    return prefix + text
+    """Formats a line with appropriate Markdown indentation and list markers."""
+    if level == 0: # For headings or text that shouldn't be a list item
+        return text
+    # For list items, level 1 is a top-level list, level 2+ are nested.
+    # Markdown uses spaces for indentation of nested lists.
+    # A common practice is 2 spaces per indent level for sub-lists.
+    # The list marker itself is typically "- " or "* ".
+    indent_spaces = "  " * (level - 1) if level > 0 else ""
+    return f"{indent_spaces}- {text}"
 
 def get_friendly_uri_name(graph, uri_ref, ontology_graph):
     """Gets a human-friendly label for a URI, with fallbacks."""
@@ -133,6 +126,7 @@ def describe_constraints_on_shape(shapes_graph, ontology_graph, shape_uri, inden
     # 1. Property Constraints (sh:property)
     if SH.property not in processed_constraints:
         for prop_shape_uri_inner in shapes_graph.objects(shape_uri, SH.property):
+            # Property constraints will start at the current indent_level as list items
             descriptions.extend(describe_property_constraints(shapes_graph, ontology_graph, prop_shape_uri_inner, indent_level))
         if list(shapes_graph.objects(shape_uri, SH.property)):
             processed_constraints.add(SH.property)
@@ -147,19 +141,25 @@ def describe_constraints_on_shape(shapes_graph, ontology_graph, shape_uri, inden
         if op_pred not in processed_constraints:
             op_lists = list(shapes_graph.objects(shape_uri, op_pred))
             if op_lists:
-                descriptions.append(format_line(indent_level + 0, op_message))
+                # The logical operator message itself is a list item.
+                descriptions.append(format_line(indent_level, f"**{op_message}**"))
                 shapes_in_list = rdf_list_to_python_list(shapes_graph, op_lists[0])
+                # Sub-shapes/conditions are nested list items.
+                sub_indent_level = indent_level + 1
                 for i, sub_shape_uri_in_list in enumerate(shapes_in_list):
-                    current_indent_for_sub_shape = indent_level + (2 if op_pred == SH["or"] or op_pred == SH.xone else 2)
                     if op_pred == SH["or"] or op_pred == SH.xone:
-                         descriptions.append(format_line(indent_level + 1, f"Option {i+1}:"))
-                    descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, sub_shape_uri_in_list, current_indent_for_sub_shape, is_property_context=False ))
+                         descriptions.append(format_line(sub_indent_level, f"**Option {i+1}:**"))
+                         # Constraints for the option are further nested.
+                         descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, sub_shape_uri_in_list, sub_indent_level + 1, is_property_context=False ))
+                    else: # for sh:and
+                        descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, sub_shape_uri_in_list, sub_indent_level, is_property_context=False ))
                 processed_constraints.add(op_pred)
 
     if SH["not"] not in processed_constraints:
         not_shapes = list(shapes_graph.objects(shape_uri, SH["not"]))
         if not_shapes:
-            descriptions.append(format_line(indent_level + 0, "The following conditions must NOT be met:"))
+            descriptions.append(format_line(indent_level, "**The following conditions must NOT be met:**"))
+            # Constraints under sh:not are nested.
             descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, not_shapes[0], indent_level + 1, is_property_context=False))
             processed_constraints.add(SH["not"])
         
@@ -167,35 +167,25 @@ def describe_constraints_on_shape(shapes_graph, ontology_graph, shape_uri, inden
     if SH.node not in processed_constraints:
         node_shape_links = list(shapes_graph.objects(shape_uri, SH.node))
         if node_shape_links:
-            # Determine the indent level for the content of the linked shape.
-            # It should generally be one level deeper than the current shape's description context.
             linked_shape_constraints_start_indent = indent_level + 1
 
             for linked_node_shape_uri in node_shape_links:
-                # If this sh:node is a direct constraint (not via property context where
-                # describe_property_constraints already prints a header like "Additionally, values of..."),
-                # then we print a header here.
                 if not is_property_context:
                     linked_shape_friendly_name = get_friendly_uri_name(shapes_graph, linked_node_shape_uri, ontology_graph)
                     header_text = ""
                     if isinstance(linked_node_shape_uri, BNode):
-                        header_text = "The value must conform to an embedded shape with the following constraints:"
+                        header_text = "The value must conform to an **embedded shape** with the following constraints:"
                     else:
-                        header_text = f"The value must also conform to shape '{linked_shape_friendly_name}', which has the following constraints:"
-                    # This header is at the current shape's main indent level.
-                    descriptions.append(format_line(indent_level, header_text))
+                        header_text = f"The value must also conform to shape **'{linked_shape_friendly_name}'**, which has the following constraints:"
+                    descriptions.append(format_line(indent_level, f"**{header_text}**"))
                 
-                # Recursively describe the linked shape.
-                # Its constraints will start at 'linked_shape_constraints_start_indent'.
-                # 'is_property_context' is False because the linked shape itself is being described,
-                # so its own constraints are direct, not specific to a property's value context from its viewpoint.
                 descriptions.extend(describe_constraints_on_shape(
                     shapes_graph, ontology_graph, 
                     linked_node_shape_uri, 
                     linked_shape_constraints_start_indent, 
                     is_property_context=False 
                 ))
-            if node_shape_links: # Check again, as the list might have been empty
+            if node_shape_links: 
                 processed_constraints.add(SH.node)
 
     # 3.5 Direct Shape Constraints (sh:class, sh:datatype, sh:nodeKind)
@@ -223,15 +213,15 @@ def describe_constraints_on_shape(shapes_graph, ontology_graph, shape_uri, inden
             # We are only interested in triples where the subject is the current shape_uri
             # and the predicate is the specific one we are looking for in this iteration (pred_key_from_map)
             if s_graph == shape_uri and p_graph == pred_key_from_map:
-                print(f"MATCH! Triple: {s_graph} {p_graph} {o_graph}")  # Add this temporary debug line
+                # print(f"MATCH! Triple: {s_graph} {p_graph} {o_graph}") # Keep commented or remove
                 
                 label = get_friendly_uri_name(shapes_graph, o_graph, ontology_graph)
                 if label and label.strip(): # Ensure label is not empty
                     text_to_add = ""
                     if is_property_context:
-                        text_to_add = text_template_prop_value.format(label=label)
+                        text_to_add = text_template_prop_value.format(label=f"**{label}**")
                     else:
-                        text_to_add = text_template_node.format(label=label)
+                        text_to_add = text_template_node.format(label=f"**{label}**")
                     
                     if text_to_add.strip():
                         descriptions.append(format_line(indent_level, text_to_add))
@@ -247,20 +237,23 @@ def describe_constraints_on_shape(shapes_graph, ontology_graph, shape_uri, inden
     if SH.sparql not in processed_constraints:
         for sparql_constraint_node in shapes_graph.objects(shape_uri, SH.sparql):
             msgs = list(shapes_graph.objects(sparql_constraint_node, SH.message))
+            main_sparql_text = ""
             if msgs:
-                descriptions.append(format_line(indent_level + 1, f"SPARQL Validation: {str(msgs[0])}"))
+                main_sparql_text = f"**SPARQL Validation:** {str(msgs[0])}"
             else:
                 select_query = list(shapes_graph.objects(sparql_constraint_node, SH.select))
                 ask_query = list(shapes_graph.objects(sparql_constraint_node, SH.ask))
                 if select_query:
-                    descriptions.append(format_line(indent_level + 1, f"Custom SPARQL validation (select query must return no results):"))
+                    main_sparql_text = "**Custom SPARQL validation (select query must return no results):**"
                 elif ask_query:
-                    descriptions.append(format_line(indent_level + 1, f"Custom SPARQL validation (ask query must return false):"))
+                    main_sparql_text = "**Custom SPARQL validation (ask query must return false):**"
                 else:
-                    descriptions.append(format_line(indent_level + 1, "Has an unspecified SPARQL constraint."))
+                    main_sparql_text = "**Has an unspecified SPARQL constraint.**"
+            descriptions.append(format_line(indent_level, main_sparql_text))
+            
             severity = list(shapes_graph.objects(sparql_constraint_node, SH.severity))
             if severity:
-                descriptions.append(format_line(indent_level + 2, f"(Severity: {get_friendly_uri_name(shapes_graph, severity[0], ontology_graph)})"))
+                descriptions.append(format_line(indent_level + 1, f"Severity: **{get_friendly_uri_name(shapes_graph, severity[0], ontology_graph)}**"))
         if list(shapes_graph.objects(shape_uri, SH.sparql)):
              processed_constraints.add(SH.sparql)
 
@@ -269,14 +262,16 @@ def describe_constraints_on_shape(shapes_graph, ontology_graph, shape_uri, inden
         for rule_node in shapes_graph.objects(shape_uri, SH.rule):
             if (rule_node, RDF.type, SH.SPARQLRule) in shapes_graph:
                 msgs = list(shapes_graph.objects(rule_node, SH.message))
+                rule_text = ""
                 if msgs:
-                    descriptions.append(format_line(indent_level + 1, f"SPARQL Inference Rule: {str(msgs[0])}"))
+                    rule_text = f"**SPARQL Inference Rule:** {str(msgs[0])}"
                 else:
                     construct_query = list(shapes_graph.objects(rule_node, SH.construct))
                     if construct_query:
-                        descriptions.append(format_line(indent_level + 1, "Has SPARQL inference rule (constructs new data):"))
+                        rule_text = "**Has SPARQL inference rule (constructs new data):**"
                     else:
-                        descriptions.append(format_line(indent_level + 1, "Has an unspecified SPARQL inference rule."))
+                        rule_text = "**Has an unspecified SPARQL inference rule.**"
+                descriptions.append(format_line(indent_level, rule_text))
         if list(shapes_graph.objects(shape_uri, SH.rule)):
             processed_constraints.add(SH.rule)
 
@@ -284,12 +279,14 @@ def describe_constraints_on_shape(shapes_graph, ontology_graph, shape_uri, inden
     if SH.closed not in processed_constraints:
         closed_values = list(shapes_graph.objects(shape_uri, SH.closed))
         if closed_values and str(closed_values[0]).lower() == 'true':
+            closed_text = ""
             ignored_props_list_node = list(shapes_graph.objects(shape_uri, SH.ignoredProperties))
             if ignored_props_list_node:
-                ignored_props = [get_friendly_uri_name(shapes_graph, p, ontology_graph) for p in rdf_list_to_python_list(shapes_graph, ignored_props_list_node[0])]
-                descriptions.append(format_line(indent_level + 1, f"Must not have properties other than those explicitly allowed or listed as ignored: {', '.join(ignored_props)}."))
+                ignored_props = [f"**{get_friendly_uri_name(shapes_graph, p, ontology_graph)}**" for p in rdf_list_to_python_list(shapes_graph, ignored_props_list_node[0])]
+                closed_text = f"Must not have properties other than those explicitly allowed or listed as ignored: {', '.join(ignored_props)}."
             else:
-                descriptions.append(format_line(indent_level + 1, "Must not have properties other than those explicitly allowed by sh:property constraints."))
+                closed_text = "Must not have properties other than those explicitly allowed by `sh:property` constraints."
+            descriptions.append(format_line(indent_level, closed_text))
             processed_constraints.add(SH.closed)
 
     return descriptions
@@ -301,92 +298,99 @@ def describe_property_constraints(shapes_graph, ontology_graph, prop_shape_uri, 
     """
     descriptions = []
     path_nodes = list(shapes_graph.objects(prop_shape_uri, SH.path))
+    
+    prop_label_for_header = "Property (unknown path)" # Fallback
+    if path_nodes:
+        prop_uri = path_nodes[0]
+        prop_label_for_header = get_friendly_uri_name(shapes_graph, prop_uri, ontology_graph)
+
+    # Property header is a list item at the current indent_level
+    descriptions.append(format_line(indent_level, f"**Property '{prop_label_for_header}'**"))
+    
+    # All subsequent constraints for this property will be nested one level deeper.
+    constraint_detail_indent_level = indent_level + 1
+
     if not path_nodes:
-        # This might be a BNode with constraints but no path, handled by describe_constraints_on_shape
-        descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, prop_shape_uri, indent_level, is_property_context=True))
+        # This might be a BNode with constraints but no path, e.g. in sh:or list.
+        # Its constraints are described directly, nested under the "Property (unknown path)" header.
+        descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, prop_shape_uri, constraint_detail_indent_level, is_property_context=True))
         return descriptions
 
-    prop_uri = path_nodes[0]
-    prop_label = get_friendly_uri_name(shapes_graph, prop_uri, ontology_graph)
-    base_property_text = f"Property '{prop_label}'"
-
-    # Overall message for the property shape
-    #for msg in shapes_graph.objects(prop_shape_uri, SH.message):
-    #    descriptions.append(format_line(indent_level, f"{base_property_text}: {str(msg)}"))
-        # If a general message exists, we might skip detailed ones, or show them as "Additionally..."
-        # For now, we show both.
+    # Re-fetch prop_uri and prop_label if we are sure path_nodes exist.
+    prop_uri = path_nodes[0] # Already assigned if path_nodes is true.
+    # prop_label = get_friendly_uri_name(shapes_graph, prop_uri, ontology_graph) # Already got as prop_label_for_header
 
     # Detailed constraints
-    constraints_found = False
+    constraints_found_on_prop = False # Tracks if any specific constraint was added for *this* property shape.
 
     # Min/Max Count
     for pred, template_val in [(SH.minCount, "at least {value}"), (SH.maxCount, "at most {value}")]:
-        for val_node in shapes_graph.objects(prop_shape_uri, pred): # val_node could be Literal or BNode
+        for val_node in shapes_graph.objects(prop_shape_uri, pred): 
             msg = None
             actual_value = val_node
-            if isinstance(val_node, BNode): # Check for sh:message on constraint component BNode
+            if isinstance(val_node, BNode): 
                 for m in shapes_graph.objects(val_node, SH.message): msg = str(m)
-                for v in shapes_graph.objects(val_node, RDF.value): actual_value = v # SHACL Core an RDF.value for value
+                for v in shapes_graph.objects(val_node, RDF.value): actual_value = v 
 
             if msg:
-                descriptions.append(format_line(indent_level, f"{base_property_text}: {msg}"))
+                descriptions.append(format_line(constraint_detail_indent_level, msg))
             else:
-                descriptions.append(format_line(indent_level, f"{base_property_text} must appear {template_val.format(value=str(actual_value))} time(s)."))
-            constraints_found = True
+                descriptions.append(format_line(constraint_detail_indent_level, f"Must appear {template_val.format(value=f'**{str(actual_value)}**')} time(s)."))
+            constraints_found_on_prop = True
 
     # Datatype
     for dt_uri in shapes_graph.objects(prop_shape_uri, SH.datatype):
         dt_label = get_friendly_uri_name(shapes_graph, dt_uri, ontology_graph)
-        descriptions.append(format_line(indent_level, f"{base_property_text} must be of datatype {dt_label}."))
-        constraints_found = True
+        descriptions.append(format_line(constraint_detail_indent_level, f"Must be of datatype **{dt_label}**."))
+        constraints_found_on_prop = True
 
     # NodeKind
     for nk_uri in shapes_graph.objects(prop_shape_uri, SH.nodeKind):
         nk_label = get_friendly_uri_name(shapes_graph, nk_uri, ontology_graph)
-        descriptions.append(format_line(indent_level, f"{base_property_text} must be {nk_label}."))
-        constraints_found = True
+        descriptions.append(format_line(constraint_detail_indent_level, f"Must be **{nk_label}**."))
+        constraints_found_on_prop = True
 
     # Class (sh:class)
-    for class_uri in shapes_graph.objects(prop_shape_uri, SH.class_):
+    for class_uri in shapes_graph.objects(prop_shape_uri, SH.class_): # Note: SH.class_ from rdflib
         class_label = get_friendly_uri_name(shapes_graph, class_uri, ontology_graph)
-        descriptions.append(format_line(indent_level, f"{base_property_text} must be an instance of {class_label}."))
-        constraints_found = True
+        descriptions.append(format_line(constraint_detail_indent_level, f"Must be an instance of **{class_label}**."))
+        constraints_found_on_prop = True
 
     # Value range (min/max Inclusive/Exclusive)
     range_constraints = {
-        SH.minInclusive: "must be at least {value}.",
-        SH.maxInclusive: "must be at most {value}.",
-        SH.minExclusive: "must be greater than {value}.",
-        SH.maxExclusive: "must be less than {value}.",
+        SH.minInclusive: "Must be at least **{value}**.",
+        SH.maxInclusive: "Must be at most **{value}**.",
+        SH.minExclusive: "Must be greater than **{value}**.",
+        SH.maxExclusive: "Must be less than **{value}**.",
     }
     for pred, template in range_constraints.items():
         for val in shapes_graph.objects(prop_shape_uri, pred):
-            descriptions.append(format_line(indent_level, f"{base_property_text} {template.format(value=str(val))}"))
-            constraints_found = True
+            descriptions.append(format_line(constraint_detail_indent_level, template.format(value=str(val))))
+            constraints_found_on_prop = True
 
     # String specific (min/maxLength, pattern)
     str_constraints = {
-        SH.minLength: "must have a minimum length of {value}.",
-        SH.maxLength: "must have a maximum length of {value}.",
-        SH.pattern: "must match the pattern: '{value}'.",
+        SH.minLength: "Must have a minimum length of **{value}**.",
+        SH.maxLength: "Must have a maximum length of **{value}**.",
+        SH.pattern: "Must match the pattern: '**{value}**'.",
     }
     for pred, template in str_constraints.items():
-        for val_node in shapes_graph.objects(prop_shape_uri, pred): # val_node could be Literal or BNode
+        for val_node in shapes_graph.objects(prop_shape_uri, pred): 
             msg = None
             actual_value = val_node
             if isinstance(val_node, BNode):
                 for m in shapes_graph.objects(val_node, SH.message): msg = str(m)
                 for v in shapes_graph.objects(val_node, RDF.value): actual_value = v
             
-            flags = ""
+            flags_text = ""
             if pred == SH.pattern:
-                 for f in shapes_graph.objects(prop_shape_uri, SH.flags): flags = f" (flags: {str(f)})"
+                 for f_flag in shapes_graph.objects(prop_shape_uri, SH.flags): flags_text = f" (flags: *{str(f_flag)}*)"
 
             if msg:
-                descriptions.append(format_line(indent_level, f"{base_property_text}: {msg}"))
+                descriptions.append(format_line(constraint_detail_indent_level, msg))
             else:
-                descriptions.append(format_line(indent_level, f"{base_property_text} {template.format(value=str(actual_value))}{flags}"))
-            constraints_found = True
+                descriptions.append(format_line(constraint_detail_indent_level, f"{template.format(value=str(actual_value))}{flags_text}"))
+            constraints_found_on_prop = True
 
 
     # sh:hasValue
@@ -394,21 +398,14 @@ def describe_property_constraints(shapes_graph, ontology_graph, prop_shape_uri, 
         val_label = get_friendly_uri_name(shapes_graph, val_uri, ontology_graph)
         if isinstance(val_uri, Literal) and str(val_uri).lower() in ['true', 'false']:
             val_label = str(val_uri).lower()
-        descriptions.append(format_line(indent_level, f"{base_property_text} must be exactly {val_label}."))
-        constraints_found = True
+        descriptions.append(format_line(constraint_detail_indent_level, f"Must be exactly **{val_label}**."))
+        constraints_found_on_prop = True
 
     # sh:in (list of allowed values)
-    for list_node in shapes_graph.objects(prop_shape_uri, SH.in_):
-        allowed_values = [get_friendly_uri_name(shapes_graph, item, ontology_graph) for item in rdf_list_to_python_list(shapes_graph, list_node)]
-        descriptions.append(format_line(indent_level, f"{base_property_text} must be one of: {', '.join(allowed_values)}."))
-        constraints_found = True
-    
-    # If this property shape also has nested constraints (e.g. sh:node linking to another shape for values)
-    # these are handled by describe_constraints_on_shape called on prop_shape_uri
-    # We need to ensure we don't double-process basic property constraints handled above.
-    # This means describe_constraints_on_shape needs to be aware if it's being called for a property.
-    # The `is_property_context` flag in describe_constraints_on_shape helps with this.
-    # Here, we call it to pick up sh:node, sh:and, sh:or etc. on the property shape itself.
+    for list_node in shapes_graph.objects(prop_shape_uri, SH.in_): # Note: SH.in_ from rdflib
+        allowed_values = [f"**{get_friendly_uri_name(shapes_graph, item, ontology_graph)}**" for item in rdf_list_to_python_list(shapes_graph, list_node)]
+        descriptions.append(format_line(constraint_detail_indent_level, f"Must be one of: {', '.join(allowed_values)}."))
+        constraints_found_on_prop = True
     
     # Check if prop_shape_uri has constraints other than sh:path and basic ones already handled
     has_other_constraints_on_value = False
@@ -420,79 +417,83 @@ def describe_property_constraints(shapes_graph, ontology_graph, prop_shape_uri, 
             break
     
     if has_other_constraints_on_value:
-        # Get descriptions for non-path specific constraints on the property shape's values
-        # These constraints apply to what the values of 'prop_label' must conform to.
-        # The recursive call should be at the next indent level.
-        nested_constraints_indent_level = indent_level + 1
+        # The "Additionally..." header is a list item, nested under the property.
+        # The constraints themselves will be further nested.
+        value_constraints_header_indent = constraint_detail_indent_level 
+        value_constraints_list_indent = constraint_detail_indent_level + 1
+
         value_shape_constraints = describe_constraints_on_shape(
             shapes_graph, ontology_graph, 
             prop_shape_uri, 
-            nested_constraints_indent_level, 
+            value_constraints_list_indent, # Constraints start at this deeper level
             is_property_context=True
         )
         
         if value_shape_constraints:
-            # Print the header only if there are actual sub-constraints to list.
-            # This header is at the parent's indent_level.
-            descriptions.append(format_line(indent_level, f"Additionally, values of '{prop_label}' must satisfy:"))
-            
+            descriptions.append(format_line(value_constraints_header_indent, f"**Additionally, values must satisfy:**"))
             for d_line in value_shape_constraints:
-                # d_line is already fully formatted with the correct indentation 
-                # (nested_constraints_indent_level) by the recursive call.
-                # We just append it directly.
-                if d_line.strip(): # Avoid adding empty or whitespace-only lines
-                    descriptions.append(d_line)
+                if d_line.strip(): 
+                    descriptions.append(d_line) # d_line is already formatted with its correct indent
 
     # Severity for the property shape
     for sev_uri in shapes_graph.objects(prop_shape_uri, SH.severity):
         sev_label = get_friendly_uri_name(shapes_graph, sev_uri, ontology_graph)
-        # Add to last relevant description or as a new line
-        if descriptions:
-            if "(Severity:" not in descriptions[-1]:
-                 descriptions[-1] += f" (Severity: {sev_label})"
-            else: # If last line already has severity, or if no constraints found yet
-                 descriptions.append(format_line(indent_level, f"{base_property_text} (Severity: {sev_label})"))
+        # Add severity as a nested list item.
+        # If there were other constraints, it makes sense to nest it under them.
+        # If no other constraints, it's a direct attribute of the property.
+        severity_text = f"Overall severity for this property: **{sev_label}**"
+        if constraints_found_on_prop or has_other_constraints_on_value: # If other details exist, nest severity
+             descriptions.append(format_line(constraint_detail_indent_level +1, severity_text))
+        else: # Otherwise, it's a direct item under the property
+             descriptions.append(format_line(constraint_detail_indent_level, severity_text))
 
-        elif not constraints_found: # No specific constraints, just severity
-            descriptions.append(format_line(indent_level, f"{base_property_text} has an overall severity: {sev_label}."))
 
-
-    if not descriptions and not path_nodes: # BNode without path, likely part of sh:and/or
-        return describe_constraints_on_shape(shapes_graph, ontology_graph, prop_shape_uri, indent_level, is_property_context=True)
-
+    # If after all this, the only thing in descriptions is the property header,
+    # it means this property shape (prop_shape_uri) had a sh:path but no other direct constraints here.
+    # This can happen if it's just a path pointing to, for example, an sh:node that defines value constraints,
+    # which would be handled by the 'has_other_constraints_on_value' block above.
+    # If descriptions has more than 1 item, it means constraints were added.
+    # If it's a BNode without a path, the initial call to describe_constraints_on_shape would have handled it if 'if not path_nodes:' was true.
+    # No specific removal needed here, as an empty list of constraints is fine if the property truly has none directly on it beyond its path and potential sh:node.
 
     return descriptions
 
 
-def describe_node_shape(shapes_graph, ontology_graph, node_shape_uri, indent_level=0):
+def describe_node_shape(shapes_graph, ontology_graph, node_shape_uri, indent_level=0): # indent_level is for Markdown list items
     """
     Describes a top-level NodeShape.
     """
     descriptions = []
-    shape_name = get_friendly_uri_name(shapes_graph, node_shape_uri, ontology_graph)
+    shape_name_friendly = get_friendly_uri_name(shapes_graph, node_shape_uri, ontology_graph)
 
-    # Basic info: Name, Target Class, Messages, Description
+    # Main H2 for the shape
     if not isinstance(node_shape_uri, BNode): # Named shape
-        descriptions.append(format_line(indent_level, f"Shape: {shape_name}"))
+        descriptions.append(format_line(0, f"## Shape: {shape_name_friendly}"))
     else: # Blank node shape
-        descriptions.append(format_line(indent_level, "Shape (Anonymous Node):"))
-    indent_level += 1
+        descriptions.append(format_line(0, "## Shape (Anonymous Node)"))
+    
+    # Basic info items start at level 1 (top-level list items under the H2)
+    current_info_indent_level = 1 
 
-    for name in shapes_graph.objects(node_shape_uri, SH.name):
-        descriptions.append(format_line(indent_level, f"Name: {str(name)}"))
-    for desc in shapes_graph.objects(node_shape_uri, SH.description):
-        descriptions.append(format_line(indent_level, f"Description: {str(desc)}"))
-    for msg in shapes_graph.objects(node_shape_uri, SH.message):
-        descriptions.append(format_line(indent_level, f"Overall Message: {str(msg)}"))
+    # sh:name (often same as shape_name_friendly for named shapes, but can be different or exist for BNodes)
+    for name_literal in shapes_graph.objects(node_shape_uri, SH.name):
+        # Check if this is different from the main shape name already in H2
+        if str(name_literal) != shape_name_friendly or isinstance(node_shape_uri, BNode):
+            descriptions.append(format_line(current_info_indent_level, f"**Name**: {str(name_literal)}"))
+            
+    for desc_literal in shapes_graph.objects(node_shape_uri, SH.description):
+        descriptions.append(format_line(current_info_indent_level, f"**Description**: {str(desc_literal)}"))
+    for msg_literal in shapes_graph.objects(node_shape_uri, SH.message):
+        descriptions.append(format_line(current_info_indent_level, f"**Overall Message**: {str(msg_literal)}"))
 
     # Targets
     target_classes = list(shapes_graph.objects(node_shape_uri, SH.targetClass))
     if target_classes:
-        class_labels = [get_friendly_uri_name(shapes_graph, tc, ontology_graph) for tc in target_classes]
-        descriptions.append(format_line(indent_level, f"Applies to instances of: {', '.join(class_labels)}"))
-    # Add other targets: sh:targetNode, sh:targetSubjectsOf, sh:targetObjectsOf if needed
+        class_labels = [f"**{get_friendly_uri_name(shapes_graph, tc, ontology_graph)}**" for tc in target_classes]
+        descriptions.append(format_line(current_info_indent_level, f"**Applies to instances of**: {', '.join(class_labels)}"))
+    # Add other targets if needed, similarly formatted.
 
-    # Custom properties (like FIREBIM:rulesource, FBB:flowchartNodeID)
+    # Custom properties
     custom_props_to_display = {
         FIREBIM.rulesource: "Rule source",
         FBB.flowchartNodeID: "Flowchart Node ID(s)"
@@ -500,17 +501,17 @@ def describe_node_shape(shapes_graph, ontology_graph, node_shape_uri, indent_lev
     for prop_uri, label_text in custom_props_to_display.items():
         values = list(shapes_graph.objects(node_shape_uri, prop_uri))
         if values:
-            value_strs = [get_friendly_uri_name(shapes_graph, v, ontology_graph) for v in values]
-            descriptions.append(format_line(indent_level, f"{label_text}: {', '.join(value_strs)}"))
+            value_strs = [f"**{get_friendly_uri_name(shapes_graph, v, ontology_graph)}**" for v in values]
+            descriptions.append(format_line(current_info_indent_level, f"**{label_text}**: {', '.join(value_strs)}"))
     
     # Overall Severity for the NodeShape
     for sev_uri in shapes_graph.objects(node_shape_uri, SH.severity):
         sev_label = get_friendly_uri_name(shapes_graph, sev_uri, ontology_graph)
-        descriptions.append(format_line(indent_level, f"Overall Severity: {sev_label}"))
+        descriptions.append(format_line(current_info_indent_level, f"**Overall Severity**: {sev_label}"))
 
-
-    # Core constraints
-    descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, node_shape_uri, indent_level))
+    # Core constraints start as list items at current_info_indent_level (effectively indent_level 1 for the list)
+    # describe_constraints_on_shape will then handle further nesting.
+    descriptions.extend(describe_constraints_on_shape(shapes_graph, ontology_graph, node_shape_uri, current_info_indent_level))
 
     return descriptions
 
@@ -564,10 +565,13 @@ def shacl_to_text(shapes_file_path: str, ontology_file_path: str = None) -> list
     sorted_node_shapes = sorted(list(top_level_shapes_to_describe), key=lambda x: str(x))
 
     for ns_uri in sorted_node_shapes:
-        all_descriptions.append(f"\n--- Constraints for NodeShape: {get_friendly_uri_name(shapes_graph, ns_uri, ontology_graph)} ---")
-        shape_descriptions = describe_node_shape(shapes_graph, ontology_graph, ns_uri)
+        # Main H1 for each NodeShape
+        all_descriptions.append(format_line(0, f"\n# NodeShape: {get_friendly_uri_name(shapes_graph, ns_uri, ontology_graph)}"))
+        # describe_node_shape will start with H2 and then lists.
+        # Pass indent_level=0 as describe_node_shape itself manages its internal heading and list structure.
+        shape_descriptions = describe_node_shape(shapes_graph, ontology_graph, ns_uri, indent_level=0)
         all_descriptions.extend(shape_descriptions)
-        all_descriptions.append("")
+        all_descriptions.append("") # Keep a blank line between shape descriptions for readability
 
     return all_descriptions
 
@@ -575,7 +579,7 @@ if __name__ == "__main__":
     # Example usage with proper path formatting
     shapes_file = r"shacl/BasisnormenLG_cropped.pdf/shape_Article_Article_2_1_1.ttl"
     ontology_file = r"casestudy_compartmentarea/fbb.ttl"
-    output_file = r"temp_output_shacltotxt.txt"
+    output_file = r"temp_output_shacltotxt.md"
     descriptions = shacl_to_text(shapes_file, ontology_file)
 
     with open(output_file, "w", encoding="utf-8") as f:
