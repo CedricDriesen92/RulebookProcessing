@@ -11,24 +11,14 @@ def load_ontologies(local_path):
     Loads and merges multiple ontology files into a single graph.
     First loads the main source file (firebimSource.ttl) then adds other ontologies to it.
     """
-    ontologies = ["BOTen", "BPOen", "GEOsparqlen", "OPMen"]
     
-    filename_source = "firebimSource.ttl"
+    filename_source = "firebim_ontology_alex.ttl"
     file_path = os.path.join(local_path, filename_source)
     try:
         main_onto = rdflib.Graph().parse(file_path, format="turtle")
         print(f"Loaded ontology from file: {filename_source}")
     except Exception as e:
         print(f"Error loading ontology from file {filename_source}: {str(e)}")
-    
-    # Convert and load ontologies from local text files
-    for filename in ontologies:
-        file_path = os.path.join(local_path, filename + ".ttl")
-        try:         
-            onto = rdflib.Graph().parse(file_path, format="turtle")
-            main_onto = main_onto + onto
-        except Exception as e:
-            print(f"Error loading ontology from file {filename}: {str(e)}")
     
     return main_onto
 
@@ -139,7 +129,7 @@ def process_validation_results(results_graph, member_refs, section_refs, documen
     return processed_results, failed_nodes
 
 def parse_flowchart_nodes(results_graph, shapes_graph):
-    fbb = Namespace("https://ontology.firebim.be/ontology/fbo#")
+    fbo = Namespace("https://ontology.firebim.be/ontology/fbo#")
     sh = Namespace("http://www.w3.org/ns/shacl#")
     # Track nodes with their highest severity
     failed_nodes = {}  # Changed from set to dict to store severity
@@ -165,15 +155,15 @@ def parse_flowchart_nodes(results_graph, shapes_graph):
                 if isinstance(source_shape, rdflib.BNode):
                     parent_shapes = list(shapes_graph.subjects(sh.property, source_shape))
                     for parent_shape in parent_shapes:
-                        node_ids = list(shapes_graph.objects(subject=parent_shape, predicate=fbb.flowchartNodeID))
+                        node_ids = list(shapes_graph.objects(subject=parent_shape, predicate=fbo.flowchartNodeID))
                         for node_id in node_ids:
                             update_node_severity(node_id)
                     
-                    prop_node_ids = list(shapes_graph.objects(subject=source_shape, predicate=fbb.flowchartNodeID))
+                    prop_node_ids = list(shapes_graph.objects(subject=source_shape, predicate=fbo.flowchartNodeID))
                     for node_id in prop_node_ids:
                         update_node_severity(node_id)
                 else:
-                    node_ids = list(shapes_graph.objects(subject=source_shape, predicate=fbb.flowchartNodeID))
+                    node_ids = list(shapes_graph.objects(subject=source_shape, predicate=fbo.flowchartNodeID))
                     for node_id in node_ids:
                         update_node_severity(node_id)
 
@@ -300,18 +290,18 @@ if __name__ == "__main__":
     # Load ontologies
     merged_ontology = load_ontologies(local_path)
     
-    data_graph = rdflib.Graph().parse("buildinggraphs/section_2_1BE_Data.ttl", format="turtle")
+    data_graph = rdflib.Graph().parse("IFCtoTTLin-outputs\Kortrijk_ED_IFC_architecture.ttl", format="turtle")
     try:
-        shapes_graph = load_shapes_graph("shacl_shapes_mmd/section_2_1_shapes.ttl")
+        shapes_graph = load_shapes_graph("SHACL\BasisnormenLG_cropped.pdf\shape_Article_Article_2_1_1.ttl")
     except Exception as e:
         print(f"Fatal error loading shapes: {str(e)}")
         exit(1)
-    document_graph = load_document_data(r"documentgraphs/BasisnormenLG_cropped.pdf/combined_document_data_graph.ttl")
+    document_graph = load_document_data(r"documentgraphs\BasisnormenLG_cropped.pdf\combined_document_data_graph.ttl")
 
     member_refs = parse_member_references(shapes_graph)
     section_refs = parse_section_references(shapes_graph)
     
-    r = validate(data_graph, shacl_graph=shapes_graph, debug=False, inference="none", advanced=True)
+    r = validate(data_graph, shacl_graph=shapes_graph, debug=True, inference="none", advanced=True)
     conforms, results_graph, results_text = r
     results_graph.serialize(destination="results_graph.ttl", format="turtle")
     

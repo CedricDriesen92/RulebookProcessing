@@ -35,11 +35,11 @@ def main():
     g.parse('IFCtoTTLin-outputs/Kortrijk_ED_IFC_architecture.ttl', format='turtle')
     
     # Define namespaces
-    fbb = Namespace("http://example.org/ontology/fbb#")
+    fbo = Namespace("https://ontology.firebim.be/ontology/fbo#")
     bpo = Namespace("https://w3id.org/bpo#")
     
     # Count compartments
-    compartments = list(g.subjects(predicate=RDF.type, object=fbb.Compartment))
+    compartments = list(g.subjects(predicate=RDF.type, object=fbo.Compartment))
     print(f"\nFound {len(compartments)} compartments")
     
     # Check for spaces with hasCompartment relationship
@@ -96,13 +96,13 @@ def main():
         print("\nExecuting SPARQL query manually:")
         
         query = """
-        PREFIX fbb: <http://example.org/ontology/fbb#>
+        PREFIX fbo: <http://example.org/ontology/fbo#>
         PREFIX bpo: <https://w3id.org/bpo#>
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         
         SELECT ?compartment (SUM(xsd:decimal(?area)) as ?totalArea) (COUNT(?space) as ?spaceCount)
         WHERE {
-          ?compartment a fbb:Compartment .
+          ?compartment a fbo:Compartment .
           ?space bpo:hasCompartment ?compartment .
           ?space bpo:Area ?area .
         }

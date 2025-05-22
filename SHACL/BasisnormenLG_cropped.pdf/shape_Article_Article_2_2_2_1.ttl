@@ -42,7 +42,7 @@ These contextual clauses may require separate, more specific shapes or condition
         sh:message "A compartment (subject to this rule) must have at least two exits to allow for placement in opposite zones (Art. 2.2.2.1 S1)."@nl ;
     ] ;
     sh:property [
-        sh:path fro:hasExitsInOppositeZones ; # Assumed boolean property on the Compartment.
+        sh:path fbo:hasExitsInOppositeZones ; # Assumed boolean property on the Compartment.
                                              # Alternatively, a more complex SPARQL-based check could be used.
         sh:hasValue true ;
         sh:message "Exits of the compartment must be located in opposite zones (Art. 2.2.2.1 S1)."@nl ;
@@ -54,10 +54,10 @@ These contextual clauses may require separate, more specific shapes or condition
         sh:path (fbo:hasExit fbo:leadsViaEvacuationRoute) ; # Path from Compartment to its EvacuationRoutes
         sh:name "EvacuationRouteDestinationConstraint" ;
         sh:node [
-            a sh:NodeShape ; # This shape applies to each fro:EvacuationRoute instance found
+            a sh:NodeShape ; # This shape applies to each fbo:EvacuationRoute instance found
             sh:message "An evacuation route from the compartment does not meet destination requirements of Art. 2.2.2.1 S2."@nl ;
             sh:property [
-                sh:path fro:leadsTo ; # Property of fro:EvacuationRoute
+                sh:path fbo:leadsTo ; # Property of fbo:EvacuationRoute
                 sh:minCount 1 ;       # An evacuation route must lead somewhere
                 sh:or (
                     [ sh:class fbo:Exterior ; sh:message "Evacuation route destination must be Exterior."@nl ]
@@ -67,7 +67,7 @@ These contextual clauses may require separate, more specific shapes or condition
                 sh:message "Each evacuation route must lead to one of: the outside, a stairwell, or a stair (Art. 2.2.2.1 S2)."@nl ;
             ] ;
             # The reference "(voor de horizontale afstanden zie 4.4)" could be an additional property constraint here
-            # on the fro:EvacuationRoute, e.g., checking compliance with fro:Regulation_4_4_HorizontalDistances.
+            # on the fbo:EvacuationRoute, e.g., checking compliance with fro:Regulation_4_4_HorizontalDistances.
             # Example:
             # sh:property [
             #     sh:path fro:compliesWith ; # Or a more specific property like fro:hasCompliantHorizontalDistance

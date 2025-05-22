@@ -37,7 +37,7 @@ def get_country_namespace(country_code):
         return FBO_INT
 
 # Load the FireBIM ontology
-def load_firebim_ontology(ontology_path="buildingontologies/firebim_ontology_notion.ttl", preferred_country="BE"):
+def load_firebim_ontology(ontology_path="buildingontologies/firebim_ontology_alex.ttl", preferred_country="BE"):
     print(f"Loading FireBIM ontology from {ontology_path}...")
     g = Graph()
     try:
@@ -48,7 +48,7 @@ def load_firebim_ontology(ontology_path="buildingontologies/firebim_ontology_not
         print(f"Error loading ontology: {e}")
         print("Using default mappings instead")
         return None, preferred_country
-
+ 
 def build_ifc_bot_mapping(ontology_graph, preferred_country="BE"):
     """Build IFC to FireBIM ontology mapping from the FireBIM ontology"""
     mapping = {}
@@ -234,12 +234,12 @@ def extract_properties_from_ontology(ontology_graph, preferred_country="BE"):
     return general_properties, fire_safety_properties
 
 # Load the ontology and build the mapping with preferred country
-PREFERRED_COUNTRY = "BE"  # Default to Belgium
+PREFERRED_COUNTRY = "INT"  # Default to Belgium
 ONTOLOGY_GRAPH, PREFERRED_COUNTRY = load_firebim_ontology(preferred_country=PREFERRED_COUNTRY)
 IFC_BOT_MAPPING = build_ifc_bot_mapping(ONTOLOGY_GRAPH, preferred_country=PREFERRED_COUNTRY)
 GENERAL_PROPERTIES, FIRE_SAFETY_PROPERTIES = extract_properties_from_ontology(ONTOLOGY_GRAPH, preferred_country=PREFERRED_COUNTRY)
 
-class IFCtoFBBConverter:
+class IFCtofboConverter:
     def __init__(self, ifc_file_path: str, output_ttl_path: str, use_subclasses: bool = False, preferred_country: str = "BE"):
         self.ifc_file = ifcopenshell.open(ifc_file_path)
         self.output_ttl_path = output_ttl_path
@@ -248,6 +248,34 @@ class IFCtoFBBConverter:
         self.preferred_country = preferred_country
         self._bind_namespaces()
         self.compartments = set()  # Track unique compartment names
+
+        # Map common property names (lowercase) to FBO predicates
+        self.PROPERTY_NAME_TO_FBO_PREDICATE = {
+            "area": FBO.hasArea,
+            "length": FBO.hasLength,
+            "width": FBO.hasWidth, # Example, add as needed
+            "height": FBO.hasHeight, # Example, add as needed
+            "firerating": FBO.hasFireRating, # Check actual FBO property URI
+            "isexternal": FBO.isExternal,     # Check actual FBO property URI
+            "loadbearing": FBO.isLoadBearing, # Check actual FBO property URI
+            # Properties from SHACL shape for fbo:Compartment
+            "automaticextinguishingsystem": FBO.hasAutomaticExtinguishingSystem,
+            "smokeandheatevacuationsystem": FBO.hasSmokeAndHeatEvacuationSystem,
+            # Properties from SHACL for fbo:Building (if found on IfcBuilding entities)
+            "isgroundflooronly": FBO.isGroundFloorOnly,
+            "numberofcompartments": FBO.hasNumberOfCompartments,
+        }
+
+        # FBO Predicates that should be attached to the compartment URI
+        # if the IFC entity defines a compartment and has these properties.
+        self.COMPARTMENT_SPECIFIC_FBO_PREDICATES = {
+            FBO.hasLength,
+            FBO.hasFireRating, # Example
+            FBO.hasAutomaticExtinguishingSystem,
+            FBO.hasSmokeAndHeatEvacuationSystem,
+            # Note: FBO.hasArea is intentionally NOT here, as it's typically on spaces
+            # for the SHACL rule to infer compartment area.
+        }
 
     def sanitize_name(self, name: str):
         #name = unicodedata.normalize('NFKD', name).encode('ASCII', 'ignore').decode('ASCII')
@@ -401,52 +429,103 @@ class IFCtoFBBConverter:
     def add_properties(self, ifc_entity, entity_uri: URIRef) -> None:
         try:
             psets = ifcopenshell.util.element.get_psets(ifc_entity)
+            
+            entitys_associated_compartment_uri = None
+            # Check if this IFC entity has a "Compartment" property, to identify its associated compartment URI
+            for pset_name_check, properties_check in psets.items():
+                compartment_prop_val = None
+                for key, val in properties_check.items():
+                    if key.lower() == "compartment": # Case-insensitive check for "Compartment" property
+                        compartment_prop_val = val
+                        break
+                
+                if compartment_prop_val:
+                    compartment_name_for_entity = str(compartment_prop_val)
+                    if compartment_name_for_entity: # Ensure not empty
+                        sanitized_compartment_name = self.sanitize_name(compartment_name_for_entity)
+                        entitys_associated_compartment_uri = INST[f"compartment_{sanitized_compartment_name}"]
+                        break # Found compartment association for this entity
+            
             for pset_name, properties in psets.items():
                 for prop_name, prop_value in properties.items():
                     if prop_value is not None:
-                        self._add_single_property(entity_uri, pset_name, prop_name, prop_value)
+                        self._add_single_property(entity_uri, pset_name, prop_name, prop_value,
+                                                 entitys_compartment_uri=entitys_associated_compartment_uri)
         except Exception as e:
             print(f"Error getting properties for entity {ifc_entity.id()}: {e}")
 
-    def _add_single_property(self, entity_uri: URIRef, pset_name: str, prop_name: str, prop_value) -> None:
-        sanitized_pset_name = self.sanitize_name(pset_name)
-        sanitized_prop_name = self.sanitize_name(prop_name)
+    def _add_single_property(self, entity_uri: URIRef, pset_name: str, prop_name: str, prop_value,
+                             entitys_compartment_uri: URIRef = None) -> None:
         
-        # Handle Compartment property specially
-        if prop_name == "Compartment" and prop_value:
+        # 1. Handle the "Compartment" property assignment itself.
+        # This links entity_uri (e.g. a space) to an fbo:Compartment instance.
+        if prop_name.lower() == "compartment" and prop_value:
             compartment_name = str(prop_value)
+            if not compartment_name: # Skip if compartment name is empty
+                return
+
             sanitized_compartment_name = self.sanitize_name(compartment_name)
             
-            # Create compartment instance if it doesn't exist yet
+            # This is the URI of the compartment instance being referenced or created.
+            defined_compartment_uri = INST[f"compartment_{sanitized_compartment_name}"]
+            
             if compartment_name not in self.compartments:
                 self.compartments.add(compartment_name)
-                compartment_uri = INST[f"compartment_{sanitized_compartment_name}"]
-                self.g.add((compartment_uri, RDF.type, FBO.Compartment))
-                self.g.add((compartment_uri, BPO.name, Literal(compartment_name)))
+                self.g.add((defined_compartment_uri, RDF.type, FBO.Compartment))
+                self.g.add((defined_compartment_uri, RDFS.label, Literal(compartment_name))) # Use RDFS.label for name
             
-            # Link the entity to the compartment
-            compartment_uri = INST[f"compartment_{sanitized_compartment_name}"]
-            self.g.add((entity_uri, BPO.hasCompartment, compartment_uri))
-            return
-            
-        # Format numeric values to avoid scientific notation
-        if isinstance(prop_value, (int, float)):
-            prop_value_formatted = f"{prop_value:.10g}"
+            # Link the current entity (entity_uri) to this compartment.
+            self.g.add((entity_uri, FBO.hasCompartment, defined_compartment_uri))
+            return # "Compartment" property fully processed.
+
+        # 2. Format prop_value into an RDF Literal with appropriate XSD datatype.
+        prop_value_literal: Literal
+        if isinstance(prop_value, bool):
+            prop_value_literal = Literal(prop_value, datatype=XSD.boolean)
+        elif isinstance(prop_value, int):
+            prop_value_literal = Literal(prop_value, datatype=XSD.integer)
+        elif isinstance(prop_value, float):
+            prop_value_literal = Literal(f"{prop_value:.10g}", datatype=XSD.double) # Avoid scientific notation
         else:
-            prop_value_formatted = prop_value
+            prop_value_literal = Literal(str(prop_value))
+
+        # 3. Process other properties: Check for specific FBO predicate mapping.
+        # Use original prop_name for lookup in map keys, assuming map keys match IFC PSet names.
+        # Using .lower() for robustness if PSet names vary in case.
+        mapped_fbo_predicate = self.PROPERTY_NAME_TO_FBO_PREDICATE.get(prop_name.lower())
+
+        if mapped_fbo_predicate:
+            # A specific FBO predicate is found for this prop_name.
+            # Determine the subject for this triple:
+            # - If this entity defines/belongs to a compartment (entitys_compartment_uri is not None)
+            #   AND the property is compartment-specific (e.g. FBO.hasLength),
+            #   then the subject is the compartment's URI.
+            # - Otherwise, the subject is the entity's URI itself (e.g. FBO.hasArea for a space).
+            
+            target_subject_uri = entity_uri # Default subject
+            if entitys_compartment_uri and mapped_fbo_predicate in self.COMPARTMENT_SPECIFIC_FBO_PREDICATES:
+                target_subject_uri = entitys_compartment_uri
+            
+            self.g.add((target_subject_uri, mapped_fbo_predicate, prop_value_literal))
         
-        if self.is_property_of_type(prop_name, GENERAL_PROPERTIES):
-            property_uri = self.create_uri(BPO, f"{sanitized_prop_name}", "")
-            self.g.add((entity_uri, property_uri, Literal(prop_value_formatted)))
-            self.g.add((property_uri, RDF.type, BPO.Attribute))
-            self.g.add((property_uri, RDFS.label, Literal(prop_name)))
-        
-        if self.is_property_of_type(prop_name, FIRE_SAFETY_PROPERTIES):
-            property_uri = self.create_uri(BPO, f"{sanitized_pset_name}_{sanitized_prop_name}", "")
-            self.g.add((entity_uri, property_uri, Literal(prop_value_formatted)))
-            self.g.add((property_uri, RDF.type, BPO.Attribute))
-            self.g.add((property_uri, RDFS.label, Literal(prop_name)))
-            self.g.add((property_uri, FBO.isFireSafetyProperty, Literal(True)))
+        else:
+            # 4. Fallback: No specific FBO mapping found. Use generic BPO property creation.
+            # This logic remains similar to original, attaching properties to the entity_uri.
+            sanitized_prop_name_for_bpo = self.sanitize_name(prop_name)
+            if self.is_property_of_type(prop_name, GENERAL_PROPERTIES):
+                property_uri = self.create_uri(BPO, f"{sanitized_prop_name_for_bpo}", "")
+                self.g.add((entity_uri, property_uri, prop_value_literal))
+                self.g.add((property_uri, RDF.type, BPO.Attribute))
+                self.g.add((property_uri, RDFS.label, Literal(prop_name))) # Original prop_name for label
+            
+            if self.is_property_of_type(prop_name, FIRE_SAFETY_PROPERTIES):
+                # For fire safety, original logic included pset_name in URI, which can be kept for differentiation.
+                sanitized_pset_name = self.sanitize_name(pset_name)
+                property_uri = self.create_uri(BPO, f"{sanitized_pset_name}_{sanitized_prop_name_for_bpo}", "")
+                self.g.add((entity_uri, property_uri, prop_value_literal))
+                self.g.add((property_uri, RDF.type, BPO.Attribute))
+                self.g.add((property_uri, RDFS.label, Literal(prop_name)))
+                self.g.add((property_uri, FBO.isFireSafetyProperty, Literal(True, datatype=XSD.boolean)))
 
     def save_ttl(self) -> None:
         self.g.serialize(destination=self.output_ttl_path, format="turtle")
@@ -475,14 +554,14 @@ def test_external_door_width(ttl_file_path: str, ifc_file_path: str) -> List[Tup
     unit_scale = get_unit_scale(ifc_file_path)
 
     query = """
-    PREFIX fbb: <http://example.org/ontology/fbb#>
+    PREFIX fbo: <https://ontology.firebim.be/ontology/fbo#>
     PREFIX bpo: <https://w3id.org/bpo#>
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
     SELECT ?door ?width ?isExternal ?widthProp
     WHERE {
-        ?door fbb:hasIfcType "IfcDoor" .
+        ?door fbo:hasIfcType "IfcDoor" .
         ?door ?isExternalProp ?isExternal .
         FILTER(CONTAINS(LCASE(STR(?isExternalProp)), "external"))
         ?door ?widthProp ?width .
@@ -507,9 +586,9 @@ def test_external_door_width(ttl_file_path: str, ifc_file_path: str) -> List[Tup
 
     return non_compliant_doors
 
-def ifc_to_fbb_ttl(ifc_file_path: str, output_ttl_path: str, use_subclasses: bool = False, preferred_country: str = "BE") -> None:
+def ifc_to_fbo_ttl(ifc_file_path: str, output_ttl_path: str, use_subclasses: bool = False, preferred_country: str = "BE") -> None:
     try:
-        converter = IFCtoFBBConverter(ifc_file_path, output_ttl_path, use_subclasses, preferred_country)
+        converter = IFCtofboConverter(ifc_file_path, output_ttl_path, use_subclasses, preferred_country)
         converter.process_ifc()
         converter.save_ttl()
         print(f"Successfully converted {ifc_file_path} to {output_ttl_path}")
@@ -532,7 +611,7 @@ def main() -> None:
             ttl_file_path = os.path.join(main_dir, f"{os.path.splitext(file)[0]}.ttl")
             
             print(f"Processing IFC file: {file}")
-            ifc_to_fbb_ttl(ifc_file_path, ttl_file_path, use_subclasses, preferred_country)
+            ifc_to_fbo_ttl(ifc_file_path, ttl_file_path, use_subclasses, preferred_country)
             
             print(f"Testing external door widths for {file}...")
             non_compliant_doors = []  # Uncomment to enable: test_external_door_width(ttl_file_path, ifc_file_path)

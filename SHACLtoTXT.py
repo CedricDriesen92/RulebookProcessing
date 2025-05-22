@@ -1,4 +1,7 @@
 import sys
+import tkinter as tk
+from tkinter import scrolledtext, font, PanedWindow
+import re
 from rdflib import Graph, Namespace, URIRef, RDFS, RDF, Literal
 from rdflib.term import BNode
 
@@ -52,10 +55,11 @@ def get_friendly_uri_name(graph, uri_ref, ontology_graph):
         return FRIENDLY_URI_NAMES[uri_str]
 
     # Check for rdfs:label in the ontology_graph first
-    for label_obj in ontology_graph.objects(uri_ref, RDFS.label):
-        label_str = str(label_obj)
-        if label_str.strip(): # Only return if non-empty
-            return label_str
+    if ontology_graph: # Check if ontology_graph is not None and has data
+        for label_obj in ontology_graph.objects(uri_ref, RDFS.label):
+            label_str = str(label_obj)
+            if label_str.strip(): # Only return if non-empty
+                return label_str
 
     # Then in the shapes_graph (e.g., for sh:name on shapes)
     for label_obj in graph.objects(uri_ref, RDFS.label):
@@ -516,75 +520,163 @@ def describe_node_shape(shapes_graph, ontology_graph, node_shape_uri, indent_lev
     return descriptions
 
 
-def shacl_to_text(shapes_file_path: str, ontology_file_path: str = None) -> list[str]:
-    """
-    Main function to process SHACL shapes and ontology, returning human-readable descriptions.
-    """
+def process_shacl_string_to_lines(shacl_data_string: str) -> list[str]:
     shapes_graph = Graph()
-    shapes_graph.parse(shapes_file_path, format="turtle") # Assumes turtle, add format detection if needed
+    ontology_graph = Graph() # Simplified: no external ontology loading for GUI
 
-    ontology_graph = Graph()
-    if ontology_file_path:
-        try:
-            ontology_graph.parse(ontology_file_path, format="turtle")
-        except Exception as e:
-            print(f"Warning: Could not parse ontology file {ontology_file_path}: {e}", file=sys.stderr)
+    try:
+        shapes_graph.parse(data=shacl_data_string, format="turtle")
+    except Exception as e:
+        return [f"Error parsing SHACL input: {e}"]
 
     shapes_graph.bind("sh", SH)
     shapes_graph.bind("xsd", XSD)
     if FIREBIM: shapes_graph.bind("firebim", FIREBIM)
     if FBB: shapes_graph.bind("fbb", FBB)
-
-    all_descriptions = []
     
-    # Identify top-level shapes to describe.
-    # These are shapes explicitly targeted (e.g., by sh:targetClass) or named sh:NodeShapes.
-    # BNode sh:NodeShapes are generally treated as components and described inline,
-    # unless they are explicitly targeted by a sh:targetClass (or similar targeting mechanism).
+    all_descriptions = []
     top_level_shapes_to_describe = set()
 
-    # Add shapes that are subjects of sh:targetClass (can be URIs or BNodes)
-    for s, p, o in shapes_graph.triples((None, SH.targetClass, None)):
+    for s, _, _ in shapes_graph.triples((None, SH.targetClass, None)):
         top_level_shapes_to_describe.add(s)
-    # Consider adding other targeting mechanisms if used, e.g., sh:targetNode, sh:targetSubjectsOf, sh:targetObjectsOf
-
-    # Add all named (URIRef) sh:NodeShapes if not already included
     for ns_uri_candidate in shapes_graph.subjects(RDF.type, SH.NodeShape):
         if isinstance(ns_uri_candidate, URIRef):
             top_level_shapes_to_describe.add(ns_uri_candidate)
-        # BNode sh:NodeShapes are only added if they were captured by sh:targetClass etc. above.
 
     if not top_level_shapes_to_describe:
-        # Check if there are any sh:NodeShapes at all, even if not "top-level" by the definition above
         if not set(shapes_graph.subjects(RDF.type, SH.NodeShape)):
-             return ["No NodeShapes found in the SHACL file."]
+             return ["No NodeShapes found in the SHACL input."]
         else:
-             return ["No clearly top-level NodeShapes (e.g., via sh:targetClass or named NodeShapes) found to describe. There might be component shapes defined."]
-
+             return ["No clearly top-level NodeShapes (e.g., via sh:targetClass or named NodeShapes) found. There might be component shapes defined."]
 
     sorted_node_shapes = sorted(list(top_level_shapes_to_describe), key=lambda x: str(x))
 
     for ns_uri in sorted_node_shapes:
-        # Main H1 for each NodeShape
+        # format_line(0,...) ensures it's not treated as a list item by that function.
+        # The leading \n is for console readability between shapes.
         all_descriptions.append(format_line(0, f"\n# NodeShape: {get_friendly_uri_name(shapes_graph, ns_uri, ontology_graph)}"))
-        # describe_node_shape will start with H2 and then lists.
-        # Pass indent_level=0 as describe_node_shape itself manages its internal heading and list structure.
         shape_descriptions = describe_node_shape(shapes_graph, ontology_graph, ns_uri, indent_level=0)
         all_descriptions.extend(shape_descriptions)
-        all_descriptions.append("") # Keep a blank line between shape descriptions for readability
+        all_descriptions.append("") 
 
     return all_descriptions
 
+class ShaclApp:
+    def __init__(self, master):
+        self.master = master
+        master.title("SHACL to Markdown GUI")
+        master.geometry("1000x700")
+
+        self.default_font = font.nametofont("TkDefaultFont")
+        self.default_font_family = self.default_font.actual()["family"]
+        self.default_font_size = self.default_font.actual()["size"]
+
+        self.h1_font = font.Font(family=self.default_font_family, size=int(self.default_font_size * 1.5), weight="bold")
+        self.h2_font = font.Font(family=self.default_font_family, size=int(self.default_font_size * 1.2), weight="bold")
+        self.bold_font = font.Font(family=self.default_font_family, size=self.default_font_size, weight="bold")
+        self.normal_font = font.Font(family=self.default_font_family, size=self.default_font_size)
+
+        self.paned_window = PanedWindow(master, orient=tk.HORIZONTAL, sashrelief=tk.RAISED)
+        self.paned_window.pack(fill=tk.BOTH, expand=True)
+
+        self.input_frame = tk.Frame(self.paned_window)
+        self.input_text = scrolledtext.ScrolledText(self.input_frame, wrap=tk.WORD, undo=True)
+        self.input_text.pack(fill=tk.BOTH, expand=True)
+        self.input_text.bind("<KeyRelease>", self.on_shacl_input_change)
+        self.paned_window.add(self.input_frame, stretch="always")
+
+        self.output_frame = tk.Frame(self.paned_window)
+        self.output_text = scrolledtext.ScrolledText(self.output_frame, wrap=tk.WORD, state=tk.DISABLED)
+        self.output_text.pack(fill=tk.BOTH, expand=True)
+        self.paned_window.add(self.output_frame, stretch="always")
+        
+        self.output_text.tag_configure("h1", font=self.h1_font, spacing1=5, spacing3=5)
+        self.output_text.tag_configure("h2", font=self.h2_font, spacing1=3, spacing3=3)
+        self.output_text.tag_configure("bold", font=self.bold_font)
+        self.output_text.tag_configure("normal", font=self.normal_font)
+        # For error messages, could add:
+        # self.output_text.tag_configure("error", foreground="red", font=self.normal_font)
+
+
+    def on_shacl_input_change(self, event=None):
+        shacl_content = self.input_text.get("1.0", tk.END)
+        if not shacl_content.strip():
+            self.clear_output()
+            return
+        
+        markdown_lines = process_shacl_string_to_lines(shacl_content)
+        self.display_markdown_in_text_widget(markdown_lines)
+
+    def clear_output(self):
+        self.output_text.config(state=tk.NORMAL)
+        self.output_text.delete("1.0", tk.END)
+        self.output_text.config(state=tk.DISABLED)
+
+    def display_markdown_in_text_widget(self, lines):
+        self.output_text.config(state=tk.NORMAL)
+        self.output_text.delete("1.0", tk.END)
+
+        for line_content in lines:
+            stripped_line_for_check = line_content.lstrip('\n') # Handle potential leading \n from H1 format
+
+            is_h1 = False
+            is_h2 = False
+            text_to_parse_for_bold = line_content # Default to original line
+
+            if stripped_line_for_check.startswith("# NodeShape:"):
+                is_h1 = True
+                header_text_content = stripped_line_for_check[len("# NodeShape:"):].strip()
+                self.output_text.insert(tk.END, "NodeShape: " + header_text_content + "\n", "h1")
+            elif stripped_line_for_check.startswith("## Shape:"):
+                is_h2 = True
+                header_text_content = stripped_line_for_check[len("## Shape:"):].strip()
+                self.output_text.insert(tk.END, "Shape: " + header_text_content + "\n", "h2")
+            elif line_content == "" and lines.index(line_content) > 0 and lines[lines.index(line_content)-1].strip() != "": # Preserve blank lines used for spacing
+                self.output_text.insert(tk.END, "\n", "normal")
+            elif line_content.strip() == "" and line_content != "": # line with only spaces, preserve
+                self.output_text.insert(tk.END, line_content + "\n", "normal")
+            elif line_content.strip(): # Non-empty, non-header line
+                # Handle potential leading spaces and list marker from format_line directly
+                # e.g. "  - Some text **bold**"
+                # The spaces and "- " are part of line_content
+                
+                # Split by bold markers, preserving them for identification
+                parts = re.split(r'(\*\*.*?\*\*)', line_content)
+                for part in parts:
+                    if part.startswith("**") and part.endswith("**"):
+                        actual_text = part[2:-2]
+                        self.output_text.insert(tk.END, actual_text, "bold")
+                    elif part: # Non-empty part
+                        self.output_text.insert(tk.END, part, "normal")
+                self.output_text.insert(tk.END, "\n") # Add newline after processing all parts of the line
+            # else: empty lines not matching above are skipped to avoid excessive blank lines
+
+        self.output_text.config(state=tk.DISABLED)
+
+
 if __name__ == "__main__":
-    # Example usage with proper path formatting
-    shapes_file = r"shacl/BasisnormenLG_cropped.pdf/shape_Article_Article_2_1_1.ttl"
-    ontology_file = r"casestudy_compartmentarea/fbb.ttl"
-    output_file = r"temp_output_shacltotxt.md"
-    descriptions = shacl_to_text(shapes_file, ontology_file)
-
-    with open(output_file, "w", encoding="utf-8") as f:
-        for line in descriptions:
-            f.write(line + "\n")
-            print(line)
-
-    print(f"\nOutput written to {output_file}")
+    root = tk.Tk()
+    app = ShaclApp(root)
+    # Initial placeholder or instruction
+    app.input_text.insert("1.0", "# Paste your SHACL (Turtle) content here...\n\n"
+                                 "# Example:\n"
+                                 "@prefix sh: <http://www.w3.org/ns/shacl#> .\n"
+                                 "@prefix ex: <http://example.com/ns#> .\n"
+                                 "@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n"
+                                 "ex:MyShape\n"
+                                 "    a sh:NodeShape ;\n"
+                                 "    sh:targetClass ex:MyClass ;\n"
+                                 "    sh:property [\n"
+                                 "        sh:path ex:myProperty ;\n"
+                                 "        sh:datatype xsd:string ;\n"
+                                 "        sh:minLength 5 ;\n"
+                                 "        sh:description \"This is a test property.\" ;\n"
+                                 "    ] ;\n"
+                                 "    sh:property [\n"
+                                 "        sh:path ex:anotherProperty ;\n"
+                                 "        sh:nodeKind sh:IRI ;\n"
+                                 "        sh:maxCount 1 ;\n"
+                                 "    ] .\n"
+    )
+    app.on_shacl_input_change() # Process initial content
+    root.mainloop()

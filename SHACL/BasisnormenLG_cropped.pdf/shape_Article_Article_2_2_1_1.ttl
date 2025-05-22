@@ -14,11 +14,11 @@ fro:Shape_Article_2_2_1_1
 
     # General prerequisite: occupancy must be defined for the rule to apply.
     sh:property [
-        sh:path fro:hasOccupancy ;
+        sh:path fbo:hasOccupancy ;
         sh:minCount 1 ;
         sh:maxCount 1 ; # Assuming a single maximum occupancy value per entity
         sh:datatype xsd:integer ;
-        sh:message "Article 2.2.1.1: Maximum occupancy (fro:hasOccupancy) must be specified as a single integer value to determine the required number of exits."@en ;
+        sh:message "Article 2.2.1.1: Maximum occupancy (fbo:hasOccupancy) must be specified as a single integer value to determine the required number of exits."@en ;
         sh:severity sh:Violation ;
     ] ;
 
@@ -29,12 +29,12 @@ fro:Shape_Article_2_2_1_1
         [
             a sh:NodeShape ;
             sh:property [
-                sh:path fro:hasOccupancy ;
+                sh:path fbo:hasOccupancy ;
                 sh:maxInclusive 99 ;
                 sh:minInclusive 0 ; # Assuming occupancy cannot be negative
             ] ;
             sh:property [
-                sh:path fro:hasExit ;
+                sh:path fbo:hasExit ;
                 sh:minCount 1 ;
                 sh:message "Article 2.2.1.1 (Condition 1): For occupancy less than 100, at least 1 exit is required. Found fewer."@en ;
             ]
@@ -44,12 +44,12 @@ fro:Shape_Article_2_2_1_1
         [
             a sh:NodeShape ;
             sh:property [
-                sh:path fro:hasOccupancy ;
+                sh:path fbo:hasOccupancy ;
                 sh:minInclusive 100 ;
                 sh:maxInclusive 499 ;
             ] ;
             sh:property [
-                sh:path fro:hasExit ;
+                sh:path fbo:hasExit ;
                 sh:minCount 2 ;
                 sh:message "Article 2.2.1.1 (Condition 2): For occupancy between 100 and 499 (inclusive), at least 2 exits are required. Found fewer."@en ;
             ]
@@ -59,17 +59,17 @@ fro:Shape_Article_2_2_1_1
         [
             a sh:NodeShape ;
             sh:property [ # Ensures this branch is considered only for occupancy >= 500
-                sh:path fro:hasOccupancy ;
+                sh:path fbo:hasOccupancy ;
                 sh:minInclusive 500 ;
             ] ;
             # SPARQL constraint for the calculated number of exits
             sh:sparql [
-                sh:message "Article 2.2.1.1 (Condition 3): For occupancy {?occupancy_val}, at least {?requiredExits_val} exits (calculated as 2 + ceil(Occupancy/1000)) are required. Found {?actualExits_val} for path fro:hasExit."@en ;
-                sh:prefixes fro:, xsd: ; # Assumes fro and xsd are defined globally for the shapes graph
+                sh:message "Article 2.2.1.1 (Condition 3): For occupancy {?occupancy_val}, at least {?requiredExits_val} exits (calculated as 2 + ceil(Occupancy/1000)) are required. Found {?actualExits_val} for path fbo:hasExit."@en ;
+                sh:prefixes fbo:, xsd: ; # Assumes fbo and xsd are defined globally for the shapes graph
                 sh:select """
-                    SELECT $this (?actualExits AS ?actualExits_val) (?occupancy AS ?occupancy_val) (?requiredExits AS ?requiredExits_val) (fro:hasExit AS ?path)
+                    SELECT $this (?actualExits AS ?actualExits_val) (?occupancy AS ?occupancy_val) (?requiredExits AS ?requiredExits_val) (fbo:hasExit AS ?path)
                     WHERE {
-                        $this fro:hasOccupancy ?occupancy .
+                        $this fbo:hasOccupancy ?occupancy .
                         # This filter is technically redundant if this SPARQL is only reached when the sh:property above is met,
                         # but kept for clarity and robustness if the SPARQL query is used independently.
                         FILTER (?occupancy >= 500)
@@ -84,7 +84,7 @@ fro:Shape_Article_2_2_1_1
                         OPTIONAL {
                             SELECT $this (COUNT(?exit_instance) AS ?count_exits)
                             WHERE {
-                                $this fro:hasExit ?exit_instance .
+                                $this fbo:hasExit ?exit_instance .
                             } GROUP BY $this
                         }
                         BIND (COALESCE(?count_exits, 0) AS ?actualExits)

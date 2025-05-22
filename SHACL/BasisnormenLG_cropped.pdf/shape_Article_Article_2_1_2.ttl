@@ -2,32 +2,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
-@prefix brick: <https://brickschema.org/schema/Brick#> .
-@prefix csvw: <http://www.w3.org/ns/csvw#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
-@prefix dcam: <http://purl.org/dc/dcam/> .
-@prefix doap: <http://usefulinc.com/ns/doap#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix geo: <http://www.opengis.net/ont/geosparql#> .
-@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
-@prefix org: <http://www.w3.org/ns/org#> .
-@prefix prof: <http://www.w3.org/ns/dx/prof/> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix qb: <http://purl.org/linked-data/cube#> .
-@prefix schema: <https://schema.org/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix sosa: <http://www.w3.org/ns/sosa/> .
-@prefix ssn: <http://www.w3.org/ns/ssn/> .
-@prefix time: <http://www.w3.org/2006/time#> .
-@prefix vann: <http://purl.org/vocab/vann/> .
-@prefix void: <http://rdfs.org/ns/void#> .
-@prefix wgs: <https://www.w3.org/2003/01/geo/wgs84_pos#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 
 fro:Shape_Article_2_1_2
     a sh:NodeShape ;
@@ -38,7 +13,7 @@ fro:Shape_Article_2_1_2
         [
             a sh:NodeShape ;
             sh:property [
-                sh:path fro:numberOfStoreysSpanned ;
+                sh:path fbo:numberOfStoreysSpanned ;
                 sh:hasValue 1 ;
                 sh:datatype xsd:integer ;
                 sh:message "Hoofdregel: Hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag."@nl ;
@@ -50,7 +25,7 @@ fro:Shape_Article_2_1_2
             sh:property [
                 sh:path rdf:type ;
                 sh:hasValue fbo:MultiStoreyParkingCompartment ; # Assuming this type implies multiple storeys or specific rules
-                # fro:referencesRegulationSection <fro:Article_5_2> ; # Metadata, not a direct SHACL constraint here
+                # fbo:referencesRegulationSection <fbo:Article_5_2> ; # Metadata, not a direct SHACL constraint here
                 sh:message "Uitzondering a: De parking met bouwlagen."@nl ;
             ] ;
         ]
@@ -58,16 +33,12 @@ fro:Shape_Article_2_1_2
         [
             a sh:NodeShape ;
             sh:property [
-                sh:path fro:numberOfStoreysSpanned ;
+                sh:path fbo:numberOfStoreysSpanned ;
                 sh:hasValue 2 ;
                 sh:datatype xsd:integer ;
             ] ;
             sh:property [
-                sh:path fro:internalConnectingStaircase ; # Assumes fro:internalConnectingStaircase links to a fbo:Staircase object
-                sh:minCount 1 ; # Checks for the existence of at least one such staircase
-            ] ;
-            sh:property [
-                sh:path fro:cumulativeStoreyAreaInM2 ;
+                sh:path fbo:cumulativeStoreyAreaInM2 ;
                 sh:maxInclusive 2500.0 ;
                 sh:datatype xsd:decimal ;
             ] ;
@@ -77,28 +48,24 @@ fro:Shape_Article_2_1_2
         [
             a sh:NodeShape ;
             sh:property [
-                sh:path fro:numberOfStoreysSpanned ;
+                sh:path fbo:numberOfStoreysSpanned ;
                 sh:hasValue 3 ;
                 sh:datatype xsd:integer ;
             ] ;
             sh:property [
-                sh:path fro:internalConnectingStaircase ;
-                sh:minCount 1 ;
-            ] ;
-            sh:property [
-                sh:path fro:cumulativeStoreyAreaInM2 ;
+                sh:path fbo:cumulativeStoreyAreaInM2 ;
                 sh:maxInclusive 300.0 ;
                 sh:datatype xsd:decimal ;
             ] ;
             sh:property [
-                sh:path fro:automaticFireDetectionSystem ; # Assumes this links to an instance of fro:AutomaticFireDetectionSystem
+                sh:path fbo:automaticFireDetectionSystem ; # Assumes this links to an instance of fbo:AutomaticFireDetectionSystem
                 sh:minCount 1 ; # Ensure at least one such system exists
                 sh:node [ # The linked system(s) must conform to these properties
                     a sh:NodeShape ;
-                    sh:property [ sh:path rdf:type ; sh:hasValue fro:AutomaticFireDetectionSystem ] ; # Explicit type check on the system
-                    sh:property [ sh:path fro:detectionType ; sh:hasValue fro:TotalSurveillance ] ;
-                    sh:property [ sh:path fro:providesAutomaticAlarmIndication ; sh:hasValue true ] ;
-                    sh:property [ sh:path fro:hasRiskAdaptedDetectors ; sh:hasValue true ] ;
+                    sh:property [ sh:path rdf:type ; sh:hasValue fbo:AutomaticFireDetectionSystem ] ; # Explicit type check on the system
+                    sh:property [ sh:path fbo:detectionType ; sh:hasValue fbo:TotalSurveillance ] ;
+                    sh:property [ sh:path fbo:providesAutomaticAlarmIndication ; sh:hasValue true ] ;
+                    sh:property [ sh:path fbo:hasRiskAdaptedDetectors ; sh:hasValue true ] ;
                 ] ;
             ] ;
             sh:message "Uitzondering c: Triplex (3 bouwlagen, interne trap, gecumuleerde opp. <= 300 m², specifieke branddetectie)."@nl ;
@@ -106,18 +73,18 @@ fro:Shape_Article_2_1_2
         # Uitzondering d: Technische lokalen (zie 5.1.1)
         [
             a sh:NodeShape ;
-            # fro:numberOfStoreysSpanned > 1 is implied if this exception is distinct from the main rule
+            # fbo:numberOfStoreysSpanned > 1 is implied if this exception is distinct from the main rule
             sh:property [
-                sh:path fro:containsOnlyTechnicalRooms ; # Assumes a boolean property on the compartment
+                sh:path fbo:containsOnlyTechnicalRooms ; # Assumes a boolean property on the compartment
                 sh:hasValue true ;
-                # fro:referencesRegulationSection <fro:Article_5_1_1> ; # Metadata
+                # fbo:referencesRegulationSection <fro:Article_5_1_1> ; # Metadata
                 sh:message "Uitzondering d: Compartiment met enkel technische lokalen over meerdere bouwlagen."@nl ;
             ] ;
         ]
         # Uitzondering e: Atrium
         [
             a sh:NodeShape ;
-            # fro:numberOfStoreysSpanned > 1 is implied
+            # fbo:numberOfStoreysSpanned > 1 is implied
             sh:property [
                 sh:path rdf:type ; # Compartment is of type AtriumCompartment
                 sh:hasValue fbo:AtriumCompartment ;
@@ -126,18 +93,18 @@ fro:Shape_Article_2_1_2
                 [ # Standaard geval: beide systemen aanwezig
                     a sh:NodeShape ;
                     sh:property [
-                        sh:path fro:automaticExtinguishingSystem ; # Assumes link to fbo:FireExtinguishingSystem
+                        sh:path fbo:automaticExtinguishingSystem ; # Assumes link to fbo:FireExtinguishingSystem
                         sh:minCount 1 ;
                     ] ;
                     sh:property [
-                        sh:path fro:smokeAndHeatExtractionSystem ; # Assumes link to fbo:SmokeAndHeatExtractionSystem
+                        sh:path fbo:smokeAndHeatExtractionSystem ; # Assumes link to fbo:SmokeAndHeatExtractionSystem
                         sh:minCount 1 ;
                     ] ;
                 ]
                 [ # Ministeriële uitzondering
                     a sh:NodeShape ;
                     sh:property [
-                        sh:path fro:hasMinisterialExceptionForAtriumSystems ; # Assumes a boolean property
+                        sh:path fbo:hasMinisterialExceptionForAtriumSystems ; # Assumes a boolean property
                         sh:hasValue true ;
                     ] ;
                 ]
