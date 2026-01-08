@@ -1,25 +1,32 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_7_6 a fro:Section ;
-    fro:hasArticle fro:Article_6_7_6_1 ;
-    fro:hasID "6.7.6" ;
-    fro:hasOriginalText "Bediening bij brand van de aëraulische installaties"@nl .
+fro:Section_6_7 fro:hasSection fro:Section_6_7_6 .
 
 fro:Article_6_7_6_1 a fro:Article ;
     fro:hasID "A6.7.6.1" ;
-    fro:hasMember fro:Member_6_7_6_1_1,
-        fro:Member_6_7_6_1_2 ;
+    fro:hasMember fro:Member_6_7_6_1_1 ;
+    fro:hasVersion fro:v0_1 .
+
+fro:Article_6_7_6_2 a fro:Article ;
+    fro:hasID "A6.7.6.2" ;
+    fro:hasMember fro:Member_6_7_6_2_1 ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_7_6_1_1 a fro:Member ;
-    fro:hasOriginalText "In de zones van het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a>, die uitgerust zijn met een <a href=\"https://ontology.firebim.be/ontology/fbo#FireDetectionSystem\">branddetectie-installatie</a>, worden de <a href=\"https://ontology.firebim.be/ontology/fbo#AirHandlingUnit\">luchtbehandelingsgroepen</a> die enkel het geteisterde <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> bedienen, stilgelegd bij detectie van <a href=\"https://ontology.firebim.be/ontology/fbo#Fire\">brand</a>."@nl .
+    fro:hasOriginalText "In de zones van het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a>, die uitgerust zijn met een <a href=\"https://ontology.firebim.be/ontology/fbo#FireDetectionSystem\">branddetectie-installatie</a>, worden de <a href=\"https://ontology.firebim.be/ontology/fbo#AirHandlingUnit\">luchtbehandelingsgroepen</a> die enkel het geteisterde <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> bedienen, stilgelegd bij detectie van brand."@nl .
 
-fro:Member_6_7_6_1_2 a fro:Member ;
-    fro:hasOriginalText "De plaatsing van een <a href=\"https://ontology.firebim.be/ontology/fbo#CentralFireControlPanel\">centraal brandbedieningsbord</a> om bepaalde elementen uit de <a href=\"https://ontology.firebim.be/ontology/fbo#AeraulicSystem\">aëraulische installaties</a> te bedienen, kan in bijzondere gevallen door de bevoegde <a href=\"https://ontology.firebim.be/ontology/fbo#FireDepartment\">brandweerdienst</a> opgelegd worden. In dit geval wordt dit bord geplaatst op een punt dat gemakkelijk bereikbaar is voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Firefighter\">brandweer</a> en dat gelegen is op het gebruikelijke <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">toegangsniveau</a>."@nl .
+fro:Member_6_7_6_2_1 a fro:Member ;
+    fro:hasOriginalText "De plaatsing van een <a href=\"https://ontology.firebim.be/ontology/fbo#CentralFireControlPanel\">centraal brandbedieningsbord</a> om bepaalde elementen uit de <a href=\"https://ontology.firebim.be/ontology/fbo#AeraulicSystem\">aëraulische installaties</a> te bedienen, kan in bijzondere gevallen door de bevoegde brandweerdienst opgelegd worden. In dit geval wordt dit bord geplaatst op een punt dat gemakkelijk bereikbaar is voor de brandweer en dat gelegen is op het gebruikelijke <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">toegangsniveau</a>."@nl .
+
+fro:Section_6_7_6 a fro:Section ;
+    fro:hasArticle fro:Article_6_7_6_1,
+        fro:Article_6_7_6_2 ;
+    fro:hasID "6.7.6" ;
+    fro:hasOriginalText "Bediening bij brand van de aëraulische installaties"@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

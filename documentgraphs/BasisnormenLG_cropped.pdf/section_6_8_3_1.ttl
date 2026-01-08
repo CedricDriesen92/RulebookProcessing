@@ -1,10 +1,7 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_8_3_1 a fro:Section ;
-    fro:hasArticle fro:Article_6_8_3_1_1 ;
-    fro:hasID "6.8.3.1" ;
-    fro:hasOriginalText "BRANDMELDING."@nl .
+fro:Section_6_8_3_3 fro:hasSection fro:Section_6_8_3_1 .
 
 fro:Article_6_8_3_1_1 a fro:Article ;
     fro:hasID "A6.8.3.1.1" ;
@@ -12,10 +9,14 @@ fro:Article_6_8_3_1_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_8_3_1_1_1 a fro:Member ;
-    fro:hasOriginalText "De melding van <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireDetection\">ontdekking of detectie van brand</a> moet terstond aan de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDepartmentApproval\">brandweerdiensten</a> kunnen worden doorgegeven door een <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmDevice\">meldingstoestel</a> per <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a>; in de <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> waarvan de <a href=\"https://ontology.firebim.be/ontology/fbo#LevelArea\">oppervlakte per bouwlaag</a> kleiner is dan 500 m² volstaat één <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmDevice\">meldingstoestel voor het gebouw</a>."@nl .
+    fro:hasOriginalText "De melding van ontdekking of detectie van brand moet terstond aan de brandweerdiensten kunnen worden doorgegeven door een <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmDevice\">meldingstoestel</a> per <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a>; in de <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> waarvan de <a href=\"https://ontology.firebim.be/ontology/fbo#FloorArea\">oppervlakte</a> per <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> kleiner is dan 500 m² volstaat één <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmDevice\">meldingstoestel</a> voor het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a>."@nl .
+
+fro:Section_6_8_3_1 a fro:Section ;
+    fro:hasArticle fro:Article_6_8_3_1_1 ;
+    fro:hasID "6.8.3.1" .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

@@ -1,10 +1,7 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_7_5 a fro:Section ;
-    fro:hasArticle fro:Article_6_7_5_1 ;
-    fro:hasID "6.7.5" ;
-    fro:hasOriginalText "Rookkleppen"@nl .
+fro:Section_6_7 fro:hasSection fro:Section_6_7_5 .
 
 fro:Article_6_7_5_1 a fro:Article ;
     fro:hasID "A6.7.5.1" ;
@@ -17,22 +14,31 @@ fro:Article_6_7_5_1 a fro:Article ;
 fro:Member_6_7_5_1_1 a fro:Member ;
     fro:hasMember fro:Member_6_7_5_1_1_1,
         fro:Member_6_7_5_1_1_2 ;
-    fro:hasOriginalText "1. de dichtheid van de <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">klep</a> moet één van volgende kwaliteiten hebben:"@nl .
+    fro:hasOriginalText "1. de dichtheid van de klep moet één van volgende kwaliteiten hebben:"@nl .
 
 fro:Member_6_7_5_1_1_1 a fro:Member ;
-    fro:hasOriginalText "1. in gesloten stand en bij een statisch drukverschil van 500 Pa mag het <a href=\"https://ontology.firebim.be/ontology/fbo#AirFlowRate\">luchtverlies</a> niet meer bedragen dan 60 l/s.m²;"@nl .
+    fro:hasOriginalText "1. in gesloten stand en bij een statisch drukverschil van 500 Pa mag het luchtverlies niet meer bedragen dan 60 l/s.m²;"@nl .
 
 fro:Member_6_7_5_1_1_2 a fro:Member ;
-    fro:hasOriginalText "2. <a href=\"https://ontology.firebim.be/ontology/fbo#LeakageClass\">klasse</a> 3 volgens de norm <a href=\"https://ontology.firebim.be/ontology/fbo#CompliesWithStandard\">NBN EN 1751</a>;"@nl .
+    fro:hasOriginalText "2. klasse 3 volgens de norm NBN EN 1751;"@nl ;
+    fro:hasReference fro:Reference_NBN_EN_1751 .
 
 fro:Member_6_7_5_1_2 a fro:Member ;
-    fro:hasOriginalText "2. de pakking die gebruikt wordt om deze <a href=\"https://ontology.firebim.be/ontology/fbo#LeakageRate\">dichtheid</a> te bekomen, moet gedurende 2 h bestand zijn tegen temperaturen die schommelen van -20°C tot 100°C, waarna de <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">klep</a> aan de bovenvermelde dichtheidsproef nog voldoet;"@nl .
+    fro:hasOriginalText "2. de <a href=\"https://ontology.firebim.be/ontology/fbo#Insulation\">pakking</a> die gebruikt wordt om deze dichtheid te bekomen, moet gedurende 2 h bestand zijn tegen temperaturen die schommelen van -20°C tot 100°C, waarna de klep aan de bovenvermelde dichtheidsproef nog voldoet;"@nl .
 
 fro:Member_6_7_5_1_3 a fro:Member ;
-    fro:hasOriginalText "3. het <a href=\"https://ontology.firebim.be/ontology/fbo#ClosureActivation\">sluitingssysteem</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">rookklep</a> heeft een <a href=\"https://ontology.firebim.be/ontology/fbo#PositiveSafetySystem\">positieve veiligheid</a>."@nl .
+    fro:hasOriginalText "3. het sluitingssysteem van de <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">rookklep</a> heeft een <a href=\"https://ontology.firebim.be/ontology/fbo#PositiveSafetySystem\">positieve veiligheid</a>."@nl .
+
+fro:Reference_NBN_EN_1751 a fro:Reference ;
+    fro:hasID "NBN EN 1751" .
+
+fro:Section_6_7_5 a fro:Section ;
+    fro:hasArticle fro:Article_6_7_5_1 ;
+    fro:hasID "6.7.5" ;
+    fro:hasOriginalText "Rookkleppen"@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

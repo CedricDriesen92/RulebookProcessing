@@ -1,10 +1,7 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_8_5_2 a fro:Section ;
-    fro:hasArticle fro:Article_6_8_5_2_1 ;
-    fro:hasID "6.8.5.2" ;
-    fro:hasOriginalText "Draagbare of mobiele snelblussers."@nl .
+fro:Section_6_8_5_3 fro:hasSection fro:Section_6_8_5_2 .
 
 fro:Article_6_8_5_2_1 a fro:Article ;
     fro:hasID "A6.8.5.2.1" ;
@@ -12,10 +9,15 @@ fro:Article_6_8_5_2_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_8_5_2_1_1 a fro:Member ;
-    fro:hasOriginalText "Deze toestellen worden bepaald door de aard en de omvang van het <a href=\"https://ontology.firebim.be/ontology/fbo#FireHazard\">gevaar</a>."@nl .
+    fro:hasOriginalText "Deze <a href=\"https://ontology.firebim.be/ontology/fbo#FireExtinguisher\">toestellen</a> worden bepaald door de aard en de omvang van het gevaar."@nl .
+
+fro:Section_6_8_5_2 a fro:Section ;
+    fro:hasArticle fro:Article_6_8_5_2_1 ;
+    fro:hasID "6.8.5.2" ;
+    fro:hasOriginalText "Draagbare of mobiele snelblussers."@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

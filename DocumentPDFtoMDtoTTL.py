@@ -16,7 +16,8 @@ from llama_parse import LlamaParse
 from sympy import true
 from dotenv import load_dotenv
 import os
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 import pandas as pd
 import datetime
 
@@ -31,22 +32,7 @@ input_file = os.getenv("INPUT_FILE")
 model_provider = os.getenv("MODEL_PROVIDER", "anthropic")
 
 if model_provider == "gemini":
-    genai.configure(api_key=google_key)
-
-    # Create the model
-    genai.configure(api_key=google_key)
-    gemini_config = {
-        "temperature": 0.7,
-        "top_p": 0.95,
-        "top_k": 64,
-        "max_output_tokens": 65536,
-        "response_mime_type": "text/plain",
-    }
-
-    model = genai.GenerativeModel(
-    model_name="gemini-2.5-pro-preview-03-25",
-    generation_config=gemini_config,
-    )
+    gemini_client = genai.Client(api_key=google_key)
 
 llamaparse_key = os.getenv("LLAMAPARSE_API_KEY")
 if model_provider == "anthropic":
@@ -239,15 +225,29 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
                 # Extract just the TTL content from the response
                 response = message.content[0].text.strip()
             elif model_provider == "gemini":
-                model = genai.GenerativeModel(
-                    model_name="gemini-2.0-flash-thinking-exp-01-21",
-                    generation_config={**gemini_config, "temperature": 0},
-                    system_instruction=prompt
+                contents = [
+                    types.Content(
+                        role="user",
+                        parts=[
+                            types.Part.from_text(text=prompt + "\n\n" + prompt2),
+                        ],
+                    ),
+                ]
+                generate_content_config = types.GenerateContentConfig(
+                    temperature=1,
+                    top_p=0.95,
+                    top_k=64,
+                    max_output_tokens=65536,
+                    thinking_config=types.ThinkingConfig(
+                        thinking_budget=1024,
+                    ),
                 )
-                response = model.generate_content(
-                    prompt2
+                gemini_response = gemini_client.models.generate_content(
+                    model="gemini-3-flash-preview",
+                    contents=contents,
+                    config=generate_content_config,
                 )
-                response = response.text.strip()
+                response = gemini_response.text.strip()
             
             # Remove any markdown code block markers that might be in the response
             response = re.sub(r'^```turtle\s*|\s*```$', '', response.strip())

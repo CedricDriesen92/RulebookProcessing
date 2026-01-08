@@ -1,15 +1,11 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_7_4_2 a fro:Section ;
-    fro:hasArticle fro:Article_6_7_4_2_1,
-        fro:Article_6_7_4_2_2 ;
-    fro:hasID "6.7.4.2" ;
-    fro:hasOriginalText "Prestaties van de klep"@nl .
+fro:Section_6_7_4 fro:hasSection fro:Section_6_7_4_2 .
 
 fro:Article_6_7_4_2_1 a fro:Article ;
     fro:hasID "A6.7.4.2.1" ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">brandwerende klep</a> geplaatst in de <a href=\"https://ontology.firebim.be/ontology/fbo#WallPenetration\">doorgangen van wanden</a> heeft volgende prestaties:"@nl ;
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">brandwerende klep</a> geplaatst in de doorgangen van <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> heeft volgende prestaties:"@nl ;
     fro:hasTable fro:Table_2_4 ;
     fro:hasVersion fro:v0_1 .
 
@@ -20,28 +16,29 @@ fro:Article_6_7_4_2_2 a fro:Article ;
         fro:Member_6_7_4_2_2_3,
         fro:Member_6_7_4_2_2_4,
         fro:Member_6_7_4_2_2_5 ;
-    fro:hasOriginalText "Bij gebrek aan CE-markering voldoet de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> aan de volgende eisen:"@nl ;
+    fro:hasOriginalText "Bij gebrek aan CE-markering voldoet de klep aan de volgende eisen:"@nl ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_7_4_2_2_1 a fro:Member ;
-    fro:hasID "M6.7.4.2.2.1" ;
-    fro:hasOriginalText "1. na 250 opeenvolgende cyclussen van openen en sluiten mag een <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> van dezelfde fabricage nergens vervormd of beschadigd zijn;"@nl .
+    fro:hasOriginalText "1. na 250 opeenvolgende cyclussen van openen en sluiten mag een klep van dezelfde fabricage nergens vervormd of beschadigd zijn;"@nl .
 
 fro:Member_6_7_4_2_2_2 a fro:Member ;
-    fro:hasID "M6.7.4.2.2.2" ;
-    fro:hasOriginalText "2. de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> weerstaat aan de corrosieve atmosfeer waarin ze geplaatst is;"@nl .
+    fro:hasOriginalText "2. de klep weerstaat aan de corrosieve atmosfeer waarin ze geplaatst is;"@nl .
 
 fro:Member_6_7_4_2_2_3 a fro:Member ;
-    fro:hasID "M6.7.4.2.2.3" ;
-    fro:hasOriginalText "3. geen enkele periodieke smering is vereist voor de goede werking van de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a>;"@nl .
+    fro:hasOriginalText "3. geen enkele periodieke smering is vereist voor de goede werking van de klep;"@nl .
 
 fro:Member_6_7_4_2_2_4 a fro:Member ;
-    fro:hasID "M6.7.4.2.2.4" ;
-    fro:hasOriginalText "4. de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klepkast</a> bevat aan de bovenzijde een <a href=\"https://ontology.firebim.be/ontology/fbo#HasPositionIndicator\">klepstandaanwijzer</a> en een onuitwisbare pijl die de richting van de luchtstroom aanduidt. Een <a href=\"https://ontology.firebim.be/ontology/fbo#HasNameplate\">kenplaat</a> vermeldt de binnenafmetingen van de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a>, de naam van de constructeur, het fabricagenummer en fabricagejaar; ze draagt tevens een goed zichtbaar en onuitwisbaar merkteken dat een <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmDevice\">brandbeveiligingstoestel</a> aanduidt;"@nl .
+    fro:hasOriginalText "4. de klepkast bevat aan de bovenzijde een klepstandaanwijzer en een onuitwisbare pijl die de richting van de luchtstroom aanduidt. Een kenplaat vermeldt de binnenafmetingen van de klep, de naam van de constructeur, het fabricagenummer en fabricagejaar; ze draagt tevens een goed zichtbaar en onuitwisbaar merkteken dat een <a href=\"https://ontology.firebim.be/ontology/fbo#FirePreventionMeasures\">brandbeveiligingstoestel</a> aanduidt;"@nl .
 
 fro:Member_6_7_4_2_2_5 a fro:Member ;
-    fro:hasID "M6.7.4.2.2.5" ;
-    fro:hasOriginalText "5. na werking van de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> moet ze terug kunnen uitgeschakeld worden."@nl .
+    fro:hasOriginalText "5. na werking van de klep moet ze terug kunnen uitgeschakeld worden."@nl .
+
+fro:Section_6_7_4_2 a fro:Section ;
+    fro:hasArticle fro:Article_6_7_4_2_1,
+        fro:Article_6_7_4_2_2 ;
+    fro:hasID "6.7.4.2" ;
+    fro:hasOriginalText "Prestaties van de klep"@nl .
 
 fro:Table_2_4 a fro:Table ;
     fro:hasID "T2.4" ;
@@ -55,7 +52,7 @@ fro:Table_2_4 a fro:Table ;
 Tabel 2.4 – Brandwerende kleppen."""@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

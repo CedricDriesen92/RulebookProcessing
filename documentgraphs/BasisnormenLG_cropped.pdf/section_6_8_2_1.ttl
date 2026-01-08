@@ -1,25 +1,23 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_8_2_1 a fro:Section ;
-    fro:hasArticle fro:Article_6_8_2_1_1 ;
-    fro:hasID "6.8.2.1" ;
-    fro:hasOriginalText "Aantal en plaats van de toestellen voor brandmelding, waarschuwing, alarm en brandbestrijding."@nl .
+fro:Section_6_8_2 fro:hasSection fro:Section_6_8_2_1 .
 
 fro:Article_6_8_2_1_1 a fro:Article ;
     fro:hasID "A6.8.2.1.1" ;
-    fro:hasMember fro:Member_6_8_2_1_1_1,
-        fro:Member_6_8_2_1_1_2 ;
+    fro:hasMember fro:Member_6_8_2_1_1_1 ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_8_2_1_1_1 a fro:Member ;
-    fro:hasOriginalText "Het aantal <a href=\"https://ontology.firebim.be/ontology/fbo#FirefightingEquipment\">toestellen</a> wordt bepaald door de <a href=\"https://ontology.firebim.be/ontology/fbo#FloorArea\">afmetingen</a>, de toestand en het risico in de <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a>."@nl .
+    fro:hasOriginalText "De toestellen worden in voldoende aantal oordeelkundig gespreid, zodat zij elk punt van de betrokken <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">ruimte</a> kunnen bedienen."@nl .
 
-fro:Member_6_8_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#FirefightingEquipment\">toestellen</a> worden in voldoende aantal oordeelkundig gespreid, zodat zij elk punt van de betrokken ruimte kunnen bedienen."@nl .
+fro:Section_6_8_2_1 a fro:Section ;
+    fro:hasArticle fro:Article_6_8_2_1_1 ;
+    fro:hasID "6.8.2.1" ;
+    fro:hasOriginalText "Het aantal toestellen wordt bepaald door de afmetingen, de toestand en het risico in de <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a>."@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

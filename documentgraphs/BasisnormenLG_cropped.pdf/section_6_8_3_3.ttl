@@ -1,10 +1,7 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_8_3_3 a fro:Section ;
-    fro:hasArticle fro:Article_6_8_3_3_1 ;
-    fro:hasID "6.8.3.3" ;
-    fro:hasOriginalText "Elk toestel dat de verbinding tot stand kan brengen mits menselijke interventie, draagt een bericht over zijn bestemming en gebruiksaanwijzing."@nl .
+fro:Section_6_8_3 fro:hasSection fro:Section_6_8_3_3 .
 
 fro:Article_6_8_3_3_1 a fro:Article ;
     fro:hasID "A6.8.3.3.1" ;
@@ -13,13 +10,18 @@ fro:Article_6_8_3_3_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_8_3_3_1_1 a fro:Member ;
-    fro:hasOriginalText "Elk <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmDevice\">toestel</a> dat de verbinding tot stand kan brengen mits <a href=\"https://ontology.firebim.be/ontology/fbo#RequiresHumanIntervention\">menselijke interventie</a>, draagt een <a href=\"https://ontology.firebim.be/ontology/fbo#HasDestinationInformation\">bericht</a> over zijn <a href=\"https://ontology.firebim.be/ontology/fbo#HasDestinationInformation\">bestemming</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#HasUsageInstructions\">gebruiksaanwijzing</a>."@nl .
+    fro:hasOriginalText "Elk <a href=\"https://ontology.firebim.be/ontology/fbo#CommunicationDevice\">toestel</a> dat de verbinding tot stand kan brengen mits menselijke interventie, draagt een bericht over zijn bestemming en gebruiksaanwijzing."@nl .
 
 fro:Member_6_8_3_3_1_2 a fro:Member ;
-    fro:hasOriginalText "Gaat het om een <a href=\"https://ontology.firebim.be/ontology/fbo#Telephone\">telefoontoestel</a>, dan vermeldt dit bericht het te vormen <a href=\"https://ontology.firebim.be/ontology/fbo#HasPhoneNumber\">oproepnummer</a>, tenzij de <a href=\"https://ontology.firebim.be/ontology/fbo#IsDirectConnection\">verbinding rechtstreeks</a> of <a href=\"https://ontology.firebim.be/ontology/fbo#IsAutomaticConnection\">automatisch</a> geschiedt."@nl .
+    fro:hasOriginalText "Gaat het om een <a href=\"https://ontology.firebim.be/ontology/fbo#Telephone\">telefoontoestel</a>, dan vermeldt dit bericht het te vormen oproepnummer, tenzij de verbinding rechtstreeks of automatisch geschiedt."@nl .
+
+fro:Section_6_8_3_3 a fro:Section ;
+    fro:hasArticle fro:Article_6_8_3_3_1 ;
+    fro:hasID "6.8.3.3" ;
+    fro:hasOriginalText "ELK TOESTEL DAT DE VERBINDING TOT STAND KAN BRENGEN MITS MENSELIJKE INTERVENTIE, DRAAGT EEN BERICHT OVER ZIJN BESTEMMING EN GEBRUIKSAANWIJZING."@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

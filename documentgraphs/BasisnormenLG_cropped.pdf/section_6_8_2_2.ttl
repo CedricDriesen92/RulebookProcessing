@@ -1,7 +1,26 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fro:Section_6_8_2 fro:hasSection fro:Section_6_8_2_2 .
+
+fro:Article_6_8_2_2_1 a fro:Article ;
+    fro:hasID "A6.8.2.2.1" ;
+    fro:hasMember fro:Member_6_8_2_2_1_1,
+        fro:Member_6_8_2_2_1_2 ;
+    fro:hasVersion fro:v0_1 .
+
+fro:Member_6_8_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText "De toestellen die <a href=\"https://ontology.firebim.be/ontology/fbo#RequiresHumanIntervention\">menselijke interventie vergen</a>, worden aangebracht op zichtbare of helder aangeduide plaatsen die in alle omstandigheden vrij bereikbaar zijn. Zij bevinden zich onder meer nabij <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a>, op <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">overlopen</a>, in gangen en worden derwijze aangebracht dat zij de circulatie niet hinderen en niet beschadigd of aangestoten kunnen worden."@nl .
+
+fro:Member_6_8_2_2_1_2 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#IsExternal\">buiten</a> geplaatste toestellen worden desnoods tegen alle <a href=\"https://ontology.firebim.be/ontology/fbo#IsProtectedFromWeather\">weersomstandigheden</a> beschut."@nl .
 
 fro:Section_6_8_2_2 a fro:Section ;
-    fro:hasID "6.8.2.2" ;
-    fro:hasOriginalText """De toestellen die <a href="https://ontology.firebim.be/ontology/fbo#RequiresHumanIntervention">menselijke interventie</a> vergen, worden aangebracht op <a href="https://ontology.firebim.be/ontology/fbo#Accessibility">zichtbare</a> of helder aangeduide plaatsen die in alle omstandigheden vrij bereikbaar zijn. Zij bevinden zich onder meer nabij <a href="https://ontology.firebim.be/ontology/fbo#Exits">uitgangen</a>, op <a href="https://ontology.firebim.be/ontology/fbo#Landing">overlopen</a>, in <a href="https://ontology.firebim.be/ontology/fbo#EvacuationRoute">gangen</a> en worden derwijze aangebracht dat zij de circulatie niet hinderen en niet beschadigd of aangestoten kunnen worden.
-De buiten geplaatste toestellen worden desnoods tegen alle <a href="https://ontology.firebim.be/ontology/fbo#IsProtectedFromWeather">weersomstandigheden beschut</a>."""@nl .
+    fro:hasArticle fro:Article_6_8_2_2_1 ;
+    fro:hasID "6.8.2.2" .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
 

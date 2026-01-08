@@ -1,7 +1,27 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fro:Section_6_8_5_3 fro:hasSection fro:Section_6_8_5_3_2 .
+
+fro:Article_6_8_5_3_2_1 a fro:Article ;
+    fro:hasID "A6.8.5.3.2.1" ;
+    fro:hasMember fro:Member_6_8_5_3_2_1_1 ;
+    fro:hasVersion fro:v0_1 .
+
+fro:Member_6_8_5_3_2_1_1 a fro:Member ;
+    fro:hasOriginalText "de <a href=\"https://ontology.firebim.be/ontology/fbo#PipeDiameter\">binnendiameter</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#WaterPressure\">voedingsdruk</a> moeten zodanig zijn dat de druk aan de minst bedeelde <a href=\"https://ontology.firebim.be/ontology/fbo#FireHoseReel\">haspel</a> beantwoordt aan de voorschriften van NBN EN 671-1, ermee rekening houdend dat 3 haspels met <a href=\"https://ontology.firebim.be/ontology/fbo#HasAxialFeed\">axiale voeding</a> gelijktijdig moeten kunnen werken gedurende ½ h."@nl ;
+    fro:hasReference fro:Reference_NBN_EN_671_1 .
+
+fro:Reference_NBN_EN_671_1 a fro:Reference ;
+    fro:hasID "NBN EN 671-1" .
 
 fro:Section_6_8_5_3_2 a fro:Section ;
+    fro:hasArticle fro:Article_6_8_5_3_2_1 ;
     fro:hasID "6.8.5.3.2" ;
-    fro:hasOriginalText """De <a href="https://ontology.firebim.be/ontology/fbo#Pipe">stijgleiding</a> die eventuele toestellen voedt met <a href="https://ontology.firebim.be/ontology/fbo#WaterSupplySystem">water onder druk</a>, heeft de volgende kenmerken:
-de <a href="https://ontology.firebim.be/ontology/fbo#PipeDiameter">binnendiameter</a> en de <a href="https://ontology.firebim.be/ontology/fbo#WaterPressure">voedingsdruk</a> moeten zodanig zijn dat de druk aan de minst bedeelde <a href="https://ontology.firebim.be/ontology/fbo#FireHoseReel">haspel met axiale voeding</a> beantwoordt aan de voorschriften van NBN EN 671-1, ermee rekening houdend dat 3 <a href="https://ontology.firebim.be/ontology/fbo#FireHoseReel">haspels met axiale voeding</a> gelijktijdig moeten kunnen werken gedurende ½ h."""@nl .
+    fro:hasOriginalText "De stijgleiding die eventuele toestellen voedt met water onder druk, heeft de volgende kenmerken:"@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
 

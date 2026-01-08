@@ -1,292 +1,344 @@
 
 You are tasked with converting building code rulebook sections into Turtle (.ttl) format following the FireBIM Document Ontology. Here's the complete ontology for your reference:
 
-@prefix : <https://ontology.firebim.be/ontology/fro#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@base <https://ontology.firebim.be/ontology/fro#> .
-
-<https://ontology.firebim.be/ontology/fro> rdf:type owl:Ontology ;
-                              rdfs:comment "An ontology for representing fire safety regulations documents"@en ;
-                              rdfs:label "FireBIM Document Ontology"@en .
-
-#################################################################
-#    Object Properties
-#################################################################
-
-###  https://ontology.firebim.be/ontology/fro#hasAppendix
-fro:hasAppendix rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf fro:hasSubdivision ;
-                    rdfs:domain fro:DocumentSubdivision ;
-                    rdfs:range fro:Appendix ;
-                    rdfs:label "has appendix"@en .
 
-
-###  https://ontology.firebim.be/ontology/fro#hasArticle
-fro:hasArticle rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf fro:hasSubdivision ;
-                   rdfs:domain fro:Section ;
-                   rdfs:range fro:Article ;
-                   rdfs:label "has article"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasBackwardReference
-fro:hasBackwardReference rdf:type owl:ObjectProperty ;
-                             rdfs:subPropertyOf fro:hasReference ;
-                             owl:inverseOf fro:hasForwardReference ;
-                             rdfs:domain fro:DocumentSubdivision ;
-                             rdfs:range fro:DocumentSubdivision ;
-                             rdfs:label "has backward reference"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasChapter
-fro:hasChapter rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf fro:hasSubdivision ;
-                   rdfs:domain fro:DocumentSubdivision ;
-                   rdfs:range fro:Chapter ;
-                   rdfs:label "has chapter"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasDocument
-fro:hasDocument rdf:type owl:ObjectProperty ;
-                    rdfs:domain fro:Authority ;
-                    rdfs:range fro:Document ;
-                    rdfs:label "has document"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasFigure
-fro:hasFigure rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf fro:hasSubdivision ;
-                  rdfs:domain fro:DocumentSubdivision ;
-                  rdfs:range fro:Figure ;
-                  rdfs:label "has figure"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasForwardReference
-fro:hasForwardReference rdf:type owl:ObjectProperty ;
-                            rdfs:subPropertyOf fro:hasReference ;
-                            rdfs:domain fro:DocumentSubdivision ;
-                            rdfs:range fro:DocumentSubdivision ;
-                            rdfs:label "has forward reference"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasMember
-fro:hasMember rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf fro:hasSubdivision ;
-                  rdfs:domain fro:Article ,
-                              fro:Member ;
-                  rdfs:range fro:Member ;
-                  rdfs:label "has member"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasParagraph
-fro:hasParagraph rdf:type owl:ObjectProperty ;
-                     rdfs:subPropertyOf fro:hasSubdivision ;
-                     rdfs:domain fro:DocumentSubdivision ;
-                     rdfs:range fro:Paragraph ;
-                     rdfs:label "has paragraph"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasReference
-fro:hasReference rdf:type owl:ObjectProperty ;
-                     rdfs:domain fro:DocumentSubdivision ;
-                     rdfs:range fro:DocumentSubdivision ,
-                                fro:Reference ;
-                     rdfs:label "has reference"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasSection
-fro:hasSection rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf fro:hasSubdivision ;
-                   rdfs:domain fro:DocumentSubdivision ;
-                   rdfs:range fro:Section ;
-                   rdfs:label "has section"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasSubchapter
-fro:hasSubchapter rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf fro:hasSubdivision ;
-                      rdfs:domain fro:DocumentSubdivision ;
-                      rdfs:range fro:Subchapter ;
-                      rdfs:label "has subchapter"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasSubdivision
-fro:hasSubdivision rdf:type owl:ObjectProperty ,
-                                owl:TransitiveProperty ;
-                       rdfs:domain fro:DocumentSubdivision ;
-                       rdfs:range fro:DocumentSubdivision ;
-                       rdfs:label "has subdivision"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasTable
-fro:hasTable rdf:type owl:ObjectProperty ;
-                 rdfs:subPropertyOf fro:hasSubdivision ;
-                 rdfs:domain fro:DocumentSubdivision ;
-                 rdfs:range fro:Table ;
-                 rdfs:label "has table"@en .
-
-
-### https://ontology.firebim.be/ontology/fro#hasVersion
-fro:hasVersion rdf:type owl:ObjectProperty ;
-                   rdfs:domain fro:Article ;
-                   rdfs:range fro:Version ;
-                   rdfs:label "has version"@en .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://ontology.firebim.be/ontology/fro#hasID
-fro:hasID rdf:type owl:DatatypeProperty ;
-              rdfs:domain fro:DocumentSubdivision ;
-              rdfs:range xsd:string ;
-              rdfs:label "has ID"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasOriginalText
-fro:hasOriginalText rdf:type owl:DatatypeProperty ;
-                        rdfs:domain fro:DocumentSubdivision ;
-                        rdfs:range xsd:string ;
-                        rdfs:label "has original text"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#issued
-fro:issued rdf:type owl:DatatypeProperty ;
-               rdfs:domain fro:Document ;
-               rdfs:range xsd:dateTime ;
-               rdfs:label "issued"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#hasKeyword
-fro:hasKeyword rdf:type owl:ObjectProperty ;
-                    rdfs:domain fro:DocumentSubdivision ;
-                    rdfs:range fro:Keyword ;
-                    rdfs:label "has keyword"@en .
-
-
-### https://ontology.firebim.be/ontology/fro#hasDate
-fro:hasDate rdf:type owl:DatatypeProperty ;
-                rdfs:domain fro:Version ;
-                rdfs:range xsd:dateTime ;
-                rdfs:label "has date"@en .
-
-
-### https://ontology.firebim.be/ontology/fro#hasVersionNumber
-fro:hasVersionNumber rdf:type owl:DatatypeProperty ;
-                         rdfs:domain fro:Version ;
-                         rdfs:range xsd:string ;
-                         rdfs:label "has version number"@en .
-
-
-### https://ontology.firebim.be/ontology/fro#hasDescription
-fro:hasDescription rdf:type owl:DatatypeProperty ;
-                       rdfs:domain fro:Version ;
-                       rdfs:range xsd:string ;
-                       rdfs:label "has description"@en .
-
-
-#################################################################
-#    Classes
-#################################################################
-
-###  https://ontology.firebim.be/ontology/fro#Appendix
-fro:Appendix rdf:type owl:Class ;
-                 rdfs:subClassOf fro:Section ;
-                 rdfs:label "Appendix"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#Article
-fro:Article rdf:type owl:Class ;
-                rdfs:subClassOf fro:DocumentSubdivision ;
-                rdfs:comment "A separate rule \"article\", a subdivision of a section as the smallest containing text of a rule."@en ;
-                rdfs:label "Article"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#Authority
-fro:Authority rdf:type owl:Class ;
-                  rdfs:comment "Represents the legal body that publishes and maintains the regulatory document"@en ;
-                  rdfs:label "Authority"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#Chapter
-fro:Chapter rdf:type owl:Class ;
-                rdfs:subClassOf fro:Section ;
-                rdfs:label "Chapter"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#Document
-fro:Document rdf:type owl:Class ;
-                 rdfs:subClassOf fro:DocumentSubdivision ;
-                 rdfs:comment "The individual document containing the rules, this can be a law, guidelines, etc."@en ;
-                 rdfs:label "Document"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#DocumentSubdivision
-fro:DocumentSubdivision rdf:type owl:Class ;
-                            rdfs:comment "Represents documents or parts of documents"@en ;
-                            rdfs:label "Document Subdivision"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#Figure
-fro:Figure rdf:type owl:Class ;
-               rdfs:subClassOf fro:Section ;
-               rdfs:label "Figure"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#Member
-fro:Member rdf:type owl:Class ;
-               rdfs:subClassOf fro:DocumentSubdivision ;
-               rdfs:comment "Typically holds the one or multiple bodies of text that an article exists of, the individual rule conditions."@en ;
-               rdfs:label "Member"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#Paragraph
-fro:Paragraph rdf:type owl:Class ;
-                  rdfs:subClassOf fro:Section ;
-                  rdfs:label "Paragraph"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#Reference
-fro:Reference rdf:type owl:Class ;
-                  rdfs:comment "Represents references to other representations of the regulation, or similar regulations"@en ;
-                  rdfs:label "Reference"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#Section
-fro:Section rdf:type owl:Class ;
-                rdfs:subClassOf fro:DocumentSubdivision ;
-                rdfs:comment "Any subdivision of a document, wether it's a large section itself, a subsection, a table, a figure, a paragraph..."@en ;
-                rdfs:label "Section"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#Subchapter
-fro:Subchapter rdf:type owl:Class ;
-                   rdfs:subClassOf fro:Section ;
-                   rdfs:label "Subchapter"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#Table
-fro:Table rdf:type owl:Class ;
-              rdfs:subClassOf fro:Section ;
-              rdfs:label "Table"@en .
-
-
-###  https://ontology.firebim.be/ontology/fro#Keyword
-fro:Keyword rdf:type owl:Class ;
-               rdfs:label "Keyword" .
-
-
-### https://ontology.firebim.be/ontology/fro#Version
-fro:Version rdf:type owl:Class ;
-                rdfs:comment "Represents a specific version of an article, including metadata like date and description."@en ;
-                rdfs:label "Version"@en .
-
+dcterms:created
+    rdf:type owl:AnnotationProperty .
+
+dcterms:creator
+    rdf:type owl:AnnotationProperty .
+
+dcterms:description
+    rdf:type owl:AnnotationProperty .
+
+dcterms:license
+    rdf:type owl:AnnotationProperty .
+
+dcterms:rights
+    rdf:type owl:AnnotationProperty .
+
+dcterms:title
+    rdf:type owl:AnnotationProperty .
+
+vann:preferredNamespacePrefix
+    rdf:type owl:AnnotationProperty .
+
+vann:preferredNamespaceUri
+    rdf:type owl:AnnotationProperty .
+
+schema:Person
+    rdf:type owl:Class .
+
+schema:affiliation
+    rdf:type owl:AnnotationProperty .
+
+schema:domainIncludes
+    rdf:type owl:AnnotationProperty .
+
+schema:email
+    rdf:type owl:AnnotationProperty .
+
+schema:identifier
+    rdf:type owl:AnnotationProperty .
+
+schema:name
+    rdf:type owl:AnnotationProperty .
+
+schema:rangeIncludes
+    rdf:type owl:AnnotationProperty .
+
+schema:url
+    rdf:type owl:AnnotationProperty .
+
+skos:example
+    rdf:type owl:AnnotationProperty .
+
+fro:
+    rdf:type owl:Ontology ;
+    dcterms:created "2025-02-25T00:00:00"^^xsd:dateTime ;
+    dcterms:creator fro:AlexDonkers ;
+    dcterms:title "FireBIM Regulation Ontology"@en ;
+    vann:preferredNamespacePrefix "FRO" ;
+    vann:preferredNamespaceUri "http://www.firebim.org/ontologies/FRO#" ;
+    owl:versionIRI <http://www.firebim.org/ontologies/FRO-25022025#> .
+
+fro:AlexDonkers
+    rdf:type owl:NamedIndividual ,
+        schema:Person ;
+    schema:affiliation <http://www.tue.nl/> ;
+    schema:email "a.j.a.donkers@tue.nl" ;
+    schema:name "Alex Donkers" ;
+    schema:url <https://research.tue.nl/nl/persons/alex-ja-donkers/> .
+
+fro:Appendix
+    rdf:type owl:Class ;
+    rdfs:comment "A separate part at the end of a document with extra information."@en ,
+        "Een apart deel aan het einde van een document met extra informatie."@nl ;
+    rdfs:label "Appendix"@nl ,
+        "Appendix"@en ;
+    rdfs:subClassOf fro:Section .
+
+fro:Section
+    rdf:type owl:Class ;
+    rdfs:comment "Onderdeel van een document."@nl ,
+        "Part of a document."@en ;
+    rdfs:label "Sectie"@nl ,
+        "Section"@en ;
+    rdfs:subClassOf fro:DocumentSubdivision .
+
+fro:Article
+    rdf:type owl:Class ;
+    rdfs:comment "A legal rule, constituated by one or more members."@en ,
+        "Een rechtsregel, samengesteld uit meerdere leden."@nl ;
+    rdfs:label "Article"@en ,
+        "Artikel"@nl ;
+    rdfs:subClassOf fro:DocumentSubdivision .
+
+fro:DocumentSubdivision
+    rdf:type owl:Class ;
+    rdfs:comment "Een onderdeel van een document."@nl ,
+        "A part of a document." ;
+    rdfs:label "Document Subdivision"@en ,
+        "Documentonderdeel"@nl .
+
+fro:Authority
+    rdf:type owl:Class ;
+    rdfs:comment "A legal body with the power to make laws for a given jurisdiction."@en ,
+        "Autoriteit"@nl ,
+        "Een juridisch orgaan met de bevoegdheid om wetten te maken voor een bepaald rechtsgebied."@nl ;
+    rdfs:label "Authority"@en ;
+    owl:disjointWith fro:DocumentSubdivision .
+
+fro:Chapter
+    rdf:type owl:Class ;
+    rdfs:comment "Onderdeel van een document, meestal genummerd."@nl ,
+        "Part of a document, usually referred to with a number."@en ;
+    rdfs:label "Chapter"@en ,
+        "Hoofdstuk"@nl ;
+    rdfs:subClassOf fro:Section .
+
+fro:Document
+    rdf:type owl:Class ;
+    rdfs:comment "A record of information."@en ,
+        "Een registratie van informatie."@nl ;
+    rdfs:label "Document"@en ,
+        "Document"@nl .
+
+fro:Equation
+    rdf:type owl:Class ;
+    rdfs:comment "A mathematical statement expressing the equality of two mathematical expressions."@en ,
+        "Een wiskundig statement dat de gelijkheid van twee wiskundige uitdrukkingen uitdrukt."@nl ;
+    rdfs:label "Equation"@en ,
+        "Vergelijking"@nl ;
+    rdfs:subClassOf fro:Section .
+
+fro:Figure
+    rdf:type owl:Class ;
+    rdfs:comment "A picture, drawing, or other form of visual information."@en ,
+        "Een afbeelding, tekening, of andere vorm van visuele informatie."@nl ;
+    rdfs:label "Figure"@en ,
+        "Figuur"@nl ;
+    rdfs:subClassOf fro:Section .
+
+fro:Member
+    rdf:type owl:Class ;
+    rdfs:comment "Deel van een artikel. De exacte vorm van het lid is ongedefiniëerd en kan bijvoorbeeld een zin, een lijstonderdeel of een combinatie daarvan zijn, afhankelijk van de structuur die het best past bij het specifieke regelgevingsdocument."@nl ,
+        "Part of an article. The exact form of the member is rather arbitrary, and can for example be a sentence, a list item, or a combination of them, depending on the structure that best fits the particular regulatory document."@en ;
+    rdfs:label "Lid"@nl ,
+        "Member"@en ;
+    rdfs:subClassOf fro:DocumentSubdivision .
+
+fro:Paragraph
+    rdf:type owl:Class ;
+    rdfs:comment "A short part of a text, arranged as a separate block of text."@en ,
+        "Een kort deel van een tekst, gerangschikt als een afzonderlijk tekstblok."@nl ;
+    rdfs:label "Paragraaf"@nl ,
+        "Paragraph"@en ;
+    rdfs:subClassOf fro:Section .
+
+fro:Reference
+    rdf:type owl:Class ;
+    rdfs:comment "A mention of something showing where particular information was found."@en ,
+        "Een vermelding van iets die aangeeft waar bepaalde informatie is gevonden."@nl ;
+    rdfs:label "Reference"@en ,
+        "Referentie"@nl .
+
+fro:Subchapter
+    rdf:type owl:Class ;
+    rdfs:comment "A part of a chapter, usually referred to with a number."@en ,
+        "Een deel van een hoofdstuk, meestal genummerd."@nl ;
+    rdfs:label "Deelhoofdstuk"@nl ,
+        "Subchapter"@en ;
+    rdfs:subClassOf fro:Section .
+
+fro:Table
+    rdf:type owl:Class ;
+    rdfs:comment "An arrangement of data in rows and columns."@en ,
+        "Een ordening van gegevens in rijen en kolommen."@nl ;
+    rdfs:label "Tabel"@nl ,
+        "Table"@en ;
+    rdfs:subClassOf fro:Section .
+
+fro:hasAppendix
+    rdf:type owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:comment "An object property pointing to an appendix of the subject."@en ,
+        "Een 'object property' die verwijst naar een appendix van iets."@nl ;
+    rdfs:label "has appendix"@en ,
+        "heeft appendix"@nl ;
+    rdfs:range fro:Appendix ;
+    rdfs:subPropertyOf fro:hasSection .
+
+fro:hasSection
+    rdf:type owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:comment "An object property pointing to a section of the subject."@en ,
+        "Een 'object property' die verwijst naar een sectie van iets."@nl ;
+    rdfs:label "has section"@en ,
+        "heeft sectie"@nl ;
+    rdfs:range fro:Section ;
+    rdfs:subPropertyOf fro:hasSubdivision .
+
+fro:hasArticle
+    rdf:type owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:comment "An object property pointing to an article of the subject."@en ,
+        "Een 'object property' die verwijst naar een artikel van iets."@nl ;
+    rdfs:label "has article"@en ,
+        "heeft artikel"@nl ;
+    rdfs:range fro:Article ;
+    rdfs:subPropertyOf fro:hasSubdivision .
+
+fro:hasSubdivision
+    rdf:type owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:comment "An object property pointing to a subdivision of the subject."@en ,
+        "Een 'object property' die verwijst naar een onderverdeling van iets."@nl ;
+    rdfs:label "has subdivision"@en ,
+        "heeft onderverdeling"@nl ;
+    rdfs:range fro:DocumentSubdivision .
+
+fro:hasBackwardReference
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has backward reference"@en ,
+        "heeft achterwaartse referentie"@nl ;
+    rdfs:range fro:Reference ;
+    rdfs:subPropertyOf fro:hasReference .
+
+fro:hasReference
+    rdf:type owl:ObjectProperty ;
+    rdfs:comment "An object property pointing to a reference of something."@en ,
+        "Een 'object property' die verwijst naar een referentie van iets."@nl ;
+    rdfs:label "has reference"@en ,
+        "heeft referentie"@nl ;
+    rdfs:range fro:Reference .
+
+fro:hasChapter
+    rdf:type owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:comment "An object property pointing to a chapter of the subject."@en ,
+        "Een 'object property' die verwijst naar een hoofdstuk van iets."@nl ;
+    rdfs:label "has chapter"@en ,
+        "heeft hoofdstuk"@nl ;
+    rdfs:range fro:Chapter ;
+    rdfs:subPropertyOf fro:hasSection .
+
+fro:hasEquation
+    rdf:type owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:comment "An object property pointing to an equation of the subject."@en ,
+        "Een 'object property' die verwijst naar een vergelijking van iets."@nl ;
+    rdfs:label "has equation"@en ,
+        "heeft vergelijking"@nl ;
+    rdfs:range fro:Equation ;
+    rdfs:subPropertyOf fro:hasSection .
+
+fro:hasFigure
+    rdf:type owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:comment "An object property pointing to a figure of the subject."@en ,
+        "Een 'object property' die verwijst naar een figuur van iets."@nl ;
+    rdfs:label "has figure"@en ,
+        "heeft figuur"@nl ;
+    rdfs:range fro:Figure ;
+    rdfs:subPropertyOf fro:hasSection .
+
+fro:hasForwardReference
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has forward reference"@en ,
+        "heeft voorwaartse referentie"@nl ;
+    rdfs:range fro:Reference ;
+    rdfs:subPropertyOf fro:hasReference .
+
+fro:hasID
+    rdf:type owl:DatatypeProperty ;
+    rdfs:comment "A datatype property pointing to an ID of the subject."@en ,
+        "Een 'datatype property' die verwijst naar een ID van iets."@nl ;
+    rdfs:label "has ID"@en ,
+        "heeft ID"@nl .
+
+fro:hasMember
+    rdf:type owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:comment "An object property pointing to a member of the subject."@en ,
+        "Een 'object property' die verwijst naar een lid van iets."@nl ;
+    rdfs:label "has member"@en ,
+        "heeft lid"@nl ;
+    rdfs:range fro:Member ;
+    rdfs:subPropertyOf fro:hasSubdivision .
+
+fro:hasOriginalText
+    rdf:type owl:DatatypeProperty ;
+    rdfs:comment "A datatype property pointing to the original text of the subject."@en ,
+        "Een 'datatype property' die verwijst naar een originele tekst van iets."@nl ;
+    rdfs:label "has original text"@en ,
+        "heeft originele tekst"@nl .
+
+fro:hasParagraph
+    rdf:type owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:comment "An object property pointing to a paragraph of the subject."@en ,
+        "Een 'object property' die verwijst naar een paragraaf van iets."@nl ;
+    rdfs:label "has paragraph"@en ,
+        "heeft paragraaf"@nl ;
+    rdfs:range fro:Paragraph ;
+    rdfs:subPropertyOf fro:hasSection .
+
+fro:hasSubchapter
+    rdf:type owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:comment "An object property pointing to a subchapter of the subject."@en ,
+        "Een 'object property' die verwijst naar een deelhoofdstuk van iets."@nl ;
+    rdfs:label "has subchapter"@en ,
+        "heeft deelhoofdstuk"@nl ;
+    rdfs:range fro:Subchapter ;
+    rdfs:subPropertyOf fro:hasSection .
+
+fro:hasTable
+    rdf:type owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:comment "An object property pointing to a table of the subject."@en ,
+        "Een 'object property' die verwijst naar een tabel van iets."@nl ;
+    rdfs:label "has table"@en ,
+        "heeft tabel"@nl ;
+    rdfs:range fro:Table ;
+    rdfs:subPropertyOf fro:hasSection .
+
+fro:issued
+    rdf:type owl:DatatypeProperty ;
+    rdfs:comment "A datatype property pointing to the data the subject was issued."@en ,
+        "Een 'datatype property' die verwijst naar de datum waarop iets is uitgevaardigd."@nl ;
+    rdfs:label "issued"@en ,
+        "uitgevaardigd"@nl .
 
 Here is some more info on the firebim ontology and how you should use it:
 
@@ -1214,7 +1266,7 @@ fro:Section_6_8_5_4_3 a fro:Section ;
 
 Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following the ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned. Prefixes will be added afterwards automatically so ALWAYS start off with fro:Section_..., NEVER define any prefixes.
 
-Additionally, you must now enhance the text by adding HTML links to relevant ontology concepts via the buliding ontology list below. When you identify terms that match concepts from the ontology, wrap them in HTML anchor tags that link to their URI definitions. For example:
+Additionally, you must now enhance the text by adding HTML links to relevant ontology concepts via the building ontology list below. When you identify terms that match concepts from the ontology, wrap them in HTML anchor tags that link to their URI definitions. For example:
 - If discussing compartment areas, use: <a href="https://ontology.firebim.be/ontology/fbo#CompartmentArea">area of the compartment</a>
 - For fire resistance requirements: <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">fire resistance</a>
 

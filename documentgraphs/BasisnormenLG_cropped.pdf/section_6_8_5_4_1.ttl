@@ -1,9 +1,7 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_8_5_4_1 a fro:Section ;
-    fro:hasArticle fro:Article_6_8_5_4_1_1 ;
-    fro:hasID "6.8.5.4.1" .
+fro:Section_6_8_5_4 fro:hasSection fro:Section_6_8_5_4_1 .
 
 fro:Article_6_8_5_4_1_1 a fro:Article ;
     fro:hasID "A6.8.5.4.1.1" ;
@@ -12,13 +10,17 @@ fro:Article_6_8_5_4_1_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_8_5_4_1_1_1 a fro:Member ;
-    fro:hasOriginalText "Deze <a href=\"https://ontology.firebim.be/ontology/fbo#Aboveground\">bovengrondse</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#Underground\">ondergrondse</a> <a href=\"https://ontology.firebim.be/ontology/fbo#FireHydrant\">hydranten</a> worden gevoed door het openbaar <a href=\"https://ontology.firebim.be/ontology/fbo#WaterSupplySystem\">waterleidingnet</a> via een <a href=\"https://ontology.firebim.be/ontology/fbo#Pipe\">leiding</a> met minimale <a href=\"https://ontology.firebim.be/ontology/fbo#PipeDiameter\">binnendiameter</a> van 80 mm."@nl .
+    fro:hasOriginalText "Deze bovengrondse en ondergrondse <a href=\"https://ontology.firebim.be/ontology/fbo#FireHydrant\">hydranten</a> worden gevoed door het openbaar <a href=\"https://ontology.firebim.be/ontology/fbo#WaterSupplySystem\">waterleidingnet</a> via een <a href=\"https://ontology.firebim.be/ontology/fbo#Pipe\">leiding</a> met minimale <a href=\"https://ontology.firebim.be/ontology/fbo#PipeDiameter\">binnendiameter</a> van 80 mm."@nl .
 
 fro:Member_6_8_5_4_1_1_2 a fro:Member ;
-    fro:hasOriginalText "Kan het openbaar net aan deze voorwaarden niet voldoen, dan wendt men andere bevoorradingsbronnen aan met minimale capaciteit van 50 m³, tenzij het gehele <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> is uitgerust met een <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> van het type <a href=\"https://ontology.firebim.be/ontology/fbo#SprinklerSystem\">sprinkler</a> die is aangepast aan de aanwezige <a href=\"https://ontology.firebim.be/ontology/fbo#FireRisk\">risico's</a>."@nl .
+    fro:hasOriginalText "Kan het openbaar net aan deze voorwaarden niet voldoen, dan wendt men andere bevoorradingsbronnen aan met minimale capaciteit van 50 m³, tenzij het gehele <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> is uitgerust met een <a href=\"https://ontology.firebim.be/ontology/fbo#HasAutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> van het type sprinkler die is aangepast aan de aanwezige risico's."@nl .
+
+fro:Section_6_8_5_4_1 a fro:Section ;
+    fro:hasArticle fro:Article_6_8_5_4_1_1 ;
+    fro:hasID "6.8.5.4.1" .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

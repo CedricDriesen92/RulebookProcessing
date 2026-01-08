@@ -1,29 +1,41 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_7_4_3 a fro:Section ;
-    fro:hasArticle fro:Article_6_7_4_3_1 ;
-    fro:hasID "6.7.4.3" ;
-    fro:hasOriginalText "Plaatsing van de klep"@nl .
+fro:Section_6_7_4 fro:hasSection fro:Section_6_7_4_3 .
 
 fro:Article_6_7_4_3_1 a fro:Article ;
     fro:hasID "A6.7.4.3.1" ;
-    fro:hasMember fro:Member_6_7_4_3_1_1,
-        fro:Member_6_7_4_3_1_2,
-        fro:Member_6_7_4_3_1_3 ;
+    fro:hasMember fro:Member_6_7_4_3_1_1 ;
+    fro:hasVersion fro:v0_1 .
+
+fro:Article_6_7_4_3_2 a fro:Article ;
+    fro:hasID "A6.7.4.3.2" ;
+    fro:hasMember fro:Member_6_7_4_3_2_1 ;
+    fro:hasVersion fro:v0_1 .
+
+fro:Article_6_7_4_3_3 a fro:Article ;
+    fro:hasID "A6.7.4.3.3" ;
+    fro:hasMember fro:Member_6_7_4_3_3_1 ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_7_4_3_1_1 a fro:Member ;
-    fro:hasOriginalText "De klep wordt zodanig in de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> bevestigd en vastgezet dat de stabiliteit van de klep gewaarborgd is, onafhankelijk van de twee aansluitkanalen, zelfs indien één van de twee kanalen verdwijnt."@nl .
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> wordt zodanig in de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> bevestigd en vastgezet dat de stabiliteit van de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> gewaarborgd is, onafhankelijk van de twee <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">aansluitkanalen</a>, zelfs indien één van de twee <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">kanalen</a> verdwijnt."@nl .
 
-fro:Member_6_7_4_3_1_2 a fro:Member ;
-    fro:hasOriginalText "Voor het nazicht en onderhoud van de klep wordt een gemakkelijk bereikbaar <a href=\"https://ontology.firebim.be/ontology/fbo#InspectionDoor\">inspectiedeurtje</a> op de klepkast of op de koker in de onmiddellijke nabijheid van de klep geplaatst. Dit deurtje heeft dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> als vereist voor het kanaal."@nl .
+fro:Member_6_7_4_3_2_1 a fro:Member ;
+    fro:hasOriginalText "Voor het nazicht en onderhoud van de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> wordt een gemakkelijk bereikbaar <a href=\"https://ontology.firebim.be/ontology/fbo#InspectionDoor\">inspectiedeurtje</a> op de klepkast of op de <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">koker</a> in de onmiddellijke nabijheid van de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> geplaatst. Dit deurtje heeft dezelfde brandweerstand als vereist voor het <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">kanaal</a>."@nl .
 
-fro:Member_6_7_4_3_1_3 a fro:Member ;
+fro:Member_6_7_4_3_3_1 a fro:Member ;
     fro:hasOriginalText "Om de lokalisatie van de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">brandwerende klep</a> te vergemakkelijken wordt een goed zichtbaar en onuitwisbaar merkteken aangebracht dat een brandbeveiligingstoestel aanduidt samen met de"@nl .
 
+fro:Section_6_7_4_3 a fro:Section ;
+    fro:hasArticle fro:Article_6_7_4_3_1,
+        fro:Article_6_7_4_3_2,
+        fro:Article_6_7_4_3_3 ;
+    fro:hasID "6.7.4.3" ;
+    fro:hasOriginalText "Plaatsing van de klep"@nl .
+
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

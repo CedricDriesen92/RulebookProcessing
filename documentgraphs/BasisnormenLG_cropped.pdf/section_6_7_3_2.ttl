@@ -1,50 +1,67 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Member_6_7_3_2_1_3 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">luchtkanalen</a> die zich in uitsluitend voor hen voorbehouden <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">kokers</a> bevinden en aan hun boveneinde uitmonden in een <a href=\"https://ontology.firebim.be/ontology/fbo#TechnicalRoom\">technisch lokaal</a> dat enkel de <a href=\"https://ontology.firebim.be/ontology/fbo#AirHandlingUnit\">luchtbehandelingsgroepen</a> bevat die zij verbinden, mogen zonder bijkomende voorzieningen door de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#TechnicalRoom\">technisch lokaal</a> gaan. In dat geval dient de verluchting van de <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">kokers</a> zoals vereist in 5.1.5.1 verwezenlijkt te worden via het <a href=\"https://ontology.firebim.be/ontology/fbo#TechnicalRoom\">technisch lokaal</a>."@nl .
-
-fro:Section_6_7_3_2 a fro:Section ;
-    fro:hasArticle fro:Article_6_7_3_2_1 ;
-    fro:hasID "6.7.3.2" ;
-    fro:hasOriginalText "Doorgangen met <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">brandwerende kleppen</a>"@nl .
+fro:Section_6_7_3 fro:hasSection fro:Section_6_7_3_2 .
 
 fro:Article_6_7_3_2_1 a fro:Article ;
-    fro:hasID "A6.7.3.2.1" ;
+    fro:hasID "A6.7.3_2.1" ;
     fro:hasMember fro:Member_6_7_3_2_1_1,
-        fro:Member_6_7_3_2_1_2 ;
+        fro:Member_6_7_3_2_1_2,
+        fro:Member_6_7_3_2_1_3 ;
+    fro:hasOriginalText "Geen enkel <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">luchtkanaal</a> mag:"@nl ;
+    fro:hasVersion fro:v0_1 .
+
+fro:Article_6_7_3_2_2 a fro:Article ;
+    fro:hasID "A6.7.3_2.2" ;
+    fro:hasMember fro:Member_6_7_3_2_2_1,
+        fro:Member_6_7_3_2_2_2 ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_7_3_2_1_1 a fro:Member ;
-    fro:hasMember fro:Member_6_7_3_2_1_1_1,
-        fro:Member_6_7_3_2_1_1_2 ;
-    fro:hasOriginalText "Geen enkel <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">luchtkanaal</a> mag:"@nl .
-
-fro:Member_6_7_3_2_1_1_1 a fro:Member ;
     fro:hasOriginalText "- door een <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> gaan waarvoor een <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> groter dan of gelijk aan EI 60 wordt vereist;"@nl .
 
-fro:Member_6_7_3_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText "- door een <a href=\"https://ontology.firebim.be/ontology/fbo#SeparationWall\">scheidingswand</a> tussen twee <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> gaan waarvoor een <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> groter dan of gelijk aan EI 30 wordt vereist of door een <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> van een <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">leidingenkoker</a> gaan waarvoor een <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> groter dan of gelijk aan EI 30 wordt vereist;"@nl .
-
 fro:Member_6_7_3_2_1_2 a fro:Member ;
-    fro:hasMember fro:Member_6_7_3_2_1_2_1,
-        fro:Member_6_7_3_2_1_2_2,
-        fro:Member_6_7_3_2_1_2_3 ;
+    fro:hasOriginalText "- door een <a href=\"https://ontology.firebim.be/ontology/fbo#SeparationWall\">scheidingswand</a> tussen twee <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> gaan waarvoor een <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> groter dan of gelijk aan EI 30 wordt vereist of door een <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> van een <a href=\"https://ontology.firebim.be/ontology/fbo#VerticalShaft\">leidingenkoker</a> gaan waarvoor een <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> groter dan of gelijk aan EI 30 wordt vereist;"@nl .
+
+fro:Member_6_7_3_2_1_3 a fro:Member ;
+    fro:hasMember fro:Member_6_7_3_2_1_3_1,
+        fro:Member_6_7_3_2_1_3_2,
+        fro:Member_6_7_3_2_1_3_3 ;
     fro:hasOriginalText "tenzij het voldoet aan één van de volgende voorwaarden:"@nl .
 
-fro:Member_6_7_3_2_1_2_1 a fro:Member ;
-    fro:hasOriginalText "1. een <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">brandwerende klep</a> met dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> (EI-S) als vereist voor de doorboorde <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> en die voldoet aan 6.7.4 wordt geplaatst ter hoogte van de <a href=\"https://ontology.firebim.be/ontology/fbo#WallPenetrationFireResistance\">wanddoorgang</a>. Deze klep kan evenwel uit de as van de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> geplaatst worden en door een <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">kanaal</a> met deze doorvoerde <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> verbonden worden voor zover het geheel van <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">kanaal</a> en klep dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> (EI-S) bezit als vereist voor de doorvoerde <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a>;"@nl .
+fro:Member_6_7_3_2_1_3_1 a fro:Member ;
+    fro:hasForwardReference fro:Section_6_7_4 ;
+    fro:hasOriginalText "1. een <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">brandwerende klep</a> met dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> (EI-S) als vereist voor de doorboorde <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> en die voldoet aan 6.7.4 wordt geplaatst ter hoogte van de wanddoorgang. Deze <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> kan evenwel uit de as van de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> geplaatst worden en door een kanaal met deze doorvoerde <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> verbonden worden voor zover het geheel van kanaal en <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> (EI-S) bezit als vereist voor de doorvoerde <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a>;"@nl .
 
-fro:Member_6_7_3_2_1_2_2 a fro:Member ;
-    fro:hasOriginalText "2. het <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">kanaal</a> heeft dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> EI i↔o als vereist voor de doorboorde <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> of is geplaatst in een <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">koker</a> met dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> als vereist voor de doorboorde <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> over de hele lengte van de doorgang doorheen het <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> of doorheen de beschermde ruimte. Dit <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">kanaal</a> mag geen opening hebben tenzij voorzien van een klep beschreven in lid a) hierboven;"@nl .
+fro:Member_6_7_3_2_1_3_2 a fro:Member ;
+    fro:hasOriginalText "2. het kanaal heeft dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> EI i↔o als vereist voor de doorboorde <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> of is geplaatst in een <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">koker</a> met dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> als vereist voor de doorboorde <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> over de hele lengte van de doorgang doorheen het <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> of doorheen de beschermde ruimte. Dit kanaal mag geen opening hebben tenzij voorzien van een <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">klep</a> beschreven in lid a) hierboven;"@nl .
 
-fro:Member_6_7_3_2_1_2_3 a fro:Member ;
-    fro:hasOriginalText """3. het <a href="https://ontology.firebim.be/ontology/fbo#AirDuct">kanaal</a> voldoet gelijktijdig aan volgende voorwaarden:
-- de doorsnede van de doorgang is niet groter dan 130 cm²;
-- in de doorgang van de <a href="https://ontology.firebim.be/ontology/fbo#Wall">wand</a> is het <a href="https://ontology.firebim.be/ontology/fbo#AirDuct">kanaal</a> uitgerust met een inrichting, die in geval van brand de doorgang afsluit en daarna dezelfde <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">brandweerstand</a> heeft als vereist voor de doorboorde <a href="https://ontology.firebim.be/ontology/fbo#Wall">wand</a>."""@nl .
+fro:Member_6_7_3_2_1_3_3 a fro:Member ;
+    fro:hasMember fro:Member_6_7_3_2_1_3_3_1,
+        fro:Member_6_7_3_2_1_3_3_2 ;
+    fro:hasOriginalText "3. het kanaal voldoet gelijktijdig aan volgende voorwaarden:"@nl .
+
+fro:Member_6_7_3_2_1_3_3_1 a fro:Member ;
+    fro:hasOriginalText "de doorsnede van de doorgang is niet groter dan 130 cm²;"@nl .
+
+fro:Member_6_7_3_2_1_3_3_2 a fro:Member ;
+    fro:hasOriginalText "in de doorgang van de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a> is het kanaal uitgerust met een inrichting, die in geval van brand de doorgang afsluit en daarna dezelfde <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> heeft als vereist voor de doorboorde <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wand</a>."@nl .
+
+fro:Member_6_7_3_2_2_1 a fro:Member ;
+    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">luchtkanalen</a> die zich in uitsluitend voor hen voorbehouden <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">kokers</a> bevinden en aan hun boveneinde uitmonden in een <a href=\"https://ontology.firebim.be/ontology/fbo#TechnicalRoom\">technisch lokaal</a> dat enkel de <a href=\"https://ontology.firebim.be/ontology/fbo#AirHandlingUnit\">luchtbehandelingsgroepen</a> bevat die zij verbinden, mogen zonder bijkomende voorzieningen door de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#TechnicalRoom\">technisch lokaal</a> gaan."@nl .
+
+fro:Member_6_7_3_2_2_2 a fro:Member ;
+    fro:hasForwardReference fro:Section_5_1_5_1 ;
+    fro:hasOriginalText "In dat geval dient de <a href=\"https://ontology.firebim.be/ontology/fbo#FacadeVentilationOpening\">verluchting</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">kokers</a> zoals vereist in 5.1.5.1 verwezenlijkt te worden via het <a href=\"https://ontology.firebim.be/ontology/fbo#TechnicalRoom\">technisch lokaal</a>."@nl .
+
+fro:Section_6_7_3_2 a fro:Section ;
+    fro:hasArticle fro:Article_6_7_3_2_1,
+        fro:Article_6_7_3_2_2 ;
+    fro:hasID "6.7.3.2" ;
+    fro:hasOriginalText "Doorgangen met brandwerende kleppen"@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

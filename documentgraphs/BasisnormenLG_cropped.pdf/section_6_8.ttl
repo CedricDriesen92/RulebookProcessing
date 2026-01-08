@@ -1,10 +1,7 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_8 a fro:Section ;
-    fro:hasArticle fro:Article_6_8_1 ;
-    fro:hasID "6.8" ;
-    fro:hasOriginalText "Inrichtingen voor melding, waarschuwing, alarm en brandbestrijdingsmiddelen."@nl .
+fro:Section_6 fro:hasSection fro:Section_6_8 .
 
 fro:Article_6_8_1 a fro:Article ;
     fro:hasID "A6.8.1" ;
@@ -12,10 +9,15 @@ fro:Article_6_8_1 a fro:Article ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_8_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmDevice\">melding</a>, de <a href=\"https://ontology.firebim.be/ontology/fbo#WarningSystem\">waarschuwing</a>, het <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmSystem\">alarm</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefightingEquipment\">brandbestrijdingsmiddelen</a> worden bepaald in akkoord met de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAction\">brandweer</a>, volgens de volgende leidraad."@nl .
+    fro:hasOriginalText "De melding, de waarschuwing, het alarm en de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefightingEquipment\">brandbestrijdingsmiddelen</a> worden bepaald in akkoord met de brandweer, volgens de volgende leidraad."@nl .
+
+fro:Section_6_8 a fro:Section ;
+    fro:hasArticle fro:Article_6_8_1 ;
+    fro:hasID "6.8" ;
+    fro:hasOriginalText "Inrichtingen voor melding, waarschuwing, alarm en <a href=\"https://ontology.firebim.be/ontology/fbo#FirefightingEquipment\">brandbestrijdingsmiddelen</a>."@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

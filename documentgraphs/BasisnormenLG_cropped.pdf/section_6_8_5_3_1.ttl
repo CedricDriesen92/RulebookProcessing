@@ -1,37 +1,45 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_8_5_3_1 a fro:Section ;
-    fro:hasArticle fro:Article_6_8_5_3_1_1 ;
-    fro:hasID "6.8.5.3.1" ;
-    fro:hasOriginalText "HET AANTAL EN DE PLAATS VAN DEZE TOESTELLEN WORDEN BEPAALD DOOR DE AARD EN DE OMVANG VAN HET BRANDGEVAAR."@nl .
+fro:Section_6_8_5_3 fro:hasSection fro:Section_6_8_5_3_1 .
 
 fro:Article_6_8_5_3_1_1 a fro:Article ;
     fro:hasID "A6.8.5.3.1.1" ;
     fro:hasMember fro:Member_6_8_5_3_1_1_1,
-        fro:Member_6_8_5_3_1_1_2,
-        fro:Member_6_8_5_3_1_1_3 ;
+        fro:Member_6_8_5_3_1_1_2 ;
+    fro:hasVersion fro:v0_1 .
+
+fro:Article_6_8_5_3_1_2 a fro:Article ;
+    fro:hasID "A6.8.5.3_1.2" ;
+    fro:hasMember fro:Member_6_8_5_3_1_2_1,
+        fro:Member_6_8_5_3_1_2_2,
+        fro:Member_6_8_5_3_1_2_3 ;
+    fro:hasOriginalText "In alle andere gevallen wordt het aantal <a href=\"https://ontology.firebim.be/ontology/fbo#FireHoseReel\">muurhaspels</a> als volgt bepaald:"@nl ;
     fro:hasVersion fro:v0_1 .
 
 fro:Member_6_8_5_3_1_1_1 a fro:Member ;
     fro:hasOriginalText "Het aantal en de plaats van deze toestellen worden bepaald door de aard en de omvang van het <a href=\"https://ontology.firebim.be/ontology/fbo#FirePreventionMeasures\">brandgevaar</a>."@nl .
 
 fro:Member_6_8_5_3_1_1_2 a fro:Member ;
-    fro:hasMember fro:Member_6_8_5_3_1_1_2_1,
-        fro:Member_6_8_5_3_1_1_2_2 ;
-    fro:hasOriginalText "Indien de <a href=\"https://ontology.firebim.be/ontology/fbo#TotalFloorArea\">oppervlakte van een gebouw</a> kleiner is dan 500 m² is geen <a href=\"https://ontology.firebim.be/ontology/fbo#FireHoseReel\">muurhaspel</a> verplicht (behoudens bij speciale risico’s). In alle andere gevallen wordt het aantal <a href=\"https://ontology.firebim.be/ontology/fbo#FireHoseReel\">muurhaspels</a> als volgt bepaald:"@nl .
+    fro:hasOriginalText "Indien de oppervlakte van een <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> kleiner is dan 500 m² is geen <a href=\"https://ontology.firebim.be/ontology/fbo#FireHoseReel\">muurhaspel</a> verplicht (behoudens bij speciale risico’s)."@nl .
 
-fro:Member_6_8_5_3_1_1_2_1 a fro:Member ;
-    fro:hasOriginalText "1. de <a href=\"https://ontology.firebim.be/ontology/fbo#WaterFlowReach\">waterstraal</a> bereikt elk punt van een <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a>;"@nl .
+fro:Member_6_8_5_3_1_2_1 a fro:Member ;
+    fro:hasOriginalText "1. de waterstraal bereikt elk punt van een <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a>;"@nl .
 
-fro:Member_6_8_5_3_1_1_2_2 a fro:Member ;
+fro:Member_6_8_5_3_1_2_2 a fro:Member ;
     fro:hasOriginalText "2. <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> groter dan 500 m² beschikken over ten minste 1 <a href=\"https://ontology.firebim.be/ontology/fbo#FireHoseReel\">muurhaspel</a>."@nl .
 
-fro:Member_6_8_5_3_1_1_3 a fro:Member ;
-    fro:hasOriginalText "Het perskoppelstuk van de eventuele <a href=\"https://ontology.firebim.be/ontology/fbo#FireHydrant\">muurhydranten</a> is aangepast aan de koppelingen gebruikt door de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAction\">brandweer</a>."@nl .
+fro:Member_6_8_5_3_1_2_3 a fro:Member ;
+    fro:hasOriginalText "Het perskoppelstuk van de eventuele <a href=\"https://ontology.firebim.be/ontology/fbo#FireHydrant\">muurhydranten</a> is aangepast aan de koppelingen gebruikt door de brandweer."@nl .
+
+fro:Section_6_8_5_3_1 a fro:Section ;
+    fro:hasArticle fro:Article_6_8_5_3_1_1,
+        fro:Article_6_8_5_3_1_2 ;
+    fro:hasID "6.8.5.3.1" ;
+    fro:hasOriginalText "Aantal en plaats van de toestellen."@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 
