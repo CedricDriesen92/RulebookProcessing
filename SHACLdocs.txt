@@ -3018,3 +3018,801 @@ SPARQL queries must not contain a federated query (SERVICE)
 SPARQL queries must not contain a VALUES clause
 SPARQL queries must not use the syntax form ​​AS ?var for any potentially pre-bound variable
 Subqueries must return all potentially pre-bound variables, except shapesGraph and currentShape which are optional as already mentioned in 2.3.1 Pre-bound Variables in SPARQL Constraints ($this, $shapesGraph, $currentShape)
+
+
+
+
+This document specifies the SPARQL-related features of the SHACL (Shapes Constraint Language).
+
+1.1 Terminology
+Throughout this document, the following terminology is used.
+
+The SHACL SPARQL Extensions defined in this document are sometimes called SHACL-SPARQL.
+
+Terminology that is linked to portions of RDF 1.2 Concepts and Abstract Syntax is used in SHACL-SPARQL as defined there. Terminology that is linked to portions of SPARQL 1.2 Query Language is used in SHACL-SPARQL as defined there. Terminology that is linked to portions of SHACL 1.2 Core is used in SHACL-SPARQL as defined there. A single linkage is sufficient to provide a definition for all occurences of a particular term in this document.
+
+Definitions are complete within this document, i.e., if there is no rule to make some situation true in this document then the situation is false.
+
+Basic RDF Terminology
+This document uses the terms RDF graph, RDF triple, IRI, literal, blank node, node of an RDF graph, datatype, RDF term, and subject, predicate, and object of RDF triples as defined in RDF 1.2 Concepts and Abstract Syntax [rdf12-concepts].
+Basic SHACL Terminology
+This document uses the terms focus node, value, value node, constraint, constraint component, parameter, mandatory parameter, optional parameter, parameter value, shape, node shape, property shape, SHACL property path, SPARQL property path, shapes graph, target, validator, node expression, node expression function, function name, key parameter, output nodes, focus graph, conform, failure, validation result, SHACL instance, SHACL subclass, SHACL type, as defined in the SHACL 1.2 Core specification [shacl12-core].
+Binding, Solution
+A binding is a pair (variable, RDF term), consistent with the term's use in [sparql12-query]. A solution is a set of bindings where each variable must be unique. Informally, a solution is often understood as one row in the body of the result table of a SPARQL query.
+1.2 Document Conventions
+The syntax of SHACL is RDF. The examples in this document use Turtle [rdf12-turtle]. Other RDF serializations such as RDF/XML may be used in practice. The reader should be familiar with basic RDF concepts [rdf12-concepts] such as triples and with SPARQL [sparql12-query].
+
+Within this document, the following namespace prefix bindings are used:
+
+Prefix	Namespace
+owl:	http://www.w3.org/2002/07/owl#
+rdf:	http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:	http://www.w3.org/2000/01/rdf-schema#
+sh:	http://www.w3.org/ns/shacl#
+xsd:	http://www.w3.org/2001/XMLSchema#
+ex:	http://example.com/ns#
+Within this document, the following JSON-LD context is used:
+
+{
+  "@context": {
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "ex": "http://example.com/ns#"
+  }
+}
+Note that the URI of the graph defining the SHACL vocabulary itself is equivalent to the namespace above, i.e. it includes the #. References to the SHACL vocabulary, e.g. via owl:imports should include the #.
+
+Throughout the document, color-coded boxes containing RDF graphs in Turtle will appear. These fragments of Turtle documents use the prefix bindings given above.
+
+Turtle JSON-LD
+
+# This box represents an input shapes graph
+
+<s> ex:p <o> .
+					
+Turtle JSON-LD
+
+# This box represents an input data graph.
+# When highlighting is used in the examples:
+
+# Elements highlighted in blue are focus nodes
+ex:Bob a ex:Person .
+
+# Elements highlighted in red are focus nodes that fail validation
+ex:Alice a ex:Person .
+					
+Turtle JSON-LD
+
+# This box represents an output results graph
+					
+SHACL Definitions appear in blue boxes:
+
+SPARQL or TEXTUAL DEFINITIONS
+# This box contains SPARQL or textual definitions.
+Grey boxes such as this include syntax rules that apply to the shapes graph.
+
+SPARQL variables using the $ marker represent external bindings that are pre-bound or, in the case of $PATH, substituted in the SPARQL query before execution (as explained in 3.3 Validation with SPARQL-based Constraint Components).
+
+true denotes the RDF term "true"^^xsd:boolean. false denotes the RDF term "false"^^xsd:boolean.
+
+1.3 Conformance
+As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.
+
+The key words MAY, MUST, and SHOULD in this document are to be interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all capitals, as shown here.
+
+This document defines the SHACL-SPARQL language that extends SHACL Core. This specification describes conformance criteria for:
+
+SHACL-SPARQL processors as processors that support validation with the SHACL-SPARQL Language
+This document includes syntactic rules that shapes and other nodes need to fulfill in the shapes graph. These rules are typically of the form A shape must have... or The values of X are literals or All objects of triples with predicate P must be IRIs. The complete list of these rules can be found in the appendix. Nodes that violate any of these rules are called ill-formed. Nodes that violate none of these rules are called well-formed. A shapes graph is ill-formed if it contains at least one ill-formed node.
+
+2. SPARQL-based Constraints
+SHACL-SPARQL supports a constraint component that can be used to express restrictions based on a SPARQL SELECT query.
+
+Constraint Component IRI: sh:SPARQLConstraintComponent
+
+Parameters:
+Property	Summary
+sh:sparql	A SPARQL-based constraint declaring the SPARQL query to evaluate.
+The syntax rules and validation process for SPARQL-based constraints are defined in the rest of this section.
+
+2.1 An Example SPARQL-based Constraint
+This section is non-normative.
+
+The following example illustrates the syntax of a SPARQL-based constraint.
+
+Example 1: A SPARQL-based constraint
+Turtle JSON-LD
+
+ex:LanguageExampleShape
+	a sh:NodeShape ;
+	sh:targetClass ex:Country ;
+	sh:sparql [
+		a sh:SPARQLConstraint ;   # This triple is optional
+		sh:message "Values are literals with German language tag." ;
+		sh:prefixes ex: ;
+		sh:select """
+			SELECT $this (ex:germanLabel AS ?path) ?value
+			WHERE {
+				$this ex:germanLabel ?value .
+				FILTER (!isLiteral(?value) || !langMatches(lang(?value), "de"))
+			}
+			""" ;
+	] .
+
+ex:
+	sh:declare [] .   # See prefix declarations
+						
+The target of the shape above includes all SHACL instances of ex:Country. For those nodes (represented by the variable this), the SPARQL query walks through the values of ex:germanLabel and verifies that they are literals with a German language code.
+
+Turtle JSON-LD
+
+ex:ValidCountry a ex:Country ;
+	ex:germanLabel "Spanien"@de .
+
+ex:InvalidCountry a ex:Country ;
+	ex:germanLabel "Spain"@en .
+						
+Turtle JSON-LD
+
+[	a sh:ValidationReport ;
+	sh:conforms false ;
+	sh:result [
+		a sh:ValidationResult ;
+		sh:resultSeverity sh:Violation ;
+		sh:focusNode ex:InvalidCountry ;
+		sh:resultPath ex:germanLabel ;
+		sh:value "Spain"@en ;
+		sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
+		sh:sourceShape ex:LanguageExampleShape ;
+		# ...
+	]
+] .
+						
+The SPARQL query returns result set solutions for all bindings of the variable value that violate the constraint. There is a validation result for each solution in that result set, applying the mapping rules explained later. In this example, each validation result will have the binding for the variable this as the sh:focusNode, ex:germanLabel as sh:resultPath and the violating value as sh:value.
+
+The following example illustrates a similar scenario as above, but with a property shape.
+
+Example 2
+Turtle JSON-LD
+
+ex:LanguageExamplePropertyShape
+	a sh:PropertyShape ;
+	sh:targetClass ex:Country ;
+	sh:path ex:germanLabel ;
+	sh:sparql [
+		a sh:SPARQLConstraint ;   # This triple is optional
+		sh:message "Values are literals with German language tag." ;
+		sh:prefixes ex: ;
+		sh:select """
+			SELECT $this ?value
+			WHERE {
+				$this $PATH ?value .
+				FILTER (!isLiteral(?value) || !langMatches(lang(?value), "de"))
+			}
+			""" ;
+	] .
+
+ex:
+	sh:declare [] .   # See prefix declarations
+						
+2.2 Syntax of SPARQL-based Constraints
+Shapes may have values for the property sh:sparql, and these values are either IRIs or blank nodes. These values are called SPARQL-based constraints.
+
+SPARQL-based constraints have exactly one value for the property sh:select. The value of sh:select is a literal of datatype xsd:string. The class sh:SPARQLConstraint is defined in the SHACL vocabulary and may be used as the type of these constraints (although no type is required). Using the prefix handling rules, the value of sh:select is a valid SPARQL 1.2 SELECT query. The SPARQL query derived from the value of sh:select projects the variable this in the SELECT clause.
+
+The following two properties are similar to their use in shapes:
+
+SPARQL-based constraints may have values for the property sh:message and these are either xsd:string literals or literals with a language tag. SPARQL-based constraints may have at most one value for the property sh:deactivated and this value is either true or false.
+
+SELECT queries used in the context of property shapes use a special variable named PATH as a placeholder for the path used by the shape.
+
+The only legal use of the variable PATH in the SPARQL queries of SPARQL-based constraints and SELECT-based validators is in the predicate position of a triple pattern. A query that uses the variable PATH in any other position is ill-formed.
+
+2.2.1 Prefix Declarations for SPARQL Queries
+A shapes graph may include declarations of namespace prefixes so that these prefixes can be used to abbreviate the SPARQL queries derived from the same shapes graph. The syntax of such prefix declarations is illustrated by the following example.
+
+Example 3
+Turtle JSON-LD
+
+ex:
+	sh:declare [
+		sh:prefix "ex" ;
+		sh:namespace "http://example.com/ns#"^^xsd:anyURI ;
+	] ;
+	sh:declare [
+		sh:prefix "schema" ;
+		sh:namespace "http://schema.org/"^^xsd:anyURI ;
+	] ;
+	a owl:Ontology ;    # Optional
+	owl:imports sh: .   # Optional
+							
+The values of the property sh:declare are IRIs or blank nodes, and these values are called prefix declarations. The SHACL vocabulary includes the class sh:PrefixDeclaration as type for such prefix declarations although no rdf:type triple is required for them. Prefix declarations have exactly one value for the property sh:prefix. The values of sh:prefix are literals of datatype xsd:string. Prefix declarations have exactly one value for the property sh:namespace. The values of sh:namespace are literals of datatype xsd:anyURI. Such a pair of values specifies a single mapping of a prefix to a namespace.
+
+The recommended subject for values of sh:declare is the IRI of the named graph containing the shapes that use the prefixes. These IRIs are often declared as an instance of owl:Ontology, but this is not required.
+
+Prefix declarations can be used by SPARQL-based constraints, the validators of SPARQL-based constraint components, and by similar features defined by SHACL extensions. These nodes can use the property sh:prefixes to specify a set of prefix mappings. An example use of the sh:prefixes property can be found in the example above.
+
+The values of sh:prefixes are either IRIs or blank nodes. A SHACL processor collects a set of prefix mappings as the union of all individual prefix mappings that are values of the SPARQL property path sh:prefixes/owl:imports*/sh:declare of the SPARQL-based constraint or validator. If such a collection of prefix declarations contains multiple different namespaces for the same value of sh:prefix, then the shapes graph is ill-formed. (Note that SHACL processors MAY ignore prefix declarations that are never reached).
+
+A SHACL processor transforms the values of sh:select (and similar properties such as sh:ask) into SPARQL by prepending PREFIX declarations for all prefix mappings. Each value of sh:prefix is turned into the PNAME_NS, while each value of sh:namespace is turned into the IRIREF in the PREFIX declaration. For the example shapes graph above, a SHACL-SPARQL processor would produce lines such as PREFIX ex: <http://example.com/ns#>. The SHACL-SPARQL processor MUST produce a failure if the resulting query string cannot be parsed into a valid SPARQL 1.2 query.
+
+In the rest of this document, the sh:prefixes statements may have been omitted for brevity.
+
+2.3 Validation with SPARQL-based Constraints
+This section explains the validator of sh:SPARQLConstraintComponent. Note that this validator only explains one possible implementation strategy, and SHACL processors may choose alternative approaches as long as the outcome is equivalent.
+
+TEXTUAL DEFINITION
+Let $sparql be a value of sh:sparql. There are no validation results if the SPARQL-based constraint has true as a value for the property sh:deactivated. Otherwise, execute the SPARQL query specified by the SPARQL-based constraint $sparql pre-binding the variable this as described in 2.3.1 Pre-bound variable $this in SPARQL Constraints. If the shape is a property shape, then prior to execution substitute the variable PATH where it appears in the predicate position of a triple pattern with a valid SPARQL surface syntax string of the SHACL property path specified via sh:path at the property shape. There is one validation result for each solution that does not have true as the binding for the variable failure. These validation results MUST have the property values explained in 2.3.2 Mapping of Solution Bindings to Result Properties. A failure MUST be produced if and only if one of the solutions has true as the binding for failure.
+2.3.1 Pre-bound variable $this in SPARQL Constraints
+When the SPARQL queries of SPARQL-based constraints and the validators of SPARQL-based constraint components are processed, the SHACL-SPARQL processor pre-binds values for the variable $this to the current focus node.
+
+2.3.2 Mapping of Solution Bindings to Result Properties
+The property values of the validation result nodes are derived by the following rules, through a combination of result solutions and the values of the constraint itself. The rules are meant to be executed from top to bottom, so that the first bound value will be used.
+
+Property	Production Rules
+sh:focusNode	
+The binding for the variable this
+sh:resultPath	
+The binding for the variable path, if that is a IRI
+For results produced by a property shape, a SHACL property path that is equivalent to the value of sh:path of the shape
+sh:value	
+The binding for the variable value
+The value node
+sh:resultMessage	
+The binding for the variable message
+For SPARQL-based constraints: The values of sh:message of the SPARQL-based constraint. For SPARQL-based constraint components: The values of sh:message of the validator of the SPARQL-based constraint component.
+For SPARQL-based constraint components: The values of sh:message of the SPARQL-based constraint component.
+The default mechanisms for declaring messages at the shape or constraint apply otherwise.
+These message literals may include the names of any SELECT result variables via {?varName} or {$varName}. If the constraint is based on a SPARQL-based constraint component, then the component's parameter names can also be used. These {?varName} and {$varName} blocks SHOULD be replaced with suitable string representations of the values of said variables.
+sh:sourceConstraint	
+The SPARQL-based constraint, i.e. the value of sh:sparql
+3. SPARQL-based Constraint Components
+SPARQL-based constraints provide a lot of flexibility but may be hard to understand for some people or lead to repetition. This section introduces SPARQL-based constraint components as a way to abstract the complexity of SPARQL and to declare high-level reusable components similar to the Core constraint components. Such constraint components can be declared using the SHACL RDF vocabulary and thus shared and reused.
+
+3.1 An Example SPARQL-based Constraint Component
+This section is non-normative.
+
+The following example demonstrates how SPARQL can be used to specify new constraint components using the SHACL-SPARQL language. The example implements sh:pattern and sh:flags using a SPARQL ASK query to validate that each value node matches a given regular expression. Note that this is only an example implementation and should not be considered normative.
+
+Example 4: Constraint component based on SPARQL
+Turtle JSON-LD
+
+sh:PatternConstraintComponent
+	a sh:ConstraintComponent ;
+	sh:parameter [
+		sh:path sh:pattern ;
+	] ;
+	sh:parameter [
+		sh:path sh:flags ;
+		sh:optional true ;
+	] ;
+	sh:validator ex:hasPattern .
+
+ex:hasPattern
+	a sh:SPARQLAskValidator ;
+	sh:message "Value does not match pattern {$pattern}" ;
+	sh:ask """
+		ASK {
+			FILTER (!isBlank($value) &&
+				IF(bound($flags), regex(str($value), $pattern, $flags), regex(str($value), $pattern)))
+		}""" .
+						
+Constraint components provide instructions to validation engines on how to identify and validate constraints within a shape. In general, if a shape S has a value for a property p, and there is a constraint component C that specifies p as a parameter, and S has values for all mandatory parameters of C, then the set of these parameter values (including the optional parameters) declare a constraint and the validation engine uses a suitable validator from C to perform the validation of this constraint. In the example above, sh:PatternConstraintComponent declares the mandatory parameter sh:pattern, the optional parameter sh:flags, and a validator that can be used to perform validation against either node shapes or property shapes.
+
+3.2 Syntax of SPARQL-based Constraint Components
+A SPARQL-based constraint component is an IRI that has SHACL type sh:ConstraintComponent in the shapes graph.
+
+The mechanism to declare new constraint components in this document is limited to those based on SPARQL. However, the general syntax of declaring parameters and validators has been designed to also work for other extension languages such as JavaScript.
+
+3.2.1 Parameter Declarations (sh:parameter)
+The parameters of a constraint component are declared via the property sh:parameter. The values of sh:parameter are called parameter declarations. The class sh:Parameter may be used as type of parameter declarations but no such triple is required. Each parameter declaration has exactly one value for the property sh:path. At parameter declarations, the value of sh:path is an IRI.
+
+The local name of an IRI is defined as the longest NCNAME at the end of the IRI, not immediately preceded by the first colon in the IRI. The parameter name of a parameter declaration is defined as the local name of the value of sh:path. To ensure that a correct mapping from parameters into SPARQL variables is possible, the following syntax rules apply:
+
+Every parameter name is a valid SPARQL VARNAME. Parameter names must not be one of the following: this, path, PATH, value. A constraint component where two or more parameter declarations use the same parameter names is ill-formed.
+
+The values of sh:optional must be literals with datatype xsd:boolean. A parameter declaration can have at most one value for the property sh:optional. If set to true then the parameter declaration declares an optional parameter. Every constraint component has at least one non-optional parameter.
+
+The class sh:Parameter is defined as a SHACL subclass of sh:PropertyShape, and all properties that are applicable to property shapes may also be used for parameters. This includes descriptive properties such as sh:name and sh:description but also constraint parameters such as sh:class. Shapes that do not conform with the constraints declared for the parameters are ill-formed. Some implementations MAY use these constraint parameters to prevent the execution of constraint components with invalid parameter values.
+
+3.2.2 Label Templates (sh:labelTemplate)
+The property sh:labelTemplate can be used at any constraint component to suggest how constraints could be rendered to humans. The values of sh:labelTemplate are strings (possibly with language tag) and are called label templates.
+
+The remainder of this section is informative.
+
+Label templates can include the names of the parameters that are declared for the constraint component using the syntaxes {?varName} or {$varName}, where varName is the name of the parameter name. At display time, these {?varName} and {$varName} blocks SHOULD be replaced with the actual parameter values. There may be multiple label templates for the same subject, but they should not have the same language tags.
+
+3.2.3 Validators
+For every supported shape type (i.e., property shape or node shape) the constraint component declares a suitable validator. For a given constraint, a validator is selected from the constraint component using the following rules, in order:
+
+For node shapes, use one of the values of sh:nodeValidator, if present.
+For property shapes, use one of the values of sh:propertyValidator, if present.
+Otherwise, use one of the values of sh:validator.
+If no suitable validator can be found, a SHACL-SPARQL processor ignores the constraint.
+
+SHACL-SPARQL includes two types of validators, based on SPARQL SELECT (for sh:nodeValidator and sh:propertyValidator) or SPARQL ASK queries (for sh:validator).
+
+3.2.3.1 SELECT-based Validators
+Validators with SHACL type sh:SPARQLSelectValidator are called SELECT-based validators. The values of sh:nodeValidator must be SELECT-based validators. The values of sh:propertyValidator must be SELECT-based validators. SELECT-based validators have exactly one value for the property sh:select. The value of sh:select is a valid SPARQL SELECT query using the aforementioned prefix handling rules. The SPARQL query derived from the value of sh:select projects the variable this in its SELECT clause.
+
+The remainder of this section is informative.
+
+The following example illustrates the declaration of a constraint component based on a SPARQL SELECT query. It is a generalized variation of the example from 2.1 An Example SPARQL-based Constraint. That SPARQL query included two constants: the specific property ex:germanLabel and the language tag de. Constraint components make it possible to generalize such scenarios, so that constants get pre-bound with parameters. This allows the query logic to be reused in multiple places, without having to write any new SPARQL.
+
+Example 5: Constraint component based on SPARQL
+Turtle JSON-LD
+
+ex:LanguageConstraintComponentUsingSELECT
+	a sh:ConstraintComponent ;
+	rdfs:label "Language constraint component" ;
+	sh:parameter [
+		sh:path ex:lang ;
+		sh:datatype xsd:string ;
+		sh:minLength 2 ;
+		sh:name "language" ;
+		sh:description "The language tag, e.g. \"de\"." ;
+	] ;
+	sh:labelTemplate "Values are literals with language \"{$lang}\"" ;
+	sh:propertyValidator [
+		a sh:SPARQLSelectValidator ;
+		sh:message "Values are literals with language \"{?lang}\"" ;
+		sh:select """
+			SELECT DISTINCT $this ?value
+			WHERE {
+				$this $PATH ?value .
+				FILTER (!isLiteral(?value) || !langMatches(lang(?value), $lang))
+			}
+			"""
+	] .
+								
+Once a constraint component has been declared (in a shapes graph), its parameters can be used as illustrated in the following example.
+
+Example 6: Shape declaration using ex:LanguageConstraintComponent
+Turtle JSON-LD
+
+ex:LanguageExampleShape
+	a sh:NodeShape ;
+	sh:targetClass ex:Country ;
+	sh:property [
+		sh:path ex:germanLabel ;
+		ex:lang "de" ;
+	] ;
+	sh:property [
+		sh:path ex:englishLabel ;
+		ex:lang "en" ;
+	] .
+								
+The example shape above specifies the condition that all values of ex:germanLabel carry the language tag de while all values of ex:englishLabel have en as their language. These details are specified via two property shapes that have values for the ex:lang parameter required by the constraint component.
+
+3.2.3.2 ASK-based Validators
+Many constraint components are of the form in which all value nodes are tested individually against some boolean condition. Writing SELECT queries for these becomes burdensome, especially if a constraint component can be used for both property shapes and node shapes. SHACL-SPARQL provides an alternative, more compact syntax for validators based on ASK queries.
+
+Validators with SHACL type sh:SPARQLAskValidator are called ASK-based validators. The values of sh:validator must be ASK-based validators. ASK-based validators have exactly one value for the property sh:ask. The value of sh:ask must be a literal with datatype xsd:string. The value of sh:ask must be a valid SPARQL ASK query using the aforementioned prefix handling rules.
+
+The remainder of this section is informative.
+
+The ASK queries return true if and only if a given value node (represented by the pre-bound variable value) conforms to the constraint.
+
+The following example declares a constraint component using an ASK query.
+
+Example 7: Constraint component based on SPARQL
+Turtle JSON-LD
+
+ex:LanguageConstraintComponentUsingASK
+	a sh:ConstraintComponent ;
+	rdfs:label "Language constraint component" ;
+	sh:parameter [
+		sh:path ex:lang ;
+		sh:datatype xsd:string ;
+		sh:minLength 2 ;
+		sh:name "language" ;
+		sh:description "The language tag, e.g. \"de\"." ;
+	] ;
+	sh:labelTemplate "Values are literals with language \"{$lang}\"" ;
+	sh:validator ex:hasLang .
+
+ex:hasLang
+	a sh:SPARQLAskValidator ;
+	sh:message "Values are literals with language \"{$lang}\"" ;
+	sh:ask """
+		ASK {
+			FILTER (isLiteral($value) && langMatches(lang($value), $lang))
+		}
+		""" .
+								
+Note that the validation condition implemented by an ASK query is "in the inverse direction" from its SELECT counterpart: ASK queries return true for value nodes that conform to the constraint, while SELECT queries return those value nodes that do not conform.
+
+3.3 Validation with SPARQL-based Constraint Components
+This section defines the validator of SPARQL-based constraint components. Note that this validator only explains one possible implementation strategy, and SHACL processors may choose alternative approaches as long as the outcome is equivalent.
+
+As the first step, a validator MUST be selected based on the rules outlined in 3.2.3 Validators. Then the following rules apply, producing a set of solutions of SPARQL queries:
+
+For ASK-based validators: For each value node v where the SPARQL ASK query returns false with v pre-bound to the variable value, create one solution consisting of the bindings ($this, focus node) and ($value, v). Let QS be a list of these solutions.
+For SELECT-based validators: If the shape is a property shape, then prior to execution substitute the variable PATH where it appears in the predicate position of a triple pattern with a valid SPARQL surface syntax string of the SHACL property path specified via sh:path at the property shape. Let QS be the solutions produced by executing the SPARQL query.
+The SPARQL query executions above MUST pre-bind the variable this as described in 2.3.1 Pre-bound variable $this in SPARQL Constraints. In addition, each value of a parameter of the constraint component in the constraint MUST be pre-bound as a variable that has the parameter name as its name.
+
+The production rules for the validation results are identical to those for SPARQL-based constraints, using the solutions QS as produced above.
+
+4. Annotation Properties
+This section extends the general mechanism to produce validation results using SPARQL-based constraints or constraint components.
+
+Implementations that support this feature make it possible to inject annotation properties into the validation result nodes created for each solution produced by the SELECT queries of a SPARQL-based constraint or constraint component. Any such annotation property needs to be declared via a value of sh:resultAnnotation at the subject of the sh:select or sh:ask triple.
+
+The values of sh:resultAnnotation are called result annotations and are either IRIs or blank nodes.
+
+Result annotations have the following properties:
+
+Property	Summary and Syntax Rules
+sh:annotationProperty	The property that shall be set. Each result annotation has exactly one value for the property sh:annotationProperty and this value is an IRI.
+sh:annotationVarName	The name of the SPARQL variable to take the annotation values from. Each result annotation has at most 1 value for the property sh:annotationVarName and this value is literal with datatype xsd:string.
+sh:annotationValue	Constant RDF terms that shall be used as default values.
+For each solution of a SELECT result set, a SHACL processor that supports annotations walks through the declared result annotations. The mapping from result annotations to SPARQL variables uses the following rules:
+
+Use the value of the property sh:annotationVarName
+If no such value exists, use the local name of the value of sh:annotationProperty as the variable name.
+If a variable name could be determined, then the SHACL processor copies the binding for the given variable as a value for the property specified using sh:annotationProperty into the validation result that is being produced for the current solution. If the variable has no binding in the result set solution, then the values of sh:annotationValue are used, if present.
+
+Here is an example illustrating the use of result annotations.
+
+ex:AnnotationExample
+	a sh:NodeShape ;
+	sh:targetNode ex:ExampleResource ;
+	sh:sparql [   # _:b1
+		sh:resultAnnotation [
+			sh:annotationProperty ex:time ;
+			sh:annotationVarName "time" ;
+		] ;
+		sh:select """
+			SELECT $this ?message ?time
+			WHERE {
+				BIND (CONCAT("The ", "message.") AS ?message) .
+				BIND (NOW() AS ?time) .
+			}
+			""" ;
+	] .
+Validation produces the following validation report:
+
+[	a sh:ValidationReport ;
+	sh:conforms false ;
+	sh:result [
+		a sh:ValidationResult ;
+		sh:focusNode ex:ExampleResource ;
+		sh:resultMessage "The message." ;
+		sh:resultSeverity sh:Violation ;
+		sh:sourceConstraint _:b1 ;
+		sh:sourceConstraintComponent sh:SPARQLConstraintComponent ;
+		sh:sourceShape ex:AnnotationExample ;
+		ex:time "2015-03-27T10:58:00"^^xsd:dateTime ;  # Example
+	]
+] .
+5. SPARQL-based Node Expressions
+This section introduces node expression functions based on SPARQL.
+
+5.1 Select Expressions
+A node expression that has a value for sh:select is called a select expression with the function name sh:SelectExpression.
+
+A node in an RDF graph is a well-formed select expression if it is a blank node that has exactly one value for the predicate sh:select and this value is a literal with datatype xsd:string. A well-formed select expression can have at most one value for the property sh:prefixes and this value can only be an IRI or a blank node.
+
+Using the prefix handling rules, the value of sh:select is a valid SPARQL 1.2 SELECT query. The SPARQL query derived from the value of sh:select projects exactly one variable in the SELECT clause.
+
+EVALUATION OF SELECT EXPRESSIONS
+The output nodes of a select expression are the list resultNodes consisting of exactly the bindings of the (only) variable that is projected from the SELECT clause when the query is evaluated against the focus graph. The value of focusNode is pre-bound as the value of the SPARQL variable this. The value of each scope variable is pre-bound as a SPARQL variable with the same name and value. A failure is produced when one of the scope variables is called this.
+
+evalExpr(expr, focusGraph, focusNode, scope) -> resultNodes
+
+The remainder of this section is informative.
+
+Example 8: A dynamically computed property using a node expression based on a SPARQL query
+Here is an example use of a select expression, computing the values of a property shape for the property "full name" as the concatenation of the ex:firstName, a space, and the ex:lastName.
+
+Turtle JSON-LD
+
+ex:Person-fullName
+	a sh:PropertyShape ;
+	sh:name "full name" ;
+	sh:path ex:fullName ;
+	sh:values [
+		sh:prefixes <http://example.org/ns> ;
+		sh:select """
+			SELECT ?fullName
+			WHERE {
+				$this ex:firstName ?firstName .
+				$this ex:lastName ?lastName .
+				BIND (CONCAT(?firstName, " ", ?lastName) AS ?fullName) .
+			}
+		"""
+	] ;
+	sh:datatype xsd:string .
+
+<http://example.org/ns>
+	a owl:Ontology ;
+	sh:declare [
+		sh:prefix "ex" ;
+		sh:namespace "http://example.org/ns#"^^xsd:anyURI ;
+	] .
+						
+This example also illustrates the use of sh:prefixes to insert PREFIX declarations into the beginning of the query before parsing. Note that the query is executed with the current focus node pre-bound to the variable this.
+
+Example 9: Dynamically computed target nodes using a node expression based on a SPARQL query
+Here is an example use of a select expression, computing the target nodes of a shape to consist of all instances of ex:Person where the ex:age is less than 18.
+
+Turtle JSON-LD
+
+ex:ChildShape
+	a sh:NodeShape ;
+	rdfs:label "Child shape" ;
+	rdfs:comment "This shape applies to all persons under 18 years of age." ;
+	sh:targetNode [
+		sh:select """
+			PREFIX ex: <http://example.org/ns#>
+			SELECT ?person
+			WHERE {
+				?person a/rdfs:subClassOf* ex:Person .
+				?person ex:age ?age .
+				FILTER (?age < 18) .
+			}
+		"""
+	] .
+						
+From the following data graph, only ex:Benjamin is a target node.
+
+Turtle JSON-LD
+
+ex:Benjamin
+	a ex:Person ;
+	ex:age 17 .
+
+ex:Klaus
+	a ex:Person ;
+	ex:age 48 .
+
+ex:Bernd
+	a ex:Person .
+						
+5.2 SPARQL Expr Expressions
+A node expression that has a value for sh:sparqlExpr is called a SPARQL expr expression with the function name sh:SPARQLExprExpression.
+
+A node in an RDF graph is a well-formed SPARQL expr expression if it is a blank node that has exactly one value for the predicate sh:sparqlExpr and that value is a literal with datatype xsd:string. A well-formed SPARQL expr expression can have at most one value for the property sh:prefixes and this value is an IRI or a blank node.
+
+Let $EXPR$ be the value of sh:eval and $PREFIXES$ be the SPARQL prefixes block resulting from the prefix handling rules using the value of sh:prefixes; then select is defined as the string where $EXPR$ and $PREFIXES$ are inserted as into
+
+$PREFIXES$ SELECT ($EXPR$ AS ?result) WHERE {}
+
+select is a valid SPARQL 1.2 SELECT query.
+
+EVALUATION OF SPARQL EXPR EXPRESSIONS
+The output nodes of an SPARQL expr expression are the list resultNodes consisting of exactly the bindings of the (only) variable that is projected from the SELECT clause of the select query as defined above when the query is evaluated against the focus graph. The value of focusNode is pre-bound as the value of the SPARQL variable this. The value of each scope variable is pre-bound as a SPARQL variable with the same name and value. A failure is produced when one of the scope variables is called this.
+
+evalExpr(expr, focusGraph, focusNode, scope) -> resultNodes
+
+The remainder of this section is informative.
+
+Example 10: A dynamically computed property using a SPARQL expr expression
+Here is an example use of an SPARQL expr expression, computing the values of a property shape for the property "uri length" as the length of the IRI of the focus node.
+
+Turtle JSON-LD
+
+ex:Resource-uriLength
+	a sh:PropertyShape ;
+	sh:name "uri length" ;
+	sh:path ex:uriLength ;
+	sh:values [
+		sh:sparqlExpr "STRLEN(STR($this))" ;
+	] ;
+	sh:datatype xsd:integer .
+						
+When applied to a focus node with URI http://example.org/ns#Test the result will be 26. This produces the same results as this variation:
+
+Turtle JSON-LD
+
+ex:Resource-uriLength
+	a sh:PropertyShape ;
+	sh:name "uri length" ;
+	sh:path ex:uriLength ;
+	sh:values [
+		sh:select """
+			SELECT (STRLEN(STR($this)) AS ?result)
+			WHERE {
+			}
+		""" ;
+	] ;
+	sh:datatype xsd:integer .
+						
+Note that the query is executed with the current focus node pre-bound to the variable this.
+
+Appendix
+A. Pre-binding of Variables in SPARQL Queries
+Some features of SHACL-SPARQL rely on the concept of pre-binding of variables as defined in this section.
+
+(Feature at Risk) Issue 647: Add "at risk" notice to SHACL-SPARQL prebinding SPARQL
+This feature is "at risk" and may be changed (not removed) to align with currently ongoing work in the RDF and SPARQL 1.2 work in this area. Originally discussed as Issue 647.
+
+The definition of pre-binding used by SHACL requires the following restrictions on SPARQL queries. SHACL-SPARQL processors MUST report a failure when it is operating on a shapes graph that contains SHACL-SPARQL queries (via sh:select and sh:ask) that violate any of these restrictions. Note that the term potentially pre-bound variables includes the variables this, value (for ASK queries), and any variables that represent the parameters of the constraint component that uses the query.
+
+SPARQL queries must not contain a MINUS clause
+SPARQL queries must not contain a federated query (SERVICE)
+SPARQL queries must not contain a VALUES clause that mentions any potentially pre-bound variable
+SPARQL queries must not use the syntax form ​​AS ?var for any potentially pre-bound variable
+DEFINITION: Values Insertion
+For solution mapping μ, define Table(μ) to be the multiset formed from μ.
+
+   Table(μ) = { μ }
+   Card[μ] = 1
+
+Define the Values Insertion function Replace(X, μ) to replace each occurence Y of a Basic Graph Pattern, Property Path Expression, Graph(Var, pattern) in X with join(Y, Table(μ)).
+
+DEFINITION: Pre-binding of variables
+The evaluation of the SPARQL Query Q = (E, DS, QF) with pre-bound variables μ is defined as the evaluation of SPARQL query Q' = (Replace(E, μ), DS, QF).
+
+B. Summary of SHACL Syntax Rules
+This section enumerates all normative syntax rules of SHACL. This section is automatically generated from other parts of this spec and hyperlinks are provided back into the prose if the context of the rule in unclear. Nodes that violate these rules in a shapes graph are ill-formed.
+
+Syntax Rule Id	Syntax Rule Text
+sparql-nodeKind	Shapes may have values for the property sh:sparql, and these values are either IRIs or blank nodes.
+SPARQLConstraint-select-count	SPARQL-based constraints have exactly one value for the property sh:select
+SPARQLConstraint-select-datatype	The value of sh:select is a literal of datatype xsd:string.
+select-query-valid	Using the prefix handling rules, the value of sh:select is a valid SPARQL 1.2 SELECT query.
+select-query-this	The SPARQL query derived from the value of sh:select projects the variable this in the SELECT clause.
+SPARQLConstraint-message-datatype	SPARQL-based constraints may have values for the property sh:message and these are either xsd:string literals or literals with a language tag.
+SPARQLConstraint-deactivated-maxCount	SPARQL-based constraints may have at most one value for the property sh:deactivated
+PATH-position	The only legal use of the variable PATH in the SPARQL queries of SPARQL-based constraints and SELECT-based validators is in the predicate position of a triple pattern.
+declare-nodeKind	The values of the property sh:declare are IRIs or blank nodes
+prefix-count	Prefix declarations have exactly one value for the property sh:prefix
+prefix-datatype	The values of sh:prefix are literals of datatype xsd:string.
+namespace-count	Prefix declarations have exactly one value for the property sh:namespace.
+namespace-datatype	The values of sh:namespace are literals of datatype xsd:anyURI.
+prefixes-nodeKind	The values of sh:prefixes are either IRIs or blank nodes.
+prefixes-duplicates	A SHACL processor collects a set of prefix mappings as the union of all individual prefix mappings that are values of the SPARQL property path sh:prefixes/owl:imports*/sh:declare of the SPARQL-based constraint or validator. If such a collection of prefix declarations contains multiple different namespaces for the same value of sh:prefix, then the shapes graph is ill-formed.
+ConstraintComponent	A SPARQL-based constraint component is an IRI that has SHACL type sh:ConstraintComponent in the shapes graph.
+Parameter-predicate-count	Each parameter declaration has exactly one value for the property sh:path
+Parameter	At parameter declarations, the value of sh:path is an IRI.
+parameter-name-VARNAME	Every parameter name is a valid SPARQL VARNAME.
+parameter-name-not-in	Parameter names must not be one of the following: this, path, PATH, value.
+parameter-name-unique	A constraint component where two or more parameter declarations use the same parameter names is ill-formed.
+optional-datatype	The values of sh:optional must be literals with datatype xsd:boolean.
+optional-maxCount	A parameter declaration can have at most one value for the property sh:optional.
+ConstraintComponent-parameter	Every constraint component has at least one non-optional parameter.
+Parameter-conformance	Shapes that do not conform with the constraints declared for the parameters are ill-formed.
+labelTemplate-datatype	The values of sh:labelTemplate are strings (possibly with language tag)
+nodeValidator-class	The values of sh:nodeValidator must be SELECT-based validators.
+propertyValidator-class	The values of sh:propertyValidator must be SELECT-based validators.
+SPARQLSelectValidator-select-count	SELECT-based validators have exactly one value for the property sh:select.
+validator-class	The values of sh:validator must be ASK-based validators.
+ask-count	ASK-based validators have exactly one value for the property sh:ask
+ask-datatype	The value of sh:ask must be a literal with datatype xsd:string.
+ask-sparql	The value of sh:ask must be a valid SPARQL ASK query using the aforementioned prefix handling rules.
+resultAnnotation-nodeKind	The values of sh:resultAnnotation are called result annotations and are either IRIs or blank nodes
+annotationProperty	Each result annotation has exactly one value for the property sh:annotationProperty and this value is an IRI.
+annotationVarName	Each result annotation has at most 1 value for the property sh:annotationVarName and this value is literal with datatype xsd:string.
+SelectExpression-syntax	A node in an RDF graph is a well-formed select expression if it is a blank node that has exactly one value for the predicate sh:select and this value is a literal with datatype xsd:string.
+SelectExpression-syntax-prefixes	A well-formed select expression can have at most one value for the property sh:prefixes and this value can only be an IRI or a blank node.
+SelectExpression-query-valid	Using the prefix handling rules, the value of sh:select is a valid SPARQL 1.2 SELECT query.
+SelectExpression-query-output-nodes	The SPARQL query derived from the value of sh:select projects exactly one variable in the SELECT clause.
+SPARQLExprExpression-syntax-eval	A node in an RDF graph is a well-formed SPARQL expr expression if it is a blank node that has exactly one value for the predicate sh:sparqlExpr and that value is a literal with datatype xsd:string.
+SPARQLExprExpression-syntax-prefixes	A well-formed SPARQL expr expression can have at most one value for the property sh:prefixes and this value is an IRI or a blank node.
+SPARQLExprExpression-template	Let $EXPR$ be the value of sh:eval and $PREFIXES$ be the SPARQL prefixes block resulting from the prefix handling rules using the value of sh:prefixes; then select is defined as the string where $EXPR$ and $PREFIXES$ are inserted as into
+
+$PREFIXES$ SELECT ($EXPR$ AS ?result) WHERE {}
+
+SPARQLExprExpression-query-valid	select is a valid SPARQL 1.2 SELECT query.
+pre-binding-limitations	
+The definition of pre-binding used by SHACL requires the following restrictions on SPARQL queries. SHACL-SPARQL processors MUST report a failure when it is operating on a shapes graph that contains SHACL-SPARQL queries (via sh:select and sh:ask) that violate any of these restrictions. Note that the term potentially pre-bound variables includes the variables this, value (for ASK queries), and any variables that represent the parameters of the constraint component that uses the query.
+
+SPARQL queries must not contain a MINUS clause
+SPARQL queries must not contain a federated query (SERVICE)
+SPARQL queries must not contain a VALUES clause that mentions any potentially pre-bound variable
+SPARQL queries must not use the syntax form ​​AS ?var for any potentially pre-bound variable
+C. Potential SPARQL Definitions of SHACL Core Constraint Validators
+This section is non-normative.
+
+This appendix uses parts of SPARQL 1.2 in non-normative alternative definitions of the semantics of constraint components and targets from [shacl12-core]. While these may help some implementers, SPARQL is not required for the implementation of the SHACL Core language.
+
+SPARQL variables using the $ marker represent external bindings that are pre-bound or, in the case of $PATH, substituted in the SPARQL query before execution (as explained in 3.3 Validation with SPARQL-based Constraint Components). TODO: Assuming SHACL Core 1.2 allows node expressions as constraint parameters, explain that they are evaluated prior to substitution.
+
+C.1 sh:targetClass
+The following query expresses a potential definition of class targets in SPARQL. The variable targetClass will be pre-bound to the given value of sh:targetClass. All bindings of the variable this from the solutions become focus nodes.
+
+POTENTIAL DEFINITION IN SPARQL
+SELECT DISTINCT ?this    # ?this is the focus node
+WHERE {
+	?this rdf:type/rdfs:subClassOf* $targetClass .
+}
+C.2 sh:targetSubjectsOf
+The following query expresses a potential definition of subjects-of targets in SPARQL. The variable targetSubjectsOf will be pre-bound to the given value of sh:targetSubjectsOf. All bindings of the variable this from the solutions become focus nodes.
+
+POTENTIAL DEFINITION IN SPARQL
+SELECT DISTINCT ?this    # ?this is the focus node
+WHERE {
+	?this $targetSubjectsOf ?any .
+}
+C.3 sh:targetObjectsOf
+The following query expresses a potential definition of objects-of targets in SPARQL. The variable targetObjectsOf will be pre-bound to the given value of sh:targetObjectsOf. All bindings of the variable this from the solutions become focus nodes.
+
+POTENTIAL DEFINITION IN SPARQL
+SELECT DISTINCT ?this    # ?this is the focus node
+WHERE {
+	?any $targetObjectsOf ?this .
+}
+C.4 sh:class
+The following query expresses a potential SPARQL-based validator for sh:class.
+
+POTENTIAL DEFINITION IN SPARQL (Must evaluate to true for each value node $value)
+ASK {
+	$value rdf:type/rdfs:subClassOf* $class .
+}
+C.5 sh:nodeKind
+The following query expresses a potential SPARQL-based validator for sh:nodeKind.
+
+POTENTIAL DEFINITION IN SPARQL (Must evaluate to true for each value node $value)
+ASK {
+	FILTER ((isIRI($value) && $nodeKind IN ( sh:IRI, sh:BlankNodeOrIRI, sh:IRIOrLiteral ) ) ||
+		(isLiteral($value) && $nodeKind IN ( sh:Literal, sh:BlankNodeOrLiteral, sh:IRIOrLiteral ) ) ||
+		(isBlank($value)   && $nodeKind IN ( sh:BlankNode, sh:BlankNodeOrIRI, sh:BlankNodeOrLiteral ) )) .
+}
+C.6 sh:minExclusive (etc)
+The following query expresses a potential SPARQL-based validator for sh:minExclusive. The SPARQL expression produces an error if the value node cannot be compared to the specified range, for example when someone compares a string with an integer. If the comparison cannot be performed, then there is a validation result. This is different from, say, a plain SPARQL query, in which such errors would silently not lead to any results.
+
+POTENTIAL DEFINITION IN SPARQL (Must evaluate to true for each value node $value)
+ASK {
+	FILTER ($minExclusive < $value)
+}
+Similar definitions are possible for:
+
+sh:minInclusive: <=
+sh:maxExclusive: >
+sh:maxInclusive: >=
+C.7 sh:minLength
+The following query expresses a potential SPARQL-based validator for sh:minLength.
+
+POTENTIAL DEFINITION IN SPARQL (Must evaluate to true for each value node $value)
+ASK {
+	FILTER (STRLEN(str($value)) >= $minLength) .
+}
+C.8 sh:maxLength
+The following query expresses a potential SPARQL-based validator for sh:maxLength.
+
+POTENTIAL DEFINITION IN SPARQL (Must evaluate to true for each value node $value)
+ASK {
+	FILTER (STRLEN(str($value)) <= $maxLength) .
+}
+C.9 sh:pattern
+The following query expresses a potential SPARQL-based validator for sh:pattern.
+
+POTENTIAL DEFINITION IN SPARQL (Must evaluate to true for each value node $value)
+ASK {
+	FILTER (!isBlank($value) && IF(bound($flags), regex(str($value), $pattern, $flags), regex(str($value), $pattern)))
+}
+C.10 sh:disjoint
+The following query expresses a potential SPARQL-based validator for sh:disjoint.
+
+POTENTIAL DEFINITION IN SPARQL (Must return no results for the given $PATH)
+SELECT DISTINCT $this ?value
+WHERE {
+	$this $PATH ?value .
+	$this $disjoint ?value .
+}
+C.11 sh:lessThan
+The following query expresses a potential SPARQL-based validator for sh:lessThan.
+
+POTENTIAL DEFINITION IN SPARQL (Must return no results for the given $PATH)
+SELECT $this ?value
+WHERE {
+	$this $PATH ?value .
+	$this $lessThan ?otherValue .
+	BIND (?value < ?otherValue AS ?result) .
+	FILTER (!bound(?result) || !(?result)) .
+}
+C.12 sh:lessThanOrEquals
+The following query expresses a potential SPARQL-based validator for sh:lessThanOrEquals.
+
+POTENTIAL DEFINITION IN SPARQL (Must return no results for the given $PATH)
+SELECT $this ?value
+WHERE {
+	$this $PATH ?value .
+	$this $lessThanOrEquals ?otherValue .
+	BIND (?value <= ?otherValue AS ?result) .
+	FILTER (!bound(?result) || !(?result)) .
+}

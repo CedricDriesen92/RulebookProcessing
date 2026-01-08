@@ -233,7 +233,7 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
                         ],
                     ),
                 ]
-                generate_content_config = types.GenerateContentConfig(
+                generate_content_config_flash = types.GenerateContentConfig(
                     temperature=1,
                     top_p=0.95,
                     top_k=64,
@@ -245,7 +245,7 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
                 gemini_response = gemini_client.models.generate_content(
                     model="gemini-3-flash-preview",
                     contents=contents,
-                    config=generate_content_config,
+                    config=generate_content_config_flash,
                 )
                 response = gemini_response.text.strip()
             

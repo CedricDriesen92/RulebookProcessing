@@ -4,7 +4,8 @@ import json
 import re
 import time
 from dotenv import load_dotenv
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from rdflib import Graph, Literal, URIRef, Namespace
 from rdflib.namespace import RDF, RDFS, DCTERMS
 
@@ -32,22 +33,9 @@ os.makedirs(shacl_output_dir, exist_ok=True)
 if not google_key:
     raise ValueError("GEMINI_API_KEY environment variable not set.")
 
-genai.configure(api_key=google_key)
+gemini_client = genai.Client(api_key=google_key)
 
-# Configure the Gemini model
-gemini_config = {
-    "temperature": 0.5, # Lower temperature for more deterministic SHACL generation
-    "top_p": 0.95,
-    "top_k": 64,
-    "max_output_tokens": 65536,
-    "response_mime_type": "text/plain",
-}
-
-model_name = "gemini-2.5-pro-preview-05-06"
-model = genai.GenerativeModel(
-    model_name=model_name,
-    generation_config=gemini_config,
-)
+model_name = "gemini-3-flash-preview"
 
 print(f"Using Gemini model: {model_name}")
 print(f"Input TTL directory: {doc_graph_dir}")
@@ -251,12 +239,27 @@ Now, generate the SHACL shape for the following text, considering its subject UR
             if len(prompt) > 30000: # Example check, adjust limit as needed based on model specifics
                  print(f"Warning: Prompt length ({len(prompt)} chars) is very large, potentially exceeding limits.")
 
-            response = model.generate_content(
-                prompt,
-                generation_config=gemini_config,
+            contents = [
+                types.Content(
+                    role="user",
+                    parts=[
+                        types.Part.from_text(text=prompt),
+                    ],
+                ),
+            ]
+            generate_content_config = types.GenerateContentConfig(
+                temperature=1,
+                thinking_config=types.ThinkingConfig(
+                    thinking_budget=8192,
+                ),
+            )
+            response = gemini_client.models.generate_content(
+                model=model_name,
+                contents=contents,
+                config=generate_content_config,
             )
 
-            raw_ttl = response.text.strip()
+            raw_ttl = response.text.strip() if response.text else ""
             generated_ttl = raw_ttl # Assume no code block initially
 
             # --- New: Check for and extract from ```turtle ... ``` code block ---

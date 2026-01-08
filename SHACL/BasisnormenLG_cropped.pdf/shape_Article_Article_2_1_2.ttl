@@ -1,114 +1,116 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo: <http://www.firebim.org/ontologies/FBO#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-fro:Shape_Article_2_1_2
+<https://ontology.firebim.be/ontology/fro#Shape_Article_2_1_2>
     a sh:NodeShape ;
     sh:targetClass fbo:Compartment ;
-    sh:message "Een compartimenthoogte moet overeenstemmen met één bouwlaag, tenzij specifieke uitzonderingen van toepassing zijn (parking, duplex, triplex, technische lokalen, atrium). Zie KB Basisnormen Bijlage 2 Art. 2.1.2."@nl ;
+    sh:message "Het compartiment voldoet niet aan de hoogtevereisten van Artikel 2.1.2. Een compartiment mag zich in principe slechts over één bouwlaag uitstrekken, tenzij het voldoet aan specifieke uitzonderingen voor parkings, duplex-verbindingen (max 2500m²), triplex-verbindingen (max 300m² + detectie), technische lokalen of atria (met blusinstallatie en RWA)."@nl ;
     sh:or (
-        # Hoofdregel: Hoogte compartiment = 1 bouwlaag
+        # Basisregel: De hoogte stemt overeen met de hoogte van één bouwlaag.
         [
-            a sh:NodeShape ;
             sh:property [
-                sh:path fbo:numberOfStoreysSpanned ;
+                sh:path fbo:numberOfStoreys ;
                 sh:hasValue 1 ;
-                sh:datatype xsd:integer ;
-                sh:message "Hoofdregel: Hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag."@nl ;
+                sh:minCount 1 ;
             ] ;
         ]
-        # Uitzondering a: Parking met bouwlagen (zie 5.2)
+        # Uitzondering a: De parking met bouwlagen (zie 5.2)
         [
-            a sh:NodeShape ;
             sh:property [
-                sh:path rdf:type ;
-                sh:hasValue fbo:MultiStoreyParkingCompartment ; # Assuming this type implies multiple storeys or specific rules
-                # fbo:referencesRegulationSection <fbo:Article_5_2> ; # Metadata, not a direct SHACL constraint here
-                sh:message "Uitzondering a: De parking met bouwlagen."@nl ;
+                sh:path fbo:usage ;
+                sh:hasValue fbo:ParkingUsage ;
             ] ;
         ]
-        # Uitzondering b: Duplex
+        # Uitzondering b: Duplex (2 bouwlagen, binnenverbindingstrap, opp <= 2500 m²)
         [
-            a sh:NodeShape ;
-            sh:property [
-                sh:path fbo:numberOfStoreysSpanned ;
-                sh:hasValue 2 ;
-                sh:datatype xsd:integer ;
-            ] ;
-            sh:property [
-                sh:path fbo:cumulativeStoreyAreaInM2 ;
-                sh:maxInclusive 2500.0 ;
-                sh:datatype xsd:decimal ;
-            ] ;
-            sh:message "Uitzondering b: Duplex (2 bouwlagen, interne trap, gecumuleerde opp. <= 2500 m²)."@nl ;
-        ]
-        # Uitzondering c: Triplex
-        [
-            a sh:NodeShape ;
-            sh:property [
-                sh:path fbo:numberOfStoreysSpanned ;
-                sh:hasValue 3 ;
-                sh:datatype xsd:integer ;
-            ] ;
-            sh:property [
-                sh:path fbo:cumulativeStoreyAreaInM2 ;
-                sh:maxInclusive 300.0 ;
-                sh:datatype xsd:decimal ;
-            ] ;
-            sh:property [
-                sh:path fbo:automaticFireDetectionSystem ; # Assumes this links to an instance of fbo:AutomaticFireDetectionSystem
-                sh:minCount 1 ; # Ensure at least one such system exists
-                sh:node [ # The linked system(s) must conform to these properties
-                    a sh:NodeShape ;
-                    sh:property [ sh:path rdf:type ; sh:hasValue fbo:AutomaticFireDetectionSystem ] ; # Explicit type check on the system
-                    sh:property [ sh:path fbo:detectionType ; sh:hasValue fbo:TotalSurveillance ] ;
-                    sh:property [ sh:path fbo:providesAutomaticAlarmIndication ; sh:hasValue true ] ;
-                    sh:property [ sh:path fbo:hasRiskAdaptedDetectors ; sh:hasValue true ] ;
-                ] ;
-            ] ;
-            sh:message "Uitzondering c: Triplex (3 bouwlagen, interne trap, gecumuleerde opp. <= 300 m², specifieke branddetectie)."@nl ;
-        ]
-        # Uitzondering d: Technische lokalen (zie 5.1.1)
-        [
-            a sh:NodeShape ;
-            # fbo:numberOfStoreysSpanned > 1 is implied if this exception is distinct from the main rule
-            sh:property [
-                sh:path fbo:containsOnlyTechnicalRooms ; # Assumes a boolean property on the compartment
-                sh:hasValue true ;
-                # fbo:referencesRegulationSection <fro:Article_5_1_1> ; # Metadata
-                sh:message "Uitzondering d: Compartiment met enkel technische lokalen over meerdere bouwlagen."@nl ;
-            ] ;
-        ]
-        # Uitzondering e: Atrium
-        [
-            a sh:NodeShape ;
-            # fbo:numberOfStoreysSpanned > 1 is implied
-            sh:property [
-                sh:path rdf:type ; # Compartment is of type AtriumCompartment
-                sh:hasValue fbo:AtriumCompartment ;
-            ] ;
-            sh:or ( # The compartment must either have the systems or a ministerial exception
-                [ # Standaard geval: beide systemen aanwezig
-                    a sh:NodeShape ;
+            sh:and (
+                [
                     sh:property [
-                        sh:path fbo:automaticExtinguishingSystem ; # Assumes link to fbo:FireExtinguishingSystem
-                        sh:minCount 1 ;
-                    ] ;
-                    sh:property [
-                        sh:path fbo:smokeAndHeatExtractionSystem ; # Assumes link to fbo:SmokeAndHeatExtractionSystem
-                        sh:minCount 1 ;
+                        sh:path fbo:numberOfStoreys ;
+                        sh:hasValue 2 ;
                     ] ;
                 ]
-                [ # Ministeriële uitzondering
-                    a sh:NodeShape ;
+                [
                     sh:property [
-                        sh:path fbo:hasMinisterialExceptionForAtriumSystems ; # Assumes a boolean property
+                        sh:path fbo:hasInternalConnectionStairs ;
+                        sh:hasValue true ;
+                    ] ;
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:totalFloorArea ;
+                        sh:maxInclusive 2500 ;
+                    ] ;
+                ]
+            ) ;
+        ]
+        # Uitzondering c: Triplex (3 bouwlagen, binnenverbindingstrap, opp <= 3000 m², totale branddetectie)
+        [
+            sh:and (
+                [
+                    sh:property [
+                        sh:path fbo:numberOfStoreys ;
+                        sh:hasValue 3 ;
+                    ] ;
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:hasInternalConnectionStairs ;
+                        sh:hasValue true ;
+                    ] ;
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:totalFloorArea ;
+                        sh:maxInclusive 3000 ;
+                    ] ;
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:hasAutomaticFireDetection ;
+                        sh:hasValue true ;
+                    ] ;
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:fireDetectionType ;
+                        sh:hasValue fbo:TotalMonitoring ;
+                    ] ;
+                ]
+            ) ;
+        ]
+        # Uitzondering d: Enkel technische lokalen
+        [
+            sh:property [
+                sh:path fbo:usage ;
+                sh:hasValue fbo:TechnicalUsage ;
+            ] ;
+        ]
+        # Uitzondering e: Atrium (meerdere bouwlagen, blusinstallatie en rook- en warmteafvoer)
+        [
+            sh:and (
+                [
+                    sh:property [
+                        sh:path fbo:isAtrium ;
+                        sh:hasValue true ;
+                    ] ;
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:hasAutomaticExtinguishingSystem ;
+                        sh:hasValue true ;
+                    ] ;
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:hasSmokeAndHeatExhaustVentilation ;
                         sh:hasValue true ;
                     ] ;
                 ]
             ) ;
-            sh:message "Uitzondering e: Atrium over meerdere bouwlagen met vereiste systemen of ministeriële uitzondering."@nl ;
         ]
     ) .
