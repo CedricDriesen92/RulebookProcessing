@@ -114,7 +114,10 @@ def get_property_value(page_properties, target_name):
         val = prop["checkbox"]
     elif ptype == "url":
         val = prop["url"]
-        
+
+    # Don't run clean_text on lists (relation, multi_select) — it would stringify them
+    if isinstance(val, list):
+        return val if len(val) > 0 else None
     return clean_text(val)
 
 def normalize_name(name):
@@ -184,12 +187,19 @@ def create_ontology():
 
     # 1. Load Countries Map
     countries_data = get_all_pages(DB_COUNTRIES)
-    country_id_map = {} 
+    country_id_map = {}  # maps page ID -> (country_code, lang_code)
     for page in countries_data:
+        # Try "Name" first, then fall back to the title field (whatever it's called)
         c_name = get_property_value(page["properties"], "Name")
+        if not c_name:
+            # Find the title property dynamically
+            for key, val in page["properties"].items():
+                if val.get("type") == "title":
+                    c_name = get_property_value(page["properties"], key)
+                    break
         if c_name:
-            code, _ = get_country_code_from_name(c_name)
-            country_id_map[page["id"]] = code
+            code, lang = get_country_code_from_name(c_name)
+            country_id_map[page["id"]] = (code, lang)
 
     # 2. Load Unified Data
     unified_pages = get_all_pages(DB_UNIFIED)
@@ -207,22 +217,21 @@ def create_ontology():
         rel_ids = get_property_value(props, PROP_MAP["Country"])
         c_code = "INT"
         l_code = "en"
-        
-        if rel_ids and len(rel_ids) > 0:
+
+        if isinstance(rel_ids, list) and len(rel_ids) > 0:
             cid = rel_ids[0]
             if cid in country_id_map:
-                c_code = country_id_map[cid]
-                _, l_code = get_country_code_from_name(c_code + " dummy")
+                c_code, l_code = country_id_map[cid]
         
         norm_name = normalize_name(term_name)
         ns = NS_MAP.get(c_code, NS_MAP["INT"])
         
         # Determine if Class or Property
-        td_type = str(get_property_value(props, PROP_MAP["Type"])).lower()
+        td_type = (get_property_value(props, PROP_MAP["Type"]) or "").lower()
         td_unit = get_property_value(props, PROP_MAP["Unit"])
         td_val_type = get_property_value(props, PROP_MAP["ValueType"])
         
-        # LOGIC FIX: It is a property if explicitly stated OR if it has a Unit OR a specific Value Type
+        # LOGIC: It is a property if explicitly stated OR if it has a Unit OR a specific Value Type
         is_prop = False
         if "property" in td_type:
             is_prop = True
@@ -230,13 +239,23 @@ def create_ontology():
             is_prop = True
         elif td_val_type and td_val_type != "NA":
             is_prop = True
-            
+
+        # Determine if this is a datatype property (has literal values) vs object property
+        is_datatype_prop = False
+        if is_prop and td_val_type:
+            vt_lower = td_val_type.lower() if isinstance(td_val_type, str) else ""
+            if any(k in vt_lower for k in ["number", "boolean", "string", "enumeration", "text"]):
+                is_datatype_prop = True
+        if is_prop and td_unit and td_unit != "NA":
+            is_datatype_prop = True
+
         page_registry[page["id"]] = {
             "general_uri": URIRef(FBO[norm_name]),
             "specific_uri": URIRef(ns[norm_name]),
             "country": c_code,
             "lang": l_code,
             "is_prop": is_prop,
+            "is_datatype_prop": is_datatype_prop,
             "raw_props": props # Store raw props for second pass
         }
 
@@ -252,8 +271,9 @@ def create_ontology():
         
         # Type Definition & Hierarchy
         if is_prop:
-            g.add((g_uri, RDF.type, OWL.ObjectProperty))
-            g.add((s_uri, RDF.type, OWL.ObjectProperty))
+            prop_type = OWL.DatatypeProperty if meta["is_datatype_prop"] else OWL.ObjectProperty
+            g.add((g_uri, RDF.type, prop_type))
+            g.add((s_uri, RDF.type, prop_type))
             g.add((s_uri, RDFS.subPropertyOf, g_uri))
         else:
             g.add((g_uri, RDF.type, OWL.Class))
@@ -311,7 +331,7 @@ def create_ontology():
         
         # Parent / Principal Item
         parent_ids = get_property_value(props, PROP_MAP["Parent"])
-        if parent_ids:
+        if isinstance(parent_ids, list) and parent_ids:
             for p_id in parent_ids:
                 if p_id in page_registry:
                     p_uri = page_registry[p_id]["specific_uri"]
@@ -330,7 +350,7 @@ def create_ontology():
         # Linked Properties (EU Terms / Harmonized)
         # Assuming this is 'seeAlso' or 'isLinkedTo' depending on semantics
         linked_ids = get_property_value(props, PROP_MAP["Linked_Props"])
-        if linked_ids:
+        if isinstance(linked_ids, list) and linked_ids:
             for l_id in linked_ids:
                 if l_id in page_registry:
                     l_uri = page_registry[l_id]["specific_uri"]
