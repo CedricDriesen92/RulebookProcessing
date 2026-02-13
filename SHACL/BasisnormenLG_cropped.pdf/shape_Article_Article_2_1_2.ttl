@@ -1,116 +1,74 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@prefix fbo: <http://www.firebim.org/ontologies/FBO#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fro: <http://www.firebim.org/ontologies/fro#> .
+@prefix fbo: <http://www.firebim.org/ontologies/fbo#> .
 
-<https://ontology.firebim.be/ontology/fro#Shape_Article_2_1_2>
+<https://ontology.firebim.be/ontology/fro#Article_2_1_2>
     a sh:NodeShape ;
-    sh:targetClass fbo:Compartment ;
-    sh:message "Het compartiment voldoet niet aan de hoogtevereisten van Artikel 2.1.2. Een compartiment mag zich in principe slechts over één bouwlaag uitstrekken, tenzij het voldoet aan specifieke uitzonderingen voor parkings, duplex-verbindingen (max 2500m²), triplex-verbindingen (max 300m² + detectie), technische lokalen of atria (met blusinstallatie en RWA)."@nl ;
+    sh:targetClass fro:FireCompartment ;
+    sh:severity sh:Violation ;
+    sh:message "Article 2.1.2: The height of a compartment must correspond to one storey, unless it meets specific exceptions (Parking, Duplex, Triplex, Technical Room, or Atrium with specific safety systems)."@en ;
     sh:or (
-        # Basisregel: De hoogte stemt overeen met de hoogte van één bouwlaag.
+        # General Rule: The height of a compartment corresponds to one storey.
         [
+            sh:path fro:numberOfLevels ;
+            sh:maxInclusive 1 ;
+        ]
+        # Exception A: Parking with storeys.
+        [
+            sh:path fro:usageType ;
+            sh:hasValue fro:Parking ;
+        ]
+        # Exception B: Duplex (2 levels, max 2500 m²).
+        [
+            a sh:NodeShape ;
             sh:property [
-                sh:path fbo:numberOfStoreys ;
-                sh:hasValue 1 ;
-                sh:minCount 1 ;
+                sh:path fro:numberOfLevels ;
+                sh:maxInclusive 2 ;
+            ] ;
+            sh:property [
+                sh:path fro:floorArea ;
+                sh:maxInclusive 2500 ;
+                sh:datatype xsd:decimal ;
             ] ;
         ]
-        # Uitzondering a: De parking met bouwlagen (zie 5.2)
+        # Exception C: Triplex (3 levels, max 300 m², Total Surveillance Detection).
         [
+            a sh:NodeShape ;
             sh:property [
-                sh:path fbo:usage ;
-                sh:hasValue fbo:ParkingUsage ;
+                sh:path fro:numberOfLevels ;
+                sh:maxInclusive 3 ;
+            ] ;
+            sh:property [
+                sh:path fro:floorArea ;
+                sh:maxInclusive 300 ;
+                sh:datatype xsd:decimal ;
+            ] ;
+            sh:property [
+                sh:path fro:hasFireDetectionSystem ;
+                sh:hasValue fro:TotalSurveillance ;
+                sh:message "Triplex compartments must be equipped with automatic fire detection of type 'total surveillance'." ;
             ] ;
         ]
-        # Uitzondering b: Duplex (2 bouwlagen, binnenverbindingstrap, opp <= 2500 m²)
+        # Exception D: Compartment containing only technical rooms.
         [
-            sh:and (
-                [
-                    sh:property [
-                        sh:path fbo:numberOfStoreys ;
-                        sh:hasValue 2 ;
-                    ] ;
-                ]
-                [
-                    sh:property [
-                        sh:path fbo:hasInternalConnectionStairs ;
-                        sh:hasValue true ;
-                    ] ;
-                ]
-                [
-                    sh:property [
-                        sh:path fbo:totalFloorArea ;
-                        sh:maxInclusive 2500 ;
-                    ] ;
-                ]
-            ) ;
+            sh:path fro:usageType ;
+            sh:hasValue fro:TechnicalRoom ;
         ]
-        # Uitzondering c: Triplex (3 bouwlagen, binnenverbindingstrap, opp <= 3000 m², totale branddetectie)
+        # Exception E: Atrium (Requires Automatic Suppression AND Smoke/Heat Extraction).
         [
-            sh:and (
-                [
-                    sh:property [
-                        sh:path fbo:numberOfStoreys ;
-                        sh:hasValue 3 ;
-                    ] ;
-                ]
-                [
-                    sh:property [
-                        sh:path fbo:hasInternalConnectionStairs ;
-                        sh:hasValue true ;
-                    ] ;
-                ]
-                [
-                    sh:property [
-                        sh:path fbo:totalFloorArea ;
-                        sh:maxInclusive 3000 ;
-                    ] ;
-                ]
-                [
-                    sh:property [
-                        sh:path fbo:hasAutomaticFireDetection ;
-                        sh:hasValue true ;
-                    ] ;
-                ]
-                [
-                    sh:property [
-                        sh:path fbo:fireDetectionType ;
-                        sh:hasValue fbo:TotalMonitoring ;
-                    ] ;
-                ]
-            ) ;
-        ]
-        # Uitzondering d: Enkel technische lokalen
-        [
+            a sh:NodeShape ;
             sh:property [
-                sh:path fbo:usage ;
-                sh:hasValue fbo:TechnicalUsage ;
+                sh:path fro:hasAutomaticSuppressionSystem ;
+                sh:hasValue true ;
+                sh:message "Multi-storey atriums must have an automatic suppression system." ;
             ] ;
-        ]
-        # Uitzondering e: Atrium (meerdere bouwlagen, blusinstallatie en rook- en warmteafvoer)
-        [
-            sh:and (
-                [
-                    sh:property [
-                        sh:path fbo:isAtrium ;
-                        sh:hasValue true ;
-                    ] ;
-                ]
-                [
-                    sh:property [
-                        sh:path fbo:hasAutomaticExtinguishingSystem ;
-                        sh:hasValue true ;
-                    ] ;
-                ]
-                [
-                    sh:property [
-                        sh:path fbo:hasSmokeAndHeatExhaustVentilation ;
-                        sh:hasValue true ;
-                    ] ;
-                ]
-            ) ;
+            sh:property [
+                sh:path fro:hasSmokeHeatExtractionSystem ;
+                sh:hasValue true ;
+                sh:message "Multi-storey atriums must have a smoke and heat extraction system." ;
+            ] ;
         ]
     ) .

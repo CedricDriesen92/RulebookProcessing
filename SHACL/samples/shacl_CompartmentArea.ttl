@@ -1,0 +1,32 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix firebim: <https://w3id.org/firebim#> .
+@prefix inst: <https://web-bim/resources/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# SHACL Node Shape for restricting fire compartment areas
+<> a sh:NodeShape ;
+   sh:target [
+       a sh:SPARQLTarget ;
+       sh:target """
+           PREFIX bot: <https://w3id.org/bot#>
+           PREFIX firebim: <https://w3id.org/firebim#>
+           PREFIX inst: <https://example.org/inst#>
+           PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+           SELECT DISTINCT ?fireCompartment (SUM(?zoneArea) AS ?totalArea)
+           WHERE {
+               ?fireCompartment a firebim:FireCompartment ;
+                                bot:containsZone ?zone .
+               ?zone inst:areaPSetRevitDimensions ?zoneArea .
+               FILTER(datatype(?zoneArea) = xsd:double)
+           }
+           GROUP BY ?fireCompartment
+       """ ;
+   ] ;
+   sh:property [
+       sh:path [ sh:nodeKind sh:BlankNode ] ;
+       sh:datatype xsd:double ;
+       sh:maxInclusive 1000 ;
+       sh:message "The total area of the fire compartment exceeds 1000 m²." ;
+   ] .

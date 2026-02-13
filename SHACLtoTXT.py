@@ -11,10 +11,8 @@ XSD = Namespace("http://www.w3.org/2001/XMLSchema#")
 FIREBIM = Namespace("http://example.com/firebim#") # Example custom namespace
 FBB = Namespace("http://example.com/firebimbuilding#") # Example custom namespace
 
-# New list for markers at different indentation levels
-# LIST_MARKERS = ["- ", "• ", "◆ ", "◇ "] # Removed for Markdown
 
-# Friendly names for common URIs
+# common URIs
 FRIENDLY_URI_NAMES = {
     str(SH.IRI): "a Resource (IRI)",
     str(SH.BlankNode): "a Blank Node",

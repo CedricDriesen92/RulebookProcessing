@@ -1,56 +1,66 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@prefix fbo: <http://www.firebim.org/ontologies/FBO#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fro: <http://www.firebim.org/ontologies/fro#> .
+@prefix fbo: <http://www.firebim.org/ontologies/fbo#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
-<https://ontology.firebim.be/ontology/fro#Article_2_2_1_1_Shape>
+<https://ontology.firebim.be/ontology/fro#Article_2_2_1_1>
     a sh:NodeShape ;
-    rdfs:label "Requirement for minimum number of exits per compartment, floor, or room"@en ;
-    rdfs:comment "Based on Article 2.2.1.1: Minimum exit requirements based on maximum occupancy thresholds."@en ;
-    sh:targetClass fro:Compartment, fbo:BuildingStorey, fbo:Room ;
+    rdfs:label "Article 2.2.1.1 - Number of Exits"@en ;
+    rdfs:comment "Validates the minimum number of exits for compartments, stories, and spaces based on occupancy."@en ;
+    
+    # Target the relevant building entities mentioned in the text: 
+    # Compartments, Stories (bouwlagen), and Spaces (lokalen)
+    sh:targetClass fro:FireCompartment ;
+    sh:targetClass fbo:Storey ;
+    sh:targetClass fbo:Space ;
+
+    # Ensure occupancy data is present to perform the calculation
     sh:property [
-        sh:path fro:hasMaximumOccupancy ;
-        sh:datatype xsd:integer ;
+        sh:path fro:occupancy ;
         sh:minCount 1 ;
-        sh:message "Elk compartiment, bouwlaag of lokaal moet een gedefinieerde maximale bezetting hebben."@nl ;
+        sh:datatype xsd:integer ;
+        sh:message "Entity must have an occupancy value defined to calculate required exits." ;
     ] ;
+
+    # Use SPARQL Constraint for the complex mathematical conditions (2 + n logic)
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "Het aantal uitgangen voor {?this} ({?exitCount}) voldoet niet aan het wettelijk minimum ({?minExits}) voor een bezetting van {?maxOccupancy} personen."@nl ;
+        sh:message "Insufficient exits: Occupancy is {?occupancy}, requiring {?requiredExits} exits, but only {?exitCount} were found." ;
+        sh:prefixes fro: ;
         sh:select """
-            PREFIX fro: <https://ontology.firebim.be/ontology/fro#>
-            SELECT $this ?maxOccupancy ?exitCount ?minExits
+            SELECT $this ?occupancy ?exitCount ?requiredExits
             WHERE {
-                $this fro:hasMaximumOccupancy ?maxOccupancy .
-                
-                # Count actual exits associated with the subject
-                {
-                    SELECT $this (COUNT(?exit) AS ?count)
-                    WHERE {
-                        $this fro:hasExit ?exit .
-                    }
-                    GROUP BY $this
-                }
-                BIND(?count AS ?exitCount)
+                # Get the occupancy of the focus node
+                $this fro:occupancy ?occupancy .
 
-                # Logic for minimum required exits (minExits)
-                # 1. < 100 => 1
-                # 2. 100 <= x < 500 => 2
-                # 3. >= 500 => 2 + n (where n is integer immediately larger than occupancy/1000)
-                # n = FLOOR(occupancy / 1000) + 1
+                # Count the number of exits connected to the focus node
+                {
+                    SELECT $this (COUNT(?exit) AS ?exitCountRaw)
+                    WHERE {
+                        OPTIONAL { $this fro:hasExit ?exit . }
+                    } GROUP BY $this
+                }
+                BIND(COALESCE(?exitCountRaw, 0) AS ?exitCount)
+
+                # Calculate n: integer immediately larger than occupancy / 1000
+                # Logic: floor(occupancy / 1000) + 1
+                BIND((FLOOR(?occupancy / 1000) + 1) AS ?n)
+
+                # Determine required exits based on the three conditions
                 BIND(
-                    IF(?maxOccupancy < 100, 1,
-                        IF(?maxOccupancy < 500, 2,
-                            2 + (FLOOR(?maxOccupancy / 1000) + 1)
+                    IF(?occupancy < 100, 
+                        1, 
+                        IF(?occupancy < 500, 
+                            2, 
+                            (2 + ?n)
                         )
-                    ) AS ?minExits
+                    ) AS ?requiredExits
                 )
-                
-                # Check if requirement is violated
-                FILTER (?exitCount < ?minExits)
+
+                # Filter results where actual exits are less than required exits
+                FILTER (?exitCount < ?requiredExits)
             }
         """ ;
-    ] ;
-    sh:severity sh:Violation .
+    ] .

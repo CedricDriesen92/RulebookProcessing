@@ -1,114 +1,80 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@prefix fbo: <http://www.firebim.org/ontologies/FBO#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fro: <http://www.firebim.org/ontologies/fro#> .
+@prefix fbo: <http://www.firebim.org/ontologies/fbo#> .
 
-<https://ontology.firebim.be/ontology/fro#Shape_Article_2_2_2_1>
+<https://ontology.firebim.be/ontology/fro#Article_2_2_2_1>
     a sh:NodeShape ;
-    sh:targetClass fro:Compartment ;
-    rdfs:label "Shape for Article 2.2.2.1 - Exit and Evacuation Routes" ;
-    # Requirement: Exits in opposite zones
+    rdfs:label "Article 2.2.2.1: Uitgangen en Evacuatiewegen"@nl ;
+    rdfs:comment "Regulates exits, evacuation routes, and specific requirements for underground levels and evacuation levels."@en ;
+    sh:targetClass fro:FireCompartment ;
+    
+    # 1. Exits must be in opposite zones
+    # "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment."
     sh:property [
-        sh:path fro:hasExit ;
-        sh:minCount 2 ;
-        sh:message "De uitgangen moeten in tegenovergestelde zones van het compartiment gelegen zijn (minstens 2 vereist)."@nl ;
+        sh:path fro:hasExitZoneDistribution ;
+        sh:hasValue fro:OppositeZones ;
+        sh:message "De uitgangen moeten gelegen zijn in tegenovergestelde zones van het compartiment."@nl ;
+        sh:severity sh:Violation ;
     ] ;
-    # Requirement: Evacuation routes leads to Outside, Stairwell, or Stair
+
+    # 2. Evacuation routes destinations
+    # "De evacuatiewegen leiden ofwel: naar buiten; naar trappenhuizen; naar trappen..."
     sh:property [
-        sh:path ( fro:hasExit fro:leadsTo ) ;
+        sh:path ( fro:hasEvacuationRoute fro:leadsTo ) ;
         sh:or (
-            [ sh:class fro:Outside ]
+            [ sh:class fro:Outdoors ]
             [ sh:class fro:Stairwell ]
-            [ sh:class fro:Stair ]
+            [ sh:class fro:Stairs ]
         ) ;
-        sh:message "De evacuatiewegen moeten leiden naar buiten, naar trappenhuizen, of naar trappen."@nl ;
+        sh:message "De evacuatiewegen moeten leiden naar buiten, naar trappenhuizen of naar trappen."@nl ;
+        sh:severity sh:Violation ;
     ] ;
-    # Requirement for Underground Storeys
-    sh:property [
-        sh:path ( fro:hasStorey ) ;
-        sh:node [
-            sh:rule [
-                a sh:NodeShape ;
-                sh:targetClass fro:UndergroundStorey ;
-                sh:property [
-                    sh:path fro:hasEvacuationRoute ;
-                    sh:node [
-                        sh:property [
-                            sh:path fro:hasWall ;
-                            sh:property [
-                                sh:path fro:hasFireResistance ;
-                                sh:hasValue "EI 30" ;
-                            ] ;
-                        ] ;
-                        sh:property [
-                            sh:path fro:hasDoor ;
-                            sh:property [
-                                sh:path fro:hasFireResistance ;
-                                sh:hasValue "EI1 30" ;
-                            ] ;
-                        ] ;
-                    ] ;
-                ] ;
-            ] ;
+
+    # 3. Underground Levels Exception
+    # "Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden EI 30 en deuren EI1 30..."
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Bij ondergrondse bouwlagen moet een vervangende uitgang naar buiten wanden EI 30 en deuren EI1 30 hebben."@nl ;
+        sh:prefixes [
+            sh:declare [
+                sh:prefix "fro" ;
+                sh:namespace "http://www.firebim.org/ontologies/fro#"^^xsd:anyURI ;
+            ]
         ] ;
-        sh:message "Wat de ondergrondse bouwlagen betreft, moet een evacuatieweg naar buiten wanden EI 30 en deuren EI1 30 hebben indien deze een trappenhuis vervangt."@nl ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this fro:isUnderground true .
+                $this fro:hasEvacuationRoute ?route .
+                ?route fro:leadsTo fro:Outdoors .
+                ?route fro:substitutesAccessTo fro:Stairwell .
+                FILTER NOT EXISTS {
+                    ?route fro:hasWall [ fro:hasFireResistance "EI 30" ] .
+                    ?route fro:hasDoor [ fro:hasFireResistance "EI1 30" ] .
+                }
+            }
+        """ ;
     ] ;
-    # Requirement for Evacuation Levels
-    sh:property [
-        sh:path ( fro:hasStorey ) ;
-        sh:node [
-            sh:targetClass fro:EvacuationLevel ;
-            sh:property [
-                sh:path ( fro:hasStair ) ;
-                sh:property [
-                    sh:path fro:leadsTo ;
-                    sh:class fro:Outside ;
-                ] ;
-            ] ;
-        ] ;
-        sh:message "Op een evacuatieniveau moet iedere trap naar buiten leiden, hetzij rechtstreeks, hetzij via een conforme evacuatieweg."@nl ;
-    ] .
 
-# Specific Shape for Underground Storey context
-<https://ontology.firebim.be/ontology/fro#Shape_Article_2_2_2_1_Underground>
-    a sh:NodeShape ;
-    sh:targetClass fro:UndergroundStorey ;
+    # 4. Stairs at Evacuation Level
+    # "Op een evacuatieniveau leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een evacuatieweg..."
     sh:property [
-        sh:path fro:hasEvacuationRoute ;
+        sh:path fro:hasStair ;
         sh:node [
+            a sh:NodeShape ;
             sh:property [
-                sh:path fro:hasWall ;
-                sh:property [
-                    sh:path fro:hasFireResistance ;
-                    sh:hasValue "EI 30" ;
-                ] ;
-                sh:message "Wanden van evacuatiewegen in ondergrondse bouwlagen die leiden naar buiten moeten EI 30 zijn."@nl ;
-            ] ;
-            sh:property [
-                sh:path fro:hasDoor ;
-                sh:property [
-                    sh:path fro:hasFireResistance ;
-                    sh:hasValue "EI1 30" ;
-                ] ;
-                sh:message "Deuren in evacuatiewegen in ondergrondse bouwlagen die leiden naar buiten moeten EI1 30 zijn."@nl ;
-            ] ;
+                sh:path fro:leadsTo ;
+                sh:class fro:Outdoors ;
+                sh:message "Op een evacuatieniveau moet iedere trap naar buiten leiden."@nl ;
+            ]
         ] ;
-    ] .
-
-# Specific Shape for Evacuation Level stairs
-<https://ontology.firebim.be/ontology/fro#Shape_Article_2_2_2_1_StairsOnEvacuationLevel>
-    a sh:NodeShape ;
-    sh:targetClass fro:Stair ;
-    sh:property [
-        sh:path ( [ sh:inversePath fro:hasStair ] ) ;
-        sh:node [
-            sh:class fro:EvacuationLevel ;
-        ] ;
-        sh:property [
-            sh:path fro:leadsTo ;
-            sh:class fro:Outside ;
-            sh:message "Iedere trap op een evacuatieniveau moet naar buiten leiden."@nl ;
+        # Apply this constraint only if the compartment is on an Evacuation Level
+        sh:filterShape [
+            sh:path fro:locatedOnLevel ;
+            sh:hasValue fro:EvacuationLevel ;
         ] ;
     ] .

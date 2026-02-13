@@ -35,7 +35,7 @@ if not google_key:
 
 gemini_client = genai.Client(api_key=google_key)
 
-model_name = "gemini-3-flash-preview"
+model_name = "gemini-3-pro-preview"
 
 print(f"Using Gemini model: {model_name}")
 print(f"Input TTL directory: {doc_graph_dir}")
@@ -43,10 +43,10 @@ print(f"SHACL output directory: {shacl_output_dir}")
 
 # --- Namespaces ---
 
-FRO = Namespace("https://ontology.firebim.be/ontology/fro#") # Adjust if your namespace is different
+FRO = Namespace("http://www.firebim.org/ontologies/fro#")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 XSD = Namespace("http://www.w3.org/2001/XMLSchema#")
-FBO = Namespace("https://ontology.firebim.be/ontology/fbo#") 
+FBO = Namespace("http://www.firebim.org/ontologies/fbo#") 
 
 # --- Helper Functions ---
 
@@ -205,12 +205,6 @@ def generate_shacl_from_text(rule_text: str, rule_subject_uri: str, building_ont
 **Task:**
 Analyze the provided **Regulatory Text**. Identify the core requirements, conditions of applicability, exceptions, and any selections. Translate these logical components into a complete and valid SHACL NodeShape in Turtle format, consulting the **SHACL Documentation** provided below as needed.
 
-**Mapping Guidance (RASE concepts as interpretation aid):**
-*   **Applicability (`<a>`-like concepts):** Determine the `sh:targetClass`, `sh:targetSubjectsOf`, `sh:targetObjectsOf`, or conditions within property shapes.
-*   **Requirement (`<r>`-like concepts):** Define constraints using `sh:property` (path, cardinality, type, value, range, pattern, etc.). Handle alternatives ("or").
-*   **Exception (`<e>`-like concepts):** Model exceptions using `sh:not`, `sh:closed`, filters, or conditional logic.
-*   **Selection (``-like concepts):** Influence the `sh:target` or use `sh:in`, `sh:or`.
-
 **Output Requirements:**
 *   Generate **only** the SHACL shape in valid Turtle format.
 *   Start directly with `@prefix` or the NodeShape definition. Do **not** include explanations, apologies, or any text outside the Turtle syntax.
@@ -322,7 +316,7 @@ def main():
         return
 
     # Load the building ontology
-    building_ontology_path = "buildingontologies/firebim_ontology_alex.ttl"
+    building_ontology_path = "buildingontologies/firebim_ontology_alex_2.ttl"
     building_ontology_graph = Graph()
     try:
         print(f"Loading building ontology from {building_ontology_path}...")

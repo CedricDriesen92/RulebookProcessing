@@ -1,78 +1,82 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@prefix fbo: <http://www.firebim.org/ontologies/FBO#> .
+@prefix fro: <http://www.firebim.org/ontologies/fro#> .
+@prefix fbo: <http://www.firebim.org/ontologies/fbo#> .
+@prefix bot: <https://w3id.org/bot#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://ontology.firebim.be/ontology/fro#Article_2_1_1_Shape>
+<https://ontology.firebim.be/ontology/fro#Article_2_1_1>
     a sh:NodeShape ;
-    sh:targetClass fbo:Compartment ;
-    sh:message "Het compartiment voldoet niet aan de eisen van Artikel 2.1.1 betreffende de maximale oppervlakte of lengte, rekening houdend met de mogelijke uitzonderingen (parking, gelijkvloers of actieve bescherming)."@nl ;
-    sh:message "The compartment does not meet the requirements of Article 2.1.1 regarding maximum area or length, considering applicable exceptions (parking, ground floor, or active protection)."@en ;
+    rdfs:label "Compartimentering Oppervlakte en Lengte"@nl ;
+    rdfs:comment "Regels met betrekking tot de maximale oppervlakte en lengte van brandcompartimenten (Art 2.1.1)."@nl ;
+    sh:targetClass fbo:FireCompartment ;
+    sh:message "Het compartiment voldoet niet aan de eisen van Artikel 2.1.1 met betrekking tot oppervlakte, lengte of vereiste uitrusting."@nl ;
     sh:or (
-        # Exception: Parking lots (Section 5.2)
+        # Exception 1: Parkings (Excluded from this specific rule, referenced in 5.2)
         [
-            sh:property [
-                sh:path fbo:isParking ;
-                sh:hasValue true ;
-            ]
+            sh:path fbo:hasFunction ;
+            sh:hasValue fbo:ParkingFunction ;
+            sh:message "Uitzondering voor parkings."@nl ;
         ]
-        # Exception: Automatic Fire Suppression AND Smoke/Heat Exhaust (RWA)
+        # Exception 2: Administrative Derogation (Ministerial exception)
+        [
+            sh:path fbo:hasDerogation ;
+            sh:hasValue true ;
+            sh:message "Ministeriële afwijking toegestaan."@nl ;
+        ]
+        # Exception 3: Equipped with Automatic Extinguishing AND Smoke/Heat Extraction
+        # If equipped, the strict area limits of 2500/3500 do not apply (implicit unlimited/higher limit)
         [
             sh:and (
                 [
-                    sh:property [
-                        sh:path fbo:hasAutomaticFireSuppression ;
-                        sh:hasValue true ;
-                    ]
+                    sh:path fbo:hasAutomaticFireSuppressionSystem ;
+                    sh:hasValue true ;
                 ]
                 [
-                    sh:property [
-                        sh:path fbo:hasSmokeHeatExhaust ;
-                        sh:hasValue true ;
-                    ]
+                    sh:path fbo:hasSmokeAndHeatExtractionSystem ;
+                    sh:hasValue true ;
                 ]
-            )
+            ) ;
+            sh:message "Toegestaan wegens aanwezigheid blusinstallatie en RWA."@nl ;
         ]
-        # Rule for Ground-floor buildings consisting of a single compartment
+        # Exception 4: Single-story building with exactly one compartment
+        # Max Area: 3500m², Max Length: 90m
         [
             sh:and (
                 [
-                    sh:property [
-                        sh:path fbo:isGroundFloorOnly ;
-                        sh:hasValue true ;
+                    # Check context: Building is single storey
+                    sh:path fbo:isCompartmentOf ;
+                    sh:node [
+                        sh:property [
+                            sh:path fbo:isSingleStorey ;
+                            sh:hasValue true ;
+                        ] ;
+                        # Check context: Building consists of one compartment
+                        sh:property [
+                            sh:path fbo:numberOfCompartments ;
+                            sh:maxInclusive 1 ;
+                        ] ;
                     ]
                 ]
                 [
-                    sh:property [
-                        sh:path fbo:isSingleCompartmentBuilding ;
-                        sh:hasValue true ;
-                    ]
+                    sh:path fbo:floorArea ;
+                    sh:maxInclusive 3500 ;
+                    sh:datatype xsd:double ;
                 ]
                 [
-                    sh:property [
-                        sh:path fro:areaValue ;
-                        sh:maxInclusive 3500 ;
-                    ]
+                    sh:path fbo:length ;
+                    sh:maxInclusive 90 ;
+                    sh:datatype xsd:double ;
                 ]
-                [
-                    sh:property [
-                        sh:path fro:lengthValue ;
-                        sh:maxInclusive 90 ;
-                    ]
-                ]
-            )
+            ) ;
+            sh:message "Gelijkvloers gebouw met 1 compartiment: max 3500m² en max 90m lengte."@nl ;
         ]
-        # General Rule: Area < 2500 m2
+        # Standard Rule: Max Area 2500m²
         [
-            sh:property [
-                sh:path fro:areaValue ;
-                sh:maxExclusive 2500 ;
-            ]
+            sh:path fbo:floorArea ;
+            sh:maxInclusive 2500 ;
+            sh:datatype xsd:double ;
+            sh:message "Standaard regel: compartiment max 2500m²."@nl ;
         ]
     ) .
-
-# Link the rule URI to the shape
-<https://ontology.firebim.be/ontology/fro#Article_2_1_1>
-    a fro:RegulatoryRequirement ;
-    fro:hasShape <https://ontology.firebim.be/ontology/fro#Article_2_1_1_Shape> .
