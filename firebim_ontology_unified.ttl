@@ -14,7 +14,319 @@
 fbo:Article a owl:Class ;
     rdfs:label "Article"@en .
 
+fbo:BR18VK5B01a a fbo:Document ;
+    rdfs:label "BR18-VK5-B01a"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 1a - Pre-scripted solutions for detached and semi-detached single-family houses"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName """Bilag 1a - Præ-accepterede løsninger for fritliggende og sammenbyggede
+enfamiliehuse"""@dk-DK ;
+    fbo:hasPublicationDate "2022-01-03"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solution" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ipzbg42h/bilag-1a-fritliggende-og-sammenbyggede-enfamiliehuse-ver-20-20220103-a.pdf> .
+
+fbo:BR18VK5B02 a fbo:Document ;
+    rdfs:label "BR18-VK5-B02"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 2 - Pre-scripted solutions for multi-storey buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 2 - Præ-accepterede løsninger for etageboligbyggeri"@dk-DK ;
+    fbo:hasPublicationDate "2021-10-29"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solution" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/zj1pprxq/bilag-2-etagebyggeri-ver-14-20211029-a.pdf> .
+
+fbo:BR18VK5B03 a fbo:Document ;
+    rdfs:label "BR18-VK5-B03"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 3 - Pre-scripted solutions for offices etc."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 3 - Præ-accepterede løsninger for kontorer mv."@dk-DK ;
+    fbo:hasPublicationDate "2021-10-29"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/4yjfz4xv/bilag-3-kontorbygninger-ver-12-20211029-a.pdf> .
+
+fbo:BR18VK5B04 a fbo:Document ;
+    rdfs:label "BR18-VK5-B04"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 4 - Pre-scripted solutions for assembly rooms, shops etc."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 4 - Præ-accepterede løsninger for forsamlingslokaler, butikker mv."@dk-DK ;
+    fbo:hasPublicationDate "2021-10-29"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/4kwdmmqe/bilag-4-forsamlingslokaler-butik-mv-ver-12-20211029-a.pdf> .
+
+fbo:BR18VK5B05 a fbo:Document ;
+    rdfs:label "BR18-VK5-B05"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 5 - Pre-scripted solutions for classrooms etc."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 5 - Præ-accepterede løsninger for undervisningslokaler mv."@dk-DK ;
+    fbo:hasPublicationDate "2022-01-11"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/cq2biybf/bilag-5-undervisningslokaler-mv-ver-11-20220111-a.pdf> .
+
+fbo:BR18VK5B06 a fbo:Document ;
+    rdfs:label "BR18-VK5-B06"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 6 - Pre-scripted solutions for hotels etc."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 6 - Præ-accepterede løsninger for hoteller mv."@dk-DK ;
+    fbo:hasPublicationDate "2022-01-11"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ylopiebc/bilag-6-hoteller-mv-ver-11-20220111-a.pdf> .
+
+fbo:BR18VK5B07 a fbo:Document ;
+    rdfs:label "BR18-VK5-B07"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription """Appendix 7 - Pre-scripted solutions for building compartments where people cannot
+get to safety by themselves"""@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName """Bilag 7 - Præ-accepterede løsninger for bygningsafsnit, hvor personer ikke
+kan bringe sig i sikkerhed ved egen hjælp"""@dk-DK ;
+    fbo:hasPublicationDate "2022-01-11"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/xk2io24g/bilag-7-anvendelseskategori-6-ver-11-20220111-a.pdf> .
+
+fbo:BR18VK5B08 a fbo:Document ;
+    rdfs:label "BR18-VK5-B08"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 8 - Pre-scripted solutions for the agricultural industry's breeding and farm buildings and greenhouses for production purposes"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName """Bilag 8 - Præ-accepterede løsninger for Jordbrugserhvervets avls- og
+driftsbygninger samt væksthuse til produktionsformål"""@dk-DK ;
+    fbo:hasPublicationDate "2021-04-21"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ebuhoo1b/20210421-bilag-8-jordbrugserhvervets-avls-og-driftsbygninger-samt-vksthuse-til-produktionver12-a.pdf> .
+
+fbo:BR18VK5B09 a fbo:Document ;
+    rdfs:label "BR18-VK5-B09"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 9: Building compartments with garages"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 9: Bygningsafsnit med garageanlæg"@dk-DK ;
+    fbo:hasPublicationDate "2019-02-01"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/na5iaxaq/bilag-9-praeaccepterede-loesninger-bygningsafsnit-med-garageanlaeg-01022019-a.pdf> .
+
+fbo:BR18VK5B10 a fbo:Document ;
+    rdfs:label "BR18-VK5-B10"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 10: Single-storey industrial and warehouse buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 10: Industri- og lagerbygninger i én etage"@dk-DK ;
+    fbo:hasPublicationDate "2019-01-31"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/vqph5tx0/bilag-10-praeaccepterede-loesninger-industri-og-lagerbygninger-31012019-a.pdf> .
+
+fbo:BR18VK5B11 a fbo:Document ;
+    rdfs:label "BR18-VK5-B11"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 11: Pre-scripted solutions for assembly tents and temporary outdoor camping and sales areas"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName """Bilag 11: Præ‐accepterede løsninger for forsamlingstelte og midlertidige
+udendørs camping‐ og salgsområder"""@dk-DK ;
+    fbo:hasPublicationDate "2024-09-02"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ilafaqcd/bilag-11version-14-uden-ndringsmarkeringer-a.pdf> .
+
+fbo:BR18VK5B12 a fbo:Document ;
+    rdfs:label "BR18-VK5-B12"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription """Appendix 12 - Pre-scripted solutions for fire engineering
+installations and hand extinguishing equipment"""@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 12 -Præ-accepterede løsninger for brandtekniske installationer og håndslukningsudstyr"@dk-DK ;
+    fbo:hasPublicationDate "2021-03-08"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/uxep2y1h/bilag-12-ver-11-20210308-a.pdf> .
+
+fbo:BR18VK5K01 a fbo:Document ;
+    rdfs:label "BR18-VK5-K01"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 1: General fire safety"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 1: Generelt om sikkerhed ved brand"@dk-DK ;
+    fbo:hasPublicationDate "2022-05-10"^^xsd:date ;
+    fbo:hasRemarks "Beware that Chapter 1 also includes non Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/qldj55mo/kapitel-1-generelt-om-sikkerhed-ved-brand-ver3020220510-a.pdf> .
+
+fbo:BR18VK5K02 a fbo:Document ;
+    rdfs:label "BR18-VK5-K02"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 2: Evacuation and rescue of people"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 2: Evakuering og redning af personer"@dk-DK ;
+    fbo:hasPublicationDate "2021-02-08"^^xsd:date ;
+    fbo:hasRemarks "Beware that Chapter 2 also includes non Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ruwni4b3/kapitel-2-evakuering-ver-02-2021-02-08-a.pdf> .
+
+fbo:BR18VK5K03 a fbo:Document ;
+    rdfs:label "BR18-VK5-K03"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 3: Load-bearing structures"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 3: Bærende konstruktioner"@dk-DK ;
+    fbo:hasPublicationDate "2021-01-15"^^xsd:date ;
+    fbo:hasRemarks "Beware that Chapter 3 also includes non Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ruwni4b3/kapitel-2-evakuering-ver-02-2021-02-08-a.pdf> .
+
+fbo:BR18VK5K04 a fbo:Document ;
+    rdfs:label "BR18-VK5-K04"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 4: Ignition, fire and smoke spread"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 4: Antændelse, brand- og røgspredning"@dk-DK ;
+    fbo:hasPublicationDate "2021-10-29"^^xsd:date ;
+    fbo:hasRemarks "Beware that Chapter 3 also includes non Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/4kwdmmqe/bilag-4-forsamlingslokaler-butik-mv-ver-12-20211029-a.pdf> .
+
+fbo:BR18VK5K05 a fbo:Document ;
+    rdfs:label "BR18-VK5-K05"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 5: Emergency response options"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 5: Redningsberedskabets indsatsmuligheder"@dk-DK ;
+    fbo:hasPublicationDate "2021-03-04"^^xsd:date ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/b0mccscx/kapitel5-redningsberedskabets-indsatsmuligheder-ver-13-a.pdf> .
+
+fbo:BR18VK5K06 a fbo:Document ;
+    rdfs:label "BR18-VK5-K06"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 6: Functional testing and system integration"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 6: Funktionsafprøvning og systemintegration"@dk-DK ;
+    fbo:hasPublicationDate "2021-03-04"^^xsd:date ;
+    fbo:hasRemarks "Beware that Chapter 6 also includes non Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/g4nckte3/kapitel-6-funktionsafprvning-og-systemintegrationstest-ver-21-a.pdf> .
+
+fbo:BR18VK5K07 a fbo:Document ;
+    rdfs:label "BR18-VK5-K07"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 7: Operation, control and maintenance of fire conditions in and around buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 7: Drift-, kontrol- og vedligehold af brandforhold i og ved bygninger"@dk-DK ;
+    fbo:hasPublicationDate "2021-03-04"^^xsd:date ;
+    fbo:hasRemarks "Beware that Chapter 7 also includes non Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ybrdtanu/kapitel-7-drift-kontrol-og-vedligehold-ver-11-a.pdf> .
+
+fbo:BVR26042024 a fbo:Document ;
+    rdfs:label "BVR 26/04/2024"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDescription "Besluit van de Vlaamse Regering tot vaststelling van de specifieke brandveiligheidsnormen waaraan lokale dienstencentra, centra voor dagverzorging, centra voor dagopvang, centra voor kortverblijf, centra voor herstelverblijf, groepen van assistentiewoningen en woonzorgcentra moeten voldoen en tot bepaling van de procedure voor de uitreiking van het attest van naleving van die normen"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Decision of the Flemish Government laying down the specific fire safety standards to be met by local service centres, day care centres, day care centres, short-term care centres, rehabilitation centres, groups of assisted living housing and residential care centres and determining the procedure for issuing the certificate of compliance with those standards"@nl-BE ;
+    fbo:hasPublicationDate "2024-04-26"^^xsd:date ;
+    fbo:hasURL <https://codex.vlaanderen.be/PrintDocument.ashx?id=1039871&datum=&geannoteerd=false&print=false> .
+
+fbo:Conventionalheightofabuilding a fbo:Document ;
+    rdfs:label "Conventional height of a building"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDescription "Explanation on how to derive the conventional height of a building, which is required to distinguish between low, medium and high-rise buildings"@en ;
+    fbo:hasDocumentType "interpretation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Conventionele hoogte van het gebouw"@nl-BE ;
+    fbo:hasPublicationDate "2011-09-15"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/interpretatie-koninklijk-besluit-van-7-juli-1994-conventionele-hoogte-van-het-gebouw> .
+
+fbo:Critriostcnicosparadeterminaodadensidadedecargadeincndiomodificada a fbo:Document ;
+    rdfs:label "Critérios técnicos para determinação da densidade de carga de incêndio modificada"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDescription "Technical criteria for determining the modified fire load density"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Critérios técnicos para determinação da densidade de carga de incêndio modificada"@pt-PT ;
+    fbo:hasPublicationDate "2020-09-19"^^xsd:date ;
+    fbo:hasURL <https://files.diariodarepublica.pt/2s/2020/09/183000000/0010500129.pdf> .
+
 fbo:FireBIMOntology a owl:Ontology .
+
+fbo:InterpretationAreaCompartment a fbo:Document ;
+    rdfs:label "Interpretation Area Compartment"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDescription "Illustration + explanation of the measurement method for compartments"@en ;
+    fbo:hasDocumentType "interpretation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "2013-01-24_interpretatie-oppervlakte_compartiment"@nl-BE ;
+    fbo:hasPublicationDate "2013-01-24"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/interpretatie-koninklijk-besluit-van-7-juli-1994-definitie-van-de-oppervlakte-van-een-compartiment> .
+
+fbo:InterpretationsRoyaldecreefromJuly7th1994Changesoftheroyaldecreefrom20thofMay2022 a fbo:Document ;
+    rdfs:label "Interpretations - Royal decree from July 7th 1994 - Changes of the royal decree from 20th of May 2022"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDocumentType "interpretation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Interpretatie - Koninklijk besluit van 7 juli 1994 - Wijzigingen van KB van 20 mei 2022"@nl-BE ;
+    fbo:hasPublicationDate "2022-06-23"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/interpretatie-koninklijk-besluit-van-7-juli-1994-wijzigingen-van-kb-van-20-mei-2022> .
+
+fbo:KBARApp51ReactiontoFire a fbo:Document ;
+    rdfs:label "KB/AR App5/1 - Reaction to Fire"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Bijlage 5/1: Reactie bij brand"@nl-BE ;
+    fbo:hasPublicationDate "1994-07-07"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/regelgeving/koninklijk-besluit-van-7-juli-1994-tot-vaststelling-van-de-basisnormen-voor-de> .
+
+fbo:LietuvosRespublikospriegaisrinssaugosstatymasNrIX1225 a fbo:Document ;
+    rdfs:label "Lietuvos Respublikos priešgaisrinės saugos įstatymas  Nr. IX-1225"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Law of the Republic of Lithuania on Fire Safety"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "Lietuvos Respublikos priešgaisrinės saugos įstatymas  Nr. IX-1225"@lt-LT ;
+    fbo:hasPublicationDate "2019-01-01"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalActEditions/lt/TAD/TAIS.197461> .
+
+fbo:NEN6090 a fbo:Document ;
+    rdfs:label "NEN 6090"@en ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasDescription "Determination of fire load"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-NL" ;
+    fbo:hasOriginalName "Bepaling van de vuurbelasting"@nl-NL ;
+    fbo:hasPublicationDate "2017-08-01"^^xsd:date ;
+    fbo:hasRemarks "This document is appointed in the Bbl" .
+
+fbo:NotaTcnican01Utilizaestipodeedifcioserecintos a fbo:Document ;
+    rdfs:label "Nota Técnica n.º 01 - Utilizações-tipo de edifícios e recintos"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDescription "Definition of occupancies"@en ;
+    fbo:hasDocumentType "interpretation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Utilizações-tipo de edifícios e recintos"@pt-PT ;
+    fbo:hasPublicationDate "2021-05-01"^^xsd:date ;
+    fbo:hasURL <https://prociv.gov.pt/media/ix2fsrb3/nt_01_2021.pdf> .
+
+fbo:NotaTcnican06Categoriasderisco a fbo:Document ;
+    rdfs:label "Nota Técnica n.º 06 - Categorias de risco"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDescription "Risk categories"@en ;
+    fbo:hasDocumentType "interpretation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Categorias de risco"@pt-PT ;
+    fbo:hasPublicationDate "2022-08-01"^^xsd:date ;
+    fbo:hasURL <https://prociv.gov.pt/media/xylb1rea/nt_06_2022.pdf> .
 
 fbo:correspondsToIFC a owl:ObjectProperty ;
     rdfs:label "corresponds to IFC"@en .
@@ -40,11 +352,17 @@ fbo:hasDefinition a owl:DatatypeProperty ;
 fbo:hasDerivation a owl:DatatypeProperty ;
     rdfs:label "has derivation"@en .
 
+fbo:hasDescription a owl:DatatypeProperty ;
+    rdfs:label "has description"@en .
+
 fbo:hasDesignator a owl:DatatypeProperty ;
     rdfs:label "has designator"@en .
 
 fbo:hasDocumentReference a owl:ObjectProperty ;
     rdfs:label "has document reference"@en .
+
+fbo:hasDocumentType a owl:DatatypeProperty ;
+    rdfs:label "has document type"@en .
 
 fbo:hasDomain a owl:DatatypeProperty ;
     rdfs:label "has domain"@en .
@@ -94,6 +412,15 @@ fbo:hasNotionID a owl:DatatypeProperty ;
 fbo:hasNotionURL a owl:ObjectProperty ;
     rdfs:label "has Notion page URL"@en .
 
+fbo:hasOriginalLanguage a owl:DatatypeProperty ;
+    rdfs:label "has original language"@en .
+
+fbo:hasOriginalName a owl:DatatypeProperty ;
+    rdfs:label "has original name"@en .
+
+fbo:hasPublicationDate a owl:DatatypeProperty ;
+    rdfs:label "has publication date"@en .
+
 fbo:hasReferenceCode a owl:DatatypeProperty ;
     rdfs:label "has reference code"@en .
 
@@ -111,6 +438,9 @@ fbo:hasStatus a owl:DatatypeProperty ;
 
 fbo:hasSubitem a owl:ObjectProperty ;
     rdfs:label "has subitem"@en .
+
+fbo:hasURL a owl:ObjectProperty ;
+    rdfs:label "has URL"@en .
 
 fbo:hasUnit a owl:DatatypeProperty ;
     rdfs:label "has unit"@en .
@@ -6982,7 +7312,14 @@ fbo-PT:Volume a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/Volume-2aef8487e6e780fc827fcd15de1e2596> .
 
 fbo:AUTOMOBILISAUGYKLGAISRINSSAUGOSTAISYKLSNr144 a fbo:Document ;
-    rdfs:label "AUTOMOBILIŲ SAUGYKLŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-44"@en .
+    rdfs:label "AUTOMOBILIŲ SAUGYKLŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-44"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Fire safety rules for car storage facilities"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "AUTOMOBILIŲ SAUGYKLŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-44"@lt-LT ;
+    fbo:hasPublicationDate "2019-11-01"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.418483/asr> .
 
 fbo:AccessibleSector a owl:Class ;
     rdfs:label "accessible sector"@en .
@@ -7077,7 +7414,14 @@ fbo:AutomaticWarningsystem a owl:Class ;
     rdfs:label "Automatic warning system"@en .
 
 fbo:BR18 a fbo:Document ;
-    rdfs:label "BR18"@en .
+    rdfs:label "BR18"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "The Danish Building Regulations 2018 (BR18)"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bygningsreglementet 2018 (BR18)"@dk-DK ;
+    fbo:hasPublicationDate "2021-02-03"^^xsd:date ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/> .
 
 fbo:BoundarySubcompartment a owl:Class ;
     rdfs:label "Room - Subcompartment - boundary"@en ;
@@ -7473,10 +7817,24 @@ fbo:FurnishingsOfEscapeRoutes a owl:Class ;
     rdfs:label "furnishings of escape routes"@en .
 
 fbo:GAMYBOSPRAMONSIRSANDLIAVIMOSTATINIGAISRINSSAUGOSTAISYKLSNr145 a fbo:Document ;
-    rdfs:label "GAMYBOS, PRAMONĖS IR SANDĖLIAVIMO STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-45"@en .
+    rdfs:label "GAMYBOS, PRAMONĖS IR SANDĖLIAVIMO STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-45"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Fire safety rules for production, industrial and storage buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "GAMYBOS, PRAMONĖS IR SANDĖLIAVIMO STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-45"@lt-LT ;
+    fbo:hasPublicationDate "2024-11-01"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.418484?jfwid=> .
 
 fbo:GYVENAMJPASTATGAISRINSSAUGOSTAISYKLSNr164 a fbo:Document ;
-    rdfs:label "GYVENAMŲJŲ PASTATŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-64 "@en .
+    rdfs:label "GYVENAMŲJŲ PASTATŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-64"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Fire safety rules for residential buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "GYVENAMŲJŲ PASTATŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-64"@lt-LT ;
+    fbo:hasPublicationDate "2024-11-07"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.393013?jfwid=32wf8tn4> .
 
 fbo:GableWall a owl:Class ;
     rdfs:label "Gable wall"@en ;
@@ -7502,7 +7860,12 @@ fbo:HorizontalShaft a owl:Class ;
     rdfs:subClassOf bot:Element .
 
 fbo:ISO670712020BuildingsandcivilengineeringworksVocabularyPart1Generalterms a fbo:Document ;
-    rdfs:label "ISO 6707-1:2020 - Buildings and civil engineering works - Vocabulary - Part 1: General terms"@en .
+    rdfs:label "ISO 6707-1:2020 - Buildings and civil engineering works - Vocabulary - Part 1: General terms"@en ;
+    fbo:hasCountry fbo:Europe ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalName "ISO 6707-1:2020 - Buildings and civil engineering works - Vocabulary - Part 1: General terms" ;
+    fbo:hasPublicationDate "2020-08-09"^^xsd:date ;
+    fbo:hasURL <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.1.11> .
 
 fbo:IndependentBuilding a owl:DatatypeProperty ;
     rdfs:label "Independent building"@en .
@@ -7597,13 +7960,29 @@ fbo:MixedOccupancyType a owl:Class ;
     rdfs:label "Mixed Occupancy Type"@en .
 
 fbo:NEKILNOJAMJDAIKTKADASTRODUOMENNUSTATYMOTAISYKLSNrD1349 a fbo:Document ;
-    rdfs:label "NEKILNOJAMŲJŲ DAIKTŲ KADASTRO DUOMENŲ NUSTATYMO TAISYKLĖS Nr. D1-349"@en .
+    rdfs:label "NEKILNOJAMŲJŲ DAIKTŲ KADASTRO DUOMENŲ NUSTATYMO TAISYKLĖS Nr. D1-349"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "The rules for determining cadastral data for real estate regulate the procedure for cadastral measurements of real estate."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "NEKILNOJAMŲJŲ DAIKTŲ KADASTRO DUOMENŲ NUSTATYMO TAISYKLĖS Nr. D1-349"@lt-LT ;
+    fbo:hasPublicationDate "2025-09-25"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/3deb251090ac11ef955ff95815eb5ce5/asr> .
 
 fbo:NEN60682020 a fbo:Document ;
-    rdfs:label "NEN 6068:2020"@en .
+    rdfs:label "NEN 6068:2020"@en ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasDescription "Determination of the resistance to fire movement between spaces"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-NL" ;
+    fbo:hasOriginalName "Bepaling van de weerstand tegen branddoorslag en brandoverslag tussen ruimten"@nl-NL ;
+    fbo:hasPublicationDate "2020-01-01"^^xsd:date ;
+    fbo:hasRemarks "This document is appointed in the Bbl" .
 
 fbo:NEN60752020 a fbo:Document ;
-    rdfs:label "NEN 6075:2020"@en .
+    rdfs:label "NEN 6075:2020"@en ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasDocumentType "regulation" .
 
 fbo:NeighbouringPlot a owl:Class ;
     rdfs:label "neighbouring plot"@en ;
@@ -7623,7 +8002,14 @@ fbo:NonEnclosed a owl:DatatypeProperty ;
     rdfs:label "Non-enclosed"@en .
 
 fbo:NotaTcnican05Locaisderisco a fbo:Document ;
-    rdfs:label "Nota Técnica n.º 05 - Locais de risco"@en .
+    rdfs:label "Nota Técnica n.º 05 - Locais de risco"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDescription "Rooms"@en ;
+    fbo:hasDocumentType "interpretation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Locais de risco"@pt-PT ;
+    fbo:hasPublicationDate "2021-05-03"^^xsd:date ;
+    fbo:hasURL <https://prociv.gov.pt/media/y4mldfu1/nt_05_2020.pdf> .
 
 fbo:NumberBuildingLayersBuilding a owl:DatatypeProperty ;
     rdfs:label "Building-number of building layers"@en .
@@ -7914,7 +8300,14 @@ fbo:RoomfunctionStorageroom a owl:Class ;
 
 fbo:STATYBOSTECHNINISREGLAMENTASSTR101032017STATINIIRPATALPKLASIFIKAVIMAS a fbo:Document ;
     rdfs:label """STATYBOS TECHNINIS REGLAMENTAS STR 1.01.03:2017
-„STATINIŲ IR PATALPŲ KLASIFIKAVIMAS“"""@en .
+„STATINIŲ IR PATALPŲ KLASIFIKAVIMAS“"""@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Construction Technical Requirements Regulation. Classification of Buildings and Premises"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "STATYBOS TECHNINIS REGLAMENTAS STR 1.01.03:2017„STATINIŲ IR PATALPŲ KLASIFIKAVIMAS“"@lt-LT ;
+    fbo:hasPublicationDate "2016-10-27"^^xsd:date ;
+    fbo:hasURL <https://www.e-tar.lt/portal/lt/legalAct/c14e6210afe511e6b844f0f29024f5ac/asr> .
 
 fbo:SafeZone a owl:DatatypeProperty ;
     rdfs:label "Safe Zone"@en .
@@ -8172,7 +8565,14 @@ fbo:UsefulWidth a owl:Class ;
     rdfs:label "Useful Width"@en .
 
 fbo:VISUOMENINISTATINIGAISRINSSAUGOSTAISYKLSNr114 a fbo:Document ;
-    rdfs:label "VISUOMENINIŲ STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-14"@en .
+    rdfs:label "VISUOMENINIŲ STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-14"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Fire safety rules for public buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "VISUOMENINIŲ STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-14"@lt-LT ;
+    fbo:hasPublicationDate "2024-11-01"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.391196?jfwid=> .
 
 fbo:VerticalRoute a owl:Class ;
     rdfs:label "VerticalRoute"@en .
@@ -11142,10 +11542,22 @@ fbo:HoseReel a owl:Class ;
     rdfs:label "Hose reel"@en .
 
 fbo:KBARApp31MediumriseBuildings a fbo:Document ;
-    rdfs:label "KB/AR App3/1 - Medium-rise Buildings"@en .
+    rdfs:label "KB/AR App3/1 - Medium-rise Buildings"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Bijlage 3/1: Middelhoge gebouwen"@nl-BE ;
+    fbo:hasPublicationDate "1994-07-07"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/regelgeving/koninklijk-besluit-van-7-juli-1994-tot-vaststelling-van-de-basisnormen-voor-de> .
 
 fbo:KBARApp41HighriseBuildings a fbo:Document ;
-    rdfs:label "KB/AR App4/1 - High-rise Buildings"@en .
+    rdfs:label "KB/AR App4/1 - High-rise Buildings"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Bijlage 4/1: Hoge gebouwen"@nl-BE ;
+    fbo:hasPublicationDate "1994-07-07"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/regelgeving/koninklijk-besluit-van-7-juli-1994-tot-vaststelling-van-de-basisnormen-voor-de> .
 
 fbo:LengthEvacuationPath a owl:Class ;
     rdfs:label "Length of the evacuation path"@en .
@@ -11878,13 +12290,31 @@ fbo:FireLoad a owl:DatatypeProperty ;
         "Fire load"@en .
 
 fbo:KBARApp21LowriseBuildings a fbo:Document ;
-    rdfs:label "KB/AR App2/1 - Low-rise Buildings"@en .
+    rdfs:label "KB/AR App2/1 - Low-rise Buildings"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Bijlage 2/1: Lage gebouwen"@nl-BE ;
+    fbo:hasPublicationDate "1994-07-07"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/regelgeving/koninklijk-besluit-van-7-juli-1994-tot-vaststelling-van-de-basisnormen-voor-de> .
 
 fbo:NPEN1991122010 a fbo:Document ;
-    rdfs:label "NP EN 1991‑1‑2:2010"@en .
+    rdfs:label "NP EN 1991‑1‑2:2010"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDescription "A NP EN 1991‑1‑2:2010 fornece os requisitos e regras para o dimensionamento estrutural de edifícios e obras de engenharia civil expostos ao fogo"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Eurocódigo 1: Ações nas estruturas  Parte 1‑2: Ações em estruturas expostas ao fogo"@pt-PT .
 
 fbo:RegimeJurdicodaSeguranaContraIncndioemEdifcios a fbo:Document ;
-    rdfs:label "Regime Jurídico da Segurança Contra Incêndio em Edifícios"@en .
+    rdfs:label "Regime Jurídico da Segurança Contra Incêndio em Edifícios"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Regime Jurídico da Segurança Contra Incêndio em Edifícios"@pt-PT ;
+    fbo:hasPublicationDate "2019-10-18"^^xsd:date ;
+    fbo:hasRemarks "There is an error in the Table - QUADRO IX" ;
+    fbo:hasURL <https://files.diariodarepublica.pt/1s/2019/10/20100/0000300053.pdf> .
 
 fbo-INT:AutomaticFireExtinguishSystem a owl:Class ;
     rdfs:label "Automatic Fire Extinguish System"@en ;
@@ -12385,13 +12815,33 @@ Classificação dada pelo uso dominante de qualquer edifício ou recinto, ou de 
     fbo:hasValueType "Enumeration (choice)" .
 
 fbo:ISO139432023FiresafetyVocabulary a fbo:Document ;
-    rdfs:label "ISO 13943:2023 Fire safety — Vocabulary"@en .
+    rdfs:label "ISO 13943:2023 Fire safety — Vocabulary"@en ;
+    fbo:hasCountry fbo:Europe ;
+    fbo:hasDescription "This document defines terminology relating to fire safety as used in ISO and IEC International Standards."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "en" ;
+    fbo:hasOriginalName "ISO 13943:2023 Fire safety — Vocabulary"@en ;
+    fbo:hasURL <https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.144> .
 
 fbo:NEN25802007C12008 a fbo:Document ;
-    rdfs:label "NEN 2580:2007/C1:2008 "@en .
+    rdfs:label "NEN 2580:2007/C1:2008"@en ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasDescription "Surface areas and volumes of buildings. Terms, definitions, and determination methods."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-NL" ;
+    fbo:hasOriginalName "Oppervlakten en inhouden van gebouwen. Termen, definities en bepalingsmethoden."@nl-NL ;
+    fbo:hasPublicationDate "2008-12-01"^^xsd:date ;
+    fbo:hasRemarks "This document is appointed in the Bbl" .
 
 fbo:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 a fbo:Document ;
-    rdfs:label "GAISRINĖS SAUGOS PAGRINDINIAI REIKALAVIMAI Nr. 1-338"@en .
+    rdfs:label "GAISRINĖS SAUGOS PAGRINDINIAI REIKALAVIMAI Nr. 1-338"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Basic fire safety requirements"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "GAISRINĖS SAUGOS PAGRINDINIAI REIKALAVIMAI Nr. 1-338"@lt-LT ;
+    fbo:hasPublicationDate "2024-12-11"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.388658/asr> .
 
 fbo:X21NumberofDoorsExits a fbo:RegulatoryDomain ;
     rdfs:label "2.1 Number of Doors/Exits"@en .
@@ -12464,21 +12914,37 @@ fbo-DK:Roomfunction a owl:Class ;
         fbo-DK:RoomfunctionStorage,
         fbo-DK:RoomfunctionStorageroom .
 
-fbo:Document a owl:Class ;
-    rdfs:label "Document"@en .
-
 fbo:KBARApp1Terminology a fbo:Document ;
-    rdfs:label "KB/AR App1 - Terminology"@en .
+    rdfs:label "KB/AR App1 - Terminology"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Bijlage 1: Terminologie"@nl-BE ;
+    fbo:hasPublicationDate "1994-07-07"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/regelgeving/koninklijk-besluit-van-7-juli-1994-tot-vaststelling-van-de-basisnormen-voor-de> .
 
 fbo:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 a fbo:Document ;
-    rdfs:label "Statybos techninių reikalavimų reglamentas STR 2.01.01(2):1999 esminiai statinio reikalavimai. gaisrinė sauga Nr. 422"@en .
+    rdfs:label "Statybos techninių reikalavimų reglamentas STR 2.01.01(2):1999 esminiai statinio reikalavimai. gaisrinė sauga Nr. 422"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Construction Technical Requirements Regulation. Essential requirements for a building. Fire safety"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "Statybos techninių reikalavimų reglamentas STR 2.01.01(2):1999 esminiai statinio reikalavimai. gaisrinė sauga Nr. 422"@lt-LT ;
+    fbo:hasPublicationDate "2002-10-05"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.96037/asr> .
 
 fbo:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios a fbo:Document ;
-    rdfs:label "Regulamento Técnico de Segurança Contra Incêndio em Edifícios"@en .
+    rdfs:label "Regulamento Técnico de Segurança Contra Incêndio em Edifícios"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDescription "Portuguese fire safety regulation"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Regulamento Técnico de Segurança Contra Incêndio em Edifícios"@pt-PT ;
+    fbo:hasPublicationDate "2020-06-04"^^xsd:date ;
+    fbo:hasURL <https://files.diariodarepublica.pt/1s/2020/06/10700/0000200214.pdf> .
 
-fbo:Lithuania a fbo:Country ;
-    rdfs:label "Lithuania"@en ;
-    fbo:hasCountryCode "LT" .
+fbo:Document a owl:Class ;
+    rdfs:label "Document"@en .
 
 fbo:Europe a fbo:Country ;
     rdfs:label "Europe"@en ;
@@ -12487,32 +12953,52 @@ fbo:Europe a fbo:Country ;
 fbo:X12FireCompartmentBoundary a fbo:RegulatoryDomain ;
     rdfs:label "1.2 Fire Compartment Boundary"@en .
 
+fbo:Lithuania a fbo:Country ;
+    rdfs:label "Lithuania"@en ;
+    fbo:hasCountryCode "LT" .
+
 fbo:Belgium a fbo:Country ;
     rdfs:label "Belgium"@en ;
     fbo:hasCountryCode "BE" .
 
 fbo:BR18VK5D01 a fbo:Document ;
-    rdfs:label "BR18-VK5-D01"@en .
+    rdfs:label "BR18-VK5-D01"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Definitionsliste for brandmæssige begreber"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Definition list for fire-related terms"@dk-DK ;
+    fbo:hasPublicationDate "2024-01-01"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/nkeltkmk/definitionsliste-for-brandmssige-begreberver-1020240101-a.pdf> .
 
 fbo:X11CompartmentSize a fbo:RegulatoryDomain ;
     rdfs:label "1.1 Compartment Size"@en .
 
 fbo:Besluitbouwwerkenleefomgeving a fbo:Document ;
-    rdfs:label "Besluit bouwwerken leefomgeving"@en .
-
-fbo:Denmark a fbo:Country ;
-    rdfs:label "Denmark"@en ;
-    fbo:hasCountryCode "DK" .
-
-fbo:Netherlands a fbo:Country ;
-    rdfs:label "Netherlands"@en ;
-    fbo:hasCountryCode "NL" .
+    rdfs:label "Besluit bouwwerken leefomgeving"@en ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasDescription "Decision on buildings living environment"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-NL" ;
+    fbo:hasOriginalName "Besluit bouwwerken leefomgeving"@nl-NL ;
+    fbo:hasPublicationDate "2024-01-01"^^xsd:date ;
+    fbo:hasRemarks "Often referred to as ‘Bbl’" ;
+    fbo:hasURL <https://iplo.nl/regelgeving/omgevingswet/inhoud/besluit-bouwwerken-leefomgeving/> .
 
 fbo:X0BUILDINGINFORMATION a fbo:RegulatoryDomain ;
     rdfs:label "0. BUILDING INFORMATION"@en .
 
 fbo:X2EVACUATION a fbo:RegulatoryDomain ;
     rdfs:label "2.  EVACUATION"@en .
+
+fbo:Netherlands a fbo:Country ;
+    rdfs:label "Netherlands"@en ;
+    fbo:hasCountryCode "NL" .
+
+fbo:Denmark a fbo:Country ;
+    rdfs:label "Denmark"@en ;
+    fbo:hasCountryCode "DK" .
 
 fbo:Portugal a fbo:Country ;
     rdfs:label "Portugal"@en ;

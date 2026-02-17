@@ -13,6 +13,7 @@ NOTION_KEY = os.environ.get("NOTION_KEY")
 # Database IDs
 DB_UNIFIED = "d1163f8f04824d54bbfc4541fb327f06"
 DB_COUNTRIES = "153f8487e6e780aebc37db28dbb23feb"
+DB_DOCUMENTS = "980ee046f5e04429adbcce5b02fec8aa"
 
 # NOTION PROPERTY NAMES MAPPING
 PROP_MAP = {
@@ -68,6 +69,19 @@ PROP_MAP = {
     "Linked_Props": "Property is linked to EU terms or other Harmonized Terms",  # relation
     "Related_Props": "Related FB:properties",          # relation
     "Subitem": "Subitem",                              # relation
+}
+
+# Property names for DB_DOCUMENTS
+PROP_MAP_DOCS = {
+    "Name": "Name",                          # title
+    "Publication": "Publication",            # date
+    "DocumentType": "Document Type",         # select
+    "NameOriginal": "Name (original)",       # rich_text
+    "Description": "Description",            # rich_text
+    "LangOrig": "Lang (orig)",              # select
+    "Country": "FB:country",                 # relation
+    "Remarks": "Remarks",                    # rich_text
+    "URL": "URL",                            # url
 }
 
 headers = {
@@ -364,6 +378,12 @@ def create_ontology():
         (FBO.hasLastEdition, "has last edition date"),
         (FBO.hasFireExpertValidation, "has fire expert validation"),
         (FBO.hasNotionID, "has Notion unique identifier"),
+        # Document-specific properties
+        (FBO.hasPublicationDate, "has publication date"),
+        (FBO.hasDocumentType, "has document type"),
+        (FBO.hasOriginalName, "has original name"),
+        (FBO.hasDescription, "has description"),
+        (FBO.hasOriginalLanguage, "has original language"),
     ]
 
     object_props = [
@@ -376,6 +396,7 @@ def create_ontology():
         (FBO.hasDocumentReference, "has document reference"),
         (FBO.hasArticleReference, "has article reference"),
         (FBO.hasNotionURL, "has Notion page URL"),
+        (FBO.hasURL, "has URL"),
     ]
 
     for term, label in datatype_props:
@@ -416,7 +437,74 @@ def create_ontology():
                 g.add((c_uri, RDFS.label, Literal(c_name, lang="en")))
                 g.add((c_uri, FBO.hasCountryCode, Literal(code)))
 
-    # 2. Load Unified Data
+    # 2. Load Documents & create Document instances
+    documents_data = get_all_pages(DB_DOCUMENTS)
+    document_id_map = {}  # Notion page ID -> document URI
+
+    for page in documents_data:
+        props = page["properties"]
+        doc_name = get_property_value(props, PROP_MAP_DOCS["Name"])
+        if not doc_name:
+            continue
+
+        norm = normalize_name(doc_name)
+        if not norm:
+            continue
+
+        doc_uri = URIRef(FBO[norm])
+        document_id_map[page["id"]] = doc_uri
+
+        g.add((doc_uri, RDF.type, FBO.Document))
+        g.add((doc_uri, RDFS.label, Literal(doc_name, lang="en")))
+
+        # Original name (native language)
+        name_orig = get_property_value(props, PROP_MAP_DOCS["NameOriginal"])
+        lang_orig = get_property_value(props, PROP_MAP_DOCS["LangOrig"])
+        if name_orig:
+            if lang_orig:
+                g.add((doc_uri, FBO.hasOriginalName, Literal(name_orig, lang=lang_orig)))
+            else:
+                g.add((doc_uri, FBO.hasOriginalName, Literal(name_orig)))
+
+        # Publication date
+        pub_date = get_property_value(props, PROP_MAP_DOCS["Publication"])
+        if pub_date:
+            g.add((doc_uri, FBO.hasPublicationDate, Literal(pub_date, datatype=XSD.date)))
+
+        # Document type
+        doc_type = get_property_value(props, PROP_MAP_DOCS["DocumentType"])
+        if doc_type:
+            g.add((doc_uri, FBO.hasDocumentType, Literal(doc_type)))
+
+        # Description
+        description = get_property_value(props, PROP_MAP_DOCS["Description"])
+        if description:
+            g.add((doc_uri, FBO.hasDescription, Literal(description, lang="en")))
+
+        # Original language
+        if lang_orig:
+            g.add((doc_uri, FBO.hasOriginalLanguage, Literal(lang_orig)))
+
+        # Country links
+        country_ids = get_property_value(props, PROP_MAP_DOCS["Country"])
+        if country_ids:
+            for cid in country_ids:
+                if cid in country_uri_map:
+                    g.add((doc_uri, FBO.hasCountry, country_uri_map[cid]))
+
+        # Remarks
+        remarks = get_property_value(props, PROP_MAP_DOCS["Remarks"])
+        if remarks:
+            g.add((doc_uri, FBO.hasRemarks, Literal(remarks)))
+
+        # URL
+        url = get_property_value(props, PROP_MAP_DOCS["URL"])
+        if url:
+            g.add((doc_uri, FBO.hasURL, URIRef(url)))
+
+    print(f"  > Created {len(document_id_map)} document instances from DB_DOCUMENTS.")
+
+    # 3. Load Unified Data
     unified_pages = get_all_pages(DB_UNIFIED)
 
     # 3. Indexing Phase (Map ID -> URI/Metadata)
@@ -764,9 +852,25 @@ def create_ontology():
                         category_set[norm] = title  # track for later definition
 
         link_cross_db("FB_Domains", FBO.hasDomainReference, cross_db_domains)
-        link_cross_db("FB_Documents", FBO.hasDocumentReference, cross_db_documents)
         link_cross_db("FB_Articles", FBO.hasArticleReference, cross_db_articles)
         link_cross_db("FB_Articles_WIP", FBO.hasArticleReference, cross_db_articles)
+
+        # FB:Documents — use document_id_map for direct linking (already loaded from DB_DOCUMENTS)
+        doc_rel_ids = get_property_value(props, PROP_MAP["FB_Documents"])
+        if doc_rel_ids:
+            for doc_id in doc_rel_ids:
+                if doc_id in document_id_map:
+                    g.add((s_uri, FBO.hasDocumentReference, document_id_map[doc_id]))
+                else:
+                    # Fallback: resolve via title lookup (for documents not in DB_DOCUMENTS)
+                    title = title_cache.get(doc_id) or get_page_title(doc_id)
+                    if title:
+                        title_cache[doc_id] = title
+                        norm = normalize_name(title)
+                        if norm:
+                            ref_uri = URIRef(FBO[norm])
+                            g.add((s_uri, FBO.hasDocumentReference, ref_uri))
+                            cross_db_documents[norm] = title
 
     # 5. Define cross-database referenced entities as classes in the ontology
     for norm, title in cross_db_domains.items():
@@ -774,10 +878,13 @@ def create_ontology():
         g.add((uri, RDF.type, FBO.RegulatoryDomain))
         g.add((uri, RDFS.label, Literal(title, lang="en")))
 
+    # Only add stub documents for cross-DB refs not already loaded from DB_DOCUMENTS
+    existing_doc_uris = set(document_id_map.values())
     for norm, title in cross_db_documents.items():
         uri = URIRef(FBO[norm])
-        g.add((uri, RDF.type, FBO.Document))
-        g.add((uri, RDFS.label, Literal(title, lang="en")))
+        if uri not in existing_doc_uris:
+            g.add((uri, RDF.type, FBO.Document))
+            g.add((uri, RDFS.label, Literal(title, lang="en")))
 
     for norm, title in cross_db_articles.items():
         uri = URIRef(FBO[norm])
