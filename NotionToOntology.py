@@ -2,8 +2,9 @@ import os
 import requests
 from dotenv import load_dotenv
 from rdflib import Graph, Namespace, Literal, URIRef
-from rdflib.namespace import RDF, RDFS, OWL, SKOS, DCTERMS
+from rdflib.namespace import RDF, RDFS, OWL, XSD, SKOS
 import re
+from collections import Counter
 
 # --- Configuration ---
 load_dotenv()
@@ -13,9 +14,9 @@ NOTION_KEY = os.environ.get("NOTION_KEY")
 DB_UNIFIED = "d1163f8f04824d54bbfc4541fb327f06"
 DB_COUNTRIES = "153f8487e6e780aebc37db28dbb23feb"
 
-# NOTION PROPERTY NAMES MAPPING — all meaningful columns
+# NOTION PROPERTY NAMES MAPPING
 PROP_MAP = {
-    # TM - Term Metadata
+    # TM - Column to maintain
     "Term": "TM - Harmonized Term",                    # title
     "Name_EN": "TM - Name (English)",                  # rich_text
     "Name_Native": "TM - Name (native language)",      # rich_text
@@ -23,7 +24,7 @@ PROP_MAP = {
     "EquivalentTerm": "TM - Equivalent Term",          # rich_text
     "Remarks_TM": "TM - Remarks",                      # rich_text
     "FB_Documents": "TM - FB:documents",               # relation
-    # TC - Term Content
+    # TC - new column and need to be completed
     "AdoptedDefinition": "TC - Adopted definition",     # select
     "ArticleID": "TC - Article ID (it depends of the country)",  # rich_text
     "Def_Explicit_EN": "TC - Explicit Definition (English)",     # rich_text
@@ -31,20 +32,20 @@ PROP_MAP = {
     "Def_Implicit_EN": "TC - Implicit Definition  (English)",   # rich_text (double space)
     "Def_Implicit_Nat": "TC - Implicit Definition  (Native Language)", # rich_text
     "Def_Expert_EN": "TC - Expert Definition (English)",         # rich_text
-    "Def_Expert_Nat": "TC - Expert Definition (Native Language))",  # rich_text (double paren)
+    "Def_Expert_Nat": "TC - Expert Definition (Native Language))",  # rich_text (double paren lol)
     "FB_Domains": "TC - FB:Domains",                   # relation
     "FireExpertEntity": "TC - Fire Expert Entity",     # rich_text
     "FireExpertGuidance": "TC - Fire Expert Guidance", # rich_text
     "LastEdition": "TC - Last Edition",                # date
     "FireExpertValidation": "TM - Fire Expert Validation",  # select/checkbox
-    # TD - Term Data
+    # TD - column for discussion
     "Type": "TD - Type",                               # select
     "Unit": "TD - Unit",                               # rich_text
     "ValueType": "TD - Value",                         # rich_text
     "IFC_Entity": "TD - IFC Entity",                   # rich_text
     "IFC_Comment": "TD - Comment IFC",                 # rich_text
     "IFC_Mapping": "TD - Mapping IFC",                 # rich_text
-    # TR - Term Reference
+    # TR - column to be replaced and deleted from this page
     "ISO_Def": "TR - ISO definition",                  # rich_text
     "TR_Code": "TR - Code",                            # rich_text
     "TR_Def_EN": "TR - Definition (English)",          # rich_text
@@ -59,6 +60,8 @@ PROP_MAP = {
     "TR_Status": "TR - Status",                        # select
     "FB_Articles": "TR - FB:articles",                 # relation
     "FB_Articles_WIP": "TR - FB:articles (WIP)",       # relation
+    # Unique ID
+    "UniqueID": "ID",                                  # unique_id
     # Relations
     "Country": "Country",                              # relation
     "Parent": "item principal",                        # relation
@@ -177,6 +180,13 @@ def get_property_value(page_properties, target_name):
         return prop["date"].get("start")
     elif ptype == "last_edited_time":
         return prop.get("last_edited_time")
+    elif ptype == "unique_id" and prop.get("unique_id"):
+        uid = prop["unique_id"]
+        prefix = uid.get("prefix")
+        number = uid.get("number")
+        if prefix:
+            return f"{prefix}-{number}"
+        return str(number) if number is not None else None
 
     return None
 
@@ -237,12 +247,90 @@ def create_ontology():
     BOT = Namespace("https://w3id.org/bot#")
     IFC = Namespace("http://ifcowl.openbimstandards.org/IFC4#")
 
+    # BOT class mapping for general URIs (only applied to owl:Class).
+    # Two-pass matching: first exact name, then substring.
+    # avoids false positives like "BuildingInternalWall" subclassed to bot:Building.
+    BOT_EXACT = {
+        # bot:Site — land/plot level
+        "site": BOT.Site,
+        "neighbouringplot": BOT.Site,
+        "buildingplotboundary": BOT.Site,
+        "adjoiningterrain": BOT.Site,
+        "publicroad": BOT.Site,
+        "publicgreen": BOT.Site,
+        "publicwater": BOT.Site,
+        # bot:Building — whole-building level
+        "building": BOT.Building,
+        "buildingresidential": BOT.Building,
+        "highrisebuilding": BOT.Building,
+        "lowrisebuilding": BOT.Building,
+        "miderisebuilding": BOT.Building,
+        "mediumrisebuilding": BOT.Building,
+        "verytallbuilding": BOT.Building,
+        "independentbuilding": BOT.Building,
+        # bot:Storey — floor/storey level
+        "buildinglayer": BOT.Storey,
+        "buildinglayers": BOT.Storey,
+        "buildinglayerparking": BOT.Storey,
+        "buildingstorey": BOT.Storey,
+        "evacuationlevel": BOT.Storey,
+        "lowestevacuationlevel": BOT.Storey,
+        "level": BOT.Storey,
+        "measurementlevel": BOT.Storey,
+        "countablebuildingstorey": BOT.Storey,
+        "connectingbuildingstoreys": BOT.Storey,
+        # bot:Element — specific compound terms that contain "building" but are elements
+        "buildinginternalwall": BOT.Element,
+        "buildingpartitionconstructionexternal": BOT.Element,
+        "buildingfirecompartmentdaytimeoccupancy": BOT.Space,
+        "buildingfunctionalfireunit": BOT.Space,
+    }
+
+    # Substring keywords — used when no exact match is found.
+    # Order matters: first match wins.
+    BOT_KEYWORDS = [
+        # bot:Space — rooms, compartments, enclosed spatial zones
+        (BOT.Space, [
+            "firecompartment", "subcompartment", "compartment",
+            "room", "space", "cell", "dwelling",
+            "atrium", "duplex", "triplex",
+            "enclosedspace", "lobby",
+            "parking", "elevator", "liftcage",
+            "tunnel", "accomodation",
+            "commonarea", "livingunit",
+        ]),
+        # bot:Element — physical building components and products
+        (BOT.Element, [
+            "wall", "door", "ceiling", "floor", "slab", "roof",
+            "duct", "conduit", "pipe", "shaft",
+            "stair", "ramp",
+            "window", "opening", "covering", "cladding",
+            "barrier", "cable",
+            "rainscreen", "facade",
+            "supportingstructure", "structuralcomponent",
+            "smokevent", "smokebarrier", "smokescreens",
+            "smokecontrol", "smokeandheat",
+        ]),
+    ]
+
+    def get_bot_class(norm_name):
+        """Return the BOT superclass for a normalized concept name, or None."""
+        name_lower = norm_name.lower()
+        # 1. Exact match on full normalized name
+        if name_lower in BOT_EXACT:
+            return BOT_EXACT[name_lower]
+        # 2. Substring keyword match
+        for bot_cls, keywords in BOT_KEYWORDS:
+            for kw in keywords:
+                if kw in name_lower:
+                    return bot_cls
+        return None
+
     # Bindings
     g.bind("fbo", FBO)
     g.bind("bot", BOT)
     g.bind("ifc", IFC)
     g.bind("skos", SKOS)
-    g.bind("dcterms", DCTERMS)
     for code, ns in NS_MAP.items():
         g.bind(f"fbo-{code}", ns)
 
@@ -275,6 +363,7 @@ def create_ontology():
         (FBO.hasRemarks, "has remarks"),
         (FBO.hasLastEdition, "has last edition date"),
         (FBO.hasFireExpertValidation, "has fire expert validation"),
+        (FBO.hasNotionID, "has Notion unique identifier"),
     ]
 
     object_props = [
@@ -286,6 +375,7 @@ def create_ontology():
         (FBO.hasDomainReference, "has domain reference"),
         (FBO.hasDocumentReference, "has document reference"),
         (FBO.hasArticleReference, "has article reference"),
+        (FBO.hasNotionURL, "has Notion page URL"),
     ]
 
     for term, label in datatype_props:
@@ -354,6 +444,7 @@ def create_ontology():
         ns = NS_MAP.get(c_code, NS_MAP["INT"])
 
         # Determine OWL type: Class, ObjectProperty, or DatatypeProperty
+        # Only use TD - Type column to decide; unit/valueType alone don't make something a property
         td_type = str(get_property_value(props, PROP_MAP["Type"]) or "").lower().strip()
         td_unit = get_property_value(props, PROP_MAP["Unit"])
         td_val_type = str(get_property_value(props, PROP_MAP["ValueType"]) or "").lower().strip()
@@ -361,20 +452,14 @@ def create_ontology():
         DATATYPE_VALUES = ["number", "boolean (yes/no)", "boolean", "enumeration (choice)",
                            "enumeration", "string", "text", "integer", "float", "date"]
 
-        if td_type == "object":
-            # Explicitly typed as object → OWL Class
-            owl_type = "class"
-        elif td_type == "property" and (td_unit or td_val_type in DATATYPE_VALUES):
+        if td_type == "property" and (td_unit or td_val_type in DATATYPE_VALUES):
             # Explicitly property with a unit or datatype value → DatatypeProperty
             owl_type = "datatype_property"
         elif td_type == "property":
             # Explicitly property but no unit/datatype indicators → ObjectProperty
             owl_type = "object_property"
-        elif td_unit or td_val_type in DATATYPE_VALUES:
-            # No explicit type, but has unit or datatype value → DatatypeProperty
-            owl_type = "datatype_property"
         else:
-            # Default: treat as Class
+            # Default (including td_type == "object" or empty): treat as Class
             owl_type = "class"
 
         # Resolve country URIs for this entity
@@ -391,10 +476,26 @@ def create_ontology():
             "lang": l_code,
             "owl_type": owl_type,
             "country_uris": country_uris,
-            "raw_props": props
+            "raw_props": props,
+            "notion_url": page.get("url")
         }
 
     print(f"Indexed {len(page_registry)} entities. Generating triples...")
+
+    # 3b. Resolve general URI types — use majority vote when countries disagree
+    general_uri_votes = {}  # general_uri -> list of owl_type votes
+    for meta in page_registry.values():
+        g_uri = str(meta["general_uri"])
+        general_uri_votes.setdefault(g_uri, []).append(meta["owl_type"])
+
+    general_uri_type = {}  # general_uri string -> resolved owl_type
+    for g_uri_str, votes in general_uri_votes.items():
+        counts = Counter(votes)
+        # Majority wins; on tie, prefer "class" as the safer default
+        resolved = counts.most_common(1)[0][0]
+        if len(counts) > 1 and counts.get("class", 0) == counts.most_common(1)[0][1]:
+            resolved = "class"
+        general_uri_type[g_uri_str] = resolved
 
     # Cache for cross-database relation title lookups
     title_cache = {}
@@ -402,29 +503,46 @@ def create_ontology():
     cross_db_domains = {}
     cross_db_documents = {}
     cross_db_articles = {}
+    # Track which general URIs have already been typed
+    typed_general_uris = set()
 
     # 4. Generation Phase
     for _, meta in page_registry.items():
         s_uri = meta["specific_uri"]
         g_uri = meta["general_uri"]
         props = meta["raw_props"]
-        owl_type = meta["owl_type"]
         l_code = meta["lang"]
 
-        # Type Definition & Hierarchy
-        if owl_type == "datatype_property":
-            g.add((g_uri, RDF.type, OWL.DatatypeProperty))
+        # Use resolved type for the general URI, and per-entry type for the specific URI
+        resolved_g_type = general_uri_type[str(g_uri)]
+        owl_type = meta["owl_type"]
+
+        # Type the general URI only once, using the resolved type
+        if str(g_uri) not in typed_general_uris:
+            typed_general_uris.add(str(g_uri))
+            if resolved_g_type == "datatype_property":
+                g.add((g_uri, RDF.type, OWL.DatatypeProperty))
+            elif resolved_g_type == "object_property":
+                g.add((g_uri, RDF.type, OWL.ObjectProperty))
+            else:
+                g.add((g_uri, RDF.type, OWL.Class))
+                # Add BOT superclass mapping for classes only
+                norm_name = str(g_uri).rsplit('#', 1)[-1]
+                bot_cls = get_bot_class(norm_name)
+                if bot_cls:
+                    g.add((g_uri, RDFS.subClassOf, bot_cls))
+
+        # Type the specific (country) URI — follow the resolved general type
+        # so that subClassOf/subPropertyOf is consistent
+        if resolved_g_type == "datatype_property":
             g.add((s_uri, RDF.type, OWL.DatatypeProperty))
             g.add((s_uri, RDFS.subPropertyOf, g_uri))
-        elif owl_type == "object_property":
-            g.add((g_uri, RDF.type, OWL.ObjectProperty))
+        elif resolved_g_type == "object_property":
             g.add((s_uri, RDF.type, OWL.ObjectProperty))
             g.add((s_uri, RDFS.subPropertyOf, g_uri))
         else:
-            g.add((g_uri, RDF.type, OWL.Class))
             g.add((s_uri, RDF.type, OWL.Class))
             g.add((s_uri, RDFS.subClassOf, g_uri))
-            g.add((g_uri, RDFS.subClassOf, BOT.Element))
 
         # --- Labels ---
         name_en = get_property_value(props, PROP_MAP["Name_EN"])
@@ -575,12 +693,24 @@ def create_ontology():
         # Last Edition date
         last_edition = get_property_value(props, PROP_MAP["LastEdition"])
         if last_edition:
-            g.add((s_uri, FBO.hasLastEdition, Literal(last_edition)))
+            g.add((s_uri, FBO.hasLastEdition, Literal(last_edition, datatype=XSD.dateTime)))
 
         # Fire Expert Validation
         fire_validation = get_property_value(props, PROP_MAP["FireExpertValidation"])
         if fire_validation is not None:
-            g.add((s_uri, FBO.hasFireExpertValidation, Literal(str(fire_validation))))
+            # Normalize to xsd:boolean — handle string "True"/"False" and Python bools
+            bool_val = str(fire_validation).strip().lower() in ("true", "1", "yes")
+            g.add((s_uri, FBO.hasFireExpertValidation, Literal(bool_val, datatype=XSD.boolean)))
+
+        # Notion Unique ID
+        notion_id = get_property_value(props, PROP_MAP["UniqueID"])
+        if notion_id:
+            g.add((s_uri, FBO.hasNotionID, Literal(notion_id)))
+
+        # Notion Page URL
+        notion_url = meta.get("notion_url")
+        if notion_url:
+            g.add((s_uri, FBO.hasNotionURL, URIRef(notion_url)))
 
         # --- Relationships (same database) ---
 
@@ -590,7 +720,7 @@ def create_ontology():
             for p_id in parent_ids:
                 if p_id in page_registry:
                     p_uri = page_registry[p_id]["specific_uri"]
-                    if owl_type in ("datatype_property", "object_property"):
+                    if resolved_g_type in ("datatype_property", "object_property"):
                         g.add((s_uri, RDFS.subPropertyOf, p_uri))
                     else:
                         g.add((s_uri, RDFS.subClassOf, p_uri))
