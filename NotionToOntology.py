@@ -47,20 +47,20 @@ PROP_MAP = {
     "IFC_Comment": "TD - Comment IFC",                 # rich_text
     "IFC_Mapping": "TD - Mapping IFC",                 # rich_text
     # TR - column to be replaced and deleted from this page
-    "ISO_Def": "TR - ISO definition",                  # rich_text
-    "TR_Code": "TR - Code",                            # rich_text
-    "TR_Def_EN": "TR - Definition (English)",          # rich_text
-    "TR_Def_Nat": "TR - Definition (Native Language)", # rich_text
-    "TR_Derivation": "TR - Derivation",                # rich_text
-    "TR_Domain": "TR - Domain",                        # rich_text
-    "TR_Domains": "TR - Domains",                      # rich_text
-    "TR_InterpretationLevel": "TR - Interpretation level",  # rich_text
-    "TR_Language": "TR - Language",                     # rich_text
-    "TR_Remarks": "TR - Remarks",                      # rich_text
-    "TR_SOTermIRI": "TR - SO Term IRI",                # url
-    "TR_Status": "TR - Status",                        # select
-    "FB_Articles": "TR - FB:articles",                 # relation
-    "FB_Articles_WIP": "TR - FB:articles (WIP)",       # relation
+    # "ISO_Def": "TR - ISO definition",                  # rich_text
+    # "TR_Code": "TR - Code",                            # rich_text
+    # "TR_Def_EN": "TR - Definition (English)",          # rich_text
+    # "TR_Def_Nat": "TR - Definition (Native Language)", # rich_text
+    # "TR_Derivation": "TR - Derivation",                # rich_text
+    # "TR_Domain": "TR - Domain",                        # rich_text
+    # "TR_Domains": "TR - Domains",                      # rich_text
+    # "TR_InterpretationLevel": "TR - Interpretation level",  # rich_text
+    # "TR_Language": "TR - Language",                     # rich_text
+    # "TR_Remarks": "TR - Remarks",                      # rich_text
+    # "TR_SOTermIRI": "TR - SO Term IRI",                # url
+    # "TR_Status": "TR - Status",                        # select
+    # "FB_Articles": "TR - FB:articles",                 # relation
+    # "FB_Articles_WIP": "TR - FB:articles (WIP)",       # relation
     # Unique ID
     "UniqueID": "ID",                                  # unique_id
     # Relations
@@ -354,8 +354,8 @@ def create_ontology():
     datatype_props = [
         (FBO.hasDefinition, "has definition"),
         (FBO.hasExpertDefinition, "has expert definition"),
-        (FBO.hasReferenceDefinition, "has reference definition"),
-        (FBO.hasISODefinition, "has ISO definition"),
+        # (FBO.hasReferenceDefinition, "has reference definition"),  # TR
+        # (FBO.hasISODefinition, "has ISO definition"),  # TR
         (FBO.hasUnit, "has unit"),
         (FBO.hasValueType, "has value type"),
         (FBO.hasCountryCode, "has country code"),
@@ -365,12 +365,12 @@ def create_ontology():
         (FBO.hasIFCComment, "has IFC comment"),
         (FBO.hasDesignator, "has designator"),
         (FBO.hasEquivalentTerm, "has equivalent term"),
-        (FBO.hasDerivation, "has derivation"),
-        (FBO.hasDomain, "has domain"),
-        (FBO.hasInterpretationLevel, "has interpretation level"),
-        (FBO.hasLanguage, "has language"),
-        (FBO.hasReferenceCode, "has reference code"),
-        (FBO.hasStatus, "has status"),
+        # (FBO.hasDerivation, "has derivation"),  # TR
+        # (FBO.hasDomain, "has domain"),  # TR
+        # (FBO.hasInterpretationLevel, "has interpretation level"),  # TR
+        # (FBO.hasLanguage, "has language"),  # TR
+        # (FBO.hasReferenceCode, "has reference code"),  # TR
+        # (FBO.hasStatus, "has status"),  # TR
         (FBO.hasAdoptedDefinitionType, "has adopted definition type"),
         (FBO.hasFireExpertEntity, "has fire expert entity"),
         (FBO.hasFireExpertGuidance, "has fire expert guidance"),
@@ -394,7 +394,7 @@ def create_ontology():
         (FBO.hasCountry, "has country"),
         (FBO.hasDomainReference, "has domain reference"),
         (FBO.hasDocumentReference, "has document reference"),
-        (FBO.hasArticleReference, "has article reference"),
+        # (FBO.hasArticleReference, "has article reference"),  # TR
         (FBO.hasNotionURL, "has Notion page URL"),
         (FBO.hasURL, "has URL"),
     ]
@@ -590,7 +590,7 @@ def create_ontology():
     # Track cross-DB references by category (norm_name -> original title)
     cross_db_domains = {}
     cross_db_documents = {}
-    cross_db_articles = {}
+    # cross_db_articles = {}  # TR
     # Track which general URIs have already been typed
     typed_general_uris = set()
 
@@ -661,18 +661,18 @@ def create_ontology():
         if expert_nat:
             g.add((s_uri, FBO.hasExpertDefinition, Literal(expert_nat, lang=l_code)))
 
-        # TR - Reference definitions
-        tr_def_en = get_property_value(props, PROP_MAP["TR_Def_EN"])
-        tr_def_nat = get_property_value(props, PROP_MAP["TR_Def_Nat"])
-        if tr_def_en:
-            g.add((s_uri, FBO.hasReferenceDefinition, Literal(tr_def_en, lang="en")))
-        if tr_def_nat:
-            g.add((s_uri, FBO.hasReferenceDefinition, Literal(tr_def_nat, lang=l_code)))
+        # TR - Reference definitions (commented out for now)
+        # tr_def_en = get_property_value(props, PROP_MAP["TR_Def_EN"])
+        # tr_def_nat = get_property_value(props, PROP_MAP["TR_Def_Nat"])
+        # if tr_def_en:
+        #     g.add((s_uri, FBO.hasReferenceDefinition, Literal(tr_def_en, lang="en")))
+        # if tr_def_nat:
+        #     g.add((s_uri, FBO.hasReferenceDefinition, Literal(tr_def_nat, lang=l_code)))
 
-        # ISO definition
-        iso_def = get_property_value(props, PROP_MAP["ISO_Def"])
-        if iso_def:
-            g.add((s_uri, FBO.hasISODefinition, Literal(iso_def, lang="en")))
+        # ISO definition (commented out for now)
+        # iso_def = get_property_value(props, PROP_MAP["ISO_Def"])
+        # if iso_def:
+        #     g.add((s_uri, FBO.hasISODefinition, Literal(iso_def, lang="en")))
 
         # Adopted definition type (e.g. "Explicit definition", "Expert definition")
         adopted = get_property_value(props, PROP_MAP["AdoptedDefinition"])
@@ -723,42 +723,42 @@ def create_ontology():
         if ifc_comment:
             g.add((s_uri, FBO.hasIFCComment, Literal(ifc_comment)))
 
-        # --- Reference Metadata (TR) ---
-        tr_code = get_property_value(props, PROP_MAP["TR_Code"])
-        if tr_code:
-            g.add((s_uri, FBO.hasReferenceCode, Literal(tr_code)))
-
-        derivation = get_property_value(props, PROP_MAP["TR_Derivation"])
-        if derivation:
-            g.add((s_uri, FBO.hasDerivation, Literal(derivation)))
-
-        tr_domain = get_property_value(props, PROP_MAP["TR_Domain"])
-        if tr_domain:
-            g.add((s_uri, FBO.hasDomain, Literal(tr_domain)))
-
-        tr_domains = get_property_value(props, PROP_MAP["TR_Domains"])
-        if tr_domains:
-            if isinstance(tr_domains, list):
-                for domain in tr_domains:
-                    g.add((s_uri, FBO.hasDomain, Literal(domain)))
-            else:
-                g.add((s_uri, FBO.hasDomain, Literal(tr_domains)))
-
-        interp_level = get_property_value(props, PROP_MAP["TR_InterpretationLevel"])
-        if interp_level:
-            g.add((s_uri, FBO.hasInterpretationLevel, Literal(interp_level)))
-
-        tr_language = get_property_value(props, PROP_MAP["TR_Language"])
-        if tr_language:
-            g.add((s_uri, FBO.hasLanguage, Literal(tr_language)))
-
-        tr_status = get_property_value(props, PROP_MAP["TR_Status"])
-        if tr_status:
-            g.add((s_uri, FBO.hasStatus, Literal(tr_status)))
-
-        so_term_iri = get_property_value(props, PROP_MAP["TR_SOTermIRI"])
-        if so_term_iri:
-            g.add((s_uri, SKOS.exactMatch, URIRef(so_term_iri)))
+        # --- Reference Metadata (TR) --- (commented out for now)
+        # tr_code = get_property_value(props, PROP_MAP["TR_Code"])
+        # if tr_code:
+        #     g.add((s_uri, FBO.hasReferenceCode, Literal(tr_code)))
+        #
+        # derivation = get_property_value(props, PROP_MAP["TR_Derivation"])
+        # if derivation:
+        #     g.add((s_uri, FBO.hasDerivation, Literal(derivation)))
+        #
+        # tr_domain = get_property_value(props, PROP_MAP["TR_Domain"])
+        # if tr_domain:
+        #     g.add((s_uri, FBO.hasDomain, Literal(tr_domain)))
+        #
+        # tr_domains = get_property_value(props, PROP_MAP["TR_Domains"])
+        # if tr_domains:
+        #     if isinstance(tr_domains, list):
+        #         for domain in tr_domains:
+        #             g.add((s_uri, FBO.hasDomain, Literal(domain)))
+        #     else:
+        #         g.add((s_uri, FBO.hasDomain, Literal(tr_domains)))
+        #
+        # interp_level = get_property_value(props, PROP_MAP["TR_InterpretationLevel"])
+        # if interp_level:
+        #     g.add((s_uri, FBO.hasInterpretationLevel, Literal(interp_level)))
+        #
+        # tr_language = get_property_value(props, PROP_MAP["TR_Language"])
+        # if tr_language:
+        #     g.add((s_uri, FBO.hasLanguage, Literal(tr_language)))
+        #
+        # tr_status = get_property_value(props, PROP_MAP["TR_Status"])
+        # if tr_status:
+        #     g.add((s_uri, FBO.hasStatus, Literal(tr_status)))
+        #
+        # so_term_iri = get_property_value(props, PROP_MAP["TR_SOTermIRI"])
+        # if so_term_iri:
+        #     g.add((s_uri, SKOS.exactMatch, URIRef(so_term_iri)))
 
         # --- Expert Knowledge ---
         fire_entity = get_property_value(props, PROP_MAP["FireExpertEntity"])
@@ -774,9 +774,9 @@ def create_ontology():
         if remarks_tm:
             g.add((s_uri, FBO.hasRemarks, Literal(remarks_tm)))
 
-        remarks_tr = get_property_value(props, PROP_MAP["TR_Remarks"])
-        if remarks_tr:
-            g.add((s_uri, FBO.hasRemarks, Literal(remarks_tr)))
+        # remarks_tr = get_property_value(props, PROP_MAP["TR_Remarks"])  # TR
+        # if remarks_tr:
+        #     g.add((s_uri, FBO.hasRemarks, Literal(remarks_tr)))
 
         # Last Edition date
         last_edition = get_property_value(props, PROP_MAP["LastEdition"])
@@ -852,8 +852,8 @@ def create_ontology():
                         category_set[norm] = title  # track for later definition
 
         link_cross_db("FB_Domains", FBO.hasDomainReference, cross_db_domains)
-        link_cross_db("FB_Articles", FBO.hasArticleReference, cross_db_articles)
-        link_cross_db("FB_Articles_WIP", FBO.hasArticleReference, cross_db_articles)
+        # link_cross_db("FB_Articles", FBO.hasArticleReference, cross_db_articles)  # TR
+        # link_cross_db("FB_Articles_WIP", FBO.hasArticleReference, cross_db_articles)  # TR
 
         # FB:Documents — use document_id_map for direct linking (already loaded from DB_DOCUMENTS)
         doc_rel_ids = get_property_value(props, PROP_MAP["FB_Documents"])
@@ -886,12 +886,12 @@ def create_ontology():
             g.add((uri, RDF.type, FBO.Document))
             g.add((uri, RDFS.label, Literal(title, lang="en")))
 
-    for norm, title in cross_db_articles.items():
-        uri = URIRef(FBO[norm])
-        g.add((uri, RDF.type, FBO.Article))
-        g.add((uri, RDFS.label, Literal(title, lang="en")))
+    # for norm, title in cross_db_articles.items():  # TR
+    #     uri = URIRef(FBO[norm])
+    #     g.add((uri, RDF.type, FBO.Article))
+    #     g.add((uri, RDFS.label, Literal(title, lang="en")))
 
-    print(f"  > Defined {len(cross_db_domains)} domains, {len(cross_db_documents)} documents, {len(cross_db_articles)} articles.")
+    print(f"  > Defined {len(cross_db_domains)} domains, {len(cross_db_documents)} documents.")
 
     # Save
     outfile = "firebim_ontology_unified.ttl"
