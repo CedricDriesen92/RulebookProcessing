@@ -1,0 +1,2267 @@
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-ifc: <https://ontology.firebim.be/ontology/fbo-ifc#> .
+@prefix fbo-pt: <https://ontology.firebim.be/ontology/fbo-PT#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fbo-pt:AggregateRoomType a owl:Class ;
+    rdfs:label "Aggregate Room"@en,
+        "Agregação de locais"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "Conjunto de locais com a mesma classificação (A, D ou E) possuindo circulações exclusivas"@en,
+        "Group of rooms with the same classification (type A, D or E) with exclusive circulation."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "495" ;
+    fbo:hasNotionURL <https://www.notion.so/AggregateRoomType-2abf8487e6e7803282f8e6722bf6dccf> .
+
+fbo-pt:AreaCompartmentCompliance a owl:Class ;
+    rdfs:label "AreaCompartmentCompliance"@en,
+        "Conformidade da área de compartimentação"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "The compliance of the compartmentalization area is verified when the area of each fire compartment of the building does not exceed the maximum values established in the regulation according to the type of use, risk category, and characteristics of the building."@en,
+        "A conformidade da área de compartimentação verifica-se quando a área de cada compartimento corta-fogo do edifício não excede os valores máximos estabelecidos no regulamento em função da utilização-tipo, categoria de risco e características do edifício."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-24T09:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "554" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaCompartmentCompliance-302f8487e6e7801b9431c61a309a7c9a> .
+
+fbo-pt:AreaCompartmentException a owl:Class ;
+    rdfs:label "Area Compartmentation Exception"@en,
+        "Área de compartimentação - excepção"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "The exception to the compartmentation area allows, under certain specific conditions set out in the regulation, buildings to have fire compartmentation areas exceeding the maximum limits established, in specific cases or through the adoption of additional safety measures."@en,
+        "A exceção à área de compartimentação permite que, em determinadas condições específicas previstas no regulamento, os edifícios possam ter áreas de compartimentação corta-fogo superiores aos limites máximos estabelecidos, em casos específicos ou mediante a adoção de medidas suplementares de segurança."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-24T09:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "553" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaCompartmentException-302f8487e6e780729d1eda12acb58255> .
+
+fbo-pt:AreaFireCompartment a owl:DatatypeProperty ;
+    rdfs:label "Area of a fire compartment"@en,
+        "Área do compartimento corta-fogo"@pt-PT ;
+    rdfs:subPropertyOf fbo:AreaFireCompartment ;
+    fbo:hasAdoptedDefinitionType "Expert Definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Fire sector" ;
+    fbo:hasExpertDefinition "Total gross surface area of a given fire compartment, delimited by the outer perimeter of the exterior walls and the axes of the interior walls separating that fire sector from the others"@en,
+        "Superfície bruta total de um dado compartimento de fogo, delimitada pelo perímetro exterior das paredes exteriores e eixos das paredes interiores separadoras desse sector de fogo, relativamente aos restantes"@pt-PT ;
+    fbo:hasFireExpertEntity "Fire Expert" ;
+    fbo:hasFireExpertGuidance "Definition omitted from Portuguese regulations, so a measurement criterion is presented" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:AreaFireCompartment2a ;
+    fbo:hasLastEdition "2026-02-03T14:38:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "67" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaFireCompartment-151f8487e6e7800881fafc9ba05ffb66> ;
+    fbo:hasUnit "m2" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:AreaMaximumCompartment a owl:Class ;
+    rdfs:label "Área Máxima de Compartimento Corta-Fogo"@en,
+        "Área Máxima de Compartimento Corta-Fogo"@pt-PT ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "346" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaMaximumCompartment-233f8487e6e780e1acc1ea305fc863cf> .
+
+fbo-pt:AreaRefugeSpace a owl:DatatypeProperty ;
+    rdfs:label "Area of refuge space"@en,
+        "Área da zona de refúgio"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definitin" ;
+    fbo:hasArticleID "n.º 3 do art.º 68º do RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "A refuge area must have a value, in m2, of no less than the effective area of the sites it serves, multiplied by the index 0.2."@en,
+        "Uma zona de refúgio deve possuir uma área de valor, em m2, não inferior ao efetivo dos locais que serve, multiplicado pelo índice 0,2."@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-24T08:46:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "277" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaRefugeSpace-223f8487e6e7800c8291d8207ac7df62> ;
+    fbo:hasUnit "m2" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:Building a owl:Class ;
+    rdfs:label "Building"@en,
+        "Edifício"@pt-PT ;
+    rdfs:subClassOf fbo:Building ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "Construção fixa permanente, composta por uma ou mais estruturas, destinada a permitir a ocupação humana ou a abrigar atividades."@en,
+        "Permanent fixed construction, consisting of one or more structures, intended to allow human occupation or to house activities."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:48:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "499" ;
+    fbo:hasNotionURL <https://www.notion.so/Building-2aef8487e6e7803c8338d06c8e59be1b> .
+
+fbo-pt:BuildingInformation a owl:Class ;
+    rdfs:label "Building Information"@en,
+        "Informação do edifício"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "É o conjunto de dados alfanuméricos e geométricos associados aos elementos do edifício, incluindo propriedades técnicas, características físicas, especificações de materiais e informações de desempenho que o descrevem ao longo do seu ciclo de vida."@pt-PT ;
+    fbo:hasFireExpertEntity "It is the set of alphanumeric and geometric data associated with building elements, including technical properties, physical characteristics, material specifications, and performance information that describes it throughout its life cycle." ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "552" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingInformation-302f8487e6e780ce9960d178c27d6b9f> .
+
+fbo-pt:BuildingStorey a owl:Class ;
+    rdfs:label "BuildingStorey"@en,
+        "Piso de um edifício"@pt-PT ;
+    rdfs:subClassOf fbo:BuildingStorey ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "A floor of a building corresponds to a horizontal level of the building, defined and limited by slabs or floor elements, located above or below ground level, and may include, in particular, spaces for use, circulation areas, and/or technical installations."@en,
+        "Piso de um edifício corresponde a um nível horizontal do mesmo, definido e limitado por lajes ou elementos de pavimento, situado acima ou abaixo do solo, podendo integrar designadamente espaços de utilização, circulações e / ou instalações técnicas."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-23T14:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "558" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingStorey-302f8487e6e780afba00d8408a061af7> .
+
+fbo-pt:BuildingUsers a owl:Class ;
+    rdfs:label "Building Users"@en,
+        "Utilizadores de um determinado espaço (condição física, condição cognitiva, idade, …)"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasExpertDefinition "Condição dos ocupantes de um determinado local que podem estar acamados, limitados na mobilidade ou nas capacidades de perceção e reação a um alarme ou possuir idade não superior a 3 anos."@en,
+        "Condition of occupants of a given room who may be bedridden, limited in mobility or in their ability to perceive and react to an alarm, or who are under 3 years of age."@pt-PT ;
+    fbo:hasFireExpertEntity "Fire Expert" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "427" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingUsers-268f8487e6e780f9aecce3ba9f56db1d> .
+
+fbo-pt:CoexistenceOccupancyType a owl:Class ;
+    rdfs:label "Coexistence Occupancy Type"@en,
+        "Coexistência de utilizações-tipo"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition """Existência num mesmo edifício
+de espaços ocupados por diferentes utilizações-tipo"""@en,
+        """Existence in the same building
+of spaces occupied by different types of occupancy"""@pt-PT ;
+    fbo:hasFireExpertGuidance "Coexistence between different occupancy types occurs when, in the same building or enclosure, there are spaces assigned to different types of use, each subject to its own specific fire safety requirements." ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "496" ;
+    fbo:hasNotionURL <https://www.notion.so/CoexistenceOccupancyType-2abf8487e6e780a5b405c099403881b9> .
+
+fbo-pt:CollectiveCoveredCarPark a owl:Class ;
+    rdfs:label "Collective covered car park"@en,
+        "Estacionamento coletivo coberto"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "n.º 29 do art.º 1º do Anexo I ao" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Covered space with an area greater than 50 m2 intended for car parking"@en,
+        "Espaço coberto com área superior a 50 m2 destinado ao estacionamento automóvel"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "440" ;
+    fbo:hasNotionURL <https://www.notion.so/CollectiveCoveredCarPark-270f8487e6e78095a4b0dda57d9995ef> .
+
+fbo-pt:CommonArea a owl:Class ;
+    rdfs:label "CommonArea"@en,
+        "Área comum"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "It is a space in a building for collective use, intended for circulation and shared use by the occupants of different independent units, such as corridors, staircases, lobbies, and accesses, not assigned for the exclusive use of any particular unit."@en,
+        "É um espaço de um edifício de utilização coletiva destinado à circulação e uso partilhado pelos ocupantes de diferentes frações autónomas, como corredores, escadas, átrios e acessos, não afeto a utilização exclusiva de nenhuma fração em particular."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "555" ;
+    fbo:hasNotionURL <https://www.notion.so/CommonArea-302f8487e6e780c5b6f4c2db6062f47a> .
+
+fbo-pt:CommonCirculationSpaces a owl:Class ;
+    rdfs:label "Common circulation spaces (in a building)"@en,
+        "Circulações comuns (de um edifício)"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "Conjunto de espaços destinados ao movimento de pessoas que são partilhados por todos os utilizadores do edifício, independentemente do piso ou da unidade (fogo, loja, escritório, etc.)."@en,
+        "Set of spaces intended for the movement of people that are shared by all users of the building, regardless of the floor or unit (fire, shop, office, etc.)."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "498" ;
+    fbo:hasNotionURL <https://www.notion.so/CommonCirculationSpaces-2aef8487e6e78026ac4ae404243b1a28> .
+
+fbo-pt:CountableBuildingStorey a owl:Class ;
+    rdfs:label "CountableBuildingStorey"@en,
+        "Piso utilizável"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasExpertDefinition "Pisos não destinados exclusivamente a instalações e equipamentos técnicos que apenas impliquem a presença de pessoas para fins de manutenção e reparação, e/ou que disponham de instalações sanitárias."@en,
+        "Floors not exclusively intended for technical installations and equipment that only require the presence of persons for maintenance and repair purposes, and/or that have sanitary facilities."@pt-PT ;
+    fbo:hasFireExpertEntity "Fire Expert" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "423" ;
+    fbo:hasNotionURL <https://www.notion.so/CountableBuildingStorey-268f8487e6e7808c8e8cd19c8b0c6f9b> .
+
+fbo-pt:Critriostcnicosparadeterminaodadensidadedecargadeincndiomodificada a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "Critérios técnicos para determinação da densidade de carga de incêndio modificada"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDescription "Technical criteria for determining the modified fire load density"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Critérios técnicos para determinação da densidade de carga de incêndio modificada"@pt-PT ;
+    fbo:hasPublicationDate "2020-09-19"^^xsd:date ;
+    fbo:hasURL <https://files.diariodarepublica.pt/2s/2020/09/183000000/0010500129.pdf> .
+
+fbo-pt:DeadEndCorridor a owl:Class ;
+    rdfs:label "Dead end of a corridor"@en,
+        "Impasse para uma via horizontal"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 8 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Situation in which, from a given point on a horizontal evacuation route, evacuation is only possible in one direction. The dead end is total if it continues along the entire route to an exit to a protected vertical escape route, a safety zone or a refuge area. The distance of the total dead end, expressed in metres, is measured along the axis of the route from that point to the aforementioned exit. The dead end may also be partial if it only continues along a section of the route until it joins another route where there are at least two escape alternatives. The distance of the partial dead end, expressed in metres, is measured along the axis of the dead end section from that point to the axis of the horizontal route where it joins."@en,
+        "Situação, segundo a qual, a partir de um ponto de um dada via de evacuação horizontal, a evacuação só é possível num único sentido. O impasse é total se se mantém em todo o percurso até uma saída para uma via de evacuação vertical protegida, uma zona de segurança ou uma zona de refúgio. A distância do impasse total, expressa em metros, é medida pelo eixo da via, desde esse ponto até à referida saída. O impasse pode também ser parcial se se mantém apenas num troço da via até entroncar numa outra onde existam, pelo menos, duas alternativas de fuga. A distância do impasse parcial, expressa em metros, é medida pelo eixo do troço em impasse desde esse ponto até ao eixo da via horizontal onde entronca"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "352" ;
+    fbo:hasNotionURL <https://www.notion.so/DeadEndCorridor-24ef8487e6e78058a0f0d91fb4bbd5f0> .
+
+fbo-pt:DeadEndSpace a owl:Class ;
+    rdfs:label "Dead end of a space"@en,
+        "Impasse para um ponto de um espaço"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 7 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Situation in which, from a given point in a given space, evacuation is only possible through access to a single exit, either to the outside or to a protected evacuation route, or to exits considered non-distinct. The distance from the impasse, expressed in metres, is measured from that point to the only exit or to the nearest of the exits considered non-distinct, through the axis of the highlighted paths, when required by this Regulation, or taking into account the fixed equipment and furniture to be installed or in line, if the two previous situations are not applicable."@en,
+        "Situação, segundo a qual a partir de um ponto de um dado espaço a evacuação só é possível através do acesso a uma única saída, para o exterior ou para uma via de evacuação protegida, ou a saídas consideradas não distintas. A distância do impasse, expressa em metros, é medida desse ponto à única saída ou à mais próxima das saídas consideradas não distintas, através do eixo dos caminhos evidenciados, quando este Regulamento os exigir, ou tendo em consideração os equipamentos e mobiliários fixos a instalar ou em linha, se as duas situações anteriores não forem aplicáveis"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "359" ;
+    fbo:hasNotionURL <https://www.notion.so/DeadEndSpace-24ef8487e6e780a3a889d791aeddd43b> .
+
+fbo-pt:DistinctExits a owl:Class ;
+    rdfs:label "Distinct exits in relation to a point"@en,
+        "Saídas distintas em relação a um ponto"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 11 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Exits for which, from that point, routes can be established for both, taking into account the main fixed furniture and equipment or the highlighted paths, when required by these Regulations, diverging from an angle greater than 45°, measured in plan."@en,
+        "Saídas para as quais, a partir desse ponto, se possam estabelecer linhas de percurso para ambas, tendo em conta o mobiliário principal fixo e o equipamento ou os caminhos evidenciados, quando este Regulamento os exigir, divergindo de um ângulo superior a 45°, medido em planta"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "355" ;
+    fbo:hasNotionURL <https://www.notion.so/DistinctExits-24ef8487e6e78089b456e1dca06c1b0d> .
+
+fbo-pt:DocumentScope a owl:Class ;
+    rdfs:label "Document Scope"@en,
+        "Âmbito do documento"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert Definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "The Technical Regulations for Fire Safety in Buildings establish the fire safety conditions that buildings and premises must comply with in their design, construction, operation, and use, in order to minimize the risk of fires and limit their consequences for people and property."@en,
+        "O Regulamento Técnico de Segurança contra Incêndio em Edifícios estabelece as condições de segurança contra incêndio que os edifícios e recintos devem observar no seu projeto, construção, exploração e utilização, de forma a minimizar o risco de ocorrência de incêndios e limitar as suas consequências para pessoas e bens."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "551" ;
+    fbo:hasNotionURL <https://www.notion.so/DocumentScope-302f8487e6e780abbbc8cdbadbf4bd62> .
+
+fbo-pt:DominantUse a owl:Class ;
+    rdfs:label "Dominant use of a occupancy type"@en,
+        "Uso dominante de uma utilização-tipo"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "alínea s) do art.º 2º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "This is the use which, among the various uses of its spaces, defines the purpose that allows it to be classified as a specific occupancy type(UT I to UT XII)."@en,
+        "É aquele que, de entre os diversos usos dos seus espaços, define a finalidade que permite atribuir a classificação de determinada utilização -tipo(UT I a UT XII)"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "442" ;
+    fbo:hasNotionURL <https://www.notion.so/DominantUse-270f8487e6e780b9ba33edd909113949> .
+
+fbo-pt:Dwelling a owl:Class ;
+    rdfs:label "Dwelling"@en,
+        "Fogo de habitação"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "Unidade funcional destinada a habitação dentro de um edifício, isto é, o conjunto de compartimentos que constituem uma residência independente (apartamento, moradia, estúdio, etc.)."@en,
+        "Functional unit intended for housing within a building, i.e. the set of rooms that constitute an independent residence (flat, house, studio, etc.)."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:24:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "497" ;
+    fbo:hasNotionURL <https://www.notion.so/Dwelling-2aef8487e6e7800bbc94f8bea928c20f> .
+
+fbo-pt:EmergencyExit a owl:Class ;
+    rdfs:label "Emergency exit"@en,
+        "Saída de emergência"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 10 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Exit to a protected evacuation route or safety zone, which is not normally available for other use by the public."@en,
+        "Saída para um caminho de evacuação protegido ou para uma zona de segurança, que não está normalmente disponível para outra utilização pelo público"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:24:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "357" ;
+    fbo:hasNotionURL <https://www.notion.so/EmergencyExit-24ef8487e6e78097bad6c8dffdd5a673> .
+
+fbo-pt:EscapeRoute a owl:Class ;
+    rdfs:label "Internal escape route"@en,
+        "Via de evacuação"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 14 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Horizontal or vertical communication within a building which, under the terms of this regulation, provides safe conditions for the evacuation of its occupants. Horizontal evacuation routes may be corridors, antechambers, atriums, galleries or, in large spaces, walkways explicitly marked on the floor for this purpose, which comply with the conditions of this regulation. Vertical evacuation routes may be stairs, ramps, or inclined stairs and escalators, which comply with the conditions of this regulation. Evacuation routes may be protected or unprotected. Protected evacuation routes may be enclosed (interior) or exterior. Unprotected evacuation routes are those that do not fully or partially meet the regulatory conditions for protected routes, although they may be authorised under the conditions set out in this regulation."@en,
+        "Comunicação horizontal ou vertical de um edifício que, nos temos do presente regulamento, apresenta condições de segurança para a evacuação dos seus ocupantes. As vias de evacuação horizontais podem ser corredores, antecâmaras, átrios, galerias ou, em espaços amplos, passadeiras explicitamente marcadas no pavimento para esse efeito, que respeitem as condições do presente regulamento. As vias de evacuação verticais podem ser escadas, rampas, ou escadas e tapetes rolantes inclinados, que respeitem as condições do presente regulamento. As vias de evacuação podem ser protegidas ou não. As vias de evacuação protegidas podem ser enclausuradas (interiores) ou exteriores. As vias de evacuação não protegidas são as que não garantem, total ou parcialmente, as condições regulamentares das vias protegidas, embora possam ser autorizadas nas condições expressas neste regulamento"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:24:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "354" ;
+    fbo:hasNotionURL <https://www.notion.so/EscapeRoute-24ef8487e6e780728589ebfde86e80ed> .
+
+fbo-pt:Evacuation a owl:Class ;
+    rdfs:label "Evacuation"@en,
+        "Evacuação"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 6 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Movement of occupants from a building to a safe area in the event of a fire or other accident, which must be orderly, timely and safe."@en,
+        "Movimento de ocupantes de um edifício para uma zona de segurança, em caso de incêndio ou de outros acidentes, que deve ser disciplinado, atempado e seguro"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:24:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "350" ;
+    fbo:hasNotionURL <https://www.notion.so/Evacuation-24ef8487e6e78043be31c288c7063075> .
+
+fbo-pt:EvacuationPath a owl:Class ;
+    rdfs:label "Evacuation Path"@en,
+        "Caminho de evacuação ou caminho de fuga"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 2 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Route between any point susceptible to occupation within an enclosure or building and an external safety zone, generally comprising an initial route within the place of stay and another along the evacuation routes."@en,
+        "Percurso entre qualquer ponto, suscetível de ocupação, num recinto ou num edifício até uma zona de segurança exterior, compreendendo, em geral, um percurso inicial no local de permanência e outro nas vias de evacuação"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:24:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "362" ;
+    fbo:hasNotionURL <https://www.notion.so/EvacuationPath-24ef8487e6e780eda8f2f56efce0d8f1> .
+
+fbo-pt:EvacuationRoute a owl:Class ;
+    rdfs:label "EvacuationRoute"@en,
+        "Caminho de evacuação ou caminho de fuga horizontal"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "n.º 2 do art.º 4º do Anexo I ao RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Route between any point, susceptible to occupation, in an enclosure or building to an external safety zone, generally comprising an initial route at the place of stay and another on the evacuation routes."@en,
+        "Percurso entre qualquer ponto, suscetível de ocupação, num recinto ou num edifício até uma zona de segurança exterior, compreendendo, em geral, um percurso inicial no local de permanência e outro nas vias de evacuação."@pt-PT ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "562" ;
+    fbo:hasNotionURL <https://www.notion.so/EvacuationRoute-302f8487e6e7805bb03dca7b905ca703> .
+
+fbo-pt:EvacuationTime a owl:Class ;
+    rdfs:label "Evacuation time"@en,
+        "Tempo de evacuação"@pt-PT ;
+    rdfs:subClassOf fbo:EvacuationTime ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 12 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Time required for all occupants of a building, or part of it, to reach a safe area after the evacuation signal is given."@en,
+        "Tempo necessário para que todos os ocupantes de um edifício, ou de parte dele, atinjam uma zona de segurança, a partir da emissão do sinal de evacuação"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "361" ;
+    fbo:hasNotionURL <https://www.notion.so/EvacuationTime-24ef8487e6e780d48fd5dafe519ce50c> .
+
+fbo-pt:ExclusiveOccupancyType a owl:Class ;
+    rdfs:label "Exclusive Occupancy Type"@en,
+        "Utilização Tipo Exclusiva"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "n.º 2 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Depending on their use, buildings and premises may be for exclusive use when they are integrated into a single type of occupancy."@en,
+        "Atendendo ao seu uso, os edifícios e recintos podem ser de utilização exclusiva, quando integrem uma única utilização-tipo"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:24:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "422" ;
+    fbo:hasNotionURL <https://www.notion.so/ExclusiveOccupancyType-268f8487e6e7806584ece5deee08f9a4> .
+
+fbo-pt:Exclusivehorizontalcirculations a owl:Class ;
+    rdfs:label "Exclusive horizontal circulations"@en,
+        "Circulações horizontais exclusivas"@pt-PT ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "These are the interior circulation spaces of a group of rooms of the same type, such as type D rooms."@en ;
+    fbo:hasExpertDefinition "São os espaços de circulação interior de um conjunto de locais do mesmo tipo, como por exemplo locais de risco D."@en ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:24:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "565" ;
+    fbo:hasNotionURL <https://www.notion.so/Exclusive-horizontal-circulations-302f8487e6e78078ab2ff278a7bb3ec5> .
+
+fbo-pt:Exit a owl:Class ;
+    rdfs:label "Exit"@en,
+        "Saída"@pt-PT ;
+    rdfs:subClassOf fbo:Exit ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 9 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Any space along the evacuation routes of a building that occupants must cross to get from where they are to a safe area."@en,
+        "Qualquer vão disposto ao longo dos caminhos de evacuação de um edifício que os ocupantes devam transpor para se dirigirem do local onde se encontram até uma zona de segurança"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "363" ;
+    fbo:hasNotionURL <https://www.notion.so/Exit-24ef8487e6e780f385d0f9700e5ca79f> .
+
+fbo-pt:ExitCapacity a owl:Class ;
+    rdfs:label "Exit Capacity"@en,
+        "Capacidade de evacuação de uma saída"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 3 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Maximum number of people who can pass through this exit per unit of time"@en,
+        "Número máximo de pessoas que podem passar através dessa saída por unidade de tempo"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:24:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "353" ;
+    fbo:hasNotionURL <https://www.notion.so/ExitCapacity-24ef8487e6e7806aa285f72b3322133c> .
+
+fbo-pt:ExternalEvacuationRoute a owl:Class ;
+    rdfs:label "External evacuation route"@en,
+        "Via de evacuação exterior"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 16 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Protected evacuation route, outdoors or wide and permanently ventilated, which is sufficiently separated from the rest of the building or neighbouring buildings, either by distance or by construction elements whose standard fire resistance complies with the provisions of this regulation. This route may be entirely outside a building or partially embedded in it, in which case it must have an opening along the construction elements in contact with the outside, covering the entire space above the respective guardrail."@en,
+        "Via de evacuação protegida, ao ar livre ou ampla e permanentemente ventilada, que está suficientemente separada do resto do edifício ou de edifícios vizinhos, quer em afastamento quer por elementos de construção cuja resistência ao fogo padrão está de acordo com o explicitado no presente regulamento. Esta via pode estar totalmente no exterior de um edifício ou nele parcialmente encastrada, devendo, neste caso, dispor de uma abertura, ao longo dos elementos de construção em contacto com o exterior, abrangendo todo o espaço acima da respetiva guarda"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:24:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "358" ;
+    fbo:hasNotionURL <https://www.notion.so/ExternalEvacuationRoute-24ef8487e6e7809fafb9ea1ae9ff6b7e> .
+
+fbo-pt:FireDamper a owl:DatatypeProperty ;
+    rdfs:label "Fire damper"@en,
+        "Registo resistente ao fogo"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID """n.º 11 do art.º 3º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Automatically operated damper with a given fire resistance rating determined by a standardized fire resistance test, intended to prevent the spread of fire or its effects through a duct or opening for a certain period of time."@en,
+        "Registo de accionamento automático com uma dada qualificação de resistência ao fogo determinada em ensaio normalizado de resistência ao fogo padrão, destinado a impedir a propagação de um incêndio ou dos seus efeitos através de uma conduta ou de uma abertura, durante um certo período de tempo"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "92" ;
+    fbo:hasNotionURL <https://www.notion.so/FireDamper-151f8487e6e7803f96b7d87e9ace33fa> ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:FireLoad a owl:DatatypeProperty ;
+    rdfs:label "Fire load"@en,
+        "Carga de incêndio"@pt-PT ;
+    rdfs:subPropertyOf fbo:FireLoad ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NP EN 1991-1-2: 2010 - 1.5.3.8" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "The sum of the thermal energy released by the combustion of all combustible materials in a space (the building's contents and construction elements)."@en,
+        "Soma da energia térmica libertada pela combustão de todos os materiais combustíveis existentes num espaço (o recheio do edifício e os elementos de construção)."@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "European Standard" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "108" ;
+    fbo:hasNotionURL <https://www.notion.so/FireLoad-151f8487e6e7806ca29bd829af4a508a> ;
+    fbo:hasUnit "MJ" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:FireLoadDensity a owl:DatatypeProperty ;
+    rdfs:label "Fire load density"@en,
+        "Densidade de carga de incêndio"@pt-PT ;
+    rdfs:subPropertyOf fbo:FireLoadDensity ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NP EN 1991-1-2: 2010 - 1.5.3.7" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Fire load per unit area of the floor surface (qf) or per unit area of the total envelope surface, including openings (qt)."@en,
+        "Carga de incêndio por unidade de área da superfície do pavimento (qf), ou por unidade de área da superfície da envolvente total, incluindo as aberturas (qt)."@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "European Standard" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "107" ;
+    fbo:hasNotionURL <https://www.notion.so/FireLoadDensity-151f8487e6e7806bbe83fac021aaea37> ;
+    fbo:hasUnit "MJ/m^2" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:FireLoadDensityModified a owl:DatatypeProperty ;
+    rdfs:label "Modified fire load density"@en,
+        "Densidade da carga de incêndio modificada"@pt-PT ;
+    rdfs:subPropertyOf fbo:FireLoadDensity ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Art. 2(h) do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "The fire load density affected by coefficients relating to the degree of danger and the fuel activation index, determined on the basis of the criteria referred to in Article 12(4);"@en,
+        "A densidade da carga de incêndio é afetada por coeficientes relativos ao grau de perigo e ao índice de ativação do combustível, determinados com base nos critérios referidos no nº 4 do artigo 12º;"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegimeJurdicodaSeguranaContraIncndioemEdifcios,
+        fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "88" ;
+    fbo:hasNotionURL <https://www.notion.so/FireLoadDensityModified-151f8487e6e78037b8c7d97957453adc> ;
+    fbo:hasRemarks "In Portugal, the fire load density is corrected by an activation risk and a combustibility coefficient and is called the modified load density." ;
+    fbo:hasUnit "MJ/m^2" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:FireResistance a owl:DatatypeProperty ;
+    rdfs:label "Fire Resistance"@en,
+        "Resistência ao fogo"@pt-PT ;
+    rdfs:subPropertyOf fbo:FireResistance ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NP EN 1991-1-2: 2010 - 1.5.1.4" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Ability of a structure, part of a structure or element to perform its intended functions (load-bearing function and/or compartmentalisation function) for a specific load level, when subjected to a specific fire situation and for a specified period of time."@en,
+        "Capacidade de uma estrutura, de parte de uma estrutura ou de um elemento para desempenhar as funções pretendidas (função de suporte de cargas e/ou função de compartimentação) para um nível de carga específico, quando sujeita a uma situação de incêndio específica e durante um período de tempo especificado."@pt-PT ;
+    fbo:hasFireExpertEntity "European Standard" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "155" ;
+    fbo:hasNotionURL <https://www.notion.so/FireResistance-151f8487e6e780dda0ecd4dd12ae95c8> ;
+    fbo:hasRemarks "“3. GENERIC DEFINITION - WE ADD IT BECAUSE ITS A GENERIC DEFINITION AND ITS NOT RELATED DIRECTLY WITH THE BUILDING - NEED TO BE DISCUSTED" ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:FireResistanceStandard a owl:DatatypeProperty ;
+    rdfs:label "Standard fire resistance"@en,
+        "Resistência ao fogo padrão"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NP EN 1991-1-2: 2010 - 1.5.1.16" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Ability of a structure or part of a structure (usually just the elements) to fulfil its intended functions (structural resistance function and/or compartmentation function) in relation to heat exposure, according to the standard fire curve for a specified combination of actions and over a specified period of time."@en,
+        "Capacidade de uma estrutura ou de parte de uma estrutura (normalmente apenas os elementos) para desempenhar as funções pretendidas (função de resistência estrutural e/ou função de compartimentação) relativamente à exposição ao calor, de acordo com a curva de incêndio padrão para uma combinação de acções especificada e durante um período de tempo específico."@pt-PT ;
+    fbo:hasFireExpertEntity "European standard" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "70" ;
+    fbo:hasNotionURL <https://www.notion.so/FireResistanceStandard-151f8487e6e780138a5ac6a9e0020080> ;
+    fbo:hasRemarks "“3. GENERIC DEFINITION - WE ADD IT BECAUSE ITS A GENERIC DEFINITION AND ITS NOT RELATED DIRECTLY WITH THE BUILDING - NEED TO BE DISCUSTED" ;
+    fbo:hasUnit "-" .
+
+fbo-pt:FireScenario a owl:DatatypeProperty ;
+    rdfs:label "Fire scenario"@en,
+        "Cenário de incêndio"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NP EN 1991-1-2: 2010 - 1.5.3.9" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Qualitative description of the evolution of a fire over time, identifying the main events that characterise the fire and differentiate it from other possible fires. It typically defines the ignition and growth process of the fire, the fully developed fire phase, the cooling phase, as well as the ambient conditions and building systems that will have an impact on the evolution of the fire."@en,
+        "Descrição qualitativa da evolução de um incêndio com o tempo, identificando os principais acontecimentos que caracterizam o incêndio e o diferenciam de outros incêndios possíveis. Define, tipicamente, a ignição e o processo de crescimento do incêndio, a fase do incêndio totalmente desenvolvido, a fase de arrefecimento, assim como as condições ambientes e os sistemas do edifício que terão impacto na evolução do incêndio."@pt-PT ;
+    fbo:hasFireExpertEntity "European standard" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "78" ;
+    fbo:hasNotionURL <https://www.notion.so/FireScenario-151f8487e6e78027b0e5d10a364e3629> ;
+    fbo:hasRemarks "“3. GENERIC DEFINITION - WE ADD IT BECAUSE ITS A GENERIC DEFINITION AND ITS NOT RELATED DIRECTLY WITH THE BUILDING - NEED TO BE DISCUSTED" ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:FireStability a owl:DatatypeProperty ;
+    rdfs:label "Fire Stability"@en,
+        "Estabilidade ao fogo"@pt-PT ;
+    rdfs:subPropertyOf fbo:FireStability ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NP EN 1991-1-2: 2010 - 1.5.1.10" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Capacidade de uma estrutura ou de um elemento para resistir a acções específicas durante o incêndio relevante, de acordo com um critério definido."@pt-PT ;
+    fbo:hasDesignator "R" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "146" ;
+    fbo:hasNotionURL <https://www.notion.so/FireStability-151f8487e6e780c2813ad1929fdb8ea4> ;
+    fbo:hasUnit "Minutes" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:FireTightness a owl:DatatypeProperty ;
+    rdfs:label "Fire tightness > Integrity"@en,
+        "Estanquidade ao fogo"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NP EN 1991-1-2: 2010 - 1.5.1.8" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Ability of a separating element of building construction, when exposed to fire on one side, to prevent the passage through it of flames and hot gases and to prevent the occurrence of flames on the unexposed side"@en,
+        "Capacidade de um elemento de compartimentação de um edifício, quando exposto ao fogo de um lado, para impedir a passagem de chamas e de gases quentes através de si e para impedir a ocorrência de chamas no lado não exposto."@pt-PT ;
+    fbo:hasDesignator "E" ;
+    fbo:hasEquivalentTerm "Integrity" ;
+    fbo:hasFireExpertEntity "European standard" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:21:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "98" ;
+    fbo:hasNotionURL <https://www.notion.so/FireTightness-151f8487e6e7804cbd3ecce8684626ee> ;
+    fbo:hasUnit "Minutes" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:FloorSpaceFactor a owl:Class ;
+    rdfs:label "Floor Space Factor"@en,
+        "Índice de Ocupação"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasArticleID "n.º 1 do art.º 51º do RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Number of occupants per unit area depending on the use of the spaces"@en,
+        "Número de ocupantes por unidade de área em função do uso dos espaços."@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "429" ;
+    fbo:hasNotionURL <https://www.notion.so/FloorSpaceFactor-269f8487e6e780619bf1d56d38af3662> .
+
+fbo-pt:FunctionCompartmentation a owl:DatatypeProperty ;
+    rdfs:label "Compartmentation function"@en,
+        "Função de compartimentação"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NP EN 1991-1-2: 2010 - 1.5.1.14" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Ability of a partitioning element to prevent the spread of fire (for example, by the passage of flames or hot gases - see airtightness) or by ignition beyond the exposed surface (see thermal insulation) during the relevant fire situation."@en,
+        "Capacidade de um elemento de compartimentação para impedir a propagação do fogo (por exemplo, pela passagem de chamas ou de gases quentes – ver estanquidade) ou por ignição para além da superfície exposta (ver isolamento térmico) durante a situação de incêndio relevante."@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X12FireCompartmentBoundary ;
+    fbo:hasFireExpertEntity "European Standard" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:21:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "90" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionCompartmentation-151f8487e6e7803c8034d6b0d2d77ba5> ;
+    fbo:hasUnit "-" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-pt:FunctionSpace a owl:Class ;
+    rdfs:label "Function space"@en,
+        "Uso de um espaço / local"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasExpertDefinition "Designação de um dado espaço de um piso de um edifício em termos de uso, podendo ser uma via horizontal (corredor), uma via vertical (escada), um ducto, uma câmara corta-fogo, uma fração autónoma, uma zona de refúgio ou um local (do tipo A, B, C, D, E ou F)."@en,
+        "Designation of a given space on a floor of a building in terms of use, which may be a horizontal route (corridor), a vertical route (staircase), a shaft, a fire compartment, an autonomous fraction, a refuge area or a room (type A, B, C, D, E or F)."@pt-PT ;
+    fbo:hasFireExpertEntity "Fire Expert" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "426" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionSpace-268f8487e6e780e5b759e717b8ed22ba> .
+
+fbo-pt:GableWall a owl:Class ;
+    rdfs:label "Gable wall"@en,
+        "Parede de empena"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "n.º 40 do art.º 1º do Anexo I ao RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Side wall of a building, without openings, with the function of insulation from adjacent buildings, whether existing or to be built."@en,
+        "Parede lateral de um edifício, sem aberturas, com a função de isolamento relativamente a edifícios contíguos, já existentes ou a construir"@pt-PT ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "501" ;
+    fbo:hasNotionURL <https://www.notion.so/GableWall-2aef8487e6e7805b843ee45ec68107a5> .
+
+fbo-pt:GrossArea a owl:DatatypeProperty ;
+    rdfs:label "Gross area of a floor or fraction"@en,
+        "Área bruta de um piso ou fracção"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 4 do art.º 1º do Anexo I ao RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Total surface area of a given floor or fraction, delimited by the outer perimeter of the exterior walls and the axes of the interior walls separating that fraction from the others"@en,
+        "Superfície total de um dado piso ou fração, delimitada pelo perímetro exterior das paredes exteriores e eixos das paredes interiores separadoras dessa fração, relativamente às restantes"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "300" ;
+    fbo:hasNotionURL <https://www.notion.so/GrossArea-231f8487e6e780abb314c59f13936936> ;
+    fbo:hasUnit "m2" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:HeightOccupancy a owl:DatatypeProperty ;
+    rdfs:label "Height of an occupancy"@en,
+        "Altura da utilização-tipo"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 2 do art.º 1º do Anexo I ao RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Difference in elevation between the reference plane and the floor of the last floor above ground that can be occupied by that occupancy, in accordance with the following conditions"@en,
+        "Diferença de cota entre o plano de referência e o pavimento do último piso acima do solo, suscetível de ocupação por essa utilização-tipo, de acordo com as seguintes condições"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "173" ;
+    fbo:hasNotionURL <https://www.notion.so/HeightOccupancy-198f8487e6e780e994d4e26cbcc0094b> ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:HorizontalRoute a owl:Class ;
+    rdfs:label "HorizontalRoute"@en,
+        "Via de evacuação horizontal"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 14 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Horizontal communication in a building that provides safe conditions for the evacuation of its occupants. Horizontal evacuation routes may be corridors, antechambers, atriums, galleries, or, in large spaces, walkways explicitly marked on the floor for this purpose, which comply with the conditions of the Technical Regulations. Evacuation routes may be protected or unprotected. Protected evacuation routes may be enclosed (interior) or exterior."@en,
+        "Comunicação horizontal de um edifício que , apresenta condições de segurança para a evacuação dos seus ocupantes. As vias de evacuação horizontais podem ser corredores, antecâmaras, átrios, galerias ou, em espaços amplos, passadeiras explicitamente marcadas no pavimento para esse efeito, que respeitem as condições do Regulamento Técnico. As vias de evacuação podem ser protegidas ou não. As vias de evacuação protegidas podem ser enclausuradas (interiores) ou exteriores."@pt-PT ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "563" ;
+    fbo:hasNotionURL <https://www.notion.so/HorizontalRoute-302f8487e6e780cd9133eec30572843e> .
+
+fbo-pt:IndependentBuilding a owl:DatatypeProperty ;
+    rdfs:label "Independent building"@en,
+        "Edifícios independente"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID """n.º 19 do art.º 1º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings with independent structures, with no internal communication between them or, when there is one, it is exclusively through a fire chamber, and which comply with the provisions of Fire Safety in Buildings Regulation, regarding the fire resistance of the construction elements that isolate them from each other, as well as parts of the same building with a common structure, with no internal communication between them or, where there is one, it is carried out exclusively through a fire chamber and they comply with the provisions of Fire Safety in Buildings Regulation in relation to the fire resistance of the construction elements that isolate them from each other and neither part depends on the other to comply with the regulatory evacuation conditions."@en,
+        "Edifícios dotados de estruturas independentes, sem comunicação interior entre eles ou, quando exista, a mesma seja efetuada exclusivamente através de câmara corta-fogo, e que cumpram as disposições de SCIE, relativamente à resistência ao fogo dos elementos de construção que os isolam entre si, bem como as partes de um mesmo edifício com estrutura comum, sem comunicação interior entre elas ou, quando exista, a mesma seja efetuada exclusivamente através de câmara corta-fogo e cumpram as disposições de SCIE, relativamente à resistência ao fogo dos elementos de construção que as isolam entre si e nenhuma das partes dependa da outra para cumprir as condições regulamentares de evacuação"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "136" ;
+    fbo:hasNotionURL <https://www.notion.so/IndependentBuilding-151f8487e6e780ab85ddea02b31afcfd> ;
+    fbo:hasUnit "-" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-pt:IndependentFireCompartiment a owl:DatatypeProperty ;
+    rdfs:label "Independent Fire Compartiment"@en,
+        "Compartimentos Corta-Fogo independentes"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 3 do art.º 14º do RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Different occupancies in the same building must constitute independent fire compartments, with the exceptions provided for in the Technical Regulation"@en,
+        "Utilizações-tipo diferentes, no mesmo edifício, devem constituir compartimentos corta -fogo independentes, com as exceções previstas no RT-SCIE"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "118" ;
+    fbo:hasNotionURL <https://www.notion.so/IndependentFireCompartiment-151f8487e6e780838592c8741c9e6127> ;
+    fbo:hasRemarks "It essentially refers to Article 17 of the RT-SCIE" ;
+    fbo:hasUnit "-" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:IndependentUnit a owl:Class ;
+    rdfs:label "IndependentUnit"@en,
+        "Fracção autónoma"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "Is an independent unit of a building, with its own exit to a common area or public road, consisting of one or more compartments intended for specific purposes, such as housing, commerce, or services."@en,
+        "É uma unidade independente de um edifício, com saída própria para uma parte comum ou para a via pública, sendo constituída por um ou mais compartimentos destinados a fins específicos, como habitação, comércio ou serviços."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "559" ;
+    fbo:hasNotionURL <https://www.notion.so/IndependentUnit-302f8487e6e780dbb72bcc0b3e6680d8> .
+
+fbo-pt:IndividualCoveredCarPark a owl:Class ;
+    rdfs:label "Individual covered car park"@en,
+        "Estacionamento individual coberto"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 28 do art.º 1º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Covered space with an area equal to or less than 50 m2 intended for car parking"@en,
+        "Espaço coberto com área igual ou inferior a 50 m2 destinado ao estacionamento automóvel"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "436" ;
+    fbo:hasNotionURL <https://www.notion.so/IndividualCoveredCarPark-270f8487e6e7806a9a99e950280c0198> .
+
+fbo-pt:IndoorSpace a owl:DatatypeProperty ;
+    rdfs:label "Indoor space"@en,
+        "Espaço coberto"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert Definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasExpertDefinition "Espaço interior de um edifício."@en,
+        "Indoor room in a building."@pt-PT ;
+    fbo:hasFireExpertEntity "Fire Expert" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "176" ;
+    fbo:hasNotionURL <https://www.notion.so/IndoorSpace-199f8487e6e780da8a82c8a143f95dbd> ;
+    fbo:hasRemarks "Important in assigning the type of rooms" ;
+    fbo:hasUnit "-" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-pt:InitialCompartment a owl:Class ;
+    rdfs:label "InitialCompartment"@en,
+        "Compartimento inicial"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert defintions" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "It is the base space or functional unit of the building (such as a floor or compartment) whose dimensions and area are automatically modeled and calculated in the three-dimensional model to verify compliance with design requirements, functional programs, or applicable standards."@en,
+        "É o espaço base ou unidade funcional do edifício (como um exemplo um piso ou compartimento) cujas dimensões e área são modeladas e calculadas automaticamente no modelo tridimensional para verificação de conformidade com requisitos de projeto, programas funcionais ou normas aplicáveis."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "560" ;
+    fbo:hasNotionURL <https://www.notion.so/InitialCompartment-302f8487e6e780d68a7afd155d2b5292> .
+
+fbo-pt:InternalEvacuationRoute a owl:Class ;
+    rdfs:label "Internal escape route"@en,
+        "Via de evacuação enclausurada ou protegida interior"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 17 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Protected evacuation route, established inside the building, equipped with a smoke control system and surroundings with specified fire resistance"@en,
+        "Via de evacuação protegida, estabelecida no interior do edifício, dotada de sistema de controlo de fumo e de envolvente com uma resistência ao fogo especificada"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "360" ;
+    fbo:hasNotionURL <https://www.notion.so/InternalEvacuationRoute-24ef8487e6e780c8b50afa20eb6a2ea2> .
+
+fbo-pt:IsolatedBuilding a owl:DatatypeProperty ;
+    rdfs:label "Isolated buildings"@en,
+        "Edifícios isolados"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID """n.º 20 do art.º 1º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition """From the point of view of the propagation of fire between façades, buildings that comply with one of the following characteristics:
+a) Have façades facing other buildings at a distance of 8 m or more;
+b) They have façades facing other buildings, provided that they comply with paragraph a) of Art. 7(8) of of Technical Regulation."""@en,
+        """Do ponto de vista de propagação do fogo entre fachadas, edifícios que obedecem a uma das seguintes características:
+a) Possuam fachadas em confronto com outros edifícios afastadas de uma distância igual ou superior a 8 m;
+b) Possuam fachadas em confronto com outros edifícios, desde que cumpram a alínea a) do n.º 8 do art.º 7.º do RT-SCIE."""@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "97" ;
+    fbo:hasNotionURL <https://www.notion.so/IsolatedBuilding-151f8487e6e7804bac57c8f3415ff433> ;
+    fbo:hasUnit "-" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-pt:LengthEvacuationPath a owl:Class ;
+    rdfs:label "Length of the evacuation path"@en,
+        "Distância de evacuação"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 4 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Distance to be covered on an evacuation route until reaching a protected evacuation route, a safety zone, or a refuge area."@en,
+        "Comprimento a percorrer num caminho de evacuação até se atingir uma via de evacuação protegida, uma zona de segurança ou uma zona de refúgio"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "348" ;
+    fbo:hasNotionURL <https://www.notion.so/LengthEvacuationPath-24ef8487e6e78023a6dde32a4c7a4ca3> .
+
+fbo-pt:Level a owl:Class ;
+    rdfs:label "Level"@en,
+        "Piso de um edifício"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "Nível ou elemento horizontal da construção, destinado ao uso humano ou técnico, situado entre a superfície de apoio inferior (piso do nível) e o teto ou laje do nível superior."@en,
+        "Horizontal level or element of a building, intended for human or technical use, located between the lower support surface (floor of the level) and the ceiling or slab of the upper level."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "500" ;
+    fbo:hasNotionURL <https://www.notion.so/Level-2aef8487e6e7804886b5f2a57bd320fd> .
+
+fbo-pt:NetArea a owl:DatatypeProperty ;
+    rdfs:label "Net area of a floor or fraction"@en,
+        "Área útil de um piso ou fracção"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 6 do art.º 1º do Anexo I ao RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Sum of the usable floor area of all interior compartments on a given floor or fraction thereof, excluding vestibules, interior circulation, common stairways and ramps, sanitary facilities, closets, storage rooms, wall cabinets and other compartments with a similar function, and measured by the interior perimeter of the walls that delimit those compartments, excluding walls up to 30 cm, interior walls, partitions and ducts."@en,
+        "Soma da área útil de todos os compartimentos interiores de um dado piso ou fracção, excluindo-se vestíbulos, circulações interiores, escadas e rampas comuns, instalações sanitárias, roupeiros, arrumos, armários nas paredes e outros compartimentos de função similar, e mede-se pelo perímetro interior das paredes que delimitam aqueles compartimentos, descontando encalços até 30 cm, paredes interiores, divisórias e condutas"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasEquivalentTerm "Usable area" ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "297" ;
+    fbo:hasNotionURL <https://www.notion.so/NetArea-231f8487e6e7807f9591d4e1e056d90f> ;
+    fbo:hasUnit "m2" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:NominalCurve a owl:DatatypeProperty ;
+    rdfs:label "Standard fire curve"@en,
+        "Curva de incêndio padrão"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NP EN 1991-1-2: 2010 - 1.5.3.15" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Nominal curve, defined in EN 13501-2, intended to represent a model of a fully developed fire in a compartment."@en,
+        "Curva nominal, definida na EN 13501-2, destinada a representar um modelo de um incêndio totalmente desenvolvido num compartimento."@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:NPEN1991122010 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary ;
+    fbo:hasFireExpertEntity "European Standard" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:21:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "161" ;
+    fbo:hasNotionURL <https://www.notion.so/NominalCurve-151f8487e6e780eebed0e3c814e60ce0> ;
+    fbo:hasUnit "-" .
+
+fbo-pt:NotaTcnican01Utilizaestipodeedifcioserecintos a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "Nota Técnica n.º 01 - Utilizações-tipo de edifícios e recintos"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDescription "Definition of occupancies"@en ;
+    fbo:hasDocumentType "interpretation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Utilizações-tipo de edifícios e recintos"@pt-PT ;
+    fbo:hasPublicationDate "2021-05-01"^^xsd:date ;
+    fbo:hasURL <https://prociv.gov.pt/media/ix2fsrb3/nt_01_2021.pdf> .
+
+fbo-pt:NotaTcnican06Categoriasderisco a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "Nota Técnica n.º 06 - Categorias de risco"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDescription "Risk categories"@en ;
+    fbo:hasDocumentType "interpretation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Categorias de risco"@pt-PT ;
+    fbo:hasPublicationDate "2022-08-01"^^xsd:date ;
+    fbo:hasURL <https://prociv.gov.pt/media/xylb1rea/nt_06_2022.pdf> .
+
+fbo-pt:OccupancyTypeScope a owl:Class ;
+    rdfs:label "OccupancyTypeScope"@en,
+        "Âmbito das Utilizações-tipo"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "A \"utilização-tipo\" classifica os edifícios e recintos em doze categorias distintas conforme a sua ocupação e uso específico (habitacional, estacionamento, administrativo, escolar, hospitalar, espetáculos, comercial, entre outros), determinando os requisitos de segurança contra incêndio aplicáveis a cada uma."@en,
+        "“Occupancy type” classifies buildings and premises into twelve distinct types according to their specific occupation and use (residential, parking, administrative, educational, hospital, entertainment, commercial, among others), determining the fire safety requirements applicable to each one."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "547",
+        "556" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeScope-302f8487e6e7800a8506de1ef0006eed>,
+        <https://www.notion.so/OccupancyTypeScope-302f8487e6e780fa917ceb7296af38ec> .
+
+fbo-pt:Occupants a owl:DatatypeProperty ;
+    rdfs:label "Occupants (or number of occupants)"@en,
+        "Efetivo"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID """n.º 21 do art.º 1º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "The estimated maximum number of people that can simultaneously occupy a given space in a building or enclosure"@en,
+        "O número máximo estimado de pessoas que podem ocupar simultaneamente um determinado espaço num edifício ou recinto"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X21NumberofDoorsExits,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "129" ;
+    fbo:hasNotionURL <https://www.notion.so/Occupants-151f8487e6e78099a1f5dcab975ac948> ;
+    fbo:hasUnit "Unit" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:OperatingEntity a owl:Class ;
+    rdfs:label "Operating Entity"@en,
+        "Entidade Exploradora"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasExpertDefinition "Entidade competente, individual ou colectiva, responsável pela manutenção das condições de segurança contra incêndio e a implementação das medidas de autoproteção de um edifício ou recinto, durante todo o seu ciclo de vida."@en,
+        "Competent entity, whether individual or collective, responsible for maintaining fire safety conditions and implementing emergency management in a building or enclosure throughout its life cycle."@pt-PT ;
+    fbo:hasFireExpertEntity "Fire Expert" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "424" ;
+    fbo:hasNotionURL <https://www.notion.so/OperatingEntity-268f8487e6e7809aa26bd52bb893e6d2> .
+
+fbo-pt:Outdoor a owl:Class ;
+    rdfs:label "Outdoor"@en,
+        "Exterior"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "It is any outdoor space or large, permanently ventilated area that is freely connected to the outside and constitutes a safe zone where people can go in the event of a fire."@en,
+        "É qualquer espaço ao ar livre ou local amplo e permanentemente ventilado, em comunicação livre com o espaço exterior, que constitui uma zona de segurança para onde as pessoas se podem dirigir em caso de incêndio."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "561" ;
+    fbo:hasNotionURL <https://www.notion.so/Outdoor-302f8487e6e780e5b374f20463de5eb0> .
+
+fbo-pt:OutdoorSpace a owl:Class ;
+    rdfs:label "OutdoorSpace"@en,
+        "Espaço exterior"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "Local que não está limitado por paredes ou coberturas que o tornem interior."@en,
+        "A place that is not enclosed by walls or roofs that make it interior."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "505" ;
+    fbo:hasNotionURL <https://www.notion.so/OutdoorSpace-2aef8487e6e78095a5aec0c4e2d535bf> .
+
+fbo-pt:PanicExitDevice a owl:Class ;
+    rdfs:label "Panic exit device"@en,
+        "Barra anti-pânico"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 1 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Mechanical device installed on a door that allows, in the event of an emergency evacuation, easy opening by simply pressing against it with the body, without the need to use the hands."@en,
+        "Dispositivo mecânico instalado numa porta que permita, em caso de evacuação de emergência, a sua fácil abertura por mera pressão do corpo do utilizador, sem necessidade de uso das mãos"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "349" ;
+    fbo:hasNotionURL <https://www.notion.so/PanicExitDevice-24ef8487e6e7802d8ce2fc556e44f15d> .
+
+fbo-pt:PassageUnit a owl:Class ;
+    rdfs:label "Passage unit (PU)"@en,
+        "Unidade de passagem (UP)"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 13 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition """Theoretical unit used to assess the width required for people to pass through during an evacuation. The correspondence in metric units, rounded down to the nearest whole number, is as follows:
+a) 1 UP = 0.9 m;
+b) 2 UP = 1.4 m;
+c) N UP = N × 0.6 m (for N > 2)."""@en,
+        """Unidade teórica utilizada na avaliação da largura necessária à passagem de pessoas no decurso da evacuação. A correspondência em unidades métricas, arredondada por defeito para o número inteiro mais próximo, é a seguinte:
+a) 1 UP = 0,9 m;
+b) 2 UP = 1,4 m;
+c) N UP = N × 0,6 m (para N > 2)."""@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X24WithoftheExits,
+        fbo:X25WithoftheEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "347" ;
+    fbo:hasNotionURL <https://www.notion.so/PassageUnit-24ef8487e6e7801f9340dc057b14f20b> .
+
+fbo-pt:ProjectScope a owl:Class ;
+    rdfs:label "Project Scope"@en,
+        "Âmbito do projecto"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "The fire safety specialty project is the technical document that defines the fire protection solutions and measures for a building or enclosure, establishing the safety objectives, the strategies to achieve them, and the requirements to be integrated into the architectural design and other specialties, through a descriptive and explanatory report and drawings that represent the layout, emergency accesses, risk classification, fire resistance conditions, evacuation, and the location of safety equipment and systems."@en,
+        "O projeto de especialidade de segurança contra incêndio é o documento técnico que define as soluções e medidas de proteção contra incêndio de um edifício ou recinto, estabelecendo os objetivos de segurança, as estratégias para os alcançar e as exigências a integrar no projeto de arquitetura e nas restantes especialidades, através de uma memória descritiva e justificativa e de peças desenhadas que representem a implantação, os acessos de socorro, a classificação de risco, as condições de resistência ao fogo, evacuação e a localização dos equipamentos e sistemas de segurança."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "550" ;
+    fbo:hasNotionURL <https://www.notion.so/ProjectScope-302f8487e6e780b6a82bd270e32f67fa> .
+
+fbo-pt:ProtectedLobby a owl:Class ;
+    rdfs:label "Protected lobby"@en,
+        "Câmara corta-fogo"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "n.º 1 do art.º 3º do Anexo I ao RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Independent fire compartment, with a degree of resistance and smoke control systems, which generally establishes communication between two spaces with the aim of ensuring the temporary protection of one of them or preventing the spread of fire between them."@en,
+        "Compartimento corta-fogo independente, com um grau de resistência e os meios de controlo de fumo, que estabelece, em regra, a comunicação entre dois espaços com o objetivo de garantir a proteção temporária de um deles ou evitar a propagação do incêndio entre ambos."@pt-PT ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "504" ;
+    fbo:hasNotionURL <https://www.notion.so/ProtectedLobby-2aef8487e6e7808bbfe4f0826b269897> .
+
+fbo-pt:ProtectedRoute a owl:Class ;
+    rdfs:label "Protected route"@en,
+        "Via de evacuação protegida"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 17 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Evacuation route equipped with means that protect its users from gases, smoke and fire during the time necessary for evacuation. The cladding of the surrounding construction elements of protected evacuation routes must exhibit a reaction to fire in accordance with the specifications of this regulation. In a protected evacuation route, there must be no unprotected ducts for plumbing, waste or any other purpose, nor any access to ducts, nor pipes for combustible or oxidising gases, combustible liquids or electrical installations. Exceptions to the latter case are those necessary for lighting, fire detection and control of safety systems or devices, or low-voltage communications. Water pipes intended for firefighting are also exempt."@en,
+        "Via de evacuação dotada de meios que conferem aos seus utentes proteção contra os gases, o fumo e o fogo, durante o período necessário à evacuação. Os revestimentos dos elementos de construção envolventes das vias de evacuação protegidas devem exibir uma reação ao fogo conforme as especificações do presente regulamento. Numa via de evacuação protegida não podem existir ductos, não protegidos, para canalizações, lixos ou para qualquer outro fim, nem quaisquer acessos a ductos, nem canalizações de gases combustíveis ou comburentes, líquidos combustíveis ou instalações elétricas. Excetuam-se, neste último caso, as que sejam necessárias à sua iluminação, deteção de incêndios e comando de sistemas ou dispositivos de segurança ou, ainda, de comunicações em tensão reduzida. Excetuam-se ainda as canalizações de água destinadas ao combate a incêndios"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "356" ;
+    fbo:hasNotionURL <https://www.notion.so/ProtectedRoute-24ef8487e6e78094bed3c20e30c2d340> .
+
+fbo-pt:PublicOccupants a owl:Class ;
+    rdfs:label "Public Occupants"@en,
+        "Efectivo de Público"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 22 do art.º 1º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Estimated maximum number of people who can occupy a given space in a building or enclosure that receives the public at the same time, excluding the number of employees and any other persons involved in its operation"@en,
+        "Número máximo estimado de pessoas que pode ocupar em simultâneo um dado espaço de edifício ou recinto que recebe público, excluindo o número de funcionários e quaisquer outras pessoas afetas ao seu funcionamento"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "430" ;
+    fbo:hasNotionURL <https://www.notion.so/PublicOccupants-269f8487e6e780da9d93cc2f9d0b48c0> .
+
+fbo-pt:ReferencePlane a owl:DatatypeProperty ;
+    rdfs:label "Reference plane"@en,
+        "Plano de referência"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID """n.º 54 do art.º 1º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "The level plane, at the floor level of the access for rescue vehicles, measured perpendicular to a direct exit to the outside of the building; if there is more than one reference plane, the most favorable plane for fire department operations is considered"@en,
+        "O nível do plano, ao nível do piso de acesso dos veículos de socorro, medido perpendicularmente a uma saída direta para o exterior do edifício; se existir mais do que um plano de referência, considera-se o plano mais favorável às operações dos bombeiros"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "164" ;
+    fbo:hasNotionURL <https://www.notion.so/ReferencePlane-151f8487e6e780f7960efbb187b140c7> ;
+    fbo:hasUnit "-" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-pt:RefugeSpace a owl:DatatypeProperty ;
+    rdfs:label "Refuge space"@en,
+        "Zona de refúgio"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 18 do art.º 4º do Anexo I do RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "A space within a building, temporarily safe, specially equipped with protective measures, so that people are not exposed to the direct effects of a fire in the building."@en,
+        "Local num edifício, temporariamente seguro, especialmente dotado de meios de proteção, de modo a que as pessoas não venham a sofrer dos efeitos diretos de um incêndio no edifício;"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "174" ;
+    fbo:hasNotionURL <https://www.notion.so/RefugeSpace-198f8487e6e780ff847ae64eaf66075a> ;
+    fbo:hasUnit "-" .
+
+fbo-pt:RiskFireActivation a owl:DatatypeProperty ;
+    rdfs:label "Risk of fire activation"@en,
+        "Risco de ativação de incêndio"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NP EN 1991-1-2: 2010 - Artigo 1.5.3.6" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Parameter that takes into account the probability of ignition, depending on the area of the room and occupancy."@en,
+        "Parâmetro que tem em conta a probabilidade de ignição, função da área do compartimento e da ocupação."@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:NPEN1991122010 ;
+    fbo:hasFireExpertEntity "European Standard" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "79" ;
+    fbo:hasNotionURL <https://www.notion.so/RiskFireActivation-151f8487e6e78029a48ef84e32c8c99b> ;
+    fbo:hasUnit "-" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:RiskParameters a owl:Class ;
+    rdfs:label "Risk Parameters"@en,
+        "Factores de risco"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasExpertDefinition "Conjunto de parâmetros, como a altura, o efetivo, o efetivo em locais de risco, a densidade de carga de incêndio modificada e a existência de pisos abaixo do plano de referência, que permite atribuir a categoria de risco às utilizações-tipo nos termos previstos no art.º 12.º do RJ-SCIE."@en,
+        "Set of parameters, such as height, number of occupants, number of occupants in rooms type D or E, modified fire load density, and the existence of floors below the reference level, which allows the risk category to be assigned to occupancy types under the terms of Article 12 of the RJ-SCIE."@pt-PT ;
+    fbo:hasFireExpertEntity "Fire Expert" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "425" ;
+    fbo:hasNotionURL <https://www.notion.so/RiskParameters-268f8487e6e7809ab1e5da3fe3a12dd8> .
+
+fbo-pt:Room a owl:DatatypeProperty ;
+    rdfs:label "Room"@en,
+        "Local"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert Definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasExpertDefinition "Compartimento, sala, espaço ou área de um edifício ou recinto"@en,
+        "Compartment, room, space or area of a building or enclosure"@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:Space ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "179" ;
+    fbo:hasNotionURL <https://www.notion.so/Room-19af8487e6e780b98c3edb891bc79ba1> ;
+    fbo:hasRemarks "Portuguese consortium definition" ;
+    fbo:hasUnit "-" .
+
+fbo-pt:RoomActivity a owl:Class ;
+    rdfs:label "Room activity"@en,
+        "Atividade desenvolvida num compartimento"@pt-PT ;
+    rdfs:subClassOf fbo:Roomfunction ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "Finalidade ou utilização desenvolvida num compartimento interior de um edifício."@en,
+        "Purpose or use developed in an interior compartment of a building."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "502" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomActivity-2aef8487e6e78064ab1fe802dbca8da6> .
+
+fbo-pt:SafeZone a owl:DatatypeProperty ;
+    rdfs:label "Safe Zone"@en,
+        "Zona de segurança"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 19 do art.º 4º do Anexo I do RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Assembly point located outside the building, where occupants can safely gather, protected from the direct effects of a fire within the building."@en,
+        "Local, no exterior do edifício, onde as pessoas se possam reunir, protegidas dos efeitos diretos de um incêndio naquele."@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "280" ;
+    fbo:hasNotionURL <https://www.notion.so/SafeZone-223f8487e6e780979cf4c2cd8a56992e> ;
+    fbo:hasUnit "-" .
+
+fbo-pt:SelfClosing a owl:Class ;
+    rdfs:label "Self-closing"@en,
+        "Fecho automático"@pt-PT ;
+    rdfs:subClassOf fbo:SelfClosing ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 6 do art.º 3º do Anexo I ao RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "The ability of a construction element guarding a span, in a fire situation, to take or resume the position that guarantees the closure of the span without human intervention"@en,
+        "Propriedade de um elemento de construção que guarnece um vão de, em situação de incêndio, tomar ou retomar a posição que garante o fecho do vão sem intervenção humana"@pt-PT ;
+    fbo:hasDesignator "C" ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:45:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "178" ;
+    fbo:hasNotionURL <https://www.notion.so/SelfClosing-19af8487e6e780b08cdbe135c81a3c9f> ;
+    fbo:hasUnit "-" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-pt:Space a owl:Class ;
+    rdfs:label "Spaces"@en,
+        "Espaço"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID """n.º 23 do art.º 1º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Interior and exterior areas of buildings or enclosures."@en,
+        "Áreas interiores e exteriores dos edifícios ou recintos"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:Space ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "132" ;
+    fbo:hasNotionURL <https://www.notion.so/Space-151f8487e6e7809eae36c02b78828934> ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:StoreysBelowReferencePlane a owl:DatatypeProperty ;
+    rdfs:label "Number of floors below the reference plane"@en,
+        "Número de pisos abaixo do plano de referência"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert Interpretation" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasExpertDefinition "Number of floors below the reference plane"@en,
+        "Number of floors below the reference plane"@pt-PT ;
+    fbo:hasFireExpertEntity "Fire Expert" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "177" ;
+    fbo:hasNotionURL <https://www.notion.so/StoreysBelowReferencePlane-199f8487e6e780eb9658ddda25d6778d> ;
+    fbo:hasUnit "Unit" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:SupplementaryStaircase a owl:Class ;
+    rdfs:label "Supplementary staircase"@en,
+        "Escada suplementar"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 5 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Additional staircase to those required for evacuation, installed to meet functional needs"@en,
+        "Escada adicional às exigidas para a evacuação, instalada para satisfazer necessidades funcionais"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "351" ;
+    fbo:hasNotionURL <https://www.notion.so/SupplementaryStaircase-24ef8487e6e7804e9094ea9423456083> .
+
+fbo-pt:TechnicalDucts a owl:Class ;
+    rdfs:label "Technical ducts / shafts"@en,
+        "Ductos técnicos"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "Espaços ou poços destinadas à passagem de infraestruturas técnicas."@en,
+        "Spaces or shafts intended for the passage of technical infrastructure."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "503" ;
+    fbo:hasNotionURL <https://www.notion.so/TechnicalDucts-2aef8487e6e78082ae4ff72be9cb9aea> .
+
+fbo-pt:ThermalInsulation a owl:DatatypeProperty ;
+    rdfs:label "Thermal insulation"@en,
+        "Isolamento térmico"@pt-PT ;
+    rdfs:subPropertyOf fbo:ThermalInsulation ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NP EN 1991-1-2: 2010 - 1.5.1.9" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Ability of a building partitioning element, when exposed to fire on one side, to limit the temperature rise of the unexposed side below specified values."@en,
+        "Capacidade de um elemento de compartimentação de um edifício, quando exposto ao fogo de um lado, para limitar o aumento de temperatura da face não exposta abaixo de valores especificados."@pt-PT ;
+    fbo:hasDesignator "I" ;
+    fbo:hasDocumentReference fbo-pt:NPEN1991122010 ;
+    fbo:hasFireExpertEntity "European Standard" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:45:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "168" ;
+    fbo:hasNotionURL <https://www.notion.so/ThermalInsulation-151f8487e6e780fbb98ddac4a0295fe6> ;
+    fbo:hasUnit "Minutes" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:VerticalRoute a owl:Class ;
+    rdfs:label "VerticalRoute"@en,
+        "Via de evacuação vertical"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID """n.º 14 do art.º 4º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Vertical communication in a building that provides safe conditions for the evacuation of its occupants. Vertical evacuation routes may be stairs, ramps, or stairs and inclined escalators, which comply with the conditions of the Technical Regulations. Evacuation routes may be protected or unprotected. Protected evacuation routes may be enclosed (interior) or exterior."@en,
+        "Comunicação vertical de um edifício que , apresenta condições de segurança para a evacuação dos seus ocupantes. As vias de evacuação verticais podem ser escadas, rampas, ou escadas e tapetes rolantes inclinados, que respeitem as condições do Regulamento Técnico. As vias de evacuação podem ser protegidas ou não. As vias de evacuação protegidas podem ser enclausuradas (interiores) ou exteriores."@pt-PT ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "564" ;
+    fbo:hasNotionURL <https://www.notion.so/VerticalRoute-302f8487e6e780b7abedc5084b0e4311> .
+
+fbo-pt:Volume a owl:Class ;
+    rdfs:label "Volume"@en,
+        "Volume de um compartimento"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasExpertDefinition "Espaço tridimensional delimitado pelas superfícies internas do compartimento (paredes, tecto e pavimento)."@en,
+        "Three-dimensional space delimited by the internal surfaces of the compartment (walls, ceiling, and floor)."@pt-PT ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "506" ;
+    fbo:hasNotionURL <https://www.notion.so/Volume-2aef8487e6e780fc827fcd15de1e2596> .
+
+fbo-pt:HighRiseBuilding a owl:Class ;
+    rdfs:label "High-rise building"@en,
+        "Edifício de grande altura"@pt-PT ;
+    rdfs:subClassOf fbo-pt:HeightBuilding ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 1 do art.º 1º do Anexo I ao RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "28 m < Height (H) ≤ 50 m"@en,
+        "28 m < Altura (H) ≤ 50 m"@pt-PT ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:44:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "439" ;
+    fbo:hasNotionURL <https://www.notion.so/HighRiseBuilding-270f8487e6e7808d82a0de80f41aeade> .
+
+fbo-pt:LowRiseBuilding a owl:Class ;
+    rdfs:label "Low-rise building"@en,
+        "Edifício de pequena altura"@pt-PT ;
+    rdfs:subClassOf fbo-pt:HeightBuilding ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 1 do art.º 1º do Anexo I ao RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Height (H) ≤ 9 m"@en,
+        "Altura (H) ≤ 9 m"@pt-PT ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:44:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "433" ;
+    fbo:hasNotionURL <https://www.notion.so/LowRiseBuilding-270f8487e6e7800ba044ea8467d0b2bf> .
+
+fbo-pt:MideRiseBuilding a owl:Class ;
+    rdfs:label "Mide-rise building"@en,
+        "Edifício de média altura"@pt-PT ;
+    rdfs:subClassOf fbo-pt:HeightBuilding ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 1 do art.º 1º do Anexo I ao RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "9 m < Height (H) ≤ 28 m"@en,
+        "9 m < Altura (H) ≤ 28 m"@pt-PT ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:44:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "434" ;
+    fbo:hasNotionURL <https://www.notion.so/MideRiseBuilding-270f8487e6e780168255c8f87403dca5> .
+
+fbo-pt:NotaTcnican05Locaisderisco a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "Nota Técnica n.º 05 - Locais de risco"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDescription "Rooms"@en ;
+    fbo:hasDocumentType "interpretation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Locais de risco"@pt-PT ;
+    fbo:hasPublicationDate "2021-05-03"^^xsd:date ;
+    fbo:hasURL <https://prociv.gov.pt/media/y4mldfu1/nt_05_2020.pdf> .
+
+fbo-pt:OccupancyTypeIIGaragesandCarParks a owl:DatatypeProperty ;
+    rdfs:label "OccupancyType II - Garages and Car Parks"@en,
+        "Utilização-Tipo II - Estacionamentos"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:OccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea b) do nº 1 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings or parts of buildings intended exclusively for the collection of vehicles and their trailers off the public highway, or enclosed open-air spaces for the same purpose"@en,
+        "Corresponde a edifícios ou partes de edifícios destinados exclusivamente à recolha de veículos e seus reboques, fora da via pública, ou recintos delimitados ao ar livre, para o mesmo fim"@pt-PT ;
+    fbo:hasDesignator "UT II" ;
+    fbo:hasEquivalentTerm "Use type II" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "292" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeII-Garages-and-Car-Parks-231f8487e6e7802caf4af1e60b4bfea2> ;
+    fbo:hasRemarks "In Nota Técnica nº 5, referenced herein, the legislator lists several examples of uses for each use type." ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:OccupancyTypeIIIAdministrative a owl:DatatypeProperty ;
+    rdfs:label "OccupancyType III - Administrative"@en,
+        "Utilização-Tipo III - Administrativos"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:OccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea c) do nº 1 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings or parts of buildings where administrative, customer service or service activities are carried out, namely offices, public offices, courts, registry offices, service counters, notaries, offices of liberal professionals, research spaces not dedicated to teaching, security and rescue force posts, excluding repair and maintenance workshops"@en,
+        "Corresponde a edifícios ou partes de edifícios onde se desenvolvem atividades administrativas, de atendimento ao público ou de serviços, nomeadamente escritórios, repartições públicas, tribunais, conservatórias, balcões de atendimento, notários, gabinetes de profissionais liberais, espaços de investigação não dedicados ao ensino, postos de forças de segurança e de socorro, excluindo as oficinas de reparação e manutenção;"@pt-PT ;
+    fbo:hasDesignator "UT III" ;
+    fbo:hasEquivalentTerm "Use type III" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "295" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeIII-Administrative-231f8487e6e7807e9dc3c52f26feea1f> ;
+    fbo:hasRemarks "In Nota Técnica nº 5, referenced herein, the legislator lists several examples of uses for each use type." ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:OccupancyTypeIResidentialbuildings a owl:DatatypeProperty ;
+    rdfs:label "OccupancyType I - Residential buildings"@en,
+        "Utilização-Tipo I - Habitacionais"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:OccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea a) do nº 1 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings or parts of buildings intended for single-family or multi-family housing, including common access spaces and non-residential areas reserved for the exclusive use of residents"@en,
+        "Corresponde a edifícios ou partes de edifícios destinados a habitação unifamiliar ou multifamiliar, incluindo os espaços comuns de acessos e as áreas não residenciais reservadas ao uso exclusivo dos residentes;"@pt-PT ;
+    fbo:hasDesignator "UT I" ;
+    fbo:hasEquivalentTerm "Use type I" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "291" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeI-Residential-buildings-231f8487e6e7800bbdfdd2366a899b95> ;
+    fbo:hasRemarks "In Nota Técnica nº 5, referenced herein, the legislator lists several examples of uses for each use type." ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:OccupancyTypeIVSchools a owl:DatatypeProperty ;
+    rdfs:label "OccupancyType IV - Schools"@en,
+        "Utilização-Tipo IV- Escolares"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:OccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea d) do nº 1 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings or parts of buildings open to the public, where education, teaching and training activities are carried out or recreational or educational activities are carried out for children and young people, which may or may not include resting or sleeping areas for participants in these actions and activities, namely schools at all levels of education, nurseries, kindergartens, training centers, leisure centers for children and young people and youth centers;"@en,
+        "Corresponde a edifícios ou partes de edifícios recebendo público, onde se ministrem ações de educação, ensino e formação ou exerçam atividades lúdicas ou educativas para crianças e jovens, podendo ou não incluir espaços de repouso ou de dormida afetos aos participantes nessas ações e atividades, nomeadamente escolas de todos os níveis de ensino, creches, jardins -de-infância, centros de formação, centros de ocupação de tempos livres destinados a crianças e jovens e centros de juventude;"@pt-PT ;
+    fbo:hasDesignator "UT IV" ;
+    fbo:hasEquivalentTerm "Use type IV" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "290" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeIV-Schools-231f8487e6e780059c85ea97e01649c1> ;
+    fbo:hasRemarks "In Nota Técnica nº 5, referenced herein, the legislator lists several examples of uses for each use type." ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:OccupancyTypeIXSportsandLeisureFacilities a owl:DatatypeProperty ;
+    rdfs:label "OccupancyType IX - Sports and Leisure Facilities"@en,
+        "Utilização-Tipo IX - Desportivos e Lazer"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:OccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea i) do nº 1 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings, parts of buildings and enclosures, whether or not they are open to the public, used for sports and leisure activities, namely stadiums, riding arenas, hippodromes, velodromes, autodromes, motodromes, karting arenas, playing fields, camping and caravan parks, sports halls, swimming pools, water parks, skating rinks, gyms and saunas"@en,
+        "Corresponde a edifícios, partes de edifícios e recintos, recebendo ou não público, destinados a atividades desportivas e de lazer, nomeadamente estádios, picadeiros, hipódromos, velódromos, autódromos, motódromos, kartódromos, campos de jogos, parques de campismo e caravanismo, pavilhões desportivos, piscinas, parques aquáticos, pistas de patinagem, ginásios e saunas;"@pt-PT ;
+    fbo:hasDesignator "UT IX" ;
+    fbo:hasEquivalentTerm "Use type IX" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "294" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeIX-Sports-and-Leisure-Facilities-231f8487e6e78055a3e3cd32d1aebc8d> ;
+    fbo:hasRemarks "In Nota Técnica nº 5, referenced herein, the legislator lists several examples of uses for each use type." ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:OccupancyTypeScopeCheck1 a owl:Class ;
+    rdfs:label "Check #1"@en,
+        "Verificação n.º 1"@pt-PT ;
+    rdfs:subClassOf fbo-pt:MixedOccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "alínea a) do n.º 3 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition """The general and specific provisions of the type of use to which they belong apply to spaces integrated into a given type of use, under the conditions indicated below, and no other provisions are applicable:
+a) Spaces where administrative, document archiving and storage activities necessary for the functioning of entities operating occupancy types III to XII are carried out, provided that they are managed under their responsibility, are not normally accessible to the public and each of these spaces does not have a gross area exceeding:
+i) 10% of the gross area allocated to occupancy types III to VII, IX and XI;
+ii) 20% of the gross area allocated to occupancy types VIII, X and XII;"""@en,
+        """Aos espaços integrados numa dada utilização -tipo, nas condições a seguir indicadas, aplicam-se as disposições gerais e as específicas da utilização-tipo onde se inserem, não sendo aplicáveis quaisquer outras:
+a) Espaços onde se desenvolvam atividades administrativas, de arquivo documental e de armazenamento necessários ao funcionamento das entidades que exploram as utilizações-tipo IIIa XII, desde que sejam geridos sob a sua responsabilidade, não estejam normalmente acessíveisao público e cada um desses espaços não possua uma área bruta superior a:
+i) 10 % da área bruta afeta às utilizações-tipo III a VII, IX e XI;
+ii) 20 % da área bruta afeta às utilizações-tipo VIII, X e XII;"""@pt-PT ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "438" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeScopeCheck1-270f8487e6e780868261e5b876df9785> .
+
+fbo-pt:OccupancyTypeScopeCheck2 a owl:Class ;
+    rdfs:label "Check #2"@en,
+        "Verificação n.º 2"@pt-PT ;
+    rdfs:subClassOf fbo-pt:MixedOccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "alínea b) do n.º 3 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition """The general and specific provisions for the type of use to which they belong apply to spaces integrated into a given type of use, under the conditions indicated below, and no other provisions are applicable:
+b) Spaces for meetings, religious worship, conferences and lectures, or where training activities, sports or leisure activities may be carried out, as well as restaurants and bars, provided that these spaces are managed under the responsibility of entities operating occupancy types III to XII and their capacity does not exceed 200 people in buildings or 1,000 people outdoors;"""@en,
+        """Aos espaços integrados numa dada utilização-tipo, nas condições a seguir indicadas, aplicam-se as disposições gerais e as específicas da utilização-tipo onde se inserem, não sendo aplicáveis quaisquer outras:
+b) Espaços de reunião, culto religioso, conferências e palestras, ou onde se possam ministrar ações de formação, desenvolver atividades desportivas ou de lazer e, ainda, os estabelecimentos de restauração e bebidas, desde que esses espaços sejam geridos sob a responsabilidade das entidades exploradoras de utilizações-tipo III a XII e o seu efetivo não seja superior a 200 pessoas, em edifícios, ou a 1000 pessoas, ao ar livre;"""@pt-PT ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "435" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeScopeCheck2-270f8487e6e78033a4f0c97cc03b928c> .
+
+fbo-pt:OccupancyTypeScopeCheck3 a owl:Class ;
+    rdfs:label "Check #3"@en,
+        "Verificação n.º 3"@pt-PT ;
+    rdfs:subClassOf fbo-pt:MixedOccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "alínea c) do n.º 3 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition """The general and specific provisions for the type of use to which they belong apply to spaces integrated into a given type of use, under the conditions indicated below, and no other provisions are applicable:
+c) Commercial spaces, workshops, libraries and exhibition spaces, as well as medical, first aid and nursing stations, provided that they are managed under the responsibility of entities operating occupancy types III to XII and have a gross area not exceeding 200 m2."""@en,
+        """Aos espaços integrados numa dada utilização-tipo, nas condições a seguir indicadas, aplicam-se as disposições gerais e as específicas da utilização-tipo onde se inserem, não sendo aplicáveis quaisquer outras:
+c) Espaços comerciais, oficinas, bibliotecas e espaços de exposição, bem como postos médicos, de socorros e de enfermagem, desde que sejam geridos sob a responsabilidade das entidades exploradoras de utilizações-tipo III a XII e possuam uma área bruta não superior a 200 m2."""@pt-PT ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "441" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeScopeCheck3-270f8487e6e78099a4d3c9ff4cd04c0a> .
+
+fbo-pt:OccupancyTypeVHealthcareandNursingHomes a owl:DatatypeProperty ;
+    rdfs:label "OccupancyType V - Healthcare and Nursing Homes"@en,
+        "Utilização-Tipo V - Hospitalares e lares de idosos"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:OccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea e) do nº 1 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings or parts of buildings open to the public, where education, teaching and training activities are carried out or recreational or educational activities are carried out for children and young people, which may or may not include resting or sleeping areas for participants in these actions and activities, namely schools at all levels of education, nurseries, kindergartens, training centers, leisure centers for children and young people and youth centers;"@en,
+        "corresponde a edifícios ou partes de edifícios recebendo público, destinados à execução de ações de diagnóstico ou à prestação de cuidados na área da saúde, com ou sem internamento, ao apoio a pessoas idosas ou com condicionalismos decorrentes de fatores de natureza física ou psíquica, ou onde se desenvolvam atividades dedicadas a essas pessoas, nomeadamente hospitais, clínicas, consultórios, policlínicas, dispensários médicos, centros de saúde, de diagnóstico, de enfermagem, de hemodiálise ou de fisioterapia, laboratórios de análises clínicas, bem como lares, albergues, residências, centros de abrigo e centros de dia com atividades destinadas à terceira idade;"@pt-PT ;
+    fbo:hasDesignator "UT V" ;
+    fbo:hasEquivalentTerm "Use type V" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "299" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeV-Healthcare-and-Nursing-Homes-231f8487e6e780a48357d13492560b7a> ;
+    fbo:hasRemarks "In Nota Técnica nº 5, referenced herein, the legislator lists several examples of uses for each use type." ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:OccupancyTypeVIIHotelsandRestaurants a owl:DatatypeProperty ;
+    rdfs:label "OccupancyType VII - Hotels and Restaurants"@en,
+        "Utilização-Tipo VII - Hoteleiros e Restauração"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:OccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea g) do nº 1 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings or parts of buildings, receiving the public, providing temporary accommodation or carrying out food and beverage activities, whether or not under exclusive occupation, namely those intended for tourist developments, local accommodation, where applicable, food and beverage establishments, dormitories and, when not part of a school establishment, student residences and vacation camps, excluding camping and caravanning sites, which are considered to be occupancy type IX spaces"@en,
+        "Corresponde a edifícios ou partes de edifícios, recebendo público, fornecendo alojamento temporário ou exercendo atividades de restauração e bebidas, em regime de ocupação exclusiva ou não, nomeadamente os destinados a empreendimentos turísticos, alojamento local, quando aplicável, estabelecimentos de restauração ou de bebidas, dormitórios e, quando não inseridos num estabelecimento escolar, residências de estudantes e colónias de férias, ficando excluídos deste tipo os parques de campismo e caravanismo, que são considerados espaços da utilização-tipo IX"@pt-PT ;
+    fbo:hasDesignator "UT VII" ;
+    fbo:hasEquivalentTerm "Use type VII" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "306" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeVII-Hotels-and-Restaurants-231f8487e6e780ddb697ea5f437c125d> ;
+    fbo:hasRemarks "In Nota Técnica nº 5, referenced herein, the legislator lists several examples of uses for each use type." ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:OccupancyTypeVIIIRetailandTransportHubs a owl:DatatypeProperty ;
+    rdfs:label "OccupancyType VIII - Retail and Transport Hubs"@en,
+        "Utilização-Tipo VIII - Comerciais e Gares de Transporte"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:OccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea h) do nº 1 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings or parts of buildings, receiving the public, providing temporary accommodation or carrying out food and beverage activities, whether or not under exclusive occupation, namely those intended for tourist developments, local accommodation, where applicable, food and beverage establishments, dormitories and, when not part of a school establishment, student residences and vacation camps, excluding camping and caravanning sites, which are considered to be occupancy type IX spaces"@en,
+        "Corresponde a edifícios ou partes de edifícios, recebendo público, ocupados por estabelecimentos comerciais onde se exponham e vendam materiais, produtos, equipamentos ou outros bens, destinados a ser consumidos no exterior desse estabelecimento, ou ocupados por gares destinados a aceder a meios de transporte rodoviário, ferroviário, marítimo, fluvial ou aéreo, incluindo as gares intermodais, constituindo espaço de interligação entre a via pública e esses meios de transporte, com exceção das plataformas de embarque ao ar livre"@pt-PT ;
+    fbo:hasDesignator "UT VIII" ;
+    fbo:hasEquivalentTerm "Use type VIII" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "305" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeVIII-Retail-and-Transport-Hubs-231f8487e6e780dda384ee09b3eb946a> ;
+    fbo:hasRemarks "In Nota Técnica nº 5, referenced herein, the legislator lists several examples of uses for each use type." ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:OccupancyTypeVIPublicEntertainmentandAssembly a owl:DatatypeProperty ;
+    rdfs:label "OccupancyType VI - Public Entertainment and Assembly"@en,
+        "Utilização-Tipo VI - Espetáculos e reuniões públicas"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:OccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea f) do nº 1 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings, parts of buildings, itinerant or temporary venues and open-air venues that receive the public, intended for shows, public meetings, the showing of audiovisual media, dances, games, conferences, lectures, religious worship and exhibitions, whether or not they can be multipurpose, multipurpose and carry out the above activities on a non-permanent basis, namely theaters, cinemas, coliseums, bullrings, circuses, gambling halls, dance halls, nightclubs, bars with live music, recording studios, auditoriums, conference rooms, religious temples, multi-purpose pavilions and exhibition venues not classifiable under occupancy type X"@en,
+        "Corresponde a edifícios ou partes de edifícios recebendo público, destinados à execução de ações de diagnóstico ou à prestação de cuidados na área da saúde, com ou sem internamento, ao apoio a pessoas idosas ou com condicionalismos decorrentes de fatores de natureza física ou psíquica, ou onde se desenvolvam atividades dedicadas a essas pessoas, nomeadamente hospitais, clínicas, consultórios, policlínicas, dispensários médicos, centros de saúde, de diagnóstico, de enfermagem, de hemodiálise ou de fisioterapia, laboratórios de análises clínicas, bem como lares, albergues, residências, centros de abrigo e centros de dia com atividades destinadas à terceira idade;"@pt-PT ;
+    fbo:hasDesignator "UT VI" ;
+    fbo:hasEquivalentTerm "Use type VI" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "298" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeVI-Public-Entertainment-and-Assembly-231f8487e6e780999329e3343bd24f8d> ;
+    fbo:hasRemarks "In Nota Técnica nº 5, referenced herein, the legislator lists several examples of uses for each use type." ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:OccupancyTypeXIIIndustrialBuildingsWorkshopsandWarehouses a owl:DatatypeProperty ;
+    rdfs:label "OccupancyType XII- Industrial Buildings, Workshops and Warehouses"@en,
+        "Utilização-Tipo XII - Industriais, oficinas e armazéns"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:OccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea l) do nº 1 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings, parts of buildings or open-air enclosures, not normally open to the public, used for industrial activities or the storage of materials, substances, products or equipment, repair workshops and all services ancillary or complementary to these activities"@en,
+        "Corresponde a edifícios, partes de edifícios ou recintos ao ar livre, não recebendo habitualmente público, destinados ao exercício de atividades industriais ou ao armazenamento de materiais, substâncias, produtos ou equipamentos, oficinas de reparação e todos os serviços auxiliares ou complementares destas atividades"@pt-PT ;
+    fbo:hasDesignator "UT XII" ;
+    fbo:hasEquivalentTerm "Use type XII" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "296" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeXII-Industrial-Buildings-Workshops-and-Warehouses-231f8487e6e7807eaaa5ca4cdef1d283> ;
+    fbo:hasRemarks "In Nota Técnica nº 5, referenced herein, the legislator lists several examples of uses for each use type." ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:OccupancyTypeXILibrariesandArchives a owl:DatatypeProperty ;
+    rdfs:label "OccupancyType XI- Libraries and Archives"@en,
+        "Utilização-Tipo XI - Bibliotecas e Arquivos"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:OccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea ak) do nº 1 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings or parts of buildings, whether or not they are open to the public, intended for the exhibition of items of historical and cultural heritage or for scientific, cultural or technical exhibition, demonstration and dissemination activities, namely museums, art galleries, oceanariums, aquariums, zoological or botanical park facilities, exhibition spaces intended for scientific and technical dissemination, provided that they do not fall under type VI and IX occupancies"@en,
+        "Corresponde a edifícios ou partes de edifícios, recebendo ou não público, destinados a arquivo documental, podendo disponibilizar os documentos para consulta ou visualização no próprio local ou não, nomeadamente bibliotecas, mediatecas e arquivos"@pt-PT ;
+    fbo:hasDesignator "UT XI" ;
+    fbo:hasEquivalentTerm "Use type XI" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "303" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeXI-Libraries-and-Archives-231f8487e6e780cdb6f2dc866fb6883e> ;
+    fbo:hasRemarks "In Nota Técnica nº 5, referenced herein, the legislator lists several examples of uses for each use type." ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:OccupancyTypeXMuseumsandArtGalleries a owl:DatatypeProperty ;
+    rdfs:label "OccupancyType X - Museums and Art Galleries"@en,
+        "Utilização-Tipo X - Museus e Galerias de Arte"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:OccupancyType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea j) do nº 1 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Buildings or parts of buildings, whether or not they are open to the public, intended for the exhibition of items of historical and cultural heritage or for scientific, cultural or technical exhibition, demonstration and dissemination activities, namely museums, art galleries, oceanariums, aquariums, zoological or botanical park facilities, exhibition spaces intended for scientific and technical dissemination, provided that they do not fall under type VI and IX occupancies"@en,
+        "Corresponde a edifícios, partes de edifícios e recintos, recebendo ou não público, destinados a atividades desportivas e de lazer, nomeadamente estádios, picadeiros, hipódromos, velódromos, autódromos, motódromos, kartódromos, campos de jogos, parques de campismo e caravanismo, pavilhões desportivos, piscinas, parques aquáticos, pistas de patinagem, ginásios e saunas;"@pt-PT ;
+    fbo:hasDesignator "UT X" ;
+    fbo:hasEquivalentTerm "Use type X" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "301" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyTypeX-Museums-and-Art-Galleries-231f8487e6e780b78d83d7cb9d764752> ;
+    fbo:hasRemarks "In Nota Técnica nº 5, referenced herein, the legislator lists several examples of uses for each use type." ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:RiskCategory1 a owl:Class ;
+    rdfs:label "Risk category - 1st"@en,
+        "1ª categoria de risco"@pt-PT ;
+    rdfs:subClassOf fbo-pt:RiskCategory ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 1 do art.º 12º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Low risk"@en,
+        "Risco reduzido"@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "428" ;
+    fbo:hasNotionURL <https://www.notion.so/RiskCategory1-268f8487e6e780fc8415c06451e46aea> .
+
+fbo-pt:RiskCategory2 a owl:Class ;
+    rdfs:label "Risk category - 2nd"@en,
+        "2ª categoria de risco"@pt-PT ;
+    rdfs:subClassOf fbo-pt:RiskCategory ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 1 do art.º 12º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Moderate risk"@en,
+        "Risco moderado"@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "418" ;
+    fbo:hasNotionURL <https://www.notion.so/RiskCategory2-268f8487e6e780189aedfa68bc5ec5b0> .
+
+fbo-pt:RiskCategory3 a owl:Class ;
+    rdfs:label "Risk category - 4th"@en,
+        "4ª categoria de risco"@pt-PT ;
+    rdfs:subClassOf fbo-pt:RiskCategory ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 1 do art.º 12º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Very  high risk"@en,
+        "Risco muito elevado"@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "421" ;
+    fbo:hasNotionURL <https://www.notion.so/RiskCategory3-268f8487e6e7805eaf54de089c3d69bc> .
+
+fbo-pt:RiskCategory4 a owl:Class ;
+    rdfs:label "Risk category - 3rd"@en,
+        "3ª categoria de risco"@pt-PT ;
+    rdfs:subClassOf fbo-pt:RiskCategory ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 1 do art.º 12º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "High risk"@en,
+        "Risco elevado"@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "419" ;
+    fbo:hasNotionURL <https://www.notion.so/RiskCategory4-268f8487e6e780218ef8eb0ff171c221> .
+
+fbo-pt:RoomTypeA a owl:DatatypeProperty ;
+    rdfs:label "Room Type A"@en,
+        "Local de Risco A"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:RoomType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea a) do nº 1 do art.º 10º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition """Room that does not present special risks, in which the following conditions are met simultaneously:
+1. i) The number of people does not exceed 100;
+2. ii) The public does not exceed 50 people;
+iii) More than 90% of the occupants are not limited in their mobility or ability to perceive and react to an alarm;iv) The activities carried out therein or the products, materials and equipment it contains do not involve aggravated fire risks"""@en,
+        """Local que não apresenta riscos especiais, no qual se verifiquem simultaneamente as seguintes condições:
+1. i) O efetivo não exceda 100 pessoas;
+2. ii) O efetivo de público não exceda 50 pessoas;
+iii) Mais de 90 % dos ocupantes não se encontrem limitados na mobilidade ou nas capacidadesde perceção e reação a um alarme;iv) As atividades nele exercidas ou os produtos, materiais e equipamentos que contém não envolvam riscos agravados de incêndio."""@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "315" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomTypeA-232f8487e6e7805792d2d5b05a7814a9> ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:RoomTypeB a owl:DatatypeProperty ;
+    rdfs:label "Room Type B"@en,
+        "Local de Risco B"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:RoomType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea b) do nº 1 do art.º 10º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition """Room accessible to the public or the establishment's staff, with more than 100 people or more than 50 people, in which the following conditions are met simultaneously:
+1. i) More than 90% of the occupants are not limited in their mobility or ability to perceive and react to an alarm;ii) The activities carried out there or the products, materials and equipment it contains do not involve aggravated fire risks"""@en,
+        """Local acessível ao público ou ao pessoal afeto ao estabelecimento, com um efetivo superior a 100 pessoas ou um efetivo de público superior a 50 pessoas, no qual se verifiquem simultaneamente as seguintes condições:
+1. i) Mais de 90 % dos ocupantes não se encontrem limitados na mobilidade ou nas capacidades de perceção e reação a um alarme;ii) As atividades nele exercidas ou os produtos, materiais e equipamentos que contém não envolvam riscos agravados de incêndio"""@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "313" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomTypeB-232f8487e6e78047b5aad47c87e9403f> ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:RoomTypeC a owl:DatatypeProperty ;
+    rdfs:label "Room Type C"@en,
+        "Room Type C+"@en,
+        "Local de Risco C"@pt-PT,
+        "Local de Risco C+"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:RoomType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea c) do nº 1 do art.º 10º do RJ-SCIE",
+        "nº 3 do art.º 11º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Room that presents a particular aggravated risk of a fire breaking out or developing due to the activities carried out there and the characteristics of the products, materials or equipment in it, namely the modified fire load, the rated output power and the quantity of flammable liquids, as well as the volume of the compartments. Whenever the room type C is in one of the conditions referred to in Article 11(3) of the RJ-SCIE, it is designated as an aggravated room type C (C+)."@en,
+        """The allocation of the interior spaces of a building to risk C locations, provided that they have a volume of more than 600 m3 , or a modified fire load of more than 20,000 MJ, or an installed power of their electrical and electromechanical equipment of more than 250 kW, or gas-powered equipment of more than 70 kW, or are places for the production, deposit, storage or handling of flammable liquids in quantities of more than 100 l, assigns these spaces the classification of aggravated risk C locations, and they must comply with the following rules:
+1. a) They should be located, whenever possible, at the level of the reference plane and on the periphery of the building;b) They must not communicate directly with risk areas D, E or F, or with vertical escape routes serving other areas of the building."""@en,
+        """A afetação dos espaços interiores de um edifício a locais de risco C, desde que os mesmos possuam volume superior a 600 m3 , ou carga de incêndio modificada superior a 20 000 MJ, ou potência instalada dos seus equipamentos elétricos e eletromecânicos superior a 250 kW, ou alimentados a gás superior a 70 kW, ou constituam locais de produção, depósito, armazenagem ou manipulação de líquidos inflamáveis em quantidade superior a 100 l, atribui a esses espaços a classificação de locais de risco C agravado, devendo respeitar as seguintes regras:
+1. a) Situar -se, sempre que possível, ao nível do plano de referência e na periferia do edifício;b) Não comunicar diretamente com locais de risco D, E ou F, nem com vias verticais de evacuação que sirvam outros espaços do edifício"""@pt-PT,
+        "Local que apresenta riscos particulares agravados de eclosão e de desenvolvimento de incêndio devido quer às atividades nele desenvolvidas quer às características dos produtos, materiais ou equipamentos nele existentes, designadamente à carga de incêndio modificada, à potência útil e à quantidade de líquidos inflamáveis e, ainda, ao volume dos compartimentos. Sempre que o local de risco C se encontre numa das condições referidas no n.º 3 do artigo 11.º do RJ-SCIE, designa -se como local de risco C agravado"@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "322",
+        "329" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomTypeC-232f8487e6e78092bc83fd6a4721c7f8>,
+        <https://www.notion.so/RoomTypeC-232f8487e6e780ba8c5bdfccaa9a5c10> ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:RoomTypeD a owl:DatatypeProperty ;
+    rdfs:label "Room Type D"@en,
+        "Local de Risco D"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:RoomType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea d) do nº 1 do art.º 10º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Room within a establishment where bedridden people stay or where children up to the age of 3 or people whose mobility or ability to perceive and react to an alarm is limited."@en,
+        "Local de um estabelecimento com permanência de pessoas acamadas ou destinado a receber crianças com idade não superior a 3 anos ou pessoas limitadas na mobilidade ou nas capacidades de perceção e reação a um alarme."@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "314" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomTypeD-232f8487e6e7804fb460cfdf261061b3> ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:RoomTypeE a owl:DatatypeProperty ;
+    rdfs:label "Room Type E"@en,
+        "Local de Risco E"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:RoomType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea e) do nº 1 do art.º 10º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Room whithin a establishment intended for sleeping, where people do not have the limitations indicated in risk locations D."@en,
+        "Local de um estabelecimento destinado a dormida, em que as pessoas não apresentem as limitações indicadas nos locais de risco D."@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "332" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomTypeE-232f8487e6e780c993a3ce782de54296> ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:RoomTypeF a owl:DatatypeProperty ;
+    rdfs:label "Room Type F"@en,
+        "Local de Risco F"@pt-PT ;
+    rdfs:subPropertyOf fbo-pt:RoomType ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "alínea f) do nº 1 do art.º 10º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Room that has means and systems essential to the continuity of relevant social activities, namely the nerve centers of communication, command and control"@en,
+        "Local que possua meios e sistemas essenciais à continuidade de atividades sociais relevantes, nomeadamente os centros nevrálgicos de comunicação, comando e controlo."@pt-PT ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "318" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomTypeF-232f8487e6e78081a004e0219ba63ba9> ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:VeryTallBuilding a owl:Class ;
+    rdfs:label "Very tall building"@en,
+        "Edifício de muita grande altura"@pt-PT ;
+    rdfs:subClassOf fbo-pt:HeightBuilding ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 1 do art.º 1º do Anexo I ao RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Height (H) > 50 m"@en,
+        "Altura (H) > 50 m"@pt-PT ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:44:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "437" ;
+    fbo:hasNotionURL <https://www.notion.so/VeryTallBuilding-270f8487e6e78075aaa6f93de1888347> .
+
+fbo-pt:MixedOccupancyType a owl:Class ;
+    rdfs:label "Mixed Occupancy Type"@en,
+        "Utilização Mista"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "n.º 2 do art.º 8º do RJ-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Depending on their use, buildings and premises may be mixed-use when they incorporate several standard occupancy."@en,
+        "Atendendo ao seu uso, os edifícios e recintos podem ser de utilização mista, quando integrem diversas utilizações-tipo."@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegimeJurdicodaSeguranaContraIncndioemEdifcios ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-13T10:22:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "420" ;
+    fbo:hasNotionURL <https://www.notion.so/MixedOccupancyType-268f8487e6e78023b01ce1980d72ad70> ;
+    fbo:hasSubitem fbo-pt:OccupancyTypeScopeCheck1,
+        fbo-pt:OccupancyTypeScopeCheck2,
+        fbo-pt:OccupancyTypeScopeCheck3 .
+
+fbo-pt:NPEN1991122010 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "NP EN 1991‑1‑2:2010"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDescription "A NP EN 1991‑1‑2:2010 fornece os requisitos e regras para o dimensionamento estrutural de edifícios e obras de engenharia civil expostos ao fogo"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Eurocódigo 1: Ações nas estruturas  Parte 1‑2: Ações em estruturas expostas ao fogo"@pt-PT .
+
+fbo-pt:RegimeJurdicodaSeguranaContraIncndioemEdifcios a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "Regime Jurídico da Segurança Contra Incêndio em Edifícios"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Regime Jurídico da Segurança Contra Incêndio em Edifícios"@pt-PT ;
+    fbo:hasPublicationDate "2019-10-18"^^xsd:date ;
+    fbo:hasRemarks "There is an error in the Table - QUADRO IX" ;
+    fbo:hasURL <https://files.diariodarepublica.pt/1s/2019/10/20100/0000300053.pdf> .
+
+fbo-pt:HeightBuilding a owl:DatatypeProperty ;
+    rdfs:label "Height of a building"@en,
+        "Altura do edifício"@pt-PT ;
+    rdfs:subPropertyOf fbo:HeightBuilding ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 1 do art.º 1º do Anexo I ao RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Difference in elevation between the most unfavourable floor likely to be occupied and the reference plane, classifying buildings according to their height in accordance with the following table, and the following conditions must also be taken into account"@en,
+        "Diferença de cota entre o piso mais desfavorável susceptível de ocupação e o plano de referência, classificando-se os edifícios consoante a sua altura conforme a tabela seguinte, e devendo atender-se ainda às seguintes condições"@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:44:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "122" ;
+    fbo:hasNotionURL <https://www.notion.so/HeightBuilding-151f8487e6e7808eb31de33a3cf67d48> ;
+    fbo:hasSubitem fbo-pt:HighRiseBuilding,
+        fbo-pt:LowRiseBuilding,
+        fbo-pt:MideRiseBuilding,
+        fbo-pt:VeryTallBuilding ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-pt:RiskCategory a owl:DatatypeProperty ;
+    rdfs:label "Risk category"@en,
+        "Categoria de risco"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "n.º 12 do art.º 1º do Anexo I do RT-SCIE" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Classification into four levels of fire risk of any standard use of a building and premises, taking into account various risk factors, such as its height, the number of occupantes, the number of occupants in risk locations, the modified fire load density and the existence of floors below the reference plane, under the terms of article 12 of the RJ-SCIE"@en,
+        """Classificação em quatro níveis de risco de incêndio de qualquer
+utilização-tipo de um edifício e recinto, atendendo a diversos fatores de risco, como a sua altura, o efetivo, o efetivo em locais de risco, a densidade de carga de incêndio modificada e a existência de pisos abaixo do plano de referência, nos termos previstos no artigo 12.º do RJ-SCIE"""@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "175" ;
+    fbo:hasNotionURL <https://www.notion.so/RiskCategory-199f8487e6e780858c39c57666e0a085> ;
+    fbo:hasSubitem fbo-pt:RiskCategory1,
+        fbo-pt:RiskCategory2,
+        fbo-pt:RiskCategory3,
+        fbo-pt:RiskCategory4 ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:RoomType a owl:DatatypeProperty ;
+    rdfs:label "Room (Type of)"@en,
+        "Locais de risco"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID """n.º 38 do art.º 1º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Classification of any area of a building or premises, based on the nature of the fire risk, in accordance with the provisions of Article 10 of RJ-SCIE."@en,
+        """Classificação de qualquer área de um edifício ou recinto, em função
+da natureza do risco de incêndio, em conformidade com o disposto no artigo 10.º do Decreto -Lei n.º 220/2008, de 12 de novembro, na sua redação atual (Regime Jurídico da Segurança Contra Incêndio em Edifícios - RJ-SCIE)."""@pt-PT ;
+    fbo:hasDocumentReference fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Room; Space;" ;
+    fbo:hasFireExpertEntity "RT-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "104" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomType-151f8487e6e7805cb90ec4fce91c21e1> ;
+    fbo:hasSubitem fbo-pt:RoomTypeA,
+        fbo-pt:RoomTypeB,
+        fbo-pt:RoomTypeC,
+        fbo-pt:RoomTypeD,
+        fbo-pt:RoomTypeE,
+        fbo-pt:RoomTypeF ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:OccupancyType a owl:DatatypeProperty ;
+    rdfs:label "Occupancy (type of)"@en,
+        "Utilização-Tipo"@pt-PT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID """n.º 67 do art.º 1º do Anexo I ao
+  RT-SCIE""" ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasCountryCode "PT" ;
+    fbo:hasDefinition "Classification given by the dominant use of any building or enclosure, or of each of its parts, in accordance with the provisions of Art. 8 of Legal Regime - Fire Safety in Buildings"@en,
+        "Classificação dada pelo uso dominante de qualquer edifício ou recinto, ou de cada uma das suas partes, em conformidade com o disposto no art.º 8.º do RJ-SCIE"@pt-PT ;
+    fbo:hasDesignator "UT" ;
+    fbo:hasDocumentReference fbo-pt:NotaTcnican05Locaisderisco,
+        fbo-pt:RegimeJurdicodaSeguranaContraIncndioemEdifcios ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasEquivalentTerm "Use type; Type of use;" ;
+    fbo:hasFireExpertEntity "RJ-SCIE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "162" ;
+    fbo:hasNotionURL <https://www.notion.so/OccupancyType-151f8487e6e780f38789de814799f72a> ;
+    fbo:hasSubitem fbo-pt:OccupancyTypeIIGaragesandCarParks,
+        fbo-pt:OccupancyTypeIIIAdministrative,
+        fbo-pt:OccupancyTypeIResidentialbuildings,
+        fbo-pt:OccupancyTypeIVSchools,
+        fbo-pt:OccupancyTypeIXSportsandLeisureFacilities,
+        fbo-pt:OccupancyTypeVHealthcareandNursingHomes,
+        fbo-pt:OccupancyTypeVIIHotelsandRestaurants,
+        fbo-pt:OccupancyTypeVIIIRetailandTransportHubs,
+        fbo-pt:OccupancyTypeVIPublicEntertainmentandAssembly,
+        fbo-pt:OccupancyTypeXIIIndustrialBuildingsWorkshopsandWarehouses,
+        fbo-pt:OccupancyTypeXILibrariesandArchives,
+        fbo-pt:OccupancyTypeXMuseumsandArtGalleries ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-pt:RegulamentoTcnicodeSeguranaContraIncndioemEdifcios a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "Regulamento Técnico de Segurança Contra Incêndio em Edifícios"@en ;
+    fbo:hasCountry fbo:Portugal ;
+    fbo:hasDescription "Portuguese fire safety regulation"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "pt-PT" ;
+    fbo:hasOriginalName "Regulamento Técnico de Segurança Contra Incêndio em Edifícios"@pt-PT ;
+    fbo:hasPublicationDate "2020-06-04"^^xsd:date ;
+    fbo:hasURL <https://files.diariodarepublica.pt/1s/2020/06/10700/0000200214.pdf> .
+

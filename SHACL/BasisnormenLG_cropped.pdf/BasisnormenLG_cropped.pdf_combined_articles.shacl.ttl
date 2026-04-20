@@ -1,146 +1,209 @@
-@prefix fbo: <http://www.firebim.org/ontologies/fbo#> .
+@prefix : <https://ontology.firebim.be/ontology/fro/shapes#> .
+@prefix art2221: <https://ontology.firebim.be/ontology/fro#Article_2_2_2_1/> .
+@prefix ex: <http://example.org/ontology#> .
+@prefix ex1: <http://example.org/ns#> .
+@prefix ex2: <https://example.org/fire-regulation/> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
 @prefix fro: <http://www.firebim.org/ontologies/fro#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://ontology.firebim.be/ontology/fro#Article_2_1_1> a sh:NodeShape ;
-    rdfs:label "Compartimentering Oppervlakte en Lengte"@nl ;
-    rdfs:comment "Regels met betrekking tot de maximale oppervlakte en lengte van brandcompartimenten (Art 2.1.1)."@nl ;
-    sh:message "Het compartiment voldoet niet aan de eisen van Artikel 2.1.1 met betrekking tot oppervlakte, lengte of vereiste uitrusting."@nl ;
-    sh:or ( [ sh:hasValue fro:ParkingFunction ;
-                sh:message "Uitzondering voor parkings."@nl ;
-                sh:path fro:hasFunction ] [ sh:hasValue true ;
-                sh:message "Ministeriële afwijking toegestaan."@nl ;
-                sh:path fro:hasDerogation ] [ sh:and ( [ sh:hasValue true ;
-                            sh:path fro:hasAutomaticFireSuppressionSystem ] [ sh:hasValue true ;
-                            sh:path fro:hasSmokeAndHeatExtractionSystem ] ) ;
-                sh:message "Toegestaan wegens aanwezigheid blusinstallatie en RWA."@nl ] [ sh:and ( [ sh:node [ sh:property [ sh:hasValue true ;
-                                            sh:path fro:isSingleStorey ],
-                                        [ sh:maxInclusive 1 ;
-                                            sh:path fro:numberOfCompartments ] ] ;
-                            sh:path fro:isCompartmentOf ] [ sh:datatype xsd:double ;
-                            sh:maxInclusive 3500 ;
-                            sh:path fro:floorArea ] [ sh:datatype xsd:double ;
-                            sh:maxInclusive 90 ;
-                            sh:path fro:length ] ) ;
-                sh:message "Gelijkvloers gebouw met 1 compartiment: max 3500m² en max 90m lengte."@nl ] [ sh:datatype xsd:double ;
-                sh:maxInclusive 2500 ;
-                sh:message "Standaard regel: compartiment max 2500m²."@nl ;
-                sh:path fro:floorArea ] ) ;
-    sh:targetClass fro:FireCompartment .
+fro:Shape_Article_2_1_1 a sh:NodeShape ;
+    sh:description "Regels inzake de maximale oppervlakte en lengte van brandcompartimenten, inclusief uitzonderingen voor parkings, actieve blus/RWA installaties en ministeriële afwijkingen." ;
+    sh:or ( [ sh:property [ sh:hasValue "Parking" ;
+                        sh:message "met uitzondering van de parkings (zie 5.2)." ;
+                        sh:path fbo:Roomfunction ] ] [ sh:and ( [ sh:property [ sh:message "indien het compartiment is uitgerust met een automatische blusinstallatie" ;
+                                    sh:path fbo:hasSubitem ;
+                                    sh:qualifiedMinCount 1 ;
+                                    sh:qualifiedValueShape [ sh:class fbo:AutomaticFireExtinguishSystem ] ] ] [ sh:property [ sh:message "en een rook- en warmteafvoerinstallatie." ;
+                                    sh:path fbo:hasSubitem ;
+                                    sh:qualifiedMinCount 1 ;
+                                    sh:qualifiedValueShape [ sh:class fbo:AutomaticFireVentilationsystem ] ] ] ) ] [ sh:property [ sh:hasValue true ;
+                        sh:message "De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de grootte van het compartiment [...] zonder dat een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden." ;
+                        sh:path fbo:hasFireExpertValidation ] ] [ sh:or ( [ sh:and ( [ sh:property [ sh:message "Het compartiment moet deel uitmaken van een gelijkvloers gebouw dat uit slechts één compartiment bestaat." ;
+                                                sh:node [ a sh:NodeShape ;
+                                                        sh:property [ sh:maxInclusive 1 ;
+                                                                sh:message "gelijkvloers gebouw" ;
+                                                                sh:path fbo:BuildingLayers ],
+                                                            [ sh:maxCount 1 ;
+                                                                sh:message "bestaande uit één compartiment" ;
+                                                                sh:path fbo:hasSubitem ] ] ;
+                                                sh:path [ sh:inversePath fbo:hasSubitem ] ] ] [ sh:property [ sh:datatype xsd:decimal ;
+                                                sh:maxInclusive 3500.0 ;
+                                                sh:message "De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag 3500 m² bedragen." ;
+                                                sh:path fbo:AreaFireCompartment ] ] [ sh:property [ sh:datatype xsd:decimal ;
+                                                sh:maxInclusive 90.0 ;
+                                                sh:message "De lengte van dit compartiment bedraagt niet meer dan 90 m." ;
+                                                sh:path ex:compartmentLength ] ] ) ] [ sh:property [ sh:datatype xsd:decimal ;
+                                    sh:maxExclusive 2500.0 ;
+                                    sh:message "Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m²" ;
+                                    sh:path fbo:AreaFireCompartment ] ] ) ] ) ;
+    sh:targetClass fbo:FireCompartment .
 
-<https://ontology.firebim.be/ontology/fro#Article_2_1_2> a sh:NodeShape ;
-    sh:message "Article 2.1.2: The height of a compartment must correspond to one storey, unless it meets specific exceptions (Parking, Duplex, Triplex, Technical Room, or Atrium with specific safety systems)."@en ;
-    sh:or ( [ sh:maxInclusive 1 ;
-                sh:path fro:numberOfLevels ] [ sh:hasValue fro:Parking ;
-                sh:path fro:usageType ] [ a sh:NodeShape ;
-                sh:property [ sh:maxInclusive 2 ;
-                        sh:path fro:numberOfLevels ],
-                    [ sh:datatype xsd:decimal ;
-                        sh:maxInclusive 2500 ;
-                        sh:path fro:floorArea ] ] [ a sh:NodeShape ;
-                sh:property [ sh:maxInclusive 3 ;
-                        sh:path fro:numberOfLevels ],
-                    [ sh:datatype xsd:decimal ;
-                        sh:maxInclusive 300 ;
-                        sh:path fro:floorArea ],
-                    [ sh:hasValue fro:TotalSurveillance ;
-                        sh:message "Triplex compartments must be equipped with automatic fire detection of type 'total surveillance'." ;
-                        sh:path fro:hasFireDetectionSystem ] ] [ sh:hasValue fro:TechnicalRoom ;
-                sh:path fro:usageType ] [ a sh:NodeShape ;
-                sh:property [ sh:hasValue true ;
-                        sh:message "Multi-storey atriums must have an automatic suppression system." ;
-                        sh:path fro:hasAutomaticSuppressionSystem ],
-                    [ sh:hasValue true ;
-                        sh:message "Multi-storey atriums must have a smoke and heat extraction system." ;
-                        sh:path fro:hasSmokeHeatExtractionSystem ] ] ) ;
-    sh:severity sh:Violation ;
-    sh:targetClass fro:FireCompartment .
+fro:Shape_Article_2_2_1_1 a sh:NodeShape ;
+    sh:description "Elk compartiment (en bouwlagen en lokalen) heeft een minimum aantal uitgangen in functie van de maximale bezetting." ;
+    sh:or ( [ sh:and ( [ sh:property [ sh:datatype xsd:integer ;
+                                    sh:maxExclusive 100 ;
+                                    sh:path ex1:occupancyCount ] ] [ sh:property [ sh:class fbo:Exit ;
+                                    sh:message "één uitgang indien de maximale bezetting minder dan 100 personen bedraagt" ;
+                                    sh:minCount 1 ;
+                                    sh:path fbo:hasSubitem ] ] ) ] [ sh:and ( [ sh:property [ sh:datatype xsd:integer ;
+                                    sh:maxExclusive 500 ;
+                                    sh:minInclusive 100 ;
+                                    sh:path ex1:occupancyCount ] ] [ sh:property [ sh:class fbo:Exit ;
+                                    sh:message "twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt" ;
+                                    sh:minCount 2 ;
+                                    sh:path fbo:hasSubitem ] ] ) ] [ sh:and ( [ sh:property [ sh:datatype xsd:integer ;
+                                    sh:minInclusive 500 ;
+                                    sh:path ex1:occupancyCount ] ] [ sh:sparql [ sh:message "2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt." ;
+                                    sh:prefixes [ sh:declare [ sh:namespace "http://example.org/ns#"^^xsd:anyURI ;
+                                                    sh:prefix "ex" ],
+                                                [ sh:namespace "https://ontology.firebim.be/ontology/fbo#"^^xsd:anyURI ;
+                                                    sh:prefix "fbo" ],
+                                                [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+                                                    sh:prefix "rdf" ] ] ;
+                                    sh:select """
+                            SELECT $this ?occupancy
+                            WHERE {
+                                $this ex:occupancyCount ?occupancy .
+                                FILTER (?occupancy >= 500)
+                                
+                                OPTIONAL {
+                                    SELECT $this (COUNT(?exit) AS ?exitCount)
+                                    WHERE {
+                                        $this fbo:hasSubitem ?exit .
+                                        ?exit rdf:type fbo:Exit .
+                                    } GROUP BY $this
+                                }
+                                BIND(COALESCE(?exitCount, 0) AS ?actualExits)
+                                
+                                # Calculates 2 + n where n = ceil(occupancy / 1000)
+                                BIND(2 + CEIL(?occupancy / 1000.0) AS ?requiredExits)
+                                
+                                FILTER (?actualExits < ?requiredExits)
+                            }
+                        """ ] ] ) ] ) ;
+    sh:targetClass fbo:AreaFloorRoom,
+        fbo:BuildingStorey,
+        fbo:FireCompartment .
 
-<https://ontology.firebim.be/ontology/fro#Article_2_2_1_1> a sh:NodeShape ;
-    rdfs:label "Article 2.2.1.1 - Number of Exits"@en ;
-    rdfs:comment "Validates the minimum number of exits for compartments, stories, and spaces based on occupancy."@en ;
-    sh:property [ sh:datatype xsd:integer ;
-            sh:message "Entity must have an occupancy value defined to calculate required exits." ;
-            sh:minCount 1 ;
-            sh:path fro:occupancy ] ;
-    sh:sparql [ a sh:SPARQLConstraint ;
-            sh:message "Insufficient exits: Occupancy is {?occupancy}, requiring {?requiredExits} exits, but only {?exitCount} were found." ;
-            sh:prefixes fro: ;
-            sh:select """
-            SELECT $this ?occupancy ?exitCount ?requiredExits
-            WHERE {
-                # Get the occupancy of the focus node
-                $this fro:occupancy ?occupancy .
+fro:Shape_Article_2_2_1_1_FireDeptOverride a sh:PropertyShape ;
+    sh:datatype xsd:integer ;
+    sh:description "Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en de configuratie van de lokalen." ;
+    sh:path ex1:fireDeptRequiredExits ;
+    sh:targetClass fbo:AreaFloorRoom,
+        fbo:BuildingStorey,
+        fbo:FireCompartment .
 
-                # Count the number of exits connected to the focus node
-                {
-                    SELECT $this (COUNT(?exit) AS ?exitCountRaw)
-                    WHERE {
-                        OPTIONAL { $this fro:hasExit ?exit . }
-                    } GROUP BY $this
-                }
-                BIND(COALESCE(?exitCountRaw, 0) AS ?exitCount)
+art2221:CompartmentExitsShape a sh:NodeShape ;
+    sh:description "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment." ;
+    sh:property [ sh:class fbo:Exit ;
+            sh:message "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment." ;
+            sh:minCount 2 ;
+            sh:path fbo:hasSubitem ],
+        [ sh:datatype xsd:boolean ;
+            sh:hasValue true ;
+            sh:message "De uitgangen moeten in tegenovergestelde zones liggen." ;
+            sh:path ex2:exitsInOppositeZones ] ;
+    sh:targetClass fbo:FireCompartment .
 
-                # Calculate n: integer immediately larger than occupancy / 1000
-                # Logic: floor(occupancy / 1000) + 1
-                BIND((FLOOR(?occupancy / 1000) + 1) AS ?n)
+art2221:EvacuationLevelStairShape a sh:NodeShape ;
+    sh:description "Op een evacuatieniveau leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een evacuatieweg die beantwoordt aan de voorschriften van 4.4." ;
+    sh:property [ sh:hasValue true ;
+            sh:path ex2:locatedOnEvacuationLevel ],
+        [ sh:message "Op een evacuatieniveau leidt iedere trap naar buiten (rechtstreeks of via evacuatieweg 4.4)." ;
+            sh:or ( [ sh:class ex2:Outside ;
+                        sh:description "rechtstreeks naar buiten" ] [ sh:class fbo:AreaEvacuationroute ;
+                        sh:description "over een evacuatieweg die beantwoordt aan de voorschriften van 4.4" ;
+                        sh:node art2221:EvacuationRouteArticle4_4Shape ] ) ;
+            sh:path fbo:isLinkedTo ] ;
+    sh:targetClass ex2:Stair .
 
-                # Determine required exits based on the three conditions
-                BIND(
-                    IF(?occupancy < 100, 
-                        1, 
-                        IF(?occupancy < 500, 
-                            2, 
-                            (2 + ?n)
-                        )
-                    ) AS ?requiredExits
-                )
+art2221:EvacuationRouteDestinationShape a sh:NodeShape ;
+    sh:description "De evacuatiewegen leiden ofwel: naar buiten; naar trappenhuizen; naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4)." ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:description "Zie 4.4 voor horizontale afstanden." ;
+            sh:path ex2:compliesWithArticle4_4 ],
+        [ sh:message "De evacuatiewegen leiden ofwel: naar buiten; naar trappenhuizen; naar trappen." ;
+            sh:or ( [ sh:class ex2:Outside ;
+                        sh:description "naar buiten" ] [ sh:class ex2:Stairwell ;
+                        sh:description "naar trappenhuizen" ] [ sh:class ex2:Stair ;
+                        sh:description "naar trappen, binnen of buiten het gebouw gelegen" ] ) ;
+            sh:path fbo:isLinkedTo ] ;
+    sh:targetClass fbo:AreaEvacuationroute .
 
-                # Filter results where actual exits are less than required exits
-                FILTER (?exitCount < ?requiredExits)
-            }
-        """ ] ;
-    sh:targetClass fbo:Space,
-        fbo:Storey,
-        fro:FireCompartment .
+art2221:ParkingReferenceShape a sh:NodeShape ;
+    sh:description "Voor de parking: zie 5.2." ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:message "Parkings moeten voldoen aan artikel 5.2" ;
+            sh:path ex2:compliesWithArticle5_2 ] ;
+    sh:targetClass ex2:Parking .
 
-<https://ontology.firebim.be/ontology/fro#Article_2_2_2_1> a sh:NodeShape ;
-    rdfs:label "Article 2.2.2.1: Uitgangen en Evacuatiewegen"@nl ;
-    rdfs:comment "Regulates exits, evacuation routes, and specific requirements for underground levels and evacuation levels."@en ;
-    sh:property [ sh:hasValue fro:OppositeZones ;
-            sh:message "De uitgangen moeten gelegen zijn in tegenovergestelde zones van het compartiment."@nl ;
-            sh:path fro:hasExitZoneDistribution ;
-            sh:severity sh:Violation ],
-        [ sh:filterShape [ sh:hasValue fro:EvacuationLevel ;
-                    sh:path fro:locatedOnLevel ] ;
-            sh:node [ a sh:NodeShape ;
-                    sh:property [ sh:class fro:Outdoors ;
-                            sh:message "Op een evacuatieniveau moet iedere trap naar buiten leiden."@nl ;
-                            sh:path fro:leadsTo ] ] ;
-            sh:path fro:hasStair ],
-        [ sh:message "De evacuatiewegen moeten leiden naar buiten, naar trappenhuizen of naar trappen."@nl ;
-            sh:or ( [ sh:class fro:Outdoors ] [ sh:class fro:Stairwell ] [ sh:class fro:Stairs ] ) ;
-            sh:path ( fro:hasEvacuationRoute fro:leadsTo ) ;
-            sh:severity sh:Violation ] ;
-    sh:sparql [ a sh:SPARQLConstraint ;
-            sh:message "Bij ondergrondse bouwlagen moet een vervangende uitgang naar buiten wanden EI 30 en deuren EI1 30 hebben."@nl ;
-            sh:prefixes [ sh:declare [ sh:namespace "http://www.firebim.org/ontologies/fro#"^^xsd:anyURI ;
-                            sh:prefix "fro" ] ] ;
-            sh:select """
-            SELECT $this
-            WHERE {
-                $this fro:isUnderground true .
-                $this fro:hasEvacuationRoute ?route .
-                ?route fro:leadsTo fro:Outdoors .
-                ?route fro:substitutesAccessTo fro:Stairwell .
-                FILTER NOT EXISTS {
-                    ?route fro:hasWall [ fro:hasFireResistance "EI 30" ] .
-                    ?route fro:hasDoor [ fro:hasFireResistance "EI1 30" ] .
-                }
-            }
-        """ ] ;
-    sh:targetClass fro:FireCompartment .
+art2221:UndergroundStoreyShape a sh:NodeShape ;
+    sh:description "Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen." ;
+    sh:property [ sh:in ( true ) ;
+            sh:path ex2:isUnderground ],
+        [ sh:class fbo:Exit ;
+            sh:message "Een uitgang naar buiten mag de toegang tot een trappenhuis vervangen indien voldaan aan de uitzonderingsvoorwaarden (evacuatieweg wanden EI 30, deuren EI1 30)." ;
+            sh:node art2221:UndergroundExceptionExitShape ;
+            sh:path fbo:hasSubitem ] ;
+    sh:targetClass fbo:BuildingStorey .
+
+:Article_2_1_2_Shape a sh:NodeShape ;
+    sh:description "De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag, met uitzonderingen voor parkings, duplexen, triplexen, technische lokalen en atria." ;
+    sh:or ( [ sh:property [ sh:datatype xsd:integer ;
+                        sh:maxInclusive 1 ;
+                        sh:message "De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag." ;
+                        sh:path :numberOfStoreys ] ] [ sh:property [ sh:hasValue "Parking" ;
+                        sh:message "a) de parking met bouwlagen (zie 5.2);" ;
+                        sh:path fbo:Roomfunction ] ] [ sh:and ( [ sh:property [ sh:datatype xsd:integer ;
+                                    sh:maxInclusive 2 ;
+                                    sh:message "b) een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een binnenverbindingstrap (duplex)" ;
+                                    sh:path :numberOfStoreys ] ] [ sh:property [ sh:datatype xsd:decimal ;
+                                    sh:maxInclusive 2500.0 ;
+                                    sh:message "indien de gecumuleerde oppervlakte van die bouwlagen niet groter is dan 2500 m²;" ;
+                                    sh:path fbo:AreaFireCompartment ] ] ) ] [ sh:and ( [ sh:property [ sh:datatype xsd:integer ;
+                                    sh:maxInclusive 3 ;
+                                    sh:message "c) de hoogte van een compartiment mag zich uitstrekken over drie boven elkaar gelegen bouwlagen met een binnenverbindingstrap (triplex)" ;
+                                    sh:path :numberOfStoreys ] ] [ sh:property [ sh:datatype xsd:decimal ;
+                                    sh:maxInclusive 300.0 ;
+                                    sh:message "voor zover de som van hun gecumuleerde oppervlakte de 300 m² niet overschrijdt" ;
+                                    sh:path fbo:AreaFireCompartment ] ] [ sh:property [ sh:message "en dat dit compartiment is uitgerust met een automatische branddetectie van het type totale bewaking die automatisch een aanduiding van de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico's;" ;
+                                    sh:path fbo:hasSubitem ;
+                                    sh:qualifiedMinCount 1 ;
+                                    sh:qualifiedValueShape [ sh:class fbo:AutomaticFireAlarmsystem ] ] ] ) ] [ sh:property [ sh:hasValue "TechnicalRoom" ;
+                        sh:message "d) de hoogte van een compartiment mag zich uitstrekken over verscheidene boven elkaar geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1)." ;
+                        sh:path fbo:Roomfunction ] ] [ sh:and ( [ sh:property [ sh:message "e) de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium) op voorwaarde: dat dit compartiment is uitgerust met een automatische blusinstallatie" ;
+                                    sh:path fbo:hasSubitem ;
+                                    sh:qualifiedMinCount 1 ;
+                                    sh:qualifiedValueShape [ sh:class fbo:AutomaticFireExtinguishSystem ] ] ] [ sh:property [ sh:message "en een rook- en warmteafvoerinstallatie. De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische blusinstallatie en een rook- en warmteafvoerinstallatie;" ;
+                                    sh:path fbo:hasSubitem ;
+                                    sh:qualifiedMinCount 1 ;
+                                    sh:qualifiedValueShape [ sh:class fbo:AutomaticFireVentilationsystem ] ] ] ) ] ) ;
+    sh:targetClass fbo:FireCompartment .
+
+art2221:EvacuationRouteArticle4_4Shape a sh:NodeShape ;
+    sh:property [ sh:hasValue true ;
+            sh:message "De evacuatieweg moet beantwoorden aan de voorschriften van 4.4." ;
+            sh:path ex2:compliesWithArticle4_4 ] .
+
+art2221:UndergroundExceptionExitShape a sh:NodeShape ;
+    sh:property [ sh:class fbo:AreaEvacuationroute ;
+            sh:node art2221:UndergroundExceptionRouteShape ;
+            sh:path fbo:isLinkedTo ],
+        [ sh:class ex2:Outside ;
+            sh:path fbo:isLinkedTo ] .
+
+art2221:UndergroundExceptionRouteShape a sh:NodeShape ;
+    sh:property [ sh:class ex2:Wall ;
+            sh:path fbo:hasSubitem ;
+            sh:property [ sh:hasValue "EI 30" ;
+                    sh:message "Wanden van de evacuatieweg moeten EI 30 zijn." ;
+                    sh:path fbo:FireResistance ] ],
+        [ sh:class fbo:DoorEscaperoute ;
+            sh:path fbo:hasSubitem ;
+            sh:property [ sh:hasValue "EI1 30" ;
+                    sh:message "Deuren van de evacuatieweg moeten EI1 30 zijn." ;
+                    sh:path fbo:FireResistance ] ] .
 

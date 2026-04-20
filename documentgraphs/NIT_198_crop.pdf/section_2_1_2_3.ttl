@@ -6,23 +6,23 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_2_1_2_3 a fro:Section ;
+ex:Section_2_1_2_3 a fro:Section ;
     fro:hasID "2.1.2.3" ;
     fro:hasOriginalText "RESISTANCE DES SURFACES DE CIRCULATION A LA RAYURE ET A L'USURE"@fr ;
-    fro:hasArticle fro:Article_2_1_2_3_1 .
+    fro:hasArticle ex:Article_2_1_2_3_1 .
 
-fro:Article_2_1_2_3_1 a fro:Article ;
+ex:Article_2_1_2_3_1 a fro:Article ;
     fro:hasID "A2.1.2.3.1" ;
-    fro:hasMember fro:Member_2_1_2_3_1_1, fro:Member_2_1_2_3_1_2 ;
+    fro:hasMember ex:Member_2_1_2_3_1_1, ex:Member_2_1_2_3_1_2 ;
     fro:hasTable fro:Table_2_1_2_3_1 .
 
-fro:Member_2_1_2_3_1_1 a fro:Member ;
+ex:Member_2_1_2_3_1_1 a fro:Member ;
     fro:hasOriginalText """La resistance aux rayures et à l'usure des surfaces de circulation en bois (marches, paliers) est essentiellement determinee par celle de la finition appliquee et par la durete superficielle des surfaces sous-jacentes en bois."""@fr .
 
-fro:Member_2_1_2_3_1_2 a fro:Member ;
+ex:Member_2_1_2_3_1_2 a fro:Member ;
     fro:hasOriginalText """La masse volumique moyenne est un critere indicatif de la durete superficielle du bois. Les bois couramment utilises dans les escaliers sont repris au tableau & (p. 48). La durete augmente pour une masse volumique croissante."""@fr .
 
 fro:Table_2_1_2_3_1 a fro:Table ;
     fro:hasID "T2.1.2.3.1" .
 
-fro:Section_2_1_2 fro:hasSection fro:Section_2_1_2_3 .
+ex:Section_2_1_2 fro:hasSection ex:Section_2_1_2_3 .

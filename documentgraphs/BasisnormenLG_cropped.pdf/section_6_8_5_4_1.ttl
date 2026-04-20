@@ -1,26 +1,29 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_8_5_4 fro:hasSection fro:Section_6_8_5_4_1 .
-
-fro:Article_6_8_5_4_1_1 a fro:Article ;
-    fro:hasID "A6.8.5.4.1.1" ;
-    fro:hasMember fro:Member_6_8_5_4_1_1_1,
-        fro:Member_6_8_5_4_1_1_2 ;
-    fro:hasVersion fro:v0_1 .
-
-fro:Member_6_8_5_4_1_1_1 a fro:Member ;
-    fro:hasOriginalText "Deze bovengrondse en ondergrondse <a href=\"https://ontology.firebim.be/ontology/fbo#FireHydrant\">hydranten</a> worden gevoed door het openbaar <a href=\"https://ontology.firebim.be/ontology/fbo#WaterSupplySystem\">waterleidingnet</a> via een <a href=\"https://ontology.firebim.be/ontology/fbo#Pipe\">leiding</a> met minimale <a href=\"https://ontology.firebim.be/ontology/fbo#PipeDiameter\">binnendiameter</a> van 80 mm."@nl .
-
-fro:Member_6_8_5_4_1_1_2 a fro:Member ;
-    fro:hasOriginalText "Kan het openbaar net aan deze voorwaarden niet voldoen, dan wendt men andere bevoorradingsbronnen aan met minimale capaciteit van 50 m³, tenzij het gehele <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> is uitgerust met een <a href=\"https://ontology.firebim.be/ontology/fbo#HasAutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> van het type sprinkler die is aangepast aan de aanwezige risico's."@nl .
-
-fro:Section_6_8_5_4_1 a fro:Section ;
-    fro:hasArticle fro:Article_6_8_5_4_1_1 ;
+ex:Section_6_8_5_4_1 a fro:Section ;
+    fro:hasArticle ex:Article_6_8_5_4_1_1 ;
     fro:hasID "6.8.5.4.1" .
 
+ex:Article_6_8_5_4_1_1 a fro:Article ;
+    fro:hasID "A6.8.5.4.1.1" ;
+    fro:hasMember ex:Member_6_8_5_4_1_1_1,
+        ex:Member_6_8_5_4_1_1_2 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_6_8_5_4_1_1_1 a fro:Member ;
+    fro:hasOriginalText "Deze bovengrondse en ondergrondse hydranten worden gevoed door het openbaar waterleidingnet via een leiding met minimale binnendiameter van 80 mm."@nl ;
+    fro:linksTo fbo-be:Pipes .
+
+ex:Member_6_8_5_4_1_1_2 a fro:Member ;
+    fro:hasOriginalText "Kan het openbaar net aan deze voorwaarden niet voldoen, dan wendt men andere bevoorradingsbronnen aan met minimale capaciteit van 50 m³, tenzij het gehele gebouw is uitgerust met een automatische blusinstallatie van het type sprinkler die is aangepast aan de aanwezige risico's."@nl ;
+    fro:linksTo fbo-be:AutomaticFireExtinguishSystem .
+
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

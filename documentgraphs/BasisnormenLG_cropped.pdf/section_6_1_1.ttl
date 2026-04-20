@@ -1,39 +1,44 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_1 fro:hasSection fro:Section_6_1_1 .
-
-fro:Article_6_1_1_1 a fro:Article ;
-    fro:hasID "A6.1.1.1" ;
-    fro:hasMember fro:Member_6_1_1_1,
-        fro:Member_6_1_1_2,
-        fro:Member_6_1_1_3 ;
-    fro:hasVersion fro:v0_1 .
-
-fro:Member_6_1_1_1 a fro:Member ;
-    fro:hasOriginalText "De machine en de bijhorende onderdelen van een <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">lift</a> of goederenlift zijn niet toegankelijk, behalve voor het onderhoud, de controle en de noodgevallen."@nl .
-
-fro:Member_6_1_1_2 a fro:Member ;
-    fro:hasMember fro:Member_6_1_1_2_1,
-        fro:Member_6_1_1_2_2 ;
-    fro:hasOriginalText "De aandrijving bevindt zich:"@nl .
-
-fro:Member_6_1_1_2_1 a fro:Member ;
-    fro:hasOriginalText "- ofwel in een <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machinekamer</a>;"@nl .
-
-fro:Member_6_1_1_2_2 a fro:Member ;
-    fro:hasOriginalText "- ofwel in de <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">schacht</a>."@nl .
-
-fro:Member_6_1_1_3 a fro:Member ;
-    fro:hasOriginalText "De controleorganen mogen toegankelijk zijn vanaf het <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">bordes</a>, op voorwaarde dat ze de vereiste <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandwerendheid</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#LandingWall\">bordeswand</a> of de wand van de <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">schacht</a> waarin ze worden geplaatst niet nadelig beïnvloeden."@nl .
-
-fro:Section_6_1_1 a fro:Section ;
-    fro:hasArticle fro:Article_6_1_1_1 ;
+ex:Section_6_1_1 a fro:Section ;
+    fro:hasArticle ex:Article_6_1_1_1 ;
     fro:hasID "6.1.1" ;
     fro:hasOriginalText "Algemeen"@nl .
 
+ex:Article_6_1_1_1 a fro:Article ;
+    fro:hasID "A6.1.1.1" ;
+    fro:hasMember ex:Member_6_1_1_1_1,
+        ex:Member_6_1_1_1_2,
+        ex:Member_6_1_1_1_3 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_6_1_1_1_1 a fro:Member ;
+    fro:hasOriginalText "De machine en de bijhorende onderdelen van een lift of goederenlift zijn niet toegankelijk, behalve voor het onderhoud, de controle en de noodgevallen."@nl .
+
+ex:Member_6_1_1_1_2 a fro:Member ;
+    fro:hasMember ex:Member_6_1_1_1_2_1,
+        ex:Member_6_1_1_1_2_2 ;
+    fro:hasOriginalText "De aandrijving bevindt zich:"@nl .
+
+ex:Member_6_1_1_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- ofwel in een machinekamer;"@nl .
+
+ex:Member_6_1_1_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- ofwel in de schacht."@nl ;
+    fro:linksTo fbo-be:VerticalShaft .
+
+ex:Member_6_1_1_1_3 a fro:Member ;
+    fro:hasOriginalText "De controleorganen mogen toegankelijk zijn vanaf het bordes, op voorwaarde dat ze de vereiste brandwerendheid van de bordeswand of de wand van de schacht waarin ze worden geplaatst niet nadelig beïnvloeden."@nl ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:WallTypeInternal .
+
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

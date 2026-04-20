@@ -1,33 +1,50 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_3_5_2 fro:hasSection fro:Section_3_5_2_1 .
+ex:Section_3_5_2_1 a fro:Section ;
+    fro:hasArticle ex:Article_3_5_2_1_1 ;
+    fro:hasID "3.5.2.1" ;
+    fro:hasOriginalText "Dubbelwandige gevel die onderbroken wordt door een compartimentering."@nl .
 
-fro:Article_3_5_2_1_1 a fro:Article ;
+ex:Article_3_5_2_1_1 a fro:Article ;
     fro:hasID "A3.5.2.1.1" ;
-    fro:hasMember fro:Member_3_5_2_1_1_1,
-        fro:Member_3_5_2_1_1_2,
-        fro:Member_3_5_2_1_1_3 ;
+    fro:hasMember ex:Member_3_5_2_1_1_1,
+        ex:Member_3_5_2_1_1_2,
+        ex:Member_3_5_2_1_1_3 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_3_5_2_1_1_1 a fro:Member ;
-    fro:hasOriginalText "Dit element mag openingen bevatten, op voorwaarde dat de continuïteit van de <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimentering</a> door de spouw heen verzekerd wordt door een bij brand zelfsluitende <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">afsluitinrichting</a> met een <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> E 60. Deze inrichting wordt beproefd in zijn dragende constructie, volgens de richting van de <a href=\"https://ontology.firebim.be/ontology/fbo#CompartmentBoundary\">compartimentswand</a>; de sluiting ervan wordt bevolen:"@nl .
+ex:Member_3_5_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "De spouw van de dubbelwandige gevel wordt in het verlengde van elke compartimentswand onderbroken door een element dat minstens E 60 heeft. Dit element beslaat de volledige ruimte begrepen tussen de twee wanden en heeft een minimale lengte van 60 cm te tellen vanaf de binnenwand van de gevel."@nl ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:FireCompartment .
 
-fro:Member_3_5_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText """- hetzij door een thermische detectie ter hoogte van deze inrichting die reageert bij een temperatuur van maximaal 100°C.
-- hetzij door een <a href="https://ontology.firebim.be/ontology/fbo#SmokeDetector">rookdetectie</a> in de spouw of in alle <a href="https://ontology.firebim.be/ontology/fbo#Compartment">compartimenten</a> langs de <a href="https://ontology.firebim.be/ontology/fbo#Facade">gevel</a>, die voldoet aan de voorwaarden in punt 3.5.2.3."""@nl .
+ex:Member_3_5_2_1_1_2 a fro:Member ;
+    fro:hasMember ex:Member_3_5_2_1_1_2_1,
+        ex:Member_3_5_2_1_1_2_2 ;
+    fro:hasOriginalText "Dit element mag openingen bevatten, op voorwaarde dat de continuïteit van de compartimentering door de spouw heen verzekerd wordt door een bij brand zelfsluitende afsluitinrichting met een brandweerstand E 60. Deze inrichting wordt beproefd in zijn dragende constructie, volgens de richting van de compartimentswand; de sluiting ervan wordt bevolen:"@nl ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:FireCompartment .
 
-fro:Member_3_5_2_1_1_3 a fro:Member ;
-    fro:hasOriginalText "Wanneer er <a href=\"https://ontology.firebim.be/ontology/fbo#FacadeVentilationOpening\">verluchtingsopeningen</a> zijn tussen de spouw van de dubbelwandige <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevel</a> en de binnenomgeving van het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a>, is enkel een <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeDetector\">rookdetectie</a> toegelaten in de spouw of in alle <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> langs de <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevel</a>. Zij voldoet aan de voorwaarden van punt 3.5.2.3."@nl .
+ex:Member_3_5_2_1_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- hetzij door een thermische detectie ter hoogte van deze inrichting die reageert bij een temperatuur van maximaal 100°C."@nl ;
+    fro:linksTo fbo:AutomaticFireAlarmsystem .
 
-fro:Section_3_5_2_1 a fro:Section ;
-    fro:hasArticle fro:Article_3_5_2_1_1 ;
-    fro:hasID "3.5.2.1" ;
-    fro:hasOriginalText """Dubbelwandige <a href="https://ontology.firebim.be/ontology/fbo#Facade">gevel</a> die onderbroken wordt door een <a href="https://ontology.firebim.be/ontology/fbo#Compartment">compartimentering</a>.
-De spouw van de dubbelwandige <a href="https://ontology.firebim.be/ontology/fbo#Facade">gevel</a> wordt in het verlengde van elke <a href="https://ontology.firebim.be/ontology/fbo#CompartmentBoundary">compartimentswand</a> onderbroken door een element dat minstens E 60 heeft. Dit element beslaat de volledige ruimte begrepen tussen de twee wanden en heeft een minimale lengte van 60 cm te tellen vanaf de binnenwand van de <a href="https://ontology.firebim.be/ontology/fbo#Facade">gevel</a>."""@nl .
+ex:Member_3_5_2_1_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- hetzij door een rookdetectie in de spouw of in alle compartimenten langs de gevel, die voldoet aan de voorwaarden in punt 3.5.2.3."@nl ;
+    fro:linksTo fbo-be:AutomaticDetectionTotal,
+        fbo-be:FireCompartment .
+
+ex:Member_3_5_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText "Wanneer er verluchtingsopeningen zijn tussen de spouw van de dubbelwandige gevel en de binnenomgeving van het gebouw, is enkel een rookdetectie toegelaten in de spouw of in alle compartimenten langs de gevel. Zij voldoet aan de voorwaarden van punt 3.5.2.3."@nl ;
+    fro:linksTo fbo-be:AutomaticDetectionTotal,
+        fbo-be:FireCompartment .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

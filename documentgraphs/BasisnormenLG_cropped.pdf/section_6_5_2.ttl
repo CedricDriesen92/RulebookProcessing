@@ -1,63 +1,87 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_5_2 a fro:Section ;
-    fro:hasArticle fro:Article_6_5_2_1 ;
+ex:Section_6_5_2 a fro:Section ;
+    fro:hasArticle ex:Article_6_5_2_1,
+        ex:Article_6_5_2_2,
+        ex:Article_6_5_2_3 ;
     fro:hasID "6.5.2" ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalConduit\">elektrische leidingen</a> die installaties of toestellen voeden die bij brand absoluut in dienst moeten blijven, worden zodanig geplaatst dat de risico’s van algehele buitendienststelling gespreid zijn."@nl .
+    fro:hasOriginalText "De elektrische leidingen die installaties of toestellen voeden die bij brand absoluut in dienst moeten blijven, worden zodanig geplaatst dat de risico’s van algehele buitendienststelling gespreid zijn."@nl ;
+    fro:linksTo fbo-be:Conduits .
 
-fro:Article_6_5_2_1 a fro:Article ;
+ex:Article_6_5_2_1 a fro:Article ;
     fro:hasID "A6.5.2.1" ;
-    fro:hasMember fro:Member_6_5_2_1_1,
-        fro:Member_6_5_2_1_2,
-        fro:Member_6_5_2_1_3,
-        fro:Member_6_5_2_1_4,
-        fro:Member_6_5_2_2,
-        fro:Member_6_5_2_3 ;
-    fro:hasOriginalText "Op hun tracé tot aan het <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> waar de installatie zich bevindt, hebben de <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalConduit\">elektrische leidingen</a> de volgende <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a>:"@nl ;
+    fro:hasMember ex:Member_6_5_2_1_1,
+        ex:Member_6_5_2_1_2 ;
+    fro:hasOriginalText "Op hun tracé tot aan het compartiment waar de installatie zich bevindt, hebben de elektrische leidingen de volgende brandweerstand:"@nl ;
+    fro:hasVersion fro:v0_1 ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:FireCompartment .
+
+ex:Article_6_5_2_2 a fro:Article ;
+    fro:hasID "A6.5.2.2" ;
+    fro:hasOriginalText "Deze vereisten zijn niet van toepassing indien de werking van de installaties of toestellen verzekerd blijft zelfs bij het uitvallen van de energievoeding."@nl ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_6_5_2_1_1 a fro:Member ;
-    fro:hasOriginalText "1. ofwel een intrinsieke <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> die minimaal"@nl .
+ex:Article_6_5_2_3 a fro:Article ;
+    fro:hasID "A6.5.2.3" ;
+    fro:hasMember ex:Member_6_5_2_3_1,
+        ex:Member_6_5_2_3_2,
+        ex:Member_6_5_2_3_3,
+        ex:Member_6_5_2_3_4,
+        ex:Member_6_5_2_3_5 ;
+    fro:hasOriginalText "De bedoelde installaties of toestellen zijn:"@nl ;
+    fro:hasVersion fro:v0_1 .
 
-fro:Member_6_5_2_1_2 a fro:Member ;
-    fro:hasOriginalText "- PH 60 bedraagt volgens NBN EN 50200 voor leidingen waarvan de buitendiameter kleiner is dan of gelijk aan 20 mm en waarvan de doorsnede van de geleiders kleiner is dan of gelijk aan 2,5 mm²;"@nl .
+ex:Member_6_5_2_1_1 a fro:Member ;
+    fro:hasMember ex:Member_6_5_2_1_1_1,
+        ex:Member_6_5_2_1_1_2 ;
+    fro:hasOriginalText "1. ofwel een intrinsieke brandweerstand die minimaal"@nl .
 
-fro:Member_6_5_2_1_3 a fro:Member ;
-    fro:hasOriginalText "- Rf 1 h bedraagt volgens add. 3 van NBN 713-020 voor leidingen waarvan de buitendiameter groter is dan 20 mm of waarvan de doorsnede van de geleiders groter is dan 2,5 mm²;"@nl .
+ex:Member_6_5_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "- PH 60 bedraagt volgens NBN EN 50200 voor leidingen waarvan de buitendiameter kleiner is dan of gelijk aan 20 mm en waarvan de doorsnede van de geleiders kleiner is dan of gelijk aan 2,5 mm²;"@nl ;
+    fro:hasReference fro:Reference_NBN_EN_50200 .
 
-fro:Member_6_5_2_1_4 a fro:Member ;
-    fro:hasOriginalText "2. ofwel Rf 1 h, volgens add. 3 van NBN 713-020, voor leidingen zonder intrinsieke <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> die in <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalConduit\">kokers</a> zijn geplaatst."@nl .
+ex:Member_6_5_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "- Rf 1 h bedraagt volgens add. 3 van NBN 713-020 voor leidingen waarvan de buitendiameter groter is dan 20 mm of waarvan de doorsnede van de geleiders groter is dan 2,5 mm²;"@nl ;
+    fro:hasReference fro:Reference_NBN_713_020 .
 
-fro:Member_6_5_2_2 a fro:Member ;
-    fro:hasOriginalText "Deze vereisten zijn niet van toepassing indien de werking van de installaties of toestellen verzekerd blijft zelfs bij het uitvallen van de energievoeding."@nl .
+ex:Member_6_5_2_1_2 a fro:Member ;
+    fro:hasOriginalText "2. ofwel Rf 1 h, volgens add. 3 van NBN 713-020, voor leidingen zonder intrinsieke brandweerstand die in kokers zijn geplaatst."@nl ;
+    fro:hasReference fro:Reference_NBN_713_020 .
 
-fro:Member_6_5_2_3 a fro:Member ;
-    fro:hasMember fro:Member_6_5_2_3_1,
-        fro:Member_6_5_2_3_2,
-        fro:Member_6_5_2_3_3,
-        fro:Member_6_5_2_3_4,
-        fro:Member_6_5_2_3_5 ;
-    fro:hasOriginalText "De bedoelde installaties of toestellen zijn:"@nl .
+ex:Member_6_5_2_3_1 a fro:Member ;
+    fro:hasOriginalText "1. de veiligheidsverlichting en eventueel de vervangingsverlichting;"@nl ;
+    fro:linksTo fbo:EmergencyExitLighting .
 
-fro:Member_6_5_2_3_1 a fro:Member ;
-    fro:hasOriginalText "1. de <a href=\"https://ontology.firebim.be/ontology/fbo#SafetyLighting\">veiligheidsverlichting</a> en eventueel de vervangingsverlichting;"@nl .
+ex:Member_6_5_2_3_2 a fro:Member ;
+    fro:hasOriginalText "2. de installaties voor melding, waarschuwing en alarm;"@nl ;
+    fro:linksTo fbo:AutomaticWarningSystem .
 
-fro:Member_6_5_2_3_2 a fro:Member ;
-    fro:hasOriginalText "2. de installaties voor melding, waarschuwing en <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmSystem\">alarm</a>;"@nl .
+ex:Member_6_5_2_3_3 a fro:Member ;
+    fro:hasOriginalText "3. de installaties voor rookafvoer;"@nl ;
+    fro:linksTo fbo-be:SmokeAndHeatExtraction .
 
-fro:Member_6_5_2_3_3 a fro:Member ;
-    fro:hasOriginalText "3. de installaties voor <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeExtractionSystem\">rookafvoer</a>;"@nl .
+ex:Member_6_5_2_3_4 a fro:Member ;
+    fro:hasOriginalText "4. de waterpompen voor de brandbestrijding en eventueel de ledigingspompen;"@nl ;
+    fro:linksTo fbo-be:AutomaticFireExtinguishSystem .
 
-fro:Member_6_5_2_3_4 a fro:Member ;
-    fro:hasOriginalText "4. de <a href=\"https://ontology.firebim.be/ontology/fbo#WaterSupplySystem\">waterpompen</a> voor de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefightingEquipment\">brandbestrijding</a> en eventueel de ledigingspompen;"@nl .
+ex:Member_6_5_2_3_5 a fro:Member ;
+    fro:hasOriginalText "5. de speciale liften bedoeld in punt 6.4."@nl ;
+    fro:linksTo fbo-be:VerticalShaft .
 
-fro:Member_6_5_2_3_5 a fro:Member ;
-    fro:hasForwardReference fro:Section_6_4 ;
-    fro:hasOriginalText "5. de speciale liften bedoeld in punt 6.4."@nl .
+fro:Reference_NBN_EN_50200 a fro:Reference ;
+    fro:hasID "NBN EN 50200" .
+
+fro:Reference_NBN_713_020 a fro:Reference ;
+    fro:hasID "NBN 713-020" .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

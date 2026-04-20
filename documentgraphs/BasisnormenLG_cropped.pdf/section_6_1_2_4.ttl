@@ -1,33 +1,38 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_1_2 fro:hasSection fro:Section_6_1_2_4 .
+ex:Section_6_1_2 fro:hasSection ex:Section_6_1_2_4 .
 
-fro:Article_6_1_2_4_1 a fro:Article ;
+ex:Article_6_1_2_4_1 a fro:Article ;
     fro:hasID "A6.1.2.4.1" ;
-    fro:hasMember fro:Member_6_1_2_4_1_1,
-        fro:Member_6_1_2_4_1_2,
-        fro:Member_6_1_2_4_1_3 ;
+    fro:hasMember ex:Member_6_1_2_4_1_1,
+        ex:Member_6_1_2_4_1_2,
+        ex:Member_6_1_2_4_1_3 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_6_1_2_4_1_1 a fro:Member ;
-    fro:hasOriginalText "<a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">Liften</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">goederenliften</a> waarvan de aandrijving zich in een <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machinekamer</a> bevindt."@nl .
+ex:Member_6_1_2_4_1_1 a fro:Member ;
+    fro:hasOriginalText "De binnenwanden van de machinekamer die niet uitgeven op de schacht hebben EI 60."@nl ;
+    fro:linksTo fbo-be:TechnicalRoom,
+        fbo-be:WallTypeInternal .
 
-fro:Member_6_1_2_4_1_2 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#InnerWallFireResistance\">binnenwanden</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machinekamer</a> die niet uitgeven op de <a href=\"https://ontology.firebim.be/ontology/fbo#Shaft\">schacht</a> hebben <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 60</a>."@nl .
+ex:Member_6_1_2_4_1_2 a fro:Member ;
+    fro:hasOriginalText "De deuren of valluiken in deze wanden hebben EI1 30."@nl ;
+    fro:linksTo fbo-be:WallTypeInternal .
 
-fro:Member_6_1_2_4_1_3 a fro:Member ;
-    fro:hasOriginalText """De <a href="https://ontology.firebim.be/ontology/fbo#Door">deuren</a> of <a href="https://ontology.firebim.be/ontology/fbo#ShaftHatch">valluiken</a> in deze <a href="https://ontology.firebim.be/ontology/fbo#Wall">wanden</a> hebben <a href="https://ontology.firebim.be/ontology/fbo#FireResistanceRating">EI1 30</a>.
+ex:Member_6_1_2_4_1_3 a fro:Member ;
+    fro:hasOriginalText "De brandweer is verzekerd van de toegang tot de machinekamer."@nl ;
+    fro:linksTo fbo-be:TechnicalRoom .
 
-De brandweer is verzekerd van de <a href="https://ontology.firebim.be/ontology/fbo#FirefighterAccessibility">toegang</a> tot de <a href="https://ontology.firebim.be/ontology/fbo#MachineRoom">machinekamer</a>."""@nl .
-
-fro:Section_6_1_2_4 a fro:Section ;
-    fro:hasArticle fro:Article_6_1_2_4_1 ;
+ex:Section_6_1_2_4 a fro:Section ;
+    fro:hasArticle ex:Article_6_1_2_4_1 ;
     fro:hasID "6.1.2.4" ;
     fro:hasOriginalText "Liften en goederenliften waarvan de aandrijving zich in een machinekamer bevindt."@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

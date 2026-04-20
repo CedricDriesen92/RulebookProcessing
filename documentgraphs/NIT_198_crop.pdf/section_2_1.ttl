@@ -6,5 +6,5 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_2_1 a fro:Section ;
+ex:Section_2_1 a fro:Section ;
     fro:hasID "2.1" .

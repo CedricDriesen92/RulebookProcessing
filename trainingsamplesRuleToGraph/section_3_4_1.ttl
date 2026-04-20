@@ -1,28 +1,29 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix ex: <https://example.org/rulebook#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_3_4_1 a fro:Section ;
+ex:Section_3_4_1 a fro:Section ;
     fro:hasID "3.4.1" ;
-    fro:hasArticle fro:Article_3_4_1_1 .
+    fro:hasArticle ex:Article_3_4_1_1 .
 
-fro:Section_3_4 fro:hasSection fro:Section_3_4_1 .
+ex:Section_3_4 fro:hasSection ex:Section_3_4_1 .
 
-fro:Article_3_4_1_1 a fro:Article ;
+ex:Article_3_4_1_1 a fro:Article ;
     fro:hasID "A3.4.1.1" ;
-    fro:hasMember fro:Member_3_4_1_1_1, fro:Member_3_4_1_1_2 .
+    fro:hasMember ex:Member_3_4_1_1_1, ex:Member_3_4_1_1_2 .
 
-fro:Member_3_4_1_1_1 a fro:Member ;
+ex:Member_3_4_1_1_1 a fro:Member ;
     fro:hasOriginalText """In  de  evacuatiewegen,  de  voor  het  publiek  toegankelijke  lokalen  en  de  collectieve  keukens
 hebben de verlaagde plafonds EI 30 (ab), EI 30 (ba) of EI 30 (a ↔                     b) volgens NBN EN 13501-
             2 en NBN EN 1364-2 of hebben een stabiliteit bij brand van een ½ h volgens NBN 713-020."""@nl ;
     fro:hasReference fro:Reference_NBN_EN_13501_2, fro:Reference_NBN_EN_1364_2, fro:Reference_NBN_713_020 .
 
-fro:Member_3_4_1_1_2 a fro:Member ;
+ex:Member_3_4_1_1_2 a fro:Member ;
     fro:hasOriginalText """Deze vereiste is niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de
             compartimenten die zijn uitgerust met een automatische blusinstallatie van het type sprinkler die is
             aangepast aan de aanwezige risico's."""@nl .
@@ -36,4 +37,4 @@ fro:Reference_NBN_EN_1364_2 a fro:Reference ;
 fro:Reference_NBN_713_020 a fro:Reference ;
     fro:hasID "NBN 713-020" .
 
-fro:Member_3_4_1_1_2 fro:hasForwardReference fro:Section_4_4_1_2 .
+ex:Member_3_4_1_1_2 fro:hasForwardReference ex:Section_4_4_1_2 .

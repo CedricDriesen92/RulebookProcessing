@@ -1,6 +1,10 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 
-fro:Section_5_1_5_1 a fro:Section ;
+ex:Section_5_1_5_1 a fro:Section ;
     fro:hasID "5.1.5.1" ;
-    fro:hasOriginalText "Verticale <a href=\"https://ontology.firebim.be/ontology/fbo#VerticalShaft\">kokers</a>"@nl .
+    fro:hasOriginalText "Verticale kokers"@nl ;
+    fro:linksTo fbo-be:VerticalShaft .
 

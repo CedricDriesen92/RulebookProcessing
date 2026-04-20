@@ -1,0 +1,37 @@
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT(["fro:Shape_Article_2_1_1<br/>Target: fbo:FireCompartment<br/>Regels inzake de maximale oppervlakte en lengte van brandcompartimenten, inclusief uitzonderingen..."]):::rootCls
+    OR1{"OR"}:::orCls
+    P2["fbo:Roomfunction | = Parking<br/>met uitzondering van de parkings (zie 5.2)."]:::propCls
+    AND3{"AND"}:::andCls
+    P4["fbo:hasSubitem | qualifies: fbo:AutomaticFireExtinguishSystem | qmin: 1<br/>indien het compartiment is uitgerust met een automatische blusinstallatie"]:::propCls
+    P5["fbo:hasSubitem | qualifies: fbo:AutomaticFireVentilationsystem | qmin: 1<br/>en een rook- en warmteafvoerinstallatie."]:::propCls
+    P6["fbo:hasFireExpertValidation | = true<br/>De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonder..."]:::propCls
+    OR7{"OR"}:::orCls
+    AND8{"AND"}:::andCls
+    P9["^fbo:hasSubitem<br/>Het compartiment moet deel uitmaken van een gelijkvloers gebouw dat uit slech..."]:::propCls
+    P10["fbo:BuildingLayers | <= 1<br/>gelijkvloers gebouw"]:::propCls
+    P11["fbo:hasSubitem | max: 1<br/>bestaande uit één compartiment"]:::propCls
+    P12["fbo:AreaFireCompartment | xsd:decimal | <= 3500.0<br/>De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compart..."]:::propCls
+    P13["ex:compartmentLength | xsd:decimal | <= 90.0<br/>De lengte van dit compartiment bedraagt niet meer dan 90 m."]:::propCls
+    P14["fbo:AreaFireCompartment | xsd:decimal | < 2500.0<br/>Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is da..."]:::propCls
+    ROOT --> OR1
+    OR1 --> P2
+    OR1 --> AND3
+    AND3 --> P4
+    AND3 --> P5
+    OR1 --> P6
+    OR1 --> OR7
+    OR7 --> AND8
+    AND8 --> P9
+    P9 --> P10
+    P9 --> P11
+    AND8 --> P12
+    AND8 --> P13
+    OR7 --> P14

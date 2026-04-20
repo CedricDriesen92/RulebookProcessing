@@ -1,21 +1,23 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_4 a fro:Section ;
-    fro:hasArticle fro:Article_6_4_1 ;
+ex:Section_6_4 a fro:Section ;
+    fro:hasArticle ex:Article_6_4_1 ;
     fro:hasID "6.4" ;
     fro:hasOriginalText "Speciale liften"@nl .
 
-fro:Article_6_4_1 a fro:Article ;
+ex:Article_6_4_1 a fro:Article ;
     fro:hasID "A6.4.1" ;
-    fro:hasMember fro:Member_6_4_1_1 ;
+    fro:hasMember ex:Member_6_4_1_1 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_6_4_1_1 a fro:Member ;
-    fro:hasOriginalText "De speciale <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a> en de werking ervan bij brand beantwoorden aan de volgende voorschriften of elke andere regel van goed vakmanschap die een gelijkwaardig veiligheidsniveau biedt, overeenkomstig het koninklijk besluit van 12 april 2016 betreffende het op de markt brengen van <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a> en veiligheidscomponenten voor <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a>."@nl .
+ex:Member_6_4_1_1 a fro:Member ;
+    fro:hasOriginalText "De speciale liften en de werking ervan bij brand beantwoorden aan de volgende voorschriften of elke andere regel van goed vakmanschap die een gelijkwaardig veiligheidsniveau biedt, overeenkomstig het koninklijk besluit van 12 april 2016 betreffende het op de markt brengen van liften en veiligheidscomponenten voor liften."@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

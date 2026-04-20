@@ -1,0 +1,397 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-be#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix qudt: <https://qudt.org/3.1.0/schema/qudt/>.
+@prefix qudt-unit: <https://qudt.org/3.1.0/vocab/unit/>.
+@prefix schema: <http://schema.org/>.
+@prefix xml: <http://www.w3.org/XML/1998/namespace>.
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#>.
+
+@prefix terms: <http://purl.org/dc/terms/> .
+
+
+fbo-be: terms:title "Belgian FireBIM Building Ontology"@en;
+     a owl:Ontology;
+     owl:imports fbo:.
+	 
+fbo-be:Apartment a owl:Class;
+                 rdfs:comment "not found in notion, to be removed"@nl-be;
+                 rdfs:label "Apartment"@en,
+                            "Appartement"@nl;
+                 rdfs:subClassOf fbo-be:SingleStoreyHouse.
+fbo-be:Atrium a owl:Class;
+              rdfs:label "Atrium"@nl-be,
+                         "Atrium"@en;
+              rdfs:subClassOf fbo-be:FireCompartment;
+              fbo:hasExplicitDefinition "Enclosed space, not necessarily vertically aligned, passing through two or more storeys in a building. Lift wells, escalator shafts, building services ducts and protected stairways are not classified as atria"@en;
+              fbo:hasImplicitDefinition "Compartiment dat over 2 of meerdere bouwlagen loopt, er is niet noodzakelijk een trap binnen dit compartiment die de verschillende bouwlagen verbindt"@nl-be,
+                                        "Compartment over 2 or more building layers, there is not necessarily a stair within thise compartment connecting the different building layers"@en;
+              fbo-be:hasNotionEntry "169".
+fbo-be:BoundaryFireCompartment a owl:Class;
+                               fbo:hasExplicitDefinition "BrandCompartimentsWand"@nl-be,
+                                                         "BoundaryFireCompartment"@en;
+                               fbo-be:hasNotionEntry "99901".
+fbo-be:BoundarySubcompartment a owl:Class;
+                              fbo:hasExplicitDefinition "SubBrandCompartimentsWand"@nl-be,
+                                                        "BoundarySubcompartment"@en;
+                              fbo-be:hasNotionEntry "99902".
+fbo-be:Building a owl:Class;
+                rdfs:comment "Any building structure forming a covered space accessible to people, wholly or partially enclosed by walls; industrial plants (such as chemical plants and tank farms) and engineering structures (bridges, tunnels, etc.) are not considered buildings."@en,
+                             "Elke bouwconstructie die een voor mensen toegankelijke overdekte ruimte vormt, geheel of gedeeltelijk met wanden omsloten; industriële installaties (zoals chemische installaties en tankparken) en kunstwerken (bruggen, tunnels, …) worden niet beschouwd als gebouwen."@nl-be;
+                rdfs:label "Building"@en,
+                           "Gebouw"@nl-be;
+                rdfs:subClassOf fbo:Building;
+                fbo:hasExplicitDefinition "elke bouwconstructie die een voor mensen toegankelijke overdekte ruimte vormt, geheel of gedeeltelijk met wanden omsloten; industriële installaties (zoals chemische installaties en tankparken) en kunstwerken (bruggen, tunnels,…) worden niet beschouwd als gebouwen"@nl-be,
+                                          "any building structure that forms a covered space accessible to people, wholly or partially enclosed by walls; industrial installations (chemical installations, tank farms) and structures (bridges, tunnels,..) are not considered buildings"@en;
+                fbo-be:hasNotionEntry "334".
+fbo-be:BuildingHeight a owl:Class;
+                      rdfs:comment "TODO remove height of the building is captured by dataproperty hasBuildingHeight (in meters as float)"@nl-be;
+                      rdfs:label "Building height"@en,
+                                 "Gebouwhoogte"@nl-be.
+fbo-be:BuildingLayer a owl:Class;
+                     rdfs:label "Bouwlaag"@nl-be;
+                     fbo:hasExplicitDefinition "bedoeld wordt de ruimte tussen de vloer en het daarboven liggend plafond. De bouwlagen gelegen onder het niveau Ei zijn de kelderverdiepingen en komen niet in aanmerking voor het bepalen van het aantal bouwlagen van een gebouw"@nl-be,
+                                               "this refers to the space between the floor and the ceiling above. The floors below level EI are the basement floors and are not eligible for determining the number of floors in a building"@en;
+                     fbo-be:hasNotionEntry "339".
+fbo-be:Ceiling a owl:Class;
+               rdfs:label "Ceiling"@en,
+                          "Plafond"@nl-be;
+               fbo:hasExplicitDefinition "bouwelement dat het ondervlak van de vloer of van het dak bedekt en zijn draagstructuur bestaande uit de ophangingen, de bevestigingen en het eventuele isolatiemateriaal. Het plafond kan onmiddellijk tegen de structurele elementen van het gebouw bevestigd worden of een verlaagd plafond zijn."@nl-be,
+                                         "building element covering the subsurface of the floor or roof and its supporting structure, consisting of suspensions, fixings and any insulation material. The ceiling can be attached directly to the building’s structural elements or be a suspended ceiling"@en;
+               fbo-be:hasNotionEntry "309".
+fbo-be:CollectiveKitchen a owl:Class;
+                         rdfs:comment "Not Found in notion"@nl-be,
+                                      "To Be removed"@nl-be;
+                         rdfs:label "Collective kitchen"@nl-be.
+fbo-be:Conduit a owl:Class;
+               rdfs:label "Conduit"@en,
+                          "Leiding"@nl-be;
+               fbo:hasExplicitDefinition "algemene term die de elektrische geleiders, de kanalen en de pijpen aanduidt"@nl-be,
+                                         "General term indicating electrical conductors, ducts and pipes"@en;
+               fbo-be:hasNotionEntry "316".
+fbo-be:Distance a owl:Class;
+                rdfs:label "TBD"@nl,
+                           "TBD"@en,
+                           "Will be used to collect the distance between objects"@nl-be;
+                rdfs:subClassOf fbo:Distance;
+                fbo-be:hasNotionEntry "9999".
+fbo-be:Duct a owl:Class;
+            rdfs:label "Duct"@en,
+                       "Kanaal"@nl-be;
+            fbo:hasExplicitDefinition "leiding waarin lucht of verbrandingsproducten stromen"@nl-be,
+                                      "conduit in which air or combustion products flow"@en;
+            fbo-be:hasNotionEntry "330".
+fbo-be:Duplex a owl:Class;
+              rdfs:label "Duplex"@nl-be,
+                         "Maisonnette"@nl,
+                         "Two-storey apartment"@en;
+              rdfs:subClassOf fbo-be:FireCompartment;
+              fbo:hasExplicitDefinition "Het compartiment dat gevormd wordt door twee boven elkaar geplaatste bouwlagen met een binnenverbindingstrap"@nl-be,
+                                        "The compartment formed by two superimposed floors with an internal connecting staircase"@en;
+              fbo-be:hasNotionEntry "65".
+fbo-be:EscapeRoute a owl:Class;
+                   rdfs:label "Escape route"@en,
+                              "Evacuatieweg"@nl-be;
+                   rdfs:subClassOf fbo-be:Space;
+                   fbo:hasExplicitDefinition "maximum 10% hellende weg, binnen het gebouw, die toegang geeft tot trappenhuizen, vluchtterrassen of uitgangen"@nl-be,
+                                             "maximum 10% sloping road, within the building, that provides access to enclosed internal staircases, external staircases, vluchtterrassen and exits."@en;
+                   fbo-be:hasNotionEntry "68".
+fbo-be:EscapeRouteSegment a owl:Class;
+                          rdfs:label "technisch onderdeel van vluchtweg"@nl-be;
+                          rdfs:subClassOf fbo-be:Space;
+                          fbo-be:hasNotionEntry "902".
+fbo-be:EvacuationLevel schema:domainIncludes fbo-be:BuildingLayer;
+                       schema:rangeIncludes xsd:boolean;
+                       a owl:DatatypeProperty;
+                       fbo:hasExplicitDefinition "bouwlaag die de uitgang(en) bevat waardoor evacuatie naar buiten mogelijk is. Deze uitgangen leiden naar de openbare weg of naar een ruimte vanwaar die bereikbaar is."@nl-be,
+                                                 "building layer containing the exit(s) allowing evacuation to the outside. These exits lead to the public road or to a space from which it is accessible."@en;
+                       fbo-be:hasNotionEntry "336".
+fbo-be:FireCompartment a owl:Class;
+                       rdfs:comment "Deel van een gebouw begrensd door wanden die de brandvoortplanting naar het aanliggende compartiment of compartimenten gedurende een bepaalde tijd dienen te beletten. Een compartiment is al dan niet onderverdeeld in lokalen."@nl-be,
+                                    "Part of a building bounded by walls that serve to prevent the spread of fire to the adjacent compartment or compartments for a certain period of time. A compartment may or may not be divided into rooms."@en;
+                       rdfs:label "Compartiment"@nl-be,
+                                  "Compartment"@en;
+                       fbo:hasExplicitDefinition "deel van een gebouw begrensd door wanden die de brandvoortplanting naar het aanliggende compartiment of compartimenten gedurende een bepaalde tijd dienen te beletten. Een compartiment is al dan niet onderverdeeld in lokalen."@nl-be,
+                                                 "Part of a building bounded by walls that serve to prevent the spread of fire to the adjacent compartment or compartments for a certain period of time. A compartment may or may be not divided into rooms."@en;
+                       fbo-be:hasNotionEntry "278".
+fbo-be:FireExit a owl:Class;
+                fbo:hasExplicitDefinition "Branduitgang"@nl-be,
+                                          "Fire exit"@en;
+                fbo-be:hasNotionEntry "99903".
+fbo-be:HighBuilding a owl:Class;
+                    rdfs:label "High building"@en,
+                               "Hoog gebouw"@nl-be;
+                    rdfs:subClassOf fbo-be:Building;
+                    owl:equivalentClass [a owl:Restriction ; 
+                                         owl:onProperty fbo-be:hasBuildingHeight ; 
+                                         owl:someValuesFrom [a rdfs:Datatype ; 
+                                                             owl:onDatatype xsd:float ; 
+                                                             owl:withRestrictions ([xsd:minExclusive "25.0"^^xsd:float])]];
+                    fbo:hasExplicitDefinition "Gebouw waarvan de hoogte groter is dan 25 m"@nl-be,
+                                              "Building of which the height is greater than 25 m"@en;
+                    fbo-be:hasNotionEntry "535".
+fbo-be:HorizontalShaft a owl:Class;
+                       rdfs:subClassOf fbo-be:Shaft;
+                       fbo:hasExplicitDefinition "omsloten ruimte waarin leidingen geplaatst zijn"@nl-be,
+                                                 "enclosed space in which conduits are placed"@en;
+                       fbo:hasImplicitDefinition "enclosed space in which conduits are placed, in the horizontal direction, crossing vertical compartment boundaries (walls)"@nl-be,
+                                                 "omsloten ruimte waarin leidingen zijn geplaatst, in de horizontale richting, kruist vertikale compartimentsgrenzen (wanden)"@en;
+                       fbo-be:hasNotionEntry "341".
+fbo-be:InternalStair a owl:Class;
+                     fbo:hasExpertDefinition "Trap tussen bouwlagen binnen een compartiment"@nl-be,
+                                             "Stair between building layers inside a compartment"@en;
+                     fbo-be:hasNotionEntry "166".
+fbo-be:LowBuilding a owl:Class;
+                   rdfs:label "Laag gebouw"@nl-be,
+                              "Low building"@en;
+                   rdfs:subClassOf fbo-be:Building;
+                   owl:equivalentClass [a owl:Restriction ; 
+                                        owl:onProperty fbo-be:hasBuildingHeight ; 
+                                        owl:someValuesFrom [a rdfs:Datatype ; 
+                                                            owl:onDatatype xsd:float ; 
+                                                            owl:withRestrictions ([xsd:maxExclusive "10.0"^^xsd:float])]];
+                   fbo:hasExplicitDefinition "Gebouw waarvan de hoogte lager is dan 10m"@nl-be,
+                                             "Building of which the height of the building is lower than 10m"@en;
+                   fbo-be:hasNotionEntry "507".
+fbo-be:LowestEvacuationLevel schema:domainIncludes fbo-be:Building;
+                             schema:rangeIncludes fbo-be:BuildingLayer;
+                             a owl:ObjectProperty;
+                             fbo:hasExplicitDefinition "laagst gelegen evacuatieniveau"@nl-be,
+                                                       "Lowest evacuation level"@en;
+                             fbo-be:hasNotionEntry "312".
+fbo-be:MidBuilding a owl:Class;
+                   rdfs:label "Mid-rise building"@en,
+                              "Middelhoog gebouw"@nl-be;
+                   rdfs:subClassOf fbo-be:Building;
+                   owl:equivalentClass [a owl:Restriction ; 
+                                        owl:onProperty fbo-be:hasBuildingHeight ; 
+                                        owl:someValuesFrom [a rdfs:Datatype ; 
+                                                            owl:onDatatype xsd:float ; 
+                                                            owl:withRestrictions ([xsd:minInclusive "10.0"^^xsd:float]
+                                                                                  [xsd:maxInclusive "25.0"^^xsd:float])]];
+                   fbo:hasExplicitDefinition "Gebouw waarvan de hoogte gelijk is aan of begrepen is tussen 10 m en 25 m"@nl-be,
+                                             "Building of which the heigth is equal to or situated between 10 and 25 m"@en;
+                   fbo-be:hasNotionEntry "534".
+fbo-be:Occupied-space a owl:Class;
+                      rdfs:label "Lokaal met bezetting"@nl-be,
+                                 "Space occupied by ."@en;
+                      rdfs:subClassOf fbo-be:Space;
+                      fbo-be:hasNotionEntry "901".
+fbo-be:Parking a owl:Class;
+               rdfs:subClassOf fbo-be:FireCompartment;
+               fbo:hasImplicitDefinition "Compartement samengesteld uit één of meerdere parkeerbouwlagen"@nl-be,
+                                         "Compartment existing of one ore more parking building layers"@en;
+               fbo-be:hasNotionEntry "533".
+fbo-be:Pipe a owl:Class;
+            rdfs:label "Pijp"@nl-be,
+                       "Pipe"@en.
+fbo-be:Shaft a owl:Class;
+             rdfs:label "Schacht"@nl-be,
+                        "Shaft"@en;
+             rdfs:subClassOf fbo-be:Space.
+fbo-be:SingleStoreyHouse a owl:Class;
+                         rdfs:comment "not found in notion, to be removed"@nl-be;
+                         rdfs:label "Gelijkvloerse woning"@nl,
+                                    "Single-storey house"@en.
+fbo-be:SleepingOccupier a owl:Class;
+                        rdfs:label "Slapende bezetter"@nl-be,
+                                   "Sleeping occupier"@en;
+                        fbo:hasExplicitDefinition "niet in staat om een begin van een brand of alarm onmiddellijk op te merken of navenant te reageren."@nl-be;
+                        fbo-be:hasNotionEntry "319".
+fbo-be:Space a owl:Class;
+             rdfs:comment "a space, in the sense of, 1. A techinical room, 2. an escapePath, 3. a room with a function and or #occupants"@nl-be;
+             rdfs:label "Lokaal"@nl-be,
+                        "Space?"@en;
+             fbo-be:hasNotionEntry "900".
+fbo-be:Subcompartment a owl:Class;
+                      rdfs:label "Deelcompartiment"@nl-be,
+                                 "Subcompartment"@en;
+                      fbo:hasExplicitDefinition "deel van een compartiment begrensd door wanden die de branduitbreiding vertragen en de geteisterde oppervlakte beperken"@nl-be,
+                                                "part of a compartment bounded by walls that slow the spread of fire and limit the affected area"@en;
+                      fbo-be:hasNotionEntry "320".
+fbo-be:SuspendedCeiling a owl:Class;
+                        rdfs:label "Suspended ceiling"@en,
+                                   "Verlaagd plafond"@nl-be;
+                        fbo:hasExplicitDefinition "opgehangen of zelfdragend plafond"@nl-be,
+                                                  "Suspended or self-supporting celing"@en;
+                        fbo-be:hasNotionEntry "333".
+fbo-be:TechnicalCompartment a owl:Class;
+                            rdfs:subClassOf fbo-be:FireCompartment;
+                            fbo:hasImplicitDefinition "Compartiment gevormd door één of meerdere technische lokalen, eventueel verdeeld over verschillende bouwlagen"@nl-be,
+                                                      "Compartment with one or more technical rooms, possibly over more than one building layer"@en;
+                            fbo-be:hasNotionEntry "531".
+fbo-be:TechnicalRoom a owl:Class;
+                     rdfs:label "Technical room"@en,
+                                "Technische ruimte"@nl-be;
+                     rdfs:subClassOf fbo-be:Space;
+                     fbo:hasExplicitDefinition "lokaal of ruimte waarin vaste toestellen of installaties zijn opgesteld, verbonden met het gebouw, en dat (die) enkel toegankelijk is voor de personen belast met bediening, toezicht, onderhoud of herstelling."@nl-be,
+                                               "room or space in which fixed equipment or installations are installed, connected to the building, and which is only accessible to the persons responsible for operation, supervision, maintenance or repair"@en;
+                     fbo-be:hasNotionEntry "116".
+fbo-be:Triplex a owl:Class;
+               rdfs:label "Appartement met drie bouwlagen"@nl,
+                          "Three-storey apartment"@en,
+                          "Triplex"@nl-be;
+               rdfs:subClassOf fbo-be:FireCompartment;
+               fbo:hasExplicitDefinition "Het compartiment dat gevormd wordt door drie boven elkaar geplaatste bouwlagen met een binnenverbindingstrap"@nl-be,
+                                         "The compartment formed by three superimposed floors with an internal connecting staircase"@en;
+               fbo-be:hasNotionEntry "138".
+fbo-be:VerticalShaft a owl:Class;
+                     rdfs:subClassOf fbo-be:Shaft;
+                     fbo:hasExplicitDefinition "omsloten ruimte waarin leidingen geplaatst zijn"@nl-be,
+                                               "enclosed space in which conduits are placed"@en;
+                     fbo:hasImplicitDefinition "omsloten ruimte waarin leidingen zijn geplaatst, in de vertikale richting, kruist horizontale compartimentsgrenzen (vloeren)"@nl-be,
+                                               "enclosed space in which conduits are placed, in the vertical direction, crossing horizontal compartment boundaries (floors)"@en;
+                     fbo-be:hasNotionEntry "337".
+fbo-be:hasAutomaticFireDetectionTotal schema:domainIncludes fbo-be:Triplex;
+                                      schema:rangeIncludes xsd:boolean;
+                                      a owl:DatatypeProperty;
+                                      fbo-be:hasNotionEntry "317".
+fbo-be:hasAutomaticFireExtinguishingSystem schema:domainIncludes fbo-be:FireCompartment;
+                                           schema:rangeIncludes xsd:boolean;
+                                           a owl:DatatypeProperty;
+                                           rdfs:label "Automatic fire extinguishing system"@en,
+                                                      "Automatische blusinstallatie"@nl-be;
+                                           fbo-be:hasNotionEntry "156".
+fbo-be:hasBuildingHeight schema:domainIncludes fbo-be:Building;
+                         schema:rangeIncludes xsd:float;
+                         a owl:DatatypeProperty;
+                         rdfs:comment "De hoogte van een gebouw is conventioneel de afstand tussen het afgewerkte vloerpeil van de hoogste bouwlaag en het laagste peil van de door de brandweerwagens bruikbare wegen omheen het gebouw."@nl-be,
+                                      "The height of a building is conventionally the distance between the finished floor level of the highest bulding layer and the lowest level of the roads usable by fire engines around the building."@en;
+                         rdfs:label "has building height"@en,
+                                    "heeft gebouwhoogte"@nl-be;
+                         fbo:hasExplicitDefinition "de hoogte van een gebouw is conventioneel de afstand tussen het afgewerkte vloerpeil van de hoogste bouwlaag en het laagste peil van de door de brandweerwagens bruikbare wegen omheen het gebouw"@nl-be,
+                                                   "the height of a building is conventionally the distance between the finished floor level of the highest bulding layer and the lowest level of the roads usable by fire engines around the building"@en;
+                         fbo-be:hasNotionEntry "323";
+                         qudt:hasApplicableUnit <http://qudt.org/vocab/unit/M>.
+fbo-be:hasBuildingLayer schema:domainIncludes fbo-be:Building,
+                                              fbo-be:FireCompartment,
+                                              fbo-be:InternalStair;
+                        schema:rangeIncludes fbo-be:BuildingLayer;
+                        a owl:ObjectProperty.
+fbo-be:hasCompartmentArea schema:domainIncludes fbo-be:FireCompartment;
+                          schema:rangeIncludes xsd:float;
+                          a owl:DatatypeProperty;
+                          rdfs:label "has compertmant area"@en,
+                                     "heeft oppervlakte van een compartiment"@nl-be;
+                          fbo:hasExpertDefinition "de oppervlakte van de vloer, zonder aftrek van de oppervlakte van de kolommen, muren of andere elementen die op de vloer rusten. De oppervlakte van de omsloten trappenhuizen en van de omsloten kokers wordt wel afgetrokken omdat zij geen deel uitmaken van het compartiment"@nl-be,
+                                                  "The area of the floor, without deducting the area of columns, walls or other elements resting on the floor. The area of the enclosed staircases and enclosed shafts is deducted because they are not part of the compartment."@en;
+                          fbo:hasExplicitDefinition "horizontale bruto-oppervlakte zonder enige aftrek gemeten tussen de binnenvlakken der compartimentswanden"@nl-be,
+                                                    "Horizontal gross-area measured without any deduction between het inner surfaces of the compartment boundaries"@en;
+                          fbo-be:hasNotionEntry "94";
+                          qudt:hasApplicableUnit <http://qudt.org/vocab/unit/M>.
+fbo-be:hasCompartmentBoundaries schema:domainIncludes fbo-be:FireCompartment,
+                                                      fbo-be:Subcompartment;
+                                schema:rangeIncludes fbo-be:BoundaryFireCompartment;
+                                a owl:ObjectProperty.
+fbo-be:hasDaytimeOccupancy schema:rangeIncludes xsd:long;
+                           a owl:DatatypeProperty;
+                           rdfs:label "has daytime occupancy"@en,
+                                      "heeft dagbezetting"@nl-be;
+                           fbo-be:hasNotionEntry "340".
+fbo-be:hasDistance schema:rangeIncludes fbo-be:Distance;
+                   a owl:ObjectProperty.
+fbo-be:hasDistance2EvacuationPath schema:domainIncludes fbo-be:Occupied-space;
+                                  schema:rangeIncludes fbo-be:Distance;
+                                  a owl:ObjectProperty;
+                                  rdfs:subPropertyOf fbo:hasDistance.
+fbo-be:hasDistanceValue schema:rangeIncludes xsd:float;
+                        a owl:DatatypeProperty;
+                        rdfs:label "the actual measured value"@nl-be,
+                                   "the actual measured value"@en;
+                        fbo-be:hasNotionEntry "9998".
+fbo-be:hasDuplexArea schema:domainIncludes fbo-be:Duplex;
+                     schema:rangeIncludes xsd:float;
+                     a owl:DatatypeProperty;
+                     rdfs:label "has duplex area"@en,
+                                "heeft oppervlakte van een duplex"@nl-be;
+                     rdfs:subPropertyOf fbo-be:hasCompartmentArea;
+                     fbo-be:hasNotionEntry "321".
+fbo-be:hasEscapePath schema:domainIncludes fbo-be:FireCompartment;
+                     schema:rangeIncludes fbo-be:EscapeRoute;
+                     a owl:ObjectProperty.
+fbo-be:hasEvacuationPathLength schema:rangeIncludes xsd:float;
+                               a owl:DatatypeProperty;
+                               rdfs:label "has evacuation path length"@en,
+                                          "heeft lengte van de evacuatieweg"@nl-be;
+                               rdfs:subPropertyOf fbo:hasEvacuationPathLength;
+                               qudt:hasApplicableUnit <http://qudt.org/vocab/unit/M>.
+fbo-be:hasFireCompartment schema:domainIncludes fbo-be:Building;
+                          schema:rangeIncludes fbo-be:FireCompartment;
+                          a owl:ObjectProperty.
+fbo-be:hasFireExit schema:domainIncludes fbo-be:BoundaryFireCompartment,
+                                         fbo-be:BoundarySubcompartment,
+                                         fbo-be:FireCompartment;
+                   schema:rangeIncludes fbo-be:FireExit;
+                   a owl:ObjectProperty.
+fbo-be:hasInternalStair schema:domainIncludes fbo-be:Atrium,
+                                              fbo-be:Duplex;
+                        schema:rangeIncludes fbo-be:InternalStair;
+                        a owl:ObjectProperty.
+fbo-be:hasMaximumCompartmentOccupancyNumber schema:domainIncludes fbo-be:FireCompartment;
+                                            schema:rangeIncludes xsd:float;
+                                            a owl:DatatypeProperty;
+                                            rdfs:label "has maximum number of persons in a compartment"@en,
+                                                       "heeft maximale bezetting van het compartiment"@nl-be;
+                                            rdfs:subPropertyOf fbo:hasMaximumOccupancyNumber;
+                                            fbo-be:hasNotionEntry "325".
+fbo-be:hasMaximumSpacesOccupancyNumber a owl:DatatypeProperty;
+                                       rdfs:label "has maximum occupancy number of spaces"@en,
+                                                  "heeft maximaal bezettingsaantal van ruimtes"@nl-be.
+fbo-be:hasNighttimeOccupancy schema:rangeIncludes xsd:long;
+                             a owl:DatatypeProperty;
+                             rdfs:label "has nighttime occupancy"@en,
+                                        "heeft nachtbezetting"@nl-be;
+                             fbo:hasExplicitDefinition "lokalen bestemd voor het opvangen van slapende bezetters."@nl-be;
+                             fbo-be:hasNotionEntry "324".
+fbo-be:hasNotionEntry a owl:AnnotationProperty;
+                      rdfs:comment "used to link notion to ontology, links to ID in notion table"@en.
+fbo-be:hasNumberOfBuildingLayers schema:rangeIncludes xsd:long;
+                                 a owl:DatatypeProperty;
+                                 rdfs:label "geeft aantal bouwlagen"@nl-be,
+                                            "has number of building layers"@en;
+                                 fbo-be:hasNotionEntry "151".
+fbo-be:hasNumberOfFireExits schema:domainIncludes fbo-be:FireCompartment;
+                            schema:rangeIncludes xsd:long;
+                            a owl:DatatypeProperty;
+                            rdfs:comment "added, holds the number of attached fire exits (just the number not the link to the objects, oject FireExit needs to be defined first)"@nl-be;
+                            fbo:hasExpertDefinition "Aantal uitgangen van het compartiment"@nl-be,
+                                                    "Number of exits of the compartment"@en;
+                            fbo-be:hasNotionEntry "537".
+fbo-be:hasRequiredNumberOfExits schema:domainIncludes fbo-be:FireCompartment;
+                                schema:rangeIncludes xsd:long;
+                                a owl:DatatypeProperty;
+                                rdfs:comment "added here, will be removed later once SHACL is adjusted"@nl-be.
+fbo-be:hasSegment schema:domainIncludes fbo-be:EscapeRoute;
+                  schema:rangeIncludes fbo-be:EscapeRouteSegment;
+                  a owl:ObjectProperty.
+fbo-be:hasSmokeAndHeatExtraction schema:domainIncludes fbo-be:FireCompartment;
+                                 schema:rangeIncludes xsd:boolean;
+                                 a owl:DatatypeProperty;
+                                 rdfs:comment "Has Smoke and Heat Extraction"@nl-be;
+                                 fbo-be:hasNotionEntry "135".
+fbo-be:hasSubFireCompartment schema:domainIncludes fbo-be:FireCompartment;
+                             schema:rangeIncludes fbo-be:Subcompartment;
+                             a owl:ObjectProperty.
+fbo-be:hasTriplexArea schema:domainIncludes fbo-be:Triplex;
+                      schema:rangeIncludes xsd:float;
+                      a owl:DatatypeProperty;
+                      rdfs:label "has triplex area"@en,
+                                 "heeft oppervlakte van een triplex"@nl-be;
+                      rdfs:subPropertyOf fbo-be:hasCompartmentArea;
+                      fbo-be:hasNotionEntry "327".
+fbo-be:isFinishedFloor schema:rangeIncludes xsd:boolean;
+                       a owl:DatatypeProperty;
+                       rdfs:label "is afgewerkte vloer"@nl-be,
+                                  "is finished floor"@en;
+                       fbo:hasExplicitDefinition "horizontale wand die de scheiding vormt tussen een bouwlaag van een gebouw en de onmiddellijk hogere of onmiddellijk lagere bouwlaag; deze wand omvat gewoonlijk de volgende drie onderdelen (a) de vloerbedekking (eventueel samengesteld uit: rokken, isolatielagen, zwevende vloeren, …) (b) de onafgewerkte vloer (c) het plafond. Het is mogelijk dat de delen (a) en (c) niet bestaan."@nl-be,
+                                                 "horizontal wall that forms the separation between one floor of a building and the immediately higher or immediately lower floor; this wall usually comprises the following three components (a) the floor covering (possibly composed of : rokken, insulation layers, floating floors,…) (b) the unfinished floor (c) the ceiling. Parts (a) and (c) may not exist."@en;
+                       fbo-be:hasNotionEntry "328".
+fbo-be:isUnfinishedFloor schema:rangeIncludes xsd:boolean;
+                         a owl:DatatypeProperty;
+                         rdfs:label "is onafgewerkte vloer"@nl-be,
+                                    "is unfinished floor"@en;
+                         fbo:hasExplicitDefinition "horizontale ruwe wand, dragend en scheidend, en omvattend: de dragende delen, de vloerplaten, de tussenliggers en de eventuele vulling, waarbij het geheel de ruwbouw van de vloer vormt"@nl-be,
+                                                   "horizontal rough wall, load-bearing and separating, and comprising: the load-bearing parts, the floor slabs, the intermediate beams and any filling, whereby the whole forms the ruwbouw of the floor."@en;
+                         fbo-be:hasNotionEntry "326".

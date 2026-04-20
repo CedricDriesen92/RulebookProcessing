@@ -1,0 +1,37 @@
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT(["Article_2_1_2_Shape<br/>Target: fbo:FireCompartment<br/>De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag, met uitzonderingen v..."]):::rootCls
+    OR1{"OR"}:::orCls
+    P2["numberOfStoreys | xsd:integer | <= 1<br/>De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag."]:::propCls
+    P3["fbo:Roomfunction | = Parking<br/>a) de parking met bouwlagen (zie 5.2);"]:::propCls
+    AND4{"AND"}:::andCls
+    P5["numberOfStoreys | xsd:integer | <= 2<br/>b) een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwl..."]:::propCls
+    P6["fbo:AreaFireCompartment | xsd:decimal | <= 2500.0<br/>indien de gecumuleerde oppervlakte van die bouwlagen niet groter is dan 2500 m²;"]:::propCls
+    AND7{"AND"}:::andCls
+    P8["numberOfStoreys | xsd:integer | <= 3<br/>c) de hoogte van een compartiment mag zich uitstrekken over drie boven elkaar..."]:::propCls
+    P9["fbo:AreaFireCompartment | xsd:decimal | <= 300.0<br/>voor zover de som van hun gecumuleerde oppervlakte de 300 m² niet overschrijdt"]:::propCls
+    P10["fbo:hasSubitem | qualifies: fbo:AutomaticFireAlarmsystem | qmin: 1<br/>en dat dit compartiment is uitgerust met een automatische branddetectie van h..."]:::propCls
+    P11["fbo:Roomfunction | = TechnicalRoom<br/>d) de hoogte van een compartiment mag zich uitstrekken over verscheidene bove..."]:::propCls
+    AND12{"AND"}:::andCls
+    P13["fbo:hasSubitem | qualifies: fbo:AutomaticFireExtinguishSystem | qmin: 1<br/>e) de hoogte van een compartiment mag zich uitstrekken over verscheidene bouw..."]:::propCls
+    P14["fbo:hasSubitem | qualifies: fbo:AutomaticFireVentilationsystem | qmin: 1<br/>en een rook- en warmteafvoerinstallatie. De Minister van Binnenlandse Zaken b..."]:::propCls
+    ROOT --> OR1
+    OR1 --> P2
+    OR1 --> P3
+    OR1 --> AND4
+    AND4 --> P5
+    AND4 --> P6
+    OR1 --> AND7
+    AND7 --> P8
+    AND7 --> P9
+    AND7 --> P10
+    OR1 --> P11
+    OR1 --> AND12
+    AND12 --> P13
+    AND12 --> P14

@@ -1,7 +1,29 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_1_4_6 a fro:Section ;
+ex:Section_6_1_4_6 a fro:Section ;
+    fro:hasArticle ex:Article_6_1_4_6_1 ;
     fro:hasID "6.1.4.6" ;
-    fro:hasOriginalText """Wanneer de <a href="https://ontology.firebim.be/ontology/fbo#Elevator">liften</a> bij <a href="https://ontology.firebim.be/ontology/fbo#Fire">brand</a> op het aangeduide <a href="https://ontology.firebim.be/ontology/fbo#Landing">bordes</a> staan, moet de mogelijkheid bestaan dat de <a href="https://ontology.firebim.be/ontology/fbo#Firefighter">brandweer</a> gemakkelijk kan controleren dat de <a href="https://ontology.firebim.be/ontology/fbo#ElevatorCar">liftkooien</a> daar staan en dat niemand in de <a href="https://ontology.firebim.be/ontology/fbo#Elevator">lift</a> opgesloten is.
-<a href="https://ontology.firebim.be/ontology/fbo#Elevator">Liften</a> die, bij hun komst op het aangeduide <a href="https://ontology.firebim.be/ontology/fbo#Landing">bordes</a>, met <a href="https://ontology.firebim.be/ontology/fbo#ElevatorDoor">open deuren</a> stilstaan en buiten normale werking worden gesteld, voldoen aan deze vereiste."""@nl .
+    fro:hasOriginalText "Werking bij brand."@nl .
+
+ex:Article_6_1_4_6_1 a fro:Article ;
+    fro:hasID "A6.1.4.6.1" ;
+    fro:hasMember ex:Member_6_1_4_6_1_1,
+        ex:Member_6_1_4_6_1_2 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_6_1_4_6_1_1 a fro:Member ;
+    fro:hasOriginalText "Wanneer de liften bij brand op het aangeduide bordes staan, moet de mogelijkheid bestaan dat de brandweer gemakkelijk kan controleren dat de liftkooien daar staan en dat niemand in de lift opgesloten is."@nl .
+
+ex:Member_6_1_4_6_1_2 a fro:Member ;
+    fro:hasOriginalText "Liften die, bij hun komst op het aangeduide bordes, met open deuren stilstaan en buiten normale werking worden gesteld, voldoen aan deze vereiste."@nl ;
+    fro:linksTo fbo:DoorExit .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
 

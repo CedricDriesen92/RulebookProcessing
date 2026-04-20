@@ -1,23 +1,26 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_8_5_3 fro:hasSection fro:Section_6_8_5_2 .
-
-fro:Article_6_8_5_2_1 a fro:Article ;
-    fro:hasID "A6.8.5.2.1" ;
-    fro:hasMember fro:Member_6_8_5_2_1_1 ;
-    fro:hasVersion fro:v0_1 .
-
-fro:Member_6_8_5_2_1_1 a fro:Member ;
-    fro:hasOriginalText "Deze <a href=\"https://ontology.firebim.be/ontology/fbo#FireExtinguisher\">toestellen</a> worden bepaald door de aard en de omvang van het gevaar."@nl .
-
-fro:Section_6_8_5_2 a fro:Section ;
-    fro:hasArticle fro:Article_6_8_5_2_1 ;
+ex:Section_6_8_5_2 a fro:Section ;
+    fro:hasArticle ex:Article_6_8_5_2_1 ;
     fro:hasID "6.8.5.2" ;
     fro:hasOriginalText "Draagbare of mobiele snelblussers."@nl .
 
+ex:Article_6_8_5_2_1 a fro:Article ;
+    fro:hasID "A6.8.5.2.1" ;
+    fro:hasMember ex:Member_6_8_5_2_1_1 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_6_8_5_2_1_1 a fro:Member ;
+    fro:hasOriginalText "Deze toestellen worden bepaald door de aard en de omvang van het gevaar."@nl ;
+    fro:linksTo fbo:ActiveFireProtection,
+        fbo:FireHazardSpecial .
+
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

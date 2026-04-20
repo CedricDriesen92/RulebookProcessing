@@ -1,0 +1,2020 @@
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-ifc: <https://ontology.firebim.be/ontology/fbo-ifc#> .
+@prefix fbo-nl: <https://ontology.firebim.be/ontology/fbo-NL#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fbo-nl:AccessibleSector a owl:Class ;
+    rdfs:label "accessible sector"@en,
+        "toegankelijkheidssector"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition + Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.77a; Bbl - Artikel 4.189" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "part of a building independently usable and accessible for persons with functional disabilities"@en,
+        "voor personen met een functiebeperking zelfstandig bruikbaar en toegankelijk gedeelte van een gebouw"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "406" ;
+    fbo:hasNotionURL <https://www.notion.so/AccessibleSector-24ff8487e6e780cfb1a9f9b7e3c3018c> .
+
+fbo-nl:AccessibleSectorElevatorLobby a owl:Class ;
+    rdfs:label "elevator lobby accessible sector"@en,
+        "voorportaal lift toegankelijkheidssector"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.77a" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "An extra-protected escape route for an elevator entrance that may not be adjacent to any residential exits. The elevator lobby serves as a place where a developed fire cannot develop or spread within a certain timeframe."@en,
+        "Een extra beschermde vluchtroute voor een lifttoegang  waaraan geen uitgangen van woonfuncties mogen grenzen. Het voorportaal van de lift functioneert als een plek waar geen ontwikkelde brand kan ontstaan en kan komen binnen een bepaalde tijd."@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-20T14:48:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "392" ;
+    fbo:hasNotionURL <https://www.notion.so/AccessibleSectorElevatorLobby-24ff8487e6e7808284d4d0230b610660> .
+
+fbo-nl:AdditionallyProtectedEscapeRoute a owl:DatatypeProperty ;
+    rdfs:label "Additionally protected escape route"@en,
+        "Extra beschermde vluchtroute"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bbl 4.50.4" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Part of a protected escape route located outside a fire compartment"@en,
+        "Buiten een brandcompartiment gelegen gedeelte van een beschermde vluchtroute"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasExpertDefinition "An escape route that imposes requirements on the materialization of the space in which it is exists."@en,
+        "Een vluchtroute waaraan eisen worden gesteld aan de materialisering in de ruimten waardoor deze voert."@nl-NL ;
+    fbo:hasFireExpertEntity "Integrale Nota van Toelichting behorende bij Besluit Bouwwerken Leefomgeving" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "208" ;
+    fbo:hasNotionURL <https://www.notion.so/AdditionallyProtectedEscapeRoute-214f8487e6e7803bbfbcd3d0cc8051b7> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:AdjoiningTerrain a owl:Class ;
+    rdfs:label "adjoining terrain"@en,
+        "aansluitend terrein"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.65.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "empty terrain adjoining the plot or area available to the public"@en,
+        "aan een bouwwerk grenzend onbebouwd gedeelte van een bouwwerkperceel of openbaar toegankelijk gebied;"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:AdjoiningTerrain ;
+    fbo:hasLastEdition "2026-02-16T13:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "395" ;
+    fbo:hasNotionURL <https://www.notion.so/AdjoiningTerrain-24ff8487e6e78099ba16d66b520d46d2> .
+
+fbo-nl:AreaFireCompartment a owl:DatatypeProperty ;
+    rdfs:label "Fire compartment"@en,
+        "Brandcompartiment"@nl-NL ;
+    rdfs:subPropertyOf fbo:AreaFireCompartment ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition + Implicit Definition" ;
+    fbo:hasArticleID "Bbl - 4.50.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Part of one or more buildings designated as a maximum fire expansion area"@en,
+        "Gedeelte van een of meer bouwwerken bestemd als maximaal uitbreidingsgebied van brand"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:AreaFireCompartment2a ;
+    fbo:hasLastEdition "2026-02-03T14:38:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "131" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaFireCompartment-151f8487e6e78099b3dbeeec6d4b7ddc> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:AreaFireSubCompartment a owl:Class ;
+    rdfs:label "fire-sub-compartment_area"@en,
+        "subbrandcompartiment"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.57.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "part of a fire compartment intended to restrict the spread of smoke and further restrict the spread of fire"@en,
+        "gedeelte van een bouwwerk dat binnen de begrenzing van een brandcompartiment ligt of daarmee samenvalt, voor beperking van verspreiding van rook of verdere beperking van het uitbreidingsgebied van brand"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:AreaFireCompartment2a ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "417" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaFireSubCompartment-24ff8487e6e780fd943edd6d472f6d78> .
+
+fbo-nl:AreaProtectedFireSubCompartment a owl:Class ;
+    rdfs:label "protected fire-sub-compartment_area"@en,
+        "beschermd subbrandcompartiment"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.59.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "part of a fire compartment intended to restrict the spread of smoke and fire, which provides more protection than a fire-sub-compartment;"@en,
+        "gedeelte van een bouwwerk dat binnen de begrenzing van een subbrandcompartiment ligt of daarmee samenvalt, dat meer bescherming biedt tegen brand of rook dan een subbrandcompartiment;"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-23T12:03:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "364" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaProtectedFireSubCompartment-24ff8487e6e78004bee7f147d5e306dd> .
+
+fbo-nl:Building a owl:Class ;
+    rdfs:label "Building"@en,
+        "Bouwwerk"@nl-NL,
+        "Gebouw"@nl-NL ;
+    rdfs:subClassOf fbo:Building ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.50.7",
+        "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Building that forms a covered space accessible to people, completely or partially enclosed by walls"@en,
+        "Een gebouw dat een overdekte ruimte vormt bereikbaar voor mensen, deels of geheel omsloten door muren."@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation false,
+        true ;
+    fbo:hasLastEdition "2026-02-03T14:48:00+00:00"^^xsd:dateTime,
+        "2026-02-16T13:05:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "343",
+        "518" ;
+    fbo:hasNotionURL <https://www.notion.so/Building-233f8487e6e7804aa0b2fa226e553342>,
+        <https://www.notion.so/Building-2c7f8487e6e780f0aa07c0f5de208c62> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:BuildingHeight a owl:DatatypeProperty ;
+    rdfs:label "Building height"@en,
+        "Gebouwhoogte"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.88" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Height of highest floor of functional area with respect to the terrain height"@en,
+        "Hoogte van hoogste vloer van gebruiksgebied ten opzichte van meetniveau"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "284" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingHeight-22bf8487e6e780c7909fe108386376c1> ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:BuildingInternalWall a owl:Class ;
+    rdfs:label "Internal wall"@en,
+        "Inwendige scheidingsconstructie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NEN2580:2007" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Structure which separates two enclosed spaces in a building that are accessible to people, including parts of that structure connected to other structures insofar as those parts affect the compliance of the partition with a regulation under or pursuant to this decree"@en,
+        "Constructie die de scheiding vormt tussen twee voor personen toegankelijke besloten ruimten van een gebouw, met inbegrip van de op die constructie aansluitende delen voor andere constructies, voor zover die delen van invloed zijn op het voldoen van die scheidingsconstructie aan een in dit besluit geldende eis"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "342" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingInternalWall-233f8487e6e780069a2bd3d306d33b3a> .
+
+fbo-nl:BuildingLayer a owl:Class ;
+    rdfs:label "building layer"@en,
+        "bouwlaag"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition + Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.52.2; NEN2580:2007" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "part of a building consisting of one or more rooms, where the tops of the finished floors or of the ground level of two adjacent rooms do not differ in height by more than 1.5 m"@en,
+        "deel van een gebouw, dat bestaat uit één of meer ruimten, waarbij de bovenkanten van de afgewerkte vloeren of van het maaiveld van twee aan elkaar grenzende ruimten niet meer dan 1,5 m in hoogte verschillen"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving,
+        fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "405" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingLayer-24ff8487e6e780cd9044dd66b410b7dc> .
+
+fbo-nl:BuildingPartitionConstructionExternal a owl:Class ;
+    rdfs:label "external partition (construction)"@en,
+        "uitwendige scheidingsconstructie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.54.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "structure separating an enclosed space in a building accessible to persons from the outside air, ground or water, including parts of other structures connected to that structure insofar as those parts affect the compliance of the separating structure with a regulation laid down under or pursuant to this Decree"@en,
+        "constructie die de scheiding vormt tussen een voor personen toegankelijke besloten ruimte van een gebouw en de buitenlucht, de grond of het water, inclusief de op die constructie aansluitende delen van andere constructies, voor zover die delen van invloed zijn op het voldoen van die scheidingsconstructie aan een in dit besluit gestelde eis"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "376" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingPartitionConstructionExternal-24ff8487e6e78039a20ad39fa7ba7e6f> .
+
+fbo-nl:BuildingPlot a owl:DatatypeProperty ;
+    rdfs:label "Building plot"@en,
+        "Bouwwerkperceel"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Plot of land that serves as a starting point for assessing a building against the rules"@en,
+        "Perceel dat als uitgangspunt dient bij het toetsen van een bouwwerk aan de regels."@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "266" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingPlot-214f8487e6e780f2a7d7e893dea55d79> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:BuildingPlotBoundary a owl:Class ;
+    rdfs:label "building plot boundary"@en,
+        "bouwwerkperceelsgrens"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.54.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "boundary of a building plot"@en,
+        "grens van een bouwwerkperceel"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "397" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingPlotBoundary-24ff8487e6e780a5a04ac083c6e77f0e> .
+
+fbo-nl:BuildingResidential a owl:Class ;
+    rdfs:label "residential building"@en,
+        "woongebouw"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.53.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "building or part having exclusively residential functions or ancillary functions thereof and containing more than one residential function depending on a common circulation route"@en,
+        "gebouw of gedeelte daarvan met alleen woonfuncties en nevengebruiksfuncties daarvan, waarin meer dan een woonfunctie ligt die is aangewezen op een gemeenschappelijke verkeersroute"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "394" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingResidential-24ff8487e6e780939fdfc4e86d1c5f9d> .
+
+fbo-nl:Cell a owl:Class ;
+    rdfs:label "cell"@en,
+        "celeenheid"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.52.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "part of a detention function intended for a single person or group of persons;"@en,
+        "voor een enkel persoon of een afzonderlijke groep personen bestemd gedeelte van een celfunctie;"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "412" ;
+    fbo:hasNotionURL <https://www.notion.so/Cell-24ff8487e6e780ed8e33d62ebeb32a08> .
+
+fbo-nl:Common a owl:DatatypeProperty ;
+    rdfs:label "Common"@en,
+        "Gemeenschappelijk"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.51.6" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "If something is or applies to more people"@en,
+        "Als iets voor meer mensen is of geldt"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "254" ;
+    fbo:hasNotionURL <https://www.notion.so/Common-214f8487e6e780d0bcf6c5169839b833> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:CorrectedWalkingDistance a owl:Class ;
+    rdfs:label "corrected walking distance"@en,
+        "gecorrigeerde loopafstand"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.66.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "walking distance, disregarding parts of a structure which are not part of the load-bearing structure, multiplied by 1.5 to the extent that it passes through a functional area;"@en,
+        "loopafstand waarbij constructieonderdelen die geen onderdeel uitmaken van de bouwconstructie buiten beschouwing worden gelaten, waarbij de loopafstand voor zover deze door een gebruiksgebied voert met 1,5 wordt vermenigvuldigd;"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X22TravelDistance,
+        fbo:X23LengthofEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "377" ;
+    fbo:hasNotionURL <https://www.notion.so/CorrectedWalkingDistance-24ff8487e6e7803a9d92e09137eac5b3> .
+
+fbo-nl:DetatchedBuildingConstruction a owl:DatatypeProperty ;
+    rdfs:label "Detached building construction"@en,
+        "Vrijstaande bouwconstructie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "A building structure that is freestanding within one space, for example a column"@en,
+        "Een bouwconstructie die binnen één ruimte vrijstaand is ,bijvoorbeeld een kolom"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "230" ;
+    fbo:hasNotionURL <https://www.notion.so/DetatchedBuildingConstruction-214f8487e6e7808eb57bfd0dc0ff2117> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:DrivingLane a owl:Class ;
+    rdfs:label "driving lane"@en,
+        "rijbaan"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.65.3" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "driving lane as meant in article 1 of the 'reglement verkeersregels en verkeerstekens 1990'"@en,
+        "rijbaan als bedoeld in artikel 1 van het Reglement verkeersregels en verkeerstekens 1990;"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "384" ;
+    fbo:hasNotionURL <https://www.notion.so/DrivingLane-24ff8487e6e7804a9cfdca5e10feccc5> .
+
+fbo-nl:DrivingLaneSurface a owl:Class ;
+    rdfs:label "drive lane surface"@en,
+        "rijbaanvloer"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.66.5" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "surface of the driving lane"@en,
+        "vloer van een rijbaan"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X22TravelDistance,
+        fbo:X23LengthofEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "391" ;
+    fbo:hasNotionURL <https://www.notion.so/DrivingLaneSurface-24ff8487e6e7807e8f10f1d9528fc2a4> .
+
+fbo-nl:EnclosedSpace a owl:DatatypeProperty ;
+    rdfs:label "Enclosed space"@en,
+        "Besloten ruimte"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Expert Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.50" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasExpertDefinition "Ruimte begrensd door (inwendige of uitwendige) scheidingsconstructies"@en,
+        "Space bounded by (internal or external) dividing structures"@nl-NL ;
+    fbo:hasFireExpertEntity "Integrale Nota van Toelichting behorende bij Besluit Bouwwerken Leefomgeving" ;
+    fbo:hasFireExpertGuidance "A fire expert has to check if this is applicable and used in the right way." ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "219" ;
+    fbo:hasNotionURL <https://www.notion.so/EnclosedSpace-214f8487e6e7805f8724eb58a11b6691> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:Entrance a owl:Class ;
+    rdfs:label "entrance"@en,
+        "entree"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.69.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "outside door of a function used as an entrance"@en,
+        "buitendeur van een gebruiksfunctie gebruikt als entree"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X23LengthofEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "389" ;
+    fbo:hasNotionURL <https://www.notion.so/Entrance-24ff8487e6e780719da5f1414b2a261e> .
+
+fbo-nl:EscapeRoute a owl:Class ;
+    rdfs:label "Escape route"@en,
+        "Vluchtroute"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Route that starts in a space for people, only runs over floors, stairs or ramps and ends in a safe place, without the need to use a lift"@en,
+        "Route die begint in ruimte voor personen, alleen voert over vloeren, trappen of hellingbanen en eindigt op een veilige plaats, zonder dat gebruik moet worden gemaakt van een lift"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "258" ;
+    fbo:hasNotionURL <https://www.notion.so/EscapeRoute-214f8487e6e780db9c12c0f22bbf08d0> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:EscapeRouteCapacity a owl:Class ;
+    rdfs:label "capacity"@en,
+        "capaciteit"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Expert Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.80.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X24WithoftheExits,
+        fbo:X25WithoftheEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasExpertDefinition "capacity of an escape route: the flow capacity in combination with the reception capacity. The flow capacity is the number of presons that, dependant on the width of the escape route, are moving through an escape route (expressed in persons per minute). The reception capacity is the number of persons that can safely stay put in a space (expressed in people per square meters). A calculation by the fire expert is needed."@en,
+        "capaciteit van een vluchtroute: de doorstroomcapaciteit in combinatie met de opvangcapaciteit. De doorstroomcapaciteit is het aantal personen dat, afhankelijk van de breedte van de vluchtroute, zich door een vluchtroute beweegt (uitgedrukt in personen per minuut). De opvangcapaciteit is het aantal personen dat veilig in een ruimte kan verblijven (uitgedrukt in personen per vierkante meter). Hiervoor dient een berekening uitgevoerd te worden door een fire expert."@nl-NL ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "373" ;
+    fbo:hasNotionURL <https://www.notion.so/EscapeRouteCapacity-24ff8487e6e780329514dc80b618d513> .
+
+fbo-nl:EscapeRouteFreePassage a owl:Class ;
+    rdfs:label "free passage"@en,
+        "vrije doorgang"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.78.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "The height and width of spaces through which an escape route passes, as well as the height and width of doorways (passages)"@en,
+        "De hoogte en breedte van ruimten waardoor een vluchtroute voert zowel als de hoogte en breedte van deuropeningen (doorgangen)"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X25WithoftheEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "407" ;
+    fbo:hasNotionURL <https://www.notion.so/EscapeRouteFreePassage-24ff8487e6e780d0a706df5892b714d1> .
+
+fbo-nl:EscapeRouteProtected a owl:Class ;
+    rdfs:label "protected escape route"@en,
+        "beschermde vluchtroute"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.57.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "part of an escape route located outside a fire subcompartment, which passes exclusively through a circulation area"@en,
+        "buiten een subbrandcompartiment gelegen gedeelte van een vluchtroute die alleen voert door een verkeersruimte"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "367" ;
+    fbo:hasNotionURL <https://www.notion.so/EscapeRouteProtected-24ff8487e6e7801685efdc9a0f7971b2> .
+
+fbo-nl:EscapeRouteSafety a owl:Class ;
+    rdfs:label "safety escape route"@en,
+        "veiligheidsvluchtroute"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.53.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "part of an additionally protected escape route which passes through a non-enclosed space and from that to a space which can be reached exclusively from non-enclosed spaces"@en,
+        "gedeelte van een extra beschermde vluchtroute dat voert door een niet-besloten ruimte en aansluitend daarop door een ruimte die alleen kan worden bereikt vanuit niet-besloten ruimten"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "410" ;
+    fbo:hasNotionURL <https://www.notion.so/EscapeRouteSafety-24ff8487e6e780e1b3c4e8519a870882> .
+
+fbo-nl:Exit a owl:Class ;
+    rdfs:label "exit"@en,
+        "uitgang"@nl-NL ;
+    rdfs:subClassOf fbo:Exit ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.66" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "place or door where you leave, for example, a building"@en,
+        "plaats of deur waar je bijvoorbeeld een gebouw verlaat"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X22TravelDistance,
+        fbo:X23LengthofEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "378" ;
+    fbo:hasNotionURL <https://www.notion.so/Exit-24ff8487e6e7803d885add9dec55c8cb> .
+
+fbo-nl:FireBrigadeElevator a owl:Class ;
+    rdfs:label "fire brigade elevator"@en,
+        "brandweerlift"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.53.1; NEN6068:2020" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "lift which can be made available to the fire brigade for the transport of equipment and personnel through a simple operation"@en,
+        "lift die met een eenvoudige handeling ter beschikking van de brandweer kan worden gesteld voor het vervoer van materieel en manschappen"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving,
+        fbo-nl:NEN60682020 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "fire fighter elevator" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "393" ;
+    fbo:hasNotionURL <https://www.notion.so/FireBrigadeElevator-24ff8487e6e7808dbf26dceda7f2bed1> .
+
+fbo-nl:FireClass a owl:DatatypeProperty ;
+    rdfs:label "Reaction to fire; fire class"@en,
+        "Brandklasse"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - 4.50.2.c" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Fire class determined according to NEN-EN 13501-1"@en,
+        "Volgens de NEN-EN 13501-1 bepaalde brandklasse"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "246" ;
+    fbo:hasNotionURL <https://www.notion.so/FireClass-214f8487e6e780b99a60c70db9a5f6e5> ;
+    fbo:hasRemarks "Choice = A/B/C/D/E" ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-nl:FireLoadDensity a owl:DatatypeProperty ;
+    rdfs:label "Fire load density"@en,
+        "Vuurbelasting"@nl-NL ;
+    rdfs:subPropertyOf fbo:FireLoadDensity ;
+    fbo:hasAdoptedDefinitionType "Expert Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.50.6" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasExpertDefinition "Volgens NEN 6090 bepaalde vuurbelasting van de brandbare materialen in de constructieonderdelen van een bouwwerk of van een daarin gelegen ruimte, of de constructieonderdelen die dat bouwwerk of die ruimte begrenzen. De waarde dient bepaald te worden door een fire expert."@en,
+        "According to NEN 6090, the fire load density of the combustible materials in the construction components of a building or of a space located therein, or the construction components that bound that building or space. To be determined by a fire expert."@nl-NL ;
+    fbo:hasFireExpertGuidance "A fire expert has to check if this is applicable and used in the right way." ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "198" ;
+    fbo:hasNotionURL <https://www.notion.so/FireLoadDensity-214f8487e6e7801f8f0cc13c36733d8b> ;
+    fbo:hasUnit "MJ/m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:FirePenetration a owl:Class ;
+    rdfs:label "fire penetration"@en,
+        "branddoorslag"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition + Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.53.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "the spread of a fire through a construction part according to NEN6068:2020+C1"@en,
+        "de branduitbreiding door een constructieonderdeel heen conform NEN6068:2020+C1"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "365" ;
+    fbo:hasNotionURL <https://www.notion.so/FirePenetration-24ff8487e6e78014809eed01391b2b66> .
+
+fbo-nl:FireSpread a owl:Class ;
+    rdfs:label "fire spread/ flash over"@en,
+        "brandoverslag"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition + Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.53.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "the spread of fire through open air according to NEN6068:2020+C1"@en,
+        "de uitbreiding van brand via de buitenlucht conform  NEN6068:2020+C1"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertGuidance "Additional calculation needed made by fire expert to check if fire spreads through open air." ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "371" ;
+    fbo:hasNotionURL <https://www.notion.so/FireSpread-24ff8487e6e7802ba1b4da1cb9201c1e> .
+
+fbo-nl:Floor a owl:Class ;
+    rdfs:label "floor"@en,
+        "vloer"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.65.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "part of a structure that can support a load (bottom side of a space)"@en,
+        "onderdeel van een bouwlaag dat is bestemd om belasting te dragen (onderzijde)"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "398" ;
+    fbo:hasNotionURL <https://www.notion.so/Floor-24ff8487e6e780af93c8f212149b7256> .
+
+fbo-nl:FunctionType a owl:Class ;
+    rdfs:label "Function type"@en,
+        "Functional usage"@en,
+        "Gebruiksfunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition + Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.50.6",
+        "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Parts of one or more structures having the same intended use and which together form a functional unit"@en,
+        "Gedeelten van een of meer bouwwerken die dezelfde gebruiksbestemming hebben en die tezamen een gebruikseenheid vormen"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation false,
+        true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "344",
+        "515" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionType-233f8487e6e7809eab16c3d528ac4a2e>,
+        <https://www.notion.so/FunctionType-2c7f8487e6e78079947dc780bfb3367e> ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-nl:FunctionTypeAncillaryFunction a owl:DatatypeProperty ;
+    rdfs:label "Ancillary function"@en,
+        "Nevengebruiksfunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 5.51.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit serving another function"@en,
+        "Gebruiksfunctie die ten dienste staat van een andere gebruiksfunctie"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasExpertDefinition "A ancillary function is, for example, a detached shed of a ground-level house (residential function)."@en,
+        "Een nevenfunctie betreft bijvoorbeeld een losse schuur van een grondgebonden woning (woonfunctie)."@nl-NL ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "216" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeAncillaryFunction-214f8487e6e78056b268ec400674b7db> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeAssemblyFunction a owl:DatatypeProperty ;
+    rdfs:label "Assembly function"@en,
+        "Bijeenkomstfunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit for gatherings of persons for art, culture, religion, communication, child care, the distribution of refreshments for consumption on the premises or watching sports"@en,
+        "Gebruiksfunctie voor het samenkomen van personen voor kunst, cultuur, godsdienst, communicatie, kinderopvang, het verstrekken van consumpties voor het gebruik ter plaatse of het aanschouwen van sport"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "270" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeAssemblyFunction-214f8487e6e780fcaac7c687052f567e> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeChildCare a owl:DatatypeProperty ;
+    rdfs:label "Assembly function for child care"@en,
+        "Bijeenkomstfunctie: voor kinderopvang"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit for the commercial provision of care, education, and supervision for children who have not yet terminated their primary education, other than family day care as referred to in the Child Care and Nursery Schools Quality Requirements Act [Wet kinderopvang en kwaliteitseisen peuterspeelzalen]"@en,
+        "Gebruiksfunctie voor het bedrijfsmatig opvangen, verzorgen, opvoeden en begeleiden van kinderen die het basisonderwijs nog niet hebben beëindigd, niet zijnde gastouderopvang als bedoeld in de Wet kinderopvang;"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "262" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeChildCare-214f8487e6e780e684bfe0c551fa9b13> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeDetention a owl:DatatypeProperty ;
+    rdfs:label "Detention function"@en,
+        "Celfunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit for the detention of persons"@en,
+        "Gebruiksfunctie voor dwangverblijf van personen"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "259" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeDetention-214f8487e6e780dc84efd355a3866727> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeEducational a owl:DatatypeProperty ;
+    rdfs:label "Educational function"@en,
+        "Onderwijsunfctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit for teaching"@en,
+        "Gebruiksfunctie voor het geven van onderwijs"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "263" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeEducational-214f8487e6e780ea828bc0d4013bf221> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeHealthCare a owl:DatatypeProperty ;
+    rdfs:label "Health care function"@en,
+        "Gezondsheidszorgfunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit for medical examinations, nursing, care or treatment"@en,
+        "Gebruiksfunctie voor medisch onderzoek, verpleging, verzorging of behandeling"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertGuidance "Additional check needed for healthcare function types from fire expert" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "222" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeHealthCare-214f8487e6e7806e8a98f28be552bff2> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeHealthCareWithBedArea a owl:DatatypeProperty ;
+    rdfs:label "Health care function: with bed area"@en,
+        "Gezondsheidszorgfunctie: met bedgebied"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Health care function with bed area"@en,
+        "Gezondsheidszorgfunctie: met bedgebied"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertGuidance "Additional check needed for healthcare function types from fire expert" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "269" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeHealthCareWithBedArea-214f8487e6e780fa8becfaa9f3dfca55> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeIndustrial a owl:DatatypeProperty ;
+    rdfs:label "Industrial function"@en,
+        "Industriefunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit for the commercial processing or storage of materials and goods, or for agricultural purposes"@en,
+        "Gebruiksfunctie voor het bedrijfsmatig bewerken of opslaan van materialen en goederen, of voor agrarische doeleinden"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "211" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeIndustrial-214f8487e6e78047a66af4db09f5a737> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeLightIndustrial a owl:DatatypeProperty ;
+    rdfs:label "Industrial function: light industrial function"@en,
+        "Industriefunctie: lichte industriefunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Industrial function where activities take place in which the staying of persons plays a subordinate role"@en,
+        "Industriefunctie waarin activiteiten plaatsvinden, waarbij het verblijven van personen een ondergeschikte rol speelt"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "245" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeLightIndustrial-214f8487e6e780b6bd82f52e9d2af636> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeLightIndustrialAnimals a owl:Class ;
+    rdfs:label "Industrial function: light industrial function for keeping animals"@en,
+        "Industriefunctie: lichte industriefunctie voor het houden van dieren"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Light industrial function in which animals as referred to in Annex II to the Decree on Animal Keepers (bijlage II bij het Besluit houders voor dieren) are kept"@en,
+        "Lichte industriefunctie waarin dieren als bedoeld in bijlage II bij het Besluit houders voor dieren, worden gehouden"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "257" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeLightIndustrialAnimals-214f8487e6e780d9af72eeb994054044> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeLightIndustrialCultivating a owl:DatatypeProperty ;
+    rdfs:label "Industrial function: light industrial function for growing, cultivating or storing crops or similar products"@en,
+        "Lichte industriefunctie voor het telen, kweken of opslaan van gewassen of daarmee vergelijkbare producten"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Light industrial function in which cultivating or storing crops is the main purpose"@en,
+        "Lichte industriële functie waarbij het verbouwen of opslaan van gewassen het hoofddoel is"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "215" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeLightIndustrialCultivating-214f8487e6e78055944ef9642afde463> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeNotBuilding a owl:DatatypeProperty ;
+    rdfs:label "Structure other than a building"@en,
+        "Bouwwerk geen gebouw zijnde"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Building or part thereof, insofar as it is not a building or part thereof"@en,
+        "Bouwwerk of gedeelte daarvan, voor zover dat geen gebouw of onderdeel daarvan is"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "261" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeNotBuilding-214f8487e6e780de9a20d63c9771b441> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeOffice a owl:DatatypeProperty ;
+    rdfs:label "Office function"@en,
+        "Kantoorfunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit for office administration"@en,
+        "Gebruiksfunctie voor administratie"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "197" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeOffice-214f8487e6e7801d8162f5bac4892cfc> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeRemainingUse a owl:DatatypeProperty ;
+    rdfs:label "Remaining functional use"@en,
+        "Overige gebruiksfunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit, not already categorized, for activities where staying by persons plays a subordinate role"@en,
+        "Nog niet benoemde gebruiksfunctie voor activiteiten waarbij het verblijven van personen een ondergeschikte rol speelt"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "249" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeRemainingUse-214f8487e6e780bf858bd558ece43821> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeRemainingUseParkingVehicles a owl:DatatypeProperty ;
+    rdfs:label "Remaining functional use: for parking motor vehicles"@en,
+        "Overige gebruiksfunctie: voor het stallen van motorvoertuigen"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Remaining functional unit intented for parking motor vehicles"@en,
+        "Overige gebruiksfunctie bedoeld voor het parkeren van motorvoertuigen"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "238" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeRemainingUseParkingVehicles-214f8487e6e780a98634da2468257017> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeRemainingUsePassengerTransport a owl:DatatypeProperty ;
+    rdfs:label "Remaining functional use: other passenger transport function:"@en,
+        "Overige gebruiksfunctie: voor het personenvervoer"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Remaining functional unit intended for the arrival or departure of vehicles for thetransport of passengers by road, railway, waterway or air"@en,
+        "Overige gebruiksfunctie die bestemd is voor aankomst of vertrek van vervoermiddelen ten behoeve van weg-, spoorweg-, water- of luchtverkeer van personen"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "260" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeRemainingUsePassengerTransport-214f8487e6e780dd9fc7d262224366b0> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeResidential a owl:DatatypeProperty ;
+    rdfs:label "Residential function"@en,
+        "Woonfunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit for residential use"@en,
+        "Gebruiksfunctie voor het wonen"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "220" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeResidential-214f8487e6e78067ae7df0e5cb52c958> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeResidentialCaravan a owl:DatatypeProperty ;
+    rdfs:label "Residential function: caravan"@en,
+        "Woonfunctie: woonwagen"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Residential function on a plot intended for a caravan"@en,
+        "Woonfunctie op een perceel bestemd voor het plaatsen van een woonwagen"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "214" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeResidentialCaravan-214f8487e6e7804bafedd9417947be35> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeResidentialWithCare a owl:Class ;
+    rdfs:label "Residential function with care"@en,
+        "Woonfunctie voor zorg"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Residential function where professional care is provided to residents in the context of a combination of residence and care, organised by health care providers, in a residential function intended and equipped for that purpose;"@en,
+        "Gebruiksfunctie voor het wonen waarbij aan de bewoners professionele zorg wordt verleend met een vanuit het zorgaanbod georganiseerde koppeling tussen wonen en zorg"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertGuidance "Additional check needed for care function types from fire experts" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "374" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeResidentialWithCare-24ff8487e6e78036ba52e90406e0a0b0> .
+
+fbo-nl:FunctionTypeShop a owl:DatatypeProperty ;
+    rdfs:label "Shop function"@en,
+        "Winkelfunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit for trading materials, goods or services"@en,
+        "Gebruiksfunctie voor het verhandelen van materialen, goederen of diensten"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "206" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeShop-214f8487e6e7803781faf731ce75182d> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeSports a owl:DatatypeProperty ;
+    rdfs:label "Sports function"@en,
+        "Sportfunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit for playing sports"@en,
+        "Gebruiksfunctie voor het beoefenen van sport"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "237" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeSports-214f8487e6e780a4a0e6d5331c678fbc> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FunctionTypeTemporaryAccomodation a owl:DatatypeProperty ;
+    rdfs:label "Temporary accomodation function"@en,
+        "Logiesfunctie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Functional unit intended to provide recreational or temporary accommodation to persons"@en,
+        "Gebruiksfunctie voor het bieden van recreatief verblijf of tijdelijk onderdak aan personen"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "218" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionTypeTemporaryAccomodation-214f8487e6e7805b9bf2e06a8ef76ca0> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:FurnishingsOfEscapeRoutes a owl:Class ;
+    rdfs:label "furnishings of escape routes"@en,
+        "inrichting vluchtroute"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.76" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "The furnishing of an escape route is such that there is sufficient resistance to smoke passage, fire penetration and fire spread, and that there is a maximum permanent fire load per floor."@en,
+        "inrichting van een vluchtroute is zodanig dat er voldoende weerstand tegen rookdoorgang, branddoorslag en brandoverslag is en per bouwlaag een maximale permanente vuurlast heeft."@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "382" ;
+    fbo:hasNotionURL <https://www.notion.so/FurnishingsOfEscapeRoutes-24ff8487e6e780449b64c592b58e1101> .
+
+fbo-nl:LiftCage a owl:Class ;
+    rdfs:label "lift cage"@en,
+        "liftkooi"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.78.4" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "the closed cage of a lift"@en,
+        "een afsluitbare kooi van een lift"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X25WithoftheEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "385" ;
+    fbo:hasNotionURL <https://www.notion.so/LiftCage-24ff8487e6e7805e95bbe8727ca537de> .
+
+fbo-nl:LoadBearing a owl:DatatypeProperty ;
+    rdfs:label "Load-bearing"@en,
+        "Dragend"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NEN 2580:2007/C1:2008" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "To support the roof or floor(s) above, with a structural function"@en,
+        "Het dak of verdieping(en) erboven dragend, met een constructieve functie"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "256" ;
+    fbo:hasNotionURL <https://www.notion.so/LoadBearing-214f8487e6e780d8a546facdc980a6c3> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:MeasurementLevel a owl:Class ;
+    rdfs:label "measurement level"@en,
+        "meetniveau"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.53.3" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "The reference measurement level is the upper side of the site at the entrance to a building"@en,
+        "hoogte van het aansluitende terrein, gemeten ter plaatse van de toegang van het gebouw"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "415" ;
+    fbo:hasNotionURL <https://www.notion.so/MeasurementLevel-24ff8487e6e780f98fa7cccd10dc5423> .
+
+fbo-nl:MirrorSymmetrical a owl:Class ;
+    rdfs:label "mirror symmetrical"@en,
+        "spiegelsymmetrisch"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Expert Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.54.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasExpertDefinition "building located on another plot of land identical to a building that is mirrored in relation to the plot boundary"@en,
+        "op een ander perceel gelegen gebouw van een identiek maar gespiegeld ten opzichte van de perceelsgrens gelegen gebouw"@nl-NL ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "375" ;
+    fbo:hasNotionURL <https://www.notion.so/MirrorSymmetrical-24ff8487e6e78038bd7cdb821a3bff5a> .
+
+fbo-nl:NEN6090 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "NEN 6090"@en ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasDescription "Determination of fire load"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-NL" ;
+    fbo:hasOriginalName "Bepaling van de vuurbelasting"@nl-NL ;
+    fbo:hasPublicationDate "2017-08-01"^^xsd:date ;
+    fbo:hasRemarks "This document is appointed in the Bbl" .
+
+fbo-nl:NeighbouringPlot a owl:Class ;
+    rdfs:label "neighbouring plot"@en,
+        "aangrenzend perceel"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.54.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "an unbuilt plot or publicly accessible grounds adjacent to a structure"@en,
+        "naburig perceel"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "adjecent grounds" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "414" ;
+    fbo:hasNotionURL <https://www.notion.so/NeighbouringPlot-24ff8487e6e780f1bd23fcb705ec358a> .
+
+fbo-nl:NonEnclosed a owl:DatatypeProperty ;
+    rdfs:label "Non-enclosed"@en,
+        "Niet-besloten"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.50" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasExpertDefinition "Ruimte niet begrensd door (inwendige of uitwendige) scheidingsconstructies"@en,
+        "Space not bounded by (internal or external) dividing structures"@nl-NL ;
+    fbo:hasFireExpertEntity "Integrale Nota van Toelichting behorende bij Besluit Bouwwerken Leefomgeving" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "196" ;
+    fbo:hasNotionURL <https://www.notion.so/NonEnclosed-214f8487e6e780188928e65fd02b4f9d> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:Occupation a owl:Class ;
+    rdfs:label "occupation"@en,
+        "bezetting"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.66.3" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "the usable area divided by  number of persons"@en,
+        "gebruiksoppervlakte gedeeld door het aantal personen"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X22TravelDistance,
+        fbo:X23LengthofEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "404" ;
+    fbo:hasNotionURL <https://www.notion.so/Occupation-24ff8487e6e780c9afeacd38b0f557c5> .
+
+fbo-nl:PermanentFireLoadDensity a owl:DatatypeProperty ;
+    rdfs:label "Permanent fire load density"@en,
+        "Permanente vuurbelasting"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.50.8" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "According to NEN 6090, the permanent fire load density of the combustible materials in the construction components of a building or of a space located therein, or the construction components that bound that building or space. To be determined by a fire expert."@en,
+        "Volgens NEN 6090 bepaalde permanente vuurbelasting van de brandbare materialen in de constructieonderdelen van een bouwwerk of van een daarin gelegen ruimte, of de constructieonderdelen die dat bouwwerk of die ruimte begrenzen. Deze waarde dient bepaald te worden door een fire expert."@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertGuidance "A fire expert has to check if this is applicable and used in the right way." ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "202" ;
+    fbo:hasNotionURL <https://www.notion.so/PermanentFireLoadDensity-214f8487e6e78022b78eed8d5cf7f07b> ;
+    fbo:hasUnit "MJ/m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:PublicGreen a owl:Class ;
+    rdfs:label "public green"@en,
+        "openbaar groen"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.54.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "parks, greenery open to the public"@en,
+        "parken en plantsoenen dat voor publiek algemeen toegankelijk is"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "399" ;
+    fbo:hasNotionURL <https://www.notion.so/PublicGreen-24ff8487e6e780b5b79de82e40a4e7cc> .
+
+fbo-nl:PublicRoad a owl:Class ;
+    rdfs:label "public road"@en,
+        "openbare weg"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.54.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "roads as meant in article 1, first section, under b of the Road Traffic Act [Wegenverkeerswet] 1994], with the exception of roads for acces of plots by slow traffic"@en,
+        "wegen als bedoeld in artikel 1, eerste lid, onder b, van de Wegenverkeerswet 1994, met uitzondering van wegen alleen bedoeld voor de ontsluiting van percelen door langzaam verkeer;"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "369" ;
+    fbo:hasNotionURL <https://www.notion.so/PublicRoad-24ff8487e6e7802487def8dfc058829c> .
+
+fbo-nl:PublicWater a owl:Class ;
+    rdfs:label "public water"@en,
+        "openbaar water"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.54.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "water open to the public"@en,
+        "openbaar vaarwater dat voor publiek algemeen toegankelijk is,"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "387" ;
+    fbo:hasNotionURL <https://www.notion.so/PublicWater-24ff8487e6e7806a87d1d8c5d32fd55c> .
+
+fbo-nl:ResistanceAgainstFirePenetration a owl:Class ;
+    rdfs:label "resistance against fire penetration"@en,
+        "weerstand tegen branddoorslag"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Expert Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.53.8" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasExpertDefinition "resistance against the spread of a fire through a construction part"@en,
+        "weerstand tegen de branduitbreiding door een constructieonderdeel heen"@nl-NL ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "403" ;
+    fbo:hasNotionURL <https://www.notion.so/ResistanceAgainstFirePenetration-24ff8487e6e780c1b447f55e1d496be4> .
+
+fbo-nl:ResistanceAgainstFireSpread a owl:Class ;
+    rdfs:label "resistance against fire spread"@en,
+        "weerstand tegen brandoverslag"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Expert Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.53.8" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasExpertDefinition "resistance against  the spread of fire through open air"@en,
+        "weerstand tegen de uitbreiding van brand via de buitenlucht"@nl-NL ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "416" ;
+    fbo:hasNotionURL <https://www.notion.so/ResistanceAgainstFireSpread-24ff8487e6e780fa9869de8b0b6ee3f8> .
+
+fbo-nl:RoadTunnel a owl:Class ;
+    rdfs:label "road tunnel"@en,
+        "wegtunnel"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.65.3" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "tunnel or tunnel-shaped structure intended, whether or not exclusively, for vehicles as referred to in Article 1(1)(c), of the 1994 Road Traffic Act [Wegenverkeerswet];"@en,
+        "tunnel of tunnelvormig bouwwerk alleen of mede bestemd voor motorrijtuigen als bedoeld in artikel 1, eerste lid, onder c, van de Wegenverkeerswet 1994, met uitzondering van bromfietsen als bedoeld in artikel 1, eerste lid, onderdeel e, van die wet;"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "372" ;
+    fbo:hasNotionURL <https://www.notion.so/RoadTunnel-24ff8487e6e7802eadf5ff4e48486289> .
+
+fbo-nl:RoadTunnelTubePipe a owl:Class ;
+    rdfs:label "road tunnel tube/pipe"@en,
+        "wegtunnelbuis"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.68.3" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "part of a road tunnel intended for a carriageway"@en,
+        "gedeelte van een wegtunnel voor een rijbaan"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "370" ;
+    fbo:hasNotionURL <https://www.notion.so/RoadTunnelTubePipe-24ff8487e6e780298f52cc4eb581b88c> .
+
+fbo-nl:RoofConstruction a owl:Class ;
+    rdfs:label "roof construction"@en,
+        "dakconstructie"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.76.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "part of a structure that can support a load (top side of a space)"@en,
+        "onderdeel van een bouwwerk dat is bestemd om belasting te dragen (bovenzijde)"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "379" ;
+    fbo:hasNotionURL <https://www.notion.so/RoofConstruction-24ff8487e6e7803ea27ae1ed0e614c25> .
+
+fbo-nl:SmokeClass a owl:DatatypeProperty ;
+    rdfs:label "Reaction to fire; smoke class"@en,
+        "Rookklasse"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.50.2b" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Smoke class determined according to NEN-EN 13501-1."@en,
+        "Volgens de NEN-EN 13501-1 bepaalde rookklasse."@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertGuidance "A fire expert has to check if this is applicable and used in the right way." ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "247" ;
+    fbo:hasNotionURL <https://www.notion.so/SmokeClass-214f8487e6e780bb855cea51acbecae7> ;
+    fbo:hasUnit "Choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-nl:SmokeLock a owl:Class ;
+    rdfs:label "smoke lock"@en,
+        "rooksluis"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.77" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "A smoke lock prevents the premature entry of smoke into a stairwell. Between the horizontal part of the escape route and a stairwell at buildings (in which a difference in height of more than 20 m must be bridged), there must be a separate traffic space with a protected escape route or an open space (smoke lock) of at least 2 m in length."@en,
+        "Een rooksluis voorkomt het voortijdig binnendringen van rook in een trappenhuis. Tussen het horizontale gedeelte van de vluchtroute en een trappenhuis bij gebouwen (waarbij een hoogteverschil van meer dan 20 m moet worden overbrugd) moet zich een aparte verkeersruimte met een beschermde vluchtroute of een open ruimte (rooksluis) van ten minste 2 m lengte bevinden."@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "413" ;
+    fbo:hasNotionURL <https://www.notion.so/SmokeLock-24ff8487e6e780ef8c32c06d598dc402> .
+
+fbo-nl:SmokeResisitance a owl:Class ;
+    rdfs:label "smoke resisitance"@en,
+        "rookwerendheid"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.61.1/ NEN6075:2020" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "the extent to which a separating building element offers resistance to smoke passage under standardized conditions, expressed in classes Ra and R200"@en,
+        "mate waarin een scheidend bouwdeel weerstand biedt tegen de rookdoorgang onder genormaliseerde omstandigheden, uitgedrukt in de klassen Ra en R200"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving,
+        fbo-nl:NEN60752020 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "388" ;
+    fbo:hasNotionURL <https://www.notion.so/SmokeResisitance-24ff8487e6e7806b8ab1fcc3a66f7107> .
+
+fbo-nl:Space a owl:Class ;
+    rdfs:label "space"@en,
+        "ruimte"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.71.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "covered, completely or partially enclosed by walls"@en,
+        "overdekt geheel of gedeeltelijk met wanden omsloten"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X22TravelDistance,
+        fbo:X23LengthofEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:Space ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "400" ;
+    fbo:hasNotionURL <https://www.notion.so/Space-24ff8487e6e780b5bb8ddb61dea8b8cd> .
+
+fbo-nl:SpaceOutdoor a owl:Class ;
+    rdfs:label "outdoor space"@en,
+        "buitenruimte"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.65.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "an outdoor area is a space where light and fresh air can freely flow in and out. Such a space shall therefore be outside the thermal envelope. Examples of outdoor spaces are a garden, a balcony, a loggia or a roof terrace."@en,
+        "een ruimte waar licht en verse lucht vrijelijk in en uit kunnen stromen. Voorbeelden van buitenruimten zijn een tuin, een balkon, een loggia of een dakterras."@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "383" ;
+    fbo:hasNotionURL <https://www.notion.so/SpaceOutdoor-24ff8487e6e78049b04ce1bd150ab321> .
+
+fbo-nl:StructuralComponentsMovable a owl:Class ;
+    rdfs:label "movable structural components"@en,
+        "beweegbaar constructiedeel"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.69.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "for example a door or window that can be opened"@en,
+        "bijvoorbeeld een deur of raam wat geopend kan worden"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X23LengthofEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "386" ;
+    fbo:hasNotionURL <https://www.notion.so/StructuralComponentsMovable-24ff8487e6e780608293f09b3d5c6cc9> .
+
+fbo-nl:SupervisionLevelBedriddenPatients a owl:Class ;
+    rdfs:label "level of supervision"@en,
+        "bewakingsniveau"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Expert Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.59.6" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasExpertDefinition "Niveau van bewaking van bedgebonden patiënten hangt af van het bewakingsniveau, namelijk permanente bewaking of niet permanente bewaking"@en,
+        "The supervision of bedridden patients depends on the level of supervision, namely permanent supervision or non-permanent supervision"@nl-NL ;
+    fbo:hasFireExpertEntity "Integrale Nota van Toelichting behorende bij Besluit Bouwwerken Leefomgeving" ;
+    fbo:hasFireExpertGuidance "Additional check needed for supervision level from fire expertserts" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "396" ;
+    fbo:hasNotionURL <https://www.notion.so/SupervisionLevelBedriddenPatients-24ff8487e6e780a2baedfcd371f702d8> .
+
+fbo-nl:SupervisionLevelPermanentBedriddenPatients a owl:Class ;
+    rdfs:label "permanent supervision"@en,
+        "permanente bewaking"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Expert Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.59.6" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasExpertDefinition "Permanente bewaking is bewaking waarbij 24 uur per etmaal voldoende goed getraind personeel aanwezig is om de bedgebonden patiënten bij brand tijdig in veiligheid te kunnen brengen."@en,
+        "Permanent supervision is a supervision level where sufficiently well trained staff is available 24 hours a day to take bedridden patients to safety in the event of a fire."@nl-NL ;
+    fbo:hasFireExpertEntity "Integrale Nota van Toelichting behorende bij Besluit Bouwwerken Leefomgeving" ;
+    fbo:hasFireExpertGuidance "Additional check needed for supervision level from fire experts" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "401" ;
+    fbo:hasNotionURL <https://www.notion.so/SupervisionLevelPermanentBedriddenPatients-24ff8487e6e780b6b337c2d3ea6d7b16> .
+
+fbo-nl:TemporaryAccomodation a owl:Class ;
+    rdfs:label "temporary accomodation"@en,
+        "logiesverblijf"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.58" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "part of a temporary accomodation function for a person or a group of people"@en,
+        "voor een enkel persoon of een afzonderlijke groep personen bestemd gedeelte van een logiesfunctie;"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "402" ;
+    fbo:hasNotionURL <https://www.notion.so/TemporaryAccomodation-24ff8487e6e780b9b313eafb47446d07> .
+
+fbo-nl:TrafficSpace a owl:Class ;
+    rdfs:label "traffic space"@en,
+        "verkeersruimte"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.57.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "A traffic space is a space intended for reaching another room, other than a space in an application area or function area, a toilet space, a bathing space or a technical space"@en,
+        "ruimte voor het bereiken van een andere ruimte, die niet ligt in een verblijfsgebied of in een functiegebied, een toiletruimte, een badruimte of een technische ruimte"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "390" ;
+    fbo:hasNotionURL <https://www.notion.so/TrafficSpace-24ff8487e6e7807780c5d61d13e4e78f> .
+
+fbo-nl:TunnelWall a owl:Class ;
+    rdfs:label "tunnel wall"@en,
+        "tunnelwand"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.66.5" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "wall of a tunnel"@en,
+        "wand van een tunnel"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X22TravelDistance,
+        fbo:X23LengthofEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "408" ;
+    fbo:hasNotionURL <https://www.notion.so/TunnelWall-24ff8487e6e780d989fbf95cb961c7eb> .
+
+fbo-nl:UsableAreaSleepingAreaForBedriddenPatients a owl:Class ;
+    rdfs:label "sleeping area for bedridde patients"@en,
+        "bedgebied voor bedgebonden patiënten"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition + Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.52.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "sleeping area for bedridden patients"@en,
+        "bedgebied voor bedgebonden patiënten"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertGuidance "Additional check needed for care function by fire experts" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "381" ;
+    fbo:hasNotionURL <https://www.notion.so/UsableAreaSleepingAreaForBedriddenPatients-24ff8487e6e78042a11bed17203b4667> .
+
+fbo-nl:UsableAreaStaircase a owl:Class ;
+    rdfs:label "staircase"@en,
+        "trappenhuis"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.68.2" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "traffic space with stairs"@en,
+        "verkeersruimte met een trap"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "368" ;
+    fbo:hasNotionURL <https://www.notion.so/UsableAreaStaircase-24ff8487e6e7801a877ef6331480788c> .
+
+fbo-nl:UsableAreaVoid a owl:DatatypeProperty ;
+    rdfs:label "Void"@en,
+        "Vide"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasArticleID "NEN2580:2007" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "A vide is an open space in a building that extends over several floors, created when part of the ceiling has been omitted, allowing people to look down from the top floor"@en,
+        "Een vide is een open ruimte in een gebouw die over meerdere verdiepingen doorloopt, deze ontstaat wanneer er een deel van het plafond is weggelaten waardoor er vanaf de bovenste etage naar beneden kan worden gekeken"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "150" ;
+    fbo:hasNotionURL <https://www.notion.so/UsableAreaVoid-151f8487e6e780d0adfcfe04c72833ec> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaBathroomSpace a owl:DatatypeProperty ;
+    rdfs:label "Bathroom space"@en,
+        "Badruimte"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.50.2b" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "A room containing a bath or shower and a washbasin, with associated connections to water supply and drainage facilities"@en,
+        "Een ruimte waarin zich een bad of douche en een wastafel bevinden, met bijbehorende aansluitingen op aan- en afvoervoorzieningen voor water"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "239" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaBathroomSpace-214f8487e6e780aa914bd923d336de39> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaCantileveredBuildingPart a owl:DatatypeProperty ;
+    rdfs:label "Cantilevered building part"@en,
+        "Uitkragend bouwdeel"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "NEN2580:2007" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Centileverd building part"@en,
+        "Uitspringend bouwdeel"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "227" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaCantileveredBuildingPart-214f8487e6e78083aa94c6583ef7ea3f> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaCombustionAppliance a owl:DatatypeProperty ;
+    rdfs:label "Combustion appliance"@en,
+        "Verbrandingstoestel"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.50" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Combustion appliances are appliances that use combustion to generate energy"@en,
+        "Verbrandingstoestellen zijn toestellen die gebruikmaken van verbranding voor het opwekken van energie"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "205" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaCombustionAppliance-214f8487e6e780329875fe9c672706f8> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-nl:UseableAreaFireCompartment a owl:DatatypeProperty ;
+    rdfs:label "Fire compartment usable area"@en,
+        "Gebruiksoppervlakte brandcompartiment"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.51.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "The usable area of a firecompartment is measured at floor level, between the rising partitions that enclose the room or group of rooms in question. The following are not taken into account when determining the GO: — the area of parts of floors above which the net height is less than 1.5 m, with the exception of floors under stairs, ramps, etc.; — a lift shaft; — a stairwell, ring hole or void, if its area is greater than or equal to 4 m2; — a free-standing building structure (other than a staircase) if its horizontal cross-section is greater than or equal to 0.5 m2; — a service shaft, if its horizontal cross section is greater than or equal to 0.5 m2; — a load-bearing internal wall."@en,
+        "De GO van een brandcompartment is gemeten op vloerniveau, tussen de opgaande scheidingsconstructies, die de desbetreffende ruimte of groep van ruimten omhullen. Bij de bepaling van de GO worden niet meegerekend: — de oppervlakte van delen van vloeren, waarboven de netto-hoogte kleiner is dan 1,5 m, met uitzondering van vloeren onder trappen, hellingbanen e.d.; — een liftschacht; — een trapgat, schalmgat of vide, indien de oppervlakte daarvan groter is dan of gelijk is aan 4 m2; — een vrijstaande bouwconstructie (niet zijnde een trap) indien de horizontale doorsnede daarvan groter is dan of gelijk is aan 0,5 m2; — een leidingschacht, indien de horizontale doorsnede daarvan groter is dan of gelijk is aan 0,5 m2; — een dragende binnenwand."@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "195" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaFireCompartment-214f8487e6e7800c95a0fb93b78a1fd1> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaFunctionalArea a owl:Class ;
+    rdfs:label "Functional area"@en,
+        "Gebruiksgebied"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.50.5" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Freely divisible part of a function where activities characteristic of the function take place, consisting of one or more spaces on the same floor located in a fire compartment that are not separated from each other by a load-bearing partition and that are not a toilet room, bathroom, technical room or traffic area, unless that space itself is a functional space"@en,
+        "Vrij indeelbaar gedeelte van een gebruiksfunctie waar voor de gebruiksfunctie kenmerkende activiteiten plaatsvinden, dat bestaat uit een of meer op dezelfde bouwlaag gelegen ruimten gelegen in een brandcompartiment die niet door een dragende scheidingsconstructie van elkaar zijn gescheiden en die geen toiletruimte, badruimte, technische ruimte of verkeersruimte zijn, tenzij die ruimte zelf een functieruimte is"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "345" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaFunctionalArea-233f8487e6e780df9534eb5902a483c7> .
+
+fbo-nl:UseableAreaHeightAboveFloor a owl:DatatypeProperty ;
+    rdfs:label "Net height above floor"@en,
+        "Netto-hoogte boven vloer"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasArticleID "NEN 2580:2007/C1:2008" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDocumentReference fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasExpertDefinition "Loodrechte afstand tussen de bovenkant van een afgewerkte vloer of het aansluitende terrein en de onderkant van een daarboven aanwezig plafond, vloer of dak, waarbij incidentele constructiedelen buiten beschouwing worden gelaten"@en,
+        "Perpendicular distance between the top of a finished floor or adjacent area and the bottom of a ceiling, floor or roof above it, excluding incidental structural elements"@nl-NL ;
+    fbo:hasFireExpertEntity "Integrale Nota van Toelichting behorende bij Besluit Bouwwerken Leefomgeving" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "201" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaHeightAboveFloor-214f8487e6e78022835de1c1ed173520> ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaLiftShaft a owl:DatatypeProperty ;
+    rdfs:label "Lift shaft"@en,
+        "Liftschacht"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Artikel 4.50.2c" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Lift shaft"@en,
+        "Liftschacht"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "241" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaLiftShaft-214f8487e6e780b2b618e58c9fad9b1f> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaNiche a owl:DatatypeProperty ;
+    rdfs:label "Niche"@en,
+        "Nis"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasArticleID "NEN 2580:2007/C1:2008" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Niche"@en,
+        "Nis"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "252" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaNiche-214f8487e6e780c795d5ef04e8746362> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaNominalPower a owl:DatatypeProperty ;
+    rdfs:label "Nominal power"@en,
+        "Nominale belasting"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Artikel 4.50.2.d" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Maximum load of a combustion appliance, determined on the basis of the calorific value of the fuel for which the appliance is designed"@en,
+        "Maximale belasting van een verbrandingstoestel, bepaald op basis van de calorische bovenwaarde van de brandstof waarvoor dat toestel is ingericht"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "265" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaNominalPower-214f8487e6e780f183e6ee90e92581fa> ;
+    fbo:hasUnit "kW" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaPipeShaft a owl:DatatypeProperty ;
+    rdfs:label "Pipe shaft"@en,
+        "Leidingschacht"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NEN2580:2007" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Leidingschacht"@en,
+        "Pipe shaft"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "212" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaPipeShaft-214f8487e6e780488346c4988b00cb82> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaRingHole a owl:DatatypeProperty ;
+    rdfs:label "Ring hole"@en,
+        "Schalmgat"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "NEN2580:2007" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "The free, open area in a stairwell, or the hole formed by the inner stringers of a staircase"@en,
+        "Het vrije, open gedeelte in een trappenhuis, ofwel het gat dat door de binnenbomen van een trap gevormd wordt"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "264" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaRingHole-214f8487e6e780ec96efc76bf7920d5b> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaStairwell a owl:DatatypeProperty ;
+    rdfs:label "Stairwell"@en,
+        "Trapgat"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "NEN2580:2007" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Stairwell"@en,
+        "Trapgat"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "251" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaStairwell-214f8487e6e780c5a2dbe3e1589697d5> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaStayingArea a owl:DatatypeProperty ;
+    rdfs:label "Staying area"@en,
+        "Verblijfsgebied"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.51.6" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Space intended to accommodate the staying of persons located within a staying area"@en,
+        "In een verblijfsgebied gelegen ruimte voor het verblijven van personen"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "194" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaStayingArea-214f8487e6e780068d06d18f67b5828d> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaStayingAreaForSupervision a owl:Class ;
+    rdfs:label "staying area for supervision"@en,
+        "verblijfsgebied voor bewaking"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.57.3" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "staying area used for supervision, such as a room for supervision by the nursing staff or a reception in an office building. (Which can be located in a protected escape route)"@en,
+        "een verblijfsgebied voor bewakingsdoeleinden, zoals een zusterpost in een ziekenhuis of een receptie in een kantoorgebouw. (In een gang of hal waardoor een beschermde vluchtroute voert.)"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertGuidance "Additional advice needed for supervision level types from fire experts" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "411" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaStayingAreaForSupervision-24ff8487e6e780eb864ac82f4b46b13e> .
+
+fbo-nl:UseableAreaTechnicalRoom a owl:DatatypeProperty ;
+    rdfs:label "Technical room"@en,
+        "Technische ruimte"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.50.2d" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Space for placing equipment necessary for the functioning of the building, which in any case includes a meter room, a lift machine room and a boiler room"@en,
+        "Ruimte voor het plaatsen van de apparatuur, noodzakelijk voor het functioneren van het bouwwerk, waartoe in ieder geval behoort een meterruimte, een liftmachineruimte en een stookruimte"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "223" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaTechnicalRoom-214f8487e6e78079875dc6ea4ddc9dc3> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:UseableAreaToiletSpace a owl:DatatypeProperty ;
+    rdfs:label "Toilet space"@en,
+        "Toiletruimte"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.50.2a" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "Een ruimte waarin zich een toiletpot bevindt die is aangesloten op aan- en afvoervoorzieningen voor water"@en,
+        "Een ruimte waarin zich een toiletpot bevindt die is aangesloten op aan- en afvoervoorzieningen voor water"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:NEN25802007C12008 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "253" ;
+    fbo:hasNotionURL <https://www.notion.so/UseableAreaToiletSpace-214f8487e6e780c89fb0d313804d5b99> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:WalkingDistance a owl:Class ;
+    rdfs:label "walking distance"@en,
+        "loopafstand"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Artikel 4.66.1" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "the distance between two points(between a point in the functional area and at least one exit of the subfirecompartment that lies in that functional area ), measured along the shortest possible notional continuous line along which a person can walk maintaining a distance of at least 0.3 m from structural components, with the walking distance over a staircase coinciding with the pitch line;"@en,
+        "afstand, gemeten langs een denkbeeldige, kortst realiseerbare lijn tussen twee punten (tussen een punt in een gebruiksgebied en ten minste een uitgang van het subbrandcompartiment waarin dat gebruiksgebied ligt), waarover op een afstand van ten minste 0,3 m van constructieonderdelen kan worden gelopen en waarbij de loopafstand over een trap samenvalt met de klimlijn;"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X22TravelDistance,
+        fbo:X23LengthofEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-23T12:36:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "380" ;
+    fbo:hasNotionURL <https://www.notion.so/WalkingDistance-24ff8487e6e7803eb65ae6e42e384bcf> .
+
+fbo-nl:door a owl:DatatypeProperty ;
+    rdfs:label "Terrain height"@en,
+        "Meetniveau"@nl-NL ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - 4.53.3b" ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasCountryCode "NL" ;
+    fbo:hasDefinition "height of the adjacent area, measured at the entrance of the building"@en,
+        "hoogte van het aansluitende terrein, gemeten ter plaatse van de toegang tot het gebouw"@nl-NL ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "283" ;
+    fbo:hasNotionURL <https://www.notion.so/door-22bf8487e6e78016b9b2fae787b84ab4> ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-nl:NEN60682020 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "NEN 6068:2020"@en ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasDescription "Determination of the resistance to fire movement between spaces"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-NL" ;
+    fbo:hasOriginalName "Bepaling van de weerstand tegen branddoorslag en brandoverslag tussen ruimten"@nl-NL ;
+    fbo:hasPublicationDate "2020-01-01"^^xsd:date ;
+    fbo:hasRemarks "This document is appointed in the Bbl" .
+
+fbo-nl:NEN60752020 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "NEN 6075:2020"@en ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasDocumentType "regulation" .
+
+fbo-nl:NEN25802007C12008 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "NEN 2580:2007/C1:2008"@en ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasDescription "Surface areas and volumes of buildings. Terms, definitions, and determination methods."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-NL" ;
+    fbo:hasOriginalName "Oppervlakten en inhouden van gebouwen. Termen, definities en bepalingsmethoden."@nl-NL ;
+    fbo:hasPublicationDate "2008-12-01"^^xsd:date ;
+    fbo:hasRemarks "This document is appointed in the Bbl" .
+
+fbo-nl:Besluitbouwwerkenleefomgeving a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "Besluit bouwwerken leefomgeving"@en ;
+    fbo:hasCountry fbo:Netherlands ;
+    fbo:hasDescription "Decision on buildings living environment"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-NL" ;
+    fbo:hasOriginalName "Besluit bouwwerken leefomgeving"@nl-NL ;
+    fbo:hasPublicationDate "2024-01-01"^^xsd:date ;
+    fbo:hasRemarks "Often referred to as ‘Bbl’" ;
+    fbo:hasURL <https://iplo.nl/regelgeving/omgevingswet/inhoud/besluit-bouwwerken-leefomgeving/> .
+

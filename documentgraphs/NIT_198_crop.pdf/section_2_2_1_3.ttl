@@ -6,26 +6,26 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_2_2_1_3 a fro:Section ;
+ex:Section_2_2_1_3 a fro:Section ;
     fro:hasID "2.2.1.3" ;
     fro:hasOriginalText "ESCALIERS"@fr ;
-    fro:hasArticle fro:Article_2_2_1_3_1 .
+    fro:hasArticle ex:Article_2_2_1_3_1 .
 
-fro:Article_2_2_1_3_1 a fro:Article ;
+ex:Article_2_2_1_3_1 a fro:Article ;
     fro:hasID "A2.2.1.3.1" ;
-    fro:hasMember fro:Member_2_2_1_3_1_1, fro:Member_2_2_1_3_1_2, fro:Member_2_2_1_3_1_3, fro:Member_2_2_1_3_1_4 .
+    fro:hasMember ex:Member_2_2_1_3_1_1, ex:Member_2_2_1_3_1_2, ex:Member_2_2_1_3_1_3, ex:Member_2_2_1_3_1_4 .
 
-fro:Member_2_2_1_3_1_1 a fro:Member ;
+ex:Member_2_2_1_3_1_1 a fro:Member ;
     fro:hasOriginalText """Les escaliers faisant dans certains cas fonction de voies d'évacuation; ils constituent un élément essentiel de la protection contre l'incendie."""@fr .
 
-fro:Member_2_2_1_3_1_2 a fro:Member ;
+ex:Member_2_2_1_3_1_2 a fro:Member ;
     fro:hasOriginalText """De ce point de vue, les caractéristiques suivantes peuvent revêtir une certaine importance : largeur utile requise, hauteur des marches, giron et/ou pente de l'escalier; réaction au feu des matériaux mis en œuvre (voir § 2.2.1.5) et stabilité au feu de l'escalier (voir § 2.2.1.4)."""@fr ;
-    fro:hasForwardReference fro:Section_2_2_1_5, fro:Section_2_2_1_4 .
+    fro:hasForwardReference ex:Section_2_2_1_5, ex:Section_2_2_1_4 .
 
-fro:Member_2_2_1_3_1_3 a fro:Member ;
+ex:Member_2_2_1_3_1_3 a fro:Member ;
     fro:hasOriginalText """L'unité de passage est la largeur minimale requise pour le passage d'une personne. Elle est fixée par convention à 0,60 m. La largeur utile d'un chemin d'évacuation est la largeur libre de tout obstacle jusqu'à une hauteur d'au moins 2 m. On ne tient pas compte toutefois des saillies formées sur les murs par les plinthes, les limons et les socles lorsqu'elles ne dépassent pas 0,10 m et qu'elles ne surplombent pas les marches ou le plancher de plus de 1 m. La même règle s'applique aux garde-corps."""@fr .
 
-fro:Member_2_2_1_3_1_4 a fro:Member ;
+ex:Member_2_2_1_3_1_4 a fro:Member ;
     fro:hasOriginalText """Remarque : il convient de faire la distinction entre la notion de largeur utile définie par la norme belge NBN S 21-201 [23] et la largeur libre 'b' telle que définie par la norme NBN NEN 3509 [25], d'autre part (voir § titre 24 NIT 198 décembre 1995)."""@fr ;
     fro:hasReference fro:Reference_NBN_S_21_201, fro:Reference_NBN_NEN_3509, fro:Reference_NIT_198 .
 
@@ -38,7 +38,7 @@ fro:Reference_NBN_NEN_3509 a fro:Reference ;
 fro:Reference_NIT_198 a fro:Reference ;
     fro:hasID "NIT 198" .
 
-fro:Article_2_2_1_3_1 fro:hasTable fro:Table_2 .
+ex:Article_2_2_1_3_1 fro:hasTable fro:Table_2 .
 
 fro:Table_2 a fro:Table ;
     fro:hasID "T2" ;
@@ -50,9 +50,9 @@ fro:Table_2 a fro:Table ;
 |Batiments moyens (BM)|10 m < h < 25 m|
 |Batiments bas (BB)|h < 10 m|"""@fr .
 
-fro:Article_2_2_1_3_1 fro:hasMember fro:Member_2_2_1_3_1_5 .
+ex:Article_2_2_1_3_1 fro:hasMember ex:Member_2_2_1_3_1_5 .
 
-fro:Member_2_2_1_3_1_5 a fro:Member ;
+ex:Member_2_2_1_3_1_5 a fro:Member ;
     fro:hasOriginalText """Largeur utile théorique d'un chemin d'évacuation
 
 La largeur utile théorique b' (en m) d'un chemin d'évacuation est définie par la relation :
@@ -74,11 +74,11 @@ dans laquelle le terme int b représente la valeur de 0,60 arrondie à l'unité 
 
 La largeur utile requise pour les chemins d'évacuation est au minimum de 0,80 m (voir § 2.2.2.2, p. 27)."""@fr .
 
-fro:Member_2_2_1_3_1_5 fro:hasForwardReference fro:Section_2_2_2_2 .
+ex:Member_2_2_1_3_1_5 fro:hasForwardReference ex:Section_2_2_2_2 .
 
-fro:Article_2_2_1_3_1 fro:hasMember fro:Member_2_2_1_3_1_6 .
+ex:Article_2_2_1_3_1 fro:hasMember ex:Member_2_2_1_3_1_6 .
 
-fro:Member_2_2_1_3_1_6 a fro:Member ;
+ex:Member_2_2_1_3_1_6 a fro:Member ;
     fro:hasOriginalText """Niveau d'évacuation
 
 Un niveau d'évacuation ou niveau E comporte une ou plusieurs issues permettant une évacuation à l'extérieur : Les issues en question débouchent sur la voie publique ou sur un lieu donnant accès à la voie publique. Dans un bâtiment comportant plusieurs niveaux d'évacuation, on a :
@@ -88,14 +88,14 @@ Un niveau d'évacuation ou niveau E comporte une ou plusieurs issues permettant 
 
 La largeur totale de la voie publique et/ou du lieu d'évacuation communiquant avec les chemins d'évacuation du bâtiment ne peut être inférieure à la largeur utile totale requise pour les chemins d'évacuation."""@fr .
 
-fro:Article_2_2_1_3_1 fro:hasMember fro:Member_2_2_1_3_1_7 .
+ex:Article_2_2_1_3_1 fro:hasMember ex:Member_2_2_1_3_1_7 .
 
-fro:Member_2_2_1_3_1_7 a fro:Member ;
+ex:Member_2_2_1_3_1_7 a fro:Member ;
     fro:hasOriginalText """Exemple
 
 Un des étages d'un immeuble de bureaux comporte quatre compartiments d'une surface S' desservis par deux cages d'escaliers permettant de descendre vers les issues (voir figure 20), l'un des compartiments (n° 1) étant un local à destination particulière (salle de réunion de 100 personnes, n = 100); pour les autres compartiments, n = 10."""@fr .
 
-fro:Article_2_2_1_3_1 fro:hasTable fro:Table_3 .
+ex:Article_2_2_1_3_1 fro:hasTable fro:Table_3 .
 
 fro:Table_3 a fro:Table ;
     fro:hasID "T3" ;
@@ -108,9 +108,9 @@ fro:Table_3 a fro:Table ;
 | |50| |2,5| | |
 | | | |50| | |"""@fr .
 
-fro:Article_2_2_1_3_1 fro:hasMember fro:Member_2_2_1_3_1_8 .
+ex:Article_2_2_1_3_1 fro:hasMember ex:Member_2_2_1_3_1_8 .
 
-fro:Member_2_2_1_3_1_8 a fro:Member ;
+ex:Member_2_2_1_3_1_8 a fro:Member ;
     fro:hasOriginalText """Calculons la largeur utile requise b'
 
 b1 = amax (m)
@@ -133,4 +133,4 @@ b_ 1,20 m-
 
 Cette largeur utile requise *b1* est indiquee à la figure 21, parallelement à la largeur libre 'v' telle que definie par la norme NBN NEN 3509 [25]"""@fr .
 
-fro:Member_2_2_1_3_1_8 fro:hasReference fro:Reference_NBN_NEN_3509 .
+ex:Member_2_2_1_3_1_8 fro:hasReference fro:Reference_NBN_NEN_3509 .

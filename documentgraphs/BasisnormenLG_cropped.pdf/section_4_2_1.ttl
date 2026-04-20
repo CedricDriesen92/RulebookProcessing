@@ -1,25 +1,33 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_4_2_1 a fro:Section ;
-    fro:hasArticle fro:Article_4_2_1_1 ;
+ex:Section_4_2_1 a fro:Section ;
+    fro:hasArticle ex:Article_4_2_1_1 ;
     fro:hasID "4.2.1" ;
-    fro:hasOriginalText "Algemeen"@nl .
+    fro:hasOriginalText "Algemeen" .
 
-fro:Article_4_2_1_1 a fro:Article ;
+ex:Article_4_2_1_1 a fro:Article ;
     fro:hasID "A4.2.1.1" ;
-    fro:hasMember fro:Member_4_2_1_1_1,
-        fro:Member_4_2_1_1_2 ;
+    fro:hasMember ex:Member_4_2_1_1_1,
+        ex:Member_4_2_1_1_2 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_4_2_1_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappen</a> die verscheidene <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> verbinden zijn omsloten."@nl .
+ex:Member_4_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "De trappen die verscheidene compartimenten verbinden zijn omsloten."@nl ;
+    fro:linksTo fbo-be:FireCompartment,
+        fbo-be:InternalStair .
 
-fro:Member_4_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText "De grondbeginselen van \"<a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">Compartimentering</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationSafety\">evacuatie</a>\" zijn erop van toepassing."@nl .
+ex:Member_4_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "De grondbeginselen van \"Compartimentering en evacuatie\" zijn erop van toepassing."@nl ;
+    fro:linksTo fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

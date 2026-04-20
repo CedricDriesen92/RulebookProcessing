@@ -1,29 +1,37 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_3_5_1_1 a fro:Section ;
-    fro:hasArticle fro:Article_3_5_1_1_1 ;
+ex:Section_3_5_1_1 a fro:Section ;
+    fro:hasArticle ex:Article_3_5_1_1_1 ;
     fro:hasID "3.5.1.1" ;
     fro:hasOriginalText "Scheiding tussen compartimenten"@nl .
 
-fro:Article_3_5_1_1_1 a fro:Article ;
+ex:Article_3_5_1_1_1 a fro:Article ;
     fro:hasID "A3.5.1.1.1" ;
-    fro:hasMember fro:Member_3_5_1_1_1_1,
-        fro:Member_3_5_1_1_1_2,
-        fro:Member_3_5_1_1_1_3 ;
+    fro:hasMember ex:Member_3_5_1_1_1_1,
+        ex:Member_3_5_1_1_1_2,
+        ex:Member_3_5_1_1_1_3 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_3_5_1_1_1_1 a fro:Member ;
-    fro:hasOriginalText "De stijlen van het <a href=\"https://ontology.firebim.be/ontology/fbo#CurtainWall\">gordijngevelskelet</a> worden ter hoogte van elke <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> aan het <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">gebouwskelet</a> bevestigd. Met uitzondering van de <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> die uitgerust zijn met een <a href=\"https://ontology.firebim.be/ontology/fbo#HasAutomaticFireExtinguishingSystem\">automatische blusinstallatie</a>, moeten deze bevestigingen <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">R 60</a> zijn ten opzichte van een <a href=\"https://ontology.firebim.be/ontology/fbo#FireSpreadPrevention\">brand</a> in een onderliggend en naastgelegen <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a>."@nl .
+ex:Member_3_5_1_1_1_1 a fro:Member ;
+    fro:hasOriginalText "De stijlen van het gordijngevelskelet worden ter hoogte van elke bouwlaag aan het gebouwskelet bevestigd. Met uitzondering van de gebouwen die uitgerust zijn met een automatische blusinstallatie, moeten deze bevestigingen R 60 zijn ten opzichte van een brand in een onderliggend en naastgelegen compartiment."@nl ;
+    fro:linksTo fbo-be:AutomaticFireExtinguishSystem,
+        fbo-be:BuildingLayer,
+        fbo-be:FireCompartment .
 
-fro:Member_3_5_1_1_1_2 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#LinearJointSeal\">lineaire voeg</a> aan de <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevel</a> is dichtgemaakt zodat geen koude rook tussen de <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevel</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#CompartmentBoundary\">compartimentswanden</a> kan dringen."@nl .
+ex:Member_3_5_1_1_1_2 a fro:Member ;
+    fro:hasOriginalText "De lineaire voeg aan de gevel is dichtgemaakt zodat geen koude rook tussen de gevel en de compartimentswanden kan dringen."@nl ;
+    fro:linksTo fbo-be:FireCompartment .
 
-fro:Member_3_5_1_1_1_3 a fro:Member ;
-    fro:hasOriginalText "Bovendien heeft de <a href=\"https://ontology.firebim.be/ontology/fbo#CompartmentBoundary\">aansluiting van de compartimentswanden</a> met de <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevel</a>, met uitzondering van een beperkte <a href=\"https://ontology.firebim.be/ontology/fbo#LinearJointSeal\">lineaire voeg</a> met een breedte van maximaal 20 mm aan de <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevel</a>, minstens <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 60</a> of <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 60</a> (i→o)."@nl .
+ex:Member_3_5_1_1_1_3 a fro:Member ;
+    fro:hasOriginalText "Bovendien heeft de aansluiting van de compartimentswanden met de gevel, met uitzondering van een beperkte lineaire voeg met een breedte van maximaal 20 mm aan de gevel, minstens EI 60 of EI 60 (i→o)."@nl ;
+    fro:linksTo fbo-be:FireCompartment .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

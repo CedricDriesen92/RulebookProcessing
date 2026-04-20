@@ -1,31 +1,43 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_5_1_1 a fro:Section ;
-    fro:hasArticle fro:Article_5_1_1_1 ;
+ex:Section_5_1_1 a fro:Section ;
+    fro:hasArticle ex:Article_5_1_1_1 ;
     fro:hasID "5.1.1" ;
     fro:hasOriginalText "Algemeen."@nl .
 
-fro:Article_5_1_1_1 a fro:Article ;
+ex:Article_5_1_1_1 a fro:Article ;
     fro:hasID "A5.1.1.1" ;
-    fro:hasMember fro:Member_5_1_1_1_1,
-        fro:Member_5_1_1_1_2,
-        fro:Member_5_1_1_1_3 ;
+    fro:hasMember ex:Member_5_1_1_1_1,
+        ex:Member_5_1_1_1_2,
+        ex:Member_5_1_1_1_3,
+        ex:Member_5_1_1_1_4 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_5_1_1_1_1 a fro:Member ;
-    fro:hasOriginalText "Een <a href=\"https://ontology.firebim.be/ontology/fbo#TechnicalRoom\">technisch lokaal</a> of een geheel van <a href=\"https://ontology.firebim.be/ontology/fbo#TechnicalRoom\">technische lokalen</a> vormt een <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a>."@nl .
+ex:Member_5_1_1_1_1 a fro:Member ;
+    fro:hasOriginalText "Een technisch lokaal of een geheel van technische lokalen vormt een compartiment."@nl ;
+    fro:linksTo fbo-be:FireCompartment,
+        fbo-be:TechnicalRoom .
 
-fro:Member_5_1_1_1_2 a fro:Member ;
-    fro:hasOriginalText "Dit <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> kan over verscheidene opeenvolgende <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlagen</a> reiken."@nl .
+ex:Member_5_1_1_1_2 a fro:Member ;
+    fro:hasOriginalText "Dit compartiment kan over verscheidene opeenvolgende bouwlagen reiken."@nl ;
+    fro:linksTo fbo-be:BuildingLayer,
+        fbo-be:FireCompartment .
 
-fro:Member_5_1_1_1_3 a fro:Member ;
-    fro:hasOriginalText """Voor de <a href="https://ontology.firebim.be/ontology/fbo#TechnicalRoom">technische lokalen</a> gelden de voorschriften inzake de <a href="https://ontology.firebim.be/ontology/fbo#Compartment">compartimenten</a> mits volgende wijzigingen:
+ex:Member_5_1_1_1_3 a fro:Member ;
+    fro:hasOriginalText "Voor de technische lokalen gelden de voorschriften inzake de compartimenten mits volgende wijzigingen:"@nl ;
+    fro:linksTo fbo-be:FireCompartment,
+        fbo-be:TechnicalRoom .
 
-1. toegang tot twee <a href="https://ontology.firebim.be/ontology/fbo#Exits">uitgangen</a> die leiden:"""@nl .
+ex:Member_5_1_1_1_4 a fro:Member ;
+    fro:hasOriginalText "1. toegang tot twee uitgangen die leiden:"@nl ;
+    fro:linksTo fbo-be:NumberOfExits .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

@@ -1,25 +1,29 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_5_2_4 a fro:Section ;
-    fro:hasArticle fro:Article_5_2_4_1 ;
+ex:Section_5_2_4 a fro:Section ;
+    fro:hasArticle ex:Article_5_2_4_1 ;
     fro:hasID "5.2.4" ;
     fro:hasOriginalText "Gemeenschappelijke bepalingen"@nl .
 
-fro:Article_5_2_4_1 a fro:Article ;
+ex:Article_5_2_4_1 a fro:Article ;
     fro:hasID "A5.2.4.1" ;
-    fro:hasMember fro:Member_5_2_4_1_1 ;
+    fro:hasMember ex:Member_5_2_4_1_1 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_5_2_4_1_1 a fro:Member ;
-    fro:hasOriginalText "Het ontwerp, de bouw en de inrichting van de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> voldoen aan de bepalingen van het punt 3 van de bijlage 7."@nl ;
-    fro:hasReference fro:Reference_Bijlage_7 .
+ex:Member_5_2_4_1_1 a fro:Member ;
+    fro:hasOriginalText "Het ontwerp, de bouw en de inrichting van de parking voldoen aan de bepalingen van het punt 3 van de bijlage 7."@nl ;
+    fro:hasReference ex:Reference_Bijlage_7 ;
+    fro:linksTo fbo-be:Parking .
 
-fro:Reference_Bijlage_7 a fro:Reference ;
+ex:Reference_Bijlage_7 a fro:Reference ;
     fro:hasID "Bijlage 7" .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

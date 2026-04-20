@@ -1,0 +1,11 @@
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT(["ns1:shacl_CompartmentArea.ttl<br/>Target: SPARQL target"]):::rootCls
+    P1["_:nc0fd78f90efa49b4bcb59cf833a72e77b3 | xsd:double | <= 1000<br/>The total area of the fire compartment exceeds 1000 m²."]:::propCls
+    ROOT --> P1

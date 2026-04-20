@@ -1,0 +1,263 @@
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
+@prefix fbo-dk: <https://ontology.firebim.be/ontology/fbo-DK#> .
+@prefix fbo-ifc: <https://ontology.firebim.be/ontology/fbo-ifc#> .
+@prefix fbo-lt: <https://ontology.firebim.be/ontology/fbo-LT#> .
+@prefix fbo-nl: <https://ontology.firebim.be/ontology/fbo-NL#> .
+@prefix fbo-pt: <https://ontology.firebim.be/ontology/fbo-PT#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fbo-ifc:ActiveFireProtection a owl:NamedIndividual ;
+    rdfs:label "ActiveFireProtection"@en ;
+    fbo-ifc:hasArgumentation "Property common between spatial elements: IfcSpace, IfcSpatialZone" ;
+    fbo-ifc:hasClassPredefinedType "IfcSpatialElement" ;
+    fbo-ifc:hasDataType "Boolean" ;
+    fbo-ifc:hasKind "Property" ;
+    fbo-ifc:hasPsetProperty "Pset_SpaceFireSafetyRequirements.SprinklerProtection, Pset_SpaceFireSafetyRequirements.SprinklerProtectionAutomatic" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:ActiveFireProtection .
+
+fbo-ifc:AdjoiningTerrain a owl:NamedIndividual ;
+    rdfs:label "AdjoiningTerrain"@en ;
+    fbo-ifc:hasArgumentation "Unsure how to further distinguish" ;
+    fbo-ifc:hasClassPredefinedType "IfcSite" ;
+    fbo-ifc:hasKind "Object" ;
+    fbo-ifc:isBuildingSMART false ;
+    fbo-ifc:mapsToTerm fbo-nl:AdjoiningTerrain .
+
+fbo-ifc:AreaDuplex1 a owl:NamedIndividual ;
+    rdfs:label "AreaDuplex (1)"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcSpatialZone.FIRESAFETY" ;
+    fbo-ifc:hasDataType "area" ;
+    fbo-ifc:hasInterpretationResult "Same mappings as AreaFireCompartment" ;
+    fbo-ifc:hasKind "Quantity" ;
+    fbo-ifc:hasPsetProperty "Qto_SpatialZoneOtherBaseQuantities.NetFloorArea, FireBIM.CompartmentArea" ;
+    fbo-ifc:isBuildingSMART false ;
+    fbo-ifc:mapsToTerm fbo-be:AreaDuplex .
+
+fbo-ifc:AreaDuplex2 a owl:NamedIndividual ;
+    rdfs:label "AreaDuplex (2)"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcSpace" ;
+    fbo-ifc:hasDataType "area" ;
+    fbo-ifc:hasInterpretationResult "Same mappings as AreaFireCompartment" ;
+    fbo-ifc:hasKind "Quantity" ;
+    fbo-ifc:hasPsetProperty "Qto_SpaceBaseQuantities.NetFloorArea" ;
+    fbo-ifc:isBuildingSMART false ;
+    fbo-ifc:mapsToTerm fbo-be:AreaDuplex .
+
+fbo-ifc:AreaFireCompartment1 a owl:NamedIndividual ;
+    rdfs:label "AreaFireCompartment (1)"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcSpatialZone.FIRESAFETY" ;
+    fbo-ifc:hasDataType "area" ;
+    fbo-ifc:hasKind "Quantity" ;
+    fbo-ifc:hasPsetProperty "Qto_SpatialZoneOtherBaseQuantities.NetFloorArea, FireBIM.CompartmentArea" ;
+    fbo-ifc:isBuildingSMART false ;
+    fbo-ifc:mapsToTerm fbo:AreaFireCompartment .
+
+fbo-ifc:AreaFireCompartment2a a owl:NamedIndividual ;
+    rdfs:label "AreaFireCompartment (2a)"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcSpace" ;
+    fbo-ifc:hasDataType "area" ;
+    fbo-ifc:hasKind "Quantity" ;
+    fbo-ifc:hasPsetProperty "Qto_SpaceBaseQuantities.NetFloorArea" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:AreaFireCompartment,
+        fbo-be:AreaFireCompartment,
+        fbo-dk:AreaFireCompartment,
+        fbo-lt:AreaFireCompartment,
+        fbo-nl:AreaFireCompartment,
+        fbo-nl:AreaFireSubCompartment,
+        fbo-pt:AreaFireCompartment .
+
+fbo-ifc:Building a owl:NamedIndividual ;
+    rdfs:label "Building"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcBuilding" ;
+    fbo-ifc:hasKind "Object" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:Building .
+
+fbo-ifc:BuildingLayers a owl:NamedIndividual ;
+    rdfs:label "BuildingLayers"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcBuilding" ;
+    fbo-ifc:hasDataType "Integer" ;
+    fbo-ifc:hasKind "Quantity" ;
+    fbo-ifc:hasPsetProperty "Pset_BuildingCommon.NumberOfStoreys" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:BuildingLayers .
+
+fbo-ifc:BuildingStorey a owl:NamedIndividual ;
+    rdfs:label "BuildingStorey"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcBuildingStorey" ;
+    fbo-ifc:hasKind "Object" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:BuildingStorey,
+        fbo-be:BuildingLayer,
+        fbo-lt:BuildingStorey .
+
+fbo-ifc:Ceiling a owl:NamedIndividual ;
+    rdfs:label "Ceiling"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcCovering.CEILING" ;
+    fbo-ifc:hasKind "Object" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo-be:Ceiling,
+        fbo-dk:CeilingSuspended .
+
+fbo-ifc:Exit a owl:NamedIndividual ;
+    rdfs:label "Exit"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcDoor" ;
+    fbo-ifc:hasDataType "Boolean" ;
+    fbo-ifc:hasKind "Object" ;
+    fbo-ifc:hasPsetProperty "Pset_DoorCommon.FireExit" ;
+    fbo-ifc:hasValue "True" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:DoorExit,
+        fbo:Exit .
+
+fbo-ifc:ExteriorWall a owl:NamedIndividual ;
+    rdfs:label "ExteriorWall"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcWall" ;
+    fbo-ifc:hasDataType "Boolean" ;
+    fbo-ifc:hasKind "Object" ;
+    fbo-ifc:hasPsetProperty "Pset_WallCommon.IsExternal" ;
+    fbo-ifc:hasValue "True" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:ExteriorWall,
+        fbo-be:WallTypeExternal .
+
+fbo-ifc:FireCompartment1 a owl:NamedIndividual ;
+    rdfs:label "FireCompartment (1)"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcSpatialZone.FIRESAFETY" ;
+    fbo-ifc:hasInterpretationResult "Modelled compartment" ;
+    fbo-ifc:hasKind "Object" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:FireCompartment,
+        fbo-be:FireCompartment .
+
+fbo-ifc:FireCompartment2a a owl:NamedIndividual ;
+    rdfs:label "FireCompartment (2a)"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcSpace" ;
+    fbo-ifc:hasDataType "String" ;
+    fbo-ifc:hasInterpretationResult "Modelled compartment" ;
+    fbo-ifc:hasKind "Object" ;
+    fbo-ifc:hasPsetProperty "ElementType" ;
+    fbo-ifc:hasValue "COMPARTMENT" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:FireCompartment .
+
+fbo-ifc:FireCompartment2b a owl:NamedIndividual ;
+    rdfs:label "FireCompartment (2b)"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcSpace" ;
+    fbo-ifc:hasDataType "String" ;
+    fbo-ifc:hasInterpretationResult "Aggregate by this value" ;
+    fbo-ifc:hasKind "Object" ;
+    fbo-ifc:hasPsetProperty "FireBIM.Compartment" ;
+    fbo-ifc:hasValue "<name of compartment>" ;
+    fbo-ifc:isBuildingSMART false ;
+    fbo-ifc:mapsToTerm fbo:FireCompartment .
+
+fbo-ifc:FireCompartment3 a owl:NamedIndividual ;
+    rdfs:label "FireCompartment (3)"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcZone" ;
+    fbo-ifc:hasDataType "String" ;
+    fbo-ifc:hasKind "Object" ;
+    fbo-ifc:hasPsetProperty "ObjectType" ;
+    fbo-ifc:hasValue "FireCompartment" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:FireCompartment .
+
+fbo-ifc:FireResistance a owl:NamedIndividual ;
+    rdfs:label "FireResistance"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcRamp, IfcOpeningElement, IfcDoor, IfcColumn, IfcChimney, IfcCurtainWall, IfcCovering, IfcBeam, IfcMember, IfcStair, IfcPlate, IfcSlab, IfcWall, IfcTelecomCable, IfcRoof, IfcBuildingElementProxy, IfcWindow" ;
+    fbo-ifc:hasDataType "String" ;
+    fbo-ifc:hasInterpretationResult "Need to define a string or pattern of allowed values. This is NOT merely a number" ;
+    fbo-ifc:hasKind "Property" ;
+    fbo-ifc:hasPsetProperty "Pset_*Common.FireRating" ;
+    fbo-ifc:hasValue "<REI value string>" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:FireResistance .
+
+fbo-ifc:HeightBuilding a owl:NamedIndividual ;
+    rdfs:label "HeightBuilding"@en ;
+    fbo-ifc:hasArgumentation "Cannot use IfcBuilding.Qto_BuildingBaseQuantities.Height (different measurement method)" ;
+    fbo-ifc:hasClassPredefinedType "IfcBuilding" ;
+    fbo-ifc:hasDataType "length" ;
+    fbo-ifc:hasInterpretationResult "Reference height, as derived from the measurement method of the national regulation" ;
+    fbo-ifc:hasKind "Property" ;
+    fbo-ifc:hasPsetProperty "FireBIM.HeightBuilding" ;
+    fbo-ifc:isBuildingSMART false ;
+    fbo-ifc:mapsToTerm fbo:HeightBuilding .
+
+fbo-ifc:HoseReel a owl:NamedIndividual ;
+    rdfs:label "HoseReel"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcFireSuppressionTerminal.HOSEREEL" ;
+    fbo-ifc:hasKind "Object" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:HoseReel .
+
+fbo-ifc:SelfClosing a owl:NamedIndividual ;
+    rdfs:label "SelfClosing"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcDoor" ;
+    fbo-ifc:hasDataType "Boolean" ;
+    fbo-ifc:hasKind "Property" ;
+    fbo-ifc:hasPsetProperty "Pset_DoorCommon.SelfClosing" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:SelfClosing .
+
+fbo-ifc:Space a owl:NamedIndividual ;
+    rdfs:label "Space"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcSpace" ;
+    fbo-ifc:hasKind "Object" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo-nl:Space,
+        fbo-pt:Room,
+        fbo-pt:Space .
+
+fbo-ifc:TeachingZone a owl:NamedIndividual ;
+    rdfs:label "TeachingZone"@en ;
+    fbo-ifc:hasClassPredefinedType "IfcSpace" ;
+    fbo-ifc:hasDataType "String" ;
+    fbo-ifc:hasKind "Property" ;
+    fbo-ifc:hasPsetProperty "Pset_SpaceOccupancyRequirements.OccupancyType" ;
+    fbo-ifc:hasValue "EDUCATION, TEACHING" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:TeachingZone .
+
+fbo-ifc:WidthFreeDoors a owl:NamedIndividual ;
+    rdfs:label "WidthFreeDoors"@en ;
+    fbo-ifc:hasArgumentation "To be combined with the identification of escape door or fire exits" ;
+    fbo-ifc:hasClassPredefinedType "IfcDoor" ;
+    fbo-ifc:hasDataType "length" ;
+    fbo-ifc:hasKind "Property" ;
+    fbo-ifc:hasPsetProperty "Qto_DoorBaseQuantities.Width" ;
+    fbo-ifc:isBuildingSMART true ;
+    fbo-ifc:mapsToTerm fbo:WidthFreeDoors .
+
+fbo-ifc:hasArgumentation a owl:DatatypeProperty ;
+    rdfs:label "has argumentation"@en .
+
+fbo-ifc:hasClassPredefinedType a owl:DatatypeProperty ;
+    rdfs:label "has IFC class and predefined type"@en .
+
+fbo-ifc:hasDataType a owl:DatatypeProperty ;
+    rdfs:label "has data type"@en .
+
+fbo-ifc:hasInterpretationResult a owl:DatatypeProperty ;
+    rdfs:label "has interpretation result"@en .
+
+fbo-ifc:hasKind a owl:DatatypeProperty ;
+    rdfs:label "has kind"@en .
+
+fbo-ifc:hasPsetProperty a owl:DatatypeProperty ;
+    rdfs:label "has IFC property set and property"@en .
+
+fbo-ifc:hasValue a owl:DatatypeProperty ;
+    rdfs:label "has value"@en .
+
+fbo-ifc:isBuildingSMART a owl:DatatypeProperty ;
+    rdfs:label "is buildingSMART approved"@en .
+
+fbo-ifc:mapsToTerm a owl:ObjectProperty ;
+    rdfs:label "maps to FBO term"@en .
+

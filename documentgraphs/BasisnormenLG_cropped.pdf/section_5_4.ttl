@@ -1,30 +1,44 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_5_4 a fro:Section ;
-    fro:hasArticle fro:Article_5_4_1 ;
+ex:Section_5_4 a fro:Section ;
+    fro:hasArticle ex:Article_5_4_1 ;
     fro:hasID "5.4" ;
     fro:hasOriginalText "Winkel- of handelscomplex"@nl .
 
-fro:Article_5_4_1 a fro:Article ;
+ex:Article_5_4_1 a fro:Article ;
     fro:hasID "A5.4.1" ;
-    fro:hasMember fro:Member_5_4_1_1,
-        fro:Member_5_4_1_2,
-        fro:Member_5_4_1_3 ;
-    fro:hasOriginalText "De inrichting van <a href=\"https://ontology.firebim.be/ontology/fbo#ShopUnit\">winkellokalen</a> die op <a href=\"https://ontology.firebim.be/ontology/fbo#Gallery\">binnengalerijen</a> uitgeven wordt toegelaten op een <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a> en op de aangrenzende <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlagen</a> mits:"@nl ;
-    fro:hasVersion fro:v0_1 .
+    fro:hasMember ex:Member_5_4_1_1,
+        ex:Member_5_4_1_2,
+        ex:Member_5_4_1_3,
+        ex:Member_5_4_1_4 ;
+    fro:hasOriginalText "De inrichting van winkellokalen die op binnengalerijen uitgeven wordt toegelaten op een evacuatieniveau en op de aangrenzende bouwlagen mits:"@nl ;
+    fro:hasVersion fro:v0_1 ;
+    fro:linksTo fbo-be:BuildingLayer,
+        fbo-be:EvacuationLevel .
 
-fro:Member_5_4_1_1 a fro:Member ;
-    fro:hasOriginalText "1. het <a href=\"https://ontology.firebim.be/ontology/fbo#ShoppingComplex\">complex</a> met zijn <a href=\"https://ontology.firebim.be/ontology/fbo#Gallery\">galerijen</a> van de overige <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">bouwdelen</a> gescheiden is door <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> met <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 60</a>;"@nl .
+ex:Member_5_4_1_1 a fro:Member ;
+    fro:hasOriginalText "1. het complex met zijn galerijen van de overige bouwdelen gescheiden is door wanden met EI 60;"@nl ;
+    fro:linksTo fbo:WalltypeCompartmentFirewall .
 
-fro:Member_5_4_1_2 a fro:Member ;
-    fro:hasOriginalText "2. de overige <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">bouwdelen</a> hun eigen <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> hebben onafhankelijk van de <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#ShoppingComplex\">winkel- of handelscomplex</a>."@nl .
+ex:Member_5_4_1_2 a fro:Member ;
+    fro:hasOriginalText "2. de overige bouwdelen hun eigen uitgangen hebben onafhankelijk van de uitgangen van het winkel- of handelscomplex."@nl .
 
-fro:Member_5_4_1_3 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#SeparationWall\">scheidingswanden</a> tussen de <a href=\"https://ontology.firebim.be/ontology/fbo#ShopUnit\">handelslokalen</a> hebben <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 30</a> en lopen door in het eventueel <a href=\"https://ontology.firebim.be/ontology/fbo#SuspendedCeiling\">verlaagd plafond</a>. Dit laatste voorschrift vervalt indien het <a href=\"https://ontology.firebim.be/ontology/fbo#ShoppingComplex\">winkel- of handelscomplex</a> voorzien is van een <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> van het type <a href=\"https://ontology.firebim.be/ontology/fbo#SprinklerSystem\">sprinkler</a> die is aangepast aan de aanwezige risico's."@nl .
+ex:Member_5_4_1_3 a fro:Member ;
+    fro:hasOriginalText "De scheidingswanden tussen de handelslokalen hebben EI 30 en lopen door in het eventueel verlaagd plafond."@nl ;
+    fro:linksTo fbo:WalltypeCompartmentFirewall,
+        fbo-be:SuspendedCeiling .
+
+ex:Member_5_4_1_4 a fro:Member ;
+    fro:hasOriginalText "Dit laatste voorschrift vervalt indien het winkel- of handelscomplex voorzien is van een automatische blusinstallatie van het type sprinkler die is aangepast aan de aanwezige risico's."@nl ;
+    fro:linksTo fbo-be:AutomaticFireExtinguishSystem .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

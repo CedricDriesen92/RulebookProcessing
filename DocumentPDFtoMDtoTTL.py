@@ -18,7 +18,6 @@ from dotenv import load_dotenv
 import os
 from google import genai
 from google.genai import types
-import pandas as pd
 import datetime
 
 load_dotenv()
@@ -97,27 +96,34 @@ def split_into_sections(text):
 def create_empty_section_ttl(section_number):
     ttl_content = f"""@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
-@base <https://ontology.firebim.be/ontology/fro#> .
+@prefix ex: <https://example.org/rulebook#> .
+@base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_{section_number.replace('.', '_')} a fro:Section ;
+ex:Section_{section_number.replace('.', '_')} a fro:Section ;
     fro:hasID "{section_number}" .
 """
     return ttl_content
 
 FRO = Namespace("https://ontology.firebim.be/ontology/fro#")
-XML = Namespace("http://www.w3.org/XML/1998/namespace")
+XML = Namespace("http://www.w3.org/XML/1998/namespace#")
+EX = Namespace("https://example.org/rulebook#")
+FBO = Namespace("https://ontology.firebim.be/ontology/fbo#")
+FBO_BE = Namespace("https://ontology.firebim.be/ontology/fbo-BE#")
 
 
 def create_initial_graph():
     g = Graph()
     g.bind("fro", FRO)
-    
-    document = URIRef(FRO.RoyalDecree)
-    authority = URIRef(FRO.Belgian_Government)
+    g.bind("ex", EX)
+    g.bind("fbo", FBO)
+    g.bind("fbo-be", FBO_BE)
+
+    document = URIRef(EX.RoyalDecree)
+    authority = URIRef(EX.Belgian_Government)
     
     g.add((document, RDF.type, FRO.Document))
     g.add((document, FRO.hasID, Literal("RoyalDecree1994")))
@@ -153,29 +159,35 @@ Output only the Turtle (.ttl) content, no explanations. Your .ttl file will be c
 
 {starting_graph}
 
-Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following the ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned. Prefixes will be added afterwards automatically so ALWAYS start off with fro:Section_..., NEVER define any prefixes.
+Now, given the following section of a building code rulebook, convert it into Turtle (.ttl) format following the ontology. Use the section number as the ID for the main section entity. Create appropriate subdivisions (chapters, articles, paragraphs, etc.) as needed. Include all relevant information such as original text (make sure all text is only used ONCE, so if the text exists in originaltext in an object like an article it shouldn't be in the originaltext of the parent section nor any child objects like members, etc.), references, and any specific measurements or conditions mentioned. Prefixes will be added afterwards automatically so ALWAYS start off with ex:Section_..., NEVER define any prefixes.
 
-Additionally, you must now enhance the text by adding HTML links to relevant ontology concepts via the building ontology list below. When you identify terms that match concepts from the ontology, wrap them in HTML anchor tags that link to their URI definitions. For example:
-- If discussing compartment areas, use: <a href="https://ontology.firebim.be/ontology/fbo#CompartmentArea">area of the compartment</a>
-- For fire resistance requirements: <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">fire resistance</a>
+Additionally, you must link relevant ontology concepts to the members (or articles/sections) that mention them using the `fro:linksTo` property. There are two ontology levels:
+1. **Belgian ontology (fbo-be)** - Country-specific terms. URI pattern: https://ontology.firebim.be/ontology/fbo-BE#Term
+2. **European ontology (fbo)** - General European terms. URI pattern: https://ontology.firebim.be/ontology/fbo#Term
 
-The links should be added to the originalText properties in the output TTL. Make sure to:
-1. Only link to terms that actually exist in the building ontology
-2. Maintain the original text's meaning and structure
-3. Use the correct URIs from the ontology file(s)
+When you identify terms in the text that match concepts from the ontologies, add a `fro:linksTo` triple on the member (or article/section containing the text) pointing to the ontology term. **Always prefer Belgian (fbo-be) terms when available.** Only fall back to European (fbo) terms if no matching Belgian term exists.
 
-Available building ontology terms for linking:
-{', '.join(load_building_terms())}
+**DO NOT modify the original text in any way.** The `fro:hasOriginalText` literal must remain exactly as it appears in the source — no HTML tags, no markup. Ontology links go on a separate `fro:linksTo` property, not inside the text.
 
-Use these terms with the URI pattern: https://ontology.firebim.be/ontology/fbo#term
+Example:
+```
+ex:Member_1_1 a fro:Member ;
+    fro:hasOriginalText "De oppervlakte van een duplex mag niet meer bedragen dan de helft van de oppervlakte van het brandcompartiment."@nl ;
+    fro:linksTo fbo-be:AreaDuplex, fbo-be:AreaFireCompartment .
+```
 
-IMPORTANT FORMATTING RULES:
-1. Always use triple quotes (\"\"\" \"\"\") for originalText properties that contain HTML links
-2. Escape any quotes within HTML attributes using \\"
-3. For simple text without HTML, you can use single quotes
+Rules:
+1. Only link to terms that actually exist in the ontology lists below
+2. Prefer fbo-be (Belgian) terms over fbo (European) terms when both exist for the same concept
+3. Keep the original text literal completely unchanged
+4. Multiple links on one member go in a comma-separated list after `fro:linksTo`
+5. The prefixes `fbo:` and `fbo-be:` will be added automatically — use them directly without declaring them
 
-Example format:
-fro:hasOriginalText \"\"\"Text with <a href=\\"https://ontology.firebim.be/ontology/fbo#Term\\">linked term</a>\"\"\"@nl ;
+Available Belgian (fbo-be) terms (PREFERRED):
+{', '.join(load_building_terms()['be'])}
+
+Available European (fbo) terms (fallback only):
+{', '.join(load_building_terms()['eu'])}
 """
     prompt2 = f"""
 Section number: {section_number}
@@ -216,7 +228,7 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
                             "content": [
                                 {
                                     "type": "text",
-                                    "text": "fro:Section_" + str(section_number) +" a"
+                                    "text": "ex:Section_" + str(section_number) +" a"
                                 }
                             ]
                         }
@@ -234,16 +246,13 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
                     ),
                 ]
                 generate_content_config_flash = types.GenerateContentConfig(
-                    temperature=1,
-                    top_p=0.95,
-                    top_k=64,
                     max_output_tokens=65536,
                     thinking_config=types.ThinkingConfig(
-                        thinking_budget=1024,
+                        thinking_level="high",
                     ),
                 )
                 gemini_response = gemini_client.models.generate_content(
-                    model="gemini-3-flash-preview",
+                    model="gemini-3.1-flash-lite-preview",
                     contents=contents,
                     config=generate_content_config_flash,
                 )
@@ -255,14 +264,17 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
             # Combine with prefix declarations
             full_ttl_content = """@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @base <https://ontology.firebim.be/ontology/fro> .\n\n"""
 
-            # Only append the response if it doesn't start with "fro:Section_"
-            if not response.startswith("fro:Section_"):
+            # Only append the response if it doesn't start with "ex:Section_"
+            if not response.startswith("ex:Section_"):
                 full_ttl_content += response
             else:
                 full_ttl_content += response.strip()
@@ -312,7 +324,10 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
             temp_graph.bind("xml", XML)
             temp_graph.bind("xsd", XSD)
             temp_graph.bind("rdfs", RDFS)
-            temp_graph.bind("firebim", FRO)
+            temp_graph.bind("fro", FRO)
+            temp_graph.bind("ex", EX)
+            temp_graph.bind("fbo", FBO)
+            temp_graph.bind("fbo-be", FBO_BE)
             temp_graph.parse(data=ttl_content, format="turtle", publicID=FRO)
 
             # 3. Find articles and add version info to temp_graph for first article
@@ -341,10 +356,10 @@ def create_and_combine_section_ttl(section_number, section_text, ontology, main_
 
             # 5. Save the modified temp_graph (including versioning) to the individual section file
             os.makedirs(output_folder, exist_ok=True)
-            with open(file_name, 'wb') as f: 
-                # Serialize the temp_graph which now includes versioning
-                # rdflib handles encoding when writing to a binary stream
-                temp_graph.serialize(f, format="turtle") 
+            serialized = temp_graph.serialize(format="turtle")
+            with open(file_name, 'w', encoding='utf-8') as f:
+                f.write("@base <https://ontology.firebim.be/ontology/fro> .\n")
+                f.write(serialized)
             
             print(f"Successfully processed section {section_number} and saved with version info.")
             return True # Success
@@ -385,13 +400,28 @@ def compare_section_numbers(a, b):
     return (a_parts > b_parts) - (a_parts < b_parts)
     
 def load_building_terms():
-    # Load CSV files and extract first columns
-    objects_df = pd.read_csv('matrixobjects_auto.csv')
-    properties_df = pd.read_csv('matrixproperties_auto.csv')
-    
-    # Combine terms from both files
-    building_terms = objects_df.iloc[:, 0].tolist() + properties_df.iloc[:, 0].tolist()
-    return building_terms
+    """Load building ontology terms from fbo-be.ttl (Belgian, preferred) and fbo.ttl (European, fallback).
+    Returns a dict with 'be' and 'eu' keys, each containing a sorted list of term names."""
+    FBO_BE_NS = "https://ontology.firebim.be/ontology/fbo-BE#"
+    FBO_NS = "https://ontology.firebim.be/ontology/fbo#"
+
+    g_be = Graph()
+    g_be.parse('fbo/fbo-be.ttl', format='turtle')
+    be_terms = sorted(set(
+        str(s).replace(FBO_BE_NS, '')
+        for s in g_be.subjects()
+        if str(s).startswith(FBO_BE_NS)
+    ))
+
+    g_eu = Graph()
+    g_eu.parse('fbo/fbo.ttl', format='turtle')
+    eu_terms = sorted(set(
+        str(s).replace(FBO_NS, '')
+        for s in g_eu.subjects()
+        if str(s).startswith(FBO_NS)
+    ))
+
+    return {'be': be_terms, 'eu': eu_terms}
 
 def main():
     ontology = load_ontology('FireBIM_Document_Ontology_Alex.ttl')
@@ -415,8 +445,8 @@ def main():
     section_numbers = [section_number for section_number, _, _ in sections]
     section_titles = [section_title for _, section_title, _ in sections]
     
-    document = URIRef(FRO.RoyalDecree)
-    
+    document = URIRef(EX.RoyalDecree)
+
     # Preprocess sections to combine non-section content with previous sections
     processed_sections = []
     for i, (section_number, section_title, section_content) in enumerate(sections):
@@ -437,25 +467,28 @@ def main():
     print(f"Number of processed sections: {len(sections)}")
     
     for i, section_number in enumerate(section_numbers):
-        section_uri = URIRef(FRO['Section_' + section_number.replace('.', '_')])
+        section_uri = URIRef(EX['Section_' + section_number.replace('.', '_')])
         main_graph.add((section_uri, RDF.type, FRO.Section))
         main_graph.add((section_uri, FRO.hasID, Literal(section_number)))
         main_graph.add((section_uri, FRO.hasOriginalText, Literal(section_titles[i].upper())))
-        
+
         # Link top-level sections to the document
         if '.' not in section_number:
             main_graph.add((document, FRO.hasSection, section_uri))
-        
+
         # Link child sections to parent sections
         parts = section_number.split('.')
         if len(parts) > 1:
             parent_number = '.'.join(parts[:-1])
-            parent_uri = URIRef(FRO['Section_' + parent_number.replace('.', '_')])
+            parent_uri = URIRef(EX['Section_' + parent_number.replace('.', '_')])
             main_graph.add((parent_uri, FRO.hasSection, section_uri))
     
     # Serialize the initial structure
     os.makedirs(output_folder, exist_ok=True)
-    main_graph.serialize(f"{output_folder}/document.ttl", format="turtle")
+    serialized = main_graph.serialize(format="turtle")
+    with open(f"{output_folder}/document.ttl", 'w', encoding='utf-8') as f:
+        f.write("@base <https://ontology.firebim.be/ontology/fro> .\n")
+        f.write(serialized)
     starting_graph = load_ontology(f"{output_folder}/document.ttl")
     
     # Load training examples
@@ -465,8 +498,7 @@ def main():
         f"Input Text:\n{ex['input']}\n\nExpected TTL Output (fragment):\n{str(ex['output']).split('@base <https://ontology.firebim.be/ontology/fro> .', 1)[-1].strip()}" 
         for ex in training_examples
     ])
-    # Add building terms to prompt context if needed by process_section_to_ttl
-    building_terms_list = load_building_terms() # Load once
+    # Building terms are loaded inside process_section_to_ttl from fbo/ TTL files
 
     # Process sections
     curNum = 0
@@ -492,7 +524,10 @@ def main():
         if processed_bool:
             print(f"Processed section {section_number}, nr. {curNum} / {totalNum}")
     
-    main_graph.serialize(f"{output_folder}/combined_document_data_graph.ttl", format="turtle")
+    serialized = main_graph.serialize(format="turtle")
+    with open(f"{output_folder}/combined_document_data_graph.ttl", 'w', encoding='utf-8') as f:
+        f.write("@base <https://ontology.firebim.be/ontology/fro> .\n")
+        f.write(serialized)
 
 if __name__ == "__main__":
     main()

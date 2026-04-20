@@ -1,26 +1,43 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_4_2_2_5 a fro:Section ;
-    fro:hasArticle fro:Article_4_2_2_5_1 ;
-    fro:hasID "4.2.2.5" ;
-    fro:hasOriginalText """De <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuizen</a> die de <a href="https://ontology.firebim.be/ontology/fbo#UndergroundFloor">ondergrondse bouwlagen</a> bedienen, mogen niet rechtstreeks het verlengde zijn van degene die de bouwlagen boven een <a href="https://ontology.firebim.be/ontology/fbo#EvacuationLevel">evacuatieniveau</a> bedienen.
-Dit sluit niet uit dat het ene boven het andere mag liggen, mits volgende voorwaarden:"""@nl .
+ex:Section_4_2_2_5 a fro:Section ;
+    fro:hasArticle ex:Article_4_2_2_5_1 ;
+    fro:hasID "4.2.2.5" .
 
-fro:Article_4_2_2_5_1 a fro:Article ;
+ex:Article_4_2_2_5_1 a fro:Article ;
     fro:hasID "A4.2.2.5.1" ;
-    fro:hasMember fro:Member_4_2_2_5_1_1,
-        fro:Member_4_2_2_5_1_2 ;
+    fro:hasMember ex:Member_4_2_2_5_1_1,
+        ex:Member_4_2_2_5_1_2 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_4_2_2_5_1_1 a fro:Member ;
-    fro:hasOriginalText "1. de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> die ze scheiden hebben <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">EI 60</a>."@nl .
+ex:Member_4_2_2_5_1_1 a fro:Member ;
+    fro:hasOriginalText "De trappenhuizen die de ondergrondse bouwlagen bedienen, mogen niet rechtstreeks het verlengde zijn van degene die de bouwlagen boven een evacuatieniveau bedienen."@nl ;
+    fro:linksTo fbo-be:BuildingLayer,
+        fbo-be:EnclosedInternalStairCase,
+        fbo-be:EvacuationLevel .
 
-fro:Member_4_2_2_5_1_2 a fro:Member ;
-    fro:hasOriginalText "2. de toegang tot ieder trappenhuis geschiedt via een <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">zelfsluitende</a> of <a href=\"https://ontology.firebim.be/ontology/fbo#IsFireActivatedClosing\">bij brand zelfsluitende</a> <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deur</a> <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">EI1 30</a>."@nl .
+ex:Member_4_2_2_5_1_2 a fro:Member ;
+    fro:hasMember ex:Member_4_2_2_5_1_2_1,
+        ex:Member_4_2_2_5_1_2_2 ;
+    fro:hasOriginalText "Dit sluit niet uit dat het ene boven het andere mag liggen, mits volgende voorwaarden:"@nl .
+
+ex:Member_4_2_2_5_1_2_1 a fro:Member ;
+    fro:hasOriginalText "1. de wanden die ze scheiden hebben EI 60."@nl ;
+    fro:linksTo fbo-be:WallTypeInternal .
+
+ex:Member_4_2_2_5_1_2_2 a fro:Member ;
+    fro:hasOriginalText "2. de toegang tot ieder trappenhuis geschiedt via een zelfsluitende of bij brand zelfsluitende deur EI1 30."@nl ;
+    fro:linksTo fbo:DoorExit,
+        fbo:SelfClosing,
+        fbo-be:EnclosedInternalStairCase .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

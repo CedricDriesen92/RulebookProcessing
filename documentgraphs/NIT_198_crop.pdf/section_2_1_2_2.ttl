@@ -6,20 +6,20 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_2_1_2_2 a fro:Section ;
+ex:Section_2_1_2_2 a fro:Section ;
     fro:hasID "2.1.2.2" ;
     fro:hasOriginalText "RESISTANCE AUX CHOCS DE CORPS DURS ET DE CORPS MOUS"@fr ;
-    fro:hasArticle fro:Article_2_1_2_2_1 .
+    fro:hasArticle ex:Article_2_1_2_2_1 .
 
-fro:Article_2_1_2_2_1 a fro:Article ;
+ex:Article_2_1_2_2_1 a fro:Article ;
     fro:hasID "A2.1.2.2.1" ;
-    fro:hasMember fro:Member_2_1_2_2_1_1, fro:Member_2_1_2_2_1_2 .
+    fro:hasMember ex:Member_2_1_2_2_1_1, ex:Member_2_1_2_2_1_2 .
 
-fro:Member_2_1_2_2_1_1 a fro:Member ;
+ex:Member_2_1_2_2_1_1 a fro:Member ;
     fro:hasOriginalText """Les elements de l'escalier (limons, marches, garde-corps, et leurs fixations doivent resister aux charges dynamiques de securite (chocs) conformement aux STS 54 (8 12.22) [37]."""@fr ;
     fro:hasReference fro:Reference_STS_54 .
 
-fro:Member_2_1_2_2_1_2 a fro:Member ;
+ex:Member_2_1_2_2_1_2 a fro:Member ;
     fro:hasOriginalText """Pour plus de details, on se refera au § 2.1.2.2 de la NIT 196 [7]."""@fr ;
     fro:hasReference fro:Reference_NIT_196 .
 
@@ -29,4 +29,4 @@ fro:Reference_STS_54 a fro:Reference ;
 fro:Reference_NIT_196 a fro:Reference ;
     fro:hasID "NIT 196" .
 
-fro:Section_2_1_2 fro:hasSection fro:Section_2_1_2_2 .
+ex:Section_2_1_2 fro:hasSection ex:Section_2_1_2_2 .

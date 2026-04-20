@@ -1,16 +1,67 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_1_2_1 a fro:Section ;
-    fro:hasID "6.1.2.1" ;
-    fro:hasOriginalText """Het geheel bestaande uit één of meer <a href="https://ontology.firebim.be/ontology/fbo#ElevatorShaft">schachten</a> en de eventuele <a href="https://ontology.firebim.be/ontology/fbo#MachineRoom">machinekamer</a>, alsook <a href="https://ontology.firebim.be/ontology/fbo#Landing">toegangsbordessen</a> die een <a href="https://ontology.firebim.be/ontology/fbo#ElevatorLobby">sas</a> moeten vormen voor de <a href="https://ontology.firebim.be/ontology/fbo#UndergroundFloor">ondergrondse bouwlagen</a>, is omsloten door <a href="https://ontology.firebim.be/ontology/fbo#Wall">wanden</a> met <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">EI 60</a>.
-Hun <a href="https://ontology.firebim.be/ontology/fbo#ExternalWall">buitenwanden</a> mogen <a href="https://ontology.firebim.be/ontology/fbo#IsGlazed">beglaasd</a> zijn indien deze beantwoorden aan de eisen gesteld in punt 3.5.
+ex:Section_6_1_2_1 a fro:Section ;
+    fro:hasArticle ex:Article_6_1_2_1_1 ;
+    fro:hasID "6.1.2.1" .
 
-De <a href="https://ontology.firebim.be/ontology/fbo#Door">toegangsdeuren</a> tussen het <a href="https://ontology.firebim.be/ontology/fbo#Compartment">compartiment</a> en het <a href="https://ontology.firebim.be/ontology/fbo#ElevatorLobby">sas</a> hebben <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">EI1 30</a> en zijn <a href="https://ontology.firebim.be/ontology/fbo#IsSelfClosing">zelfsluitend</a> of <a href="https://ontology.firebim.be/ontology/fbo#IsFireActivatedClosing">zelfsluitend bij brand</a>.
+ex:Article_6_1_2_1_1 a fro:Article ;
+    fro:hasID "A6.1.2.1.1" ;
+    fro:hasMember ex:Member_6_1_2_1_1_1,
+        ex:Member_6_1_2_1_1_2,
+        ex:Member_6_1_2_1_1_3,
+        ex:Member_6_1_2_1_1_4,
+        ex:Member_6_1_2_1_1_7 ;
+    fro:hasVersion fro:v0_1 .
 
-Als de <a href="https://ontology.firebim.be/ontology/fbo#CompartmentArea">oppervlakte</a> van het <a href="https://ontology.firebim.be/ontology/fbo#ElevatorLobby">sas</a> kleiner is dan de <a href="https://ontology.firebim.be/ontology/fbo#CompartmentArea">oppervlakte</a> van de <a href="https://ontology.firebim.be/ontology/fbo#ElevatorCar">kooi van de lift of goederenlift</a>, is de <a href="https://ontology.firebim.be/ontology/fbo#Door">toegangsdeur</a> tussen het <a href="https://ontology.firebim.be/ontology/fbo#Compartment">compartiment</a> en het <a href="https://ontology.firebim.be/ontology/fbo#ElevatorLobby">sas</a>, een <a href="https://ontology.firebim.be/ontology/fbo#IsFireActivatedClosing">bij brand zelfsluitend</a>e <a href="https://ontology.firebim.be/ontology/fbo#Door">draaideur</a> <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">EI1 30</a> bediend door een <a href="https://ontology.firebim.be/ontology/fbo#FireDetectionSystem">branddetectie-installatie</a> die minstens het volgende omvat:
+ex:Member_6_1_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "Het geheel bestaande uit één of meer schachten en de eventuele machinekamer, alsook toegangsbordessen die een sas moeten vormen voor de ondergrondse bouwlagen, is omsloten door wanden met EI 60."@nl ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:BuildingLayer,
+        fbo-be:TechnicalRoom,
+        fbo-be:VerticalShaft,
+        fbo-be:WallTypeInternal .
 
-- een <a href="https://ontology.firebim.be/ontology/fbo#SmokeDetection">rookdetectie</a> in de <a href="https://ontology.firebim.be/ontology/fbo#ElevatorShaft">schacht</a>;
-- en een <a href="https://ontology.firebim.be/ontology/fbo#SmokeDetection">rookdetectie</a> in het <a href="https://ontology.firebim.be/ontology/fbo#Compartment">compartiment</a> in de <a href="https://ontology.firebim.be/ontology/fbo#Location">omgeving van de toegangsdeur tot het sas</a>.
+ex:Member_6_1_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "Hun buitenwanden mogen beglaasd zijn indien deze beantwoorden aan de eisen gesteld in punt 3.5."@nl ;
+    fro:linksTo fbo-be:WallTypeExternal .
 
-Het <a href="https://ontology.firebim.be/ontology/fbo#Landing">toegangsbordes</a> mag deel uitmaken van de <a href="https://ontology.firebim.be/ontology/fbo#EvacuationRoute">evacuatieweg</a>."""@nl .
+ex:Member_6_1_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText "De toegangsdeuren tussen het compartiment en het sas hebben EI1 30 en zijn zelfsluitend of zelfsluitend bij brand."@nl ;
+    fro:linksTo fbo:DoorExit,
+        fbo:FireResistance,
+        fbo:SelfClosing,
+        fbo-be:FireCompartment .
+
+ex:Member_6_1_2_1_1_4 a fro:Member ;
+    fro:hasMember ex:Member_6_1_2_1_1_4_1,
+        ex:Member_6_1_2_1_1_4_2 ;
+    fro:hasOriginalText "Als de oppervlakte van het sas kleiner is dan de oppervlakte van de kooi van de lift of goederenlift, is de toegangsdeur tussen het compartiment en het sas, een bij brand zelfsluitend draaideur EI1 30 bediend door een branddetectie-installatie die minstens het volgende omvat:"@nl ;
+    fro:linksTo fbo:DoorExit,
+        fbo:FireSafetyInstallationSmokeAlarmsystem,
+        fbo:SelfClosing,
+        fbo-be:FireCompartment .
+
+ex:Member_6_1_2_1_1_4_1 a fro:Member ;
+    fro:hasOriginalText "- een rookdetectie in de schacht;"@nl ;
+    fro:linksTo fbo:FireSafetyInstallationSmokeAlarmsystem,
+        fbo-be:VerticalShaft .
+
+ex:Member_6_1_2_1_1_4_2 a fro:Member ;
+    fro:hasOriginalText "- en een rookdetectie in het compartiment in de omgeving van de toegangsdeur tot het sas."@nl ;
+    fro:linksTo fbo:FireSafetyInstallationSmokeAlarmsystem,
+        fbo-be:FireCompartment .
+
+ex:Member_6_1_2_1_1_7 a fro:Member ;
+    fro:hasOriginalText "Het toegangsbordes mag deel uitmaken van de evacuatieweg."@nl ;
+    fro:linksTo fbo-be:EvacuationPath .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
 

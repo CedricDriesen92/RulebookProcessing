@@ -6,32 +6,32 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_2_2_1_5 a fro:Section ;
+ex:Section_2_2_1_5 a fro:Section ;
     fro:hasID "2.2.1.5" ;
     fro:hasOriginalText "REACTION AU FEU"@fr ;
-    fro:hasArticle fro:Article_2_2_1_5_1 .
+    fro:hasArticle ex:Article_2_2_1_5_1 .
 
-fro:Article_2_2_1_5_1 a fro:Article ;
+ex:Article_2_2_1_5_1 a fro:Article ;
     fro:hasID "A2.2.1.5.1" ;
-    fro:hasMember fro:Member_2_2_1_5_1_1, fro:Member_2_2_1_5_1_2 .
+    fro:hasMember ex:Member_2_2_1_5_1_1, ex:Member_2_2_1_5_1_2 .
 
-fro:Member_2_2_1_5_1_1 a fro:Member ;
+ex:Member_2_2_1_5_1_1 a fro:Member ;
     fro:hasOriginalText """La réaction au feu d'un matériau de construction est l'ensemble de ses propriétés qui ont un rapport avec l'influence qu'il peut avoir sur la naissance et le développement d'un incendie."""@fr .
 
-fro:Member_2_2_1_5_1_2 a fro:Member ;
+ex:Member_2_2_1_5_1_2 a fro:Member ;
     fro:hasOriginalText """Outre la classe des matériaux ininflammables A0 (plâtre, béton, maçonnerie), on distingue quatre classes de réaction au feu :"""@fr ;
-    fro:hasMember fro:Member_2_2_1_5_1_2_1, fro:Member_2_2_1_5_1_2_2, fro:Member_2_2_1_5_1_2_3, fro:Member_2_2_1_5_1_2_4 .
+    fro:hasMember ex:Member_2_2_1_5_1_2_1, ex:Member_2_2_1_5_1_2_2, ex:Member_2_2_1_5_1_2_3, ex:Member_2_2_1_5_1_2_4 .
 
-fro:Member_2_2_1_5_1_2_1 a fro:Member ;
+ex:Member_2_2_1_5_1_2_1 a fro:Member ;
     fro:hasOriginalText "- A1 : difficilement inflammable"@fr .
 
-fro:Member_2_2_1_5_1_2_2 a fro:Member ;
+ex:Member_2_2_1_5_1_2_2 a fro:Member ;
     fro:hasOriginalText "- A2 : moyennement inflammable"@fr .
 
-fro:Member_2_2_1_5_1_2_3 a fro:Member ;
+ex:Member_2_2_1_5_1_2_3 a fro:Member ;
     fro:hasOriginalText "- A3 : inflammable"@fr .
 
-fro:Member_2_2_1_5_1_2_4 a fro:Member ;
+ex:Member_2_2_1_5_1_2_4 a fro:Member ;
     fro:hasOriginalText "- A4 : facilement inflammable"@fr .
 
-fro:Section_2_2_1 fro:hasSection fro:Section_2_2_1_5 .
+ex:Section_2_2_1 fro:hasSection ex:Section_2_2_1_5 .

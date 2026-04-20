@@ -1,0 +1,1021 @@
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
+@prefix fbo-ifc: <https://ontology.firebim.be/ontology/fbo-ifc#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fbo-be:AreaDuplex a owl:Class ;
+    rdfs:label "Area of duplex compartment"@en,
+        "Oppervlakte van een duplex"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "the cumulative gross area of the building layers that form the duplex, measured between the inner surfaces of the compartment boundaries"@en,
+        "de gecumuleerde bruto-oppervlakte van de bouwlagen die de duplex vormen, gemeten tussen de binnenvlakken van de compartimentswanden."@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp21LowriseBuildings ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasIFCMapping fbo-ifc:AreaDuplex1,
+        fbo-ifc:AreaDuplex2 ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "321" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaDuplex-232f8487e6e78091951be7c491ccc36e> ;
+    fbo:hasRemarks "definition is mix between definition and part of the rule" .
+
+fbo-be:AreaTriplex a owl:Class ;
+    rdfs:label "Area of triplex compartment"@en,
+        "oppervlakte van een triplex"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "the cumulative gross area of the building layers that form the triplex, measured between the inner surfaces of the compartment boundaries"@en,
+        "de gecumuleerde bruto-oppervlakte van de bouwlagen die de triples vormen, gemeten tussen de binnenvlakken van de compartimentswanden."@nl-BE ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-20T14:48:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "327" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaTriplex-232f8487e6e780adb699f7b0c4b07bc9> .
+
+fbo-be:Atrium a owl:DatatypeProperty ;
+    rdfs:label "Compartment-type:Atrium"@en,
+        "Compartment-type:Atrium"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "CEN/TR 12101-5" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "Enclosed space, not necessarily vertically aligned, passing through two or more storeys in a building. Lift wells, escalator shafts, building services ducts and protected stairways are not classified as atria"@en,
+        "Compartiment dat over 2 of meerdere bouwlagen loopt, er is niet noodzakelijk een trap binnen dit compartiment die de verschillende bouwlagen verbindt"@nl-BE ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T10:50:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "169" ;
+    fbo:hasNotionURL <https://www.notion.so/Atrium-151f8487e6e780fe96fac4395c76f657> ;
+    fbo:hasRemarks "not defined in legislation but definition in standard CEN/TR 12101-5" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-be:AutomaticDetectionTotal a owl:Class ;
+    rdfs:label "Automatic detection of type total"@en,
+        "Automatische branddetectie van het type totale bewaking"@nl-BE ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertGuidance "type totale bewaking - automatische aanduiding van de brandmelding en detectoren aangepast aan aanwezige risico’s" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T11:01:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "317" ;
+    fbo:hasNotionURL <https://www.notion.so/AutomaticDetectionTotal-232f8487e6e7808195e2d9294c611917> .
+
+fbo-be:AutomaticFireExtinguishSystem a owl:Class ;
+    rdfs:label "Automatic fire extinguishing system"@en,
+        "automatische blusinstallatie"@nl-BE ;
+    rdfs:subClassOf fbo:AutomaticFireExtinguishSystem ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:40:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "156" ;
+    fbo:hasNotionURL <https://www.notion.so/AutomaticFireExtinguishSystem-151f8487e6e780e19768c12eb28416ad> ;
+    fbo:hasUnit "choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-be:BVR26042024 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BVR 26/04/2024"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDescription "Besluit van de Vlaamse Regering tot vaststelling van de specifieke brandveiligheidsnormen waaraan lokale dienstencentra, centra voor dagverzorging, centra voor dagopvang, centra voor kortverblijf, centra voor herstelverblijf, groepen van assistentiewoningen en woonzorgcentra moeten voldoen en tot bepaling van de procedure voor de uitreiking van het attest van naleving van die normen"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Decision of the Flemish Government laying down the specific fire safety standards to be met by local service centres, day care centres, day care centres, short-term care centres, rehabilitation centres, groups of assisted living housing and residential care centres and determining the procedure for issuing the certificate of compliance with those standards"@nl-BE ;
+    fbo:hasPublicationDate "2024-04-26"^^xsd:date ;
+    fbo:hasURL <https://codex.vlaanderen.be/PrintDocument.ashx?id=1039871&datum=&geannoteerd=false&print=false> .
+
+fbo-be:BuildingLayerParking a owl:Class ;
+    rdfs:label "Parking Building layer"@en,
+        "parkeerbouwlaag"@nl-BE ;
+    fbo:hasArticleID "Artikel 1.11" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "this refers to the space between the floor and the ceiling above. The floors below level EI are the basement floors and are not eligible for determining the number of floors in a building"@en,
+        "ruimte van de parking tussen een vloer en een plafond die de parkeerzones voor voertuigen, de circulatiewegen en eventuele lokalen omvat. De vloer van deze ruimte kan horizontaal of hellend zijn."@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T10:44:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "532" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingLayerParking-2f0f8487e6e78059a8fcf594c5c38541> .
+
+fbo-be:Ceiling a owl:Class ;
+    rdfs:label "Ceiling"@en,
+        "Plafond"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.8" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "building element covering the subsurface of the floor or roof and its supporting structure, consisting of suspensions, fixings and any insulation material. The ceiling can be attached directly to the building’s structural elements or be a suspended ceiling"@en,
+        "bouwelement dat het ondervlak van de vloer of van het dak bedekt en zijn draagstructuur bestaande uit de ophangingen, de bevestigingen en het eventuele isolatiemateriaal. Het plafond kan onmiddellijk tegen de structurele elementen van het gebouw bevestigd worden of een verlaagd plafond zijn."@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasIFCMapping fbo-ifc:Ceiling ;
+    fbo:hasLastEdition "2026-02-03T14:37:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "309" ;
+    fbo:hasNotionURL <https://www.notion.so/Ceiling-232f8487e6e78014bd15eb46e640cf61> .
+
+fbo-be:Conduits a owl:Class ;
+    rdfs:label "Conduits"@en,
+        "leidingen"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 4.6" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "General term indicating electrical conductors, ducts and pipes"@en,
+        "algemene term die de elektrische geleiders, de kanalen en de pijpen aanduidt"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "316" ;
+    fbo:hasNotionURL <https://www.notion.so/Conduits-232f8487e6e7805fbe0fe1395e1de623> .
+
+fbo-be:Conventionalheightofabuilding a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "Conventional height of a building"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDescription "Explanation on how to derive the conventional height of a building, which is required to distinguish between low, medium and high-rise buildings"@en ;
+    fbo:hasDocumentType "interpretation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Conventionele hoogte van het gebouw"@nl-BE ;
+    fbo:hasPublicationDate "2011-09-15"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/interpretatie-koninklijk-besluit-van-7-juli-1994-conventionele-hoogte-van-het-gebouw> .
+
+fbo-be:DayOccupation a owl:Class ;
+    rdfs:label "Day occupation"@en,
+        "Dagbezetting"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "The occupants are not in sleeping state"@en,
+        "de bezetters zijn niet slapend"@nl-BE ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-13T12:48:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "340" ;
+    fbo:hasNotionURL <https://www.notion.so/DayOccupation-232f8487e6e780f9b556ec824c10ef71> .
+
+fbo-be:Distance2EvacuationPath a owl:Class ;
+    rdfs:label "Distance to Evacuation path"@en,
+        "Afstand tot evacuatieweg"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "is the distance between a position in the compartment and the evacuation path that connects the exits of the compartment."@en,
+        "Is de afstand tussen een positie in het compartiment en de evacuatieweg die de uitgangen verbindt"@nl-BE ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertGuidance "rechte en kortste afstand (via deuren)" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-23T07:57:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "539" ;
+    fbo:hasNotionURL <https://www.notion.so/Distance2EvacuationPath-2f1f8487e6e780dcb3e1da4492ee4c58> .
+
+fbo-be:Distance2NearestExit a owl:Class ;
+    rdfs:label "Distance to nearest exit of the compartment"@en,
+        "Afstand tot dichtstbijzijnde uitgang van het compartiment"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "is the distance between a position in the compartment and the from that position nearest exit of the compartment"@en,
+        "is de afstand tussen een positie in het compartiment en de vanuit die positie dichtstbijzijde uitgang van dit compartiment"@nl-BE ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-23T08:56:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "540" ;
+    fbo:hasNotionURL <https://www.notion.so/Distance2NearestExit-2f1f8487e6e780daa05bc64568a4173c> .
+
+fbo-be:Distance2SecondExit a owl:Class ;
+    rdfs:label "Distance to a second exit"@en,
+        "Afstand tot een tweede uitgang"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "is the distance between a position in the compartment and a second exit of the compartment"@en,
+        "is de afstand tussen een positie in het compartiment en een tweede uitgang van het compartiment."@nl-BE ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-23T09:01:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "541" ;
+    fbo:hasNotionURL <https://www.notion.so/Distance2SecondExit-2f1f8487e6e78099ae27fdbe37df6b43> .
+
+fbo-be:Duct a owl:Class ;
+    rdfs:label "Duct"@en,
+        "kanaal"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 4.4" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "conduit in which air or combustion products flow"@en,
+        "leiding waarin lucht of verbrandingsproducten stromen"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "330" ;
+    fbo:hasNotionURL <https://www.notion.so/Duct-232f8487e6e780bfb360e769d0b56727> .
+
+fbo-be:EnclosedInternalStairCase a owl:Class ;
+    rdfs:label "Enclosed internal Staircase"@en,
+        "Binnentrappenhuis"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Implicit definion" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "the stairs connecting various compartments are enclosed and provide access to the compartment on each building layer and to an evacuation level"@en,
+        "De trappen die verscheidene compartimenten verbinden zijn omsloten en geven toegang tot het compartiment op elke bouwlaag en tot het  evacuatieniveau."@nl-BE ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "331" ;
+    fbo:hasNotionURL <https://www.notion.so/EnclosedInternalStairCase-232f8487e6e780bfb5dbd705678e080e> .
+
+fbo-be:EvacuationLevel a owl:Class ;
+    rdfs:label "Evacuation level"@en,
+        "Evacuatieniveau"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 5.6.8" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "building layer containing the exit(s) allowing evacuation to the outside. These exits lead to the public road or to a space from which it is accessible."@en,
+        "bouwlaag die de uitgang(en) bevat waardoor evacuatie naar buiten mogelijk is. Deze uitgangen leiden naar de openbare weg of naar een ruimte vanwaar die bereikbaar is."@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "336" ;
+    fbo:hasNotionURL <https://www.notion.so/EvacuationLevel-232f8487e6e780e59798ebac04734f16> .
+
+fbo-be:EvacuationPath a owl:Class ;
+    rdfs:label "Path of evacuation"@en,
+        "evacuatieweg"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 5.6.1" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "maximum 10% sloping road, within the building, that provides access to enclosed internal staircases, external staircases, vluchtterrassen and exits."@en,
+        "maximum 10% hellende weg, binnen het gebouw, die toegang geeft tot trappenhuizen, vluchtterrassen of uitgangen"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertGuidance "In a compartment, the connection between staircases is via evacuation paths and vluchtterrassen" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "68" ;
+    fbo:hasNotionURL <https://www.notion.so/EvacuationPath-151f8487e6e7800cbf40fac241d6faee> ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-be:EvacuationPathOnEvacuationLevel a owl:Class ;
+    rdfs:label "Evacuation path on the evacuation level"@en,
+        "Evacuatieweg op het evacuatieniveau"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "De evacuatieweg op het evacuatieniveau verbindt op het evacuatieniveau de trappenhuizen met de openbare weg"@en,
+        "The evacuation path on the evacuation level connects on the evacuation level the staircases with the public road."@nl-BE ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T19:37:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "538" ;
+    fbo:hasNotionURL <https://www.notion.so/EvacuationPathOnEvacuationLevel-2f0f8487e6e7801fac6dca825f4185e6> .
+
+fbo-be:ExitCompartment a owl:Class ;
+    rdfs:label "Exit of a compartment"@en,
+        "Uitgang van een compartiment"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 4.4.1.2" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "binnentrappenhuis of buitentrappenhuis en voor een evacuatieniveau : rechtstreekse toegang tot open lucht of een beschermde evacuatieweg."@en,
+        "internal enclosed staircase or external staircase. Fir an evacuation level : acces to open air, protected evacuation path"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp21LowriseBuildings,
+        fbo-be:KBARApp31MediumriseBuildings,
+        fbo-be:KBARApp41HighriseBuildings ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T12:36:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "311" ;
+    fbo:hasNotionURL <https://www.notion.so/ExitCompartment-232f8487e6e78035bf75dbbc0b1a4c74> .
+
+fbo-be:FinishedFloor a owl:Class ;
+    rdfs:label "Finished floor"@en,
+        "Afgewerkte vloer"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.9" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "horizontal wall that forms the separation between one floor of a building and the immediately higher or immediately lower floor; this wall usually comprises the following three components (a) the floor covering (possibly composed of : rokken, insulation layers, floating floors,…) (b) the unfinished floor (c) the ceiling. Parts (a) and (c) may not exist."@en,
+        "horizontale wand die de scheiding vormt tussen een bouwlaag van een gebouw en de onmiddellijk hogere of onmiddellijk lagere bouwlaag; deze wand omvat gewoonlijk de volgende drie onderdelen (a) de vloerbedekking (eventueel samengesteld uit: rokken, isolatielagen, zwevende vloeren, …) (b) de onafgewerkte vloer (c) het plafond. Het is mogelijk dat de delen (a) en (c) niet bestaan."@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "328" ;
+    fbo:hasNotionURL <https://www.notion.so/FinishedFloor-232f8487e6e780b1bc22e7e80801761f> .
+
+fbo-be:HeightBuilding a owl:DatatypeProperty ;
+    rdfs:label "Height of the building"@en,
+        "hoogte van een gebouw"@nl-BE ;
+    rdfs:subPropertyOf fbo:HeightBuilding ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.2.1" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "the height of a building is conventionally the distance between the finished floor level of the highest bulding layer and the lowest level of the roads usable by fire engines around the building"@en,
+        "de hoogte van een gebouw is conventioneel de afstand tussen het afgewerkte vloerpeil van de hoogste bouwlaag en het laagste peil van de door de brandweerwagens bruikbare wegen omheen het gebouw"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-10T08:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "323" ;
+    fbo:hasNotionURL <https://www.notion.so/HeightBuilding-232f8487e6e7809c9d10d1520d75dbd7> .
+
+fbo-be:HighRiseBuilding a owl:Class ;
+    rdfs:label "High Rise building"@en,
+        "hoog gebouw"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.2.2..1" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "Building of which the height is greater than 25 m"@en,
+        "Gebouw waarvan de hoogte groter is dan 25 m"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T11:52:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "535" ;
+    fbo:hasNotionURL <https://www.notion.so/HighRiseBuilding-2f0f8487e6e78088b558cc4d3ca7cdef> .
+
+fbo-be:HorizontalShaft a owl:Class ;
+    rdfs:label "Horizontal Shaft"@en,
+        "horizontale leidingenkoker"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasArticleID "Artikel 4.7" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "enclosed space in which conduits are placed"@en,
+        "omsloten ruimte waarin leidingen geplaatst zijn"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertGuidance "shaft in the horizontal direction, it crosses vertical compartment boundaries (walls). A horizontal shaft is seen as a separate compartment." ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "341" ;
+    fbo:hasNotionURL <https://www.notion.so/HorizontalShaft-232f8487e6e780fcb20fdae7a675121a> .
+
+fbo-be:InterpretationAreaCompartment a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "Interpretation Area Compartment"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDescription "Illustration + explanation of the measurement method for compartments"@en ;
+    fbo:hasDocumentType "interpretation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "2013-01-24_interpretatie-oppervlakte_compartiment"@nl-BE ;
+    fbo:hasPublicationDate "2013-01-24"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/interpretatie-koninklijk-besluit-van-7-juli-1994-definitie-van-de-oppervlakte-van-een-compartiment> .
+
+fbo-be:InterpretationsRoyaldecreefromJuly7th1994Changesoftheroyaldecreefrom20thofMay2022 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "Interpretations - Royal decree from July 7th 1994 - Changes of the royal decree from 20th of May 2022"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDocumentType "interpretation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Interpretatie - Koninklijk besluit van 7 juli 1994 - Wijzigingen van KB van 20 mei 2022"@nl-BE ;
+    fbo:hasPublicationDate "2022-06-23"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/interpretatie-koninklijk-besluit-van-7-juli-1994-wijzigingen-van-kb-van-20-mei-2022> .
+
+fbo-be:KBARApp51ReactiontoFire a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "KB/AR App5/1 - Reaction to Fire"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Bijlage 5/1: Reactie bij brand"@nl-BE ;
+    fbo:hasPublicationDate "1994-07-07"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/regelgeving/koninklijk-besluit-van-7-juli-1994-tot-vaststelling-van-de-basisnormen-voor-de> .
+
+fbo-be:LengthEvacuationPath a owl:Class ;
+    rdfs:label "Length of the evacuation path"@en,
+        "Lengte van de evacuatieweg"@nl-BE ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "The distance between stair cases connect via the evacuation path"@en,
+        "De afstand tussen de trappenhuizen die de evacuatieweg verbindt"@nl-BE ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "335" ;
+    fbo:hasNotionURL <https://www.notion.so/LengthEvacuationPath-232f8487e6e780d58906fb9355482875> .
+
+fbo-be:LowRiseBuilding a owl:Class ;
+    rdfs:label "Low rise Building"@en,
+        "Laag gebouw"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.2.2.3" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "Building of which the height of the building is lower than 10m"@en,
+        "Gebouw waarvan de hoogte lager is dan 10m"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T11:28:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "507" ;
+    fbo:hasNotionURL <https://www.notion.so/LowRiseBuilding-2b5f8487e6e78064a4def42201167d35> .
+
+fbo-be:LowestEvacuationLevel a owl:Class ;
+    rdfs:label "Lowest evacuation level"@en,
+        "laagst gelegen evacuatieniveau"@nl-BE ;
+    fbo:hasArticleID "Artikel 5.6.8" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "Lowest evacuation level"@en,
+        "laagst gelegen evacuatieniveau"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "312" ;
+    fbo:hasNotionURL <https://www.notion.so/LowestEvacuationLevel-232f8487e6e7803dac7fdab8ac7da4d7> .
+
+fbo-be:MaximalOccupationCompartment a owl:Class ;
+    rdfs:label "Maximal  number of persons in a compartment"@en,
+        "maximale bezetting van het compartiment"@nl-BE ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasExpertDefinition "The number of occupants in the compartment is the sum of the number of occupants of each room or space in the compartment"@en,
+        "De maximale bezetting van het comparitment is de som van de maximale bezetting van elk lokaal in het compartiment"@nl-BE ;
+    fbo:hasFireExpertEntity "Fire experts" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "325" ;
+    fbo:hasNotionURL <https://www.notion.so/MaximalOccupationCompartment-232f8487e6e780a4b2cfed67ced24584> .
+
+fbo-be:MaximalOccupationSpaces a owl:Class ;
+    rdfs:label "Maximal number of persons in a space or room"@en,
+        "maximale bezetting van lokalen"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.6.2" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "the number of occupants of a compartment not accessible to the public is at least the area of the compartment divided by 10. The number of occupants of a compartment accessible to the public is at least the area of the compartment divided by 3."@en,
+        "het aantal gebruikers van een niet voor het publiek toegankelijk compartiment bedraagt ten minste de oppervlakte van het compartiment gedeeld door 10. het aantal gebruikers van een voor het publiek toegankelijk compartiment bedraagt ten minste de oppervlakte van het compartiment gedeeld door 3."@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertGuidance "If fixed furniture is present, the exact number of occupants can be used for that area. The number according to the definition can then be calculated based on the reduced area (=total area - area of fixed furniture)" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "310" ;
+    fbo:hasNotionURL <https://www.notion.so/MaximalOccupationSpaces-232f8487e6e7802c82bbc818c3fe5a71> .
+
+fbo-be:MediumRiseBuilding a owl:Class ;
+    rdfs:label "Medium rise building"@en,
+        "Middelhoog gebouw"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.2.2.2" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "Building of which the heigth is equal to or situated between 10 and 25 m"@en,
+        "Gebouw waarvan de hoogte gelijk is aan of begrepen is tussen 10 m en 25 m"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T11:52:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "534" ;
+    fbo:hasNotionURL <https://www.notion.so/MediumRiseBuilding-2f0f8487e6e780e6b227f8f62ffc6e23> .
+
+fbo-be:MinimalNumberOfExits a owl:Class ;
+    rdfs:label "Minimal number of exits for compartment"@en,
+        "Minimaal vereist aantal uitgangen compartiment"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasExpertDefinition "Minimal number of exits needed in the compartment. Number is based on building height classification and number of occupants of compartment"@en,
+        "Minimaal vereist aantal uitgangen voor het compartiment. Dit getal is afhankelijk van de classificatie van gebouwhoogte en het aantal gebruikers van het compartement"@nl-BE ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T12:12:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "308" ;
+    fbo:hasNotionURL <https://www.notion.so/MinimalNumberOfExits-232f8487e6e7800996ddc72a7bbc44c7> .
+
+fbo-be:NightOccupation a owl:Class ;
+    rdfs:label "Night occupantion"@en,
+        "Rooms with night occupation"@en,
+        "Lokalen met nachtbezetting"@nl-BE,
+        "Nachtbezetting"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.16" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "The occupants are in sleeping state"@en,
+        "De bezetters zijn slapend"@nl-BE,
+        "lokalen bestemd voor het opvangen van slapende bezetters."@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime,
+        "2026-01-23T09:35:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "324",
+        "543" ;
+    fbo:hasNotionURL <https://www.notion.so/NightOccupation-232f8487e6e7809dbd28d50525331657>,
+        <https://www.notion.so/NightOccupation-2f1f8487e6e780618daecc7e69fd975e> .
+
+fbo-be:NumberBuildingLayersBuilding a owl:DatatypeProperty ;
+    rdfs:label "Building-number of building layers"@en,
+        "Aantal bouwlagen in het gebouw"@nl-BE ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "151" ;
+    fbo:hasNotionURL <https://www.notion.so/NumberBuildingLayers-Building-151f8487e6e780d4b28dd80619be91f1> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Number" .
+
+fbo-be:NumberOccupants a owl:Class ;
+    rdfs:label "Number of occupants of a compartment"@en,
+        "Aantal gebruikers van een compartiment"@nl-BE ;
+    rdfs:subClassOf fbo:NumberOccupants ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.6.2" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "For rooms not accessible to the public, the number of users is at least equal to the surface area of the compartment/10. For rooms accessible to the public, the number of users is at least equal to the surface area of the compartment/3. If the number of users can be accurately determined based on fixed furniture, this surface area may be deducted. The number of users is then the sum of the accurately determined number and the number calculated based on the reduced surface area."@en,
+        "Voor lokalen niet toegankelijk voor publiek is het aantal gebruikers ten minste gelijk aan de oppervlakte van het compartiment/10. Voor lokalen toegankelijk voor publiek is het aantal gebruikers ten minste gelijk aan de oppervlakte van het compartiment/3. Indien het aantal gebruikers nauwkeurig kan bepaald worden op basis van vast meubilair, mag dit oppervlak in mindering gebracht worden. Het aantal gebruikers is dan de som van het nauwkeurig bepaalde aantal en het aantal berekend op basis van de verminderde oppervlakte."@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-10T08:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "536" ;
+    fbo:hasNotionURL <https://www.notion.so/NumberOccupants-2f0f8487e6e780f58c08d70e03c45212> .
+
+fbo-be:NumberOfExits a owl:Class ;
+    rdfs:label "Number of exits present"@en,
+        "Aantal aanwezige uitgangen"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasExpertDefinition "Number of exits of the compartment"@en,
+        "Aantal uitgangen van het compartiment"@nl-BE ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T12:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "537" ;
+    fbo:hasNotionURL <https://www.notion.so/NumberOfExits-2f0f8487e6e780258a46ca210719f240> .
+
+fbo-be:Parking a owl:Class ;
+    rdfs:label "Compartment-type:Parking"@en,
+        "Compartment-type:Parking"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "Compartment existing of one ore more parking building layers"@en,
+        "Compartement samengesteld uit één of meerdere parkeerbouwlagen"@nl-BE ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T10:49:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "533" ;
+    fbo:hasNotionURL <https://www.notion.so/Parking-2f0f8487e6e7806fb6a5c2b27bc45496> .
+
+fbo-be:Pipes a owl:Class ;
+    rdfs:label "Pipes"@en,
+        "pijp"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 4.5" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "tubular conduit in which a fluid other than air or combustion products flow"@en,
+        "buisvormige leiding waarin een ander fluïdum dan lucht of verbrandingsproducten stroomt"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "338" ;
+    fbo:hasNotionURL <https://www.notion.so/Pipes-232f8487e6e780f4b5b9e2132361a21c> .
+
+fbo-be:RoomTypeCollectiveKitchen a owl:ObjectProperty ;
+    rdfs:label "Room-type:collective_kitchen"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "83" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomTypeCollectiveKitchen-151f8487e6e7802f9cf3e18c5f916564> .
+
+fbo-be:SingleFireCompartment a owl:Class ;
+    rdfs:label "Compartment-type:Single"@en,
+        "Compartment-type:Single"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "Compartment whose height corresponds to the height of a single building layer"@en,
+        "Compartiment waarvan de hoogte overeenstemt met de hoogte van één bouwlaag."@nl-BE ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T10:08:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "530" ;
+    fbo:hasNotionURL <https://www.notion.so/SingleFireCompartment-2f0f8487e6e780e4af4fdeb435c4e808> .
+
+fbo-be:SleepingOccupier a owl:Class ;
+    rdfs:label "Sleeping occupier"@en,
+        "slapende bezetter"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.23" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "niet in staat om een begin van een brand of alarm onmiddellijk op te merken of navenant te reageren."@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "319" ;
+    fbo:hasNotionURL <https://www.notion.so/SleepingOccupier-232f8487e6e780869736f5209b3da799> .
+
+fbo-be:SleepingState a owl:Class ;
+    rdfs:label "Sleeping state"@en,
+        "slapend"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "niet in staat om een begin van een brand of een alarm onmiddellijk op te merken of navenant te reageren"@nl-BE ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-23T11:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "544" ;
+    fbo:hasNotionURL <https://www.notion.so/SleepingState-2f1f8487e6e7803db9b0f8e0211b39fb> .
+
+fbo-be:SmokeAndHeatExtraction a owl:DatatypeProperty ;
+    rdfs:label "Compartment-Smoke and heat extraction"@en,
+        "rook- en warmteafvoerinstallatie"@nl-BE ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "135" ;
+    fbo:hasNotionURL <https://www.notion.so/SmokeAndHeatExtraction-151f8487e6e780a68269cc911549fe25> ;
+    fbo:hasUnit "choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-be:Subrelationtodeleteprobably a owl:ObjectProperty ;
+    rdfs:label "Subrelation (to delete probably)"@en ;
+    schema1:domainIncludes fbo-be:Building ;
+    schema1:rangeIncludes fbo-be:FireCompartment ;
+    rdfs:comment "I don’t think we should model these explicitly e.g. should be derived from the above relation"@en ;
+    fbo:hasNotionURL <https://www.notion.so/Subrelation-to-delete-probably-30cf8487e6e780749613e0e68b759560> .
+
+fbo-be:SuspendedCeiling a owl:Class ;
+    rdfs:label "Suspended ceiling"@en,
+        "Verlaagd plafond"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.10" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "Suspended or self-supporting celing"@en,
+        "opgehangen of zelfdragend plafond"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "333" ;
+    fbo:hasNotionURL <https://www.notion.so/SuspendedCeiling-232f8487e6e780cc93fdf360e79661a3> .
+
+fbo-be:TechnicalFireCompartment a owl:Class ;
+    rdfs:label "Compartment-type:Technical"@en,
+        "Compartment-type:Technical"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "Compartment with one or more technical rooms, possibly over more than one building layer"@en,
+        "Compartiment gevormd door één of meerdere technische lokalen, eventueel verdeeld over verschillende bouwlagen"@nl-BE ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T10:29:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "531" ;
+    fbo:hasNotionURL <https://www.notion.so/TechnicalFireCompartment-2f0f8487e6e7803eb62ad2035a52c568> .
+
+fbo-be:TechnicalRoom a owl:ObjectProperty ;
+    rdfs:label "Technical Room"@en,
+        "technisch lokaal of ruimte"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 5.2" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "room or space in which fixed equipment or installations are installed, connected to the building, and which is only accessible to the persons responsible for operation, supervision, maintenance or repair"@en,
+        "lokaal of ruimte waarin vaste toestellen of installaties zijn opgesteld, verbonden met het gebouw, en dat (die) enkel toegankelijk is voor de personen belast met bediening, toezicht, onderhoud of herstelling."@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-22T10:49:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "116" ;
+    fbo:hasNotionURL <https://www.notion.so/TechnicalRoom-151f8487e6e7807e9512cbca175f36a8> .
+
+fbo-be:UnfinishedFloor a owl:Class ;
+    rdfs:label "Unfinished Floor"@en,
+        "Onafgewerkte vloer"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.7" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "horizontal rough wall, load-bearing and separating, and comprising: the load-bearing parts, the floor slabs, the intermediate beams and any filling, whereby the whole forms the ruwbouw of the floor."@en,
+        "horizontale ruwe wand, dragend en scheidend, en omvattend: de dragende delen, de vloerplaten, de tussenliggers en de eventuele vulling, waarbij het geheel de ruwbouw van de vloer vormt"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "326" ;
+    fbo:hasNotionURL <https://www.notion.so/UnfinishedFloor-232f8487e6e780aaa468da7fb4915bdb> .
+
+fbo-be:VerticalShaft a owl:Class ;
+    rdfs:label "Vertical Shaft"@en,
+        "Vertikale leidingenkoker"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasArticleID "Artikel 4.7" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "enclosed space in which conduits are placed"@en,
+        "omsloten ruimte waarin leidingen geplaatst zijn"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertGuidance "Shaft in the vertical direction, it crosses horizontal compartment boundaries (floors). A vertical shaft is seen as a separate compartment." ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "337" ;
+    fbo:hasNotionURL <https://www.notion.so/VerticalShaft-232f8487e6e780ec9b27f1d2d2ecb7fa> .
+
+fbo-be:WakingState a owl:Class ;
+    rdfs:label "Waking state"@en,
+        "wakend"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-10T08:18:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "545" ;
+    fbo:hasNotionURL <https://www.notion.so/WakingState-2f1f8487e6e780299991c1c2d3b35923> .
+
+fbo-be:WallTypeExternal a owl:DatatypeProperty ;
+    rdfs:label "Wall-type:external"@en,
+        "buitenwand"@nl-BE ;
+    fbo:hasArticleID "KB/AR - Bijlage 1 - 1.5" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasIFCMapping fbo-ifc:ExteriorWall ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "76" ;
+    fbo:hasNotionURL <https://www.notion.so/WallTypeExternal-151f8487e6e78021b9e2d29f2d0bb93c> ;
+    fbo:hasUnit "[-]" .
+
+fbo-be:WallTypeInternal a owl:DatatypeProperty ;
+    rdfs:label "Wall-type:internal"@en,
+        "binnenwand"@nl-BE ;
+    fbo:hasArticleID "KB/AR - Bijlage 1 - 1.5" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "100" ;
+    fbo:hasNotionURL <https://www.notion.so/WallTypeInternal-151f8487e6e7804eb41fc26a8d34935f> ;
+    fbo:hasUnit "[-]" .
+
+fbo-be:YearConstruction a owl:ObjectProperty ;
+    fbo:hasCountry fbo:Belgium,
+        fbo:Denmark,
+        fbo:Lithuania,
+        fbo:Netherlands ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "431" ;
+    fbo:hasNotionURL <https://www.notion.so/YearConstruction-26af8487e6e780179c91e8ac2863f87c> .
+
+fbo-be:hasBuildingLayer a owl:ObjectProperty ;
+    rdfs:label "hasBuildingLayer"@en ;
+    schema1:domainIncludes fbo-be:Building,
+        fbo-be:FireCompartment ;
+    schema1:rangeIncludes fbo-be:BuildingLayer ;
+    rdfs:comment "refs building layer"@en ;
+    fbo:hasNotionURL <https://www.notion.so/hasBuildingLayer-310f8487e6e780f0b196f3e15511bd98> .
+
+fbo-be:hasFireCompartment a owl:ObjectProperty ;
+    rdfs:label "hasFireCompartment"@en ;
+    schema1:domainIncludes fbo-be:Building ;
+    schema1:rangeIncludes fbo-be:FireCompartment ;
+    rdfs:comment "building has firecompartment(s),"@en ;
+    fbo:hasNotionURL <https://www.notion.so/hasFireCompartment-30cf8487e6e78009b791fa9917da4c45> .
+
+fbo-be:hasInternalStair a owl:DatatypeProperty ;
+    rdfs:label "hasInternalStair"@en ;
+    schema1:domainIncludes fbo-be:Duplex,
+        fbo-be:Triplex ;
+    schema1:rangeIncludes fbo-be:InternalStair ;
+    rdfs:comment "Could be either like this, or domainincludes could just be firecompartment if we decide these are all subclasses anyway"@en ;
+    fbo:hasNotionURL <https://www.notion.so/hasInternalStair-30cf8487e6e7803cb529f2e642f1ad8c> .
+
+fbo-be:hasLowestEvacuationLevel a owl:ObjectProperty ;
+    rdfs:label "hasLowestEvacuationLevel"@en ;
+    schema1:domainIncludes fbo-be:Building ;
+    schema1:rangeIncludes fbo-be:BuildingLayer ;
+    rdfs:comment "refs E1 building layer"@en ;
+    fbo:hasNotionURL <https://www.notion.so/hasLowestEvacuationLevel-310f8487e6e780de9fa9e78a32ddef59> .
+
+fbo-be:hasSubFireCompartment a owl:ObjectProperty ;
+    rdfs:label "hasSubFireCompartment"@en ;
+    schema1:domainIncludes fbo-be:SubCompartment ;
+    schema1:rangeIncludes fbo-be:SubCompartment ;
+    rdfs:comment "contains sub fire compartment"@en ;
+    fbo:hasNotionURL <https://www.notion.so/hasSubFireCompartment-310f8487e6e7809884c2f0895005906b> .
+
+fbo-be:AreaFireCompartment a owl:DatatypeProperty ;
+    rdfs:label "Compartment Area"@en,
+        "Oppervlakte van een compartiment"@nl-BE ;
+    rdfs:subPropertyOf fbo:AreaFireCompartment ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Article 1.6.1" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "Horizontal gross-area measured without any deduction between the inner surfaces of the compartment boundaries"@en,
+        "horizontale bruto-oppervlakte zonder enige aftrek gemeten tussen de binnenvlakken der compartimentswanden"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasExpertDefinition "The area of the floor, without deducting the area of columns, walls or other elements resting on the floor. The area of the enclosed staircases and enclosed shafts is deducted because they are not part of the compartment."@en,
+        "de oppervlakte van de vloer, zonder aftrek van de oppervlakte van de kolommen, muren of andere elementen die op de vloer rusten. De oppervlakte van de omsloten trappenhuizen en van de omsloten kokers wordt wel afgetrokken omdat zij geen deel uitmaken van het compartiment"@nl-BE ;
+    fbo:hasFireExpertEntity "Interpretation note - FOD IBZ" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasIFCMapping fbo-ifc:AreaFireCompartment2a ;
+    fbo:hasLastEdition "2026-02-16T12:54:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "94" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaFireCompartment-151f8487e6e78046a43eef0ac3bf15ff> ;
+    fbo:hasRelatedProperty fbo-be:FireCompartment ;
+    fbo:hasUnit "m²" ;
+    fbo:hasValueType "Number" .
+
+fbo-be:Duplex a owl:DatatypeProperty ;
+    rdfs:label "Duplex"@en,
+        "Duplex"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.18" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "The compartment formed by two superimposed floors with an internal connecting staircase"@en,
+        "Het compartiment dat gevormd wordt door twee boven elkaar geplaatste bouwlagen met een binnenverbindingstrap"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "65" ;
+    fbo:hasNotionURL <https://www.notion.so/Duplex-151f8487e6e78002911bf7577b895646> ;
+    fbo:hasRemarks "Possible type of comparment - exception to compartment should correspond to one building layer" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-be:InternalStair a owl:DatatypeProperty ;
+    rdfs:label "Internal Staircase"@en,
+        "binnenverbindingstrap"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasExpertDefinition "Stair between building layers inside a compartment"@en,
+        "Trap tussen bouwlagen binnen een compartiment"@nl-BE ;
+    fbo:hasFireExpertGuidance "Stair between 2 building layers within the same compartment (Duplex or Triplex). There are no fire requirements to this stair" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "166" ;
+    fbo:hasNotionURL <https://www.notion.so/InternalStair-151f8487e6e780fb9e77dd512384832e> ;
+    fbo:hasRemarks "no definition" ;
+    fbo:hasUnit "choice" ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-be:Triplex a owl:DatatypeProperty ;
+    rdfs:label "Triplex"@en,
+        "Triplex"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definitionn" ;
+    fbo:hasArticleID "Artikel 1.28" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "The compartment formed by three superimposed floors with an internal connecting staircase"@en,
+        "Het compartiment dat gevormd wordt door drie boven elkaar geplaatste bouwlagen met een binnenverbindingstrap"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "138" ;
+    fbo:hasNotionURL <https://www.notion.so/Triplex-151f8487e6e780ada188e1cc4ea19dea> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-be:BuildingLayer a owl:Class ;
+    rdfs:label "Building layer"@en,
+        "bouwlaag"@nl-BE ;
+    rdfs:subClassOf fbo:BuildingStorey ;
+    fbo:hasArticleID "Artikel 1.11" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "this refers to the space between the floor and the ceiling above. The floors below level EI are the basement floors and are not eligible for determining the number of floors in a building"@en,
+        "bedoeld wordt de ruimte tussen de vloer en het daarboven liggend plafond. De bouwlagen gelegen onder het niveau Ei zijn de kelderverdiepingen en komen niet in aanmerking voor het bepalen van het aantal bouwlagen van een gebouw"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasIFCMapping fbo-ifc:BuildingStorey ;
+    fbo:hasLastEdition "2026-02-23T14:11:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "339" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingLayer-232f8487e6e780f69f08fb4178ee05d6> .
+
+fbo-be:KBARApp31MediumriseBuildings a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "KB/AR App3/1 - Medium-rise Buildings"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Bijlage 3/1: Middelhoge gebouwen"@nl-BE ;
+    fbo:hasPublicationDate "1994-07-07"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/regelgeving/koninklijk-besluit-van-7-juli-1994-tot-vaststelling-van-de-basisnormen-voor-de> .
+
+fbo-be:KBARApp41HighriseBuildings a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "KB/AR App4/1 - High-rise Buildings"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Bijlage 4/1: Hoge gebouwen"@nl-BE ;
+    fbo:hasPublicationDate "1994-07-07"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/regelgeving/koninklijk-besluit-van-7-juli-1994-tot-vaststelling-van-de-basisnormen-voor-de> .
+
+fbo-be:SubCompartment a owl:Class ;
+    rdfs:label "Subcompartment"@en,
+        "Deelcompartiment"@nl-BE ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.13" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "part of a compartment bounded by walls that slow the spread of fire and limit the affected area"@en,
+        "deel van een compartiment begrensd door wanden die de branduitbreiding vertragen en de geteisterde oppervlakte beperken"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasFireExpertGuidance "Some rooms within a compartment can be bounded by fire resistant walls e.g. rooms with night occupation" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-01-06T12:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "320" ;
+    fbo:hasNotionURL <https://www.notion.so/SubCompartment-232f8487e6e78088b8aee38de016fe0b> .
+
+fbo-be:KBARApp21LowriseBuildings a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "KB/AR App2/1 - Low-rise Buildings"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Bijlage 2/1: Lage gebouwen"@nl-BE ;
+    fbo:hasPublicationDate "1994-07-07"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/regelgeving/koninklijk-besluit-van-7-juli-1994-tot-vaststelling-van-de-basisnormen-voor-de> .
+
+fbo-be:Building a owl:Class ;
+    rdfs:label "Building"@en,
+        "Gebouw"@nl-BE ;
+    rdfs:subClassOf fbo:Building ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "Artikel 1.12" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "any building structure that forms a covered space accessible to people, wholly or partially enclosed by walls; industrial installations (chemical installations, tank farms) and structures (bridges, tunnels,..) are not considered buildings"@en,
+        "elke bouwconstructie die een voor mensen toegankelijke overdekte ruimte vormt, geheel of gedeeltelijk met wanden omsloten; industriële installaties (zoals chemische installaties en tankparken) en kunstwerken (bruggen, tunnels,…) worden niet beschouwd als gebouwen"@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-03T14:48:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "334" ;
+    fbo:hasNotionURL <https://www.notion.so/Building-232f8487e6e780d4a82fda4596c38f3a> .
+
+fbo-be:FireCompartment a owl:Class ;
+    rdfs:label "Compartment"@en,
+        "Compartiment"@nl-BE ;
+    rdfs:subClassOf fbo:FireCompartment ;
+    fbo:hasAdoptedDefinitionType "Expert definition" ;
+    fbo:hasArticleID "Annex 1 - Artikel 1.6 + Annex 2/1, 3/1, 4/1 -  Artikel 2.1" ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasCountryCode "BE" ;
+    fbo:hasDefinition "Part of a building bounded by walls that serve to prevent the spread of fire to the adjacent compartment or compartments for a certain period of time. A compartment may or may be not divided into rooms."@en,
+        "deel van een gebouw begrensd door wanden die de brandvoortplanting naar het aanliggende compartiment of compartimenten gedurende een bepaalde tijd dienen te beletten. Een compartiment is al dan niet onderverdeeld in lokalen."@nl-BE ;
+    fbo:hasDocumentReference fbo-be:KBARApp1Terminology,
+        fbo-be:KBARApp21LowriseBuildings,
+        fbo-be:KBARApp31MediumriseBuildings,
+        fbo-be:KBARApp41HighriseBuildings ;
+    fbo:hasDomainReference fbo:X10AssignCompartment,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasIFCMapping fbo-ifc:FireCompartment1 ;
+    fbo:hasLastEdition "2026-02-03T14:42:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "278" ;
+    fbo:hasNotionURL <https://www.notion.so/FireCompartment-223f8487e6e78039b8fee3912513fa99> ;
+    fbo:hasRelatedProperty fbo-be:AreaFireCompartment .
+
+fbo-be:KBARApp1Terminology a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "KB/AR App1 - Terminology"@en ;
+    fbo:hasCountry fbo:Belgium ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "nl-BE" ;
+    fbo:hasOriginalName "Bijlage 1: Terminologie"@nl-BE ;
+    fbo:hasPublicationDate "1994-07-07"^^xsd:date ;
+    fbo:hasURL <https://www.securitecivile.be/nl/regelgeving/koninklijk-besluit-van-7-juli-1994-tot-vaststelling-van-de-basisnormen-voor-de> .
+

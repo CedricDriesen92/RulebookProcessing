@@ -1,6 +1,10 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 
-fro:Section_4_2_2_4 a fro:Section ;
+ex:Section_4_2_2_4 a fro:Section ;
     fro:hasID "4.2.2.4" ;
-    fro:hasOriginalText "Indien verscheidene <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> in eenzelfde <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">horizontaal vlak</a> liggen, mogen zij een of"@nl .
+    fro:hasOriginalText "INDIEN VERSCHEIDENE COMPARTIMENTEN IN EENZELFDE HORIZONTAAL VLAK LIGGEN, MOGEN ZIJ EEN OF" ;
+    fro:linksTo fbo-be:FireCompartment .
 

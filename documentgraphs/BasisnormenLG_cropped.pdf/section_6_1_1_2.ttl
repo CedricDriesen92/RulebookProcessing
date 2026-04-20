@@ -1,24 +1,26 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_1_1_2 a fro:Section ;
-    fro:hasArticle fro:Article_6_1_1_2_1 ;
+ex:Section_6_1_1_2 a fro:Section ;
+    fro:hasArticle ex:Article_6_1_1_2_1 ;
     fro:hasID "6.1.1.2" .
 
-fro:Article_6_1_1_2_1 a fro:Article ;
+ex:Article_6_1_1_2_1 a fro:Article ;
     fro:hasID "A6.1.1.2.1" ;
-    fro:hasMember fro:Member_6_1_1_2_1_1,
-        fro:Member_6_1_1_2_1_2 ;
+    fro:hasMember ex:Member_6_1_1_2_1_1,
+        ex:Member_6_1_1_2_1_2 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_6_1_1_2_1_1 a fro:Member ;
-    fro:hasOriginalText "In geval van abnormale stijging van de temperatuur van de <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machine</a> en/of van de andere <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalSystem\">elektrische uitrustingen</a>, moeten de <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a> stoppen op een <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">bordes</a> zodat de passagiers kunnen uitstappen."@nl .
+ex:Member_6_1_1_2_1_1 a fro:Member ;
+    fro:hasOriginalText "In geval van abnormale stijging van de temperatuur van de machine en/of van de andere elektrische uitrustingen, moeten de liften stoppen op een bordes zodat de passagiers kunnen uitstappen."@nl .
 
-fro:Member_6_1_1_2_1_2 a fro:Member ;
+ex:Member_6_1_1_2_1_2 a fro:Member ;
     fro:hasOriginalText "Een automatische terugkeer naar de normale werking is enkel mogelijk na voldoende afkoeling."@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

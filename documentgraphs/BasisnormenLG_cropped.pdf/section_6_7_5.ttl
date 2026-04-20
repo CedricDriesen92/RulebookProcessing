@@ -1,44 +1,45 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_7 fro:hasSection fro:Section_6_7_5 .
-
-fro:Article_6_7_5_1 a fro:Article ;
-    fro:hasID "A6.7.5.1" ;
-    fro:hasMember fro:Member_6_7_5_1_1,
-        fro:Member_6_7_5_1_2,
-        fro:Member_6_7_5_1_3 ;
-    fro:hasOriginalText "Een <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">rookklep</a> voldoet aan de volgende voorwaarden:"@nl ;
-    fro:hasVersion fro:v0_1 .
-
-fro:Member_6_7_5_1_1 a fro:Member ;
-    fro:hasMember fro:Member_6_7_5_1_1_1,
-        fro:Member_6_7_5_1_1_2 ;
-    fro:hasOriginalText "1. de dichtheid van de klep moet één van volgende kwaliteiten hebben:"@nl .
-
-fro:Member_6_7_5_1_1_1 a fro:Member ;
-    fro:hasOriginalText "1. in gesloten stand en bij een statisch drukverschil van 500 Pa mag het luchtverlies niet meer bedragen dan 60 l/s.m²;"@nl .
-
-fro:Member_6_7_5_1_1_2 a fro:Member ;
-    fro:hasOriginalText "2. klasse 3 volgens de norm NBN EN 1751;"@nl ;
-    fro:hasReference fro:Reference_NBN_EN_1751 .
-
-fro:Member_6_7_5_1_2 a fro:Member ;
-    fro:hasOriginalText "2. de <a href=\"https://ontology.firebim.be/ontology/fbo#Insulation\">pakking</a> die gebruikt wordt om deze dichtheid te bekomen, moet gedurende 2 h bestand zijn tegen temperaturen die schommelen van -20°C tot 100°C, waarna de klep aan de bovenvermelde dichtheidsproef nog voldoet;"@nl .
-
-fro:Member_6_7_5_1_3 a fro:Member ;
-    fro:hasOriginalText "3. het sluitingssysteem van de <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeValve\">rookklep</a> heeft een <a href=\"https://ontology.firebim.be/ontology/fbo#PositiveSafetySystem\">positieve veiligheid</a>."@nl .
-
-fro:Reference_NBN_EN_1751 a fro:Reference ;
-    fro:hasID "NBN EN 1751" .
-
-fro:Section_6_7_5 a fro:Section ;
-    fro:hasArticle fro:Article_6_7_5_1 ;
+ex:Section_6_7_5 a fro:Section ;
+    fro:hasArticle ex:Article_6_7_5_1 ;
     fro:hasID "6.7.5" ;
     fro:hasOriginalText "Rookkleppen"@nl .
 
+ex:Article_6_7_5_1 a fro:Article ;
+    fro:hasID "A6.7.5.1" ;
+    fro:hasMember ex:Member_6_7_5_1_1,
+        ex:Member_6_7_5_1_2,
+        ex:Member_6_7_5_1_3 ;
+    fro:hasOriginalText "Een rookklep voldoet aan de volgende voorwaarden:"@nl ;
+    fro:hasVersion fro:v0_1 ;
+    fro:linksTo fbo-be:SmokeAndHeatExtraction .
+
+ex:Member_6_7_5_1_1 a fro:Member ;
+    fro:hasMember ex:Member_6_7_5_1_1_1,
+        ex:Member_6_7_5_1_1_2 ;
+    fro:hasOriginalText "1. de dichtheid van de klep moet één van volgende kwaliteiten hebben:"@nl ;
+    fro:linksTo fbo:Integrity .
+
+ex:Member_6_7_5_1_1_1 a fro:Member ;
+    fro:hasOriginalText "1. in gesloten stand en bij een statisch drukverschil van 500 Pa mag het luchtverlies niet meer bedragen dan 60 l/s.m²;"@nl .
+
+ex:Member_6_7_5_1_1_2 a fro:Member ;
+    fro:hasOriginalText "2. klasse 3 volgens de norm NBN EN 1751;"@nl .
+
+ex:Member_6_7_5_1_2 a fro:Member ;
+    fro:hasOriginalText "2. de pakking die gebruikt wordt om deze dichtheid te bekomen, moet gedurende 2 h bestand zijn tegen temperaturen die schommelen van -20°C tot 100°C, waarna de klep aan de bovenvermelde dichtheidsproef nog voldoet;"@nl .
+
+ex:Member_6_7_5_1_3 a fro:Member ;
+    fro:hasOriginalText "3. het sluitingssysteem van de rookklep heeft een positieve veiligheid."@nl ;
+    fro:linksTo fbo:SelfClosing .
+
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

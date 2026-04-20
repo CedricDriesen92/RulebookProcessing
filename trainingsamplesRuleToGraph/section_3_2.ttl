@@ -1,24 +1,25 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix ex: <https://example.org/rulebook#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_3_2 a fro:Section ;
+ex:Section_3_2 a fro:Section ;
     fro:hasID "3.2" ;
     fro:hasOriginalText "Structurele elementen."@nl ;
-    fro:hasArticle fro:Article_3_2_1 .
+    fro:hasArticle ex:Article_3_2_1 .
 
-fro:Section_3 fro:hasSection fro:Section_3_2 .
+ex:Section_3 fro:hasSection ex:Section_3_2 .
 
-fro:Article_3_2_1 a fro:Article ;
+ex:Article_3_2_1 a fro:Article ;
     fro:hasID "A3.2.1" ;
-    fro:hasMember fro:Member_3_2_1_1 ;
+    fro:hasMember ex:Member_3_2_1_1 ;
     fro:hasTable fro:Table_2_1 .
 
-fro:Member_3_2_1_1 a fro:Member ;
+ex:Member_3_2_1_1 a fro:Member ;
     fro:hasOriginalText """De structurele elementen beschikken, in functie van hun situatie, over een brandweerstand zoals
 weergegeven in tabel 2.1, waarin Ei het laagst gelegen evacuatieniveau voorstelt."""@nl .
 

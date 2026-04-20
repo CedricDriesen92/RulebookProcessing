@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHACL Shape Diagrams</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 20px; background: #f5f5f5;
+  }
+  h1 { color: #333; text-align: center; margin-bottom: 30px; }
+  .sec {
+    background: #fff; border-radius: 8px; padding: 20px;
+    margin-bottom: 28px; box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    overflow-x: auto;
+  }
+  .sec h2 {
+    color: #555; border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 8px; font-size: 1.05em; word-break: break-all;
+  }
+  .mermaid { display: flex; justify-content: center; }
+  .toc {
+    background: #fff; border-radius: 8px; padding: 20px;
+    margin-bottom: 28px; box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  }
+  .toc h2 { margin-top: 0; }
+  .toc ul { list-style: none; padding: 0; columns: 2; }
+  .toc li { padding: 3px 0; }
+  .toc a { color: #1a73e8; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .legend {
+    display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+    margin-bottom: 28px;
+  }
+  .legend span {
+    display: inline-block; padding: 4px 14px; border-radius: 6px;
+    font-size: .85em;
+  }
+</style>
+</head>
+<body>
+
+<h1>SHACL Shape Diagrams</h1>
+
+<div class="legend">
+  <span style="background:#e8daef;border:2px solid #8e44ad">Shape (root)</span>
+  <span style="background:#fef9e7;border:2px solid #f39c12">OR</span>
+  <span style="background:#eafaf1;border:2px solid #27ae60">AND</span>
+  <span style="background:#ebf5fb;border:1px solid #2980b9">Property</span>
+  <span style="background:#fdedec;border:1px solid #e74c3c">SPARQL / NOT</span>
+  <span style="background:#f2f3f4;border:1px solid #7f8c8d">Reference</span>
+</div>
+
+<div class="toc">
+  <h2>Shapes (27)</h2>
+  <ul><li><a href="#s0">BasisnormenLG_cropped.pdf_combined_articles.shacl / fro:Shape_Article_2_1_1</a></li><li><a href="#s1">BasisnormenLG_cropped.pdf_combined_articles.shacl / nea077f26ffd54300b9c5286872191c3cb18</a></li><li><a href="#s2">BasisnormenLG_cropped.pdf_combined_articles.shacl / fro:Shape_Article_2_2_1_1</a></li><li><a href="#s3">BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:CompartmentExitsShape</a></li><li><a href="#s4">BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:EvacuationLevelStairShape</a></li><li><a href="#s5">BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:EvacuationRouteDestinationShape</a></li><li><a href="#s6">BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:ParkingReferenceShape</a></li><li><a href="#s7">BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:UndergroundStoreyShape</a></li><li><a href="#s8">BasisnormenLG_cropped.pdf_combined_articles.shacl / Article_2_1_2_Shape</a></li><li><a href="#s9">BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:EvacuationRouteArticle4_4Shape</a></li><li><a href="#s10">BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:UndergroundExceptionExitShape</a></li><li><a href="#s11">BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:UndergroundExceptionRouteShape</a></li><li><a href="#s12">BasisnormenLG_cropped.pdf_combined_articles.shacl / fro:Shape_Article_2_2_1_1_FireDeptOverride</a></li><li><a href="#s13">shape_Article_Article_2_1_1 / fro:Shape_Article_2_1_1</a></li><li><a href="#s14">shape_Article_Article_2_1_1 / n360525db0574422ea9a396a758ca901fb19</a></li><li><a href="#s15">shape_Article_Article_2_1_2 / Article_2_1_2_Shape</a></li><li><a href="#s16">shape_Article_Article_2_2_1_1 / fro:Shape_Article_2_2_1_1</a></li><li><a href="#s17">shape_Article_Article_2_2_1_1 / fro:Shape_Article_2_2_1_1_FireDeptOverride</a></li><li><a href="#s18">shape_Article_Article_2_2_2_1 / art2221:CompartmentExitsShape</a></li><li><a href="#s19">shape_Article_Article_2_2_2_1 / art2221:EvacuationRouteDestinationShape</a></li><li><a href="#s20">shape_Article_Article_2_2_2_1 / art2221:UndergroundStoreyShape</a></li><li><a href="#s21">shape_Article_Article_2_2_2_1 / art2221:UndergroundExceptionExitShape</a></li><li><a href="#s22">shape_Article_Article_2_2_2_1 / art2221:UndergroundExceptionRouteShape</a></li><li><a href="#s23">shape_Article_Article_2_2_2_1 / art2221:ParkingReferenceShape</a></li><li><a href="#s24">shape_Article_Article_2_2_2_1 / art2221:EvacuationLevelStairShape</a></li><li><a href="#s25">shape_Article_Article_2_2_2_1 / art2221:EvacuationRouteArticle4_4Shape</a></li><li><a href="#s26">shacl_CompartmentArea / ns1:shacl_CompartmentArea.ttl</a></li></ul>
+</div>
+
+<div class="sec" id="s0">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / fro:Shape_Article_2_1_1</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;fro:Shape_Article_2_1_1&lt;br/&gt;Target: fbo:FireCompartment&lt;br/&gt;Regels inzake de maximale oppervlakte en lengte van brandcompartimenten, inclusief uitzonderingen...&quot;]):::rootCls
+    OR1{&quot;OR&quot;}:::orCls
+    P2[&quot;fbo:Roomfunction | = Parking&lt;br/&gt;met uitzondering van de parkings (zie 5.2).&quot;]:::propCls
+    AND3{&quot;AND&quot;}:::andCls
+    P4[&quot;fbo:hasSubitem | qualifies: fbo:AutomaticFireExtinguishSystem | qmin: 1&lt;br/&gt;indien het compartiment is uitgerust met een automatische blusinstallatie&quot;]:::propCls
+    P5[&quot;fbo:hasSubitem | qualifies: fbo:AutomaticFireVentilationsystem | qmin: 1&lt;br/&gt;en een rook- en warmteafvoerinstallatie.&quot;]:::propCls
+    P6[&quot;fbo:hasFireExpertValidation | = true&lt;br/&gt;De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonder...&quot;]:::propCls
+    OR7{&quot;OR&quot;}:::orCls
+    AND8{&quot;AND&quot;}:::andCls
+    P9[&quot;^fbo:hasSubitem&lt;br/&gt;Het compartiment moet deel uitmaken van een gelijkvloers gebouw dat uit slech...&quot;]:::propCls
+    P10[&quot;fbo:BuildingLayers | &lt;= 1&lt;br/&gt;gelijkvloers gebouw&quot;]:::propCls
+    P11[&quot;fbo:hasSubitem | max: 1&lt;br/&gt;bestaande uit één compartiment&quot;]:::propCls
+    P12[&quot;fbo:AreaFireCompartment | xsd:decimal | &lt;= 3500.0&lt;br/&gt;De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compart...&quot;]:::propCls
+    P13[&quot;ex:compartmentLength | xsd:decimal | &lt;= 90.0&lt;br/&gt;De lengte van dit compartiment bedraagt niet meer dan 90 m.&quot;]:::propCls
+    P14[&quot;fbo:AreaFireCompartment | xsd:decimal | &lt; 2500.0&lt;br/&gt;Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is da...&quot;]:::propCls
+    ROOT --&gt; OR1
+    OR1 --&gt; P2
+    OR1 --&gt; AND3
+    AND3 --&gt; P4
+    AND3 --&gt; P5
+    OR1 --&gt; P6
+    OR1 --&gt; OR7
+    OR7 --&gt; AND8
+    AND8 --&gt; P9
+    P9 --&gt; P10
+    P9 --&gt; P11
+    AND8 --&gt; P12
+    AND8 --&gt; P13
+    OR7 --&gt; P14
+</div>
+</div><div class="sec" id="s1">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / nea077f26ffd54300b9c5286872191c3cb18</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;nea077f26ffd54300b9c5286872191c3cb18&quot;]):::rootCls
+    P1[&quot;fbo:BuildingLayers | &lt;= 1&lt;br/&gt;gelijkvloers gebouw&quot;]:::propCls
+    P2[&quot;fbo:hasSubitem | max: 1&lt;br/&gt;bestaande uit één compartiment&quot;]:::propCls
+    ROOT --&gt; P1
+    ROOT --&gt; P2
+</div>
+</div><div class="sec" id="s2">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / fro:Shape_Article_2_2_1_1</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;fro:Shape_Article_2_2_1_1&lt;br/&gt;Target: fbo:AreaFloorRoom, fbo:BuildingStorey, fbo:FireCompartment&lt;br/&gt;Elk compartiment (en bouwlagen en lokalen) heeft een minimum aantal uitgangen in functie van de m...&quot;]):::rootCls
+    OR1{&quot;OR&quot;}:::orCls
+    AND2{&quot;AND&quot;}:::andCls
+    P3[&quot;ex1:occupancyCount | xsd:integer | &lt; 100&quot;]:::propCls
+    P4[&quot;fbo:hasSubitem | class: fbo:Exit | min: 1&lt;br/&gt;één uitgang indien de maximale bezetting minder dan 100 personen bedraagt&quot;]:::propCls
+    AND5{&quot;AND&quot;}:::andCls
+    P6[&quot;ex1:occupancyCount | xsd:integer | &gt;= 100 | &lt; 500&quot;]:::propCls
+    P7[&quot;fbo:hasSubitem | class: fbo:Exit | min: 2&lt;br/&gt;twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 pers...&quot;]:::propCls
+    AND8{&quot;AND&quot;}:::andCls
+    P9[&quot;ex1:occupancyCount | xsd:integer | &gt;= 500&quot;]:::propCls
+    SQ10[/&quot;2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling ...&quot;/]:::sqCls
+    ROOT --&gt; OR1
+    OR1 --&gt; AND2
+    AND2 --&gt; P3
+    AND2 --&gt; P4
+    OR1 --&gt; AND5
+    AND5 --&gt; P6
+    AND5 --&gt; P7
+    OR1 --&gt; AND8
+    AND8 --&gt; P9
+    AND8 --&gt; SQ10
+</div>
+</div><div class="sec" id="s3">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:CompartmentExitsShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:CompartmentExitsShape&lt;br/&gt;Target: fbo:FireCompartment&lt;br/&gt;De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment.&quot;]):::rootCls
+    P1[&quot;fbo:hasSubitem | class: fbo:Exit | min: 2&lt;br/&gt;De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment.&quot;]:::propCls
+    P2[&quot;ex2:exitsInOppositeZones | = true | xsd:boolean&lt;br/&gt;De uitgangen moeten in tegenovergestelde zones liggen.&quot;]:::propCls
+    ROOT --&gt; P1
+    ROOT --&gt; P2
+</div>
+</div><div class="sec" id="s4">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:EvacuationLevelStairShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:EvacuationLevelStairShape&lt;br/&gt;Target: ex2:Stair&lt;br/&gt;Op een evacuatieniveau leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een evacua...&quot;]):::rootCls
+    P1[&quot;ex2:locatedOnEvacuationLevel | = true&quot;]:::propCls
+    P2[&quot;fbo:isLinkedTo&lt;br/&gt;Op een evacuatieniveau leidt iedere trap naar buiten (rechtstreeks of via eva...&quot;]:::propCls
+    OR3{&quot;OR&quot;}:::orCls
+    REF4[[&quot;art2221:EvacuationRouteArticle4_4Shape&quot;]]:::refCls
+    ROOT --&gt; P1
+    ROOT --&gt; P2
+    P2 --&gt; OR3
+    OR3 --&gt; REF4
+</div>
+</div><div class="sec" id="s5">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:EvacuationRouteDestinationShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:EvacuationRouteDestinationShape&lt;br/&gt;Target: fbo:AreaEvacuationroute&lt;br/&gt;De evacuatiewegen leiden ofwel: naar buiten; naar trappenhuizen; naar trappen, binnen of buiten h...&quot;]):::rootCls
+    P1[&quot;ex2:compliesWithArticle4_4 | xsd:boolean&quot;]:::propCls
+    P2[&quot;fbo:isLinkedTo&lt;br/&gt;De evacuatiewegen leiden ofwel: naar buiten; naar trappenhuizen; naar trappen.&quot;]:::propCls
+    OR3{&quot;OR&quot;}:::orCls
+    ROOT --&gt; P1
+    ROOT --&gt; P2
+    P2 --&gt; OR3
+</div>
+</div><div class="sec" id="s6">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:ParkingReferenceShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:ParkingReferenceShape&lt;br/&gt;Target: ex2:Parking&lt;br/&gt;Voor de parking: zie 5.2.&quot;]):::rootCls
+    P1[&quot;ex2:compliesWithArticle5_2 | xsd:boolean&lt;br/&gt;Parkings moeten voldoen aan artikel 5.2&quot;]:::propCls
+    ROOT --&gt; P1
+</div>
+</div><div class="sec" id="s7">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:UndergroundStoreyShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:UndergroundStoreyShape&lt;br/&gt;Target: fbo:BuildingStorey&lt;br/&gt;Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden...&quot;]):::rootCls
+    P1[&quot;ex2:isUnderground | in: [true]&quot;]:::propCls
+    P2[&quot;fbo:hasSubitem | class: fbo:Exit&lt;br/&gt;Een uitgang naar buiten mag de toegang tot een trappenhuis vervangen indien v...&quot;]:::propCls
+    REF3[[&quot;art2221:UndergroundExceptionExitShape&quot;]]:::refCls
+    ROOT --&gt; P1
+    ROOT --&gt; P2
+    P2 --&gt; REF3
+</div>
+</div><div class="sec" id="s8">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / Article_2_1_2_Shape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;Article_2_1_2_Shape&lt;br/&gt;Target: fbo:FireCompartment&lt;br/&gt;De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag, met uitzonderingen v...&quot;]):::rootCls
+    OR1{&quot;OR&quot;}:::orCls
+    P2[&quot;numberOfStoreys | xsd:integer | &lt;= 1&lt;br/&gt;De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag.&quot;]:::propCls
+    P3[&quot;fbo:Roomfunction | = Parking&lt;br/&gt;a) de parking met bouwlagen (zie 5.2);&quot;]:::propCls
+    AND4{&quot;AND&quot;}:::andCls
+    P5[&quot;numberOfStoreys | xsd:integer | &lt;= 2&lt;br/&gt;b) een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwl...&quot;]:::propCls
+    P6[&quot;fbo:AreaFireCompartment | xsd:decimal | &lt;= 2500.0&lt;br/&gt;indien de gecumuleerde oppervlakte van die bouwlagen niet groter is dan 2500 m²;&quot;]:::propCls
+    AND7{&quot;AND&quot;}:::andCls
+    P8[&quot;numberOfStoreys | xsd:integer | &lt;= 3&lt;br/&gt;c) de hoogte van een compartiment mag zich uitstrekken over drie boven elkaar...&quot;]:::propCls
+    P9[&quot;fbo:AreaFireCompartment | xsd:decimal | &lt;= 300.0&lt;br/&gt;voor zover de som van hun gecumuleerde oppervlakte de 300 m² niet overschrijdt&quot;]:::propCls
+    P10[&quot;fbo:hasSubitem | qualifies: fbo:AutomaticFireAlarmsystem | qmin: 1&lt;br/&gt;en dat dit compartiment is uitgerust met een automatische branddetectie van h...&quot;]:::propCls
+    P11[&quot;fbo:Roomfunction | = TechnicalRoom&lt;br/&gt;d) de hoogte van een compartiment mag zich uitstrekken over verscheidene bove...&quot;]:::propCls
+    AND12{&quot;AND&quot;}:::andCls
+    P13[&quot;fbo:hasSubitem | qualifies: fbo:AutomaticFireExtinguishSystem | qmin: 1&lt;br/&gt;e) de hoogte van een compartiment mag zich uitstrekken over verscheidene bouw...&quot;]:::propCls
+    P14[&quot;fbo:hasSubitem | qualifies: fbo:AutomaticFireVentilationsystem | qmin: 1&lt;br/&gt;en een rook- en warmteafvoerinstallatie. De Minister van Binnenlandse Zaken b...&quot;]:::propCls
+    ROOT --&gt; OR1
+    OR1 --&gt; P2
+    OR1 --&gt; P3
+    OR1 --&gt; AND4
+    AND4 --&gt; P5
+    AND4 --&gt; P6
+    OR1 --&gt; AND7
+    AND7 --&gt; P8
+    AND7 --&gt; P9
+    AND7 --&gt; P10
+    OR1 --&gt; P11
+    OR1 --&gt; AND12
+    AND12 --&gt; P13
+    AND12 --&gt; P14
+</div>
+</div><div class="sec" id="s9">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:EvacuationRouteArticle4_4Shape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:EvacuationRouteArticle4_4Shape&quot;]):::rootCls
+    P1[&quot;ex2:compliesWithArticle4_4 | = true&lt;br/&gt;De evacuatieweg moet beantwoorden aan de voorschriften van 4.4.&quot;]:::propCls
+    ROOT --&gt; P1
+</div>
+</div><div class="sec" id="s10">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:UndergroundExceptionExitShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:UndergroundExceptionExitShape&quot;]):::rootCls
+    P1[&quot;fbo:isLinkedTo | class: fbo:AreaEvacuationroute&quot;]:::propCls
+    REF2[[&quot;art2221:UndergroundExceptionRouteShape&quot;]]:::refCls
+    P3[&quot;fbo:isLinkedTo | class: ex2:Outside&quot;]:::propCls
+    ROOT --&gt; P1
+    P1 --&gt; REF2
+    ROOT --&gt; P3
+</div>
+</div><div class="sec" id="s11">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / art2221:UndergroundExceptionRouteShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:UndergroundExceptionRouteShape&quot;]):::rootCls
+    P1[&quot;fbo:hasSubitem | class: ex2:Wall&quot;]:::propCls
+    P2[&quot;fbo:FireResistance | = EI 30&lt;br/&gt;Wanden van de evacuatieweg moeten EI 30 zijn.&quot;]:::propCls
+    P3[&quot;fbo:hasSubitem | class: fbo:DoorEscaperoute&quot;]:::propCls
+    P4[&quot;fbo:FireResistance | = EI1 30&lt;br/&gt;Deuren van de evacuatieweg moeten EI1 30 zijn.&quot;]:::propCls
+    ROOT --&gt; P1
+    P1 --&gt; P2
+    ROOT --&gt; P3
+    P3 --&gt; P4
+</div>
+</div><div class="sec" id="s12">
+<h2>BasisnormenLG_cropped.pdf_combined_articles.shacl / fro:Shape_Article_2_2_1_1_FireDeptOverride</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;fro:Shape_Article_2_2_1_1_FireDeptOverride&lt;br/&gt;Target: fbo:AreaFloorRoom, fbo:BuildingStorey, fbo:FireCompartment&lt;br/&gt;Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en...&quot;]):::rootCls
+    P1[&quot;ex1:fireDeptRequiredExits | xsd:integer&quot;]:::propCls
+    ROOT --&gt; P1
+</div>
+</div><div class="sec" id="s13">
+<h2>shape_Article_Article_2_1_1 / fro:Shape_Article_2_1_1</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;fro:Shape_Article_2_1_1&lt;br/&gt;Target: fbo:FireCompartment&lt;br/&gt;Regels inzake de maximale oppervlakte en lengte van brandcompartimenten, inclusief uitzonderingen...&quot;]):::rootCls
+    OR1{&quot;OR&quot;}:::orCls
+    P2[&quot;fbo:Roomfunction | = Parking&lt;br/&gt;met uitzondering van de parkings (zie 5.2).&quot;]:::propCls
+    AND3{&quot;AND&quot;}:::andCls
+    P4[&quot;fbo:hasSubitem | qualifies: fbo:AutomaticFireExtinguishSystem | qmin: 1&lt;br/&gt;indien het compartiment is uitgerust met een automatische blusinstallatie&quot;]:::propCls
+    P5[&quot;fbo:hasSubitem | qualifies: fbo:AutomaticFireVentilationsystem | qmin: 1&lt;br/&gt;en een rook- en warmteafvoerinstallatie.&quot;]:::propCls
+    P6[&quot;fbo:hasFireExpertValidation | = true&lt;br/&gt;De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonder...&quot;]:::propCls
+    OR7{&quot;OR&quot;}:::orCls
+    AND8{&quot;AND&quot;}:::andCls
+    P9[&quot;^fbo:hasSubitem&lt;br/&gt;Het compartiment moet deel uitmaken van een gelijkvloers gebouw dat uit slech...&quot;]:::propCls
+    P10[&quot;fbo:BuildingLayers | &lt;= 1&lt;br/&gt;gelijkvloers gebouw&quot;]:::propCls
+    P11[&quot;fbo:hasSubitem | max: 1&lt;br/&gt;bestaande uit één compartiment&quot;]:::propCls
+    P12[&quot;fbo:AreaFireCompartment | xsd:decimal | &lt;= 3500.0&lt;br/&gt;De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compart...&quot;]:::propCls
+    P13[&quot;ex:compartmentLength | xsd:decimal | &lt;= 90.0&lt;br/&gt;De lengte van dit compartiment bedraagt niet meer dan 90 m.&quot;]:::propCls
+    P14[&quot;fbo:AreaFireCompartment | xsd:decimal | &lt; 2500.0&lt;br/&gt;Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is da...&quot;]:::propCls
+    ROOT --&gt; OR1
+    OR1 --&gt; P2
+    OR1 --&gt; AND3
+    AND3 --&gt; P4
+    AND3 --&gt; P5
+    OR1 --&gt; P6
+    OR1 --&gt; OR7
+    OR7 --&gt; AND8
+    AND8 --&gt; P9
+    P9 --&gt; P10
+    P9 --&gt; P11
+    AND8 --&gt; P12
+    AND8 --&gt; P13
+    OR7 --&gt; P14
+</div>
+</div><div class="sec" id="s14">
+<h2>shape_Article_Article_2_1_1 / n360525db0574422ea9a396a758ca901fb19</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;n360525db0574422ea9a396a758ca901fb19&quot;]):::rootCls
+    P1[&quot;fbo:BuildingLayers | &lt;= 1&lt;br/&gt;gelijkvloers gebouw&quot;]:::propCls
+    P2[&quot;fbo:hasSubitem | max: 1&lt;br/&gt;bestaande uit één compartiment&quot;]:::propCls
+    ROOT --&gt; P1
+    ROOT --&gt; P2
+</div>
+</div><div class="sec" id="s15">
+<h2>shape_Article_Article_2_1_2 / Article_2_1_2_Shape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;Article_2_1_2_Shape&lt;br/&gt;Target: fbo:FireCompartment&lt;br/&gt;De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag, met uitzonderingen v...&quot;]):::rootCls
+    OR1{&quot;OR&quot;}:::orCls
+    P2[&quot;numberOfStoreys | xsd:integer | &lt;= 1&lt;br/&gt;De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag.&quot;]:::propCls
+    P3[&quot;fbo:Roomfunction | = Parking&lt;br/&gt;a) de parking met bouwlagen (zie 5.2);&quot;]:::propCls
+    AND4{&quot;AND&quot;}:::andCls
+    P5[&quot;numberOfStoreys | xsd:integer | &lt;= 2&lt;br/&gt;b) een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwl...&quot;]:::propCls
+    P6[&quot;fbo:AreaFireCompartment | xsd:decimal | &lt;= 2500.0&lt;br/&gt;indien de gecumuleerde oppervlakte van die bouwlagen niet groter is dan 2500 m²;&quot;]:::propCls
+    AND7{&quot;AND&quot;}:::andCls
+    P8[&quot;numberOfStoreys | xsd:integer | &lt;= 3&lt;br/&gt;c) de hoogte van een compartiment mag zich uitstrekken over drie boven elkaar...&quot;]:::propCls
+    P9[&quot;fbo:AreaFireCompartment | xsd:decimal | &lt;= 300.0&lt;br/&gt;voor zover de som van hun gecumuleerde oppervlakte de 300 m² niet overschrijdt&quot;]:::propCls
+    P10[&quot;fbo:hasSubitem | qualifies: fbo:AutomaticFireAlarmsystem | qmin: 1&lt;br/&gt;en dat dit compartiment is uitgerust met een automatische branddetectie van h...&quot;]:::propCls
+    P11[&quot;fbo:Roomfunction | = TechnicalRoom&lt;br/&gt;d) de hoogte van een compartiment mag zich uitstrekken over verscheidene bove...&quot;]:::propCls
+    AND12{&quot;AND&quot;}:::andCls
+    P13[&quot;fbo:hasSubitem | qualifies: fbo:AutomaticFireExtinguishSystem | qmin: 1&lt;br/&gt;e) de hoogte van een compartiment mag zich uitstrekken over verscheidene bouw...&quot;]:::propCls
+    P14[&quot;fbo:hasSubitem | qualifies: fbo:AutomaticFireVentilationsystem | qmin: 1&lt;br/&gt;en een rook- en warmteafvoerinstallatie. De Minister van Binnenlandse Zaken b...&quot;]:::propCls
+    ROOT --&gt; OR1
+    OR1 --&gt; P2
+    OR1 --&gt; P3
+    OR1 --&gt; AND4
+    AND4 --&gt; P5
+    AND4 --&gt; P6
+    OR1 --&gt; AND7
+    AND7 --&gt; P8
+    AND7 --&gt; P9
+    AND7 --&gt; P10
+    OR1 --&gt; P11
+    OR1 --&gt; AND12
+    AND12 --&gt; P13
+    AND12 --&gt; P14
+</div>
+</div><div class="sec" id="s16">
+<h2>shape_Article_Article_2_2_1_1 / fro:Shape_Article_2_2_1_1</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;fro:Shape_Article_2_2_1_1&lt;br/&gt;Target: fbo:FireCompartment, fbo:BuildingStorey, fbo:AreaFloorRoom&lt;br/&gt;Elk compartiment (en bouwlagen en lokalen) heeft een minimum aantal uitgangen in functie van de m...&quot;]):::rootCls
+    OR1{&quot;OR&quot;}:::orCls
+    AND2{&quot;AND&quot;}:::andCls
+    P3[&quot;ex:occupancyCount | xsd:integer | &lt; 100&quot;]:::propCls
+    P4[&quot;fbo:hasSubitem | class: fbo:Exit | min: 1&lt;br/&gt;één uitgang indien de maximale bezetting minder dan 100 personen bedraagt&quot;]:::propCls
+    AND5{&quot;AND&quot;}:::andCls
+    P6[&quot;ex:occupancyCount | xsd:integer | &gt;= 100 | &lt; 500&quot;]:::propCls
+    P7[&quot;fbo:hasSubitem | class: fbo:Exit | min: 2&lt;br/&gt;twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 pers...&quot;]:::propCls
+    AND8{&quot;AND&quot;}:::andCls
+    P9[&quot;ex:occupancyCount | xsd:integer | &gt;= 500&quot;]:::propCls
+    SQ10[/&quot;2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling ...&quot;/]:::sqCls
+    ROOT --&gt; OR1
+    OR1 --&gt; AND2
+    AND2 --&gt; P3
+    AND2 --&gt; P4
+    OR1 --&gt; AND5
+    AND5 --&gt; P6
+    AND5 --&gt; P7
+    OR1 --&gt; AND8
+    AND8 --&gt; P9
+    AND8 --&gt; SQ10
+</div>
+</div><div class="sec" id="s17">
+<h2>shape_Article_Article_2_2_1_1 / fro:Shape_Article_2_2_1_1_FireDeptOverride</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;fro:Shape_Article_2_2_1_1_FireDeptOverride&lt;br/&gt;Target: fbo:FireCompartment, fbo:BuildingStorey, fbo:AreaFloorRoom&lt;br/&gt;Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en...&quot;]):::rootCls
+    P1[&quot;ex:fireDeptRequiredExits | xsd:integer&quot;]:::propCls
+    ROOT --&gt; P1
+</div>
+</div><div class="sec" id="s18">
+<h2>shape_Article_Article_2_2_2_1 / art2221:CompartmentExitsShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:CompartmentExitsShape&lt;br/&gt;Target: fbo:FireCompartment&lt;br/&gt;De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment.&quot;]):::rootCls
+    P1[&quot;fbo:hasSubitem | class: fbo:Exit | min: 2&lt;br/&gt;De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment.&quot;]:::propCls
+    P2[&quot;ex:exitsInOppositeZones | = true | xsd:boolean&lt;br/&gt;De uitgangen moeten in tegenovergestelde zones liggen.&quot;]:::propCls
+    ROOT --&gt; P1
+    ROOT --&gt; P2
+</div>
+</div><div class="sec" id="s19">
+<h2>shape_Article_Article_2_2_2_1 / art2221:EvacuationRouteDestinationShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:EvacuationRouteDestinationShape&lt;br/&gt;Target: fbo:AreaEvacuationroute&lt;br/&gt;De evacuatiewegen leiden ofwel: naar buiten; naar trappenhuizen; naar trappen, binnen of buiten h...&quot;]):::rootCls
+    P1[&quot;fbo:isLinkedTo&lt;br/&gt;De evacuatiewegen leiden ofwel: naar buiten; naar trappenhuizen; naar trappen.&quot;]:::propCls
+    OR2{&quot;OR&quot;}:::orCls
+    P3[&quot;ex:compliesWithArticle4_4 | xsd:boolean&quot;]:::propCls
+    ROOT --&gt; P1
+    P1 --&gt; OR2
+    ROOT --&gt; P3
+</div>
+</div><div class="sec" id="s20">
+<h2>shape_Article_Article_2_2_2_1 / art2221:UndergroundStoreyShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:UndergroundStoreyShape&lt;br/&gt;Target: fbo:BuildingStorey&lt;br/&gt;Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden...&quot;]):::rootCls
+    P1[&quot;ex:isUnderground | in: [true]&quot;]:::propCls
+    P2[&quot;fbo:hasSubitem | class: fbo:Exit&lt;br/&gt;Een uitgang naar buiten mag de toegang tot een trappenhuis vervangen indien v...&quot;]:::propCls
+    REF3[[&quot;art2221:UndergroundExceptionExitShape&quot;]]:::refCls
+    ROOT --&gt; P1
+    ROOT --&gt; P2
+    P2 --&gt; REF3
+</div>
+</div><div class="sec" id="s21">
+<h2>shape_Article_Article_2_2_2_1 / art2221:UndergroundExceptionExitShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:UndergroundExceptionExitShape&quot;]):::rootCls
+    P1[&quot;fbo:isLinkedTo | class: fbo:AreaEvacuationroute&quot;]:::propCls
+    REF2[[&quot;art2221:UndergroundExceptionRouteShape&quot;]]:::refCls
+    P3[&quot;fbo:isLinkedTo | class: ex:Outside&quot;]:::propCls
+    ROOT --&gt; P1
+    P1 --&gt; REF2
+    ROOT --&gt; P3
+</div>
+</div><div class="sec" id="s22">
+<h2>shape_Article_Article_2_2_2_1 / art2221:UndergroundExceptionRouteShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:UndergroundExceptionRouteShape&quot;]):::rootCls
+    P1[&quot;fbo:hasSubitem | class: ex:Wall&quot;]:::propCls
+    P2[&quot;fbo:FireResistance | = EI 30&lt;br/&gt;Wanden van de evacuatieweg moeten EI 30 zijn.&quot;]:::propCls
+    P3[&quot;fbo:hasSubitem | class: fbo:DoorEscaperoute&quot;]:::propCls
+    P4[&quot;fbo:FireResistance | = EI1 30&lt;br/&gt;Deuren van de evacuatieweg moeten EI1 30 zijn.&quot;]:::propCls
+    ROOT --&gt; P1
+    P1 --&gt; P2
+    ROOT --&gt; P3
+    P3 --&gt; P4
+</div>
+</div><div class="sec" id="s23">
+<h2>shape_Article_Article_2_2_2_1 / art2221:ParkingReferenceShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:ParkingReferenceShape&lt;br/&gt;Target: ex:Parking&lt;br/&gt;Voor de parking: zie 5.2.&quot;]):::rootCls
+    P1[&quot;ex:compliesWithArticle5_2 | xsd:boolean&lt;br/&gt;Parkings moeten voldoen aan artikel 5.2&quot;]:::propCls
+    ROOT --&gt; P1
+</div>
+</div><div class="sec" id="s24">
+<h2>shape_Article_Article_2_2_2_1 / art2221:EvacuationLevelStairShape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:EvacuationLevelStairShape&lt;br/&gt;Target: ex:Stair&lt;br/&gt;Op een evacuatieniveau leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een evacua...&quot;]):::rootCls
+    P1[&quot;ex:locatedOnEvacuationLevel | = true&quot;]:::propCls
+    P2[&quot;fbo:isLinkedTo&lt;br/&gt;Op een evacuatieniveau leidt iedere trap naar buiten (rechtstreeks of via eva...&quot;]:::propCls
+    OR3{&quot;OR&quot;}:::orCls
+    REF4[[&quot;art2221:EvacuationRouteArticle4_4Shape&quot;]]:::refCls
+    ROOT --&gt; P1
+    ROOT --&gt; P2
+    P2 --&gt; OR3
+    OR3 --&gt; REF4
+</div>
+</div><div class="sec" id="s25">
+<h2>shape_Article_Article_2_2_2_1 / art2221:EvacuationRouteArticle4_4Shape</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;art2221:EvacuationRouteArticle4_4Shape&quot;]):::rootCls
+    P1[&quot;ex:compliesWithArticle4_4 | = true&lt;br/&gt;De evacuatieweg moet beantwoorden aan de voorschriften van 4.4.&quot;]:::propCls
+    ROOT --&gt; P1
+</div>
+</div><div class="sec" id="s26">
+<h2>shacl_CompartmentArea / ns1:shacl_CompartmentArea.ttl</h2>
+<div class="mermaid">
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT([&quot;ns1:shacl_CompartmentArea.ttl&lt;br/&gt;Target: SPARQL target&quot;]):::rootCls
+    P1[&quot;_:nc0fd78f90efa49b4bcb59cf833a72e77b3 | xsd:double | &lt;= 1000&lt;br/&gt;The total area of the fire compartment exceeds 1000 m².&quot;]:::propCls
+    ROOT --&gt; P1
+</div>
+</div>
+
+<script>
+mermaid.initialize({
+  startOnLoad: true,
+  theme: 'default',
+  flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' },
+  securityLevel: 'loose'
+});
+</script>
+</body>
+</html>

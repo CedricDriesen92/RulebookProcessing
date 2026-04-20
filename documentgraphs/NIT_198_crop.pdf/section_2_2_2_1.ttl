@@ -6,32 +6,32 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_2_2_2_1 a fro:Section ;
+ex:Section_2_2_2_1 a fro:Section ;
     fro:hasID "2.2.2.1" ;
     fro:hasOriginalText "REGLES DE BASE"@fr ;
-    fro:hasArticle fro:Article_2_2_2_1_1 .
+    fro:hasArticle ex:Article_2_2_2_1_1 .
 
-fro:Article_2_2_2_1_1 a fro:Article ;
+ex:Article_2_2_2_1_1 a fro:Article ;
     fro:hasID "A2.2.2.1.1" ;
-    fro:hasMember fro:Member_2_2_2_1_1_1, fro:Member_2_2_2_1_1_2, fro:Member_2_2_2_1_1_3 .
+    fro:hasMember ex:Member_2_2_2_1_1_1, ex:Member_2_2_2_1_1_2, ex:Member_2_2_2_1_1_3 .
 
-fro:Member_2_2_2_1_1_1 a fro:Member ;
+ex:Member_2_2_2_1_1_1 a fro:Member ;
     fro:hasOriginalText """L'arrêté royal du 7 juillet 1994 [33] définit les règles de base en matière de prévention des incendies et des explosions dans les nouveaux bâtiments. Dans certains cas, ces prescriptions sont complétées par des dispositions communautaires et/ou régionales et éventuellement par des règlements communaux."""@fr .
 
-fro:Member_2_2_2_1_1_2 a fro:Member ;
+ex:Member_2_2_2_1_1_2 a fro:Member ;
     fro:hasOriginalText """Les annexes techniques de l'arrêté sont essentiellement basées sur les normes en vigueur de la série NBN S 21 [22]. Les textes ayant été dépouillés des prescriptions spécifiques applicables à certaines catégories de bâtiments (immeubles de bureaux, immeubles appartements, etc.), l'arrêté définit un cadre général auquel tous les bâtiments doivent satisfaire. Il inclut en outre, dans la réglementation, les bâtiments bas (h < 10 m)."""@fr .
 
-fro:Member_2_2_2_1_1_3 a fro:Member ;
+ex:Member_2_2_2_1_1_3 a fro:Member ;
     fro:hasOriginalText """L'arrêté s'applique à tous les immeubles neufs quelle que soit leur destination, à l'exception toutefois de ceux qui présentent un risque d'incendie réduit ; notamment les maisons unifamiliales."""@fr .
 
-fro:Member_2_2_2_1_1_1 fro:hasReference fro:Reference_AR_1994_07_07 .
+ex:Member_2_2_2_1_1_1 fro:hasReference fro:Reference_AR_1994_07_07 .
 
 fro:Reference_AR_1994_07_07 a fro:Reference ;
     fro:hasID "33" .
 
-fro:Member_2_2_2_1_1_2 fro:hasReference fro:Reference_NBN_S_21 .
+ex:Member_2_2_2_1_1_2 fro:hasReference fro:Reference_NBN_S_21 .
 
 fro:Reference_NBN_S_21 a fro:Reference ;
     fro:hasID "22" .
 
-fro:Section_2_2_2 fro:hasSection fro:Section_2_2_2_1 .
+ex:Section_2_2_2 fro:hasSection ex:Section_2_2_2_1 .

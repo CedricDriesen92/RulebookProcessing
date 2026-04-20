@@ -1,54 +1,55 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix ex: <https://example.org/rulebook#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_3_5_1 a fro:Section ;
+ex:Section_3_5_1 a fro:Section ;
     fro:hasID "3.5.1" ;
     fro:hasOriginalText "Enkelwandige gevels"@nl ;
-    fro:hasSection fro:Section_3_5_1_1, fro:Section_3_5_1_2 .
+    fro:hasSection ex:Section_3_5_1_1, ex:Section_3_5_1_2 .
 
-fro:Section_3_5 fro:hasSection fro:Section_3_5_1 .
+ex:Section_3_5 fro:hasSection ex:Section_3_5_1 .
 
-fro:Section_3_5_1_1 a fro:Section ;
+ex:Section_3_5_1_1 a fro:Section ;
     fro:hasID "3.5.1.1" ;
     fro:hasOriginalText "Scheiding tussen compartimenten"@nl ;
-    fro:hasArticle fro:Article_3_5_1_1_1 .
+    fro:hasArticle ex:Article_3_5_1_1_1 .
 
-fro:Article_3_5_1_1_1 a fro:Article ;
+ex:Article_3_5_1_1_1 a fro:Article ;
     fro:hasID "A3.5.1.1.1" ;
-    fro:hasMember fro:Member_3_5_1_1_1_1, fro:Member_3_5_1_1_1_2, fro:Member_3_5_1_1_1_3 .
+    fro:hasMember ex:Member_3_5_1_1_1_1, ex:Member_3_5_1_1_1_2, ex:Member_3_5_1_1_1_3 .
 
-fro:Member_3_5_1_1_1_1 a fro:Member ;
+ex:Member_3_5_1_1_1_1 a fro:Member ;
     fro:hasOriginalText """De stijlen van het gordijngevelskelet worden ter hoogte van elke bouwlaag aan het gebouwskelet
 bevestigd. Met uitzondering van de gebouwen die uitgerust zijn met een automatische
 blusinstallatie, moeten deze bevestigingen R 60 zijn ten opzichte van een brand in een
 onderliggend en naastgelegen compartiment."""@nl .
 
-fro:Member_3_5_1_1_1_2 a fro:Member ;
+ex:Member_3_5_1_1_1_2 a fro:Member ;
     fro:hasOriginalText """De lineaire voeg aan de gevel is dichtgemaakt zodat geen koude rook tussen de gevel en de
 compartimentswanden kan dringen."""@nl .
 
-fro:Member_3_5_1_1_1_3 a fro:Member ;
+ex:Member_3_5_1_1_1_3 a fro:Member ;
     fro:hasOriginalText """Bovendien heeft de aansluiting van de compartimentswanden met de gevel, met uitzondering van
 een beperkte lineaire voeg met een breedte van maximaal 20 mm aan de gevel, minstens EI 60 of
 EI 60 (i→o)."""@nl .
 
-fro:Section_3_5_1_2 a fro:Section ;
+ex:Section_3_5_1_2 a fro:Section ;
     fro:hasID "3.5.1.2" ;
     fro:hasOriginalText "Tegenover elkaar staande gevels en gevels die een tweevlakshoek vormen"@nl ;
-    fro:hasArticle fro:Article_3_5_1_2_1 .
+    fro:hasArticle ex:Article_3_5_1_2_1 .
 
-fro:Article_3_5_1_2_1 a fro:Article ;
+ex:Article_3_5_1_2_1 a fro:Article ;
     fro:hasID "A3.5.1.2.1" ;
     fro:hasOriginalText "Om te vermijden dat een brand tussen twee compartimenten kan overslaan:"@nl ;
-    fro:hasMember fro:Member_3_5_1_2_1_1, fro:Member_3_5_1_2_1_2 ;
+    fro:hasMember ex:Member_3_5_1_2_1_1, ex:Member_3_5_1_2_1_2 ;
     fro:hasFigure fro:Figure_2_2 .
 
-fro:Member_3_5_1_2_1_1 a fro:Member ;
+ex:Member_3_5_1_2_1_1 a fro:Member ;
     fro:hasOriginalText """a) ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan
    bedraagt de afstand (in m) tussen de geveldelen die niet minstens E 30 of E 30 (o→i) hebben,
    ten minste:
@@ -56,15 +57,15 @@ fro:Member_3_5_1_2_1_1 a fro:Member ;
          2,5
         0 voor 90° < α ≤ 180°
    waarbij α de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.2)."""@nl ;
-    fro:hasMember fro:Member_3_5_1_2_1_1_1 .
+    fro:hasMember ex:Member_3_5_1_2_1_1_1 .
 
-fro:Member_3_5_1_2_1_1_1 a fro:Member ;
+ex:Member_3_5_1_2_1_1_1 a fro:Member ;
     fro:hasOriginalText """Voor de gebouwen waarvoor de aanvraag voor de bouw werd ingediend voor 1 juli 2022, mag
 ook de volgende formule worden gebruikt:
      h + 5cos α
       2"""@nl .
 
-fro:Member_3_5_1_2_1_2 a fro:Member ;
+ex:Member_3_5_1_2_1_2 a fro:Member ;
     fro:hasOriginalText """b) ofwel mag de straling van een brand tussen gevels behorende tot verschillende
    compartimenten niet meer dan 15 kW/m² bedragen."""@nl .
 

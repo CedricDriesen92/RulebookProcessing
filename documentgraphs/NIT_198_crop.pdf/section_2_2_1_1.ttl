@@ -6,23 +6,23 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_2_2_1_1 a fro:Section ;
+ex:Section_2_2_1_1 a fro:Section ;
     fro:hasID "2.2.1.1" ;
     fro:hasOriginalText "HAUTEUR 'h' D'UN IMEUBLE"@fr ;
-    fro:hasArticle fro:Article_2_2_1_1_1 .
+    fro:hasArticle ex:Article_2_2_1_1_1 .
 
-fro:Article_2_2_1_1_1 a fro:Article ;
+ex:Article_2_2_1_1_1 a fro:Article ;
     fro:hasID "A2.2.1.1.1" ;
-    fro:hasMember fro:Member_2_2_1_1_1_1, fro:Member_2_2_1_1_1_2 ;
+    fro:hasMember ex:Member_2_2_1_1_1_1, ex:Member_2_2_1_1_1_2 ;
     fro:hasFigure fro:Figure_19_24 .
 
-fro:Member_2_2_1_1_1_1 a fro:Member ;
+ex:Member_2_2_1_1_1_1 a fro:Member ;
     fro:hasOriginalText """La hauteur 'h' d'un immeuble est définie conventionnellement comme la distance entre le niveau fini du plancher de l'étage le plus élevé et le niveau le plus bas des voies entourant le bâtiment et utilisables par les véhicules des services d'incendie (figure 19-24)."""@fr .
 
-fro:Member_2_2_1_1_1_2 a fro:Member ;
+ex:Member_2_2_1_1_1_2 a fro:Member ;
     fro:hasOriginalText """Lorsque la toiture ne comprend que des locaux à usage technique, ce niveau n'intervient pas dans le calcul de la hauteur."""@fr .
 
 fro:Figure_19_24 a fro:Figure ;
     fro:hasID "F19-24" .
 
-fro:Section_2_2_1 fro:hasSection fro:Section_2_2_1_1 .
+ex:Section_2_2_1 fro:hasSection ex:Section_2_2_1_1 .

@@ -1,7 +1,32 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_1_2_6 a fro:Section ;
+ex:Section_6_1_2 fro:hasSection ex:Section_6_1_2_6 .
+
+ex:Article_6_1_2_6_1 a fro:Article ;
+    fro:hasID "A6.1.2.6.1" ;
+    fro:hasMember ex:Member_6_1_2_6_1_1,
+        ex:Member_6_1_2_6_1_2 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_6_1_2_6_1_1 a fro:Member ;
+    fro:hasOriginalText "Het bordes van de lift(en) mag het bordes van een of meerdere roltrappen zijn."@nl .
+
+ex:Member_6_1_2_6_1_2 a fro:Member ;
+    fro:hasOriginalText "Het geheel bestaande uit één of meer schachten en de eventuele machinekamer, alsook toegangsbordessen van de lift(en) en de roltrap(pen), vormt dan slechts één geheel."@nl ;
+    fro:linksTo fbo-be:TechnicalRoom,
+        fbo-be:VerticalShaft .
+
+ex:Section_6_1_2_6 a fro:Section ;
+    fro:hasArticle ex:Article_6_1_2_6_1 ;
     fro:hasID "6.1.2.6" ;
-    fro:hasOriginalText """<a href="https://ontology.firebim.be/ontology/fbo#Elevator">Liften</a> en <a href="https://ontology.firebim.be/ontology/fbo#Escalator">roltrappen</a>.
-Het <a href="https://ontology.firebim.be/ontology/fbo#Landing">bordes</a> van de <a href="https://ontology.firebim.be/ontology/fbo#Elevator">lift</a>(en) mag het <a href="https://ontology.firebim.be/ontology/fbo#Landing">bordes</a> van een of meerdere <a href="https://ontology.firebim.be/ontology/fbo#Escalator">roltrappen</a> zijn. Het geheel bestaande uit één of meer <a href="https://ontology.firebim.be/ontology/fbo#Shaft">schachten</a> en de eventuele <a href="https://ontology.firebim.be/ontology/fbo#MachineRoom">machinekamer</a>, alsook <a href="https://ontology.firebim.be/ontology/fbo#Landing">toegangsbordessen</a> van de <a href="https://ontology.firebim.be/ontology/fbo#Elevator">lift</a>(en) en de <a href="https://ontology.firebim.be/ontology/fbo#Escalator">roltrap</a>(pen), vormt dan slechts één geheel."""@nl .
+    fro:hasOriginalText "Liften en roltrappen."@nl .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
 

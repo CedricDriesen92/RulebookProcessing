@@ -1,21 +1,31 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_4_4_2 a fro:Section ;
-    fro:hasArticle fro:Article_4_4_2_1 ;
+ex:Section_4 fro:hasSection ex:Section_4_4_2 .
+
+ex:Article_4_4_2_1 a fro:Article ;
+    fro:hasID "A4.4.2.1" ;
+    fro:hasMember ex:Member_4_4_2_1_1 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_4_4_2_1_1 a fro:Member ;
+    fro:hasOriginalText "Op een evacuatieniveau mogen geen uitstalramen van bouwdelen met een commerciële functie, die geen EI 30 hebben, uitgeven op de evacuatieweg die de uitgangen van andere bouwdelen verbindt met de openbare weg, met uitzondering van de laatste 3 m van deze evacuatieweg."@nl ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:EvacuationLevel,
+        fbo-be:EvacuationPath,
+        fbo-be:NumberOfExits .
+
+ex:Section_4_4_2 a fro:Section ;
+    fro:hasArticle ex:Article_4_4_2_1 ;
     fro:hasID "4.4.2" ;
     fro:hasOriginalText "Op een evacuatieniveau"@nl .
 
-fro:Article_4_4_2_1 a fro:Article ;
-    fro:hasID "A4.4.2.1" ;
-    fro:hasMember fro:Member_4_4_2_1_1 ;
-    fro:hasVersion fro:v0_1 .
-
-fro:Member_4_4_2_1_1 a fro:Member ;
-    fro:hasOriginalText "Op een <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a> mogen geen <a href=\"https://ontology.firebim.be/ontology/fbo#DisplayWindow\">uitstalramen</a> van bouwdelen met een commerciële functie, die geen <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">EI 30</a> hebben, uitgeven op de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatieweg</a> die de uitgangen van andere bouwdelen verbindt met de openbare weg, met uitzondering van de laatste 3 m van deze <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatieweg</a>."@nl .
-
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

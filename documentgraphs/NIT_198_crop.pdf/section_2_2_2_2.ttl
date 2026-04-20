@@ -6,36 +6,36 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_2_2_2_2 a fro:Section ;
+ex:Section_2_2_2_2 a fro:Section ;
     fro:hasID "2.2.2.2" ;
     fro:hasOriginalText "SYNTHESE DES PRESCRIPTIONS APPLICABLES AUX ESCALIERS INTERIEURS"@fr ;
-    fro:hasArticle fro:Article_2_2_2_2_1 .
+    fro:hasArticle ex:Article_2_2_2_2_1 .
 
-fro:Article_2_2_2_2_1 a fro:Article ;
+ex:Article_2_2_2_2_1 a fro:Article ;
     fro:hasID "A2.2.2.2.1" ;
-    fro:hasMember fro:Member_2_2_2_2_1_1, fro:Member_2_2_2_2_1_2 ;
+    fro:hasMember ex:Member_2_2_2_2_1_1, ex:Member_2_2_2_2_1_2 ;
     fro:hasTable fro:Table_4, fro:Table_5 .
 
-fro:Member_2_2_2_2_1_1 a fro:Member ;
+ex:Member_2_2_2_2_1_1 a fro:Member ;
     fro:hasOriginalText """Le tableau 4 (p: 28) donne un bref aperçu des dispositions applicables aux escaliers intérieurs faisant fonction de chemins d'évacuation en cas d'incendie. Les prescriptions sont valables pour tous les bâtiments, à l'exception des maisons unifamiliales."""@fr .
 
-fro:Member_2_2_2_2_1_2 a fro:Member ;
+ex:Member_2_2_2_2_1_2 a fro:Member ;
     fro:hasOriginalText """La conception et la mise en œuvre des escaliers intérieurs doivent en outre répondre à un certain nombre d'exigences minimales complémentaires, à savoir :"""@fr ;
-    fro:hasMember fro:Member_2_2_2_2_1_2_1, fro:Member_2_2_2_2_1_2_2, fro:Member_2_2_2_2_1_2_3, fro:Member_2_2_2_2_1_2_4, fro:Member_2_2_2_2_1_2_5 .
+    fro:hasMember ex:Member_2_2_2_2_1_2_1, ex:Member_2_2_2_2_1_2_2, ex:Member_2_2_2_2_1_2_3, ex:Member_2_2_2_2_1_2_4, ex:Member_2_2_2_2_1_2_5 .
 
-fro:Member_2_2_2_2_1_2_1 a fro:Member ;
+ex:Member_2_2_2_2_1_2_1 a fro:Member ;
     fro:hasOriginalText "- giron : G = 200 mm minimum en tout point"@fr .
 
-fro:Member_2_2_2_2_1_2_2 a fro:Member ;
+ex:Member_2_2_2_2_1_2_2 a fro:Member ;
     fro:hasOriginalText "- hauteur des marches : H = 180 mm maximum"@fr .
 
-fro:Member_2_2_2_2_1_2_3 a fro:Member ;
+ex:Member_2_2_2_2_1_2_3 a fro:Member ;
     fro:hasOriginalText "- pente : maximum 75 % (angle maximum d'inclinaison & = 37°)"@fr .
 
-fro:Member_2_2_2_2_1_2_4 a fro:Member ;
+ex:Member_2_2_2_2_1_2_4 a fro:Member ;
     fro:hasOriginalText "- largeur utile : au moins 0,8 m, sans être inférieure à la largeur utile requise calculée selon l'annexe technique n° 1 de l'AR du 07/07/1994."@fr .
 
-fro:Member_2_2_2_2_1_2_5 a fro:Member ;
+ex:Member_2_2_2_2_1_2_5 a fro:Member ;
     fro:hasOriginalText """La largeur utile des volées d'escaliers et des paliers de la cage d'escalier d'un même compartiment ne peut s'écarter de plus d'une unité de passage. Les escaliers sont pourvus de garde-corps de part et d'autre. Toutefois, un seul garde-corps peut suffire dans les escaliers dont la largeur utile est inférieure à 1,2 m, pour autant qu'il n'y ait aucun risque de chute."""@fr .
 
 fro:Table_4 a fro:Table ;
@@ -67,4 +67,4 @@ fro:Table_5 a fro:Table ;
 |155| | | |570|575|580|585|
 |150| | | | |570|575|580|"""@fr .
 
-fro:Section_2_2_2 fro:hasSection fro:Section_2_2_2_2 .
+ex:Section_2_2_2 fro:hasSection ex:Section_2_2_2_2 .

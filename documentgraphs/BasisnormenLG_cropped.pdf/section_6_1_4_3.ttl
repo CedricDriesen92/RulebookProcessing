@@ -1,26 +1,34 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_1_4_3 a fro:Section ;
-    fro:hasArticle fro:Article_6_1_4_3_1 ;
-    fro:hasID "6.1.4.3" ;
-    fro:hasOriginalText """Elke liftbatterij is minstens voorzien van een manuele oproepvoorziening op een evacuatieniveau.
-Bovendien, als het gebouw uitgerust is met een algemene branddetectie-installatie of met een branddetectie-installatie in de schachten en/of in de machinekamers, moet deze installatie in geval van brand een signaal doorgeven naar de liften."""@nl .
+ex:Section_6_1_4_3 a fro:Section ;
+    fro:hasArticle ex:Article_6_1_4_3_1 ;
+    fro:hasID "6.1.4.3" .
 
-fro:Article_6_1_4_3_1 a fro:Article ;
+ex:Article_6_1_4_3_1 a fro:Article ;
     fro:hasID "A6.1.4.3.1" ;
-    fro:hasMember fro:Member_6_1_4_3_1_1,
-        fro:Member_6_1_4_3_1_2 ;
+    fro:hasMember ex:Member_6_1_4_3_1_1,
+        ex:Member_6_1_4_3_1_2 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_6_1_4_3_1_1 a fro:Member ;
-    fro:hasOriginalText "Elke <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liftbatterij</a> is minstens voorzien van een <a href=\"https://ontology.firebim.be/ontology/fbo#ManualControl\">manuele oproepvoorziening</a> op een <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a>."@nl .
+ex:Member_6_1_4_3_1_1 a fro:Member ;
+    fro:hasOriginalText "Elke liftbatterij is minstens voorzien van een manuele oproepvoorziening op een evacuatieniveau."@nl ;
+    fro:linksTo fbo:AutomaticWarningSystem,
+        fbo-be:EvacuationLevel .
 
-fro:Member_6_1_4_3_1_2 a fro:Member ;
-    fro:hasOriginalText "Bovendien, als het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> uitgerust is met een algemene <a href=\"https://ontology.firebim.be/ontology/fbo#FireDetectionSystem\">branddetectie-installatie</a> of met een <a href=\"https://ontology.firebim.be/ontology/fbo#FireDetectionSystem\">branddetectie-installatie</a> in de <a href=\"https://ontology.firebim.be/ontology/fbo#ElevatorShaft\">schachten</a> en/of in de <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machinekamers</a>, moet deze installatie in geval van brand een <a href=\"https://ontology.firebim.be/ontology/fbo#FireDetectionSignal\">signaal</a> doorgeven naar de <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a>."@nl .
+ex:Member_6_1_4_3_1_2 a fro:Member ;
+    fro:hasOriginalText "Bovendien, als het gebouw uitgerust is met een algemene branddetectie-installatie of met een branddetectie-installatie in de schachten en/of in de machinekamers, moet deze installatie in geval van brand een signaal doorgeven naar de liften."@nl ;
+    fro:linksTo fbo-be:AutomaticDetectionTotal,
+        fbo-be:Building,
+        fbo-be:TechnicalRoom,
+        fbo-be:VerticalShaft .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

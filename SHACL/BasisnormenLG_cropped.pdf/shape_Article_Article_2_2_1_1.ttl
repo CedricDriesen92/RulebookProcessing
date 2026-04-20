@@ -1,66 +1,111 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
 @prefix fro: <http://www.firebim.org/ontologies/fro#> .
-@prefix fbo: <http://www.firebim.org/ontologies/fbo#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ex: <http://example.org/ns#> .
 
-<https://ontology.firebim.be/ontology/fro#Article_2_2_1_1>
-    a sh:NodeShape ;
-    rdfs:label "Article 2.2.1.1 - Number of Exits"@en ;
-    rdfs:comment "Validates the minimum number of exits for compartments, stories, and spaces based on occupancy."@en ;
-    
-    # Target the relevant building entities mentioned in the text: 
-    # Compartments, Stories (bouwlagen), and Spaces (lokalen)
-    sh:targetClass fro:FireCompartment ;
-    sh:targetClass fbo:Storey ;
-    sh:targetClass fbo:Space ;
+# Shape for the minimum required exits per compartment, storey, or room based on occupancy
+fro:Shape_Article_2_2_1_1 a sh:NodeShape ;
+    sh:targetClass fbo:FireCompartment, fbo:BuildingStorey, fbo:AreaFloorRoom ;
+    sh:description "Elk compartiment (en bouwlagen en lokalen) heeft een minimum aantal uitgangen in functie van de maximale bezetting." ;
+    sh:or (
+        # Condition 1: Occupancy < 100 -> min 1 exit
+        [
+            sh:and (
+                [
+                    sh:property [
+                        sh:path ex:occupancyCount ; # NOTE: no ontology term found for occupancy count value
+                        sh:datatype xsd:integer ;
+                        sh:maxExclusive 100 ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:hasSubitem ;
+                        sh:class fbo:Exit ;
+                        sh:minCount 1 ;
+                        sh:message "één uitgang indien de maximale bezetting minder dan 100 personen bedraagt" ;
+                    ]
+                ]
+            )
+        ]
+        # Condition 2: 100 <= Occupancy < 500 -> min 2 exits
+        [
+            sh:and (
+                [
+                    sh:property [
+                        sh:path ex:occupancyCount ; # NOTE: no ontology term found for occupancy count value
+                        sh:datatype xsd:integer ;
+                        sh:minInclusive 100 ;
+                        sh:maxExclusive 500 ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:hasSubitem ;
+                        sh:class fbo:Exit ;
+                        sh:minCount 2 ;
+                        sh:message "twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 personen bedraagt" ;
+                    ]
+                ]
+            )
+        ]
+        # Condition 3: Occupancy >= 500 -> min 2 + ceil(Occupancy/1000) exits
+        [
+            sh:and (
+                [
+                    sh:property [
+                        sh:path ex:occupancyCount ; # NOTE: no ontology term found for occupancy count value
+                        sh:datatype xsd:integer ;
+                        sh:minInclusive 500 ;
+                    ]
+                ]
+                [
+                    sh:sparql [
+                        sh:message "2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt." ;
+                        sh:prefixes [
+                            sh:declare [
+                                sh:prefix "ex" ;
+                                sh:namespace "http://example.org/ns#"^^xsd:anyURI ;
+                            ] , [
+                                sh:prefix "fbo" ;
+                                sh:namespace "https://ontology.firebim.be/ontology/fbo#"^^xsd:anyURI ;
+                            ] , [
+                                sh:prefix "rdf" ;
+                                sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+                            ]
+                        ] ;
+                        sh:select """
+                            SELECT $this ?occupancy
+                            WHERE {
+                                $this ex:occupancyCount ?occupancy .
+                                FILTER (?occupancy >= 500)
+                                
+                                OPTIONAL {
+                                    SELECT $this (COUNT(?exit) AS ?exitCount)
+                                    WHERE {
+                                        $this fbo:hasSubitem ?exit .
+                                        ?exit rdf:type fbo:Exit .
+                                    } GROUP BY $this
+                                }
+                                BIND(COALESCE(?exitCount, 0) AS ?actualExits)
+                                
+                                # Calculates 2 + n where n = ceil(occupancy / 1000)
+                                BIND(2 + CEIL(?occupancy / 1000.0) AS ?requiredExits)
+                                
+                                FILTER (?actualExits < ?requiredExits)
+                            }
+                        """ ;
+                    ]
+                ]
+            )
+        ]
+    ) .
 
-    # Ensure occupancy data is present to perform the calculation
-    sh:property [
-        sh:path fro:occupancy ;
-        sh:minCount 1 ;
-        sh:datatype xsd:integer ;
-        sh:message "Entity must have an occupancy value defined to calculate required exits." ;
-    ] ;
-
-    # Use SPARQL Constraint for the complex mathematical conditions (2 + n logic)
-    sh:sparql [
-        a sh:SPARQLConstraint ;
-        sh:message "Insufficient exits: Occupancy is {?occupancy}, requiring {?requiredExits} exits, but only {?exitCount} were found." ;
-        sh:prefixes fro: ;
-        sh:select """
-            SELECT $this ?occupancy ?exitCount ?requiredExits
-            WHERE {
-                # Get the occupancy of the focus node
-                $this fro:occupancy ?occupancy .
-
-                # Count the number of exits connected to the focus node
-                {
-                    SELECT $this (COUNT(?exit) AS ?exitCountRaw)
-                    WHERE {
-                        OPTIONAL { $this fro:hasExit ?exit . }
-                    } GROUP BY $this
-                }
-                BIND(COALESCE(?exitCountRaw, 0) AS ?exitCount)
-
-                # Calculate n: integer immediately larger than occupancy / 1000
-                # Logic: floor(occupancy / 1000) + 1
-                BIND((FLOOR(?occupancy / 1000) + 1) AS ?n)
-
-                # Determine required exits based on the three conditions
-                BIND(
-                    IF(?occupancy < 100, 
-                        1, 
-                        IF(?occupancy < 500, 
-                            2, 
-                            (2 + ?n)
-                        )
-                    ) AS ?requiredExits
-                )
-
-                # Filter results where actual exits are less than required exits
-                FILTER (?exitCount < ?requiredExits)
-            }
-        """ ;
-    ] .
+# Shape to capture the fire department's exception rule
+fro:Shape_Article_2_2_1_1_FireDeptOverride a sh:PropertyShape ;
+    sh:targetClass fbo:FireCompartment, fbo:BuildingStorey, fbo:AreaFloorRoom ;
+    sh:path ex:fireDeptRequiredExits ; # NOTE: no ontology term found for fire department exit requirement override
+    sh:datatype xsd:integer ;
+    sh:description "Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en de configuratie van de lokalen." .

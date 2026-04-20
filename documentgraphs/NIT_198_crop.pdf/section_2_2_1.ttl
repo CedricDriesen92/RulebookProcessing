@@ -6,29 +6,29 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_2_2_1 a fro:Section ;
+ex:Section_2_2_1 a fro:Section ;
     fro:hasID "2.2.1" ;
     fro:hasOriginalText "ENONCE DU PROBLEME"@fr ;
-    fro:hasArticle fro:Article_2_2_1_1 .
+    fro:hasArticle ex:Article_2_2_1_1 .
 
-fro:Article_2_2_1_1 a fro:Article ;
+ex:Article_2_2_1_1 a fro:Article ;
     fro:hasID "A2.2.1.1" ;
-    fro:hasMember fro:Member_2_2_1_1_1, fro:Member_2_2_1_1_2 .
+    fro:hasMember ex:Member_2_2_1_1_1, ex:Member_2_2_1_1_2 .
 
-fro:Member_2_2_1_1_1 a fro:Member ;
+ex:Member_2_2_1_1_1 a fro:Member ;
     fro:hasOriginalText """L'auteur de projet prend les mesures nécessaires en vue d'assurer la sécurité du bâtiment applicables en la matière. Ces dispositions consistent à prévoir des possibilités d'évacuation en cas d'incendie et ce, en fonction de la hauteur de l'immeuble et des dispositions judicieux."""@fr .
 
-fro:Member_2_2_1_1_2 a fro:Member ;
+ex:Member_2_2_1_1_2 a fro:Member ;
     fro:hasOriginalText """De telles mesures sont nécessaires pour permettre en cas d'incendie :"""@fr ;
-    fro:hasMember fro:Member_2_2_1_1_2_1, fro:Member_2_2_1_1_2_2, fro:Member_2_2_1_1_2_3 .
+    fro:hasMember ex:Member_2_2_1_1_2_1, ex:Member_2_2_1_1_2_2, ex:Member_2_2_1_1_2_3 .
 
-fro:Member_2_2_1_1_2_1 a fro:Member ;
+ex:Member_2_2_1_1_2_1 a fro:Member ;
     fro:hasOriginalText "- d'évacuer le bâtiment dans les meilleurs délais"@fr .
 
-fro:Member_2_2_1_1_2_2 a fro:Member ;
+ex:Member_2_2_1_1_2_2 a fro:Member ;
     fro:hasOriginalText "- de limiter les dégâts matériels"@fr .
 
-fro:Member_2_2_1_1_2_3 a fro:Member ;
+ex:Member_2_2_1_1_2_3 a fro:Member ;
     fro:hasOriginalText "- d'assurer aux services d'incendie une intervention efficace et sans danger"@fr .
 
-fro:Section_2_2 fro:hasSection fro:Section_2_2_1 .
+ex:Section_2_2 fro:hasSection ex:Section_2_2_1 .

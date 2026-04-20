@@ -1,165 +1,166 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix ex: <https://example.org/rulebook#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_3_5_2 a fro:Section ;
+ex:Section_3_5_2 a fro:Section ;
     fro:hasID "3.5.2" ;
     fro:hasOriginalText "Dubbelwandige gevels."@nl ;
-    fro:hasSection fro:Section_3_5_2_1, fro:Section_3_5_2_2, fro:Section_3_5_2_3 .
+    fro:hasSection ex:Section_3_5_2_1, ex:Section_3_5_2_2, ex:Section_3_5_2_3 .
 
-fro:Section_3_5 fro:hasSection fro:Section_3_5_2 .
+ex:Section_3_5 fro:hasSection ex:Section_3_5_2 .
 
-fro:Section_3_5_2_1 a fro:Section ;
+ex:Section_3_5_2_1 a fro:Section ;
     fro:hasID "3.5.2.1" ;
     fro:hasOriginalText "Dubbelwandige gevel die onderbroken wordt door een compartimentering."@nl ;
-    fro:hasArticle fro:Article_3_5_2_1_1 .
+    fro:hasArticle ex:Article_3_5_2_1_1 .
 
-fro:Article_3_5_2_1_1 a fro:Article ;
+ex:Article_3_5_2_1_1 a fro:Article ;
     fro:hasID "A3.5.2.1.1" ;
-    fro:hasMember fro:Member_3_5_2_1_1_1, fro:Member_3_5_2_1_1_2, fro:Member_3_5_2_1_1_3 .
+    fro:hasMember ex:Member_3_5_2_1_1_1, ex:Member_3_5_2_1_1_2, ex:Member_3_5_2_1_1_3 .
 
-fro:Member_3_5_2_1_1_1 a fro:Member ;
+ex:Member_3_5_2_1_1_1 a fro:Member ;
     fro:hasOriginalText """De spouw van de dubbelwandige gevel wordt in het verlengde van elke compartimentswand
 onderbroken door een element dat minstens E 60 heeft. Dit element beslaat de volledige ruimte
 begrepen tussen de twee wanden en heeft een minimale lengte van 60 cm te tellen vanaf de
 binnenwand van de gevel."""@nl .
 
-fro:Member_3_5_2_1_1_2 a fro:Member ;
+ex:Member_3_5_2_1_1_2 a fro:Member ;
     fro:hasOriginalText """Dit element mag openingen bevatten, op voorwaarde dat de continuïteit van de compartimentering
 door de spouw heen verzekerd wordt door een bij brand zelfsluitende afsluitinrichting met een
 brandweerstand E 60. Deze inrichting wordt beproefd in zijn dragende constructie, volgens de
 richting van de compartimentswand; de sluiting ervan wordt bevolen:"""@nl ;
-    fro:hasMember fro:Member_3_5_2_1_1_2_1, fro:Member_3_5_2_1_1_2_2 .
+    fro:hasMember ex:Member_3_5_2_1_1_2_1, ex:Member_3_5_2_1_1_2_2 .
 
-fro:Member_3_5_2_1_1_2_1 a fro:Member ;
+ex:Member_3_5_2_1_1_2_1 a fro:Member ;
     fro:hasOriginalText """- hetzij door een thermische detectie ter hoogte van deze inrichting die reageert bij een
   temperatuur van maximaal 100°C."""@nl .
 
-fro:Member_3_5_2_1_1_2_2 a fro:Member ;
+ex:Member_3_5_2_1_1_2_2 a fro:Member ;
     fro:hasOriginalText """- hetzij door een rookdetectie in de spouw of in alle compartimenten langs de gevel, die voldoet
   aan de voorwaarden in punt 3.5.2.3."""@nl .
 
-fro:Member_3_5_2_1_1_3 a fro:Member ;
+ex:Member_3_5_2_1_1_3 a fro:Member ;
     fro:hasOriginalText """Wanneer er verluchtingsopeningen zijn tussen de spouw van de dubbelwandige gevel en de
 binnenomgeving van het gebouw, is enkel een rookdetectie toegelaten in de spouw of in alle
 compartimenten langs de gevel. Zij voldoet aan de voorwaarden van punt 3.5.2.3."""@nl .
 
-fro:Section_3_5_2_2 a fro:Section ;
+ex:Section_3_5_2_2 a fro:Section ;
     fro:hasID "3.5.2.2" ;
     fro:hasOriginalText "Dubbelwandige gevel zonder compartimentering."@nl ;
-    fro:hasArticle fro:Article_3_5_2_2_1 ;
-    fro:hasSection fro:Section_3_5_2_2_1, fro:Section_3_5_2_2_2 .
+    fro:hasArticle ex:Article_3_5_2_2_1 ;
+    fro:hasSection ex:Section_3_5_2_2_1, ex:Section_3_5_2_2_2 .
 
-fro:Article_3_5_2_2_1 a fro:Article ;
+ex:Article_3_5_2_2_1 a fro:Article ;
     fro:hasID "A3.5.2.2.1" ;
-    fro:hasMember fro:Member_3_5_2_2_1_1 .
+    fro:hasMember ex:Member_3_5_2_2_1_1 .
 
-fro:Member_3_5_2_2_1_1 a fro:Member ;
+ex:Member_3_5_2_2_1_1 a fro:Member ;
     fro:hasOriginalText """De dubbelwandige gevels zonder compartimentering moeten in overeenstemming zijn met een
 van de twee hierna opgenomen mogelijkheden."""@nl .
 
-fro:Section_3_5_2_2_1 a fro:Section ;
+ex:Section_3_5_2_2_1 a fro:Section ;
     fro:hasID "3.5.2.2.1" ;
     fro:hasOriginalText "Dubbelwandige gevel waarvan de binnenwand brandwerend is."@nl ;
-    fro:hasArticle fro:Article_3_5_2_2_1_1 .
+    fro:hasArticle ex:Article_3_5_2_2_1_1 .
 
-fro:Article_3_5_2_2_1_1 a fro:Article ;
+ex:Article_3_5_2_2_1_1 a fro:Article ;
     fro:hasID "A3.5.2.2.1.1" ;
-    fro:hasMember fro:Member_3_5_2_2_1_1_1, fro:Member_3_5_2_2_1_1_2 .
+    fro:hasMember ex:Member_3_5_2_2_1_1_1, ex:Member_3_5_2_2_1_1_2 .
 
-fro:Member_3_5_2_2_1_1_1 a fro:Member ;
+ex:Member_3_5_2_2_1_1_1 a fro:Member ;
     fro:hasOriginalText """De buitenwand van de dubbelwandige gevel bestaat tussen de verdiepingen voor minstens 50%
 uit bouwelementen zonder specifieke brandweerstand."""@nl .
 
-fro:Member_3_5_2_2_1_1_2 a fro:Member ;
+ex:Member_3_5_2_2_1_1_2 a fro:Member ;
     fro:hasOriginalText "De binnenwand heeft:"@nl ;
-    fro:hasMember fro:Member_3_5_2_2_1_1_2_1, fro:Member_3_5_2_2_1_1_2_2 .
+    fro:hasMember ex:Member_3_5_2_2_1_1_2_1, ex:Member_3_5_2_2_1_1_2_2 .
 
-fro:Member_3_5_2_2_1_1_2_1 a fro:Member ;
+ex:Member_3_5_2_2_1_1_2_1 a fro:Member ;
     fro:hasOriginalText "- hetzij, over de volledige hoogte, minstens een brandweerstand E 30 (i↔o);"@nl .
 
-fro:Member_3_5_2_2_1_1_2_2 a fro:Member ;
+ex:Member_3_5_2_2_1_1_2_2 a fro:Member ;
     fro:hasOriginalText "- hetzij afwisselend om de twee bouwlagen minstens een brandweerstand EI 30 (i↔o)."@nl .
 
-fro:Section_3_5_2_2_2 a fro:Section ;
+ex:Section_3_5_2_2_2 a fro:Section ;
     fro:hasID "3.5.2.2.2" ;
     fro:hasOriginalText "Dubbelwandige gevel naar buiten toe open."@nl ;
-    fro:hasArticle fro:Article_3_5_2_2_2_1 .
+    fro:hasArticle ex:Article_3_5_2_2_2_1 .
 
-fro:Article_3_5_2_2_2_1 a fro:Article ;
+ex:Article_3_5_2_2_2_1 a fro:Article ;
     fro:hasID "A3.5.2.2.2.1" ;
-    fro:hasMember fro:Member_3_5_2_2_2_1_1, fro:Member_3_5_2_2_2_1_2, fro:Member_3_5_2_2_2_1_3, fro:Member_3_5_2_2_2_1_4 .
+    fro:hasMember ex:Member_3_5_2_2_2_1_1, ex:Member_3_5_2_2_2_1_2, ex:Member_3_5_2_2_2_1_3, ex:Member_3_5_2_2_2_1_4 .
 
-fro:Member_3_5_2_2_2_1_1 a fro:Member ;
+ex:Member_3_5_2_2_2_1_1 a fro:Member ;
     fro:hasOriginalText """De voorschriften voor enkelwandige gevels mogen toegepast worden op de binnenwand wanneer
 de buitenwand vaste of mobiele ventilatieopeningen bevat die automatisch openen bij brand."""@nl .
 
-fro:Member_3_5_2_2_2_1_2 a fro:Member ;
+ex:Member_3_5_2_2_2_1_2 a fro:Member ;
     fro:hasOriginalText """De vaste ventilatieopeningen zijn geplaatst op 30 ± 10 graden naar de buitenkant en naar boven
 toe ten opzichte van de horizontale, gelijkmatig verdeeld over ten minste 50% van de oppervlakte
 ervan."""@nl .
 
-fro:Member_3_5_2_2_2_1_3 a fro:Member ;
+ex:Member_3_5_2_2_2_1_3 a fro:Member ;
     fro:hasOriginalText """De mobiele ventilatieopeningen voldoen, bij brand, aan dezelfde voorwaarden als de vaste
 ventilatieopeningen."""@nl .
 
-fro:Member_3_5_2_2_2_1_4 a fro:Member ;
+ex:Member_3_5_2_2_2_1_4 a fro:Member ;
     fro:hasOriginalText """De veiligheidsstand van de mobiele lamellen wordt in werking gesteld door een algemene
 branddetectie-installatie in de compartimenten langs gevels. De automatische bediening moet
 voldoen aan de voorwaarden voorzien in punt 3.5.2.3."""@nl .
 
-fro:Section_3_5_2_3 a fro:Section ;
+ex:Section_3_5_2_3 a fro:Section ;
     fro:hasID "3.5.2.3" ;
     fro:hasOriginalText "Automatische sluitings- / openingssystemen."@nl ;
-    fro:hasSection fro:Section_3_5_2_3_1, fro:Section_3_5_2_3_2, fro:Section_3_5_2_3_3 .
+    fro:hasSection ex:Section_3_5_2_3_1, ex:Section_3_5_2_3_2, ex:Section_3_5_2_3_3 .
 
-fro:Section_3_5_2_3_1 a fro:Section ;
+ex:Section_3_5_2_3_1 a fro:Section ;
     fro:hasID "3.5.2.3.1" ;
     fro:hasOriginalText "Bediening"@nl ;
-    fro:hasArticle fro:Article_3_5_2_3_1_1 .
+    fro:hasArticle ex:Article_3_5_2_3_1_1 .
 
-fro:Article_3_5_2_3_1_1 a fro:Article ;
+ex:Article_3_5_2_3_1_1 a fro:Article ;
     fro:hasID "A3.5.2.3.1.1" ;
-    fro:hasMember fro:Member_3_5_2_3_1_1_1, fro:Member_3_5_2_3_1_1_2 .
+    fro:hasMember ex:Member_3_5_2_3_1_1_1, ex:Member_3_5_2_3_1_1_2 .
 
-fro:Member_3_5_2_3_1_1_1 a fro:Member ;
+ex:Member_3_5_2_3_1_1_1 a fro:Member ;
     fro:hasOriginalText "De sluiting / opening wordt bevolen door een automatische branddetectie-installatie."@nl .
 
-fro:Member_3_5_2_3_1_1_2 a fro:Member ;
+ex:Member_3_5_2_3_1_1_2 a fro:Member ;
     fro:hasOriginalText """De installatie wordt uitgerust met manuele openings- en sluitingssystemen. De bediening ervan is
 voorbehouden aan de brandweer. De plaats ervan moet bepaald worden in akkoord met de
 brandweer."""@nl .
 
-fro:Section_3_5_2_3_2 a fro:Section ;
+ex:Section_3_5_2_3_2 a fro:Section ;
     fro:hasID "3.5.2.3.2" ;
     fro:hasOriginalText "Bedrijfszekerheid."@nl ;
-    fro:hasArticle fro:Article_3_5_2_3_2_1 .
+    fro:hasArticle ex:Article_3_5_2_3_2_1 .
 
-fro:Article_3_5_2_3_2_1 a fro:Article ;
+ex:Article_3_5_2_3_2_1 a fro:Article ;
     fro:hasID "A3.5.2.3.2.1" ;
-    fro:hasMember fro:Member_3_5_2_3_2_1_1, fro:Member_3_5_2_3_2_1_2 .
+    fro:hasMember ex:Member_3_5_2_3_2_1_1, ex:Member_3_5_2_3_2_1_2 .
 
-fro:Member_3_5_2_3_2_1_1 a fro:Member ;
+ex:Member_3_5_2_3_2_1_1 a fro:Member ;
     fro:hasOriginalText """Bij het uitvallen van de normale energiebron (elektrische energie, persluchtnet), zet de detectie-
 installatie of het bedieningssysteem het sluitings-/openingssysteem in de veiligheidsstand."""@nl .
 
-fro:Member_3_5_2_3_2_1_2 a fro:Member ;
+ex:Member_3_5_2_3_2_1_2 a fro:Member ;
     fro:hasOriginalText """Elk gebrek aan energiebron, voeding of elektrische of pneumatische bediening moet automatisch
 gemeld worden aan de detectiecentrale."""@nl .
 
-fro:Section_3_5_2_3_3 a fro:Section ;
+ex:Section_3_5_2_3_3 a fro:Section ;
     fro:hasID "3.5.2.3.3" ;
     fro:hasOriginalText "Werking bij brand in een naburig compartiment."@nl ;
-    fro:hasArticle fro:Article_3_5_2_3_3_1 .
+    fro:hasArticle ex:Article_3_5_2_3_3_1 .
 
-fro:Article_3_5_2_3_3_1 a fro:Article ;
+ex:Article_3_5_2_3_3_1 a fro:Article ;
     fro:hasID "A3.5.2.3.3.1" ;
-    fro:hasMember fro:Member_3_5_2_3_3_1_1 .
+    fro:hasMember ex:Member_3_5_2_3_3_1_1 .
 
-fro:Member_3_5_2_3_3_1_1 a fro:Member ;
+ex:Member_3_5_2_3_3_1_1 a fro:Member ;
     fro:hasOriginalText """Wanneer de sluitings- / openingssystemen geen positieve veiligheid hebben, dan moeten de
 elektrische leidingen die het sluitings-/openingssysteem verbinden, voldoen aan punt 6.5.2."""@nl .

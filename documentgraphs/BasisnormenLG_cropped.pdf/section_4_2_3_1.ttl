@@ -1,42 +1,48 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_4_2_3_1 a fro:Section ;
-    fro:hasArticle fro:Article_4_2_3_1_1 ;
+ex:Section_4_2_3_1 a fro:Section ;
+    fro:hasArticle ex:Article_4_2_3_1_1 ;
     fro:hasID "4.2.3.1" ;
     fro:hasOriginalText "Constructiebepalingen."@nl .
 
-fro:Article_4_2_3_1_1 a fro:Article ;
+ex:Article_4_2_3_1_1 a fro:Article ;
     fro:hasID "A4.2.3.1.1" ;
-    fro:hasMember fro:Member_4_2_3_1_1_1,
-        fro:Member_4_2_3_1_1_2,
-        fro:Member_4_2_3_1_1_3,
-        fro:Member_4_2_3_1_1_4,
-        fro:Member_4_2_3_1_1_5,
-        fro:Member_4_2_3_1_1_6 ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappen</a> hebben de volgende kenmerken:"@nl ;
-    fro:hasVersion fro:v0_1 .
+    fro:hasMember ex:Member_4_2_3_1_1_1,
+        ex:Member_4_2_3_1_1_2,
+        ex:Member_4_2_3_1_1_3,
+        ex:Member_4_2_3_1_1_4,
+        ex:Member_4_2_3_1_1_5,
+        ex:Member_4_2_3_1_1_6 ;
+    fro:hasOriginalText "De trappen hebben de volgende kenmerken:"@nl ;
+    fro:hasVersion fro:v0_1 ;
+    fro:linksTo fbo-be:InternalStair .
 
-fro:Member_4_2_3_1_1_1 a fro:Member ;
-    fro:hasOriginalText "1. evenals de <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">overlopen</a> hebben zij <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">R 30</a> of zijn op dezelfde manier ontworpen als een <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">betonplaat</a> met <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">R 30</a>. Er wordt evenwel geen <a href=\"https://ontology.firebim.be/ontology/fbo#FireStability\">stabiliteit bij brand</a> vereist voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappen</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">overlopen</a> die uitsluitend zijn samengesteld uit <a href=\"https://ontology.firebim.be/ontology/fbo#MaterialClass\">materialen van klasse A1</a>, met een smelttemperatuur groter dan 727°C (staal voldoet bijvoorbeeld aan deze voorwaarde, aluminium en glas voldoen niet aan deze voorwaarde);"@nl .
+ex:Member_4_2_3_1_1_1 a fro:Member ;
+    fro:hasOriginalText "1. evenals de overlopen hebben zij R 30 of zijn op dezelfde manier ontworpen als een betonplaat met R 30. Er wordt evenwel geen stabiliteit bij brand vereist voor de trappen en de overlopen die uitsluitend zijn samengesteld uit materialen van klasse A1, met een smelttemperatuur groter dan 727°C (staal voldoet bijvoorbeeld aan deze voorwaarde, aluminium en glas voldoen niet aan deze voorwaarde);"@nl ;
+    fro:linksTo fbo:FireResistance .
 
-fro:Member_4_2_3_1_1_2 a fro:Member ;
-    fro:hasOriginalText "2. zij zijn aan beide zijden uitgerust met <a href=\"https://ontology.firebim.be/ontology/fbo#Handrail\">leuningen</a>. Voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappen</a> met een <a href=\"https://ontology.firebim.be/ontology/fbo#UsefulWidth\">nuttige breedte</a>, kleiner dan 1,20 m, is één <a href=\"https://ontology.firebim.be/ontology/fbo#Handrail\">leuning</a> voldoende, voor zover er geen gevaar is voor het vallen;"@nl .
+ex:Member_4_2_3_1_1_2 a fro:Member ;
+    fro:hasOriginalText "2. zij zijn aan beide zijden uitgerust met leuningen. Voor de trappen met een nuttige breedte, kleiner dan 1,20 m, is één leuning voldoende, voor zover er geen gevaar is voor het vallen;"@nl .
 
-fro:Member_4_2_3_1_1_3 a fro:Member ;
-    fro:hasOriginalText "3. de <a href=\"https://ontology.firebim.be/ontology/fbo#TreadDepth\">aantrede van de treden</a> is in elk punt ten minste 20 cm;"@nl .
+ex:Member_4_2_3_1_1_3 a fro:Member ;
+    fro:hasOriginalText "3. de aantrede van de treden is in elk punt ten minste 20 cm;"@nl .
 
-fro:Member_4_2_3_1_1_4 a fro:Member ;
-    fro:hasOriginalText "4. de <a href=\"https://ontology.firebim.be/ontology/fbo#RiserHeight\">optrede van de treden</a> mag niet meer dan 18 cm bedragen;"@nl .
+ex:Member_4_2_3_1_1_4 a fro:Member ;
+    fro:hasOriginalText "4. de optrede van de treden mag niet meer dan 18 cm bedragen;"@nl .
 
-fro:Member_4_2_3_1_1_5 a fro:Member ;
-    fro:hasOriginalText "5. hun <a href=\"https://ontology.firebim.be/ontology/fbo#MaximumSlope\">helling</a> mag niet meer dan 75 % bedragen (maximale hellingshoek 37°);"@nl .
+ex:Member_4_2_3_1_1_5 a fro:Member ;
+    fro:hasOriginalText "5. hun helling mag niet meer dan 75 % bedragen (maximale hellingshoek 37°);"@nl .
 
-fro:Member_4_2_3_1_1_6 a fro:Member ;
-    fro:hasOriginalText "6. zij zijn van het \"rechte type\". Maar, \"wenteltrappen\" worden toegestaan zo ze verdreven <a href=\"https://ontology.firebim.be/ontology/fbo#Tread\">treden</a> hebben en zo hun <a href=\"https://ontology.firebim.be/ontology/fbo#Tread\">treden</a>, naast de hiervoor vermelde vereisten, (met uitzondering van voornoemd punt 3), ten minste 24 cm <a href=\"https://ontology.firebim.be/ontology/fbo#TreadDepth\">aantrede</a> hebben op de looplijn."@nl .
+ex:Member_4_2_3_1_1_6 a fro:Member ;
+    fro:hasOriginalText "6. zij zijn van het \"rechte type\". Maar, \"wenteltrappen\" worden toegestaan zo ze verdreven treden hebben en zo hun treden, naast de hiervoor vermelde vereisten, (met uitzondering van voornoemd punt 3), ten minste 24 cm aantrede hebben op de looplijn."@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

@@ -159,7 +159,7 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
                 max_tokens=8000,
                 messages=[
                     {"role": "user", "content": prompt},
-                    {"role": "assistant", "content": "fro:Section_" + str(section_number) +" a"}
+                    {"role": "assistant", "content": "ex:Section_" + str(section_number) +" a"}
                 ],
                 model="claude-3-5-sonnet-v2@20241022"
             )
@@ -174,7 +174,7 @@ Here are some examples of how to convert sections to Turtle format. Note, follow
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .\n\n"""
-    full_ttl_content += "fro:Section_" + str(section_number) +" a " + response.content[0].text.strip()
+    full_ttl_content += "ex:Section_" + str(section_number) +" a " + response.content[0].text.strip()
     return full_ttl_content
 
 def create_and_combine_section_ttl(section_number, section_text, ontology, main_graph, examples_str, starting_graph, output_folder):

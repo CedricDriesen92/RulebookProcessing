@@ -2,9 +2,52 @@ import os
 import requests
 from dotenv import load_dotenv
 from rdflib import Graph, Namespace, Literal, URIRef
-from rdflib.namespace import RDF, RDFS, OWL, XSD, SKOS
+from rdflib.namespace import RDF, RDFS, OWL, XSD
+
+SCHEMA = Namespace("http://schema.org/")
+QUDT = Namespace("https://qudt.org/3.1.0/schema/qudt/")
+QUDT_UNIT = Namespace("https://qudt.org/3.1.0/vocab/unit/")
 import re
 from collections import Counter
+
+# Unit string (from Notion TD - Unit) → QUDT unit fragment
+UNIT_MAP = {
+    "m": "M",
+    "m²": "M2",
+    "m2": "M2",
+    "m³": "M3",
+    "m3": "M3",
+    "°c": "DEG_C",
+    "°f": "DEG_F",
+    "%": "PERCENT",
+    "kg": "KiloGM",
+    "s": "SEC",
+    "min": "MIN",
+    "h": "HR",
+    "pa": "PA",
+    "kpa": "KiloPA",
+    "n": "N",
+    "kn": "KiloN",
+    "w": "W",
+    "kw": "KiloW",
+    "lux": "LUX",
+    "db": "DB",
+    "k": "K",
+}
+
+# Value type string (from Notion TD - Value) → XSD datatype URI
+XSD_TYPE_MAP = {
+    "number": XSD.float,
+    "float": XSD.float,
+    "integer": XSD.integer,
+    "boolean": XSD.boolean,
+    "boolean (yes/no)": XSD.boolean,
+    "string": XSD.string,
+    "text": XSD.string,
+    "date": XSD.date,
+    "enumeration": XSD.string,
+    "enumeration (choice)": XSD.string,
+}
 
 # --- Configuration ---
 load_dotenv()
@@ -14,6 +57,8 @@ NOTION_KEY = os.environ.get("NOTION_KEY")
 DB_UNIFIED = "d1163f8f04824d54bbfc4541fb327f06"
 DB_COUNTRIES = "153f8487e6e780aebc37db28dbb23feb"
 DB_DOCUMENTS = "980ee046f5e04429adbcce5b02fec8aa"
+DB_IFCMAPPING = "309f8487e6e780368fc3c13368540e7a"
+DB_RELATIONS = "30cf8487e6e78048867fe85967b39fa0"
 
 # NOTION PROPERTY NAMES MAPPING
 PROP_MAP = {
@@ -43,9 +88,7 @@ PROP_MAP = {
     "Type": "TD - Type",                               # select
     "Unit": "TD - Unit",                               # rich_text
     "ValueType": "TD - Value",                         # rich_text
-    "IFC_Entity": "TD - IFC Entity",                   # rich_text
-    "IFC_Comment": "TD - Comment IFC",                 # rich_text
-    "IFC_Mapping": "TD - Mapping IFC",                 # rich_text
+    # IFC columns removed — now sourced from DB_IFCMAPPING
     # TR - column to be replaced and deleted from this page
     # "ISO_Def": "TR - ISO definition",                  # rich_text
     # "TR_Code": "TR - Code",                            # rich_text
@@ -82,6 +125,30 @@ PROP_MAP_DOCS = {
     "Country": "FB:country",                 # relation
     "Remarks": "Remarks",                    # rich_text
     "URL": "URL",                            # url
+}
+
+# Property names for DB_RELATIONS
+PROP_MAP_RELATIONS = {
+    "Name": "Name",                      # title
+    "Description": "Description",        # rich_text
+    "DomainIncludes": "DomainIncludes",  # relation → DB_UNIFIED
+    "RangeIncludes": "RangeIncludes",    # relation → DB_UNIFIED
+    "RangeXSD": "Range (XSD)",           # rich_text → XSD datatype (e.g. "float", "boolean") for DatatypeProperties whose range cannot be a Notion page
+    # ID skipped — numeric IDs are not unique across Notion databases; hasNotionURL is used instead
+}
+
+# Property names for DB_IFCMAPPING
+PROP_MAP_IFC = {
+    "Name": "Name",                                    # title
+    "RelatedTerm": "Related Term",                     # relation
+    "Kind": "Kind",                                    # select
+    "ClassPredefinedType": "Class.PredefinedType",     # rich_text
+    "PsetProperty": "Pset.Property or Attribute",      # rich_text
+    "DataType": "Data Type",                           # select
+    "Value": "Value",                                  # rich_text
+    "InterpretationResult": "Interpretation Result",   # rich_text
+    "Argumentation": "Argumentation",                  # rich_text
+    "BuildingSMART": "buildingSMART?",                 # checkbox
 }
 
 headers = {
@@ -213,14 +280,15 @@ def normalize_name(name):
     return normalized
 
 def get_country_info(country_name):
-    """Get country code and language tag from country name."""
+    """Get country code and language tag from country name.
+    Returns (None, "en") for Europe/international entries."""
     if not country_name:
-        return "INT", "en"
+        return None, "en"
     name_lower = country_name.lower()
     for key, (code, lang) in COUNTRY_INFO.items():
         if key in name_lower:
             return code, lang
-    return "INT", "en"
+    return None, "en"
 
 def resolve_relation_titles(relation_ids, page_registry, title_cache):
     """Resolve relation IDs to titles. Uses page_registry for same-DB, fetches for cross-DB."""
@@ -255,96 +323,16 @@ def create_ontology():
         "DK": Namespace("https://ontology.firebim.be/ontology/fbo-DK#"),
         "PT": Namespace("https://ontology.firebim.be/ontology/fbo-PT#"),
         "LT": Namespace("https://ontology.firebim.be/ontology/fbo-LT#"),
-        "INT": Namespace("https://ontology.firebim.be/ontology/fbo-INT#")
     }
 
-    BOT = Namespace("https://w3id.org/bot#")
-    IFC = Namespace("http://ifcowl.openbimstandards.org/IFC4#")
-
-    # BOT class mapping for general URIs (only applied to owl:Class).
-    # Two-pass matching: first exact name, then substring.
-    # avoids false positives like "BuildingInternalWall" subclassed to bot:Building.
-    BOT_EXACT = {
-        # bot:Site — land/plot level
-        "site": BOT.Site,
-        "neighbouringplot": BOT.Site,
-        "buildingplotboundary": BOT.Site,
-        "adjoiningterrain": BOT.Site,
-        "publicroad": BOT.Site,
-        "publicgreen": BOT.Site,
-        "publicwater": BOT.Site,
-        # bot:Building — whole-building level
-        "building": BOT.Building,
-        "buildingresidential": BOT.Building,
-        "highrisebuilding": BOT.Building,
-        "lowrisebuilding": BOT.Building,
-        "miderisebuilding": BOT.Building,
-        "mediumrisebuilding": BOT.Building,
-        "verytallbuilding": BOT.Building,
-        "independentbuilding": BOT.Building,
-        # bot:Storey — floor/storey level
-        "buildinglayer": BOT.Storey,
-        "buildinglayers": BOT.Storey,
-        "buildinglayerparking": BOT.Storey,
-        "buildingstorey": BOT.Storey,
-        "evacuationlevel": BOT.Storey,
-        "lowestevacuationlevel": BOT.Storey,
-        "level": BOT.Storey,
-        "measurementlevel": BOT.Storey,
-        "countablebuildingstorey": BOT.Storey,
-        "connectingbuildingstoreys": BOT.Storey,
-        # bot:Element — specific compound terms that contain "building" but are elements
-        "buildinginternalwall": BOT.Element,
-        "buildingpartitionconstructionexternal": BOT.Element,
-        "buildingfirecompartmentdaytimeoccupancy": BOT.Space,
-        "buildingfunctionalfireunit": BOT.Space,
-    }
-
-    # Substring keywords — used when no exact match is found.
-    # Order matters: first match wins.
-    BOT_KEYWORDS = [
-        # bot:Space — rooms, compartments, enclosed spatial zones
-        (BOT.Space, [
-            "firecompartment", "subcompartment", "compartment",
-            "room", "space", "cell", "dwelling",
-            "atrium", "duplex", "triplex",
-            "enclosedspace", "lobby",
-            "parking", "elevator", "liftcage",
-            "tunnel", "accomodation",
-            "commonarea", "livingunit",
-        ]),
-        # bot:Element — physical building components and products
-        (BOT.Element, [
-            "wall", "door", "ceiling", "floor", "slab", "roof",
-            "duct", "conduit", "pipe", "shaft",
-            "stair", "ramp",
-            "window", "opening", "covering", "cladding",
-            "barrier", "cable",
-            "rainscreen", "facade",
-            "supportingstructure", "structuralcomponent",
-            "smokevent", "smokebarrier", "smokescreens",
-            "smokecontrol", "smokeandheat",
-        ]),
-    ]
-
-    def get_bot_class(norm_name):
-        """Return the BOT superclass for a normalized concept name, or None."""
-        name_lower = norm_name.lower()
-        # 1. Exact match on full normalized name
-        if name_lower in BOT_EXACT:
-            return BOT_EXACT[name_lower]
-        # 2. Substring keyword match
-        for bot_cls, keywords in BOT_KEYWORDS:
-            for kw in keywords:
-                if kw in name_lower:
-                    return bot_cls
-        return None
+    FBO_IFC = Namespace("https://ontology.firebim.be/ontology/fbo-ifc#")
 
     # Bindings
     g.bind("fbo", FBO)
-    g.bind("bot", BOT)
-    g.bind("ifc", IFC)
-    g.bind("skos", SKOS)
+    g.bind("fbo-ifc", FBO_IFC)
+    g.bind("schema", SCHEMA)
+    g.bind("qudt", QUDT)
+    g.bind("qudt-unit", QUDT_UNIT)
     for code, ns in NS_MAP.items():
         g.bind(f"fbo-{code}", ns)
 
@@ -356,13 +344,9 @@ def create_ontology():
         (FBO.hasExpertDefinition, "has expert definition"),
         # (FBO.hasReferenceDefinition, "has reference definition"),  # TR
         # (FBO.hasISODefinition, "has ISO definition"),  # TR
-        (FBO.hasUnit, "has unit"),
         (FBO.hasValueType, "has value type"),
         (FBO.hasCountryCode, "has country code"),
         (FBO.hasArticleID, "has Article ID"),
-        (FBO.hasIFCEntity, "has IFC entity"),
-        (FBO.hasIFCMapping, "has IFC mapping"),
-        (FBO.hasIFCComment, "has IFC comment"),
         (FBO.hasDesignator, "has designator"),
         (FBO.hasEquivalentTerm, "has equivalent term"),
         # (FBO.hasDerivation, "has derivation"),  # TR
@@ -388,13 +372,13 @@ def create_ontology():
 
     object_props = [
         (FBO.isLinkedTo, "is linked to"),
-        (FBO.correspondsToIFC, "corresponds to IFC"),
         (FBO.hasRelatedProperty, "has related property"),
         (FBO.hasSubitem, "has subitem"),
         (FBO.hasCountry, "has country"),
         (FBO.hasDomainReference, "has domain reference"),
         (FBO.hasDocumentReference, "has document reference"),
         # (FBO.hasArticleReference, "has article reference"),  # TR
+        (FBO.hasIFCMapping, "has IFC mapping"),
         (FBO.hasNotionURL, "has Notion page URL"),
         (FBO.hasURL, "has URL"),
     ]
@@ -433,11 +417,13 @@ def create_ontology():
             if norm:
                 c_uri = URIRef(FBO[norm])
                 country_uri_map[page["id"]] = c_uri
+                g.add((c_uri, RDF.type, OWL.NamedIndividual))
                 g.add((c_uri, RDF.type, FBO.Country))
                 g.add((c_uri, RDFS.label, Literal(c_name, lang="en")))
-                g.add((c_uri, FBO.hasCountryCode, Literal(code)))
+                if code:
+                    g.add((c_uri, FBO.hasCountryCode, Literal(code)))
 
-    # 2. Load Documents & create Document instances
+    # 2. Load Documents & create Document instances in country namespaces
     documents_data = get_all_pages(DB_DOCUMENTS)
     document_id_map = {}  # Notion page ID -> document URI
 
@@ -451,9 +437,20 @@ def create_ontology():
         if not norm:
             continue
 
-        doc_uri = URIRef(FBO[norm])
+        # Determine country namespace for this document
+        country_ids = get_property_value(props, PROP_MAP_DOCS["Country"])
+        doc_ns = FBO  # default to fbo: if no country
+        if country_ids:
+            cid = country_ids[0]
+            if cid in country_id_map:
+                c_code = country_id_map[cid]
+                if c_code in NS_MAP:
+                    doc_ns = NS_MAP[c_code]
+
+        doc_uri = URIRef(doc_ns[norm])
         document_id_map[page["id"]] = doc_uri
 
+        g.add((doc_uri, RDF.type, OWL.NamedIndividual))
         g.add((doc_uri, RDF.type, FBO.Document))
         g.add((doc_uri, RDFS.label, Literal(doc_name, lang="en")))
 
@@ -486,7 +483,6 @@ def create_ontology():
             g.add((doc_uri, FBO.hasOriginalLanguage, Literal(lang_orig)))
 
         # Country links
-        country_ids = get_property_value(props, PROP_MAP_DOCS["Country"])
         if country_ids:
             for cid in country_ids:
                 if cid in country_uri_map:
@@ -518,7 +514,7 @@ def create_ontology():
 
         # Get Country
         rel_ids = get_property_value(props, PROP_MAP["Country"])
-        c_code = "INT"
+        c_code = None
         l_code = "en"
 
         if rel_ids and len(rel_ids) > 0:
@@ -529,7 +525,8 @@ def create_ontology():
 
         norm_name = normalize_name(term_name)
         if not norm_name: continue
-        ns = NS_MAP.get(c_code, NS_MAP["INT"])
+        # Europe/international entries go directly into fbo:, country entries into fbo-XX:
+        ns = NS_MAP.get(c_code, FBO)
 
         # Determine OWL type: Class, ObjectProperty, or DatatypeProperty
         # Only use TD - Type column to decide; unit/valueType alone don't make something a property
@@ -585,6 +582,15 @@ def create_ontology():
             resolved = "class"
         general_uri_type[g_uri_str] = resolved
 
+    # Set of general_uri strings that have a real EU-level entry (country=None) in Notion.
+    # Country-specific entries whose name has no EU counterpart should NOT create fbo: entities
+    # or subClass/subProperty links.
+    eu_general_uris = {
+        str(meta["general_uri"])
+        for meta in page_registry.values()
+        if meta["country"] is None
+    }
+
     # Cache for cross-database relation title lookups
     title_cache = {}
     # Track cross-DB references by category (norm_name -> original title)
@@ -602,44 +608,47 @@ def create_ontology():
         l_code = meta["lang"]
 
         # Use resolved type for the general URI, and per-entry type for the specific URI
-        resolved_g_type = general_uri_type[str(g_uri)]
+        g_uri_str = str(g_uri)
+        resolved_g_type = general_uri_type[g_uri_str]
         owl_type = meta["owl_type"]
+        # True only when an EU-level entry with this name actually exists in Notion
+        has_eu_entry = g_uri_str in eu_general_uris
 
-        # Type the general URI only once, using the resolved type
-        if str(g_uri) not in typed_general_uris:
-            typed_general_uris.add(str(g_uri))
+        # Type the general URI only once — and only if an EU-level entry actually exists
+        if has_eu_entry and g_uri_str not in typed_general_uris:
+            typed_general_uris.add(g_uri_str)
             if resolved_g_type == "datatype_property":
                 g.add((g_uri, RDF.type, OWL.DatatypeProperty))
             elif resolved_g_type == "object_property":
                 g.add((g_uri, RDF.type, OWL.ObjectProperty))
             else:
                 g.add((g_uri, RDF.type, OWL.Class))
-                # Add BOT superclass mapping for classes only
-                norm_name = str(g_uri).rsplit('#', 1)[-1]
-                bot_cls = get_bot_class(norm_name)
-                if bot_cls:
-                    g.add((g_uri, RDFS.subClassOf, bot_cls))
 
-        # Type the specific (country) URI — follow the resolved general type
-        # so that subClassOf/subPropertyOf is consistent
-        if resolved_g_type == "datatype_property":
-            g.add((s_uri, RDF.type, OWL.DatatypeProperty))
-            g.add((s_uri, RDFS.subPropertyOf, g_uri))
-        elif resolved_g_type == "object_property":
-            g.add((s_uri, RDF.type, OWL.ObjectProperty))
-            g.add((s_uri, RDFS.subPropertyOf, g_uri))
-        else:
-            g.add((s_uri, RDF.type, OWL.Class))
-            g.add((s_uri, RDFS.subClassOf, g_uri))
+        # Type the specific (country) URI.
+        # Add subClass/subProperty only when the EU counterpart actually exists.
+        if s_uri != g_uri:
+            if resolved_g_type == "datatype_property":
+                g.add((s_uri, RDF.type, OWL.DatatypeProperty))
+                if has_eu_entry:
+                    g.add((s_uri, RDFS.subPropertyOf, g_uri))
+            elif resolved_g_type == "object_property":
+                g.add((s_uri, RDF.type, OWL.ObjectProperty))
+                if has_eu_entry:
+                    g.add((s_uri, RDFS.subPropertyOf, g_uri))
+            else:
+                g.add((s_uri, RDF.type, OWL.Class))
+                if has_eu_entry:
+                    g.add((s_uri, RDFS.subClassOf, g_uri))
 
         # --- Labels ---
         name_en = get_property_value(props, PROP_MAP["Name_EN"])
         if name_en:
-            g.add((g_uri, RDFS.label, Literal(name_en, lang="en")))
+            if has_eu_entry:
+                g.add((g_uri, RDFS.label, Literal(name_en, lang="en")))
             g.add((s_uri, RDFS.label, Literal(name_en, lang="en")))
 
         name_native = get_property_value(props, PROP_MAP["Name_Native"])
-        if name_native and meta["country"] != "INT":
+        if name_native and meta["country"] is not None:
             g.add((s_uri, RDFS.label, Literal(name_native, lang=l_code)))
 
         # --- Definitions (Explicit > Implicit > Expert) ---
@@ -680,18 +689,27 @@ def create_ontology():
             g.add((s_uri, FBO.hasAdoptedDefinitionType, Literal(adopted)))
 
         # --- Metadata ---
-        if meta["country"] != "INT":
+        if meta["country"] is not None:
             g.add((s_uri, FBO.hasCountryCode, Literal(meta["country"])))
         for c_uri in meta["country_uris"]:
             g.add((s_uri, FBO.hasCountry, c_uri))
 
         unit = get_property_value(props, PROP_MAP["Unit"])
         if unit:
-            g.add((s_uri, FBO.hasUnit, Literal(unit)))
+            unit_fragment = UNIT_MAP.get(unit.strip().lower())
+            if unit_fragment:
+                g.add((s_uri, QUDT.hasApplicableUnit, URIRef(QUDT_UNIT[unit_fragment])))
+            else:
+                # Unknown unit — store as plain literal until added to UNIT_MAP
+                g.add((s_uri, QUDT.hasApplicableUnit, Literal(unit)))
 
         val_t = get_property_value(props, PROP_MAP["ValueType"])
         if val_t:
             g.add((s_uri, FBO.hasValueType, Literal(val_t)))
+            if owl_type == "datatype_property":
+                xsd_type = XSD_TYPE_MAP.get(val_t.strip().lower())
+                if xsd_type:
+                    g.add((s_uri, SCHEMA.rangeIncludes, xsd_type))
 
         art_id = get_property_value(props, PROP_MAP["ArticleID"])
         if art_id:
@@ -705,23 +723,6 @@ def create_ontology():
         equiv_term = get_property_value(props, PROP_MAP["EquivalentTerm"])
         if equiv_term:
             g.add((s_uri, FBO.hasEquivalentTerm, Literal(equiv_term)))
-
-        # --- IFC Mappings ---
-        ifc_txt = get_property_value(props, PROP_MAP["IFC_Entity"])
-        if ifc_txt:
-            g.add((s_uri, FBO.hasIFCEntity, Literal(ifc_txt)))
-            for part in ifc_txt.split(','):
-                clean_part = part.strip().split('.')[0]
-                if clean_part:
-                    g.add((s_uri, FBO.correspondsToIFC, URIRef(IFC[clean_part])))
-
-        ifc_mapping = get_property_value(props, PROP_MAP["IFC_Mapping"])
-        if ifc_mapping:
-            g.add((s_uri, FBO.hasIFCMapping, Literal(ifc_mapping)))
-
-        ifc_comment = get_property_value(props, PROP_MAP["IFC_Comment"])
-        if ifc_comment:
-            g.add((s_uri, FBO.hasIFCComment, Literal(ifc_comment)))
 
         # --- Reference Metadata (TR) --- (commented out for now)
         # tr_code = get_property_value(props, PROP_MAP["TR_Code"])
@@ -875,6 +876,7 @@ def create_ontology():
     # 5. Define cross-database referenced entities as classes in the ontology
     for norm, title in cross_db_domains.items():
         uri = URIRef(FBO[norm])
+        g.add((uri, RDF.type, OWL.NamedIndividual))
         g.add((uri, RDF.type, FBO.RegulatoryDomain))
         g.add((uri, RDFS.label, Literal(title, lang="en")))
 
@@ -883,6 +885,7 @@ def create_ontology():
     for norm, title in cross_db_documents.items():
         uri = URIRef(FBO[norm])
         if uri not in existing_doc_uris:
+            g.add((uri, RDF.type, OWL.NamedIndividual))
             g.add((uri, RDF.type, FBO.Document))
             g.add((uri, RDFS.label, Literal(title, lang="en")))
 
@@ -893,10 +896,223 @@ def create_ontology():
 
     print(f"  > Defined {len(cross_db_domains)} domains, {len(cross_db_documents)} documents.")
 
-    # Save
-    outfile = "firebim_ontology_unified.ttl"
-    g.serialize(destination=outfile, format="turtle")
-    print(f"--- Ontology saved to {outfile} ({len(g)} triples) ---")
+    # 6. Load IFC Mapping from DB_IFCMAPPING → fbo-ifc: namespace
+    ifc_mapping_pages = get_all_pages(DB_IFCMAPPING)
+
+    # Define fbo-ifc: schema properties
+    ifc_datatype_props = [
+        (FBO_IFC.hasClassPredefinedType, "has IFC class and predefined type"),
+        (FBO_IFC.hasPsetProperty, "has IFC property set and property"),
+        (FBO_IFC.hasDataType, "has data type"),
+        (FBO_IFC.hasValue, "has value"),
+        (FBO_IFC.hasInterpretationResult, "has interpretation result"),
+        (FBO_IFC.hasArgumentation, "has argumentation"),
+        (FBO_IFC.isBuildingSMART, "is buildingSMART approved"),
+        (FBO_IFC.hasKind, "has kind"),
+    ]
+    ifc_object_props = [
+        (FBO_IFC.mapsToTerm, "maps to FBO term"),
+    ]
+
+    for term, label in ifc_datatype_props:
+        g.add((term, RDF.type, OWL.DatatypeProperty))
+        g.add((term, RDFS.label, Literal(label, lang="en")))
+    for term, label in ifc_object_props:
+        g.add((term, RDF.type, OWL.ObjectProperty))
+        g.add((term, RDFS.label, Literal(label, lang="en")))
+
+    ifc_count = 0
+    for page in ifc_mapping_pages:
+        props = page["properties"]
+        ifc_name = get_property_value(props, PROP_MAP_IFC["Name"])
+        if not ifc_name:
+            continue
+
+        norm = normalize_name(ifc_name)
+        if not norm:
+            continue
+
+        ifc_uri = URIRef(FBO_IFC[norm])
+        g.add((ifc_uri, RDF.type, OWL.NamedIndividual))
+        g.add((ifc_uri, RDFS.label, Literal(ifc_name, lang="en")))
+
+        # Kind (Object, Property, etc.)
+        kind = get_property_value(props, PROP_MAP_IFC["Kind"])
+        if kind:
+            g.add((ifc_uri, FBO_IFC.hasKind, Literal(kind)))
+
+        # Class.PredefinedType (e.g., "IfcBuilding", "IfcDoor", "IfcSpatialZone.FIRESAFETY")
+        class_pt = get_property_value(props, PROP_MAP_IFC["ClassPredefinedType"])
+        if class_pt:
+            g.add((ifc_uri, FBO_IFC.hasClassPredefinedType, Literal(class_pt)))
+
+        # Pset.Property or Attribute
+        pset_prop = get_property_value(props, PROP_MAP_IFC["PsetProperty"])
+        if pset_prop:
+            g.add((ifc_uri, FBO_IFC.hasPsetProperty, Literal(pset_prop)))
+
+        # Data Type
+        data_type = get_property_value(props, PROP_MAP_IFC["DataType"])
+        if data_type:
+            g.add((ifc_uri, FBO_IFC.hasDataType, Literal(data_type)))
+
+        # Value
+        value = get_property_value(props, PROP_MAP_IFC["Value"])
+        if value:
+            g.add((ifc_uri, FBO_IFC.hasValue, Literal(value)))
+
+        # Interpretation Result
+        interp = get_property_value(props, PROP_MAP_IFC["InterpretationResult"])
+        if interp:
+            g.add((ifc_uri, FBO_IFC.hasInterpretationResult, Literal(interp)))
+
+        # Argumentation
+        arg = get_property_value(props, PROP_MAP_IFC["Argumentation"])
+        if arg:
+            g.add((ifc_uri, FBO_IFC.hasArgumentation, Literal(arg)))
+
+        # buildingSMART?
+        bs = get_property_value(props, PROP_MAP_IFC["BuildingSMART"])
+        if bs is not None:
+            g.add((ifc_uri, FBO_IFC.isBuildingSMART, Literal(bs, datatype=XSD.boolean)))
+
+        # Related Term — bidirectional link between IFC mapping and FBO term
+        related_ids = get_property_value(props, PROP_MAP_IFC["RelatedTerm"])
+        if related_ids:
+            for rid in related_ids:
+                if rid in page_registry:
+                    term_uri = page_registry[rid]["specific_uri"]
+                    g.add((ifc_uri, FBO_IFC.mapsToTerm, term_uri))
+                    # Reverse link: FBO term → IFC mapping
+                    g.add((term_uri, FBO.hasIFCMapping, ifc_uri))
+
+        ifc_count += 1
+
+    print(f"  > Created {ifc_count} IFC mapping instances in fbo-ifc: namespace.")
+
+    # 7. Load Relations from DB_RELATIONS → country or fbo: namespace as ObjectProperties/DatatypeProperties
+    relations_pages = get_all_pages(DB_RELATIONS)
+    relation_count = 0
+
+    for page in relations_pages:
+        props = page["properties"]
+        rel_name = get_property_value(props, PROP_MAP_RELATIONS["Name"])
+        if not rel_name:
+            continue
+
+        norm = normalize_name(rel_name)
+        if not norm:
+            continue
+
+        domain_ids = get_property_value(props, PROP_MAP_RELATIONS["DomainIncludes"]) or []
+        range_ids = get_property_value(props, PROP_MAP_RELATIONS["RangeIncludes"]) or []
+        range_xsd_str = get_property_value(props, PROP_MAP_RELATIONS["RangeXSD"])
+        range_xsd_type = XSD_TYPE_MAP.get(range_xsd_str.strip().lower()) if range_xsd_str else None
+
+        # Resolve range types to determine ObjectProperty vs DatatypeProperty
+        range_types = [
+            page_registry[rid]["owl_type"]
+            for rid in range_ids
+            if rid in page_registry
+        ]
+        if (range_types and all(t == "datatype_property" for t in range_types)) or range_xsd_type:
+            owl_prop_type = OWL.DatatypeProperty
+        else:
+            owl_prop_type = OWL.ObjectProperty
+
+        # Determine namespace: if ALL domain+range items belong to exactly one country
+        # (none are EU-level) → use that country's namespace, otherwise use fbo:
+        all_ids = domain_ids + range_ids
+        has_eu_items = any(
+            page_registry[rid]["country"] is None
+            for rid in all_ids
+            if rid in page_registry
+        )
+        countries_seen = {
+            page_registry[rid]["country"]
+            for rid in all_ids
+            if rid in page_registry and page_registry[rid]["country"] is not None
+        }
+        if not has_eu_items and len(countries_seen) == 1:
+            rel_ns = NS_MAP.get(next(iter(countries_seen)), FBO)
+        else:
+            rel_ns = FBO
+
+        rel_uri = URIRef(rel_ns[norm])
+        g.add((rel_uri, RDF.type, owl_prop_type))
+        g.add((rel_uri, RDFS.label, Literal(rel_name, lang="en")))
+
+        # Description
+        description = get_property_value(props, PROP_MAP_RELATIONS["Description"])
+        if description:
+            g.add((rel_uri, RDFS.comment, Literal(description, lang="en")))
+
+        # schema:domainIncludes — use specific_uri so Belgian items resolve to fbo-BE:Atrium etc.
+        for did in domain_ids:
+            if did in page_registry:
+                g.add((rel_uri, SCHEMA.domainIncludes, page_registry[did]["specific_uri"]))
+
+        # schema:rangeIncludes — use specific_uri for class ranges, XSD URI for datatype ranges
+        for rid in range_ids:
+            if rid in page_registry:
+                g.add((rel_uri, SCHEMA.rangeIncludes, page_registry[rid]["specific_uri"]))
+        if range_xsd_type:
+            g.add((rel_uri, SCHEMA.rangeIncludes, range_xsd_type))
+
+        # Notion URL only — numeric IDs are not unique across Notion databases
+        notion_url = page.get("url")
+        if notion_url:
+            g.add((rel_uri, FBO.hasNotionURL, URIRef(notion_url)))
+
+        relation_count += 1
+
+    print(f"  > Created {relation_count} relation properties from DB_RELATIONS.")
+
+    # Save outputs to fbo/ directory
+    output_dir = "fbo"
+    os.makedirs(output_dir, exist_ok=True)
+
+    # Combined file
+    combined_path = os.path.join(output_dir, "firebim_ontology_unified.ttl")
+    g.serialize(destination=combined_path, format="turtle")
+    print(f"--- Combined ontology saved to {combined_path} ({len(g)} triples) ---")
+
+    # Per-namespace split files: map namespace URI prefix → output filename
+    ns_file_map = [
+        (str(FBO),     "fbo.ttl"),
+        (str(FBO_IFC), "fbo-ifc.ttl"),
+    ]
+    for code, ns in NS_MAP.items(): # Add country-specific namespaces
+        ns_file_map.append((str(ns), f"fbo-{code.lower()}.ttl"))
+
+    # All namespace bindings to apply to every sub-graph for clean prefix output
+    all_bindings = [("fbo", FBO), ("fbo-ifc", FBO_IFC), ("schema", SCHEMA), ("qudt", QUDT), ("qudt-unit", QUDT_UNIT)]
+    for code, ns in NS_MAP.items():
+        all_bindings.append((f"fbo-{code.lower()}", ns))
+
+    # Build one sub-graph per namespace
+    sub_graphs = {ns_uri: Graph() for ns_uri, _ in ns_file_map}
+    for sg in sub_graphs.values():
+        for prefix, ns in all_bindings:
+            sg.bind(prefix, ns)
+
+    # Distribute triples by subject namespace
+    for s, p, o in g:
+        s_str = str(s)
+        for ns_uri, sg in sub_graphs.items():
+            if s_str.startswith(ns_uri):
+                sg.add((s, p, o))
+                break
+
+    # Serialize non-empty sub-graphs
+    print("--- Split files ---")
+    for ns_uri, filename in ns_file_map:
+        sg = sub_graphs[ns_uri]
+        if len(sg) > 0:
+            filepath = os.path.join(output_dir, filename)
+            sg.serialize(destination=filepath, format="turtle")
+            print(f"  > {filename}: {len(sg)} triples")
+
     if title_cache:
         print(f"  > Resolved {len(title_cache)} cross-database relation titles.")
 

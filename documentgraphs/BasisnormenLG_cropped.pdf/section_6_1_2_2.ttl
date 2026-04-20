@@ -1,33 +1,54 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_1_2_2 a fro:Section ;
-    fro:hasArticle fro:Article_6_1_2_2_1 ;
+ex:Section_6_1_2_2 a fro:Section ;
+    fro:hasArticle ex:Article_6_1_2_2_1 ;
     fro:hasID "6.1.2.2" ;
-    fro:hasOriginalText "OPVATTING."@nl .
+    fro:hasOriginalText "Schachtdeuren."@nl .
 
-fro:Article_6_1_2_2_1 a fro:Article ;
+ex:Article_6_1_2_2_1 a fro:Article ;
     fro:hasID "A6.1.2.2.1" ;
-    fro:hasMember fro:Member_6_1_2_2_1_1,
-        fro:Member_6_1_2_2_1_2 ;
+    fro:hasMember ex:Member_6_1_2_2_1_1,
+        ex:Member_6_1_2_2_1_2,
+        ex:Member_6_1_2_2_1_3 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_6_1_2_2_1_1 a fro:Member ;
-    fro:hasOriginalText """Het geheel van de <a href="https://ontology.firebim.be/ontology/fbo#ElevatorDoor">schachtdeuren van de lift of goederenlift</a> heeft E 30. De <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">brandwerendheid</a> volgens de norm NBN EN 81-58, waarbij de <a href="https://ontology.firebim.be/ontology/fbo#LandingWall">bordeswand</a> aan de kant van het <a href="https://ontology.firebim.be/ontology/fbo#Landing">bordes</a> aan het vuur blootgesteld wordt. De <a href="https://ontology.firebim.be/ontology/fbo#LandingWall">bordeswand</a> zal beproefd worden met de eventuele bedienings- en controleorganen die daarvan deel uitmaken.
-De volgens andere methodes geteste <a href="https://ontology.firebim.be/ontology/fbo#ElevatorDoor">schachtdeuren</a> worden aanvaard overeenkomstig het koninklijk besluit van 12 april 2016 betreffende het op de markt brengen van liften en veiligheidscomponenten voor liften, op voorwaarde dat ze ten minste dezelfde graad van <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">brandweerstand</a> hebben."""@nl ;
-    fro:hasReference fro:Reference_NBN_EN_81_58 .
+ex:Member_6_1_2_2_1_1 a fro:Member ;
+    fro:hasOriginalText "Het geheel van de schachtdeuren van de lift of goederenlift heeft E 30. De brandwerendheid volgens de norm NBN EN 81-58, waarbij de bordeswand aan de kant van het bordes aan het vuur blootgesteld wordt. De bordeswand zal beproefd worden met de eventuele bedienings- en controleorganen die daarvan deel uitmaken."@nl ;
+    fro:linksTo fbo:FireResistance .
 
-fro:Member_6_1_2_2_1_2 a fro:Member ;
-    fro:hasOriginalText """Deze vereisten zijn niet van toepassing wanneer de <a href="https://ontology.firebim.be/ontology/fbo#Elevator">lift</a>(en) worden opgesteld in een <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuis</a> dat de bouwlagen boven een <a href="https://ontology.firebim.be/ontology/fbo#EvacuationLevel">evacuatieniveau</a> bedient, op voorwaarde:
+ex:Member_6_1_2_2_1_2 a fro:Member ;
+    fro:hasOriginalText "De volgens andere methodes geteste schachtdeuren worden aanvaard overeenkomstig het koninklijk besluit van 12 april 2016 betreffende het op de markt brengen van liften en veiligheidscomponenten voor liften, op voorwaarde dat ze ten minste dezelfde graad van brandweerstand hebben."@nl ;
+    fro:linksTo fbo:FireResistance .
 
-- dat op alle bouwlagen bediend door dit <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuis</a> met <a href="https://ontology.firebim.be/ontology/fbo#Elevator">lift</a>(en), in elke <a href="https://ontology.firebim.be/ontology/fbo#Compartment">compartiment</a>, de verbinding naar dit <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuis</a> met <a href="https://ontology.firebim.be/ontology/fbo#Elevator">lift</a>(en) via <a href="https://ontology.firebim.be/ontology/fbo#EvacuationRoute">evacuatiewegen</a> gaat;
-- en dat op alle bouwlagen bediend door dit <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuis</a> met <a href="https://ontology.firebim.be/ontology/fbo#Elevator">lift</a>(en), de verbinding tussen deze <a href="https://ontology.firebim.be/ontology/fbo#EvacuationRoute">evacuatieweg</a> en dit <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuis</a> met <a href="https://ontology.firebim.be/ontology/fbo#Elevator">lift</a>(en) verzekerd wordt door een zelfsluitende of bij brand zelfsluitende <a href="https://ontology.firebim.be/ontology/fbo#Door">deur</a> met EI1 30 die toegang geeft tot een <a href="https://ontology.firebim.be/ontology/fbo#Landing">overloop</a> in dit <a href="https://ontology.firebim.be/ontology/fbo#Staircase">trappenhuis</a> met <a href="https://ontology.firebim.be/ontology/fbo#Elevator">lift</a>(en)."""@nl .
+ex:Member_6_1_2_2_1_3 a fro:Member ;
+    fro:hasMember ex:Member_6_1_2_2_1_3_1,
+        ex:Member_6_1_2_2_1_3_2 ;
+    fro:hasOriginalText "Deze vereisten zijn niet van toepassing wanneer de lift(en) worden opgesteld in een trappenhuis dat de bouwlagen boven een evacuatieniveau bedient, op voorwaarde:"@nl ;
+    fro:linksTo fbo-be:BuildingLayer,
+        fbo-be:EnclosedInternalStairCase,
+        fbo-be:EvacuationLevel .
 
-fro:Reference_NBN_EN_81_58 a fro:Reference ;
-    fro:hasID "NBN EN 81-58" .
+ex:Member_6_1_2_2_1_3_1 a fro:Member ;
+    fro:hasOriginalText "- dat op alle bouwlagen bediend door dit trappenhuis met lift(en), in elke compartiment, de verbinding naar dit trappenhuis met lift(en) via evacuatiewegen gaat;"@nl ;
+    fro:linksTo fbo-be:BuildingLayer,
+        fbo-be:EnclosedInternalStairCase,
+        fbo-be:EvacuationPath,
+        fbo-be:FireCompartment .
+
+ex:Member_6_1_2_2_1_3_2 a fro:Member ;
+    fro:hasOriginalText "- en dat op alle bouwlagen bediend door dit trappenhuis met lift(en), de verbinding tussen deze evacuatieweg en dit trappenhuis met lift(en) verzekerd wordt door een zelfsluitende of bij brand zelfsluitende deur met EI1 30 die toegang geeft tot een overloop in dit trappenhuis met lift(en)."@nl ;
+    fro:linksTo fbo:SelfClosing,
+        fbo-be:BuildingLayer,
+        fbo-be:EnclosedInternalStairCase,
+        fbo-be:EvacuationPath .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

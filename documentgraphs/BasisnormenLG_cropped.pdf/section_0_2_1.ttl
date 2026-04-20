@@ -1,41 +1,51 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_0_2_1 a fro:Section ;
-    fro:hasArticle fro:Article_0_2_1_1 ;
+ex:Section_0_2_1 a fro:Section ;
+    fro:hasArticle ex:Article_0_2_1_1 ;
     fro:hasID "0.2.1" .
 
-fro:Article_0_2_1_1 a fro:Article ;
+ex:Article_0_2_1_1 a fro:Article ;
     fro:hasID "A0.2.1.1" ;
-    fro:hasMember fro:Member_0_2_1_1_1,
-        fro:Member_0_2_1_1_2,
-        fro:Member_0_2_1_1_3 ;
-    fro:hasOriginalText "Deze bijlage is van toepassing op de volgende op te richten <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> en de volgende <a href=\"https://ontology.firebim.be/ontology/fbo#BuildingExtension\">uitbreidingen van bestaande gebouwen</a>, waarvoor de aanvraag voor de bouw wordt ingediend vanaf 1 december 2012:"@nl ;
+    fro:hasMember ex:Member_0_2_1_1_1,
+        ex:Member_0_2_1_1_2,
+        ex:Member_0_2_1_1_3 ;
+    fro:hasOriginalText "Deze bijlage is van toepassing op de volgende op te richten gebouwen en de volgende uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend vanaf 1 december 2012:"@nl ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_0_2_1_1_1 a fro:Member ;
-    fro:hasOriginalText "1. de lage gebouwen;"@nl .
+ex:Member_0_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "1. de lage gebouwen;"@nl ;
+    fro:linksTo fbo-be:LowRiseBuilding .
 
-fro:Member_0_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText "2. de uitbreidingen van <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouwen</a> die na realisatie een laag gebouw zijn;"@nl .
+ex:Member_0_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "2. de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;"@nl ;
+    fro:linksTo fbo-be:Building,
+        fbo-be:LowRiseBuilding .
 
-fro:Member_0_2_1_1_3 a fro:Member ;
-    fro:hasMember fro:Member_0_2_1_1_3_1,
-        fro:Member_0_2_1_1_3_2,
-        fro:Member_0_2_1_1_3_3 ;
-    fro:hasOriginalText "3. de <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> of delen van lage gebouwen waarin een <a href=\"https://ontology.firebim.be/ontology/fbo#IndustrialActivity\">industriële activiteit</a> plaatsvindt en waarvan de <a href=\"https://ontology.firebim.be/ontology/fbo#TotalArea\">totale oppervlakte</a> kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:"@nl .
+ex:Member_0_2_1_1_3 a fro:Member ;
+    fro:hasMember ex:Member_0_2_1_1_3_1,
+        ex:Member_0_2_1_1_3_2,
+        ex:Member_0_2_1_1_3_3 ;
+    fro:hasOriginalText "3. de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:"@nl ;
+    fro:linksTo fbo-be:AreaFireCompartment .
 
-fro:Member_0_2_1_1_3_1 a fro:Member ;
-    fro:hasOriginalText "- in het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> hoofdzakelijk <a href=\"https://ontology.firebim.be/ontology/fbo#NonIndustrialActivity\">niet-industriële activiteiten</a> plaats vinden en de <a href=\"https://ontology.firebim.be/ontology/fbo#TotalArea\">totale oppervlakte</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> met <a href=\"https://ontology.firebim.be/ontology/fbo#IndustrialActivity\">industriële activiteit</a> kleiner is dan de overblijvende <a href=\"https://ontology.firebim.be/ontology/fbo#TotalArea\">oppervlakte</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a>;"@nl .
+ex:Member_0_2_1_1_3_1 a fro:Member ;
+    fro:hasOriginalText "- in het gebouw hoofdzakelijk niet-industriële activiteiten plaats vinden en de totale oppervlakte van de lokalen met industriële activiteit kleiner is dan de overblijvende oppervlakte van het gebouw;"@nl .
 
-fro:Member_0_2_1_1_3_2 a fro:Member ;
-    fro:hasOriginalText "- de <a href=\"https://ontology.firebim.be/ontology/fbo#IndustrialActivity\">industriële activiteiten</a> in deze <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> de <a href=\"https://ontology.firebim.be/ontology/fbo#NonIndustrialActivity\">niet-industriële activiteiten</a> in hetzelfde <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> ondersteunen;"@nl .
+ex:Member_0_2_1_1_3_2 a fro:Member ;
+    fro:hasOriginalText "- de industriële activiteiten in deze lokalen de niet-industriële activiteiten in hetzelfde compartiment ondersteunen;"@nl ;
+    fro:linksTo fbo-be:FireCompartment .
 
-fro:Member_0_2_1_1_3_3 a fro:Member ;
-    fro:hasOriginalText "- er geen <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> met <a href=\"https://ontology.firebim.be/ontology/fbo#NightOccupancy\">nachtbezetting</a> zijn in het <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> waarin er <a href=\"https://ontology.firebim.be/ontology/fbo#IndustrialActivity\">industriële activiteiten</a> plaatsvinden."@nl .
+ex:Member_0_2_1_1_3_3 a fro:Member ;
+    fro:hasOriginalText "- er geen lokalen met nachtbezetting zijn in het compartiment waarin er industriële activiteiten plaatsvinden."@nl ;
+    fro:linksTo fbo-be:FireCompartment,
+        fbo-be:NightOccupation .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

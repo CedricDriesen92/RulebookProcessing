@@ -1,35 +1,47 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_5_2 fro:hasSection fro:Section_5_2_5 .
-
-fro:Article_5_2_5_1 a fro:Article ;
-    fro:hasID "A5.2.5.1" ;
-    fro:hasMember fro:Member_5_2_5_1_1,
-        fro:Member_5_2_5_1_2,
-        fro:Member_5_2_5_1_3,
-        fro:Member_5_2_5_1_4 ;
-    fro:hasVersion fro:v0_1 .
-
-fro:Member_5_2_5_1_1 a fro:Member ;
-    fro:hasOriginalText "De punten 5.2.1 tot 5.2.4 zijn niet van toepassing op de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> van een <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> waarvoor de aanvraag voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">bouw</a> werd ingediend vóór 1 juli 2022 als het voldoet aan de volgende voorwaarden."@nl .
-
-fro:Member_5_2_5_1_2 a fro:Member ;
-    fro:hasOriginalText "In afwijking van het punt 3.2, worden er geen eisen voor <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> gesteld aan de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> van <a href=\"https://ontology.firebim.be/ontology/fbo#OpenParking\">open parkings</a> waarvan de horizontale <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> REI 60 bezitten."@nl .
-
-fro:Member_5_2_5_1_3 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> tussen de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> en de rest van het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> hebben EI 60."@nl .
-
-fro:Member_5_2_5_1_4 a fro:Member ;
-    fro:hasOriginalText "In het <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">parkeercompartiment</a> mogen sommige, niet voor verblijf bestemde lokalen worden opgenomen, zoals: <a href=\"https://ontology.firebim.be/ontology/fbo#TransformerRoom\">transformatorlokalen</a>, bergingen, archieflokalen, <a href=\"https://ontology.firebim.be/ontology/fbo#TechnicalRoom\">technische ruimten</a> …"@nl .
-
-fro:Section_5_2_5 a fro:Section ;
-    fro:hasArticle fro:Article_5_2_5_1 ;
+ex:Section_5_2_5 a fro:Section ;
+    fro:hasArticle ex:Article_5_2_5_1 ;
     fro:hasID "5.2.5" ;
     fro:hasOriginalText "Afwijkende bepalingen"@nl .
 
+ex:Article_5_2_5_1 a fro:Article ;
+    fro:hasID "A5.2.5.1" ;
+    fro:hasMember ex:Member_5_2_5_1_1,
+        ex:Member_5_2_5_1_2,
+        ex:Member_5_2_5_1_3,
+        ex:Member_5_2_5_1_4 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_5_2_5_1_1 a fro:Member ;
+    fro:hasOriginalText "De punten 5.2.1 tot 5.2.4 zijn niet van toepassing op de parking van een gebouw waarvoor de aanvraag voor de bouw werd ingediend vóór 1 juli 2022 als het voldoet aan de volgende voorwaarden."@nl ;
+    fro:linksTo fbo-be:Building,
+        fbo-be:Parking .
+
+ex:Member_5_2_5_1_2 a fro:Member ;
+    fro:hasOriginalText "In afwijking van het punt 3.2, worden er geen eisen voor brandweerstand gesteld aan de structurele elementen van open parkings waarvan de horizontale wanden REI 60 bezitten."@nl ;
+    fro:linksTo fbo:FireResistance,
+        fbo:FireStability,
+        fbo-be:Parking .
+
+ex:Member_5_2_5_1_3 a fro:Member ;
+    fro:hasOriginalText "De wanden tussen de parking en de rest van het gebouw hebben EI 60."@nl ;
+    fro:linksTo fbo-be:FireCompartment,
+        fbo-be:Parking,
+        fbo-be:WallTypeInternal .
+
+ex:Member_5_2_5_1_4 a fro:Member ;
+    fro:hasOriginalText "In het parkeercompartiment mogen sommige, niet voor verblijf bestemde lokalen worden opgenomen, zoals: transformatorlokalen, bergingen, archieflokalen, technische ruimten …"@nl ;
+    fro:linksTo fbo-be:Parking,
+        fbo-be:TechnicalRoom .
+
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

@@ -1,6 +1,24 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_4_2_6 a fro:Section ;
-    fro:hasID "6.4.2.6" ;
-    fro:hasOriginalText "Op het <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">bordes</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">toegangsniveau</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAction\">brandweer</a> is een schakelaar met “<a href=\"https://ontology.firebim.be/ontology/fbo#HasFirefighterKey\">brandweersleutel</a>” voorzien die de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAction\">brandweer</a> toelaat om de <a href=\"https://ontology.firebim.be/ontology/fbo#ElevatorOperation\">bediening van de lift</a> over te nemen."@nl .
+ex:Section_6_4_2_6 a fro:Section ;
+    fro:hasArticle ex:Article_6_4_2_6_1 ;
+    fro:hasID "6.4.2.6" .
+
+ex:Article_6_4_2_6_1 a fro:Article ;
+    fro:hasID "A6.4.2.6.1" ;
+    fro:hasMember ex:Member_6_4_2_6_1_1 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_6_4_2_6_1_1 a fro:Member ;
+    fro:hasOriginalText "Op het bordes van het toegangsniveau van de brandweer is een schakelaar met “brandweersleutel” voorzien die de brandweer toelaat om de bediening van de lift over te nemen."@nl ;
+    fro:linksTo fbo-be:EvacuationLevel .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
 

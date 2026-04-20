@@ -1,31 +1,37 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_3 fro:hasSection fro:Section_3_1 .
-
-fro:Article_3_1_1 a fro:Article ;
-    fro:hasID "A3.1.1" ;
-    fro:hasMember fro:Member_3_1_1_1,
-        fro:Member_3_1_1_2 ;
-    fro:hasVersion fro:v0_1 .
-
-fro:Member_3_1_1_1 a fro:Member ;
-    fro:hasOriginalText "Doorvoeringen doorheen <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> van <a href=\"https://ontology.firebim.be/ontology/fbo#Pipe\">leidingen</a> voor fluïda of voor <a href=\"https://ontology.firebim.be/ontology/fbo#ElectricalConduit\">elektriciteit</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#ExpansionJoint\">uitzetvoegen</a> van <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> mogen de vereiste <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">bouwelementen</a> niet nadelig beïnvloeden."@nl .
-
-fro:Member_3_1_1_2 a fro:Member ;
-    fro:hasOriginalText "De bepalingen van bijlage 7 “Gemeenschappelijke bepalingen”, hoofdstuk 1, zijn van toepassing."@nl ;
-    fro:hasReference fro:Reference_Bijlage_7 .
-
-fro:Reference_Bijlage_7 a fro:Reference ;
-    fro:hasID "Bijlage 7" .
-
-fro:Section_3_1 a fro:Section ;
-    fro:hasArticle fro:Article_3_1_1 ;
+ex:Section_3_1 a fro:Section ;
+    fro:hasArticle ex:Article_3_1_1 ;
     fro:hasID "3.1" ;
     fro:hasOriginalText "Doorvoeringen door wanden."@nl .
 
+ex:Article_3_1_1 a fro:Article ;
+    fro:hasID "A3.1.1" ;
+    fro:hasMember ex:Member_3_1_1_1,
+        ex:Member_3_1_1_2 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_3_1_1_1 a fro:Member ;
+    fro:hasOriginalText "Doorvoeringen doorheen wanden van leidingen voor fluïda of voor elektriciteit en de uitzetvoegen van wanden mogen de vereiste brandweerstand van de bouwelementen niet nadelig beïnvloeden."@nl ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:Conduits,
+        fbo-be:Pipes,
+        fbo-be:WallTypeInternal .
+
+ex:Member_3_1_1_2 a fro:Member ;
+    fro:hasOriginalText "De bepalingen van bijlage 7 \"Gemeenschappelijke bepalingen\", hoofdstuk 1, zijn van toepassing."@nl ;
+    fro:hasReference ex:Reference_Bijlage_7 .
+
+ex:Reference_Bijlage_7 a fro:Reference ;
+    fro:hasID "Bijlage 7" .
+
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

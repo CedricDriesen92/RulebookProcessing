@@ -1,9 +1,31 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_1_2_5 a fro:Section ;
+ex:Section_6_1_2_5 a fro:Section ;
+    fro:hasArticle ex:Article_6_1_2_5_1 ;
     fro:hasID "6.1.2.5" ;
-    fro:hasOriginalText """<a href="https://ontology.firebim.be/ontology/fbo#OilHydraulicElevator">Oleohydraulische liften</a> en <a href="https://ontology.firebim.be/ontology/fbo#Elevator">goederenliften</a>.
-De <a href="https://ontology.firebim.be/ontology/fbo#Room">ruimte</a> waarin de aandrijving van een <a href="https://ontology.firebim.be/ontology/fbo#OilHydraulicElevator">oleohydraulische lift</a> of <a href="https://ontology.firebim.be/ontology/fbo#Elevator">goederenlift</a> is opgesteld, is voorzien van een <a href="https://ontology.firebim.be/ontology/fbo#OilContainmentCapacity">inkuiping</a> die een inhoud heeft die ten minste gelijk is aan 1,2 maal de <a href="https://ontology.firebim.be/ontology/fbo#OilContent">olie-inhoud</a> van de machines en reservoirs.
+    fro:hasOriginalText "Oleohydraulische liften en goederenliften."@nl .
 
-Indien de aandrijving van een <a href="https://ontology.firebim.be/ontology/fbo#OilHydraulicElevator">oleohydraulische lift</a> of <a href="https://ontology.firebim.be/ontology/fbo#Elevator">goederenlift</a> in een <a href="https://ontology.firebim.be/ontology/fbo#MachineRoom">machinekamer</a> is opgesteld, zijn de <a href="https://ontology.firebim.be/ontology/fbo#ElectricalSystem">elektrische apparatuur</a> evenals de <a href="https://ontology.firebim.be/ontology/fbo#ElectricalConduit">elektrische</a> en <a href="https://ontology.firebim.be/ontology/fbo#Pipe">hydraulische leidingen</a> die van de <a href="https://ontology.firebim.be/ontology/fbo#MachineRoom">machinekamer</a> naar de <a href="https://ontology.firebim.be/ontology/fbo#ElevatorShaft">liftschacht</a> lopen, hoger aangebracht dan het hoogste peil dat de uitgelopen olie in de <a href="https://ontology.firebim.be/ontology/fbo#MachineRoom">machinekamer</a> kan bereiken."""@nl .
+ex:Article_6_1_2_5_1 a fro:Article ;
+    fro:hasID "A6.1.2.5.1" ;
+    fro:hasMember ex:Member_6_1_2_5_1_1,
+        ex:Member_6_1_2_5_1_2 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_6_1_2_5_1_1 a fro:Member ;
+    fro:hasOriginalText "De ruimte waarin de aandrijving van een oleohydraulische lift of goederenlift is opgesteld, is voorzien van een inkuiping die een inhoud heeft die ten minste gelijk is aan 1,2 maal de olie-inhoud van de machines en reservoirs."@nl ;
+    fro:linksTo fbo-be:TechnicalRoom .
+
+ex:Member_6_1_2_5_1_2 a fro:Member ;
+    fro:hasOriginalText "Indien de aandrijving van een oleohydraulische lift of goederenlift in een machinekamer is opgesteld, zijn de elektrische apparatuur evenals de elektrische en hydraulische leidingen die van de machinekamer naar de liftschacht lopen, hoger aangebracht dan het hoogste peil dat de uitgelopen olie in de machinekamer kan bereiken."@nl ;
+    fro:linksTo fbo-be:Pipes,
+        fbo-be:TechnicalRoom .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
 

@@ -1,73 +1,113 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_4_4_1_2 a fro:Section ;
-    fro:hasArticle fro:Article_4_4_1_2_1 ;
+ex:Section_4_4_1_2 a fro:Section ;
+    fro:hasArticle ex:Article_4_4_1_2_1 ;
     fro:hasID "4.4.1.2" ;
-    fro:hasOriginalText "Wordt beschouwd als een <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgang</a> van een <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a>:"@nl .
+    fro:hasOriginalText "Wordt beschouwd als een uitgang van een compartiment:"@nl .
 
-fro:Article_4_4_1_2_1 a fro:Article ;
+ex:Article_4_4_1_2_1 a fro:Article ;
     fro:hasID "A4.4.1.2.1" ;
-    fro:hasMember fro:Member_4_4_1_2_1_1,
-        fro:Member_4_4_1_2_1_10,
-        fro:Member_4_4_1_2_1_11,
-        fro:Member_4_4_1_2_1_2,
-        fro:Member_4_4_1_2_1_3,
-        fro:Member_4_4_1_2_1_4,
-        fro:Member_4_4_1_2_1_5,
-        fro:Member_4_4_1_2_1_6,
-        fro:Member_4_4_1_2_1_7,
-        fro:Member_4_4_1_2_1_8,
-        fro:Member_4_4_1_2_1_9 ;
+    fro:hasMember ex:Member_4_4_1_2_1_1,
+        ex:Member_4_4_1_2_1_10,
+        ex:Member_4_4_1_2_1_11,
+        ex:Member_4_4_1_2_1_2,
+        ex:Member_4_4_1_2_1_3,
+        ex:Member_4_4_1_2_1_4,
+        ex:Member_4_4_1_2_1_5,
+        ex:Member_4_4_1_2_1_6,
+        ex:Member_4_4_1_2_1_7,
+        ex:Member_4_4_1_2_1_8,
+        ex:Member_4_4_1_2_1_9 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_4_4_1_2_1_1 a fro:Member ;
-    fro:hasOriginalText "- een <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">binnentrappenhuis</a> conform het punt 4.2;"@nl .
+ex:Member_4_4_1_2_1_1 a fro:Member ;
+    fro:hasForwardReference ex:Section_4_2 ;
+    fro:hasOriginalText "-    een binnentrappenhuis conform het punt 4.2;"@nl ;
+    fro:linksTo fbo-be:EnclosedInternalStairCase .
 
-fro:Member_4_4_1_2_1_10 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationSafety\">evacuatie</a> van <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> of een geheel van <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> met <a href=\"https://ontology.firebim.be/ontology/fbo#NightOccupancy\">nachtbezetting</a> gebeurt via <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatiewegen</a> waarvan de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">verticale wanden</a> <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 30</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deuren</a> <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI1 30</a> hebben."@nl .
+ex:Member_4_4_1_2_1_10 a fro:Member ;
+    fro:hasOriginalText """De   evacuatie   van   lokalen   of   een   geheel   van   lokalen   met   nachtbezetting   gebeurt   via
+evacuatiewegen waarvan de verticale wanden EI 30 en de deuren EI1 30 hebben."""@nl ;
+    fro:linksTo fbo-be:EvacuationPath,
+        fbo-be:NightOccupation,
+        fbo-be:WallTypeInternal .
 
-fro:Member_4_4_1_2_1_11 a fro:Member ;
-    fro:hasOriginalText "Deze eis is niet van toepassing voor de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationSafety\">evacuatie</a> van deze <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> indien deze behoren bij de uitbating van een <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> met een <a href=\"https://ontology.firebim.be/ontology/fbo#NonIndustrialActivity\">commerciële functie</a>."@nl .
+ex:Member_4_4_1_2_1_11 a fro:Member ;
+    fro:hasOriginalText """Deze eis is niet van toepassing voor de evacuatie van deze lokalen indien deze behoren bij de
+uitbating van een gebouw met een commerciële functie."""@nl .
 
-fro:Member_4_4_1_2_1_2 a fro:Member ;
-    fro:hasOriginalText "- een <a href=\"https://ontology.firebim.be/ontology/fbo#ExternalStaircase\">buitentrappenhuis</a> conform het punt 4.3;"@nl .
+ex:Member_4_4_1_2_1_2 a fro:Member ;
+    fro:hasForwardReference ex:Section_4_3 ;
+    fro:hasOriginalText "-    een buitentrappenhuis conform het punt 4.3;"@nl ;
+    fro:linksTo fbo-be:InternalStair .
 
-fro:Member_4_4_1_2_1_3 a fro:Member ;
-    fro:hasOriginalText "- een rechtstreekse toegang tot de <a href=\"https://ontology.firebim.be/ontology/fbo#ExitsToOutside\">open lucht</a> op een <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a>;"@nl .
+ex:Member_4_4_1_2_1_3 a fro:Member ;
+    fro:hasOriginalText "-    een rechtstreekse toegang tot de open lucht op een evacuatieniveau;"@nl ;
+    fro:linksTo fbo-be:EvacuationLevel .
 
-fro:Member_4_4_1_2_1_4 a fro:Member ;
-    fro:hasOriginalText "- een <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatieweg</a> op een <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a> waarvan de <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">verticale binnenwanden</a> <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 60</a> hebben en de <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deuren</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> die op deze wegen uitgeven <a href=\"https://ontology.firebim.be/ontology/fbo#IsSelfClosing\">zelfsluitend</a> of <a href=\"https://ontology.firebim.be/ontology/fbo#IsFireActivatedClosing\">bij brand zelfsluitend</a> zijn en <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI1 30</a> hebben."@nl .
+ex:Member_4_4_1_2_1_4 a fro:Member ;
+    fro:hasOriginalText """-    een evacuatieweg op een evacuatieniveau waarvan de verticale binnenwanden EI 60 hebben
+     en de deuren van de lokalen die op deze wegen uitgeven zelfsluitend of bij brand zelfsluitend
+     zijn en EI1 30 hebben."""@nl ;
+    fro:linksTo fbo-be:EvacuationLevel,
+        fbo-be:EvacuationPath,
+        fbo-be:WallTypeInternal .
 
-fro:Member_4_4_1_2_1_5 a fro:Member ;
-    fro:hasOriginalText "De in <a href=\"https://ontology.firebim.be/ontology/fbo#ExitsToOutside\">open lucht</a> af te leggen weg speelt geen rol bij het berekenen van deze afstanden."@nl .
+ex:Member_4_4_1_2_1_5 a fro:Member ;
+    fro:hasOriginalText "De in open lucht af te leggen weg speelt geen rol bij het berekenen van deze afstanden."@nl .
 
-fro:Member_4_4_1_2_1_6 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deuren</a> op deze wegen mogen geen vergrendeling bezitten die de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationSafety\">evacuatie</a> kan belemmeren."@nl .
+ex:Member_4_4_1_2_1_6 a fro:Member ;
+    fro:hasOriginalText "De deuren op deze wegen mogen geen vergrendeling bezitten die de evacuatie kan belemmeren."@nl .
 
-fro:Member_4_4_1_2_1_7 a fro:Member ;
-    fro:hasOriginalText "De eventuele <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">verticale binnenwanden</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatiewegen</a> hebben <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 30</a> en de toegangs<a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deuren</a> tot deze wegen <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI1 30</a>."@nl .
+ex:Member_4_4_1_2_1_7 a fro:Member ;
+    fro:hasOriginalText """De   eventuele   verticale   binnenwanden   van   de   evacuatiewegen   hebben   EI   30   en   de
+toegangsdeuren tot deze wegen EI1 30."""@nl ;
+    fro:linksTo fbo-be:EvacuationPath,
+        fbo-be:WallTypeInternal .
 
-fro:Member_4_4_1_2_1_8 a fro:Member ;
-    fro:hasOriginalText "Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn niet van toepassing op de <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> met uitsluitend <a href=\"https://ontology.firebim.be/ontology/fbo#DayOccupancy\">dagbezetting</a> waarvan de <a href=\"https://ontology.firebim.be/ontology/fbo#CompartmentArea\">oppervlakte</a> geen 1250 m² bereikt."@nl .
+ex:Member_4_4_1_2_1_8 a fro:Member ;
+    fro:hasForwardReference ex:Section_3_4_1,
+        ex:Section_6_7_2_1 ;
+    fro:hasOriginalText """Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn niet van toepassing op de
+compartimenten met uitsluitend dagbezetting waarvan de oppervlakte geen 1250 m² bereikt."""@nl ;
+    fro:linksTo fbo-be:AreaFireCompartment,
+        fbo-be:DayOccupation .
 
-fro:Member_4_4_1_2_1_9 a fro:Member ;
-    fro:hasMember fro:Member_4_4_1_2_1_9_1,
-        fro:Member_4_4_1_2_1_9_2,
-        fro:Member_4_4_1_2_1_9_3 ;
-    fro:hasOriginalText "Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn ook niet van toepassing op de <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> met uitsluitend <a href=\"https://ontology.firebim.be/ontology/fbo#DayOccupancy\">dagbezetting</a> waarvan de <a href=\"https://ontology.firebim.be/ontology/fbo#CompartmentArea\">oppervlakte</a> kleiner is dan 2500 m² op voorwaarde:"@nl .
+ex:Member_4_4_1_2_1_9 a fro:Member ;
+    fro:hasForwardReference ex:Section_3_4_1,
+        ex:Section_6_7_2_1 ;
+    fro:hasMember ex:Member_4_4_1_2_1_9_1,
+        ex:Member_4_4_1_2_1_9_2,
+        ex:Member_4_4_1_2_1_9_3 ;
+    fro:hasOriginalText """Deze vereiste, alsook de vereiste van punten 3.4.1 en 6.7.2.1, zijn ook niet van toepassing op de
+compartimenten met uitsluitend dagbezetting waarvan de oppervlakte kleiner is dan 2500 m² op
+voorwaarde:"""@nl ;
+    fro:linksTo fbo-be:AreaFireCompartment,
+        fbo-be:DayOccupation .
 
-fro:Member_4_4_1_2_1_9_1 a fro:Member ;
-    fro:hasOriginalText "- dat deze <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> zijn uitgerust met een <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> van het type <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticSprinklerSystem\">sprinkler</a> die is aangepast aan de aanwezige risico's;"@nl .
+ex:Member_4_4_1_2_1_9_1 a fro:Member ;
+    fro:hasOriginalText """-    dat deze compartimenten zijn uitgerust met een automatische blusinstallatie van het type
+     sprinkler die is aangepast aan de aanwezige risico's;"""@nl ;
+    fro:linksTo fbo-be:AutomaticFireExtinguishSystem .
 
-fro:Member_4_4_1_2_1_9_2 a fro:Member ;
-    fro:hasOriginalText "- dat het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a> is uitgerust met een <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireDetection\">automatische branddetectie</a> van het type <a href=\"https://ontology.firebim.be/ontology/fbo#FireDetectionCoverage\">totale bewaking</a> die automatisch een aanduiding van de <a href=\"https://ontology.firebim.be/ontology/fbo#FireAlarmDevice\">brandmelding</a> en de plaats ervan aangeeft en waarvan de <a href=\"https://ontology.firebim.be/ontology/fbo#SmokeDetector\">detectoren</a> aangepast zijn aan de aanwezige risico’s;"@nl .
+ex:Member_4_4_1_2_1_9_2 a fro:Member ;
+    fro:hasOriginalText """-    dat het gebouw is uitgerust met een automatisch branddetectie van het type totale bewaking
+     die  automatisch  een  aanduiding  van  de  brandmelding  en  de  plaats  ervan  aangeeft  en
+     waarvan de detectoren aangepast zijn aan de aanwezige risico's;"""@nl ;
+    fro:linksTo fbo-be:AutomaticDetectionTotal .
 
-fro:Member_4_4_1_2_1_9_3 a fro:Member ;
-    fro:hasOriginalText "- en dat de producten die gebruikt worden voor de bekleding van <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">verticale wanden</a>, <a href=\"https://ontology.firebim.be/ontology/fbo#Ceiling\">plafonds</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">vloeren</a> van die <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> voldoen aan de vereisten inzake <a href=\"https://ontology.firebim.be/ontology/fbo#MaterialClass\">reactie bij brand</a> op de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatiewegen</a>."@nl .
+ex:Member_4_4_1_2_1_9_3 a fro:Member ;
+    fro:hasOriginalText """-    en dat de producten die gebruikt worden voor de bekleding van verticale wanden, plafonds en
+     vloeren van die compartimenten voldoen aan de vereisten inzake reactie bij brand op de
+     evacuatiewegen."""@nl ;
+    fro:linksTo fbo-be:EvacuationPath .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

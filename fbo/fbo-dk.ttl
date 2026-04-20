@@ -1,0 +1,2310 @@
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-dk: <https://ontology.firebim.be/ontology/fbo-DK#> .
+@prefix fbo-ifc: <https://ontology.firebim.be/ontology/fbo-ifc#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fbo-dk:AreaBuildingFunctionalFireUnit a owl:ObjectProperty ;
+    rdfs:label "Bygningsafsnitsareal"@da-DK,
+        "Functional Fire Unit Area"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "509" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaBuildingFunctionalFireUnit-2bdf8487e6e780539322d98e4b56de7c> ;
+    fbo:isLinkedTo fbo:AreaFireCompartment .
+
+fbo-dk:AreaEvacuationroute a owl:Class ;
+    rdfs:label "Flugtvejspassage eller Flugtvejsareal"@da-DK,
+        "Evacuation route passage or Evacuation route area"@en ;
+    rdfs:subClassOf fbo:AreaEvacuationroute ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Friholdt areal i et opholdsrum, der giver adgang til udgangsdør(e)"@da-DK,
+        "Free space in a room for occupancy that provides access to exit door(s)"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Escape route passage or Escape route area" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:19:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "105" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaEvacuationroute-151f8487e6e780629f6de578c7bda3ae> ;
+    fbo:isLinkedTo fbo:AreaEvacuationroute .
+
+fbo-dk:AreaFireCompartment a owl:DatatypeProperty ;
+    rdfs:label "Etageareal i brandmæssig henseende"@da-DK,
+        "Compartment-Area - Floor area"@en ;
+    rdfs:subPropertyOf fbo:AreaFireCompartment ;
+    fbo:hasAdoptedDefinitionType "Explicit and implicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01, BR18-§455" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Summen af bruttoarealerne for samtlige etager, herunder kældre og udnyttelige tagetager samt altanlukninger, udestuer, forbindelsesgange og lignende. I forbindelse med brandforhold må der ikke foretages fradrag, jf. BR18 § 455, stk. 3 nr. 1, 4 og 5 samt stk. 4, som alene må benyttes ved beregning af bebyggelsesprocent."@da-DK,
+        "The sum of the gross areas of all floors, including basements and usable roof spaces as well as enclosed balconies, enclosed porches, connecting corridors and similar. In connection with fire conditions, no deductions may be made, cf. BR18 § 455(3)(1), (4) and (5) and (4), which may only be used when calculating the building percentage."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18,
+        fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Floor area in terms of fire safety" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:AreaFireCompartment2a ;
+    fbo:hasLastEdition "2026-02-03T14:38:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "69" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaFireCompartment-151f8487e6e7800fa26cdd6dd0fb5b2a> ;
+    fbo:hasUnit "m2" ;
+    fbo:hasValueType "Number" ;
+    fbo:isLinkedTo fbo:AreaFireCompartment .
+
+fbo-dk:AreaFloorRoom a owl:Class ;
+    rdfs:label "Gulvareal"@da-DK,
+        "Floor area in rooms"@en ;
+    rdfs:subClassOf fbo:AreaFloorRoom ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Areal af et rums gulvoverflade afgrænset af rummets omgivende vægge. Ved beregning af arealet foretages der ikke fradrag for areal af eventuelle søjler og andre bygningsdele i rummet"@da-DK,
+        "The floor area of a room measured to the inside face of the surrounding walls. When calculating the area, no deduction is made for the area of any columns and other building elements in the room"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Floor space" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:11:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "165" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaFloorRoom-151f8487e6e780f8bac2c40437774032> ;
+    fbo:hasUnit "m2" ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:AreaFreespace a owl:DatatypeProperty ;
+    rdfs:label "Friareal"@da-DK,
+        "Free space"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Indendørs areal, der er friholdt for oplag, inventar og lignende."@da-DK,
+        "Indoor area that is kept free of storage, inventory and the like."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Free area, Clearance area, Open space" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:19:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "170" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaFreespace-151f8487e6e780feb8a6d6212d0fc7c4> ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:AreaOpeningClearAerodynamicAa a owl:DatatypeProperty ;
+    rdfs:label "Aerodynamisk frit areal (Aa)"@da-DK,
+        "Aerodynamic free area (Aa)"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Areal, hvor luften frit kan strømme gennem en åbning. Defineres som Cv-faktoren multipliceret med det geometriske åbningsareal"@da-DK,
+        "Area where air can freely flow through an opening. Defined as the Cv factor multiplied by the geometric opening area."@en ;
+    fbo:hasDesignator "Aa" ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Aerodynamic free area" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:18:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "87" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaOpeningClearAerodynamic-Aa-151f8487e6e7803489efc5b46dc09e0c> ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:AreaOpeningClearGeometric a owl:DatatypeProperty ;
+    rdfs:label "Frit åbningsareal (geometrisk frit åbningsareal)"@da-DK,
+        "Free opening area (geometric free opening area)"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Geometrisk åbningsareal (Ag) med fradrag af forhindringer i åbningen (f.eks. motorer, åbningsmekanismer eller riste) samt reduktion pga. åbningsgraden af eventuelt vindue eller lem."@da-DK,
+        "Geometric opening area (Ag) minus any obstructions in the opening (e.g. motors, opening mechanisms or grilles) and reduction due to the degree of opening of any window or hatch."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "158" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaOpeningClearGeometric-151f8487e6e780e786d5f8888fc32961> ;
+    fbo:hasUnit "m2" ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:AreaOpeningGeometricAg a owl:DatatypeProperty ;
+    rdfs:label "Geometrisk åbningsareal (Ag)"@da-DK,
+        "Geometric opening area (Ag)"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Det indvendige areal af åbning (karmlysningsarealet)."@da-DK,
+        "The inside area of the opening"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Geometric aperture area (Ag)" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "89" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaOpeningGeometric-Ag-151f8487e6e7803999ecc4a087e5a058> ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:AreaSubCompartment a owl:ObjectProperty ;
+    rdfs:label "Brandcelle areal"@da-DK,
+        "Subcompartment area"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit and implicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition """Areal af et rums gulvoverflade afgrænset af rummets omgivende vægge.
+Ved beregning af arealet foretages der ikke fradrag for areal af eventuelle søjler og andre bygningsdele i rummet."""@da-DK,
+        """The floor area of a room's floor surface delimited by the room's surrounding walls.
+When calculating the area, no deduction is made for the area of any columns and other building elements in the room."""@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION,
+        fbo:X21NumberofDoorsExits,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Fire cell size, Fire compartment size" ;
+    fbo:hasFireExpertGuidance "The area of the room’s floor are defined in BR18-VK5-D01. It is implicit that the area of the subcompartments are the sum of the area and the room’s floor" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:12:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "285" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaSubCompartment-22cf8487e6e78068b436c0ba5a61f185> ;
+    fbo:isLinkedTo fbo:AreaFireCompartment .
+
+fbo-dk:AutomaticWarningsystem a owl:Class ;
+    rdfs:label "Automatisk varslingsanlæg AVA"@da-DK,
+        "Automatic warning system"@en ;
+    rdfs:subClassOf fbo:AutomaticWarningSystem ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Anlæg, der via en tone eller en talt besked varsler personer om en utilsigtet hændelse, herunder brand. Varslingsanlæg kan aktiveres manuelt (internt varslingsanlæg) eller automatisk via et ABA-anlæg (automatisk varslingsanlæg)."@da-DK,
+        "An alarm system that uses a tone or spoken message to alert people of an accidental event, including fire. Alarm systems can be activated manually (internal alarm system) or automatically via an ABA system (automatic alarm system)."@en ;
+    fbo:hasDesignator "AVA" ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Automatic warning device AVA, AVA automatic alarm system" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:46:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "147" ;
+    fbo:hasNotionURL <https://www.notion.so/AutomaticWarningsystem-151f8487e6e780c99835da6a4163a27d> ;
+    fbo:isLinkedTo fbo:AutomaticWarningSystem .
+
+fbo-dk:BR18VK5B01a a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-B01a"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 1a - Pre-scripted solutions for detached and semi-detached single-family houses"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName """Bilag 1a - Præ-accepterede løsninger for fritliggende og sammenbyggede
+enfamiliehuse"""@dk-DK ;
+    fbo:hasPublicationDate "2022-01-03"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solution" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ipzbg42h/bilag-1a-fritliggende-og-sammenbyggede-enfamiliehuse-ver-20-20220103-a.pdf> .
+
+fbo-dk:BR18VK5B02 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-B02"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 2 - Pre-scripted solutions for multi-storey buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 2 - Præ-accepterede løsninger for etageboligbyggeri"@dk-DK ;
+    fbo:hasPublicationDate "2021-10-29"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solution" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/zj1pprxq/bilag-2-etagebyggeri-ver-14-20211029-a.pdf> .
+
+fbo-dk:BR18VK5B03 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-B03"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 3 - Pre-scripted solutions for offices etc."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 3 - Præ-accepterede løsninger for kontorer mv."@dk-DK ;
+    fbo:hasPublicationDate "2021-10-29"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/4yjfz4xv/bilag-3-kontorbygninger-ver-12-20211029-a.pdf> .
+
+fbo-dk:BR18VK5B04 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-B04"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 4 - Pre-scripted solutions for assembly rooms, shops etc."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 4 - Præ-accepterede løsninger for forsamlingslokaler, butikker mv."@dk-DK ;
+    fbo:hasPublicationDate "2021-10-29"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/4kwdmmqe/bilag-4-forsamlingslokaler-butik-mv-ver-12-20211029-a.pdf> .
+
+fbo-dk:BR18VK5B05 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-B05"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 5 - Pre-scripted solutions for classrooms etc."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 5 - Præ-accepterede løsninger for undervisningslokaler mv."@dk-DK ;
+    fbo:hasPublicationDate "2022-01-11"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/cq2biybf/bilag-5-undervisningslokaler-mv-ver-11-20220111-a.pdf> .
+
+fbo-dk:BR18VK5B06 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-B06"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 6 - Pre-scripted solutions for hotels etc."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 6 - Præ-accepterede løsninger for hoteller mv."@dk-DK ;
+    fbo:hasPublicationDate "2022-01-11"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ylopiebc/bilag-6-hoteller-mv-ver-11-20220111-a.pdf> .
+
+fbo-dk:BR18VK5B07 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-B07"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription """Appendix 7 - Pre-scripted solutions for building compartments where people cannot
+get to safety by themselves"""@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName """Bilag 7 - Præ-accepterede løsninger for bygningsafsnit, hvor personer ikke
+kan bringe sig i sikkerhed ved egen hjælp"""@dk-DK ;
+    fbo:hasPublicationDate "2022-01-11"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/xk2io24g/bilag-7-anvendelseskategori-6-ver-11-20220111-a.pdf> .
+
+fbo-dk:BR18VK5B08 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-B08"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 8 - Pre-scripted solutions for the agricultural industry's breeding and farm buildings and greenhouses for production purposes"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName """Bilag 8 - Præ-accepterede løsninger for Jordbrugserhvervets avls- og
+driftsbygninger samt væksthuse til produktionsformål"""@dk-DK ;
+    fbo:hasPublicationDate "2021-04-21"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ebuhoo1b/20210421-bilag-8-jordbrugserhvervets-avls-og-driftsbygninger-samt-vksthuse-til-produktionver12-a.pdf> .
+
+fbo-dk:BR18VK5B09 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-B09"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 9: Building compartments with garages"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 9: Bygningsafsnit med garageanlæg"@dk-DK ;
+    fbo:hasPublicationDate "2019-02-01"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/na5iaxaq/bilag-9-praeaccepterede-loesninger-bygningsafsnit-med-garageanlaeg-01022019-a.pdf> .
+
+fbo-dk:BR18VK5B10 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-B10"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 10: Single-storey industrial and warehouse buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 10: Industri- og lagerbygninger i én etage"@dk-DK ;
+    fbo:hasPublicationDate "2019-01-31"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/vqph5tx0/bilag-10-praeaccepterede-loesninger-industri-og-lagerbygninger-31012019-a.pdf> .
+
+fbo-dk:BR18VK5B11 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-B11"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Appendix 11: Pre-scripted solutions for assembly tents and temporary outdoor camping and sales areas"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName """Bilag 11: Præ‐accepterede løsninger for forsamlingstelte og midlertidige
+udendørs camping‐ og salgsområder"""@dk-DK ;
+    fbo:hasPublicationDate "2024-09-02"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ilafaqcd/bilag-11version-14-uden-ndringsmarkeringer-a.pdf> .
+
+fbo-dk:BR18VK5B12 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-B12"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription """Appendix 12 - Pre-scripted solutions for fire engineering
+installations and hand extinguishing equipment"""@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bilag 12 -Præ-accepterede løsninger for brandtekniske installationer og håndslukningsudstyr"@dk-DK ;
+    fbo:hasPublicationDate "2021-03-08"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/uxep2y1h/bilag-12-ver-11-20210308-a.pdf> .
+
+fbo-dk:BR18VK5K01 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-K01"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 1: General fire safety"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 1: Generelt om sikkerhed ved brand"@dk-DK ;
+    fbo:hasPublicationDate "2022-05-10"^^xsd:date ;
+    fbo:hasRemarks "Beware that Chapter 1 also includes non Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/qldj55mo/kapitel-1-generelt-om-sikkerhed-ved-brand-ver3020220510-a.pdf> .
+
+fbo-dk:BR18VK5K02 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-K02"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 2: Evacuation and rescue of people"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 2: Evakuering og redning af personer"@dk-DK ;
+    fbo:hasPublicationDate "2021-02-08"^^xsd:date ;
+    fbo:hasRemarks "Beware that Chapter 2 also includes non Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ruwni4b3/kapitel-2-evakuering-ver-02-2021-02-08-a.pdf> .
+
+fbo-dk:BR18VK5K03 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-K03"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 3: Load-bearing structures"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 3: Bærende konstruktioner"@dk-DK ;
+    fbo:hasPublicationDate "2021-01-15"^^xsd:date ;
+    fbo:hasRemarks "Beware that Chapter 3 also includes non Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ruwni4b3/kapitel-2-evakuering-ver-02-2021-02-08-a.pdf> .
+
+fbo-dk:BR18VK5K04 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-K04"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 4: Ignition, fire and smoke spread"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 4: Antændelse, brand- og røgspredning"@dk-DK ;
+    fbo:hasPublicationDate "2021-10-29"^^xsd:date ;
+    fbo:hasRemarks "Beware that Chapter 3 also includes non Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/4kwdmmqe/bilag-4-forsamlingslokaler-butik-mv-ver-12-20211029-a.pdf> .
+
+fbo-dk:BR18VK5K05 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-K05"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 5: Emergency response options"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 5: Redningsberedskabets indsatsmuligheder"@dk-DK ;
+    fbo:hasPublicationDate "2021-03-04"^^xsd:date ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/b0mccscx/kapitel5-redningsberedskabets-indsatsmuligheder-ver-13-a.pdf> .
+
+fbo-dk:BR18VK5K06 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-K06"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 6: Functional testing and system integration"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 6: Funktionsafprøvning og systemintegration"@dk-DK ;
+    fbo:hasPublicationDate "2021-03-04"^^xsd:date ;
+    fbo:hasRemarks "Beware that Chapter 6 also includes non Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/g4nckte3/kapitel-6-funktionsafprvning-og-systemintegrationstest-ver-21-a.pdf> .
+
+fbo-dk:BR18VK5K07 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-K07"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Chapter 7: Operation, control and maintenance of fire conditions in and around buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Kapitel 7: Drift-, kontrol- og vedligehold af brandforhold i og ved bygninger"@dk-DK ;
+    fbo:hasPublicationDate "2021-03-04"^^xsd:date ;
+    fbo:hasRemarks "Beware that Chapter 7 also includes non Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/ybrdtanu/kapitel-7-drift-kontrol-og-vedligehold-ver-11-a.pdf> .
+
+fbo-dk:BoundaryFireCompartment a owl:Class ;
+    rdfs:label "Brandsektionsadskillelse"@da-DK,
+        "Fire compartment - boundary"@en ;
+    rdfs:subClassOf fbo:BoundaryFireCompartment ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "En væg eller etageadskillelse, der er udformet, så en brand ikke spredes til andre brandsektioner inden for den tid, der er nødvendig for evakuering og redningsberedskabets indsats."@da-DK,
+        "A wall or floor construction designed to prevent a fire from spreading to other fire compartments within the time required for evacuation and emergency response."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Fire compartment separation" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "123" ;
+    fbo:hasNotionURL <https://www.notion.so/BoundaryFireCompartment-151f8487e6e7808fb6c3f0b89dd68121> ;
+    fbo:hasUnit "[-]" ;
+    fbo:isLinkedTo fbo:BoundaryFireCompartment .
+
+fbo-dk:BoundarySubcompartment a owl:DatatypeProperty ;
+    rdfs:label "Brandcelleadskillelse"@da-DK,
+        "Room - Subcompartment - boundary"@en ;
+    rdfs:subPropertyOf fbo:BoundaryFireCompartment ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Bygningsdel, f.eks. væg, etageadskillelse eller dør, som indgår ved etablering af en brandcelle."@da-DK,
+        "Building element, e.g. wall, floor construction or door, which is used to create a fire compartment."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Fire cell separation, Fire compartment separation" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "125" ;
+    fbo:hasNotionURL <https://www.notion.so/BoundarySubcompartment-151f8487e6e78090953bc8ffbac2f18f> ;
+    fbo:hasUnit "[-]" ;
+    fbo:isLinkedTo fbo:BoundaryFireCompartment .
+
+fbo-dk:BuildingFireCompartmentDaytimeoccupancy a owl:Class ;
+    rdfs:label "Dagophold"@da-DK,
+        "Daytime occupancy buildings"@en ;
+    rdfs:subClassOf fbo:BuildingFireCompartmentDaytimeoccupancy ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Anvendelse som medfører, at der ikke er sovende personer i bygningen. Bygninger, der anvendes af vågne personer om natten, betragtes også som bygninger til dagophold."@da-DK,
+        "Use classification that means that there are no sleeping persons in the building. Buildings used by people who are awake at night are also considered daytime occupancy buildings."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Day stay, Daycare" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:11:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "124" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingFireCompartmentDaytimeoccupancy-151f8487e6e780908a31f285f6bc52bd> ;
+    fbo:hasUnit "Y/N" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-dk:BuildingFunctionalFireUnit a owl:Class ;
+    rdfs:label "Bygningsafsnit"@da-DK,
+        "Functional Fire Unit"@en ;
+    rdfs:subClassOf fbo:BuildingFunctionalFireUnit ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition """Bygning, eller del af en bygning, hvori de tilstedeværende brandmæssige
+risikoforhold angivet ved anvendelseskategori(er) og risikoklasse er sammenlignelige. Et bygningsafsnit skal henføres til én eller flere anvendel
+seskategorier, men kun én risikoklasse.
+Et bygningsafsnit kan bestå af ét eller flere rum, og til et bygningsafsnit
+hører også understøttende funktioner som for eksempel gange, køkken,
+depotrum, teknikrum, toiletrum, baderum eller lignende, som har di
+rekte tilknytning til bygningsafsnittets funktion.
+Et bygningsafsnit kan indrettes som én eller flere brandsektioner, og skal
+have adgang til tilknyttede flugtveje."""@da-DK,
+        """A building, or part of a building, in which the existing fire
+risk conditions indicated by use category(ies) and risk class are
+similar. A Functional Fire Unit shall be assigned to one or more use
+categories, but only one risk class.
+A Functional Fire Unit may consist of one or more rooms, and a Functional Fire Unit
+also includes supporting functions such as corridors, kitchens,
+storage rooms, technical rooms, toilet rooms, bathrooms or similar, which are
+directly related to the function of the Functional Fire Unit.
+A Functional Fire Unit can be organised as one or more fire compartments and must have access to associated escape routes."""@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Building compartment, Building section" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "271" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingFunctionalFireUnit-21ff8487e6e780e9a2c0e11513d03987> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:BuildingLayers a owl:Class ;
+    rdfs:label "Etager"@da-DK,
+        "Building-number of building layers"@en ;
+    rdfs:subClassOf fbo:BuildingLayers ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Antallet af udnyttelige etager"@da-DK,
+        "The number of usable floors"@en ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Floors, Storeys" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:48:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "91" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingLayers-151f8487e6e7803c939dc924dbcbf60c> ;
+    fbo:hasUnit "number" ;
+    fbo:hasValueType "Number" ;
+    fbo:isLinkedTo fbo:BuildingLayers .
+
+fbo-dk:BuildingsectionOffices a owl:DatatypeProperty ;
+    rdfs:label "Kontor"@da-DK,
+        "Offices"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-B03" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Bygningsafsnit med kontorer forstås, at bygningsafsnittet er indrettet med cellekontorer og/eller åbne kontorer (som f.eks. storrumskontorer), med dertil hørende støttefunktioner, som eksempelvis toiletter, garderobe, mødelokaler, kantine, tekøkken og opbevaringsrum (arkiver, serverrum, kopirum mv.)"@da-DK,
+        "A building section with offices means that the building section is equipped with cellular offices and/or open offices (such as open-plan offices), with associated support functions such as toilets, cloakroom, meeting rooms, canteen, kitchenette and storage rooms (archives, server rooms, copy rooms, etc.)"@en ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Office space" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "93" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingsectionOffices-151f8487e6e78044ad0fdfc509de8863> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:CeilingSuspended a owl:Class ;
+    rdfs:label "Nedhængt loft"@da-DK,
+        "Suspended ceiling"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Loft placeret under loftsbeklædningen som ikke nødvendigvis opfylder kravene til den indvendige loftsbeklædning."@da-DK,
+        "Ceiling located below the ceiling cladding that does not necessarily meet the requirements for the interior ceiling cladding."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasEquivalentTerm "Drop ceiling" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:Ceiling ;
+    fbo:hasLastEdition "2026-02-03T14:37:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "73" ;
+    fbo:hasNotionURL <https://www.notion.so/CeilingSuspended-151f8487e6e7801bacefef8078481871> .
+
+fbo-dk:CompartmentSleeping a owl:DatatypeProperty ;
+    rdfs:label "Soverumsafsnit"@da-DK,
+        "Sleeping section"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Et eller flere soverum med tilhørende gange, herunder flugtveje, depotrum, opholdsrum og evt. vagtrum samt andre lokaler med direkte tilknytning til de pågældende soverum."@da-DK,
+        "One or more bedrooms with associated corridors, including escape routes, storage rooms, living rooms and possibly guard rooms, as well as other rooms directly connected to the bedrooms in question."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Bedroom section, Sleeping area, Bedroom area" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "84" ;
+    fbo:hasNotionURL <https://www.notion.so/CompartmentSleeping-151f8487e6e78030a27cf1e4dbf00b10> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:DistanceActualTravel a owl:Class ;
+    rdfs:label "Ganglængde"@da-DK,
+        "Distance - Actual travel distance"@en ;
+    rdfs:subClassOf fbo:DistanceActualTravel ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Den faktiske afstand, som en person skal gå i ganglinje for at nå et givent punkt. Ganglinjen udlægges som den direkte vej, under hensyn til faste forhindringer eller fast inventar, og på trædefast areal. Anvendes også om den fysiske længde af en gang."@da-DK,
+        "The actual distance that a person must walk in a walking line to reach a given point. The walking line is laid out as the direct route, taking into account fixed obstacles or fixtures, and on a walkable surface. Also used to refer to the physical length of a corridor."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Aisle length, Gangway length, Walking distance, Gear length" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "85" ;
+    fbo:hasNotionURL <https://www.notion.so/DistanceActualTravel-151f8487e6e780318ce5e17e203ed2e4> ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:DistanceBlindEnd a owl:DatatypeProperty ;
+    rdfs:label "Længde på blind ende"@da-DK,
+        "Distance Blind End"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-K02" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Gangafstand målt via gangarealer, der har adgang til en udgang i én retning. Afstanden måles parallelt med væggen og fra midt dør til midt dør"@da-DK,
+        "Walking distance measured via walkways that have access to an exit in one direction. Distance is measured parallel to the wall and from centerline of one door tocenterline of next door"@en ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Blind end length, Length of dead end" ;
+    fbo:hasFireExpertGuidance "The how to measure is shown in BR18-VK5-K02-Figur2.18" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:20:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "286" ;
+    fbo:hasNotionURL <https://www.notion.so/DistanceBlindEnd-22cf8487e6e7807cb209d564f24e8466> ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:DistanceDirectTravel a owl:Class ;
+    rdfs:label "Gangafstand"@da-DK,
+        "Distance - Direct travel distance (theoretical)"@en ;
+    rdfs:subClassOf fbo:DistanceDirectTravel ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Den teoretisk længste afstand, som en person skal tilbagelægge for at nå frem til nærmeste udgang eller udgangsdør ved at bevæge sig langs ganglinjer. Ganglinjer udlægges svarende til den mest ugunstige placering af personen. I lokaler skal afstanden via ganglinjer, der kun fører til udgangsdør i én retning, multipliceres med 1,5."@da-DK,
+        "The theoretical longest distance a person must travel to reach the nearest exit or exit door by moving along a path of travel. The paths are laid out corresponding to the most unfavorable location of the person. In rooms, the distance along paths leading to the exit door in one direction only should be multiplied by 1.5."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Walking distance, Gangway distance" ;
+    fbo:hasFireExpertGuidance "The how to calculate are illustrated in BR18-VK5-K02-figur2.2" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "172" ;
+    fbo:hasNotionURL <https://www.notion.so/DistanceDirectTravel-151f8487e6e780ff92c4cfcb580c9b7c> ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:DistancePathway a owl:Class ;
+    rdfs:label "Ganglinje"@da-DK,
+        "Distance - Pathway"@en ;
+    rdfs:subClassOf fbo:DistancePathway ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Imaginær linje som man følger, når man f.eks. går hen mod en dør i et lokale, ned ad en gang eller på en trappe eller rampe. Hvor ganglinjen forløber langs skrå bygningselementer, f.eks. ramper eller trapper, udlægges ganglinjen som den skrå linje langs elementet fra øverste til nederste del."@da-DK,
+        "Imaginary line that you follow when walking towards a door in a room, down a hallway or on a staircase or ramp, for example. Where the pathway runs along inclined building elements, such as ramps or stairs, the pathway is laid out as the inclined line along the element from top to bottom."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Hydrograph, Gangway, Aisle line" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "102" ;
+    fbo:hasNotionURL <https://www.notion.so/DistancePathway-151f8487e6e7805a9013f4c4ea54de44> ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:DoorEscaperoute a owl:Class ;
+    rdfs:label "Flugtvejsdør"@da-DK,
+        "Escape route door"@en ;
+    rdfs:subClassOf fbo:DoorEscaperoute ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Dør til flugtvej eller dør i flugtvej, f.eks. udgangsdør og udgang"@da-DK,
+        "Door to escape route or door in escape route, e.g. exit door and exit"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Escape door, Emergency escape door, Emergency exit door" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:11:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "121" ;
+    fbo:hasNotionURL <https://www.notion.so/DoorEscaperoute-151f8487e6e7808cb60dc47065e43a7a> ;
+    fbo:hasUnit "[-]" ;
+    fbo:isLinkedTo fbo:DoorEscaperoute .
+
+fbo-dk:DoorExit a owl:Class ;
+    rdfs:label "Udgangsdør"@da-DK,
+        "Exit door"@en ;
+    rdfs:subClassOf fbo:DoorExit ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Dør fra en brandmæssig enhed, der giver adgang til flugtvej eller direkte til terræn i det fri."@da-DK,
+        "Door from a fire compartment that provides access to an escape route or directly to the terrain."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:12:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "111" ;
+    fbo:hasNotionURL <https://www.notion.so/DoorExit-151f8487e6e780759841e40e7b1da4ad> .
+
+fbo-dk:DoorIndependentExitdoors a owl:ObjectProperty ;
+    rdfs:label "Uafhængige udgangsdøre"@da-DK,
+        "Independent exit doors"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Udgangsdøre, der er placeret med tilstrækkelig indbyrdes afstand der sikrer, at mindst en af udgangsdørene er tilgængelig i tilfælde af brand i den brandmæssige enhed."@da-DK,
+        "Exit doors spaced sufficiently far apart to ensure that at least one of the exit doors is accessible in case of fire in the fire compartment or sub fire compartment"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Independent escape doors, Independent entrance doors" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "110" ;
+    fbo:hasNotionURL <https://www.notion.so/DoorIndependentExitdoors-151f8487e6e78074ba7ef53efaae1d99> .
+
+fbo-dk:EvacuationRoutePrimary a owl:ObjectProperty ;
+    rdfs:label "Primær flugtvej"@da-DK,
+        "Primary Evacuation route"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Flugtvej, som personer intuitivt vil søge imod ved evakuering, typisk den normale adgangsvej til en bygning eller et rum."@da-DK,
+        "Escape route that people will intuitively head towards during evacuation, typically the normal access route to a building or room."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Primary escape route, Primary means of escape, Main escape route" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "133" ;
+    fbo:hasNotionURL <https://www.notion.so/EvacuationRoutePrimary-151f8487e6e780a083d1dc4cdd3809a8> .
+
+fbo-dk:EvacuationTime a owl:Class ;
+    rdfs:label "Evakueringstid"@da-DK,
+        "Evacuation time"@en ;
+    rdfs:subClassOf fbo:EvacuationTime ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Den tid, der går fra brandens start til alle personer i bygningen befinder sig på terræn i det fri eller et sikkert sted i bygningen. Evakueringstiden er summen af detekterings-, varslings-, reaktions- og beslutningstid samt bevægelsestid."@da-DK,
+        "The time from the start of the fire until all people in the building are on the terrain or in a safe refuge inside the building. Evacuation time is the sum of detection-, warning-, reaction-, decision and movement-time."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "128" ;
+    fbo:hasNotionURL <https://www.notion.so/EvacuationTime-151f8487e6e78091a6fee46206c0ae52> ;
+    fbo:hasValueType "Number" ;
+    fbo:isLinkedTo fbo:EvacuationTime .
+
+fbo-dk:Exit a owl:Class ;
+    rdfs:label "Udgang"@da-DK,
+        "Exit"@en ;
+    rdfs:subClassOf fbo:Exit ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition """Dør i flugtvejssystem omfattende:
+    - Dør til terræn i det fri
+    - Dør til flugtvejstrappe
+    - Dør til flugtvejsgang i anden brandsektion.
+Begrebet anvendes også som en generel betegnelse for udgange, der benyttes i forbindelse med evakuering. Dette kan omfatte udgangsdøre, f.eks. i forbindelse med beregning af gangafstande i en brandmæssig enhed, eller åbninger i bygninger, herunder telte, der giver direkte adgang til terræn i det fri."""@da-DK,
+        """Door in escape route system includes:
+- Door to open-air terrain
+- Door to escape staircase
+- Door to escape route corridor in the second fire compartment.
+The term is also used as a general term for exits used for evacuation purposes. This can include exit doors, for example when calculating walking distances in a fire compartment, or openings in buildings, including tents, that provide direct access to terrain."""@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Output, Outlet" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "96" ;
+    fbo:hasNotionURL <https://www.notion.so/Exit-151f8487e6e7804a8935f1fb1c4d5edf> .
+
+fbo-dk:FireCompartment a owl:Class ;
+    rdfs:label "Brandsektion"@da-DK,
+        "Fire Compartment"@en ;
+    rdfs:subClassOf fbo:FireCompartment ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "En brandmæssigt fritliggende bygning eller et afgrænset område af en bygning, som er udført med brandsektionsadskillelser mod andre rum og bygninger. En brandsektion består af en eller flere brandceller."@da-DK,
+        "A detached (in terms of fire spread) building or a defined area of a building that is constructed with fire compartment separations from other rooms and buildings. A fire compartment consists of one or more Subcompartments."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Fire section, Fire division" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "130" ;
+    fbo:hasNotionURL <https://www.notion.so/FireCompartment-151f8487e6e78099a790f6834c50080d> ;
+    fbo:hasUnit "[-]" ;
+    fbo:isLinkedTo fbo:FireCompartment .
+
+fbo-dk:FireCompartmentSubcompartment a owl:DatatypeProperty ;
+    rdfs:label "Brandcelle"@da-DK,
+        "Compartment - Subcompartment"@en ;
+    rdfs:subPropertyOf fbo:FireCompartment ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Et eller flere rum, hvorfra branden ikke spredes til andre brandceller i den tid, der kræves til evakuering og redningsberedskabets redningsindsats i tilstødende brandceller."@da-DK,
+        "One or more rooms from which the fire does not spread to other subcompartments during the time required for evacuation and rescue efforts in adjacent subcompartments."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Fire cell, Fire compartment" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "117" ;
+    fbo:hasNotionURL <https://www.notion.so/FireCompartmentSubcompartment-151f8487e6e7807e9a2ff97037e84332> ;
+    fbo:hasUnit "[-]" ;
+    fbo:isLinkedTo fbo:FireCompartment .
+
+fbo-dk:FireHazardSpecial a owl:Class ;
+    rdfs:label "Særlig brandfare"@da-DK,
+        "Special fire hazard"@en ;
+    rdfs:subClassOf fbo:FireHazardSpecial ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-K02" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Indrettes brandcellen til formål, så som produktionskøkken, skolekøkkener, laboratorier, fysikog kemilokaler og lignende, der frembyder særlig fare for, at der opstår en brand i brandcellen"@da-DK,
+        "If the fire subcompartment is used for purposes such as production kitchens, school kitchens, laboratories, physics and chemistry rooms, etc. that present a particular risk of a fire occurring in the fire compartment"@en ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Particular fire risk" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "282" ;
+    fbo:hasNotionURL <https://www.notion.so/FireHazardSpecial-225f8487e6e78050b456c5ffd945ddaa> .
+
+fbo-dk:FireResistance a owl:DatatypeProperty ;
+    rdfs:label "Brandmodstandsevne"@da-DK,
+        "Fire resistance"@en ;
+    rdfs:subPropertyOf fbo:FireResistance ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Det tidsrum, hvor en bygningsdel under brandpåvirkning kan opretholde sin ydeevne i form af f.eks. bæreevne eller adskillende funktion"@da-DK,
+        "The period of time during which a building element can maintain its performance, such as load-bearing capacity or separating function, under the influence of fire"@en ;
+    fbo:hasDesignator "EI" ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertGuidance "The prescriptive requirements in DK are EI120/A2-s1,d0, EI120-M/A2-s1,d0, EI60/A2-s1,d0, EI60-M/A2-s1,d0, EI60, EI30 and EW30/EI15, EI2 60, EI2 30" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "139" ;
+    fbo:hasNotionURL <https://www.notion.so/FireResistance-151f8487e6e780b2b4c2dc16842781bd> ;
+    fbo:isLinkedTo fbo:FireResistance .
+
+fbo-dk:FireSafetyInstallationSmokeAlarmsystem a owl:Class ;
+    rdfs:label "Røgalarmanlæg"@da-DK,
+        "Smoke alarm system"@en ;
+    rdfs:subClassOf fbo:FireSafetyInstallationSmokeAlarmsystem ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Anlæg, bestående af en eller flere forbundne røgalarmer, der detekterer røg og varsler i den brandmæssige enhed, f.eks. en bolig, hvor røgen opstår. Røgalarmanlæg er tilsluttet bygningens strømforsyning og forsynet med batteribackup."@da-DK,
+        "System consisting of one or more interconnected smoke alarms that detect smoke and alert in the fire unit, e.g. a residence, where the smoke occurs. Smoke alarm systems are connected to the building's power supply and equipped with battery backup."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Smoke detector system" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "145" ;
+    fbo:hasNotionURL <https://www.notion.so/FireSafetyInstallationSmokeAlarmsystem-151f8487e6e780c18fe7dfaa80a76967> .
+
+fbo-dk:FireSafetyUnit a owl:Class ;
+    rdfs:label "Brandmæssig enhed"@da-DK,
+        "Fire safety unit"@en ;
+    rdfs:subClassOf fbo:FireSafetyUnit ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "En brandsektion eller en brandcelle"@da-DK,
+        "A Fire Compartment or Fire SubCompartment"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Flammable device" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "288" ;
+    fbo:hasNotionURL <https://www.notion.so/FireSafetyUnit-22cf8487e6e780aeafdecff79690eebc> ;
+    fbo:isLinkedTo fbo:FireCompartment .
+
+fbo-dk:FireloadDensity a owl:DatatypeProperty ;
+    rdfs:label "Brandbelastning"@da-DK,
+        "Fire load density"@en ;
+    rdfs:subPropertyOf fbo:FireLoadDensity ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition """Den samlede energimængde i MJ/m² gulvareal, der frigøres ved fuldstændig forbrænding af alt brændbart materiale. Der skelnes mellem tre typer af brandbelastning: Variabel
+  brandbelastning, permanent brandbelastning og samlet brandbelastning. Den variable brandbelastning består af inventar og oplag og benyttes generelt i bygningsreglementet og dets vejledninger ved fastlæggelse af brandbelastningen. Den opdeles i følgende grupper:
+    - Ultra lav brandbelastning: Højst 50 MJ/m²
+    - Meget lav brandbelastning: Fra 50 MJ/m² og højst 250 MJ/m²
+    - Lav brandbelastning: Fra 250 MJ/m² og højst 800 MJ/m²
+    - Stor brandbelastning: Fra 800 MJ/m² og højst 1.600 MJ/m²
+    - Meget stor brandbelastning: Større end 1.600 MJ/m²
+Den permanente brandbelastning består af bygningens brændbare konstruktioner, overflader og faste materialer. Den samlede brandbelastning er summen af den variable og den permanente brandbelastning og benyttes ved beregning af konstruktioners brandmodstandsevne."""@da-DK,
+        """The total amount of energy in MJ/m² floor area released by the complete combustion of all combustible material. There are three types of fire load: Variable fire load, permanent fire load and total fire load. The variable fire load consists of fixtures and fittings and is generally used in the building regulations and its guidelines
+  when determining the fire load. It is divided into the following groups:
+    - Ultra low fire load: Maximum 50 MJ/m²
+    - Very low fire load: From 50 MJ/m² and maximum 250 MJ/m²
+    - Low fire load: From 250 MJ/m² and maximum 800 MJ/m²
+    - High fire load: From 800 MJ/m² and maximum 1,600 MJ/m²
+    - Very high fire load: Greater than 1,600 MJ/m²
+The permanent fire load consists of the building's combustible structures, surfaces and solid materials. The total fire load is the sum of the variable and permanent fire loads and is used to calculate the fire resistance of structures."""@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Fire load" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "171" ;
+    fbo:hasNotionURL <https://www.notion.so/FireloadDensity-151f8487e6e780ff8c87e56531014b22> ;
+    fbo:hasUnit "MJ/m²" ;
+    fbo:hasValueType "Number" ;
+    fbo:isLinkedTo fbo:FireLoadDensity .
+
+fbo-dk:FreeOpenRamps a owl:ObjectProperty ;
+    rdfs:label "Bygningsafsnit med frie åbne ramper"@da-DK,
+        "Building compartments with free open ramps"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-B09-4.3" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Etagerne alene står i åben forbindelse med hinanden via køreramper."@da-DK,
+        "The floors alone are openly connected to each other via ramps."@en ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:18:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "304" ;
+    fbo:hasNotionURL <https://www.notion.so/FreeOpenRamps-231f8487e6e780cdbff1d1b82ea90773> .
+
+fbo-dk:FunctionType a owl:Class ;
+    rdfs:label "Anvendelse"@da-DK,
+        "Function Type of use"@en ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Anvendelse af bygningsafsnittet eller brandsektion fx kontorbyggeri, Hotel, daginstitutioner, plejehjem, garageanlæg, enfamiliehuse etc"@da-DK,
+        "Use of the building compartment or fire compartment, e.g. office buildings, hotels, day care centres, nursing homes, garages, single-family houses, etc."@en ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Usage" ;
+    fbo:hasFireExpertGuidance """Examples of functions that are essential for fire safety:
+Visitor pavilions
+Cinemas
+Residential buildings
+Shops
+Kindergartens
+Carports and outbuildings
+Day centres
+Nightclubs
+Dobbelt-family houses
+Single-family houses
+Multi-storey residential buildings
+Assembly halls
+Prisons
+Garage complexes
+Garages
+Hospitals
+Hotels
+Sports halls
+Industrial and warehouse buildings
+Agricultural breeding and operating buildings
+Canteens
+Churches
+Clinics (doctor, dentist, physiotherapy, etc.)
+Halls of residence
+Allotment houses
+Concert halls
+Offices
+Boarding schools, secondary schools and folk high schools
+Inns
+Chain houses
+Meeting rooms
+Guesthouses.
+Care homes
+Nursing homes
+Restaurants
+Townhouses
+Lodging cabins
+Shelters
+Childcare centres
+Holiday homes
+Theatres
+Technical buildings
+Exhibition halls
+Classrooms
+Student housing
+Youth hostels
+Warming centres
+Daycare centres""" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "302" ;
+    fbo:hasNotionURL <https://www.notion.so/FunctionType-231f8487e6e780b9abcdc629d9ce358b> .
+
+fbo-dk:HeightBuilding a owl:DatatypeProperty ;
+    rdfs:label "Gulv i øverste etage"@da-DK,
+        "Height - building"@en ;
+    rdfs:subPropertyOf fbo:HeightBuilding ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-K03-3.1.3" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Højden måles fra terræn i det fri til overkant af gulv i øverste etage"@da-DK,
+        "The height is measured from the ground in the open to the top of the upper floor"@en ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Floor in the upper floor, Floor in the top floor" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:44:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "148" ;
+    fbo:hasNotionURL <https://www.notion.so/HeightBuilding-151f8487e6e780caa417e904081d16d9> ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:HeightRescue a owl:DatatypeProperty ;
+    rdfs:label "Redningshøjde"@da-DK,
+        "Rescue height"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Højde målt fra brandredningsareal på terræn til underkant af redningsåbning eller overkant af rækværk eller gelænder."@da-DK,
+        "Height measured from the fire rescue area on the ground to the lower edge of the rescue opening or upper edge of the railing or handrail."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Rescue altitude, Clearance height" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "142" ;
+    fbo:hasNotionURL <https://www.notion.so/HeightRescue-151f8487e6e780bc9975c1b96f0a284f> ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:HeightStackingRack a owl:DatatypeProperty ;
+    rdfs:label "Stablingshøjde"@da-DK,
+        "Stacking height"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-B10-1.4.3" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Stablingshøjden er defineret som afstanden fra gulvets overside i et rum til overkanten af oplag"@da-DK,
+        "Stacking height is defined as the distance from the top of the floor in a room to the top edge of storage"@en ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Shelf height, Bookcase height" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "281" ;
+    fbo:hasNotionURL <https://www.notion.so/HeightStackingRack-223f8487e6e780e1a007c106c8feacd8> ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:HoseReel a owl:Class ;
+    rdfs:label "Slangevinde"@da-DK,
+        "Hose reel"@en ;
+    rdfs:subClassOf fbo:HoseReel ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Brandslukningsmateriel udført som fast installation og tilsluttet bygningens normale vandforsyning. Bruges til en førsteindsats af personer i bygningen. Kan være udført med formfast eller flad slange."@da-DK,
+        "Fire extinguishing equipment designed as a fixed installation and connected to the building's normal water supply. Used for first response by people in the building. Can be made with rigid or flat hose."@en ;
+    fbo:hasDesignator "SLV" ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Snake winds, Snake coils, Snake windings, Serpentine winds" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "71" ;
+    fbo:hasNotionURL <https://www.notion.so/HoseReel-151f8487e6e78013b015d88fcbbde463> ;
+    fbo:hasUnit "-" .
+
+fbo-dk:IndustrialClass5 a owl:ObjectProperty ;
+    rdfs:label "Industri- og lagerklasse 5 (ILK5)"@da-DK,
+        "Industrial and warehouse class 5"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-B10-1.4.4.5" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition """Bygningsafsnit i ILK 5 er defineret som bygningsafsnit, der er indrettet med:
+• En brandbelastning som kan være større end 1.600 MJ/m2
+, hvor
+• Der kan forudsættes en ”meget hurtig” brandudvikling, α=0,118 kW/s2
+, og som har
+• En stablingshøjde på højst 40 m.
+Dermed omfatter denne klasse alle lagerbygninger med blandet brændbart oplag, brændbar
+emballage og en stablingshøjde mellem 8 m og 40 m."""@da-DK,
+        """Building compartments in ILK 5 are defined as building compartments that are designed with:
+- A fire load that can be greater than 1,600 MJ/m2
+, where
+- A ‘very fast’ fire development can be assumed, α=0.118 kW/s2
+, and which has
+- A stacking height of no more than 40 metres.
+Thus, this class includes all warehouses with mixed combustible storage, combustible
+packaging and a stacking height between 8 m and 40 m."""@en ;
+    fbo:hasDesignator "ILK5" ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Industrial and storage class 5 (ILK5), Industrial and Warehouse Class 5 (ILK5)" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "307" ;
+    fbo:hasNotionURL <https://www.notion.so/IndustrialClass5-231f8487e6e780e08093ee041e95dd9c> .
+
+fbo-dk:LengthHosepath a owl:Class ;
+    rdfs:label "Slangevej"@da-DK,
+        "Distance - Hose path"@en ;
+    rdfs:subClassOf fbo:LengthHosepath ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Afstand for trækning af redningsberedskabets slanger, der fastlægges svarende til ganglængden. Eventuelt bidrag fra ophaling af slange via durchsicht eller udvendig ophaling til indsats via trapperum skal medtages svarende til den lodrette afstand."@da-DK,
+        "The distance for deploying fire service hoses, which is determined based on the actual travel distance. Any additional distance resulting from hoisting hoses through internal openings (durchsicht) or external hoisting to access via stairwells must also be included as the corresponding vertical distance"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasEquivalentTerm "Snake road, Serpentine road, Snake path" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "141" ;
+    fbo:hasNotionURL <https://www.notion.so/LengthHosepath-151f8487e6e780b9b88cda41efc871d3> ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:NumberOccupantsEvacuationRoute a owl:DatatypeProperty ;
+    rdfs:label "Personbelastning pr.evakueringsrute"@da-DK,
+        "Number of Occupants per Evacuation route"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit and implicit definition" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Det antal personer, som den enkelte brandmæssige enhed er indrettet til, og som bl.a. angives på brandplaner og på pladsfordelingsplaner. Benyttes også som betegnelse for det dimensionsgivende antal personer, f.eks. angivet ved antal personer pr. m2 , som lægges til grund ved dimensionering af bredde af flugtveje, flugtvejspassager og døre til flugtveje samt ved evakueringsberegninger ved brandteknisk dimensionering."@da-DK,
+        "The number of persons for which each fire safety unit is designed and which is indicated on fire plans and space allocation plans, among other things. This is also used to refer to the design occupant load, e.g. expressed as number of persons per m2 , which is used when dimensioning the width of escape routes, escape route passages and doors to escape routes as well as in evacuation calculations for fire engineering design."@en ;
+    fbo:hasDomainReference fbo:X25WithoftheEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Person load" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:21:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "366" ;
+    fbo:hasNotionURL <https://www.notion.so/NumberOccupantsEvacuationRoute-24ff8487e6e78014b21ad3c18206b3fe> ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:NumberOccupantsSpaceCompartment a owl:DatatypeProperty ;
+    rdfs:label "Personbelastning i brandsektioner"@da-DK,
+        "Number of Occupants per Compartment"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit and implicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Det antal personer, som den enkelte brandmæssige enhed er indrettet til, og som bl.a. angives på brandplaner og på pladsfordelingsplaner. Benyttes også som betegnelse for det dimensionsgivende antal personer, f.eks. angivet ved antal personer pr. m2 , som lægges til grund ved dimensionering af bredde af flugtveje, flugtvejspassager og døre til flugtveje samt ved evakueringsberegninger ved brandteknisk dimensionering."@da-DK,
+        "The number of persons for which each fire safety unit is designed and which is indicated on fire plans and space allocation plans, among other things. This is also used to refer to the design occupant load, e.g. expressed as number of persons per m2 , which is used when dimensioning the width of escape routes, escape route passages and doors to escape routes as well as in evacuation calculations for fire engineering design."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION,
+        fbo:X21NumberofDoorsExits,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Person load in fire compartments, Person load in fire sections" ;
+    fbo:hasFireExpertGuidance "The number of persons per fire compartment may be less than the sum of the number of persons per subcompartment located in the fire compartment, as the function of the rooms and the use of the building are taken into account." ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "154" ;
+    fbo:hasNotionURL <https://www.notion.so/NumberOccupantsSpaceCompartment-151f8487e6e780d9b0f3d719f7ff51be> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:NumberOccupantsSubcompartments a owl:DatatypeProperty ;
+    rdfs:label "Personbelastning i brandceller"@da-DK,
+        "Number of Occupants per Subcompartments"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit and implicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Det antal personer, som den enkelte brandmæssige enhed er indrettet til, og som bl.a. angives på brandplaner og på pladsfordelingsplaner. Benyttes også som betegnelse for det dimensionsgivende antal personer, f.eks. angivet ved antal personer pr. m2 , som lægges til grund ved dimensionering af bredde af flugtveje, flugtvejspassager og døre til flugtveje samt ved evakueringsberegninger ved brandteknisk dimensionering."@da-DK,
+        "The number of persons for which each fire safety unit is designed and which is indicated on fire plans and space allocation plans, among other things. This is also used to refer to the design occupant load, e.g. expressed as number of persons per m2 , which is used when dimensioning the width of escape routes, escape route passages and doors to escape routes as well as in evacuation calculations for fire engineering design."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION,
+        fbo:X21NumberofDoorsExits,
+        fbo:X24WithoftheExits,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Person load in rooms, Occupant load in rooms" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "143" ;
+    fbo:hasNotionURL <https://www.notion.so/NumberOccupantsSubcompartments-151f8487e6e780be97f0ed03353f9368> ;
+    fbo:hasUnit "[-]" ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:NumberSleepingarea a owl:DatatypeProperty ;
+    rdfs:label "Soveplads"@da-DK,
+        "Sleeping area"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Indretning i form af et sengeleje i f.eks. boliger, hoteller, plejehjem, hospitaler samt i grupperum i vuggestuer og børnehaver."@da-DK,
+        "Arrangement in the form of a bed in e.g. homes, hotels, nursing homes, hospitals and in group rooms in nurseries and kindergartens."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Sleeping space" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "81" ;
+    fbo:hasNotionURL <https://www.notion.so/NumberSleepingarea-151f8487e6e7802ba3d3c18a6dcd4ba7> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:OpeningRescue a owl:Class ;
+    rdfs:label "Redningsåbning"@da-DK,
+        "Rescue opening"@en ;
+    rdfs:subClassOf fbo:OpeningRescue ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Åbning til det fri i et opholdsrum, f.eks. vindue, lem og altandør, som benyttes i forbindelse med redningsberedskabets redningsindsats eller redning ved egen hjælp i situationer, hvor personerne i rummet er afskåret fra at benytte flugtvejene."@da-DK,
+        "An opening to the outside of a occupied room, such as a window, hatch and balcony door, which is used for emergency rescue or self-help rescue in situations where the occupants of the room are prevented from using the escape routes."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Rescue aperture, Emergency opening" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "149" ;
+    fbo:hasNotionURL <https://www.notion.so/OpeningRescue-151f8487e6e780cdb450ccd328e79f80> .
+
+fbo-dk:PassiveFireProtection a owl:Class ;
+    rdfs:label "Passiv brandsikring"@da-DK,
+        "Passive fire protection"@en ;
+    rdfs:subClassOf fbo:PassiveFireProtection ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Brandsikringstiltag, som indgår som en permanent integreret del af en bygning, og som ikke kræver aktivering for at fungere. F.eks. brandmæssig adskillelse, beklædning og inddækning eller brandmaling af bærende konstruktioner."@da-DK,
+        "Fire protection measures that are a permanent integral part of a building and do not require activation to function. For example, fire separation, cladding and covering or fire painting of load-bearing structures."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Passive fire prevention" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "167" ;
+    fbo:hasNotionURL <https://www.notion.so/PassiveFireProtection-151f8487e6e780fba155d4bc6fded875> .
+
+fbo-dk:PeopleKnowledgeEscaperoutes a owl:DatatypeProperty ;
+    rdfs:label "Stedkendt person"@da-DK,
+        "People with knowledge of escape routes"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Person, der har kendskab til bygningens eller bygningsafsnittets flugtveje. Enten i kraft af at personen er bekendt med bygningen (bygningsafsnittet), eller at bygningen (bygningsafsnittet) er så simpel og overskuelig, at flugtvejene umiddelbart kan identificeres."@da-DK,
+        "Person who has knowledge of the escape routes of the building or functional fireunit. Either by virtue of the person being familiar with the building (Functional fireunit) or because the building (Functional fireunit) is so simple and clear that the escape routes can be immediately identified."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Authorised person, Recognised person, Substitute person, Person of interest" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "113" ;
+    fbo:hasNotionURL <https://www.notion.so/PeopleKnowledgeEscape-routes-151f8487e6e7807887a4d9cc8eadd6fa> ;
+    fbo:hasUnit "Y/N" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-dk:PlaceSaferefuge a owl:Class ;
+    rdfs:label "Sikkert sted"@da-DK,
+        "Safe refuge"@en ;
+    rdfs:subClassOf fbo:PlaceSaferefuge ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Område i en bygning, som personer kan evakuere til, og hvor de kan opholde sig i sikkerhed i forhold til branden. Fra det sikre sted kan der ske evakuering videre til terræn i det fri."@da-DK,
+        "Area in a building to which people can evacuate and where they can stay safe from the fire. From the safe place, evacuation can be continued to the ground in the open."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Safe place, Secure location" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "134" ;
+    fbo:hasNotionURL <https://www.notion.so/PlaceSaferefuge-151f8487e6e780a2a9a3f04bcdefb983> .
+
+fbo-dk:RiskClass a owl:DatatypeProperty ;
+    rdfs:label "Risikoklasse"@da-DK,
+        "Risk class"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Klasse nummereret fra 1-4. Risikoklassen fastlægges på baggrund af anvendelseskategori, byggeriets kompleksitet og risikoforhold ved evakuering og redning."@da-DK,
+        "Classes numbered from 1 to 4. The risk class is determined based on the category of use, the complexity of the building and the risk factors involved in evacuation and rescue."@en ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:21:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "508" ;
+    fbo:hasNotionURL <https://www.notion.so/RiskClass-2bcf8487e6e7800f9f5ad0a85c6180fc> ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:SeparationFire a owl:ObjectProperty ;
+    rdfs:label "Brandmæssig adskillelse"@da-DK,
+        "Fire separation"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Bygningsdel, f.eks. væg eller etageadskillelse med brandklassificerede egenskaber, som indgår ved etablering af en brandsektion eller ved røgopdeling af en flugtvejsgang, samt brandvæg til sikring mod brandsmitte ved matrikelskel."@da-DK,
+        "Building element, e.g. wall or storey partition with fire-rated properties, which is used to create a fire compartment or smoke separation of an escape route, as well as a fire wall to protect against fire spread at property boundaries."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "66" ;
+    fbo:hasNotionURL <https://www.notion.so/SeparationFire-151f8487e6e780039d30e3a8c3166fe5> ;
+    fbo:isLinkedTo fbo:BoundaryFireCompartment .
+
+fbo-dk:Site a owl:Class ;
+    rdfs:label "Terræn i det fri"@da-DK,
+        "Terrain"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Udendørs områder i terræn, hvor evakuerede personer er i sikkerhed for branden, og hvorfra der er uhindret adgang til offentligt areal eller vej. Benyttes også om områder, der er så store, at alle de evakuerede personer kan opholde sig her i sikker afstand fra branden."@da-DK,
+        "Outdoor areas on the ground where evacuees are safe from the fire and from which there is unobstructed access to a public area or road. Also used for areas that are large enough for all evacuees to remain at a safe distance from the fire."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Outdoor terrain, Terrain in the open air, Terrain in the great outdoors, Off-road terrain" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "101" ;
+    fbo:hasNotionURL <https://www.notion.so/Site-151f8487e6e78057b007f5c578c0f1e6> .
+
+fbo-dk:SpaceLivingunit a owl:DatatypeProperty ;
+    rdfs:label "Boenhed eller Boligenhed"@da-DK,
+        "Living or Housing unit"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Afgrænset del af bygning bestående af et eller flere værelser/rum, f.eks. på hoteller og plejehjem, hvor mindst et af rummene er indrettet med sovepladser. Bygning, eller afgrænset del af bygning, henført til anvendelseskategori 4, hvor der bor én familie eller relaterede personer, f.eks. bofællesskab, generationsfællesskab og lignende."@da-DK,
+        "Delimited part of a building consisting of one or more rooms/spaces, e.g. in hotels and nursing homes, where at least one of the rooms is furnished with sleeping accommodation. Or Building, or defined part of a building, assigned to use category 4, where one family or related persons live, e.g. cohousing, intergenerational community and similar."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Living unit or Residential unit" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "72" ;
+    fbo:hasNotionURL <https://www.notion.so/SpaceLivingunit-151f8487e6e7801a95fade238b16fcdd> ;
+    fbo:hasUnit "[-]" ;
+    fbo:isLinkedTo fbo:Roomfunction .
+
+fbo-dk:SpaceUsableAttic a owl:DatatypeProperty ;
+    rdfs:label "Udnyttelig tageetage (tagrum)"@da-DK,
+        "Usable attic (roof space)"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Tagetage, hvor der er et areal, der kan anvendes uden væsentlige indgreb i de bærende konstruktioner. Uanset om en udnyttelig tagetage benyttes eller ikke benyttes betragtes den i brandmæssig henseende som udnyttelig."@da-DK,
+        "Attics, where there is an area that can be used without significant interference with the load-bearing structures. Regardless of whether a usable attic is used or not used, it is considered usable for fire safety purposes."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Utilisable rooftop (roof space), Utilisable roof space (roof space), Usable rooftop (roof space)" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "159" ;
+    fbo:hasNotionURL <https://www.notion.so/SpaceUsableAttic-151f8487e6e780e887f8df140bb4f56c> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:StairInternal a owl:ObjectProperty ;
+    rdfs:label "Intern trappe"@da-DK,
+        "Internal staircase"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Trappe, der forbinder to eller flere niveauer i en bygning, eventuelt i åben forbindelse med etagerne. Benyttes f.eks. i enfamiliehuse i flere etager eller ved indskudte etager og i atrium"@da-DK,
+        "Staircase that connects two or more levels of a building, possibly in open connection with the floors. Used, for example, in multi-storey single-family houses or  in mezzanine levels and in the atriums"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "80" ;
+    fbo:hasNotionURL <https://www.notion.so/StairInternal-151f8487e6e7802a93b5f31273a7efc2> .
+
+fbo-dk:SurfaceCladding a owl:Class ;
+    rdfs:label "Beklædning"@da-DK,
+        "Surface-cladding"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Et tæt lag i en bygningskonstruktion, typisk det yderste, som beskytter bagvedliggende materialer mod brandpåvirkning i et bestemt tidsrum. Det er eksempelvis den yderste del af en væg, den nederste del af en etageadskillelse eller undersiden af en tagkonstruktion, f.eks. en gipspladebeklædning."@da-DK,
+        "A compact, protective layer in a building structure, typically the outermost layer, that protects underlying materials from the effects of fire for a specific period of time. For example, the outermost part of a wall, the lower part of a soffit or the underside of a roof structure, such as plasterboard cladding."@en ;
+    fbo:hasDesignator "K1" ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Surface, Cladding, Clothing" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "82" ;
+    fbo:hasNotionURL <https://www.notion.so/SurfaceCladding-151f8487e6e7802eb9cde1e46df78a50> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:SurfaceCladdingRainscreen a owl:Class ;
+    rdfs:label "Regnskærm"@da-DK,
+        "Rainscreen cladding"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Skærm, som ophænges uden på ydervægsbeklædningen, og som har et bagvedliggende hulrum. En regnskærm kan være åben eller lukket. Brandteknisk set er en regnskærm ikke en beklædning, og den skal ikke være brandbeskyttende. Derfor stilles kun krav til en regnskærms reaktion på brand og sikring mod brandspredning via hulrum bag regnskærmen, men ikke til dens brandbeskyttende evne."@da-DK,
+        "A screen that is suspended outside the outer wall cladding and has a cavity behind it. A rainscreen can be open or closed. From a fire protection point of view, a rainscreen is not a cladding and is not required to be fire protective. Therefore, requirements are only set for a rainscreen's reaction to fire and protection against fire spread via cavities behind the rainscreen, but not for its fire protection ability."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasEquivalentTerm "Rain shield, Rain shade, Rain shelter" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "115" ;
+    fbo:hasNotionURL <https://www.notion.so/SurfaceCladdingRainscreen-151f8487e6e7807d8a92e1bb443538a2> .
+
+fbo-dk:SurfaceExposed a owl:Class ;
+    rdfs:label "Brandeksponeret overflade"@da-DK,
+        "Fire exposed surface"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Overflade, der kan udsættes for brandpåvirkning, og som ikke er beskyttet af beklædning eller andre bygningsdele mod brandpåvirkning."@da-DK,
+        "Surfaces that can be exposed to fire and that are not protected by cladding or other building elements against the effects of fire."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "153" ;
+    fbo:hasNotionURL <https://www.notion.so/SurfaceExposed-151f8487e6e780d79199e530c05e4b4a> .
+
+fbo-dk:SystemEscaperouteSecondary a owl:ObjectProperty ;
+    rdfs:label "Sekundær flugtvej"@da-DK,
+        "Secondary escape route"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Flugtvej, der typisk ikke benyttes som adgangsvej under bygningens normale brug."@da-DK,
+        "Escape route that is not typically used as an access route during the normal use of the building."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Secondary means of escape" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "140" ;
+    fbo:hasNotionURL <https://www.notion.so/SystemEscaperouteSecondary-151f8487e6e780b78337f0f8ebcd0063> .
+
+fbo-dk:SystemEscaperouteShared a owl:ObjectProperty ;
+    rdfs:label "Fælles flugtvej"@da-DK,
+        "Shared escape route"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Flugtvej, der er udlagt som flugtvej for flere bygningsafsnit samtidig"@da-DK,
+        "Escape route that is designed as an escape route for several functional fire units simultaneously"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Common escape route, Joint escape route" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "127" ;
+    fbo:hasNotionURL <https://www.notion.so/SystemEscaperouteShared-151f8487e6e780919ba2dad4a99822b2> .
+
+fbo-dk:SystemEvacuationroute a owl:ObjectProperty ;
+    rdfs:label "Flugtvejssystem"@da-DK,
+        "Evacuation route system"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Sammenhængende system af udgange, flugtvejsgange og flugtvejstrapper, som skal sikre, at personer kan evakuere en bygning på sikker vis."@da-DK,
+        "Coherent system of exits, escape route corridor and emergency stairways to ensure that people can safely evacuate a building."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Escape route system, Emergency escape route system, Emergency exit system" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "95" ;
+    fbo:hasNotionURL <https://www.notion.so/SystemEvacuationroute-151f8487e6e78047b3b6d9573d5504f4> .
+
+fbo-dk:SystemIndependentEvacuationRoute a owl:ObjectProperty ;
+    rdfs:label "Uafhængige flugtveje"@da-DK,
+        "Independent evacuation routes"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Flugtveje, der uafhængigt af hinanden fører til terræn i det fri og er indbyrdes brandmæssigt adskilte i deres fulde udstrækning."@da-DK,
+        "Escape routes that lead independently of each other to the terrain and are fire separated from each other to their full extent."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Independent emergency escape routes" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "114" ;
+    fbo:hasNotionURL <https://www.notion.so/SystemIndependentEvacuationRoute-151f8487e6e78078a26ec6de375fc343> .
+
+fbo-dk:SystemIndependentExit a owl:ObjectProperty ;
+    rdfs:label "Uafhængige udgange"@da-DK,
+        "Independent exits"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-K01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition """Uafhængige udgange forstås som udgange, der er placeret mindst 5 m fra hinanden, så en brand under evakuering af
+brandcellen ikke kan spærre flere udgange. Dermed kan to uafhængige udgange føre til samme flugtvej."""@da-DK,
+        """Independent exits are defined as exits that are located at least 5 metres apart so that a fire during evacuation of
+the fire subcompartment cannot block multiple exits. This means that two independent exits can lead to the same escape route."""@en ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Independent outputs, Independent outlets" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "99" ;
+    fbo:hasNotionURL <https://www.notion.so/SystemIndependentExit-151f8487e6e7804db6bfc5fbafee8324> .
+
+fbo-dk:TimeWalking a owl:Class ;
+    rdfs:label "Gangtid"@da-DK,
+        "Walking time"@en ;
+    rdfs:subClassOf fbo:TimeWalking ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Den del af bevægelsestiden, hvor personer tilbagelægger afstanden til terræn i det fri eller til et sikkert sted, eksklusiv eventuel køtid ved udgange og flaskehalse i flugtvejssystemet."@da-DK,
+        "The portion of movement time during which people travel the distance to open terrain or to a safe refuge, excluding any queuing time at exits and congestion in the escape route system."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Travelling time" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:20:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "103" ;
+    fbo:hasNotionURL <https://www.notion.so/TimeWalking-151f8487e6e7805bb03efe7bdb9be161> ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:TypeProject a owl:ObjectProperty ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "432" ;
+    fbo:hasNotionURL <https://www.notion.so/TypeProject-26af8487e6e7809ba6e1fac9f97839c7> ;
+    fbo:hasRemarks "New/existing/renovation" .
+
+fbo-dk:WalltypeBuildingFirewall a owl:DatatypeProperty ;
+    rdfs:label "Brandvæg"@da-DK,
+        "Building-Firewall"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Væg i eller mod naboskel, der er udformet, så en brand ikke spredes til anden grund."@da-DK,
+        "Wall in or against the neighboring boundary designed to prevent a fire from spreading to another property."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Fire barrier" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:11:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "157" ;
+    fbo:hasNotionURL <https://www.notion.so/WalltypeBuildingFirewall-151f8487e6e780e39a9ac98952f1becb> ;
+    fbo:hasUnit "[-]" ;
+    fbo:isLinkedTo fbo:WalltypeCompartmentFirewall .
+
+fbo-dk:WalltypeCompartmentFirewall a owl:Class ;
+    rdfs:label "Brandsektionsvæg"@da-DK,
+        "Compartment Firewall"@en ;
+    rdfs:subClassOf fbo:WalltypeCompartmentFirewall ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "En væg der har egenskaben brandsektions adskillelse"@da-DK,
+        "A wall that has the property as a Fire compartment boundary"@en ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Fire compartment wall, Fire section wall" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "181" ;
+    fbo:hasNotionURL <https://www.notion.so/WalltypeCompartmentFirewall-1b2f8487e6e780c68f94cddce381314b> ;
+    fbo:isLinkedTo fbo:WalltypeCompartmentFirewall .
+
+fbo-dk:WalltypeSubcompartmentFirewall a owl:ObjectProperty ;
+    rdfs:label "Brandcellevæg"@da-DK,
+        "Subcompartment Firewall"@en ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "En væg der har egenskaben brandcelle adskillelse"@da-DK,
+        "A wall that has the property as a Subcompartment boundary"@en ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Fire cell wall, Fire compartment wall, Firewall" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "180" ;
+    fbo:hasNotionURL <https://www.notion.so/WalltypeSubcompartmentFirewall-1b2f8487e6e78030b624df71f869a942> ;
+    fbo:isLinkedTo fbo:WalltypeCompartmentFirewall .
+
+fbo-dk:WidthFreeDoors a owl:Class ;
+    rdfs:label "Fri bredde flugtvejsdøre"@da-DK,
+        "Free width Emergency escape door"@en ;
+    rdfs:subClassOf fbo:WidthFreeDoors ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-K02" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition """Døre i fælles adgangsveje skal have
+en fri bredde på mindst 0,77 m. Dog skal den frie bredde på udgangsdøre fra brandceller samt i flugtveje og døre i
+flugtveje minimum være 10 mm for hver person, som brandcellen eller flugtvejen er beregnet til."""@da-DK,
+        """Doors in common access routes must have a minimum clear width of 0.77 m. However, the clear width of exit doors from subcompartments, escape routes and doors in
+escape routes must have a minimum clear width of 10 mm for each person for whom the fire subcompartment or escape route is intended."""@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X24WithoftheExits,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Clear width escape route doors" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:19:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "289" ;
+    fbo:hasNotionURL <https://www.notion.so/WidthFreeDoors-22cf8487e6e780fdb30af21947bbc12c> ;
+    fbo:hasValueType "Number" .
+
+fbo-dk:WidthFreeEvacuationroutes a owl:Class ;
+    rdfs:label "Fri bredde flugtveje"@da-DK,
+        "Free width Evacuation routes"@en ;
+    rdfs:subClassOf fbo:WidthFreeEvacuationroutes ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-K02" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Frie bredde i flugtveje skal minimum være 10 mm for hver person, som brandcellen eller flugtvejen er beregnet til."@da-DK,
+        "Clear width in escape routes must be at least 10 mm for each person the subcompartment or escape route is intended for."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X25WithoftheEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Clear width escape routes" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "287" ;
+    fbo:hasNotionURL <https://www.notion.so/WidthFreeEvacuationroutes-22cf8487e6e78086b241dcf8b8c8748c> .
+
+fbo-dk:AutomaticFireAlarmsystem a owl:Class ;
+    rdfs:label "ABA-anlæg"@da-DK,
+        "Automatic Fire Alarm system"@en ;
+    rdfs:subClassOf fbo:AutomaticFireAlarmsystem,
+        fbo-dk:ActiveFireProtection ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Anlæg, der indeholder ABA-central og detektorer, som ved detektering af røg-, varme- eller flammeudvikling automatisk tilkalder redningsberedskabet, samt eventuelt alarmtryk, der ved manuel aktivering tilkalder redningsberedskabet. Brandtekniske installationer kan kobles til et ABAanlæg, og ABA-anlægget vil derved være det styrende anlæg for de tilkoblede anlæg."@da-DK,
+        "A system containing a fire alarm control centre and detectors that automatically call the emergency services when smoke, heat or flames are detected, as well as any alarm pressure that calls the emergency services when manually activated. Fire technical installations can be connected to a fire alarm system, and the fire alarm system will then be the controlling system for the connected systems."@en ;
+    fbo:hasDesignator "ABA" ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Automatic fire alarm installations" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:38:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "137" ;
+    fbo:hasNotionURL <https://www.notion.so/AutomaticFireAlarmsystem-151f8487e6e780acb6a2ed6a6e96ab25> ;
+    fbo:isLinkedTo fbo:AutomaticFireAlarmsystem .
+
+fbo-dk:AutomaticFireSprinklersystem a owl:Class ;
+    rdfs:label "AVS-anlæg"@da-DK,
+        "Automatic sprinkler system"@en ;
+    rdfs:subClassOf fbo-dk:ActiveFireProtection ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Anlæg, der kontrollerer, dæmper eller slukker en brand ved brug af vand som slukningsmiddel. Et sprinkleranlæg består af vandforsyning, alarmventiler og rørsystem med sprinklere. Sprinklere er armaturer, der ved hjælp af spredeplader fordeler den dimensionerede vandtilstrømning på en forudbestemt måde over et bestemt areal. Sprinklere aktiveres oftest ved, at en væskefyldt glasbulb eller smelteled, som er placeret så den blokerer for vandtilstrømningen, opvarmes af branden og brydes ved en given temperatur. Sprinklere kan også være uden glasbulb eller smelteled, og vil da blive aktiveret ved ABA-detektering af røg eller flammer."@da-DK,
+        "A system that controls, suppresses or extinguishes a fire using water as an extinguishing agent. A sprinkler system consists of a water supply, alarm valves and pipework with sprinklers. Sprinklers are fittings that distribute the designed water flow in a predetermined way over a specific area by means of  deflector plates. Sprinklers are usually activated when a liquid-filled glass bulb or fusible link, positioned to block the water flow,  is heated by the fire and breaking at a given temperature. Sprinklers can also be without a glass bulb or fusible link and will be activated by fire alarm system upon detection of smoke or flames."@en ;
+    fbo:hasDesignator "AVS" ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Automatic water sprinkler system" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:38:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "120" ;
+    fbo:hasNotionURL <https://www.notion.so/AutomaticFireSprinklersystem-151f8487e6e78089ab55f08e806a900a> ;
+    fbo:hasValueType "Boolean (yes/no)" ;
+    fbo:isLinkedTo fbo:AutomaticFireExtinguishSystem .
+
+fbo-dk:AutomaticFireVentilationsystem a owl:Class ;
+    rdfs:label "ABV-anlæg"@da-DK,
+        "Automatic Fire Ventilationsystem"@en ;
+    rdfs:subClassOf fbo:AutomaticFireVentilationsystem,
+        fbo-dk:ActiveFireProtection ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Anlæg til brandventilation af rum eller bygningsafsnit, der har til formål at fjerne røg og varme. Anlægget aktiveres automatisk ved detektering af brand."@da-DK,
+        "Smoke and heat exhaust ventilation system for rooms or building compartments to remove smoke and heat. The system is automatically activated when a fire is detected."@en ;
+    fbo:hasDesignator "ABV" ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Automatic smoke extraction system" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:38:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "144" ;
+    fbo:hasNotionURL <https://www.notion.so/AutomaticFireVentilationsystem-151f8487e6e780c0a14bd2c7b78f60bc> ;
+    fbo:isLinkedTo fbo:AutomaticFireVentilationsystem .
+
+fbo-dk:BR18 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "The Danish Building Regulations 2018 (BR18)"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Bygningsreglementet 2018 (BR18)"@dk-DK ;
+    fbo:hasPublicationDate "2021-02-03"^^xsd:date ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/> .
+
+fbo-dk:EmergencyExitLighting a owl:Class ;
+    rdfs:label "Flugtvejsbelysning"@da-DK,
+        "Emergency exit lighting"@en ;
+    rdfs:subClassOf fbo:EmergencyExitLighting,
+        fbo-dk:ActiveFireProtection ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Belyste, gennemlyste eller selvlysende (fluorescerende) flugtvejsskilte eller flugtvejsarmaturer, der placeres over eller umiddelbart ved udgange og udgangsdøre, suppleret med henvisningsskilte i fornødent omfang, med det formål, at personer i tilfælde af evakuering kan ledes til nærmeste udgang."@da-DK,
+        "Illuminated, translucent or luminescent (fluorescent) escape route signs or escape route luminaires placed above or immediately adjacent to exits and exit doors, supplemented by directional signs as necessary, to direct people to the nearest exit in case of evacuation."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Escape route lighting, Emergency escape route lighting, Escape route illumination" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:38:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "77" ;
+    fbo:hasNotionURL <https://www.notion.so/EmergencyExitLighting-151f8487e6e78023ac14c6411927a763> ;
+    fbo:isLinkedTo fbo:EmergencyExitLighting .
+
+fbo-dk:EmergencyPanicLights a owl:Class ;
+    rdfs:label "Panikbelysning"@da-DK,
+        "Emergency panic lights"@en ;
+    rdfs:subClassOf fbo:EmergencyPanicLights,
+        fbo-dk:ActiveFireProtection ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Belysning af gulvareal, der tænder ved svigt af den normale strømforsyning. Panikbelysning har til formål at give personer mulighed for at orientere sig i forbindelse med evakuering, så de kan finde vej til og orientere sig i flugtveje."@da-DK,
+        "Floor area lighting that switches on when the normal power supply fails. Panic lighting is intended to allow people to orient themselves during an evacuation so that they can find their way to and orient themselves in escape routes."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Panic lighting" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "74" ;
+    fbo:hasNotionURL <https://www.notion.so/EmergencyPanicLights-151f8487e6e7801e959bf123e1cb9c1a> .
+
+fbo-dk:RoomOccupancy a owl:DatatypeProperty ;
+    rdfs:label "Opholdsrum"@da-DK,
+        "Room for occupancy"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Rum indrettet til personophold, f.eks. kontor, møderum, salgslokale, stue, soverum, personalerum eller køkken."@da-DK,
+        "Rooms designed for occupancy, such as an office, meeting room, sales room, living room, bedroom, staff room or kitchen."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Living room, Living quarters, Living area, Living space" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "109" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomOccupancy-151f8487e6e78074afddfea39f811778> ;
+    fbo:hasUnit "Y/N" ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-dk:RoomfunctionAssemblyrooms a owl:DatatypeProperty ;
+    rdfs:label "Forsamlingslokale"@da-DK,
+        "Assembly rooms"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Rum til samling af flere personer, f.eks. teatersal, biografsal, restaurationslokale, selskabslokale, konferencerum, kantine, diskotek, natklub, koncertsal, udstillingslokale, messehal, idrætshal, kirkerum og andre lokaler, der anvendes til lignende formål."@da-DK,
+        "Rooms for gathering several people, such as a theater hall, cinema hall, restaurant, banquet room, conference room, canteen, disco, nightclub, concert hall, exhibition hall, trade fair hall, sports hall, church hall and other rooms used for similar purposes."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Meeting room, Assembly hall" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "106" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionAssemblyrooms-151f8487e6e78063b1aafedf81f6e2cf> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:RoomfunctionCanteen a owl:ObjectProperty ;
+    rdfs:label "Kantine"@da-DK,
+        "Canteen"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "445" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionCanteen-276f8487e6e78047b80cd0fff4fe0b75> .
+
+fbo-dk:RoomfunctionClassrooms a owl:ObjectProperty ;
+    rdfs:label "Undervisningsrum"@da-DK,
+        "Classrooms"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "446" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionClassrooms-276f8487e6e78049a0fddbb90db3c474> .
+
+fbo-dk:RoomfunctionCopyroom a owl:ObjectProperty ;
+    rdfs:label "Kopirum"@da-DK,
+        "Copy room"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "451" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionCopyroom-276f8487e6e780f0b4bac4a9ea030324> .
+
+fbo-dk:RoomfunctionDormitory a owl:ObjectProperty ;
+    rdfs:label "Kollegieværelse"@da-DK,
+        "Dormitory"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "448" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionDormitory-276f8487e6e7804f8e18dc8bf8db1c5c> .
+
+fbo-dk:RoomfunctionEscaperouteCorridor a owl:DatatypeProperty ;
+    rdfs:label "Flugtvejsgang"@da-DK,
+        "Evacuation route corridor"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Gang, der primært er indrettet til flugtvejsfunktion, og som giver adgang til en eller flere udgange. En flugtvejsgang indrettes i egen brandmæssige enhed, for at beskytte personer mod kritiske forhold under evakuering. Der er særlige krav til indretningen af flugtvejsgange og brandbelastning en en flugtvejsgang må højst være 50 MJ/m2, svarende til ultra lav brandbelastning"@da-DK,
+        "A corridor that is primarily designed for escape route function and provides access to one or more exits. An escape route corridor is designed in its own fire compartment (nomaly a Subcompartment) to protect people from critical conditions during evacuation. There are special requirements for the design of escape routes and the fire load in an escape route must not exceed 50 MJ/m2, corresponding to ultra low fire load"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Escape route corridor, Escape route passageway" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:11:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "126" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionEscaperouteCorridor-151f8487e6e78091963dcb4545955bc5> ;
+    fbo:hasUnit "[-]" ;
+    fbo:isLinkedTo fbo:Roomfunction .
+
+fbo-dk:RoomfunctionEscapestaircase a owl:DatatypeProperty ;
+    rdfs:label "Flugtvejstrappe"@da-DK,
+        "Emergency escape staircase"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition """Trappe i flugtvej, som benyttes i tilfælde af evakuering, og som ofte også benyttes som redningsberedskabets indtrængningsvej. Er ofte placeret i sin egen brandmæssige enhed med udgang
+  til terræn i det fri, evt. via et vindfang, for at sikre, at trappen bevarer sin funktion som flugtvej og indtrængningsvej i tilfælde af brand. Der må ikke henstilles oplag eller inventar i en flugtvejstrappe og rummet skal være uden brandbelastning"""@da-DK,
+        "Stairs in an escape route used in the event of an evacuation and often also used as a fire brigade entry route. Often located in its own fire compartment with access to the ground outside, possibly via a vestibule, to ensure that the staircase retains its function as an escape and entry route in case of fire. No storage or furniture may be placed in an escape staircase and the space must be free of fire loads"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Escape route staircase, Escape stairs" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "163" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionEscapestaircase-151f8487e6e780f48f1af84303ea1cc3> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:RoomfunctionKitchen a owl:DatatypeProperty ;
+    rdfs:label "Køkken"@da-DK,
+        "Kitchen"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Ved køkken generelt forstås et rum til madlavning i boligenheder, herunder fælleskøkkener på kollegier og lignende."@da-DK,
+        "Kitchen in general, means a cooking space in residential units, including communal kitchens in dormitories and the like."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Kitchen facilities" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "119" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionKitchen-151f8487e6e780838e7cfcb25eb89045> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:RoomfunctionKitchenette a owl:DatatypeProperty ;
+    rdfs:label "Te- eller anretterkøkken"@da-DK,
+        "Kitchenette"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Te- eller anretterkøkken er et rum uden varmeflader i form af ovn, kogeplade eller friture, men hvor der kan forefindes mikrobølgeovn, elkedel, opvaskemaskine, køleskab og kaffeautomater eller –maskiner. Denne type køkken, hvor der ikke produceres mad, anses ikke som et rum med en særlig brandfare. Tilsvarende mindre køkkener, hvor der indgår ovn, kogeplade eller friture, anses at udgøre en særlig brandfare og er dermed ikke et Te- eller anretterkøkken"@da-DK,
+        "A kitchenette is a room without heating surfaces such as an oven, hob or fryer, but where a microwave, kettle, dishwasher, refrigerator and coffee machines or coffee makers may be present. This type of kitchen, where no food is produced, is not considered a room with a particular fire hazard. Similarly, smaller kitchens that include an oven, hob or deep fryer are considered a special fire hazard and are therefore not a Kitchenette"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Tea or appetiser kitchen, Tea or catering kitchen, Tea or side dish kitchen, Sideboard kitchen" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "112" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionKitchenette-151f8487e6e780768793dd587231cdad> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:RoomfunctionOfficespace a owl:ObjectProperty ;
+    rdfs:label "Kontorlokaler"@da-DK,
+        "Office space"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "449" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionOfficespace-276f8487e6e7805882d5e1818f2b4e31> .
+
+fbo-dk:RoomfunctionProductionskitchen a owl:DatatypeProperty ;
+    rdfs:label "Produktionskøkken"@da-DK,
+        "Production kitchen"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Produktionskøkken er et storkøkken, der udgør en arbejdsplads, hvor der foregår tilberedning af mad ved brug af kogeplader, stegeplader, ovne, grill, friture og lignende."@da-DK,
+        "Production kitchen is a commercial kitchen that is a workplace where food is prepared using hobs, griddles, ovens, grills, fryers and the like."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "86" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionProductionskitchen-151f8487e6e78031acc6cf58c33847ac> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:RoomfunctionResidentialunit a owl:ObjectProperty ;
+    rdfs:label "Boenhed"@da-DK,
+        "Residential unit"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "443" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionResidentialunit-276f8487e6e78025938ad07cfd899a84> ;
+    fbo:isLinkedTo fbo:Roomfunction .
+
+fbo-dk:RoomfunctionSafetyStaircase a owl:DatatypeProperty ;
+    rdfs:label "Sikkerhedstrappe"@da-DK,
+        "Emergency safety staircase"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Flugtvejstrappe, der er udformet, så der er meget lille sandsynlighed for røgspredning til eller røgudvikling i trapperummet, for at opretholde funktionen som flugtvej og indtrængningsvej. Sikringen kan blandt andet omfatte, at trappen udføres med tryksætningsanlæg (ATA-anlæg) eller med adgang over luftsluse samt skærpede krav til overflader mv. i trapperummet."@da-DK,
+        "Escape stairs designed to minimize the likelihood of smoke spreading to or developing in the stairwell in order to maintain its function as an escape and entry route. The safety measures may include, among other things, that the staircase is equipped with pressurization systems (ATA systems) or with access via an airlock and stricter requirements for surfaces etc. in the stairwell."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasEquivalentTerm "Safety staircase" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:11:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "152" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionSafetyStaircase-151f8487e6e780d5a338ef8a215e292d> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:RoomfunctionSchoolkitchen a owl:DatatypeProperty ;
+    rdfs:label "Skolekøkken"@da-DK,
+        "School kitchen"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Skolekøkken er et køkken, der bruges til undervisning"@da-DK,
+        "School kitchen is a kitchen used for teaching"@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "160" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionSchoolkitchen-151f8487e6e780ed8f75c82b45594041> ;
+    fbo:hasUnit "[-]" .
+
+fbo-dk:RoomfunctionShop a owl:ObjectProperty ;
+    rdfs:label "Butik med lagerrum"@da-DK,
+        "Shop including storage room"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "447" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionShop-276f8487e6e7804d97d1fc3a06a23d96> ;
+    fbo:isLinkedTo fbo:Roomfunction .
+
+fbo-dk:RoomfunctionStaffroom a owl:ObjectProperty ;
+    rdfs:label "Personalerum"@da-DK,
+        "Staff room"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "450" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionStaffroom-276f8487e6e780db8988f4b2a242b4f9> .
+
+fbo-dk:RoomfunctionStorage a owl:ObjectProperty ;
+    rdfs:label "Lagerrum"@da-DK,
+        "Storage room"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "452" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionStorage-276f8487e6e780fa9c7ac40b2d6873f1> .
+
+fbo-dk:RoomfunctionStorageroom a owl:ObjectProperty ;
+    rdfs:label "Depot"@da-DK,
+        "Storageroom"@en ;
+    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "444" ;
+    fbo:hasNotionURL <https://www.notion.so/RoomfunctionStorageroom-276f8487e6e78027a913c1e074f45192> ;
+    fbo:isLinkedTo fbo:Roomfunction .
+
+fbo-dk:UseCategoryAK1 a owl:ObjectProperty ;
+    rdfs:label "Anvendelseskategori 1"@da-DK,
+        "Use category AK1"@en ;
+    rdfs:subPropertyOf fbo-dk:UseCategory ;
+    fbo:hasArticleID "BR18-VK5-K01-1.4.3" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "492" ;
+    fbo:hasNotionURL <https://www.notion.so/UseCategory-AK1-2aaf8487e6e7809fbe08de0acdea4d53> .
+
+fbo-dk:UseCategoryAK2 a owl:ObjectProperty ;
+    rdfs:label "Anvendelseskategori 2"@da-DK,
+        "Use category AK2"@en ;
+    rdfs:subPropertyOf fbo-dk:UseCategory ;
+    fbo:hasArticleID "BR18-VK5-K01-1.4.3" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "491" ;
+    fbo:hasNotionURL <https://www.notion.so/UseCategory-AK2-2aaf8487e6e7808dbb5dedff11229bff> .
+
+fbo-dk:UseCategoryAK3 a owl:ObjectProperty ;
+    rdfs:label "Anvendelseskategori 3"@da-DK,
+        "Use category AK3"@en ;
+    rdfs:subPropertyOf fbo-dk:UseCategory ;
+    fbo:hasArticleID "BR18-VK5-K01-1.4.3" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "494" ;
+    fbo:hasNotionURL <https://www.notion.so/UseCategory-AK3-2aaf8487e6e780f7b121cf2ec831a1cb> .
+
+fbo-dk:UseCategoryAK4 a owl:ObjectProperty ;
+    rdfs:label "Anvendelseskategori 4"@da-DK,
+        "Use category AK4"@en ;
+    rdfs:subPropertyOf fbo-dk:UseCategory ;
+    fbo:hasArticleID "BR18-VK5-K01-1.4.3" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "489" ;
+    fbo:hasNotionURL <https://www.notion.so/UseCategory-AK4-2aaf8487e6e78071b10bca40c2eca7a1> .
+
+fbo-dk:UseCategoryAK5 a owl:ObjectProperty ;
+    rdfs:label "Anvendelseskategori 5"@da-DK,
+        "Use category AK5"@en ;
+    rdfs:subPropertyOf fbo-dk:UseCategory ;
+    fbo:hasArticleID "BR18-VK5-K01-1.4.3" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "493" ;
+    fbo:hasNotionURL <https://www.notion.so/UseCategory-AK5-2aaf8487e6e780e78234fcf8ad540020> .
+
+fbo-dk:UseCategoryAK6 a owl:ObjectProperty ;
+    rdfs:label "Anvendelseskategori 6"@da-DK,
+        "Use category AK6"@en ;
+    rdfs:subPropertyOf fbo-dk:UseCategory ;
+    fbo:hasArticleID "BR18-VK5-K01-1.4.3" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-02-17T13:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "490" ;
+    fbo:hasNotionURL <https://www.notion.so/UseCategory-AK6-2aaf8487e6e78080afa6e4e3f5982268> .
+
+fbo-dk:ActiveFireProtection a owl:Class ;
+    rdfs:label "Aktiv brandsikringsanlæg"@da-DK,
+        "Active fire protection"@en ;
+    rdfs:subClassOf fbo:ActiveFireProtection ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Aktiv brandsikring omfatter alle tekniske installationer og systemer, der bruges til at registrere, advare om, og bekæmpe brand i en bygning. Det er udstyr, der reagerer aktivt ved brand"@da-DK,
+        "Active fire protection includes all technical installations and systems used to detect, warn of, and suppress/contain fire in a building. It is equipment that actively responds to fire"@en ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:12:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "275" ;
+    fbo:hasNotionURL <https://www.notion.so/ActiveFireProtection-222f8487e6e7805a8988d633b5d8aa19> ;
+    fbo:hasSubitem fbo-dk:AutomaticFireAlarmsystem,
+        fbo-dk:AutomaticFireSprinklersystem,
+        fbo-dk:AutomaticFireVentilationsystem,
+        fbo-dk:EmergencyExitLighting,
+        fbo-dk:EmergencyPanicLights ;
+    fbo:isLinkedTo fbo:ActiveFireProtection .
+
+fbo-dk:UseCategory a owl:DatatypeProperty ;
+    rdfs:label "Anvendelseskategori"@da-DK,
+        "Use category"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Kategori med et nummer fra 1 – 6, der fastlægges på baggrund af en bygnings eller et bygningsafsnits primære anvendelse baseret på, om bygningsafsnittet er indrettet med sovepladser, om personerne i bygningsafsnittet har kendskab til flugtveje, om personerne i bygningsafsnittet har mulighed for ved egen hjælp at bringe sig i sikkerhed samt på antallet af personer pr. brandmæssig enhed."@da-DK,
+        "Category with a number from 1 - 6, determined based on the primary use of a primary use of a building or section of a building based on whether the building section has sleeping accommodation, whether the occupants of the building section have knowledge of escape routes, whether the occupants of the building section have the ability to get to safety by themselves and the number of occupants per fire safety unit."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Functional category" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "75" ;
+    fbo:hasNotionURL <https://www.notion.so/UseCategory-151f8487e6e78021aaf3e1de904dfabe> ;
+    fbo:hasSubitem fbo-dk:UseCategoryAK1,
+        fbo-dk:UseCategoryAK2,
+        fbo-dk:UseCategoryAK3,
+        fbo-dk:UseCategoryAK4,
+        fbo-dk:UseCategoryAK5,
+        fbo-dk:UseCategoryAK6 ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-dk:Roomfunction a owl:Class ;
+    rdfs:label "Rum funktion"@da-DK,
+        "Room function"@en ;
+    rdfs:subClassOf fbo:Roomfunction ;
+    fbo:hasAdoptedDefinitionType "Implicit definition" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Rum funktion handler om, hvordan et rum er designet og indrettet for at understøtte bestemte aktiviteter og oplevelser."@da-DK,
+        "Room function refers to how a room is designed and furnished to support specific activities and experiences."@en ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertGuidance """Examples of room functions that are essential for fire safety
+• Corridors that serve as escape routes
+• Residential units
+• Dormitory rooms
+• Shared kitchens in dormitories
+• Assembly rooms
+• Office spaces
+• Storage/copy rooms
+• Workshops
+• Shop
+• Storage room
+• Staff room
+• Canteen
+• Production kitchen
+• Teaching room
+• Rooms in daycare centres.
+• Garage
+• Ward in a hospital or care institution
+• Hotel room
+• Technical room
+• Cleaning room
+• Ventilation room
+• Electrical room
+• Attic space that is not currently used but could be used.""" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-17T13:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "409" ;
+    fbo:hasNotionURL <https://www.notion.so/Roomfunction-24ff8487e6e780e0a945c9b115ee6c19> ;
+    fbo:hasSubitem fbo-dk:RoomOccupancy,
+        fbo-dk:RoomfunctionAssemblyrooms,
+        fbo-dk:RoomfunctionCanteen,
+        fbo-dk:RoomfunctionClassrooms,
+        fbo-dk:RoomfunctionCopyroom,
+        fbo-dk:RoomfunctionDormitory,
+        fbo-dk:RoomfunctionEscaperouteCorridor,
+        fbo-dk:RoomfunctionEscapestaircase,
+        fbo-dk:RoomfunctionKitchen,
+        fbo-dk:RoomfunctionKitchenette,
+        fbo-dk:RoomfunctionOfficespace,
+        fbo-dk:RoomfunctionProductionskitchen,
+        fbo-dk:RoomfunctionResidentialunit,
+        fbo-dk:RoomfunctionSafetyStaircase,
+        fbo-dk:RoomfunctionSchoolkitchen,
+        fbo-dk:RoomfunctionShop,
+        fbo-dk:RoomfunctionStaffroom,
+        fbo-dk:RoomfunctionStorage,
+        fbo-dk:RoomfunctionStorageroom .
+
+fbo-dk:BR18VK5D01 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "BR18-VK5-D01"@en ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasDescription "Definitionsliste for brandmæssige begreber"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "dk-DK" ;
+    fbo:hasOriginalName "Definition list for fire-related terms"@dk-DK ;
+    fbo:hasPublicationDate "2024-01-01"^^xsd:date ;
+    fbo:hasRemarks "Pre-scripted solutions" ;
+    fbo:hasURL <https://www.bygningsreglementet.dk/media/nkeltkmk/definitionsliste-for-brandmssige-begreberver-1020240101-a.pdf> .
+

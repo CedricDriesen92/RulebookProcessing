@@ -1,44 +1,56 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_7_4 fro:hasSection fro:Section_6_7_4_2 .
+ex:Section_6_7_4_2 a fro:Section ;
+    fro:hasArticle ex:Article_6_7_4_2_1,
+        ex:Article_6_7_4_2_2 ;
+    fro:hasID "6.7.4.2" ;
+    fro:hasOriginalText "Prestaties van de klep"@nl ;
+    fro:hasTable fro:Table_2_4 .
 
-fro:Article_6_7_4_2_1 a fro:Article ;
+ex:Article_6_7_4_2_1 a fro:Article ;
     fro:hasID "A6.7.4.2.1" ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#FireDamper\">brandwerende klep</a> geplaatst in de doorgangen van <a href=\"https://ontology.firebim.be/ontology/fbo#Wall\">wanden</a> heeft volgende prestaties:"@nl ;
-    fro:hasTable fro:Table_2_4 ;
+    fro:hasMember ex:Member_6_7_4_2_1_1 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Article_6_7_4_2_2 a fro:Article ;
+ex:Article_6_7_4_2_2 a fro:Article ;
     fro:hasID "A6.7.4.2.2" ;
-    fro:hasMember fro:Member_6_7_4_2_2_1,
-        fro:Member_6_7_4_2_2_2,
-        fro:Member_6_7_4_2_2_3,
-        fro:Member_6_7_4_2_2_4,
-        fro:Member_6_7_4_2_2_5 ;
-    fro:hasOriginalText "Bij gebrek aan CE-markering voldoet de klep aan de volgende eisen:"@nl ;
+    fro:hasMember ex:Member_6_7_4_2_2_1 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_6_7_4_2_2_1 a fro:Member ;
+ex:Member_6_7_4_2_1_1 a fro:Member ;
+    fro:hasOriginalText "De brandwerende klep geplaatst in de doorgangen van wanden heeft volgende prestaties:"@nl ;
+    fro:linksTo fbo:FireResistance,
+        fbo:PassiveFireProtection,
+        fbo-be:Conduits .
+
+ex:Member_6_7_4_2_2_1 a fro:Member ;
+    fro:hasMember ex:Member_6_7_4_2_2_1_1,
+        ex:Member_6_7_4_2_2_1_2,
+        ex:Member_6_7_4_2_2_1_3,
+        ex:Member_6_7_4_2_2_1_4,
+        ex:Member_6_7_4_2_2_1_5 ;
+    fro:hasOriginalText "Bij gebrek aan CE-markering voldoet de klep aan de volgende eisen:"@nl .
+
+ex:Member_6_7_4_2_2_1_1 a fro:Member ;
     fro:hasOriginalText "1. na 250 opeenvolgende cyclussen van openen en sluiten mag een klep van dezelfde fabricage nergens vervormd of beschadigd zijn;"@nl .
 
-fro:Member_6_7_4_2_2_2 a fro:Member ;
+ex:Member_6_7_4_2_2_1_2 a fro:Member ;
     fro:hasOriginalText "2. de klep weerstaat aan de corrosieve atmosfeer waarin ze geplaatst is;"@nl .
 
-fro:Member_6_7_4_2_2_3 a fro:Member ;
+ex:Member_6_7_4_2_2_1_3 a fro:Member ;
     fro:hasOriginalText "3. geen enkele periodieke smering is vereist voor de goede werking van de klep;"@nl .
 
-fro:Member_6_7_4_2_2_4 a fro:Member ;
-    fro:hasOriginalText "4. de klepkast bevat aan de bovenzijde een klepstandaanwijzer en een onuitwisbare pijl die de richting van de luchtstroom aanduidt. Een kenplaat vermeldt de binnenafmetingen van de klep, de naam van de constructeur, het fabricagenummer en fabricagejaar; ze draagt tevens een goed zichtbaar en onuitwisbaar merkteken dat een <a href=\"https://ontology.firebim.be/ontology/fbo#FirePreventionMeasures\">brandbeveiligingstoestel</a> aanduidt;"@nl .
+ex:Member_6_7_4_2_2_1_4 a fro:Member ;
+    fro:hasOriginalText "4. de klepkast bevat aan de bovenzijde een klepstandaanwijzer en een onuitwisbare pijl die de richting van de luchtstroom aanduidt. Een kenplaat vermeldt de binnenafmetingen van de klep, de naam van de constructeur, het fabricagenummer en fabricagejaar; ze draagt tevens een goed zichtbaar en onuitwisbaar merkteken dat een brandbeveiligingstoestel aanduidt;"@nl ;
+    fro:linksTo fbo:PassiveFireProtection .
 
-fro:Member_6_7_4_2_2_5 a fro:Member ;
+ex:Member_6_7_4_2_2_1_5 a fro:Member ;
     fro:hasOriginalText "5. na werking van de klep moet ze terug kunnen uitgeschakeld worden."@nl .
-
-fro:Section_6_7_4_2 a fro:Section ;
-    fro:hasArticle fro:Article_6_7_4_2_1,
-        fro:Article_6_7_4_2_2 ;
-    fro:hasID "6.7.4.2" ;
-    fro:hasOriginalText "Prestaties van de klep"@nl .
 
 fro:Table_2_4 a fro:Table ;
     fro:hasID "T2.4" ;
@@ -52,7 +64,7 @@ fro:Table_2_4 a fro:Table ;
 Tabel 2.4 – Brandwerende kleppen."""@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

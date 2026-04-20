@@ -1,37 +1,38 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix ex: <https://example.org/rulebook#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_2_2_1 a fro:Section ;
+ex:Section_2_2_1 a fro:Section ;
     fro:hasID "2.2.1" ;
     fro:hasOriginalText "Aantal uitgangen."@nl ;
-    fro:hasArticle fro:Article_2_2_1_1 .
+    fro:hasArticle ex:Article_2_2_1_1 .
 
-fro:Article_2_2_1_1 a fro:Article ;
+ex:Article_2_2_1_1 a fro:Article ;
     fro:hasID "A2.2.1.1" ;
-    fro:hasMember fro:Member_2_2_1_1_1, fro:Member_2_2_1_1_2, fro:Member_2_2_1_1_3 .
+    fro:hasMember ex:Member_2_2_1_1_1, ex:Member_2_2_1_1_2, ex:Member_2_2_1_1_3 .
 
-fro:Member_2_2_1_1_1 a fro:Member ;
+ex:Member_2_2_1_1_1 a fro:Member ;
     fro:hasOriginalText "Elk compartiment heeft minimum:"@nl ;
-    fro:hasMember fro:Member_2_2_1_1_1_1, fro:Member_2_2_1_1_1_2, fro:Member_2_2_1_1_1_3 .
+    fro:hasMember ex:Member_2_2_1_1_1_1, ex:Member_2_2_1_1_1_2, ex:Member_2_2_1_1_1_3 .
 
-fro:Member_2_2_1_1_1_1 a fro:Member ;
+ex:Member_2_2_1_1_1_1 a fro:Member ;
     fro:hasOriginalText "één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;"@nl .
 
-fro:Member_2_2_1_1_1_2 a fro:Member ;
+ex:Member_2_2_1_1_1_2 a fro:Member ;
     fro:hasOriginalText "twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen bedraagt;"@nl .
 
-fro:Member_2_2_1_1_1_3 a fro:Member ;
+ex:Member_2_2_1_1_1_3 a fro:Member ;
     fro:hasOriginalText "2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt."@nl .
 
-fro:Member_2_2_1_1_2 a fro:Member ;
+ex:Member_2_2_1_1_2 a fro:Member ;
     fro:hasOriginalText "Het  minimum  aantal  uitgangen  kan  door  de  brandweer  verhoogd  worden  in  functie  van  de bezetting en de configuratie van de lokalen."@nl .
 
-fro:Member_2_2_1_1_3 a fro:Member ;
+ex:Member_2_2_1_1_3 a fro:Member ;
     fro:hasOriginalText "Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten."@nl .
 
-fro:Section_2_2 fro:hasSection fro:Section_2_2_1 .
+ex:Section_2_2 fro:hasSection ex:Section_2_2_1 .

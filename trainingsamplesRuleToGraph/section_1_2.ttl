@@ -1,23 +1,24 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix ex: <https://example.org/rulebook#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_1_2 a fro:Section ;
+ex:Section_1_2 a fro:Section ;
     fro:hasID "1.2" ;
     fro:hasOriginalText "Bijgebouwen"@nl ;
-    fro:hasArticle fro:Article_1_2_1 .
+    fro:hasArticle ex:Article_1_2_1 .
 
-fro:Section_1 fro:hasSection fro:Section_1_2 .
+ex:Section_1 fro:hasSection ex:Section_1_2 .
 
-fro:Article_1_2_1 a fro:Article ;
+ex:Article_1_2_1 a fro:Article ;
     fro:hasID "A1.2.1" ;
-    fro:hasMember fro:Member_1_2_1_1 .
+    fro:hasMember ex:Member_1_2_1_1 .
 
-fro:Member_1_2_1_1 a fro:Member ;
+ex:Member_1_2_1_1 a fro:Member ;
     fro:hasOriginalText """Bijgebouwen, uitspringende daken, luifels, uitkragende delen of andere dergelijke toevoegingen
 zijn enkel toegelaten indien daardoor noch de evacuatie, noch de veiligheid van de gebruikers,
 noch de actie van de brandweer in het gedrang komen."""@nl .

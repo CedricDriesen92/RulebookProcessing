@@ -1,7 +1,28 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_3_5_2_2_1 a fro:Section ;
+ex:Section_3_5_2_2_1 a fro:Section ;
+    fro:hasArticle ex:Article_3_5_2_2_1_1 ;
     fro:hasID "3.5.2.2.1" ;
-    fro:hasOriginalText """<a href="https://ontology.firebim.be/ontology/fbo#DoubleSkinnedFacade">Dubbelwandige gevel</a> waarvan de <a href="https://ontology.firebim.be/ontology/fbo#InnerWallFireResistance">binnenwand</a> <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">brandwerend</a> is.
-De <a href="https://ontology.firebim.be/ontology/fbo#Facade">buitenwand</a> van de <a href="https://ontology.firebim.be/ontology/fbo#DoubleSkinnedFacade">dubbelwandige gevel</a> bestaat <a href="https://ontology.firebim.be/ontology/fbo#FacadeSpandrel">tussen de verdiepingen</a> voor minstens 50%"""@nl .
+    fro:hasOriginalText "Dubbelwandige gevel waarvan de binnenwand brandwerend is."@nl ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:WallTypeInternal .
+
+ex:Article_3_5_2_2_1_1 a fro:Article ;
+    fro:hasID "A3.5.2.2.1.1" ;
+    fro:hasMember ex:Member_3_5_2_2_1_1_1 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_3_5_2_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "De buitenwand van de dubbelwandige gevel bestaat tussen de verdiepingen voor minstens 50% uit bouwelementen zonder specifieke brandweerstand."@nl ;
+    fro:linksTo fbo-be:WallTypeExternal .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
 

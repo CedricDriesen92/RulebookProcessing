@@ -1,40 +1,41 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix ex: <https://example.org/rulebook#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_3_4_2 a fro:Section ;
+ex:Section_3_4_2 a fro:Section ;
     fro:hasID "3.4.2" ;
-    fro:hasArticle fro:Article_3_4_2_1.
+    fro:hasArticle ex:Article_3_4_2_1.
 
-fro:Section_3_4 fro:hasSection fro:Section_3_4_2 .
+ex:Section_3_4 fro:hasSection ex:Section_3_4_2 .
 
-fro:Article_3_4_2_1 a fro:Article ;
+ex:Article_3_4_2_1 a fro:Article ;
     fro:hasID "A3.4.2.1" ;
-    fro:hasMember fro:Member_3_4_2_1_1, fro:Member_3_4_2_1_2 .
+    fro:hasMember ex:Member_3_4_2_1_1, ex:Member_3_4_2_1_2 .
 
-fro:Member_3_4_2_1_1 a fro:Member ;
+ex:Member_3_4_2_1_1 a fro:Member ;
     fro:hasOriginalText """De wanden waarvoor brandwerendheid vereist is, lopen door in de ruimte tussen het plafond en
 het verlaagd plafond."""@nl .
 
-fro:Member_3_4_2_1_2 a fro:Member ;
+ex:Member_3_4_2_1_2 a fro:Member ;
     fro:hasOriginalText """Indien de ruimte tussen het plafond en het verlaagd plafond niet is uitgerust met een automatische
 blusinstallatie, moet deze ruimte worden verdeeld in volumes waarvan de horizontale projectie kan
 ingeschreven worden in een vierkant van maximum 25 m zijde."""@nl ;
-    fro:hasMember fro:Member_3_4_2_1_2_1 .
+    fro:hasMember ex:Member_3_4_2_1_2_1 .
 
-fro:Member_3_4_2_1_2_1 a fro:Member ;
+ex:Member_3_4_2_1_2_1 a fro:Member ;
     fro:hasOriginalText "Deze volumes worden gescheiden door verticale schermen met de volgende kenmerken:"@nl ;
-    fro:hasMember fro:Member_3_4_2_1_2_1_1, fro:Member_3_4_2_1_2_1_2, fro:Member_3_4_2_1_2_1_3 .
+    fro:hasMember ex:Member_3_4_2_1_2_1_1, ex:Member_3_4_2_1_2_1_2, ex:Member_3_4_2_1_2_1_3 .
 
-fro:Member_3_4_2_1_2_1_1 a fro:Member ;
+ex:Member_3_4_2_1_2_1_1 a fro:Member ;
     fro:hasOriginalText "zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;"@nl .
 
-fro:Member_3_4_2_1_2_1_2 a fro:Member ;
+ex:Member_3_4_2_1_2_1_2 a fro:Member ;
     fro:hasOriginalText "zij beslaan de gehele ruimte tussen de leidingen;"@nl .
 
-fro:Member_3_4_2_1_2_1_3 a fro:Member ;
+ex:Member_3_4_2_1_2_1_3 a fro:Member ;
     fro:hasOriginalText "zij hebben EI 30."@nl .

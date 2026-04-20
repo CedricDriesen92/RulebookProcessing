@@ -1,45 +1,43 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_4_1 a fro:Section ;
-    fro:hasArticle fro:Article_4_1_1,
-        fro:Article_4_1_2 ;
+ex:Section_4_1 a fro:Section ;
+    fro:hasArticle ex:Article_4_1_1 ;
     fro:hasID "4.1" ;
     fro:hasOriginalText "Compartimenten."@nl .
 
-fro:Article_4_1_1 a fro:Article ;
+ex:Article_4_1_1 a fro:Article ;
     fro:hasID "A4.1.1" ;
-    fro:hasMember fro:Member_4_1_1_1 ;
-    fro:hasTable fro:Table_2_3 ;
-    fro:hasVersion fro:v0_1 .
+    fro:hasMember ex:Member_4_1_1_1 ;
+    fro:hasOriginalText "De wanden tussen compartimenten hebben minstens de brandweerstand aangegeven in tabel 2.3."@nl ;
+    fro:hasTable ex:Table_2_3 ;
+    fro:hasVersion fro:v0_1 ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:FireCompartment,
+        fbo-be:WallTypeInternal .
 
-fro:Article_4_1_2 a fro:Article ;
-    fro:hasID "A4.1.2" ;
-    fro:hasMember fro:Member_4_1_2_1 ;
-    fro:hasVersion fro:v0_1 .
+ex:Member_4_1_1_1 a fro:Member ;
+    fro:hasOriginalText "De verbinding tussen twee compartimenten is slechts toegestaan indien zij geschiedt via een zelfsluitende of bij brand zelfsluitende deur EI1 30."@nl ;
+    fro:linksTo fbo:DoorExit,
+        fbo:SelfClosing,
+        fbo-be:FireCompartment .
 
-fro:Member_4_1_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#SeparationWall\">wanden tussen compartimenten</a> hebben minstens de <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> aangegeven in tabel 2.3."@nl .
-
-fro:Member_4_1_2_1 a fro:Member ;
-    fro:hasOriginalText "De verbinding tussen twee <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> is slechts toegestaan indien zij geschiedt via een <a href=\"https://ontology.firebim.be/ontology/fbo#IsSelfClosing\">zelfsluitende</a> of <a href=\"https://ontology.firebim.be/ontology/fbo#IsFireActivatedClosing\">bij brand zelfsluitende</a> <a href=\"https://ontology.firebim.be/ontology/fbo#Door\">deur</a> EI1 30."@nl .
-
-fro:Table_2_3 a fro:Table ;
+ex:Table_2_3 a fro:Table ;
     fro:hasID "T2.3" ;
-    fro:hasOriginalText """# Wanden
-
-# Boven de vloer van Ei
-
-|Type|<a href="https://ontology.firebim.be/ontology/fbo#FireResistance">Brandweerstand</a>|
-|---|---|
-|Eén bouwlaag|EI 30|
-|Meerdere bouwlagen|EI 60|
-|Onder E,i met inbegrip van de vloer van Ei|EI 60|
-
-Tabel 2.3 – <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">Brandweerstand</a> van <a href="https://ontology.firebim.be/ontology/fbo#SeparationWall">wanden tussen compartimenten</a>."""@nl .
+    fro:hasOriginalText """Wanden
+Boven de vloer van Ei
+Type | Brandweerstand
+Eén bouwlaag | EI 30
+Meerdere bouwlagen | EI 60
+Onder Ei met inbegrip van de vloer van Ei | EI 60
+Tabel 2.3 – Brandweerstand van wanden tussen compartimenten."""@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

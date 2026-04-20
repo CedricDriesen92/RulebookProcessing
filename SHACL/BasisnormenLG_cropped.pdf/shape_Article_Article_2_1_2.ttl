@@ -1,74 +1,114 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix fro: <http://www.firebim.org/ontologies/fro#> .
-@prefix fbo: <http://www.firebim.org/ontologies/fbo#> .
+@prefix : <https://ontology.firebim.be/ontology/fro/shapes#> .
 
-<https://ontology.firebim.be/ontology/fro#Article_2_1_2>
-    a sh:NodeShape ;
-    sh:targetClass fro:FireCompartment ;
-    sh:severity sh:Violation ;
-    sh:message "Article 2.1.2: The height of a compartment must correspond to one storey, unless it meets specific exceptions (Parking, Duplex, Triplex, Technical Room, or Atrium with specific safety systems)."@en ;
+:Article_2_1_2_Shape a sh:NodeShape ;
+    sh:targetClass fbo:FireCompartment ;
+    sh:description "De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag, met uitzonderingen voor parkings, duplexen, triplexen, technische lokalen en atria." ;
     sh:or (
-        # General Rule: The height of a compartment corresponds to one storey.
+        # Hoofdregel: 1 bouwlaag
         [
-            sh:path fro:numberOfLevels ;
-            sh:maxInclusive 1 ;
+            sh:property [
+                sh:path :numberOfStoreys ; # NOTE: no ontology term found
+                sh:datatype xsd:integer ;
+                sh:maxInclusive 1 ;
+                sh:message "De hoogte van een compartiment stemt overeen met de hoogte van één bouwlaag." ;
+            ]
         ]
-        # Exception A: Parking with storeys.
+        # Uitzondering a: Parking
         [
-            sh:path fro:usageType ;
-            sh:hasValue fro:Parking ;
+            sh:property [
+                sh:path fbo:Roomfunction ;
+                sh:hasValue "Parking" ; # NOTE: no specific concept for Parking found in catalog
+                sh:message "a) de parking met bouwlagen (zie 5.2);" ;
+            ]
         ]
-        # Exception B: Duplex (2 levels, max 2500 m²).
+        # Uitzondering b: Duplex
         [
-            a sh:NodeShape ;
-            sh:property [
-                sh:path fro:numberOfLevels ;
-                sh:maxInclusive 2 ;
-            ] ;
-            sh:property [
-                sh:path fro:floorArea ;
-                sh:maxInclusive 2500 ;
-                sh:datatype xsd:decimal ;
-            ] ;
+            sh:and (
+                [
+                    sh:property [
+                        sh:path :numberOfStoreys ; # NOTE: no ontology term found
+                        sh:datatype xsd:integer ;
+                        sh:maxInclusive 2 ;
+                        sh:message "b) een compartiment mag zich uitstrekken over twee boven elkaar gelegen bouwlagen met een binnenverbindingstrap (duplex)" ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:AreaFireCompartment ;
+                        sh:datatype xsd:decimal ;
+                        sh:maxInclusive 2500.0 ;
+                        sh:message "indien de gecumuleerde oppervlakte van die bouwlagen niet groter is dan 2500 m²;" ;
+                    ]
+                ]
+            )
         ]
-        # Exception C: Triplex (3 levels, max 300 m², Total Surveillance Detection).
+        # Uitzondering c: Triplex
         [
-            a sh:NodeShape ;
-            sh:property [
-                sh:path fro:numberOfLevels ;
-                sh:maxInclusive 3 ;
-            ] ;
-            sh:property [
-                sh:path fro:floorArea ;
-                sh:maxInclusive 300 ;
-                sh:datatype xsd:decimal ;
-            ] ;
-            sh:property [
-                sh:path fro:hasFireDetectionSystem ;
-                sh:hasValue fro:TotalSurveillance ;
-                sh:message "Triplex compartments must be equipped with automatic fire detection of type 'total surveillance'." ;
-            ] ;
+            sh:and (
+                [
+                    sh:property [
+                        sh:path :numberOfStoreys ; # NOTE: no ontology term found
+                        sh:datatype xsd:integer ;
+                        sh:maxInclusive 3 ;
+                        sh:message "c) de hoogte van een compartiment mag zich uitstrekken over drie boven elkaar gelegen bouwlagen met een binnenverbindingstrap (triplex)" ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:AreaFireCompartment ;
+                        sh:datatype xsd:decimal ;
+                        sh:maxInclusive 300.0 ;
+                        sh:message "voor zover de som van hun gecumuleerde oppervlakte de 300 m² niet overschrijdt" ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:hasSubitem ;
+                        sh:qualifiedValueShape [
+                            sh:class fbo:AutomaticFireAlarmsystem ;
+                        ] ;
+                        sh:qualifiedMinCount 1 ;
+                        sh:message "en dat dit compartiment is uitgerust met een automatische branddetectie van het type totale bewaking die automatisch een aanduiding van de brandmelding geeft en waarvan de detectoren aangepast zijn aan de aanwezige risico's;" ;
+                    ]
+                ]
+            )
         ]
-        # Exception D: Compartment containing only technical rooms.
+        # Uitzondering d: Technische lokalen
         [
-            sh:path fro:usageType ;
-            sh:hasValue fro:TechnicalRoom ;
+            sh:property [
+                sh:path fbo:Roomfunction ;
+                sh:hasValue "TechnicalRoom" ; # NOTE: no specific concept for Technical Room found in catalog
+                sh:message "d) de hoogte van een compartiment mag zich uitstrekken over verscheidene boven elkaar geplaatste bouwlagen, indien dit compartiment slechts technische lokalen omvat (zie 5.1.1)." ;
+            ]
         ]
-        # Exception E: Atrium (Requires Automatic Suppression AND Smoke/Heat Extraction).
+        # Uitzondering e: Atrium
         [
-            a sh:NodeShape ;
-            sh:property [
-                sh:path fro:hasAutomaticSuppressionSystem ;
-                sh:hasValue true ;
-                sh:message "Multi-storey atriums must have an automatic suppression system." ;
-            ] ;
-            sh:property [
-                sh:path fro:hasSmokeHeatExtractionSystem ;
-                sh:hasValue true ;
-                sh:message "Multi-storey atriums must have a smoke and heat extraction system." ;
-            ] ;
+            sh:and (
+                [
+                    sh:property [
+                        sh:path fbo:hasSubitem ;
+                        sh:qualifiedValueShape [
+                            sh:class fbo:AutomaticFireExtinguishSystem ;
+                        ] ;
+                        sh:qualifiedMinCount 1 ;
+                        sh:message "e) de hoogte van een compartiment mag zich uitstrekken over verscheidene bouwlagen (atrium) op voorwaarde: dat dit compartiment is uitgerust met een automatische blusinstallatie" ;
+                    ]
+                ]
+                [
+                    sh:property [
+                        sh:path fbo:hasSubitem ;
+                        sh:qualifiedValueShape [
+                            sh:class fbo:AutomaticFireVentilationsystem ;
+                        ] ;
+                        sh:qualifiedMinCount 1 ;
+                        sh:message "en een rook- en warmteafvoerinstallatie. De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de verplichte plaatsing van een automatische blusinstallatie en een rook- en warmteafvoerinstallatie;" ;
+                    ]
+                ]
+            )
         ]
     ) .

@@ -1,23 +1,26 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_8 fro:hasSection fro:Section_6_8_4 .
-
-fro:Article_6_8_4_1 a fro:Article ;
-    fro:hasID "A6.8.4.1" ;
-    fro:hasMember fro:Member_6_8_4_1_1 ;
-    fro:hasVersion fro:v0_1 .
-
-fro:Member_6_8_4_1_1 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#WarningSignalAudibility\">waarschuwings-</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#AlarmSignalAudibility\">alarmseinen</a> of -berichten kunnen door alle betrokken personen opgevangen worden en mogen niet onder elkaar noch met andere seinen kunnen worden verward."@nl .
-
-fro:Section_6_8_4 a fro:Section ;
-    fro:hasArticle fro:Article_6_8_4_1 ;
+ex:Section_6_8_4 a fro:Section ;
+    fro:hasArticle ex:Article_6_8_4_1 ;
     fro:hasID "6.8.4" ;
     fro:hasOriginalText "Waarschuwing en alarm."@nl .
 
+ex:Article_6_8_4_1 a fro:Article ;
+    fro:hasID "A6.8.4.1" ;
+    fro:hasMember ex:Member_6_8_4_1 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_6_8_4_1 a fro:Member ;
+    fro:hasOriginalText "De waarschuwings- en alarmseinen of -berichten kunnen door alle betrokken personen opgevangen worden en mogen niet onder elkaar noch met andere seinen kunnen worden verward."@nl ;
+    fro:linksTo fbo:AutomaticFireAlarmsystem,
+        fbo:AutomaticWarningSystem .
+
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

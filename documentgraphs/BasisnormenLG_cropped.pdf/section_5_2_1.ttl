@@ -1,43 +1,63 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
+@prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_5_2_1 a fro:Section ;
+ex:Section_5_2_1 a fro:Section ;
+    fro:hasArticle ex:Article_5_2_1_1,
+        ex:Article_5_2_1_2,
+        ex:Article_5_2_1_3 ;
     fro:hasID "5.2.1" ;
-    fro:hasOriginalText "Structurele elementen"@nl ;
-    fro:hasArticle fro:Article_5_2_1_1 .
+    fro:hasOriginalText "Structurele elementen" .
 
-fro:Article_5_2_1_1 a fro:Article ;
+ex:Article_5_2_1_1 a fro:Article ;
     fro:hasID "A5.2.1.1" ;
-    fro:hasMember fro:Member_5_2_1_1_1,
-        fro:Member_5_2_1_1_2,
-        fro:Member_5_2_1_1_3 .
+    fro:hasMember ex:Member_5_2_1_1_1 ;
+    fro:hasVersion fro:v0_1 .
 
-fro:Member_5_2_1_1_1 a fro:Member ;
-    fro:hasOriginalText """In afwijking van het punt 3.2 hebben de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> R 120 en de <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">vloeren</a> van de parkeerbouwlagen en van de hellingen hebben R 120."""@nl .
+ex:Article_5_2_1_2 a fro:Article ;
+    fro:hasID "A5.2.1.2" ;
+    fro:hasMember ex:Member_5_2_1_2_1,
+        ex:Member_5_2_1_2_2 ;
+    fro:hasOriginalText "Wanneer het dak geen andere functie heeft dan alleen het beschermen van de parking tegen de weersomstandigheden:"@nl ;
+    fro:hasVersion fro:v0_1 ;
+    fro:linksTo fbo-be:Ceiling,
+        fbo-be:Parking .
 
-fro:Member_5_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText """Wanneer het <a href=\"https://ontology.firebim.be/ontology/fbo#Roof\">dak</a> geen andere functie heeft dan alleen het beschermen van de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> tegen de weersomstandigheden:"""@nl ;
-    fro:hasMember fro:Member_5_2_1_1_2_1,
-        fro:Member_5_2_1_1_2_2 .
+ex:Article_5_2_1_3 a fro:Article ;
+    fro:hasID "A5.2.1.3" ;
+    fro:hasMember ex:Member_5_2_1_3_1,
+        ex:Member_5_2_1_3_2 ;
+    fro:hasOriginalText "Voor de open parkeerbouwlagen worden de structurele elementen aan geen enkele vereiste onderworpen inzake brandweerstand, op voorwaarde:"@nl ;
+    fro:hasVersion fro:v0_1 ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:BuildingLayerParking .
 
-fro:Member_5_2_1_1_2_1 a fro:Member ;
-    fro:hasOriginalText "- hebben de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#Roof\">dak</a> R 30;"@nl .
+ex:Member_5_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "In afwijking van het punt 3.2 hebben de structurele elementen van de parking R 120 en de vloeren van de parkeerbouwlagen en van de hellingen hebben R 120."@nl ;
+    fro:linksTo fbo-be:BuildingLayerParking,
+        fbo-be:FinishedFloor,
+        fbo-be:Parking .
 
-fro:Member_5_2_1_1_2_2 a fro:Member ;
-    fro:hasOriginalText """- of worden de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#Roof\">dak</a> gescheiden van de rest van de <a href=\"https://ontology.firebim.be/ontology/fbo#Parking\">parking</a> door een <a href=\"https://ontology.firebim.be/ontology/fbo#BuildingElement\">bouwelement</a> EI 30."""@nl .
+ex:Member_5_2_1_2_1 a fro:Member ;
+    fro:hasOriginalText "- hebben de structurele elementen van het dak R 30;"@nl .
 
-fro:Member_5_2_1_1_3 a fro:Member ;
-    fro:hasOriginalText """Voor de <a href=\"https://ontology.firebim.be/ontology/fbo#OpenParking\">open parkeerbouwlagen</a> worden de <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> aan geen enkele vereiste onderworpen inzake <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a>, op voorwaarde:"""@nl ;
-    fro:hasMember fro:Member_5_2_1_1_3_1,
-        fro:Member_5_2_1_1_3_2 .
+ex:Member_5_2_1_2_2 a fro:Member ;
+    fro:hasOriginalText "- of worden de structurele elementen van het dak gescheiden van de rest van de parking door een bouwelement EI 30."@nl .
 
-fro:Member_5_2_1_1_3_1 a fro:Member ;
-    fro:hasOriginalText """- dat de <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">vloeren</a> van deze <a href=\"https://ontology.firebim.be/ontology/fbo#OpenParking\">open parkeerbouwlagen</a> en de hellingen tussen deze <a href=\"https://ontology.firebim.be/ontology/fbo#OpenParking\">open parkeerbouwlagen</a> minstens REI 60 hebben;"""@nl .
+ex:Member_5_2_1_3_1 a fro:Member ;
+    fro:hasOriginalText "- dat de vloeren van deze open parkeerbouwlagen en de hellingen tussen deze open parkeerbouwlagen minstens REI 60 hebben;"@nl ;
+    fro:linksTo fbo-be:BuildingLayerParking,
+        fbo-be:FinishedFloor .
 
-fro:Member_5_2_1_1_3_2 a fro:Member ;
-    fro:hasOriginalText """- en dat deze <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">structurele elementen</a> geen ander <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> dragen."""@nl .
+ex:Member_5_2_1_3_2 a fro:Member ;
+    fro:hasOriginalText "- en dat deze structurele elementen geen ander compartiment dragen."@nl ;
+    fro:linksTo fbo-be:FireCompartment .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
+

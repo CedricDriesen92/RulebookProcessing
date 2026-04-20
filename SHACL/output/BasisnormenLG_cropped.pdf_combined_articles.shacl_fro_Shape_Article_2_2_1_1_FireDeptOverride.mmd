@@ -1,0 +1,11 @@
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT(["fro:Shape_Article_2_2_1_1_FireDeptOverride<br/>Target: fbo:AreaFloorRoom, fbo:BuildingStorey, fbo:FireCompartment<br/>Het minimum aantal uitgangen kan door de brandweer verhoogd worden in functie van de bezetting en..."]):::rootCls
+    P1["ex1:fireDeptRequiredExits | xsd:integer"]:::propCls
+    ROOT --> P1

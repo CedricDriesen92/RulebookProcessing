@@ -1,25 +1,31 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_3_5_2_3_1 a fro:Section ;
-    fro:hasArticle fro:Article_3_5_2_3_1_1 ;
+ex:Section_3_5_2_3_1 a fro:Section ;
+    fro:hasArticle ex:Article_3_5_2_3_1_1 ;
     fro:hasID "3.5.2.3.1" ;
     fro:hasOriginalText "Bediening"@nl .
 
-fro:Article_3_5_2_3_1_1 a fro:Article ;
+ex:Article_3_5_2_3_1_1 a fro:Article ;
     fro:hasID "A3.5.2.3.1.1" ;
-    fro:hasMember fro:Member_3_5_2_3_1_1_1,
-        fro:Member_3_5_2_3_1_1_2 ;
+    fro:hasMember ex:Member_3_5_2_3_1_1_1,
+        ex:Member_3_5_2_3_1_1_2 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_3_5_2_3_1_1_1 a fro:Member ;
-    fro:hasOriginalText "De sluiting / opening wordt bevolen door een <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireDetectionSystem\">automatische branddetectie-installatie</a>."@nl .
+ex:Member_3_5_2_3_1_1_1 a fro:Member ;
+    fro:hasOriginalText "De sluiting / opening wordt bevolen door een automatische branddetectie-installatie."@nl ;
+    fro:linksTo fbo-be:AutomaticDetectionTotal .
 
-fro:Member_3_5_2_3_1_1_2 a fro:Member ;
-    fro:hasOriginalText "De installatie wordt uitgerust met <a href=\"https://ontology.firebim.be/ontology/fbo#ManualControlSystem\">manuele openings- en sluitingssystemen</a>. De bediening ervan is voorbehouden aan de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAction\">brandweer</a>. De plaats ervan moet bepaald worden in akkoord met de brandweer."@nl .
+ex:Member_3_5_2_3_1_1_2 a fro:Member ;
+    fro:hasOriginalText """De installatie wordt uitgerust met manuele openings- en sluitingssystemen. De bediening ervan is
+voorbehouden aan de brandweer. De plaats ervan moet bepaald worden in akkoord met de
+brandweer."""@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

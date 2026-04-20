@@ -1,44 +1,45 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix ex: <https://example.org/rulebook#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_0_2_1 a fro:Section ;
+ex:Section_0_2_1 a fro:Section ;
     fro:hasID "0.2.1" ;
-    fro:hasArticle fro:Article_0_2_1_1 .
+    fro:hasArticle ex:Article_0_2_1_1 .
 
-fro:Article_0_2_1_1 a fro:Article ;
+ex:Article_0_2_1_1 a fro:Article ;
     fro:hasID "A0.2.1.1" ;
     fro:hasOriginalText """Deze bijlage is van toepassing op de volgende op te richten gebouwen en de volgende
 uitbreidingen van bestaande gebouwen, waarvoor de aanvraag voor de bouw wordt ingediend
 vanaf 1 december 2012:"""@nl ;
-    fro:hasMember fro:Member_0_2_1_1_1, fro:Member_0_2_1_1_2, fro:Member_0_2_1_1_3 .
+    fro:hasMember ex:Member_0_2_1_1_1, ex:Member_0_2_1_1_2, ex:Member_0_2_1_1_3 .
 
-fro:Member_0_2_1_1_1 a fro:Member ;
+ex:Member_0_2_1_1_1 a fro:Member ;
     fro:hasOriginalText "1.   de lage gebouwen;"@nl .
 
-fro:Member_0_2_1_1_2 a fro:Member ;
+ex:Member_0_2_1_1_2 a fro:Member ;
     fro:hasOriginalText "2.   de uitbreidingen van gebouwen die na realisatie een laag gebouw zijn;"@nl .
 
-fro:Member_0_2_1_1_3 a fro:Member ;
+ex:Member_0_2_1_1_3 a fro:Member ;
     fro:hasOriginalText """3.   de lokalen of delen van lage gebouwen waarin een industriële activiteit plaatsvindt en waarvan
      de totale oppervlakte kleiner is dan of gelijk is aan 500 m², onder de volgende voorwaarden:"""@nl ;
-    fro:hasMember fro:Member_0_2_1_1_3_1, fro:Member_0_2_1_1_3_2, fro:Member_0_2_1_1_3_3 .
+    fro:hasMember ex:Member_0_2_1_1_3_1, ex:Member_0_2_1_1_3_2, ex:Member_0_2_1_1_3_3 .
 
-fro:Member_0_2_1_1_3_1 a fro:Member ;
+ex:Member_0_2_1_1_3_1 a fro:Member ;
     fro:hasOriginalText """in het gebouw hoofdzakelijk niet-industriële activiteiten plaats vinden en de totale
           oppervlakte van de lokalen met industriële activiteit kleiner is dan de overblijvende
           oppervlakte van het gebouw;"""@nl .
 
-fro:Member_0_2_1_1_3_2 a fro:Member ;
+ex:Member_0_2_1_1_3_2 a fro:Member ;
     fro:hasOriginalText """de industriële activiteiten in deze lokalen de niet-industriële activiteiten in hetzelfde
           compartiment ondersteunen;"""@nl .
 
-fro:Member_0_2_1_1_3_3 a fro:Member ;
+ex:Member_0_2_1_1_3_3 a fro:Member ;
     fro:hasOriginalText """er geen lokalen met nachtbezetting zijn in het compartiment waarin er industriële
           activiteiten plaatsvinden."""@nl .
 
-fro:Section_0_2 fro:hasSection fro:Section_0_2_1 .
+ex:Section_0_2 fro:hasSection ex:Section_0_2_1 .

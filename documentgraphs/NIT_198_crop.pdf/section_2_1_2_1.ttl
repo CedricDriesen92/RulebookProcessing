@@ -6,29 +6,29 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_2_1_2_1 a fro:Section ;
+ex:Section_2_1_2_1 a fro:Section ;
     fro:hasID "2.1.2.1" ;
     fro:hasOriginalText "STABILITE DE L'ENSEMBLE ET RESISTANCE MECANIQUE"@fr ;
-    fro:hasArticle fro:Article_2_1_2_1_1 .
+    fro:hasArticle ex:Article_2_1_2_1_1 .
 
-fro:Article_2_1_2_1_1 a fro:Article ;
+ex:Article_2_1_2_1_1 a fro:Article ;
     fro:hasID "A2.1.2.1.1" ;
-    fro:hasMember fro:Member_2_1_2_1_1_1, fro:Member_2_1_2_1_1_2, fro:Member_2_1_2_1_1_3, fro:Member_2_1_2_1_1_4, fro:Member_2_1_2_1_1_5 ;
+    fro:hasMember ex:Member_2_1_2_1_1_1, ex:Member_2_1_2_1_1_2, ex:Member_2_1_2_1_1_3, ex:Member_2_1_2_1_1_4, ex:Member_2_1_2_1_1_5 ;
     fro:hasFigure fro:Figure_17 .
 
-fro:Member_2_1_2_1_1_1 a fro:Member ;
+ex:Member_2_1_2_1_1_1 a fro:Member ;
     fro:hasOriginalText """La structure portante doit avoir une stabilite et une resistance mecanique lui permettant de resister, sans effets dommageables, aux actions qu'elle peut subir durant sa construction et son utilisation; que ce soit directement ou indirectement (par exemple, par l'intermediaire des garde-corps). On se refera à cet effet aux prescriptions applicables aux constructions portantes et aux garde-corps, enoncees dans la Note d'information technique n° 196 relative aux balcons [7]."""@fr .
 
-fro:Member_2_1_2_1_1_2 a fro:Member ;
+ex:Member_2_1_2_1_1_2 a fro:Member ;
     fro:hasOriginalText """Dans un escalier, la structure portante est constituee par les limons et les paliers : ceux-ci transmettent le poids propre de l'escalier et les charges d'exploitation, exercees sur les marches et les garde-corps, aux appuis de depart et d'arrivee de l'escalier ainsi qu'aux ancrages muraux."""@fr .
 
-fro:Member_2_1_2_1_1_3 a fro:Member ;
+ex:Member_2_1_2_1_1_3 a fro:Member ;
     fro:hasOriginalText """En ce qui concerne la structure portante, on tient compte de la pente de l'escalier : plus celle-ci est raide, plus la composante perpendiculaire aux limons augmente et plus la composante parallele aux limons diminue (figure 17)."""@fr .
 
-fro:Member_2_1_2_1_1_4 a fro:Member ;
+ex:Member_2_1_2_1_1_4 a fro:Member ;
     fro:hasOriginalText "Les appuis et les ancrages des limons doivent reporter correctement les efforts de réaction des planchers des étages et sur les murs."@fr .
 
-fro:Member_2_1_2_1_1_5 a fro:Member ;
+ex:Member_2_1_2_1_1_5 a fro:Member ;
     fro:hasOriginalText """Pour la structure portante de l'escalier
 Il y a lieu de tenir compte des sollicitations suivantes :
 - actions permanentes dues au poids propre (voir la norme NBN B 03-102 [17])
@@ -45,7 +45,7 @@ fro:Figure_17 a fro:Figure ;
     fro:hasID "F17" ;
     fro:hasOriginalText "Fig. 17 Composantes de la charge en fonction de la pente de l'escalier."@fr .
 
-fro:Article_2_1_2_1_1 fro:hasTable fro:Table_2_1_2_1_1, fro:Table_2_1_2_1_2 .
+ex:Article_2_1_2_1_1 fro:hasTable fro:Table_2_1_2_1_1, fro:Table_2_1_2_1_2 .
 
 fro:Table_2_1_2_1_1 a fro:Table ;
     fro:hasID "T2.1.2.1.1" ;
@@ -60,9 +60,9 @@ fro:Table_2_1_2_1_2 a fro:Table ;
     fro:hasID "T2.1.2.1.2" ;
     fro:hasOriginalText "GARDE-CORPS"@fr .
 
-fro:Article_2_1_2_1_1 fro:hasMember fro:Member_2_1_2_1_1_6, fro:Member_2_1_2_1_1_7, fro:Member_2_1_2_1_1_8, fro:Member_2_1_2_1_1_9 .
+ex:Article_2_1_2_1_1 fro:hasMember ex:Member_2_1_2_1_1_6, ex:Member_2_1_2_1_1_7, ex:Member_2_1_2_1_1_8, ex:Member_2_1_2_1_1_9 .
 
-fro:Member_2_1_2_1_1_6 a fro:Member ;
+ex:Member_2_1_2_1_1_6 a fro:Member ;
     fro:hasOriginalText """Le garde-corps doit résister aux sollicitations définies par les STS 54 [12] [37]; le lecteur se référera à ce sujet à la NIT 196 déjà citée (8 2.1.2.1 B) [7]."""@fr ;
     fro:hasReference fro:Reference_STS_54, fro:Reference_NIT_196 .
 
@@ -72,17 +72,17 @@ fro:Reference_STS_54 a fro:Reference ;
 fro:Reference_NIT_196 a fro:Reference ;
     fro:hasID "NIT 196" .
 
-fro:Member_2_1_2_1_1_7 a fro:Member ;
+ex:Member_2_1_2_1_1_7 a fro:Member ;
     fro:hasOriginalText """Les assemblages garde-corps/limon et/ou garde-corps/surface de circulation en particulier seront exécutés de manière à ce qu'ils puissent reprendre les sollicitations."""@fr .
 
-fro:Member_2_1_2_1_1_8 a fro:Member ;
+ex:Member_2_1_2_1_1_8 a fro:Member ;
     fro:hasOriginalText """Plusieurs modes de fixation sont envisageables (figure 18, p 22). Dans les escaliers où les marches sont encastrées dans les limons, les balustres sont fixés dans les limons. Dans le cas de limons sciés en crémaillère ou de limons libres, les garde-corps sont fixés sur la face supérieure des marches ou sur la face latérale des limons. Dans un escalier suspendu, le système de suspension fait souvent office de garde-corps."""@fr ;
     fro:hasFigure fro:Figure_18 .
 
 fro:Figure_18 a fro:Figure ;
     fro:hasID "F18" .
 
-fro:Member_2_1_2_1_1_9 a fro:Member ;
+ex:Member_2_1_2_1_1_9 a fro:Member ;
     fro:hasOriginalText """Une solution qui s'écarte de la pratique courante fera l'objet d'une étude particulière.
 
 Pour la mise en œuvre, on se reportera au chapitre 4 (p. 52) du présent document."""@fr .

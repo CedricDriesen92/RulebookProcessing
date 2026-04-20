@@ -1,22 +1,26 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_4_1 a fro:Section ;
-    fro:hasArticle fro:Article_6_4_1_1 ;
+ex:Section_6_4 fro:hasSection ex:Section_6_4_1 .
+
+ex:Article_6_4_1_1 a fro:Article ;
+    fro:hasID "A6.4.1.1" ;
+    fro:hasMember ex:Member_6_4_1_1_1 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_6_4_1_1_1 a fro:Member ;
+    fro:hasForwardReference ex:Section_6_1 ;
+    fro:hasOriginalText "Wanneer een lift bestemd voor het evacueren van personen met beperkte mobiliteit verplicht wordt, moet deze voldoen aan de volgende voorschriften, bovenop de voorschriften opgenomen in punt 6.1."@nl .
+
+ex:Section_6_4_1 a fro:Section ;
+    fro:hasArticle ex:Article_6_4_1_1 ;
     fro:hasID "6.4.1" ;
     fro:hasOriginalText "Liften bestemd voor het evacueren van personen met beperkte mobiliteit"@nl .
 
-fro:Article_6_4_1_1 a fro:Article ;
-    fro:hasID "A6.4.1.1" ;
-    fro:hasMember fro:Member_6_4_1_1_1 ;
-    fro:hasVersion fro:v0_1 .
-
-fro:Member_6_4_1_1_1 a fro:Member ;
-    fro:hasForwardReference fro:Section_6_1 ;
-    fro:hasOriginalText "Wanneer een <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">lift</a> bestemd voor het evacueren van <a href=\"https://ontology.firebim.be/ontology/fbo#AccessibilityForMobility\">personen met beperkte mobiliteit</a> verplicht wordt, moet deze voldoen aan de volgende voorschriften, bovenop de voorschriften opgenomen in punt 6.1."@nl .
-
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

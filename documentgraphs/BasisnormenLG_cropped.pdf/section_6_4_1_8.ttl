@@ -1,28 +1,37 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_4_1_8 a fro:Section ;
-    fro:hasArticle fro:Article_6_4_1_8_1 ;
-    fro:hasID "6.4.1.8" .
+ex:Section_6_4_1_8 a fro:Section ;
+    fro:hasArticle ex:Article_6_4_1_8_1 ;
+    fro:hasID "6.4.1.8" ;
+    fro:hasOriginalText "Intercomsysteem."@nl .
 
-fro:Article_6_4_1_8_1 a fro:Article ;
+ex:Article_6_4_1_8_1 a fro:Article ;
     fro:hasID "A6.4.1.8.1" ;
-    fro:hasMember fro:Member_6_4_1_8_1_1,
-        fro:Member_6_4_1_8_1_2,
-        fro:Member_6_4_1_8_1_3 ;
+    fro:hasMember ex:Member_6_4_1_8_1_1,
+        ex:Member_6_4_1_8_1_2,
+        ex:Member_6_4_1_8_1_3 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_6_4_1_8_1_1 a fro:Member ;
-    fro:hasOriginalText "Met uitzondering van de <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a> die slechts twee <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlagen</a> bedienen, moet elk <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">liftbordes</a> een <a href=\"https://ontology.firebim.be/ontology/fbo#CommunicationDevice\">intercomsysteem</a> bevatten dat mondelinge <a href=\"https://ontology.firebim.be/ontology/fbo#CommunicationDevice\">tweerichtingscommunicatie</a> toelaat als de <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">lift</a> in <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationSafety\">evacuatiemodus</a> is. Dit systeem moet toelaten om te communiceren tussen elk <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">liftbordes</a>, het <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#MachineRoom\">machinekamer</a> of het <a href=\"https://ontology.firebim.be/ontology/fbo#CentralFireControlPanel\">paneel van de hulpverleningsoperaties</a>, zodat de <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlagen</a> waarop <a href=\"https://ontology.firebim.be/ontology/fbo#AccessibilityForMobility\">personen met beperkte mobiliteit</a> die dienen geëvacueerd te worden zich bevinden kunnen herkend worden en deze informatie aan de <a href=\"https://ontology.firebim.be/ontology/fbo#FirefighterAction\">persoon belast met de evacuatie</a> kan doorgegeven worden."@nl .
+ex:Member_6_4_1_8_1_1 a fro:Member ;
+    fro:hasOriginalText "Met uitzondering van de liften die slechts twee bouwlagen bedienen, moet elk liftbordes een intercomsysteem bevatten dat mondelinge tweerichtingscommunicatie toelaat als de lift in evacuatiemodus is. Dit systeem moet toelaten om te communiceren tussen elk liftbordes, het evacuatieniveau en de machinekamer of het paneel van de hulpverleningsoperaties, zodat de bouwlagen waarop personen met beperkte mobiliteit die dienen geëvacueerd te worden zich bevinden kunnen herkend worden en deze informatie aan de persoon belast met de evacuatie kan doorgegeven worden."@nl ;
+    fro:linksTo fbo-be:BuildingLayer,
+        fbo-be:EvacuationLevel .
 
-fro:Member_6_4_1_8_1_2 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#CommunicationDevice\">communicatie-uitrusting</a> op elk <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">liftbordes</a> en op het <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a> moet een ingebouwde <a href=\"https://ontology.firebim.be/ontology/fbo#CommunicationDevice\">microfoon</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#CommunicationDevice\">luidspreker</a> bevatten, een <a href=\"https://ontology.firebim.be/ontology/fbo#Telephone\">telefoon met hoorn</a> is niet toegelaten."@nl .
+ex:Member_6_4_1_8_1_2 a fro:Member ;
+    fro:hasOriginalText "De communicatie-uitrusting op elk liftbordes en op het evacuatieniveau moet een ingebouwde microfoon en luidspreker bevatten, een telefoon met hoorn is niet toegelaten."@nl ;
+    fro:linksTo fbo-be:BuildingLayer,
+        fbo-be:EvacuationLevel .
 
-fro:Member_6_4_1_8_1_3 a fro:Member ;
-    fro:hasOriginalText "Het <a href=\"https://ontology.firebim.be/ontology/fbo#CommunicationDevice\">communicatiesysteem</a> is zo ontworpen dat de werking ervan verzekerd blijft in geval van <a href=\"https://ontology.firebim.be/ontology/fbo#FaultDetection\">defect van het communicatiesysteem</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#ElevatorCar\">liftkooi</a> bedoeld in punt 6.4.1.7."@nl .
+ex:Member_6_4_1_8_1_3 a fro:Member ;
+    fro:hasForwardReference ex:Section_6_4_1_7 ;
+    fro:hasOriginalText "Het communicatiesysteem is zo ontworpen dat de werking ervan verzekerd blijft in geval van defect van het communicatiesysteem van de liftkooi bedoeld in punt 6.4.1.7."@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

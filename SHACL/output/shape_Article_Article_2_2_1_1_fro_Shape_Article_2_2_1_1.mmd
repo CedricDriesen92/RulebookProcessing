@@ -1,0 +1,29 @@
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT(["fro:Shape_Article_2_2_1_1<br/>Target: fbo:FireCompartment, fbo:BuildingStorey, fbo:AreaFloorRoom<br/>Elk compartiment (en bouwlagen en lokalen) heeft een minimum aantal uitgangen in functie van de m..."]):::rootCls
+    OR1{"OR"}:::orCls
+    AND2{"AND"}:::andCls
+    P3["ex:occupancyCount | xsd:integer | < 100"]:::propCls
+    P4["fbo:hasSubitem | class: fbo:Exit | min: 1<br/>één uitgang indien de maximale bezetting minder dan 100 personen bedraagt"]:::propCls
+    AND5{"AND"}:::andCls
+    P6["ex:occupancyCount | xsd:integer | >= 100 | < 500"]:::propCls
+    P7["fbo:hasSubitem | class: fbo:Exit | min: 2<br/>twee uitgangen indien de bezetting 100 of meer dan 100 en minder dan 500 pers..."]:::propCls
+    AND8{"AND"}:::andCls
+    P9["ex:occupancyCount | xsd:integer | >= 500"]:::propCls
+    SQ10[/"2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling ..."/]:::sqCls
+    ROOT --> OR1
+    OR1 --> AND2
+    AND2 --> P3
+    AND2 --> P4
+    OR1 --> AND5
+    AND5 --> P6
+    AND5 --> P7
+    OR1 --> AND8
+    AND8 --> P9
+    AND8 --> SQ10

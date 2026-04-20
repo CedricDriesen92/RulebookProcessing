@@ -1,17 +1,18 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix ex: <https://example.org/rulebook#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_0_3 a fro:Section ;
+ex:Section_0_3 a fro:Section ;
     fro:hasID "0.3" ;
     fro:hasOriginalText "Platen"@nl ;
-    fro:hasSection fro:Section_0_3_1 .
+    fro:hasSection ex:Section_0_3_1 .
 
-fro:Section_0_3_1 a fro:Section ;
+ex:Section_0_3_1 a fro:Section ;
     fro:hasID "0.3.1" ;
     fro:hasOriginalText """[De platen zijn opgenomen bij de betreffende tekst]
 Plaat 2.1 - Gevels tussen gebouwen
@@ -26,4 +27,4 @@ fro:Figure_2_2 a fro:Figure ;
     fro:hasID "F2.2" ;
     fro:hasOriginalText "Plaat 2.2 - Gevels tussen compartimenten"@nl .
 
-fro:Section_0 fro:hasSection fro:Section_0_3 .
+ex:Section_0 fro:hasSection ex:Section_0_3 .

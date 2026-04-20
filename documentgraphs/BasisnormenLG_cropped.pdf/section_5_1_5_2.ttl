@@ -1,87 +1,133 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_5_1_5_2 a fro:Section ;
-    fro:hasArticle fro:Article_5_1_5_2_1,
-        fro:Article_5_1_5_2_2 ;
+ex:Section_5_1_5_2 a fro:Section ;
+    fro:hasArticle ex:Article_5_1_5_2_1,
+        ex:Article_5_1_5_2_2 ;
     fro:hasID "5.1.5.2" ;
-    fro:hasOriginalText "Horizontale kokers"@nl .
+    fro:hasOriginalText "Horizontale kokers" .
 
-fro:Article_5_1_5_2_1 a fro:Article ;
+ex:Article_5_1_5_2_1 a fro:Article ;
     fro:hasID "A5.1.5.2.1" ;
-    fro:hasMember fro:Member_5_1_5_2_1_1,
-        fro:Member_5_1_5_2_1_2,
-        fro:Member_5_1_5_2_1_3 ;
-    fro:hasOriginalText "Wanneer <a href=\"https://ontology.firebim.be/ontology/fbo#HorizontalShaft\">horizontale kokers</a> door <a href=\"https://ontology.firebim.be/ontology/fbo#VerticalShaft\">verticale wanden</a> dringen waarvoor een <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> vereist is, geldt één van de volgende drie maatregelen:"@nl ;
+    fro:hasMember ex:Member_5_1_5_2_1_1,
+        ex:Member_5_1_5_2_1_2,
+        ex:Member_5_1_5_2_1_3,
+        ex:Member_5_1_5_2_1_4 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Article_5_1_5_2_2 a fro:Article ;
+ex:Article_5_1_5_2_2 a fro:Article ;
     fro:hasID "A5.1.5.2.2" ;
-    fro:hasMember fro:Member_5_1_5_2_2_1,
-        fro:Member_5_1_5_2_2_2,
-        fro:Member_5_1_5_2_2_3,
-        fro:Member_5_1_5_2_2_4 ;
-    fro:hasOriginalText "Wanneer <a href=\"https://ontology.firebim.be/ontology/fbo#VerticalShaft\">verticale kokers</a> door <a href=\"https://ontology.firebim.be/ontology/fbo#HorizontalShaft\">horizontale wanden</a> dringen waarvoor een <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> vereist is, geldt één van de volgende drie maatregelen:"@nl ;
+    fro:hasMember ex:Member_5_1_5_2_2_1,
+        ex:Member_5_1_5_2_2_2,
+        ex:Member_5_1_5_2_2_3,
+        ex:Member_5_1_5_2_2_4,
+        ex:Member_5_1_5_2_2_5 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_5_1_5_2_1_1 a fro:Member ;
-    fro:hasOriginalText "1. de <a href=\"https://ontology.firebim.be/ontology/fbo#ShaftWall\">wanden van de horizontale kokers</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#ShaftHatch\">valluiken en deurtjes</a> hebben minstens de vereiste <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#VerticalShaft\">verticale wand</a>;"@nl .
+ex:Member_5_1_5_2_1_1 a fro:Member ;
+    fro:hasOriginalText "Wanneer horizontale kokers door verticale wanden dringen waarvoor een brandweerstand vereist is, geldt één van de volgende drie maatregelen:"@nl ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:HorizontalShaft,
+        fbo-be:WallTypeInternal .
 
-fro:Member_5_1_5_2_1_2 a fro:Member ;
-    fro:hasOriginalText "2. ter hoogte van de <a href=\"https://ontology.firebim.be/ontology/fbo#WallPenetration\">doorvoering</a> bevindt zich een <a href=\"https://ontology.firebim.be/ontology/fbo#StructuralElement\">bouwelement</a> met minstens de vereiste <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistance\">brandweerstand</a> van de <a href=\"https://ontology.firebim.be/ontology/fbo#VerticalShaft\">verticale wand</a>;"@nl .
+ex:Member_5_1_5_2_1_2 a fro:Member ;
+    fro:hasOriginalText "1. de wanden van de horizontale kokers en de valluiken en deurtjes hebben minstens de vereiste brandweerstand van de verticale wand;"@nl .
 
-fro:Member_5_1_5_2_1_3 a fro:Member ;
-    fro:hasMember fro:Member_5_1_5_2_1_3_1,
-        fro:Member_5_1_5_2_1_3_2,
-        fro:Member_5_1_5_2_1_3_3 ;
-    fro:hasOriginalText "3. de <a href=\"https://ontology.firebim.be/ontology/fbo#ShaftWall\">wanden van de horizontale kokers</a> hebben <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 30</a>; de <a href=\"https://ontology.firebim.be/ontology/fbo#ShaftHatch\">valluiken en deurtjes</a> <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI1 30</a>; de kokers worden ter hoogte van elk <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> onderbroken door <a href=\"https://ontology.firebim.be/ontology/fbo#VerticalShaft\">verticale schermen</a> met de volgende kenmerken:"@nl .
+ex:Member_5_1_5_2_1_3 a fro:Member ;
+    fro:hasOriginalText "2. ter hoogte van de doorvoering bevindt zich een bouwelement met minstens de vereiste brandweerstand van de verticale wand;"@nl .
 
-fro:Member_5_1_5_2_1_3_1 a fro:Member ;
-    fro:hasOriginalText "- ze bestaan uit een <a href=\"https://ontology.firebim.be/ontology/fbo#MaterialClass\">materiaal van klasse A1 en/of A2-s1,d0</a>;"@nl .
+ex:Member_5_1_5_2_1_4 a fro:Member ;
+    fro:hasMember ex:Member_5_1_5_2_1_4_1,
+        ex:Member_5_1_5_2_1_4_2,
+        ex:Member_5_1_5_2_1_4_3 ;
+    fro:hasOriginalText "3. de wanden van de horizontale kokers hebben EI 30; de valluiken en deurtjes EI1 30; de kokers worden ter hoogte van elk compartiment onderbroken door verticale schermen met de volgende kenmerken:"@nl ;
+    fro:linksTo fbo-be:FireCompartment .
 
-fro:Member_5_1_5_2_1_3_2 a fro:Member ;
-    fro:hasOriginalText "- ze beslaan de gehele ruimte tussen de <a href=\"https://ontology.firebim.be/ontology/fbo#Pipe\">leidingen</a>;"@nl .
+ex:Member_5_1_5_2_1_4_1 a fro:Member ;
+    fro:hasOriginalText "- ze bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;"@nl .
 
-fro:Member_5_1_5_2_1_3_3 a fro:Member ;
-    fro:hasOriginalText "- ze hebben <a href=\"https://ontology.firebim.be/ontology/fbo#FireResistanceRating\">EI 30</a>."@nl .
+ex:Member_5_1_5_2_1_4_2 a fro:Member ;
+    fro:hasOriginalText "- ze beslaan de gehele ruimte tussen de leidingen;"@nl .
 
-fro:Member_5_1_5_2_2_1 a fro:Member ;
-    fro:hasOriginalText """1. de <a href="https://ontology.firebim.be/ontology/fbo#ShaftWall">wanden van de verticale kokers</a> hebben een <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">brandweerstand</a> <a href="https://ontology.firebim.be/ontology/fbo#FireResistanceRating">EI 60</a>; de <a href="https://ontology.firebim.be/ontology/fbo#ShaftHatch">valluiken en deurtjes</a> hebben <a href="https://ontology.firebim.be/ontology/fbo#FireResistanceRating">EI1 30</a>.
-Zij hebben aan hun boveneind een degelijke <a href="https://ontology.firebim.be/ontology/fbo#Ventilation">verluchting</a>. De vrije <a href="https://ontology.firebim.be/ontology/fbo#VentilationDuctCrossSection">verluchtingsdoorsnede</a> van de koker is ten minste gelijk aan 10% van de totale <a href="https://ontology.firebim.be/ontology/fbo#VentilationDuctCrossSection">horizontale doorsnede</a> van de koker, met een minimum van 4 dm²."""@nl .
+ex:Member_5_1_5_2_1_4_3 a fro:Member ;
+    fro:hasOriginalText "- ze hebben EI 30."@nl .
 
-fro:Member_5_1_5_2_2_2 a fro:Member ;
-    fro:hasMember fro:Member_5_1_5_2_2_2_1,
-        fro:Member_5_1_5_2_2_2_2,
-        fro:Member_5_1_5_2_2_2_3,
-        fro:Member_5_1_5_2_2_2_4 ;
-    fro:hasOriginalText "De vrije <a href=\"https://ontology.firebim.be/ontology/fbo#VentilationDuctCrossSection\">verluchtingsdoorsnede</a> kan uitgerust worden met <a href=\"https://ontology.firebim.be/ontology/fbo#MotorizedVentilationFlap\">gemotoriseerde verluchtingskleppen</a> waarvan de opening als volgt bevolen wordt:"@nl .
+ex:Member_5_1_5_2_2_1 a fro:Member ;
+    fro:hasOriginalText "Wanneer verticale kokers door horizontale wanden dringen waarvoor een brandweerstand vereist is, geldt één van de volgende drie maatregelen:"@nl ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:VerticalShaft,
+        fbo-be:WallTypeInternal .
 
-fro:Member_5_1_5_2_2_2_1 a fro:Member ;
-    fro:hasOriginalText "- automatisch bij <a href=\"https://ontology.firebim.be/ontology/fbo#FireDetection\">detectie van een brand</a> in de koker;"@nl .
+ex:Member_5_1_5_2_2_2 a fro:Member ;
+    fro:hasMember ex:Member_5_1_5_2_2_2_1,
+        ex:Member_5_1_5_2_2_2_2,
+        ex:Member_5_1_5_2_2_2_3 ;
+    fro:hasOriginalText "1. de wanden van de verticale kokers hebben een brandweerstand EI 60; de valluiken en deurtjes hebben EI1 30."@nl .
 
-fro:Member_5_1_5_2_2_2_2 a fro:Member ;
-    fro:hasOriginalText "- automatisch bij de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDetection\">detectie van een brand</a> in het <a href=\"https://ontology.firebim.be/ontology/fbo#Building\">gebouw</a>, indien dit uitgerust is met een algemene <a href=\"https://ontology.firebim.be/ontology/fbo#FireDetectionSystem\">branddetectie-installatie</a>;"@nl .
+ex:Member_5_1_5_2_2_2_1 a fro:Member ;
+    fro:hasOriginalText "Zij hebben aan hun boveneind een degelijke verluchting. De vrije verluchtingsdoorsnede van de koker is ten minste gelijk aan 10% van de totale horizontale doorsnede van de koker, met een minimum van 4 dm²."@nl ;
+    fro:linksTo fbo-be:SmokeAndHeatExtraction .
 
-fro:Member_5_1_5_2_2_2_3 a fro:Member ;
-    fro:hasOriginalText "- automatisch bij een defect aan de <a href=\"https://ontology.firebim.be/ontology/fbo#EnergySupply\">energiebron</a>, de <a href=\"https://ontology.firebim.be/ontology/fbo#EnergySupply\">voeding</a> of de <a href=\"https://ontology.firebim.be/ontology/fbo#ControlSystem\">bediening</a> (toestel met positieve veiligheid);"@nl .
+ex:Member_5_1_5_2_2_2_2 a fro:Member ;
+    fro:hasMember ex:Member_5_1_5_2_2_2_2_1,
+        ex:Member_5_1_5_2_2_2_2_2,
+        ex:Member_5_1_5_2_2_2_2_3,
+        ex:Member_5_1_5_2_2_2_2_4 ;
+    fro:hasOriginalText "De vrije verluchtingsdoorsnede kan uitgerust worden met gemotoriseerde verluchtingskleppen waarvan de opening als volgt bevolen wordt:"@nl .
 
-fro:Member_5_1_5_2_2_2_4 a fro:Member ;
-    fro:hasOriginalText "- manueel via een <a href=\"https://ontology.firebim.be/ontology/fbo#ControlSystem\">bediening</a> op een <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a> op een in akkoord met de brandweer bepaalde plaats."@nl .
+ex:Member_5_1_5_2_2_2_2_1 a fro:Member ;
+    fro:hasOriginalText "- automatisch bij detectie van een brand in de koker;"@nl ;
+    fro:linksTo fbo-be:AutomaticDetectionTotal .
 
-fro:Member_5_1_5_2_2_3 a fro:Member ;
-    fro:hasOriginalText "Indien de vrije <a href=\"https://ontology.firebim.be/ontology/fbo#VentilationDuctCrossSection\">verluchtingsdoorsnede</a> van een koker uitgerust is met een <a href=\"https://ontology.firebim.be/ontology/fbo#MotorizedVentilationFlap\">gemotoriseerde verluchtingsklep</a>, moeten de eventuele <a href=\"https://ontology.firebim.be/ontology/fbo#GasPipe\">gasleidingen</a> in deze koker beantwoorden aan de voorschriften van de norm NBN D 51-003 of van de norm NBN D 51-006 voor de leidingen en verbindingen in een niet-verluchte <a href=\"https://ontology.firebim.be/ontology/fbo#TechnicalRoom\">technische koker</a>."@nl .
+ex:Member_5_1_5_2_2_2_2_2 a fro:Member ;
+    fro:hasOriginalText "- automatisch bij de detectie van een brand in het gebouw, indien dit uitgerust is met een algemene branddetectie-installatie;"@nl ;
+    fro:linksTo fbo-be:AutomaticDetectionTotal .
 
-fro:Member_5_1_5_2_2_4 a fro:Member ;
-    fro:hasOriginalText """2. ter hoogte van de <a href="https://ontology.firebim.be/ontology/fbo#WallPenetration">doorvoering</a> bevindt zich een <a href="https://ontology.firebim.be/ontology/fbo#StructuralElement">bouwelement</a> met minstens de vereiste <a href="https://ontology.firebim.be/ontology/fbo#FireResistance">brandweerstand</a> van de <a href="https://ontology.firebim.be/ontology/fbo#HorizontalShaft">horizontale wand</a>;
-3. de <a href="https://ontology.firebim.be/ontology/fbo#ShaftWall">wanden van de verticale kokers</a> hebben <a href="https://ontology.firebim.be/ontology/fbo#FireResistanceRating">EI 30</a>; de <a href="https://ontology.firebim.be/ontology/fbo#ShaftHatch">valluiken en deurtjes</a> <a href="https://ontology.firebim.be/ontology/fbo#FireResistanceRating">EI1 30</a>; de <a href="https://ontology.firebim.be/ontology/fbo#VerticalShaft">verticale kokers</a> worden ter hoogte van elk <a href="https://ontology.firebim.be/ontology/fbo#Compartment">compartiment</a> onderbroken door <a href="https://ontology.firebim.be/ontology/fbo#HorizontalShaft">horizontale schermen</a> met de volgende kenmerken:
-- zij bestaan uit een <a href="https://ontology.firebim.be/ontology/fbo#MaterialClass">materiaal van klasse A1 en/of A2-s1,d0</a>;
-- zij beslaan de gehele ruimte tussen de <a href="https://ontology.firebim.be/ontology/fbo#Pipe">leidingen</a>;
-- zij hebben <a href="https://ontology.firebim.be/ontology/fbo#FireResistanceRating">EI 30</a>.
+ex:Member_5_1_5_2_2_2_2_3 a fro:Member ;
+    fro:hasOriginalText "- automatisch bij een defect aan de energiebron, de voeding of de bediening (toestel met positieve veiligheid);"@nl .
 
-In gevallen 2 en 3 moeten de kokers niet verlucht zijn."""@nl .
+ex:Member_5_1_5_2_2_2_2_4 a fro:Member ;
+    fro:hasOriginalText "- manueel via een bediening op een evacuatieniveau op een in akkoord met de brandweer bepaalde plaats."@nl .
+
+ex:Member_5_1_5_2_2_2_3 a fro:Member ;
+    fro:hasOriginalText "Indien de vrije verluchtingsdoorsnede van een koker uitgerust is met een gemotoriseerde verluchtingsklep, moeten de eventuele gasleidingen in deze koker beantwoorden aan de voorschriften van de norm NBN D 51-003 of van de norm NBN D 51-006 voor de leidingen en verbindingen in een niet-verluchte technische koker."@nl ;
+    fro:hasReference fro:Reference_NBN_D_51_003,
+        fro:Reference_NBN_D_51_006 .
+
+ex:Member_5_1_5_2_2_3 a fro:Member ;
+    fro:hasOriginalText "2. ter hoogte van de doorvoering bevindt zich een bouwelement met minstens de vereiste brandweerstand van de horizontale wand;"@nl .
+
+ex:Member_5_1_5_2_2_4 a fro:Member ;
+    fro:hasMember ex:Member_5_1_5_2_2_4_1,
+        ex:Member_5_1_5_2_2_4_2,
+        ex:Member_5_1_5_2_2_4_3 ;
+    fro:hasOriginalText "3. de wanden van de verticale kokers hebben EI 30; de valluiken en deurtjes EI1 30; de verticale kokers worden ter hoogte van elk compartiment onderbroken door horizontale schermen met de volgende kenmerken:"@nl ;
+    fro:linksTo fbo-be:FireCompartment .
+
+ex:Member_5_1_5_2_2_4_1 a fro:Member ;
+    fro:hasOriginalText "- zij bestaan uit een materiaal van klasse A1 en/of A2-s1,d0;"@nl .
+
+ex:Member_5_1_5_2_2_4_2 a fro:Member ;
+    fro:hasOriginalText "- zij beslaan de gehele ruimte tussen de leidingen;"@nl .
+
+ex:Member_5_1_5_2_2_4_3 a fro:Member ;
+    fro:hasOriginalText "- zij hebben EI 30."@nl .
+
+ex:Member_5_1_5_2_2_5 a fro:Member ;
+    fro:hasOriginalText "In gevallen 2 en 3 moeten de kokers niet verlucht zijn."@nl .
+
+fro:Reference_NBN_D_51_003 a fro:Reference ;
+    fro:hasID "NBN D 51-003" .
+
+fro:Reference_NBN_D_51_006 a fro:Reference ;
+    fro:hasID "NBN D 51-006" .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

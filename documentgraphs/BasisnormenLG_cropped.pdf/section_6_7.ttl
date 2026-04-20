@@ -1,21 +1,26 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_7 a fro:Section ;
-    fro:hasArticle fro:Article_6_7_1 ;
+ex:Section_6_7 a fro:Section ;
+    fro:hasArticle ex:Article_6_7_1 ;
     fro:hasID "6.7" ;
-    fro:hasOriginalText "Aëraulische installaties"@nl .
+    fro:hasOriginalText "Aëraulische installaties"@nl ;
+    fro:linksTo fbo-be:Conduits .
 
-fro:Article_6_7_1 a fro:Article ;
+ex:Article_6_7_1 a fro:Article ;
     fro:hasID "A6.7.1" ;
-    fro:hasMember fro:Member_6_7_1_1 ;
+    fro:hasMember ex:Member_6_7_1_1 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_6_7_1_1 a fro:Member ;
-    fro:hasOriginalText "Indien er een <a href=\"https://ontology.firebim.be/ontology/fbo#AeraulicSystem\">aëraulische installatie</a> aanwezig is, dient deze te voldoen aan de volgende voorwaarden."@nl .
+ex:Member_6_7_1_1 a fro:Member ;
+    fro:hasOriginalText "Indien er een aëraulische installatie aanwezig is, dient deze te voldoen aan de volgende voorwaarden."@nl ;
+    fro:linksTo fbo-be:Conduits .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2026-01-08T12:26:16.113379"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

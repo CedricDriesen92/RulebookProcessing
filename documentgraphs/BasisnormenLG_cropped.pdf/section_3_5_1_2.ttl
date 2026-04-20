@@ -1,30 +1,45 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_3_5_1 fro:hasSection fro:Section_3_5_1_2 .
+ex:Section_3_5_1_2 a fro:Section ;
+    fro:hasArticle ex:Article_3_5_1_2_1 ;
+    fro:hasID "3.5.1.2" ;
+    fro:hasOriginalText "Tegenover elkaar staande gevels en gevels die een tweevlakshoek vormen"@nl .
 
-fro:Article_3_5_1_2_1 a fro:Article ;
+ex:Article_3_5_1_2_1 a fro:Article ;
+    fro:hasFigure fro:Figure_2_2 ;
     fro:hasID "A3.5.1.2.1" ;
-    fro:hasMember fro:Member_3_5_1_2_1_1 ;
-    fro:hasOriginalText "Om te vermijden dat een <a href=\"https://ontology.firebim.be/ontology/fbo#FireSpreadPrevention\">brand</a> tussen twee <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> kan overslaan:"@nl ;
-    fro:hasVersion fro:v0_1 .
+    fro:hasMember ex:Member_3_5_1_2_1_1,
+        ex:Member_3_5_1_2_1_2 ;
+    fro:hasOriginalText "Om te vermijden dat een brand tussen twee compartimenten kan overslaan:"@nl ;
+    fro:hasVersion fro:v0_1 ;
+    fro:linksTo fbo-be:FireCompartment .
 
-fro:Member_3_5_1_2_1_1 a fro:Member ;
-    fro:hasOriginalText """a) ofwel, als <a href="https://ontology.firebim.be/ontology/fbo#Facade">gevels</a> tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de <a href="https://ontology.firebim.be/ontology/fbo#DistanceBetweenBuildings">afstand</a> (in m) tussen de <a href="https://ontology.firebim.be/ontology/fbo#Facade">geveldelen</a> die niet minstens E 30 of E 30 (o→i) hebben, ten minste:
-
+ex:Member_3_5_1_2_1_1 a fro:Member ;
+    fro:hasOriginalText """a) ofwel, als gevels tegenover elkaar staan of een inspringende tweevlakshoek vormen, dan bedraagt de afstand (in m) tussen de geveldelen die niet minstens E 30 of E 30 (o→i) hebben, ten minste:
 - h + 10cos α voor 0° ≤ α ≤ 90°
 - 2,5
 - 0 voor 90° < α ≤ 180°
+waarbij α de ingesloten hoek is en h de hoogte van het gebouw in m (zie plaat 2.2)."""@nl ;
+    fro:linksTo fbo:FireResistance,
+        fbo-be:HeightBuilding,
+        fbo-be:WallTypeExternal .
 
-waarbij α de ingesloten hoek is en h de <a href="https://ontology.firebim.be/ontology/fbo#BuildingHeight">hoogte van het gebouw</a> in m (zie plaat 2.2)."""@nl .
+ex:Member_3_5_1_2_1_2 a fro:Member ;
+    fro:hasOriginalText "b) ofwel mag de straling van een brand tussen gevels behorende tot verschillende compartimenten niet meer dan 15 kW/m² bedragen."@nl ;
+    fro:linksTo fbo-be:FireCompartment,
+        fbo-be:WallTypeExternal .
 
-fro:Section_3_5_1_2 a fro:Section ;
-    fro:hasArticle fro:Article_3_5_1_2_1 ;
-    fro:hasID "3.5.1.2" ;
-    fro:hasOriginalText "Tegenover elkaar staande <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevels</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#Facade\">gevels</a> die een tweevlakshoek vormen"@nl .
+fro:Figure_2_2 a fro:Figure ;
+    fro:hasID "F2.2" ;
+    fro:hasOriginalText "Plaat 2.2 - Gevels tussen compartimenten"@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

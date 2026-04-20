@@ -25,6 +25,15 @@ doc_graph_dir = f"documentgraphs/{input_file_base}"
 shacl_output_dir = f"SHACL/{input_file_base}" # Or a single file like f"SHACL/{input_file_base}.shacl.ttl"
 shacl_docs_path = "SHACLdocs.txt" # Path to the SHACL documentation file
 
+# --- Document-specific Ontology Configuration ---
+# Set the country code for the document being processed.
+# Country-specific ontology terms (e.g. fbo-be:) will be preferred over generic fbo: terms.
+# Supported values: "BE", "NL", "DK", "PT", "LT"
+DOCUMENT_COUNTRY_CODE = "BE"
+
+# The unified ontology already contains all FBO terms (base + all country variants).
+unified_ontology_path = "fbo/firebim_ontology_unified.ttl"
+
 # Ensure output directory exists
 os.makedirs(shacl_output_dir, exist_ok=True)
 
@@ -35,7 +44,7 @@ if not google_key:
 
 gemini_client = genai.Client(api_key=google_key)
 
-model_name = "gemini-3-pro-preview"
+model_name = "gemini-3.1-pro-preview"
 
 print(f"Using Gemini model: {model_name}")
 print(f"Input TTL directory: {doc_graph_dir}")
@@ -162,17 +171,72 @@ def load_shacl_documentation(filepath: str) -> str:
             shacl_documentation_content = "[Error Reading SHACL Documentation]"
     return shacl_documentation_content
 
-def generate_shacl_from_text(rule_text: str, rule_subject_uri: str, building_ontology_graph: Graph) -> str | None:
+def extract_ontology_terms_catalog(graph: Graph, catalog_label: str = "ontology") -> str:
+    """
+    Extracts all owl:Class, owl:DatatypeProperty, and owl:ObjectProperty subjects
+    from an ontology graph and returns a formatted catalog string.
+
+    The catalog lists each term as a prefixed name (e.g. fbo-be:Atrium) with its
+    English rdfs:label, so the LLM knows exactly which identifiers exist.
+
+    Args:
+        graph: An rdflib Graph containing the parsed ontology.
+        catalog_label: A human-readable name for log messages only.
+
+    Returns:
+        A multi-line string enumerating every defined term, or a placeholder if empty.
+    """
+    OWL = Namespace("http://www.w3.org/2002/07/owl#")
+    type_labels = {
+        str(OWL.Class): "Class",
+        str(OWL.DatatypeProperty): "DatatypeProperty",
+        str(OWL.ObjectProperty): "ObjectProperty",
+    }
+
+    lines = []
+    for type_uri, type_label in type_labels.items():
+        for subj in sorted(graph.subjects(RDF.type, URIRef(type_uri)), key=str):
+            try:
+                prefixed = graph.namespace_manager.qname(subj)
+            except Exception:
+                prefixed = str(subj)
+
+            # Prefer an English label; fall back to any label
+            en_label = None
+            any_label = None
+            for lbl in graph.objects(subj, RDFS.label):
+                lang = getattr(lbl, "language", None)
+                if lang == "en" and en_label is None:
+                    en_label = str(lbl)
+                elif any_label is None:
+                    any_label = str(lbl)
+            display_label = en_label or any_label
+
+            entry = f"  - {prefixed} ({type_label})"
+            if display_label:
+                entry += f': "{display_label}"'
+            lines.append(entry)
+
+    if not lines:
+        return f"  [No terms found in {catalog_label}]"
+    return "\n".join(lines)
+
+
+def generate_shacl_from_text(
+    rule_text: str,
+    rule_subject_uri: str,
+    ontology_graph: Graph,
+) -> str | None:
     """
     Uses Gemini to generate a SHACL shape in Turtle format directly from
-    the original regulatory text associated with a specific subject URI,
-    dynamically including SHACL documentation in the prompt.
-    Attempts to clean markdown code fences from the response.
+    the original regulatory text associated with a specific subject URI.
+    Includes the full catalog of defined ontology terms in the prompt so the
+    model strongly prefers terms that actually exist in the ontology.
 
     Args:
         rule_text: The original text of the rule/article/member.
         rule_subject_uri: The URI of the rule/article/member in the source document graph.
-        building_ontology_graph: An rdflib Graph object containing the building ontology.
+        ontology_graph: rdflib Graph of the unified FBO ontology (contains base + all country terms).
 
     Returns:
         A string containing the generated SHACL shape in Turtle format, or None if generation fails.
@@ -180,50 +244,138 @@ def generate_shacl_from_text(rule_text: str, rule_subject_uri: str, building_ont
     # Load SHACL documentation content (cached after first load)
     shacl_docs = load_shacl_documentation(shacl_docs_path)
 
-    # Basic ontology context
-    ontology_prefixes = "\n".join([f"@prefix {prefix}: <{namespace}> ." for prefix, namespace in building_ontology_graph.namespaces()])
+    # Collect namespace prefixes from the ontology graph
+    ontology_prefixes = "\n".join(
+        f"@prefix {p}: <{ns}> ."
+        for p, ns in sorted((str(p), str(ns)) for p, ns in ontology_graph.namespaces())
+    )
+
+    # Determine the country namespace URI so we can split the catalog into two sections
+    country_prefix = f"fbo-{DOCUMENT_COUNTRY_CODE.lower()}"
+    country_ns_uri = next(
+        (str(ns) for p, ns in ontology_graph.namespaces() if str(p) == country_prefix),
+        None,
+    )
+
+    # Build term catalogs: country-specific terms first, then base fbo: terms
+    # Filter by namespace URI prefix so both come from the single unified graph
+    def _catalog_for_ns(ns_uri: str | None) -> str:
+        """Return catalog lines for terms whose URI starts with ns_uri."""
+        if ns_uri is None:
+            return "  [Namespace not found in ontology]"
+        filtered = Graph()
+        filtered.namespace_manager = ontology_graph.namespace_manager
+        OWL = Namespace("http://www.w3.org/2002/07/owl#")
+        for type_uri in (OWL.Class, OWL.DatatypeProperty, OWL.ObjectProperty):
+            for subj in ontology_graph.subjects(RDF.type, type_uri):
+                if str(subj).startswith(ns_uri):
+                    for t in ontology_graph.triples((subj, None, None)):
+                        filtered.add(t)
+        return extract_ontology_terms_catalog(filtered, ns_uri)
+
+    base_ns_uri = next(
+        (str(ns) for p, ns in ontology_graph.namespaces() if str(p) == "fbo"),
+        None,
+    )
+    country_terms_catalog = _catalog_for_ns(country_ns_uri)
+    base_terms_catalog = _catalog_for_ns(base_ns_uri)
 
     # Dynamically create the system prompt including the loaded SHACL docs
-    system_prompt = f"""You are an AI expert specializing in building regulations, Semantic Web technologies, SHACL, and building ontologies (like FRO, BOT, etc.). Your task is to translate a given piece of regulatory text directly into a SHACL shape expressed in Turtle format. Use the provided SHACL documentation as a reference.
+    system_prompt = f"""You are an AI expert specializing in building regulations, Semantic Web technologies, SHACL, and building ontologies (like FRO, FBO, BOT, etc.). Your task is to translate a given piece of regulatory text directly into a SHACL shape expressed in Turtle format. Use the provided SHACL documentation as a reference.
 
 **Input:**
 1.  **Regulatory Text:** The original text content of a specific rule, article, or section from a building code document.
 2.  **Subject URI:** The unique identifier (`<{rule_subject_uri}>`) for this rule within its source document graph.
-3.  **Ontology Context:** Assume the existence of relevant building ontology terms (prefixes provided below). Use appropriate terms from common building ontologies or the FRO namespace (`fro:`) where applicable.
+3.  **Ontology Term Catalogs:** The exhaustive lists of every class and property defined in the building ontology are provided below. You MUST restrict yourself to these terms.
 4.  **SHACL Documentation:** Reference information from the SHACL specification is included below.
 
-**Ontology Prefixes Available:**
+**Ontology Prefixes:**
 ```turtle
 @prefix sh: <{SH}> .
 @prefix xsd: <{XSD}> .
 @prefix fro: <{FRO}> .
-@prefix fbo: <{FBO}> . # Example Building Ontology namespace
-# Add other relevant prefixes as needed
 {ontology_prefixes}
 ```
 
+---
+**Ontology Term Usage — Important Guidelines:**
+
+The catalogs below list every class and property defined in the building ontology. You should **strongly prefer** these terms over any others.
+
+**Priority rule:** Always prefer country-specific terms (`fbo-{DOCUMENT_COUNTRY_CODE.lower()}:`) over generic FBO terms (`fbo:`) when both describe the same concept.
+
+Only use a term that is **not** in the catalogs below as an absolute last resort — i.e. when no existing term even partially covers the concept. If you do invent a term outside the ontology, add a `# NOTE: no ontology term found` comment on that line so it is easy to review.
+
+**Available country-specific terms — USE THESE FIRST (`fbo-{DOCUMENT_COUNTRY_CODE.lower()}:`):**
+{country_terms_catalog}
+
+**Available base FBO terms — use when no country-specific equivalent exists (`fbo:`):**
+{base_terms_catalog}
+---
+
 **Task:**
-Analyze the provided **Regulatory Text**. Identify the core requirements, conditions of applicability, exceptions, and any selections. Translate these logical components into a complete and valid SHACL NodeShape in Turtle format, consulting the **SHACL Documentation** provided below as needed.
+Analyze the provided **Regulatory Text** with the goal of producing a **maximally complete and faithful** SHACL representation. Your output must be a 1-to-1 translation of the regulatory text into SHACL — nothing omitted, nothing simplified, nothing merged. The SHACL output should be so thorough that someone reading ONLY the shapes could reconstruct the full meaning of the original regulation.
+
+**CRITICAL — Completeness Rules (violations are unacceptable):**
+
+A. **Every distinct rule, sub-rule, bullet point, list item, and table row** in the text MUST produce its own `sh:PropertyShape` or `sh:NodeShape`. Do NOT merge multiple rules into one shape. If the text has 5 bullet points, you need at least 5 property constraints. If the text has a table with 4 data rows, each row must be represented.
+
+B. **Tables are especially important.** Each cell combination in a regulatory table represents a distinct requirement. For a table with N rows × M columns of requirements, you need N×M constraints (or N shapes with M properties each). Every row header, column header, and cell value must appear in the SHACL. Model tables as separate `sh:NodeShape`s per row or per logical grouping, with `sh:property` constraints matching each column value.
+
+C. **Footnotes, notes, and parenthetical exceptions** (e.g., "(*) except when...", "sauf si...", "pour autant que...") are MANDATORY to model. These often contain the most critical constraints — percentage thresholds, material exclusions, sealing requirements. Each footnote must become an explicit `sh:not`, `sh:or` alternative, or separate conditional shape. Never ignore footnotes.
+
+D. **Conditional logic must be precise:**
+   - "condition A AND condition B" → `sh:and ( [...] [...] )`
+   - "condition A OR condition B" → `sh:or ( [...] [...] )`
+   - "X unless/except Y" → main shape for X, plus `sh:not` or `sh:or` alternative for Y
+   - "both of the following conditions" → `sh:and`, NEVER `sh:or`
+   - When the text says requirements from two tables must be met "simultaneously", model them as `sh:and`.
+
+E. **Every numeric value** must be captured with its exact quantity, unit, and comparison operator:
+   - "≥ 1 m" → `sh:minInclusive 1.0` with datatype
+   - "≤ 20 mm" → `sh:maxInclusive 20` with datatype
+   - "≥ 0,6 m" → `sh:minInclusive 0.6` with datatype
+   - "60 minutes" → explicit duration constraint
+   - Percentages like "< 5%" → `sh:maxExclusive 5.0`
+   Do NOT approximate or round. Use the exact values from the text.
+
+F. **Definitions and criteria** stated in the text (e.g., what fire stability R means, what integrity E means, what insulation I means) must each become their own shape or property constraint with the full definition captured in `sh:description` or `sh:message`. Do not skip definitional content — it establishes the semantic meaning of terms used elsewhere.
+
+G. **Classification systems and indices** (e.g., fire direction i→o, o→i, i↔o; the 'ef' suffix for external fire curve; Euro-class fire reaction ratings A1, A2, B, C, D, E, F) must be modeled as structured constraints, not just free-text strings. Use `sh:in` lists, `sh:pattern` regex, or `sh:hasValue` as appropriate.
+
+H. **Cross-references** (e.g., "see Table 6", "see article 3.5.1.1") should be noted in `sh:description` or comments. If the referenced content IS present in the text (e.g., the table is included), model it fully. If the reference is to external content not in the provided text, add a `# See: [reference]` comment.
+
+I. **Material exclusions and prohibitions** (e.g., "EPS and XPS are not permitted") must be explicitly modeled with `sh:not` constraints, not just omitted from an `sh:in` list.
+
+J. **Alternative solutions** (e.g., "alternatively, a horizontal projection of ≥ 0.6 m") must be modeled as a separate `sh:or` branch with all their own specific constraints.
+
+Work through the text systematically:
+1. **Scope / applicability conditions** — what type of building, space, element, or situation does the rule apply to? These conditions must become part of `sh:target` or an enclosing filter/pre-condition, NOT be silently dropped. For example, if the rule says "ground-floor compartments", the shape must explicitly target only ground-floor compartments, not all compartments.
+2. **Core requirements** — the actual constraint(s) that must hold.
+3. **Exceptions and special cases** — model each one explicitly (e.g. with `sh:or`, `sh:not`, a separate `sh:NodeShape`, or a SPARQL-based constraint).
+4. **Quantitative thresholds** — capture every numeric value, unit, and comparison operator exactly as stated.
+
+If the text contains multiple independent sub-rules, generate a separate `sh:NodeShape` for each one. When in doubt, generate MORE shapes rather than fewer.
 
 **Output Requirements:**
-*   Generate **only** the SHACL shape in valid Turtle format.
-*   Start directly with `@prefix` or the NodeShape definition. Do **not** include explanations, apologies, or any text outside the Turtle syntax.
-*   Create a `sh:NodeShape` (e.g., `:Shape_rule_subject_uri_local_name`).
-*   Define `sh:target` appropriately.
-*   Use relevant ontology properties (e.g., `fro:hasFireResistance`). Use placeholders if needed.
-*   Include clear `sh:message` properties.
+*   Generate **only** the SHACL shape(s) in valid Turtle format.
+*   Start directly with `@prefix` declarations or the NodeShape definition. Do **not** include explanations, apologies, or any text outside the Turtle syntax.
+*   Create one or more `sh:NodeShape`s (e.g., `:Shape_rule_subject_uri_local_name`).
+*   `sh:target` (or equivalent targeting) must encode ALL applicability conditions from the text — never broaden the target beyond what the rule actually covers but also never simplify the rule. The text must be translated as directly as possible, even if it means the rule is way more complicated.
+*   Strongly prefer ontology terms from the catalogs above. Only use a term outside the catalogs as a last resort; if you do, add a `# NOTE: no ontology term found` comment on that line.
+*   Include clear `sh:message` properties on **every** constraint, quoting the relevant fragment of the original text verbatim.
+*   Include `sh:description` on each `sh:NodeShape` summarizing what aspect of the regulation it encodes.
 *   Ensure syntactically correct Turtle.
 
----
-**SHACL Documentation Reference:**
-```html
-{shacl_docs}
-```
----
+**Self-check before outputting:** Count the number of distinct requirements, conditions, exceptions, table rows, and bullet points in the input text. Your SHACL output must have at least that many constraints. If your output has fewer constraints than the input has distinct regulatory statements, you have oversimplified — go back and add the missing ones.
+
 
 Now, generate the SHACL shape for the following text, considering its subject URI is `<{rule_subject_uri}>`:
 """
-    prompt = f"{system_prompt}\n\nRegulatory Text:\n```\n{rule_text}\n```\n\nGenerated SHACL Shape (Turtle):\n"
+    prompt = (
+        f"{system_prompt}\n\nRegulatory Text:\n```\n{rule_text}\n```\n\n"
+        f"Generated SHACL Shape (Turtle):\n"
+    )
 
     max_retries = 3
     for attempt in range(max_retries):
@@ -315,25 +467,22 @@ def main():
         print(f"Error: No TTL files found in {doc_graph_dir}. Ensure TTL generation ran successfully.")
         return
 
-    # Load the building ontology
-    building_ontology_path = "buildingontologies/firebim_ontology_alex_2.ttl"
-    building_ontology_graph = Graph()
+    # Load the unified FBO ontology (contains base + all country-specific terms)
+    ontology_graph = Graph()
     try:
-        print(f"Loading building ontology from {building_ontology_path}...")
-        building_ontology_graph.parse(building_ontology_path, format="turtle")
-        print(f"Loaded building ontology with {len(building_ontology_graph)} triples.")
+        print(f"Loading unified FBO ontology from {unified_ontology_path}...")
+        ontology_graph.parse(unified_ontology_path, format="turtle")
+        print(f"Loaded unified FBO ontology with {len(ontology_graph)} triples.")
     except Exception as e:
-        print(f"Warning: Could not load building ontology from {building_ontology_path}: {e}")
+        print(f"Warning: Could not load unified FBO ontology from {unified_ontology_path}: {e}")
         print("SHACL generation context will be limited.")
 
     combined_shacl_graph = Graph()
-    # Bind namespaces
     combined_shacl_graph.bind("sh", SH)
     combined_shacl_graph.bind("xsd", XSD)
     combined_shacl_graph.bind("fro", FRO)
-    combined_shacl_graph.bind("fbo", FBO)
-    combined_shacl_graph.bind("dcterms", DCTERMS) # Add dcterms binding
-    for prefix, namespace in building_ontology_graph.namespaces():
+    combined_shacl_graph.bind("dcterms", DCTERMS)
+    for prefix, namespace in ontology_graph.namespaces():
         combined_shacl_graph.bind(prefix, namespace)
 
     print(f"\n--- Found {len(ttl_files)} TTL files to process for SHACL generation ---")
@@ -369,7 +518,7 @@ def main():
                  continue
 
             # Call the generation function with the article URI and combined text
-            shacl_ttl_output = generate_shacl_from_text(combined_rule_text, article_uri, building_ontology_graph)
+            shacl_ttl_output = generate_shacl_from_text(combined_rule_text, article_uri, ontology_graph)
 
             if shacl_ttl_output:
                 file_shacl_count += 1

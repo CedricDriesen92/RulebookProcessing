@@ -1,29 +1,41 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_5_3_1 a fro:Section ;
-    fro:hasArticle fro:Article_5_3_1_1 ;
+ex:Section_5_3 fro:hasSection ex:Section_5_3_1 .
+
+ex:Article_5_3_1_1 a fro:Article ;
+    fro:hasID "A5.3.1.1" ;
+    fro:hasMember ex:Member_5_3_1_1_1,
+        ex:Member_5_3_1_1_2,
+        ex:Member_5_3_1_1_3 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_5_3_1_1_1 a fro:Member ;
+    fro:hasOriginalText "Kunnen er meer dan 500 personen in verblijven, dan mogen deze zalen enkel ondergronds ingericht worden wanneer het verschil tussen het laagste vloerpeil van deze zalen en het dichtstbijzijnde gelegen evacuatieniveau niet groter is dan 3 m."@nl ;
+    fro:linksTo fbo:NumberOccupants,
+        fbo-be:EvacuationLevel .
+
+ex:Member_5_3_1_1_2 a fro:Member ;
+    fro:hasOriginalText "Zijn voornoemde zalen bestemd voor maximum 500 personen dan mogen zij ondergronds ingericht worden op voorwaarde dat het voor het publiek toegankelijke laagste vloerpeil niet meer dan 4 m ligt beneden het gemiddelde peil der verschillende evacuatieniveaus van de inrichting."@nl ;
+    fro:linksTo fbo:NumberOccupants,
+        fbo-be:EvacuationLevel .
+
+ex:Member_5_3_1_1_3 a fro:Member ;
+    fro:hasOriginalText "Het aantal uitgangen wordt bepaald zoals voor de compartimenten."@nl ;
+    fro:linksTo fbo-be:FireCompartment,
+        fbo-be:NumberOfExits .
+
+ex:Section_5_3_1 a fro:Section ;
+    fro:hasArticle ex:Article_5_3_1_1 ;
     fro:hasID "5.3.1" ;
     fro:hasOriginalText "Algemeen."@nl .
 
-fro:Article_5_3_1_1 a fro:Article ;
-    fro:hasID "A5.3.1.1" ;
-    fro:hasMember fro:Member_5_3_1_1_1,
-        fro:Member_5_3_1_1_2,
-        fro:Member_5_3_1_1_3 ;
-    fro:hasVersion fro:v0_1 .
-
-fro:Member_5_3_1_1_1 a fro:Member ;
-    fro:hasOriginalText "Kunnen er meer dan 500 <a href=\"https://ontology.firebim.be/ontology/fbo#Occupancy\">personen</a> in verblijven, dan mogen deze <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">zalen</a> enkel <a href=\"https://ontology.firebim.be/ontology/fbo#UndergroundFloor\">ondergronds</a> ingericht worden wanneer het verschil tussen het laagste <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">vloerpeil</a> van deze <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">zalen</a> en het dichtstbijzijnde gelegen <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveau</a> niet groter is dan 3 m."@nl .
-
-fro:Member_5_3_1_1_2 a fro:Member ;
-    fro:hasOriginalText "Zijn voornoemde <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">zalen</a> bestemd voor maximum 500 <a href=\"https://ontology.firebim.be/ontology/fbo#Occupancy\">personen</a> dan mogen zij <a href=\"https://ontology.firebim.be/ontology/fbo#UndergroundFloor\">ondergronds</a> ingericht worden op voorwaarde dat het voor het publiek toegankelijke laagste <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">vloerpeil</a> niet meer dan 4 m ligt beneden het gemiddelde peil der verschillende <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationLevel\">evacuatieniveaus</a> van de inrichting."@nl .
-
-fro:Member_5_3_1_1_3 a fro:Member ;
-    fro:hasOriginalText "Het aantal <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> wordt bepaald zoals voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a>."@nl .
-
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

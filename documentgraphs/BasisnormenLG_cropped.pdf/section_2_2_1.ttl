@@ -1,41 +1,61 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_2_2_1 a fro:Section ;
-    fro:hasArticle fro:Article_2_2_1_1 ;
-    fro:hasID "2.2.1" ;
-    fro:hasOriginalText "Aantal <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a>."@nl .
+ex:Section_2_2 fro:hasSection ex:Section_2_2_1 .
 
-fro:Article_2_2_1_1 a fro:Article ;
+ex:Article_2_2_1_1 a fro:Article ;
     fro:hasID "A2.2.1.1" ;
-    fro:hasMember fro:Member_2_2_1_1_1,
-        fro:Member_2_2_1_1_2,
-        fro:Member_2_2_1_1_3 ;
+    fro:hasMember ex:Member_2_2_1_1_1,
+        ex:Member_2_2_1_1_2,
+        ex:Member_2_2_1_1_3 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_2_2_1_1_1 a fro:Member ;
-    fro:hasMember fro:Member_2_2_1_1_1_1,
-        fro:Member_2_2_1_1_1_2,
-        fro:Member_2_2_1_1_1_3 ;
-    fro:hasOriginalText "Elk <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> heeft minimum:"@nl .
+ex:Member_2_2_1_1_1 a fro:Member ;
+    fro:hasMember ex:Member_2_2_1_1_1_1,
+        ex:Member_2_2_1_1_1_2,
+        ex:Member_2_2_1_1_1_3 ;
+    fro:hasOriginalText "Elk compartiment heeft minimum:"@nl ;
+    fro:linksTo fbo-be:FireCompartment .
 
-fro:Member_2_2_1_1_1_1 a fro:Member ;
-    fro:hasOriginalText "-    één <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgang</a> indien de <a href=\"https://ontology.firebim.be/ontology/fbo#MaximumOccupancy\">maximale bezetting</a> minder dan 100 personen bedraagt;"@nl .
+ex:Member_2_2_1_1_1_1 a fro:Member ;
+    fro:hasOriginalText "één uitgang indien de maximale bezetting minder dan 100 personen bedraagt;"@nl ;
+    fro:linksTo fbo:Exit,
+        fbo:NumberOccupants .
 
-fro:Member_2_2_1_1_1_2 a fro:Member ;
-    fro:hasOriginalText "-    twee <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> indien de <a href=\"https://ontology.firebim.be/ontology/fbo#Occupancy\">bezetting</a> 100 of meer dan 100 en minder dan 500 personen bedraagt;"@nl .
+ex:Member_2_2_1_1_1_2 a fro:Member ;
+    fro:hasOriginalText "twee uitgangen indien de bezetting 100 of meer dan 100 en minder  dan 500 personen bedraagt;"@nl ;
+    fro:linksTo fbo:Exit,
+        fbo:NumberOccupants .
 
-fro:Member_2_2_1_1_1_3 a fro:Member ;
-    fro:hasOriginalText "-    2 + n <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de <a href=\"https://ontology.firebim.be/ontology/fbo#MaximumOccupancy\">maximale bezetting</a> van het <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a>, indien de <a href=\"https://ontology.firebim.be/ontology/fbo#Occupancy\">bezetting</a> 500 of meer dan 500 personen bedraagt."@nl .
+ex:Member_2_2_1_1_1_3 a fro:Member ;
+    fro:hasOriginalText "2 + n uitgangen waarbij n het geheel getal is onmiddellijk groter dan het quotiënt van de deling door 1000 van de maximale bezetting van het compartiment, indien de bezetting 500 of meer dan 500 personen bedraagt."@nl ;
+    fro:linksTo fbo:Exit,
+        fbo:NumberOccupants .
 
-fro:Member_2_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText "Het minimum aantal <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> kan door de <a href=\"https://ontology.firebim.be/ontology/fbo#FireDepartmentApproval\">brandweer</a> verhoogd worden in functie van de <a href=\"https://ontology.firebim.be/ontology/fbo#Occupancy\">bezetting</a> en de configuratie van de <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a>."@nl .
+ex:Member_2_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "Het  minimum  aantal  uitgangen  kan  door  de  brandweer  verhoogd  worden  in  functie  van  de bezetting en de configuratie van de lokalen."@nl ;
+    fro:linksTo fbo:Exit,
+        fbo:NumberOccupants,
+        fbo:Roomfunction .
 
-fro:Member_2_2_1_1_3 a fro:Member ;
-    fro:hasOriginalText "Het aantal <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> van <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlagen</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#Room\">lokalen</a> wordt bepaald zoals voor de <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a>."@nl .
+ex:Member_2_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText "Het aantal uitgangen van bouwlagen en lokalen wordt bepaald zoals voor de compartimenten."@nl ;
+    fro:linksTo fbo:Exit,
+        fbo:Roomfunction,
+        fbo-be:BuildingLayer,
+        fbo-be:FireCompartment .
+
+ex:Section_2_2_1 a fro:Section ;
+    fro:hasArticle ex:Article_2_2_1_1 ;
+    fro:hasID "2.2.1" ;
+    fro:hasOriginalText "Aantal uitgangen."@nl .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

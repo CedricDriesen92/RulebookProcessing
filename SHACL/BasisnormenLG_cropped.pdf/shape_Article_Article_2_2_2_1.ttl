@@ -1,80 +1,140 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix fro: <http://www.firebim.org/ontologies/fro#> .
-@prefix fbo: <http://www.firebim.org/ontologies/fbo#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
+@prefix art2221: <https://ontology.firebim.be/ontology/fro#Article_2_2_2_1/> .
+@prefix ex: <https://example.org/fire-regulation/> . # Used for terms missing from ontology
 
-<https://ontology.firebim.be/ontology/fro#Article_2_2_2_1>
-    a sh:NodeShape ;
-    rdfs:label "Article 2.2.2.1: Uitgangen en Evacuatiewegen"@nl ;
-    rdfs:comment "Regulates exits, evacuation routes, and specific requirements for underground levels and evacuation levels."@en ;
-    sh:targetClass fro:FireCompartment ;
-    
-    # 1. Exits must be in opposite zones
-    # "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment."
+# Clause 1: Compartment exits in opposite zones
+art2221:CompartmentExitsShape a sh:NodeShape ;
+    sh:targetClass fbo:FireCompartment ;
+    sh:description "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment." ;
     sh:property [
-        sh:path fro:hasExitZoneDistribution ;
-        sh:hasValue fro:OppositeZones ;
-        sh:message "De uitgangen moeten gelegen zijn in tegenovergestelde zones van het compartiment."@nl ;
-        sh:severity sh:Violation ;
+        sh:path fbo:hasSubitem ; # NOTE: no ontology term found for 'contains exit', using hasSubitem
+        sh:class fbo:Exit ;
+        sh:minCount 2 ; # Implicit: opposite zones require at least 2 exits
+        sh:message "De uitgangen zijn gelegen in tegenovergestelde zones van het compartiment." ;
     ] ;
-
-    # 2. Evacuation routes destinations
-    # "De evacuatiewegen leiden ofwel: naar buiten; naar trappenhuizen; naar trappen..."
     sh:property [
-        sh:path ( fro:hasEvacuationRoute fro:leadsTo ) ;
+        sh:path ex:exitsInOppositeZones ; # NOTE: no ontology term found
+        sh:datatype xsd:boolean ;
+        sh:hasValue true ;
+        sh:message "De uitgangen moeten in tegenovergestelde zones liggen." ;
+    ] .
+
+# Clause 2: Evacuation route destinations
+art2221:EvacuationRouteDestinationShape a sh:NodeShape ;
+    sh:targetClass fbo:AreaEvacuationroute ;
+    sh:description "De evacuatiewegen leiden ofwel: naar buiten; naar trappenhuizen; naar trappen, binnen of buiten het gebouw gelegen (voor de horizontale afstanden zie 4.4)." ;
+    sh:property [
+        sh:path fbo:isLinkedTo ; # NOTE: no ontology term found for 'leads to'
+        sh:message "De evacuatiewegen leiden ofwel: naar buiten; naar trappenhuizen; naar trappen." ;
         sh:or (
-            [ sh:class fro:Outdoors ]
-            [ sh:class fro:Stairwell ]
-            [ sh:class fro:Stairs ]
-        ) ;
-        sh:message "De evacuatiewegen moeten leiden naar buiten, naar trappenhuizen of naar trappen."@nl ;
-        sh:severity sh:Violation ;
-    ] ;
-
-    # 3. Underground Levels Exception
-    # "Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden EI 30 en deuren EI1 30..."
-    sh:sparql [
-        a sh:SPARQLConstraint ;
-        sh:message "Bij ondergrondse bouwlagen moet een vervangende uitgang naar buiten wanden EI 30 en deuren EI1 30 hebben."@nl ;
-        sh:prefixes [
-            sh:declare [
-                sh:prefix "fro" ;
-                sh:namespace "http://www.firebim.org/ontologies/fro#"^^xsd:anyURI ;
+            [ 
+                sh:class ex:Outside ; # NOTE: no ontology term found
+                sh:description "naar buiten" 
             ]
-        ] ;
-        sh:select """
-            SELECT $this
-            WHERE {
-                $this fro:isUnderground true .
-                $this fro:hasEvacuationRoute ?route .
-                ?route fro:leadsTo fro:Outdoors .
-                ?route fro:substitutesAccessTo fro:Stairwell .
-                FILTER NOT EXISTS {
-                    ?route fro:hasWall [ fro:hasFireResistance "EI 30" ] .
-                    ?route fro:hasDoor [ fro:hasFireResistance "EI1 30" ] .
-                }
-            }
-        """ ;
+            [ 
+                sh:class ex:Stairwell ; # NOTE: no ontology term found
+                sh:description "naar trappenhuizen" 
+            ]
+            [ 
+                sh:class ex:Stair ; # NOTE: no ontology term found
+                sh:description "naar trappen, binnen of buiten het gebouw gelegen" 
+            ]
+        )
     ] ;
-
-    # 4. Stairs at Evacuation Level
-    # "Op een evacuatieniveau leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een evacuatieweg..."
     sh:property [
-        sh:path fro:hasStair ;
-        sh:node [
-            a sh:NodeShape ;
-            sh:property [
-                sh:path fro:leadsTo ;
-                sh:class fro:Outdoors ;
-                sh:message "Op een evacuatieniveau moet iedere trap naar buiten leiden."@nl ;
+        sh:path ex:compliesWithArticle4_4 ; # NOTE: no ontology term found
+        sh:datatype xsd:boolean ;
+        sh:description "Zie 4.4 voor horizontale afstanden." ;
+    ] .
+
+# Clause 3: Underground building storeys exception
+art2221:UndergroundStoreyShape a sh:NodeShape ;
+    sh:targetClass fbo:BuildingStorey ;
+    sh:description "Wat de ondergrondse bouwlagen betreft mag één uitgang naar buiten via een evacuatieweg met wanden EI 30 en deuren EI1 30 de vereiste toegang tot één der trappenhuizen vervangen." ;
+    sh:property [
+        sh:path ex:isUnderground ; # NOTE: no ontology term found
+        sh:in ( true ) ;
+    ] ;
+    sh:property [
+        sh:path fbo:hasSubitem ;
+        sh:class fbo:Exit ;
+        sh:node art2221:UndergroundExceptionExitShape ;
+        sh:message "Een uitgang naar buiten mag de toegang tot een trappenhuis vervangen indien voldaan aan de uitzonderingsvoorwaarden (evacuatieweg wanden EI 30, deuren EI1 30)." ;
+    ] .
+
+art2221:UndergroundExceptionExitShape a sh:NodeShape ;
+    sh:property [
+        sh:path fbo:isLinkedTo ;
+        sh:class fbo:AreaEvacuationroute ;
+        sh:node art2221:UndergroundExceptionRouteShape ;
+    ] ;
+    sh:property [
+        sh:path fbo:isLinkedTo ;
+        sh:class ex:Outside ; # NOTE: no ontology term found
+    ] .
+
+art2221:UndergroundExceptionRouteShape a sh:NodeShape ;
+    sh:property [
+        sh:path fbo:hasSubitem ;
+        sh:class ex:Wall ; # NOTE: no ontology term found
+        sh:property [
+            sh:path fbo:FireResistance ;
+            sh:hasValue "EI 30" ;
+            sh:message "Wanden van de evacuatieweg moeten EI 30 zijn." ;
+        ] ;
+    ] ;
+    sh:property [
+        sh:path fbo:hasSubitem ;
+        sh:class fbo:DoorEscaperoute ;
+        sh:property [
+            sh:path fbo:FireResistance ;
+            sh:hasValue "EI1 30" ;
+            sh:message "Deuren van de evacuatieweg moeten EI1 30 zijn." ;
+        ] ;
+    ] .
+
+# Clause 4: Parking reference
+art2221:ParkingReferenceShape a sh:NodeShape ;
+    sh:targetClass ex:Parking ; # NOTE: no ontology term found
+    sh:description "Voor de parking: zie 5.2." ;
+    sh:property [
+        sh:path ex:compliesWithArticle5_2 ; # NOTE: no ontology term found
+        sh:datatype xsd:boolean ;
+        sh:message "Parkings moeten voldoen aan artikel 5.2" ;
+    ] .
+
+# Clause 5: Stairs on evacuation levels
+art2221:EvacuationLevelStairShape a sh:NodeShape ;
+    sh:targetClass ex:Stair ; # NOTE: no ontology term found
+    sh:description "Op een evacuatieniveau leidt iedere trap naar buiten, hetzij rechtstreeks, hetzij over een evacuatieweg die beantwoordt aan de voorschriften van 4.4." ;
+    sh:property [
+        sh:path ex:locatedOnEvacuationLevel ; # NOTE: no ontology term found
+        sh:hasValue true ;
+    ] ;
+    sh:property [
+        sh:path fbo:isLinkedTo ;
+        sh:message "Op een evacuatieniveau leidt iedere trap naar buiten (rechtstreeks of via evacuatieweg 4.4)." ;
+        sh:or (
+            [ 
+                sh:class ex:Outside ; # NOTE: no ontology term found
+                sh:description "rechtstreeks naar buiten" 
             ]
-        ] ;
-        # Apply this constraint only if the compartment is on an Evacuation Level
-        sh:filterShape [
-            sh:path fro:locatedOnLevel ;
-            sh:hasValue fro:EvacuationLevel ;
-        ] ;
+            [ 
+                sh:class fbo:AreaEvacuationroute ;
+                sh:node art2221:EvacuationRouteArticle4_4Shape ;
+                sh:description "over een evacuatieweg die beantwoordt aan de voorschriften van 4.4" 
+            ]
+        )
+    ] .
+
+art2221:EvacuationRouteArticle4_4Shape a sh:NodeShape ;
+    sh:property [
+        sh:path ex:compliesWithArticle4_4 ; # NOTE: no ontology term found
+        sh:hasValue true ;
+        sh:message "De evacuatieweg moet beantwoorden aan de voorschriften van 4.4." ;
     ] .

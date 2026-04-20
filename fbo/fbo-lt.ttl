@@ -1,0 +1,1016 @@
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-ifc: <https://ontology.firebim.be/ontology/fbo-ifc#> .
+@prefix fbo-lt: <https://ontology.firebim.be/ontology/fbo-LT#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fbo-lt:AreaConditionalFireCompartment a owl:Class ;
+    rdfs:label "Conditional Fire Compartment Area"@en,
+        "Sąlyginis gaisrinio skyriaus plotas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 1" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Conditional area of the fire department, depending on the purpose of the building [m2]. The numerical value is specified in Table 1 of Annex 3 to the Basic Fire Safety Requirements."@en,
+        "Sąlyginis gaisrinio skyriaus plotas, priklausantis nuo statinio paskirties [m2]. Skaitinė reikšmė nurodyta Gaisrinės saugos pagrindinių reikalavimų 3 priedo 1-oje lentelėje."@lt-LT ;
+    fbo:hasDesignator "Fs" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "454" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaConditionalFireCompartment-27ef8487e6e7805eb245f03ceea62204> .
+
+fbo-lt:AreaFireCompartment a owl:DatatypeProperty ;
+    rdfs:label "Fire compartment area"@en,
+        "Gaisrinio skyriaus plotas"@lt-LT ;
+    rdfs:subPropertyOf fbo:AreaFireCompartment ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter X, Paragraph 51." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "the area of the largest floor of the building. If the building has interconnected spaces between floors (atriums, openings, type 2 staircases, etc.), the areas of all interconnected floors shall be added together when determining the area of the fire compartment. When the maximum area of a fire compartment is exceeded, two or more separate fire compartments shall be formed, separated by fire compartment walls and/or floors. If there are rooms of different purposes or rooms that are dangerous in terms of explosion and fire in a fire compartment, the area of the fire compartment shall be determined according to the purpose of the rooms occupying more than 50% of the total area of the rooms. If there are rooms of different purposes in a fire compartment, not exceeding 50% of the total area of the rooms, the maximum area of the fire compartment Fg shall be determined according to the indicators of the purpose that occupies the largest part of the fire compartment."@en,
+        "didžiausią plotą turintis statinio aukšto plotas. Jeigu statinyje yra susisiekiančių tarpaukštinių erdvių (atriumai, angos, 2 tipo laiptai ir pan.), nustatant statinio gaisrinio skyriaus plotą, visų susisiekiančių aukštų plotai sumuojami. Kai viršijamas didžiausias gaisrinio skyriaus plotas, turi būti formuojami du ir daugiau atskiri gaisriniai skyriai, kurie atskiriami gaisrinių skyrių atskyrimo sienomis ir (arba) perdangomis. Jeigu gaisriniame skyriuje yra skirtingos paskirties arba sprogimo ir gaisro atžvilgiu pavojingų patalpų, gaisrinio skyriaus plotas nustatomas pagal daugiau kaip 50 proc. bendro patalpų ploto užimančių patalpų paskirtį. Jeigu gaisriniame skyriuje yra kelių paskirčių patalpų, neviršijančių 50 proc. bendro patalpų ploto, gaisrinio skyriaus didžiausias plotas Fg nustatomas pagal tos paskirties rodiklius, kurie užima didžiausią gaisrinio skyriaus dalį."@lt-LT ;
+    fbo:hasDesignator "Fg" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:AreaFireCompartment2a ;
+    fbo:hasLastEdition "2026-02-03T14:40:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "273" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaFireCompartment-221f8487e6e7805ab3cff8f9c178a739> ;
+    fbo:hasUnit "m^2" ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:AutomaticFireExtinguish a owl:Class ;
+    rdfs:label "Sprinkler systems (automatic)"@en,
+        "Sprinkleriniai įrenginiai (automatiniai)"@lt-LT ;
+    rdfs:subClassOf fbo:AutomaticFireExtinguishSystem ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.76." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "A piping system of the required diameter installed in the building, with sprinkler heads installed at specific intervals. The piping is connected to control valves with alarm devices and a mechanical water supply system."@en,
+        "sumontuotų statinyje reikiamo diametro vamzdynų sistema, kurioje tam tikrais atstumais įmontuotos sprinklerių galvutės. Vamzdynas yra sujungtas su valdymo čiaupais su aliarmo įrenginiais ir mechaninio vandens tiekimo sistema."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:40:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "209" ;
+    fbo:hasNotionURL <https://www.notion.so/AutomaticFireExtinguish-214f8487e6e78045b581cc9c9810c145> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:BuildingStorey a owl:Class ;
+    rdfs:label "Building storey"@en,
+        "Pastato aukštas"@lt-LT ;
+    rdfs:subClassOf fbo:BuildingStorey ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter I, Paragraph 2.14." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "The space in a building from the floor surface of the premises to the floor surface of the premises above (upper floor – to the top of the attic floor insulation or the top of the roof covering)."@en,
+        "Erdvė nuo patalpų grindų paviršiaus iki virš jų esančių patalpų grindų paviršiaus (viršutinis aukštas – iki pastogės perdangos šilumos izoliacijos arba sutapdinto denginio viršaus)."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:NEKILNOJAMJDAIKTKADASTRODUOMENNUSTATYMOTAISYKLSNrD1349 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:BuildingStorey ;
+    fbo:hasLastEdition "2026-02-23T14:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "517" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingStorey-2c7f8487e6e780e18d1dc13aa187ba1d> .
+
+fbo-lt:BuildingStoreyFloorArea a owl:DatatypeProperty ;
+    rdfs:label "Floor area of the storey of the building"@en,
+        "Pastato aukšto grindų plotas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Paragraph 3.7.2.33" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Total floor area contain within a storey, excluding the horizontal area of external walls"@en,
+        "Bendras aukšto plotas, neįskaitant išorinių sienų horizontalaus ploto"@lt-LT ;
+    fbo:hasDocumentReference fbo:ISO670712020BuildingsandcivilengineeringworksVocabularyPart1Generalterms ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "511" ;
+    fbo:hasNotionURL <https://www.notion.so/BuildingStoreyFloorArea-2c6f8487e6e7801a91cbd050dc37a5b6> ;
+    fbo:hasUnit "m2" ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:CalculatedAltitude a owl:Class ;
+    rdfs:label "Calculated altitude"@en,
+        "Skaičiuojamoji altitudė"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 1" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "The calculated altitude depends on the purpose of the building [m]. The numerical value is specified in Table 1 of Annex 3 to the Basic Fire Safety Requirements."@en,
+        "Skaičiuojamoji altitudė priklausanti nuo statinio paskirties [m]. Skaitinė reikšmė nurodyta Gaisrinės saugos pagrindinių reikalavimų 3 priedo 1-oje lentelėje."@lt-LT ;
+    fbo:hasDesignator "Habs" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "455" ;
+    fbo:hasNotionURL <https://www.notion.so/CalculatedAltitude-27ff8487e6e78041a3e0c1af6427bd5d> .
+
+fbo-lt:CeilingMembrane a owl:Class ;
+    rdfs:label "Ceiling membrane"@en,
+        "Lubų membrana"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.4." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "suspended or fixed in some other way ceilings that are fire-resistant"@en,
+        "pakabintos ar kitaip įtvirtintos lubos, kurios yra atsparios ugniai;"@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "250" ;
+    fbo:hasNotionURL <https://www.notion.so/Ceiling_Membrane-214f8487e6e780c0a529f47c3efe30cf> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:ConnectingBuildingStoreys a owl:Class ;
+    rdfs:label "Connecting storeys of the building"@en,
+        "Susisiekiantys pastato aukštai"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Chapter X, Paragraph 51." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Connecting spaces between floors in the building (atriums, openings, type 2 staircases, etc.)"@en,
+        "Statinyje esančios susisiekiančios tarpaukštinės erdvės (atriumai, angos, 2 tipo laiptai ir pan.)"@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "516" ;
+    fbo:hasNotionURL <https://www.notion.so/ConnectingBuildingStoreys-2c7f8487e6e780a68865f26360ef654c> .
+
+fbo-lt:CreatingPressureDifference a owl:Class ;
+    rdfs:label "Creating pressure difference"@en,
+        "Slėgio skirtumo sudarymas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.61." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "In stairwells, foyers, exit routes, or other areas of the building, the air pressure shall be higher than the air pressure in the room where the fire originated in order to prevent smoke from spreading from the room where the fire originated."@en,
+        "laiptinėse, fojė, išėjimo maršrutų ar kitose pastato patalpose sudaromas oro slėgis, didesnis už gaisro kilmės patalpoje esantį oro slėgį, siekiant išvengti dūmų prasiskverbimo iš gaisro kilmės patalpos."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "228" ;
+    fbo:hasNotionURL <https://www.notion.so/CreatingPressureDifference-214f8487e6e78089b3cbd8b2ed124e34> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:EmergencyLighting a owl:DatatypeProperty ;
+    rdfs:label "Emergency lighting"@en,
+        "Avarinis apšvietimas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.10." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "lighting conditions during evacuation when normal lighting is disrupted."@en,
+        "apšvietimo sąlygos, sudaromos evakuacijos metu, kai sutrinka normalus apšvietimas."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "188" ;
+    fbo:hasNotionURL <https://www.notion.so/EmergencyLighting-208f8487e6e7802d84e8d0c471d19b6f> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:Evacuation a owl:Class ;
+    rdfs:label "Evacuation"@en,
+        "Evakuacija"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.12." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "orderly movement of people to a place safe from fire or other hazards."@en,
+        "tvarkingas žmonių judėjimas į saugią nuo kilusio gaisro ar kitokios grėsmės vietą."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "189" ;
+    fbo:hasNotionURL <https://www.notion.so/Evacuation-209f8487e6e7806e9a15e58f8c36e62a> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:EvacuationTime a owl:Class ;
+    rdfs:label "Evacuation time"@en,
+        "Evakuacijos laikas"@lt-LT ;
+    rdfs:subClassOf fbo:EvacuationTime ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.14." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "the period during which all persons in a building or part thereof reach the final exit after hearing the evacuation signal."@en,
+        "laikotarpis, per kurį visi pastate ar jo dalyje esantys žmonės, išgirdę evakuacijos signalą, pasiekia galutinį išėjimą."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "235" ;
+    fbo:hasNotionURL <https://www.notion.so/EvacuationTime-214f8487e6e7809996b2cc75bcf83fbf> ;
+    fbo:hasUnit "min/h" ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:ExitRoute a owl:DatatypeProperty ;
+    rdfs:label "Exit route"@en,
+        "Išėjimo maršrutas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.13. (STR 2.01.01(2):1999)" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "a predetermined route from any location in the building to the exit."@en,
+        "iš anksto numatytas kelias iš bet kurios pastato vietos išėjimo link."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:AUTOMOBILISAUGYKLGAISRINSSAUGOSTAISYKLSNr144,
+        fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338,
+        fbo-lt:GAMYBOSPRAMONSIRSANDLIAVIMOSTATINIGAISRINSSAUGOSTAISYKLSNr145,
+        fbo-lt:GYVENAMJPASTATGAISRINSSAUGOSTAISYKLSNr164,
+        fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422,
+        fbo-lt:VISUOMENINISTATINIGAISRINSSAUGOSTAISYKLSNr114 ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X22TravelDistance,
+        fbo:X23LengthofEvacuationPath,
+        fbo:X24WithoftheExits,
+        fbo:X25WithoftheEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "190" ;
+    fbo:hasNotionURL <https://www.notion.so/ExitRoute-209f8487e6e780b1b5a8ebb5893681c3> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:ExitSigns a owl:Class ;
+    rdfs:label "Exit signs"@en,
+        "Išėjimo ženklai"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.16." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "signs indicating the exit."@en,
+        "ženklai, žymintys išėjimą."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "255" ;
+    fbo:hasNotionURL <https://www.notion.so/Exit_Signs-214f8487e6e780d3ba5cd1fab9bc484f> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:ExposedSurface a owl:DatatypeProperty ;
+    rdfs:label "Exposed surface"@en,
+        "Eksponuojamas paviršius"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.17." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "the surface of the construction product exposed to fire."@en,
+        "statybos produkto paviršius, kurį veikia gaisras."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "232" ;
+    fbo:hasNotionURL <https://www.notion.so/Exposed_Surface-214f8487e6e7809381c2d801c5f3f7ba> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:FacadeExteriorWall a owl:Class ;
+    rdfs:label "Facade, exterior wall"@en,
+        "Fasadas, išorinė siena"@lt-LT ;
+    rdfs:subClassOf fbo:ExteriorWall ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.19." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "A vertical element of a building that separates the interior from the exterior. The facade includes transparent and non-transparent parts and their fastenings to the building structure."@en,
+        "vertikalus pastato elementas, atskiriantis pastato vidų nuo išorės. Fasadas apima permatomas ir nepermatomas dalis ir jų sutvirtinimus prie statinio konstrukcijų."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:50:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "242" ;
+    fbo:hasNotionURL <https://www.notion.so/FacadeExteriorWall-214f8487e6e780b39ad3ee7fbf018388> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:FacadeFinishingExteriorFinishing a owl:Class ;
+    rdfs:label "Facade finishing, exterior finishing"@en,
+        "Fasado apdaila, išorinė apdaila"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.18." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "finishing materials for the external surfaces (facade) of the building. Facade finishing may include insulation material between the outer and inner facade layers."@en,
+        "išorinių pastato paviršių (fasado) apdailos medžiagos. Fasado apdaila gali apimti izoliacinę medžiagą, esančią tarp išorinio ir vidinio fasado sluoksnių."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "203" ;
+    fbo:hasNotionURL <https://www.notion.so/FacadeFinishingExteriorFinishing-214f8487e6e78029acf9fe476bf694fb> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:FireAlarm a owl:Class ;
+    rdfs:label "Fire alarm"@en,
+        "Gaisro aliarmas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.21." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "fire alarm signal (warning) given by a person or automatic device."@en,
+        "gaisro pavojų skelbiantis signalas (įspėjimas), duodamas asmens arba automatinio įrenginio."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "199" ;
+    fbo:hasNotionURL <https://www.notion.so/FireAlarm-214f8487e6e7801fbddeeb594a9fedcc> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:FireAndRescueServiceTeam a owl:Class ;
+    rdfs:label "Fire and rescue service team"@en,
+        "Priešgaisrinės gelbėjimo tarnybos komanda"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.23." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "a public or private organization that is always ready to save people's lives and put out fires."@en,
+        "nuolatinės parengties visuomeninė ar privati organizacija, kurios paskirtis – gelbėti žmonių gyvybę ir gesinti gaisrus."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "217" ;
+    fbo:hasNotionURL <https://www.notion.so/FireAndRescueServiceTeam-214f8487e6e7805b94c8daff2026469c> ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-lt:FireBarrier a owl:Class ;
+    rdfs:label "Fire barrier"@en,
+        "Priešgaisrinė pertvara"@lt-LT,
+        "Priešgaisrinė užtvara"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.40. (STR 2.01.01(2):1999)",
+        "Chapter II, Paragraph 10.42. (STR 2.01.01(2):1999)" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "fire-resistant construction that prevents fire from spreading to adjacent rooms (volumes)."@en,
+        "non-combustible materials with a specified fire resistance rating that prevents the fire from spreading horizontally beyond the boundaries of the room."@en,
+        "nedegių medžiagų nustatyto atsparumo ugniai nelaikanti konstrukcija, neleidžianti gaisrui išplisti horizontalia kryptimi už patalpos ribų."@lt-LT,
+        "nustatyto atsparumo ugniai konstrukcija, neleidžianti gaisrui išplisti į gretimą patalpą (tūrį)."@lt-LT ;
+    fbo:hasDesignator "EI" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338,
+        fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime,
+        "2026-02-05T07:33:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "221",
+        "267" ;
+    fbo:hasNotionURL <https://www.notion.so/FireBarrier-214f8487e6e7806bb744ed0a79d772d4>,
+        <https://www.notion.so/FireBarrier-214f8487e6e780f39e12e310e2a8e48f> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:FireCompartment a owl:Class ;
+    rdfs:label "Fire compartment"@en,
+        "Gaisrinis skyrius"@lt-LT ;
+    rdfs:subClassOf fbo:FireCompartment ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.24. (STR 2.01.01(2):1999)" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "a closed space in a building (a room or group of rooms) separated from other parts of the same building by structural elements with a specified fire resistance rating, during which time a fire can be extinguished or prevented from spreading to other parts of the building."@en,
+        "uždara pastato erdvė (patalpa ar patalpų grupė), atskirta nuo kitų to paties pastato dalių statinio konstrukcijomis, turinčiomis nustatytą atsparumo ugniai laiką, per kurį gaisras gali būti užgesintas arba išvengta jo plitimo į kitą pastato dalį."@lt-LT ;
+    fbo:hasDesignator "Fg" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338,
+        fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:42:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "243" ;
+    fbo:hasNotionURL <https://www.notion.so/FireCompartment-214f8487e6e780b3bd4aef253d8df937> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:FireDoors a owl:Class ;
+    rdfs:label "Fire doors"@en,
+        "Priešgaisrinės durys"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.26. (STR 2.01.01(2):1999)" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "doors or shutters (with frames and fittings) installed in the building, which, when closed, meet the specified functionality requirements."@en,
+        "pastate sumontuotos durys arba užsklandos (su rėmais ir furnitūra), kurios uždarytos atitinka nustatytus funkcionalumo reikalavimus."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338,
+        fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "231" ;
+    fbo:hasNotionURL <https://www.notion.so/FireDoors-214f8487e6e7808eb58cf2199dd1bd82> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:FireLoad a owl:DatatypeProperty ;
+    rdfs:label "Fire Load"@en,
+        "Gaisro apkrova"@lt-LT ;
+    rdfs:subPropertyOf fbo:FireLoad ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.29. (STR 2.01.01(2):1999)" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "the amount of energy that can be released by the combustion of all combustible materials in the fire zone, including coatings on the external surfaces of walls, partitions, ceilings, floors"@en,
+        "energijos kiekis, kuris gali būti išskirtas sudegus visoms gaisro zonoje esančioms degioms medžiagoms, įskaitant sienų, pertvarų, lubų, grindų išorinių paviršių dangas"@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338,
+        fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "193" ;
+    fbo:hasNotionURL <https://www.notion.so/FireLoad-20ff8487e6e780f08d15ccff6b4b67bb> ;
+    fbo:hasUnit "MJ" ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:FireLoadDensity a owl:DatatypeProperty ;
+    rdfs:label "Fire Load Density"@en,
+        "Gaisro apkrovos tankis"@lt-LT ;
+    rdfs:subPropertyOf fbo:FireLoadDensity ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.30." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "fire load per floor area unit"@en,
+        "gaisro apkrova grindų ploto vienetui"@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "191" ;
+    fbo:hasNotionURL <https://www.notion.so/FireLoadDensity-20ff8487e6e7802b9fd4c730004fe8d9> ;
+    fbo:hasUnit "MJ/m^2" ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:FireProtectionCeiling a owl:Class ;
+    rdfs:label "Fire protection ceiling"@en,
+        "Priešgaisrinė perdanga"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.43." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "fire resistance of non-combustible materials a building structure that prevents fire from spreading vertically."@en,
+        "nedegių medžiagų nustatyto atsparumo ugniai statybinė konstrukcija, neleidžianti gaisrui išplisti vertikalia kryptimi."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "210" ;
+    fbo:hasNotionURL <https://www.notion.so/FireProtectionCeiling-214f8487e6e78046bcd8cf10e5a87964> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:FireResistance a owl:DatatypeProperty ;
+    rdfs:label "Fire Resistance"@en,
+        "Atsparumas ugniai"@lt-LT ;
+    rdfs:subPropertyOf fbo:FireResistance ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.33." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "the ability of a building structure or element (construction product) to withstand specified loads and/or to maintain thermal insulation properties and/or to remain homogeneous (sealed, crack-free) during a specified period of time in a standardised fire resistance test"@en,
+        "pastato konstrukcijos ar elemento (statybos produkto) gebėjimas standartiniu atsparumo ugniai bandymu nustatytą laiko tarpą išlaikyti nustatytas apkrovas ir (arba) šilumos izoliacines savybes ir (arba) išlikti vientisam (sandariam, be plyšių)"@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "192" ;
+    fbo:hasNotionURL <https://www.notion.so/FireResistance-20ff8487e6e7803cad52e816e5a43e65> ;
+    fbo:hasUnit "minutes" ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:FireResistanceBuilding a owl:Class ;
+    rdfs:label "Fire resistance rating of the Building"@en,
+        "Statinio atsparumo ugniai laipsnis"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter VIII, Paragraph 40, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Buildings and fire compartments of buildings, taking into account their fire load categories and the fire resistance of the structural elements used to build them, are divided into buildings and fire compartments of fire resistance levels I, II, III."@en,
+        "Statiniai, statinių gaisriniai skyriai, atsižvelgiant į jų gaisro apkrovos kategorijas ir jiems statyti panaudotų konstrukcijų elementų atsparumą ugniai, skirstomi į I, II, III atsparumo ugniai laipsnio statinius, statinių gaisrinius skyrius."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "453" ;
+    fbo:hasNotionURL <https://www.notion.so/FireResistanceBuilding-27ef8487e6e7804aa998d4407c309c66> ;
+    fbo:hasRemarks "Usually Fire Safety engineer decides what Fire resistance rating of the building will be" .
+
+fbo-lt:FireResistanceClasses a owl:DatatypeProperty ;
+    rdfs:label "Fire resistance classes"@en,
+        "Atsparumo ugniai klasės"@lt-LT ;
+    rdfs:subPropertyOf fbo:FireResistance ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.34." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "classes established in the usual way for classifying building elements and construction products according to their tested fire resistance."@en,
+        "įprastu būdu nustatytos klasės, skirtos klasifikuoti pastatų elementus ir statybos produktus pagal išbandytą atsparumo ugniai trukmę."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-10T08:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "248" ;
+    fbo:hasNotionURL <https://www.notion.so/FireResistanceClasses-214f8487e6e780bcbd86e88dae9a998e> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:FireResistantCable a owl:Class ;
+    rdfs:label "Fire-resistant cable"@en,
+        "Atsparus gaisrui kabelis"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.46." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "An electrical cable that can perform its intended functions (supply power or transmit signals) for a specified period of time during a fire, as determined by a standard fire test."@en,
+        "elektros kabelis, kuris gaisro metu standartinio gaisro bandymu nustatytą laiko tarpą gali atlikti numatytas funkcijas (tiekti energiją ar perduoti signalus)."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "226" ;
+    fbo:hasNotionURL <https://www.notion.so/FireResistantCable-214f8487e6e780819f23dea643b8ab4f> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:FireSafetyAssessmentCoefficient a owl:DatatypeProperty ;
+    rdfs:label "Assessment coefficient for fire safety of a building"@en,
+        "Pastato gaisrinės saugos įvertinimo koeficientas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition """G – assessment coefficient for fire safety of a building, generally considered to be equal to 1.
+The coefficient G is determined as follows:
+G = G1+…+G8, if the coefficient G1 is assessed;
+G = 1+(G2+…+G8), if the G1 coefficient is not assessed;
+where: G1…G8 – partial coefficients for the fire safety assessment of a building, depending on the fire safety systems installed in the building and the capabilities of the fire rescue service; their numerical values are given in Table 2 of Annex 3 (https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.388658/asr).
+The values of the partial coefficients G3 and G4 shall only be applied with the approval of the state fire rescue service."""@en,
+        """G – pastato gaisrinės saugos įvertinimo koeficientas, bendruoju atveju laikomas lygus 1.
+Koeficientas G nustatomas taip:
+G = G1+…+G8, jeigu yra įvertinamas G1 koeficientas;
+G = 1+(G2+…+G8), jeigu G1 koeficientas neįvertinamas;
+čia: G1…G8 – statinio gaisrinės saugos įvertinimo daliniai koeficientai, priklausantys nuo pastate įdiegiamų gaisrinės saugos sistemų ir priešgaisrinės gelbėjimo tarnybos galimybių; jų skaitinės vertės pateiktos 3 priedo 2 lentelėje (https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.388658/asr).
+G3, G4 dalinių koeficientų reikšmės taikomos tik pritarus valstybinei priešgaisrinei gelbėjimo tarnybai."""@lt-LT ;
+    fbo:hasDesignator "G" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "510" ;
+    fbo:hasNotionURL <https://www.notion.so/FireSafetyAssessmentCoefficient-2c6f8487e6e7800790d8ce7843cf1134> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:FireWallFireBarrier a owl:Class ;
+    rdfs:label "Fire wall (fire barrier)"@en,
+        "Priešgaisrinė siena (ugniasienė)"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.41." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "non-combustible materials with a specified resistance to fire, preventing the spread of fire horizontally beyond the boundaries of the room."@en,
+        "nedegių medžiagų nustatyto atsparumo statybinė konstrukcija, neleidžianti gaisrui išplisti horizontalia kryptimi už patalpos ribų."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "234" ;
+    fbo:hasNotionURL <https://www.notion.so/FireWallFireBarrier-214f8487e6e780989cbcc39fac60175e> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:HeightBuilding a owl:DatatypeProperty ;
+    rdfs:label "Height of building"@en,
+        "Pastato aukštis"@lt-LT ;
+    rdfs:subPropertyOf fbo:HeightBuilding ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "height from the lowest surface elevation of the building to the access route for firefighting and rescue vehicles, and where access for firefighting and rescue vehicles is not required, from the lowest surface elevation of the portable fire ladders to the floor elevation of the highest storey (including attic) of the building (fire compartment), m."@en,
+        "aukštis nuo gaisrų gesinimo ir gelbėjimo automobilių privažiavimo prie statinio žemiausios paviršiaus altitudės, o kai gaisrų gesinimo ir gelbėjimo automobilių privažiavimo įrengti nebūtina, – nuo nešiojamųjų gaisrinių kopėčių pastatymo žemiausios paviršiaus altitudės iki statinio (gaisrinio skyriaus) aukščiausio aukšto (įskaitant mansardinį) grindų altitudės, m."@lt-LT ;
+    fbo:hasDesignator "H" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:44:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "274" ;
+    fbo:hasNotionURL <https://www.notion.so/HeightBuilding-221f8487e6e780a6add7c25912c612c4> ;
+    fbo:hasUnit "m" ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:IntendedUseOfTheBuilding a owl:DatatypeProperty ;
+    rdfs:label "Intended use of the building"@en,
+        "Pastato naudojimo paskirtis"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 13." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "The purpose of a building is considered to be the intended use of the building as specified in the public register, provided that the building complies with the mandatory requirements for safety and the activities (technological processes) planned (carried out) therein, as set out in the normative documents on building safety and purpose. When changing the purpose of a building, a building permit is required in the case specified in Article 27(1)(6) of the Construction Law. The composition of a building purpose change project is specified in STR 1.04.04:2017 “Building design, project expertise.”"@en,
+        "Statinio paskirtimi laikomas viešajame registre nurodytas statinio naudojimo tikslas, kai statinys atitinka saugos ir jame planuojamos (atliekamos) veiklos (technologijos proceso) privalomuosius reikalavimus, nustatytus normatyviniuose statinio saugos ir paskirties dokumentuose. Keičiant statinio paskirtį, statybą leidžiantis dokumentas privalomas Statybos įstatymo 27 straipsnio 1 dalies 6 punkte nurodytu atveju. Statinio paskirties keitimo projekto sudėtis nurodyta STR 1.04.04:2017 „Statinio projektavimas, projekto ekspertizė“."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338,
+        fbo-lt:STATYBOSTECHNINISREGLAMENTASSTR101032017STATINIIRPATALPKLASIFIKAVIMAS ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "200" ;
+    fbo:hasNotionURL <https://www.notion.so/IntendedUseOfTheBuilding-214f8487e6e780218c01dfc6414c1cfa> ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-lt:LietuvosRespublikospriegaisrinssaugosstatymasNrIX1225 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "Lietuvos Respublikos priešgaisrinės saugos įstatymas  Nr. IX-1225"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Law of the Republic of Lithuania on Fire Safety"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "Lietuvos Respublikos priešgaisrinės saugos įstatymas  Nr. IX-1225"@lt-LT ;
+    fbo:hasPublicationDate "2019-01-01"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalActEditions/lt/TAD/TAIS.197461> .
+
+fbo-lt:MaxBuildingStoreyFloorArea a owl:DatatypeProperty ;
+    rdfs:label "Maximum floor area of the building storey"@en,
+        "Maksimalus pastato aukšto grindų plotas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Chapter X, Paragraph 51" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "The largest floor area of the storey of the building"@en,
+        "Didžiausią plotą turintis statinio aukšto plotas"@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "514" ;
+    fbo:hasNotionURL <https://www.notion.so/MaxBuildingStoreyFloorArea-2c7f8487e6e7806783b6d895f50f6b74> ;
+    fbo:hasUnit "m2" ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:MaxBuildingStoreyFloorAreaOfConnectingStoreys a owl:DatatypeProperty ;
+    rdfs:label "Maximum floor area of connected storeys of the building"@en,
+        "Maksimalus susisiekiančių aukštų grindų plotas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Chapter X, Paragraph 51." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "When determining the area of a building's fire compartment, the areas of all connecting floors are added together."@en,
+        "Nustatant statinio gaisrinio skyriaus plotą, visų susisiekiančių aukštų plotai sumuojami."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "513" ;
+    fbo:hasNotionURL <https://www.notion.so/MaxBuildingStoreyFloorAreaOfConnectingStoreys-2c7f8487e6e7802db024dc649cf7c891> ;
+    fbo:hasUnit "m2" ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:MaximumAreaOfFireCompartment a owl:DatatypeProperty ;
+    rdfs:label "Maximum area of fire compartment"@en,
+        "Maksimalus gaisrinio skyriaus plotas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "The area of the fire compartment is determined according to the formula Fg = Fs·G·cos(90KH)"@en,
+        "gaisrinio skyriaus plotas nustatomas pagal formulę Fg = Fs·G·cos(90KH)"@lt-LT ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "272" ;
+    fbo:hasNotionURL <https://www.notion.so/MaximumAreaOfFireCompartment-221f8487e6e78049b8aad80a4dfb302c> ;
+    fbo:hasUnit "m^2" ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:PartialCoefficient a owl:DatatypeProperty ;
+    rdfs:label "partial coefficients for the fire safety assessment of a building"@en,
+        "statinio gaisrinės saugos įvertinimo daliniai koeficientai"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition """G1…G8 – partial coefficients for the fire safety assessment of a building, depending on the fire safety systems installed in the building and the capabilities of the fire rescue service; their numerical values are given in Table 2 of Annex 3 (https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.388658/asr).
+The values of the partial coefficients G3 and G4 shall only be applied with the approval of the state fire rescue service."""@en,
+        """G1…G8 – statinio gaisrinės saugos įvertinimo daliniai koeficientai, priklausantys nuo pastate įdiegiamų gaisrinės saugos sistemų ir priešgaisrinės gelbėjimo tarnybos galimybių; jų skaitinės vertės pateiktos 3 priedo 2 lentelėje (https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.388658/asr).
+G3, G4 dalinių koeficientų reikšmės taikomos tik pritarus valstybinei priešgaisrinei gelbėjimo tarnybai."""@lt-LT ;
+    fbo:hasDesignator "G1…G8" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "512" ;
+    fbo:hasNotionURL <https://www.notion.so/PartialCoefficient-2c6f8487e6e780b0b4adee6268ab4c80> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:ReactionToFire a owl:Class ;
+    rdfs:label "Reaction to fire"@en,
+        "Reakcija į ugnį"@lt-LT ;
+    rdfs:subClassOf fbo:ReactionToFire ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.64." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "change in the characteristics of the construction product material under specified test conditions due to the effects of fire."@en,
+        "nustatytomis bandymo sąlygomis statybos produkto medžiagos savybių pokytis dėl gaisro poveikio."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-02-03T14:44:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "236" ;
+    fbo:hasNotionURL <https://www.notion.so/ReactionToFire-214f8487e6e78099bb18d0350b295afc> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:RoofCoverings a owl:Class ;
+    rdfs:label "Roof coverings"@en,
+        "Stogo dangos"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.65." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "materials used to cover roofs, limiting the effects of the atmosphere on the building, including insulation layers and vapor barriers, except for the roof base."@en,
+        "medžiagos, naudojamos dengti stogus, ribojančios atmosferos poveikį statiniui, įskaitant izoliacinius sluoksnius ir garo barjerus, išskyrus stogo pagrindą."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "233" ;
+    fbo:hasNotionURL <https://www.notion.so/RoofCoverings-214f8487e6e78096a1dff2334b769db7> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:SeparateFunction a owl:DatatypeProperty ;
+    rdfs:label "Separate function"@en,
+        "Atskiriamoji funkcija"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.68." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "the ability of an element to prevent the spread of fire and/or smoke for a certain period of time due to the penetration of flames or hot gases (integrity, tightness) or ignition (thermal insulation) behind it."@en,
+        "elemento gebėjimas tam tikrą laiką neleisti plisti gaisrui ir (arba) dūmams dėl liepsnos ar karštų dujų prasiskverbimo (vientisumas, sandarumas) ar užsidegimo (šiluminė izoliacija) už jo."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "268" ;
+    fbo:hasNotionURL <https://www.notion.so/SeparateFunction-214f8487e6e780f48869f81d8aa71e80> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:SmokeAndHeatVentilationEquipment a owl:Class ;
+    rdfs:label "Smoke and heat ventilation equipment"@en,
+        "Dūmų ir šilumos vėdinimo įranga"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.70." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "A system designed to improve the removal of combustible gases and heat from a building in the event of a fire. Smoke and heat are removed by mechanical ventilation equipment and/or natural convection."@en,
+        "sistema, kurios paskirtis – gerinti gaisro išskiriamų degiųjų dujų ir šilumos šalinimą iš statinio. Dūmai ir šiluma šalinami mechanine vėdinimo įranga ir (arba) natūraliąja konvekcija."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "207" ;
+    fbo:hasNotionURL <https://www.notion.so/SmokeAndHeatVentilationEquipment-214f8487e6e7803b86cdeec7b28a5561> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:SmokeBarriersRoofScreens a owl:Class ;
+    rdfs:label "Smoke barriers (curtains), roof (or ceiling) screens"@en,
+        "Dūmų užtvaros (užuolaidos), stogo (ar lubų) ekranai"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.74." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "vertical partition elements, fixed internally to the roof (or ceiling), preventing smoke and combustion gases from escaping."@en,
+        "vertikalūs poskyrio elementai, viduje pritvirtinti prie stogo (ar lubų), neleidžiantys patekti dūmams ir degimo dujoms."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "240" ;
+    fbo:hasNotionURL <https://www.notion.so/SmokeBarriersRoofScreens-214f8487e6e780b09d22caa05acb390d> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:SmokeControl a owl:DatatypeProperty ;
+    rdfs:label "Smoke control"@en,
+        "Dūmų kontrolė"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.71." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Measures to control the spread of smoke and combustion gases in the building during a fire."@en,
+        "priemonės gaisro metu dūmų ir degimo dujų plitimui pastate kontroliuoti."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "204" ;
+    fbo:hasNotionURL <https://www.notion.so/SmokeControl-214f8487e6e78030808ae2f14eab7c74> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:SmokeControlDoors a owl:Class ;
+    rdfs:label "Smoke control doors"@en,
+        "Dūmų kontrolės durys"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.72." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "door assembly to reduce smoke spread during a fire."@en,
+        "durų kompleksas dūmų plitimui gaisro metu mažinti."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "229" ;
+    fbo:hasNotionURL <https://www.notion.so/SmokeControlDoors-214f8487e6e7808cad4ae7045ec96a28> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:SmokeVentsRoofVents a owl:Class ;
+    rdfs:label "Smoke vents, roof vents"@en,
+        "Dūmų angos, stogo angos"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.75." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "openings in the walls or roof of a building that are opened manually or automatically and are designed to allow heat and smoke from a fire to escape."@en,
+        "pastato sienų ar stogo angos atidaromos rankiniu būdu ar automatiškai ir skirtos gaisro šilumai ir dūmams išleisti."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "213" ;
+    fbo:hasNotionURL <https://www.notion.so/SmokeVentsRoofVents-214f8487e6e78049a099c2cec2d73f06> ;
+    fbo:hasValueType "Enumeration (choice)" .
+
+fbo-lt:SupportingStructure a owl:Class ;
+    rdfs:label "Supporting structure"@en,
+        "Laikančioji konstrukcija"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.36." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "building structures, elements, element assemblies, to ensure their mechanical resistance and stability."@en,
+        "statinio konstrukcijos, elementai, elementų mazgai, jo mechaniniam atsparumui ir stabilumui užtikrinti."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "244" ;
+    fbo:hasNotionURL <https://www.notion.so/SupportingStructure-214f8487e6e780b4be9fe9acbf229ef0> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:SuspendedCeilings a owl:Class ;
+    rdfs:label "Suspended ceilings"@en,
+        "Pakabinamosios lubos"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.80." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "ceilings that are suspended or otherwise fixed and intended solely to increase the fire resistance of a specific structural element (e.g., floor, ceiling, or roof)."@en,
+        "lubos, kurios yra pakabinamos ar kitaip įtvirtintos ir skirtos tik tam tikro statinio elemento (pvz.: grindų, lubų ar stogo) gaisro atsparumui didinti."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "225" ;
+    fbo:hasNotionURL <https://www.notion.so/SuspendedCeilings-214f8487e6e7807fa66ec0cbf3e70eea> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:WaterSprayEquipment a owl:Class ;
+    rdfs:label "Water spray equipment"@en,
+        "Vandens purškimo įrenginiai"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.82." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "A system of pipes designed to spray water onto structural elements or other parts of a building in the event of a fire."@en,
+        "vamzdynų sistema, skirta kilus gaisrui pilti vandenį ant statinio konstrukcijos elementų ar kitų statinio dalių."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "224" ;
+    fbo:hasNotionURL <https://www.notion.so/WaterSprayEquipment-214f8487e6e7807c92adff0f8cc3413e> ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:AUTOMOBILISAUGYKLGAISRINSSAUGOSTAISYKLSNr144 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "AUTOMOBILIŲ SAUGYKLŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-44"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Fire safety rules for car storage facilities"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "AUTOMOBILIŲ SAUGYKLŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-44"@lt-LT ;
+    fbo:hasPublicationDate "2019-11-01"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.418483/asr> .
+
+fbo-lt:GAMYBOSPRAMONSIRSANDLIAVIMOSTATINIGAISRINSSAUGOSTAISYKLSNr145 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "GAMYBOS, PRAMONĖS IR SANDĖLIAVIMO STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-45"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Fire safety rules for production, industrial and storage buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "GAMYBOS, PRAMONĖS IR SANDĖLIAVIMO STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-45"@lt-LT ;
+    fbo:hasPublicationDate "2024-11-01"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.418484?jfwid=> .
+
+fbo-lt:GYVENAMJPASTATGAISRINSSAUGOSTAISYKLSNr164 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "GYVENAMŲJŲ PASTATŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-64"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Fire safety rules for residential buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "GYVENAMŲJŲ PASTATŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-64"@lt-LT ;
+    fbo:hasPublicationDate "2024-11-07"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.393013?jfwid=32wf8tn4> .
+
+fbo-lt:NEKILNOJAMJDAIKTKADASTRODUOMENNUSTATYMOTAISYKLSNrD1349 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "NEKILNOJAMŲJŲ DAIKTŲ KADASTRO DUOMENŲ NUSTATYMO TAISYKLĖS Nr. D1-349"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "The rules for determining cadastral data for real estate regulate the procedure for cadastral measurements of real estate."@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "NEKILNOJAMŲJŲ DAIKTŲ KADASTRO DUOMENŲ NUSTATYMO TAISYKLĖS Nr. D1-349"@lt-LT ;
+    fbo:hasPublicationDate "2025-09-25"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/3deb251090ac11ef955ff95815eb5ce5/asr> .
+
+fbo-lt:STATYBOSTECHNINISREGLAMENTASSTR101032017STATINIIRPATALPKLASIFIKAVIMAS a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label """STATYBOS TECHNINIS REGLAMENTAS STR 1.01.03:2017
+„STATINIŲ IR PATALPŲ KLASIFIKAVIMAS“"""@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Construction Technical Requirements Regulation. Classification of Buildings and Premises"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "STATYBOS TECHNINIS REGLAMENTAS STR 1.01.03:2017„STATINIŲ IR PATALPŲ KLASIFIKAVIMAS“"@lt-LT ;
+    fbo:hasPublicationDate "2016-10-27"^^xsd:date ;
+    fbo:hasURL <https://www.e-tar.lt/portal/lt/legalAct/c14e6210afe511e6b844f0f29024f5ac/asr> .
+
+fbo-lt:VISUOMENINISTATINIGAISRINSSAUGOSTAISYKLSNr114 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "VISUOMENINIŲ STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-14"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Fire safety rules for public buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "VISUOMENINIŲ STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-14"@lt-LT ;
+    fbo:hasPublicationDate "2024-11-01"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.391196?jfwid=> .
+
+fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "GAISRINĖS SAUGOS PAGRINDINIAI REIKALAVIMAI Nr. 1-338"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Basic fire safety requirements"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "GAISRINĖS SAUGOS PAGRINDINIAI REIKALAVIMAI Nr. 1-338"@lt-LT ;
+    fbo:hasPublicationDate "2024-12-11"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.388658/asr> .
+
+fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "Statybos techninių reikalavimų reglamentas STR 2.01.01(2):1999 esminiai statinio reikalavimai. gaisrinė sauga Nr. 422"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Construction Technical Requirements Regulation. Essential requirements for a building. Fire safety"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "Statybos techninių reikalavimų reglamentas STR 2.01.01(2):1999 esminiai statinio reikalavimai. gaisrinė sauga Nr. 422"@lt-LT ;
+    fbo:hasPublicationDate "2002-10-05"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.96037/asr> .
+

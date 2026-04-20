@@ -1,20 +1,21 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix ex: <https://example.org/rulebook#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_1 a fro:Section ;
+ex:Section_1 a fro:Section ;
     fro:hasID "1" ;
     fro:hasOriginalText "INPLANTING EN TOEGANGSWEGEN."@nl ;
-    fro:hasArticle fro:Article_1_1 .
+    fro:hasArticle ex:Article_1_1 .
 
-fro:Article_1_1 a fro:Article ;
+ex:Article_1_1 a fro:Article ;
     fro:hasID "A1.1" ;
-    fro:hasMember fro:Member_1_1_1 .
+    fro:hasMember ex:Member_1_1_1 .
 
-fro:Member_1_1_1 a fro:Member ;
+ex:Member_1_1_1 a fro:Member ;
     fro:hasOriginalText """De toegangswegen bedoeld in punt 1.1 worden bepaald in akkoord met de brandweer, volgens de
 volgende leidraad."""@nl .

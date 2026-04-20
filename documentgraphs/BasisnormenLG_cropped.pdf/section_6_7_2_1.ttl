@@ -1,49 +1,57 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_7_2_1 a fro:Section ;
-    fro:hasArticle fro:Article_6_7_2_1_1 ;
+ex:Section_6_7_2_1 a fro:Section ;
+    fro:hasArticle ex:Article_6_7_2_1_1 ;
     fro:hasID "6.7.2.1" ;
     fro:hasOriginalText "Luchtkanalen in evacuatiewegen."@nl .
 
-fro:Article_6_7_2_1_1 a fro:Article ;
+ex:Article_6_7_2_1_1 a fro:Article ;
     fro:hasID "A6.7.2.1.1" ;
-    fro:hasMember fro:Member_6_7_2_1_1_1,
-        fro:Member_6_7_2_1_1_2,
-        fro:Member_6_7_2_1_1_3,
-        fro:Member_6_7_2_1_1_4,
-        fro:Member_6_7_2_1_1_5 ;
-    fro:hasOriginalText "<a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">Luchtkanalen</a> in <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatiewegen</a>."@nl ;
+    fro:hasMember ex:Member_6_7_2_1_1_1,
+        ex:Member_6_7_2_1_1_2,
+        ex:Member_6_7_2_1_1_3,
+        ex:Member_6_7_2_1_1_4,
+        ex:Member_6_7_2_1_1_5 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_6_7_2_1_1_1 a fro:Member ;
-    fro:hasOriginalText "In de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatiewegen</a>, alsook in de <a href=\"https://ontology.firebim.be/ontology/fbo#VerticalShaft\">technische kokers</a> en op de plaatsen die niet bereikbaar zijn na afwerking van het gebouw, zijn de <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">kanalen</a> vervaardigd uit <a href=\"https://ontology.firebim.be/ontology/fbo#MaterialClass\">materialen van klasse</a> A1; de <a href=\"https://ontology.firebim.be/ontology/fbo#Insulation\">isolatieproducten</a> met inbegrip van hun <a href=\"https://ontology.firebim.be/ontology/fbo#InnerProtection\">bekledingen</a> zijn minstens van <a href=\"https://ontology.firebim.be/ontology/fbo#MaterialClass\">klasse</a> A2-s1,d0."@nl .
+ex:Member_6_7_2_1_1_1 a fro:Member ;
+    fro:hasOriginalText "In de evacuatiewegen, alsook in de technische kokers en op de plaatsen die niet bereikbaar zijn na afwerking van het gebouw, zijn de kanalen vervaardigd uit materialen van klasse A1; de isolatieproducten met inbegrip van hun bekledingen zijn minstens van klasse A2-s1,d0."@nl ;
+    fro:linksTo fbo:ThermalInsulation,
+        fbo-be:Conduits,
+        fbo-be:EvacuationPath .
 
-fro:Member_6_7_2_1_1_2 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#FlexibleDuct\">soepele leidingen</a> zijn ten minste van <a href=\"https://ontology.firebim.be/ontology/fbo#MaterialClass\">klasse</a> B-s1, d0 en hun <a href=\"https://ontology.firebim.be/ontology/fbo#Length\">lengte</a> is maximaal 1 m."@nl .
+ex:Member_6_7_2_1_1_2 a fro:Member ;
+    fro:hasOriginalText "De soepele leidingen zijn ten minste van klasse B-s1, d0 en hun lengte is maximaal 1 m."@nl ;
+    fro:linksTo fbo-be:Conduits .
 
-fro:Member_6_7_2_1_1_3 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">luchtkanalen</a> in de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">evacuatiewegen</a> met hun <a href=\"https://ontology.firebim.be/ontology/fbo#DuctSuspension\">ophangingen</a> hebben een <a href=\"https://ontology.firebim.be/ontology/fbo#FireStability\">stabiliteit bij brand</a> van minstens ½ h."@nl .
+ex:Member_6_7_2_1_1_3 a fro:Member ;
+    fro:hasOriginalText "De luchtkanalen in de evacuatiewegen met hun ophangingen hebben een stabiliteit bij brand van minstens ½ h."@nl ;
+    fro:linksTo fbo:FireStability,
+        fbo-be:Conduits .
 
-fro:Member_6_7_2_1_1_4 a fro:Member ;
+ex:Member_6_7_2_1_1_4 a fro:Member ;
+    fro:hasMember ex:Member_6_7_2_1_1_4_1,
+        ex:Member_6_7_2_1_1_4_2 ;
     fro:hasOriginalText "Aan deze bepaling is voldaan als:"@nl .
 
-fro:Member_6_7_2_1_1_5 a fro:Member ;
-    fro:hasMember fro:Member_6_7_2_1_1_5_1,
-        fro:Member_6_7_2_1_1_5_2,
-        fro:Member_6_7_2_1_1_5_3 .
+ex:Member_6_7_2_1_1_4_1 a fro:Member ;
+    fro:hasOriginalText "- ofwel de kanalen en hun ophangingen EI 30 (ho i o) of EI 30 (ve i o) hebben wanneer ze respectievelijk horizontaal of verticaal geplaatst worden;"@nl .
 
-fro:Member_6_7_2_1_1_5_1 a fro:Member ;
-    fro:hasOriginalText "- ofwel de <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">kanalen</a> en hun <a href=\"https://ontology.firebim.be/ontology/fbo#DuctSuspension\">ophangingen</a> EI 30 (ho i o) of EI 30 (ve i o) hebben wanneer ze respectievelijk <a href=\"https://ontology.firebim.be/ontology/fbo#IsHorizontal\">horizontaal</a> of <a href=\"https://ontology.firebim.be/ontology/fbo#IsVertical\">verticaal</a> geplaatst worden;"@nl .
+ex:Member_6_7_2_1_1_4_2 a fro:Member ;
+    fro:hasOriginalText "- ofwel de kanalen opgehangen worden zodat voldaan is aan de volgende voorschriften:"@nl .
 
-fro:Member_6_7_2_1_1_5_2 a fro:Member ;
-    fro:hasOriginalText "- ofwel de <a href=\"https://ontology.firebim.be/ontology/fbo#AirDuct\">kanalen</a> opgehangen worden zodat voldaan is aan de volgende voorschriften:"@nl .
-
-fro:Member_6_7_2_1_1_5_3 a fro:Member ;
-    fro:hasOriginalText "De vereisten van dit punt zijn niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartimenten</a> die zijn uitgerust met een <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticFireExtinguishingSystem\">automatische blusinstallatie</a> van het type <a href=\"https://ontology.firebim.be/ontology/fbo#AutomaticSprinklerSystem\">sprinkler</a> die is aangepast aan de aanwezige risico's."@nl .
+ex:Member_6_7_2_1_1_5 a fro:Member ;
+    fro:hasForwardReference ex:Section_4_4_1_2 ;
+    fro:hasOriginalText "De vereisten van dit punt zijn niet van toepassing op de uitzonderingen opgenomen in punt 4.4.1.2 en op de compartimenten die zijn uitgerust met een automatische blusinstallatie van het type sprinkler die is aangepast aan de aanwezige risico's."@nl ;
+    fro:linksTo fbo-be:AutomaticFireExtinguishSystem .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

@@ -1,25 +1,36 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_4_5 a fro:Section ;
-    fro:hasArticle fro:Article_4_5_1 ;
+ex:Section_4 fro:hasSection ex:Section_4_5 .
+
+ex:Article_4_5_1 a fro:Article ;
+    fro:hasID "A4.5.1" ;
+    fro:hasMember ex:Member_4_5_1_1,
+        ex:Member_4_5_1_2 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_4_5_1_1 a fro:Member ;
+    fro:hasOriginalText "Het volgnummer van elke bouwlaag wordt duidelijk aangebracht op de overlopen en in de vluchtruimten bij trappenhuizen en liften."@nl ;
+    fro:linksTo fbo-be:BuildingLayer,
+        fbo-be:EnclosedInternalStairCase,
+        fbo-be:EvacuationPath,
+        fbo-be:InternalStair .
+
+ex:Member_4_5_1_2 a fro:Member ;
+    fro:hasOriginalText "De aanduiding van de uitgangen en nooduitgangen dient te voldoen aan de bepalingen betreffende de veiligheids- en gezondheidssignalering op het werk."@nl ;
+    fro:linksTo fbo:DoorExit .
+
+ex:Section_4_5 a fro:Section ;
+    fro:hasArticle ex:Article_4_5_1 ;
     fro:hasID "4.5" ;
     fro:hasOriginalText "Signalisatie."@nl .
 
-fro:Article_4_5_1 a fro:Article ;
-    fro:hasID "A4.5.1" ;
-    fro:hasMember fro:Member_4_5_1_1,
-        fro:Member_4_5_1_2 ;
-    fro:hasVersion fro:v0_1 .
-
-fro:Member_4_5_1_1 a fro:Member ;
-    fro:hasOriginalText "Het volgnummer van elke <a href=\"https://ontology.firebim.be/ontology/fbo#Floor\">bouwlaag</a> wordt duidelijk aangebracht op de <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">overlopen</a> en in de <a href=\"https://ontology.firebim.be/ontology/fbo#EvacuationRoute\">vluchtruimten</a> bij <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappenhuizen</a> en <a href=\"https://ontology.firebim.be/ontology/fbo#Elevator\">liften</a>."@nl .
-
-fro:Member_4_5_1_2 a fro:Member ;
-    fro:hasOriginalText "De aanduiding van de <a href=\"https://ontology.firebim.be/ontology/fbo#Exits\">uitgangen</a> en nooduitgangen dient te voldoen aan de bepalingen betreffende de <a href=\"https://ontology.firebim.be/ontology/fbo#SafetyLighting\">veiligheids- en gezondheidssignalering</a> op het werk."@nl .
-
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

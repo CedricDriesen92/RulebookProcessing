@@ -1,9 +1,38 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_4_1_7 a fro:Section ;
-    fro:hasID "6.4.1.7" ;
-    fro:hasOriginalText """De <a href="https://ontology.firebim.be/ontology/fbo#Elevator">lift</a> moet een <a href="https://ontology.firebim.be/ontology/fbo#CommunicationDevice">intercomsysteem</a> bevatten dat mondelinge tweerichtingscommunicatie toelaat als de <a href="https://ontology.firebim.be/ontology/fbo#Elevator">lift</a> in <a href="https://ontology.firebim.be/ontology/fbo#Evacuation">evacuatiemodus</a> is. Dit systeem moet toelaten om te communiceren tussen de <a href="https://ontology.firebim.be/ontology/fbo#ElevatorCar">liftkooi</a>, het <a href="https://ontology.firebim.be/ontology/fbo#EvacuationLevel">evacuatieniveau</a> en de <a href="https://ontology.firebim.be/ontology/fbo#MachineRoom">machinekamer</a> of het paneel van de hulpverleningsoperaties.
-De <a href="https://ontology.firebim.be/ontology/fbo#CommunicationDevice">communicatie-uitrusting</a> in de <a href="https://ontology.firebim.be/ontology/fbo#ElevatorCar">liftkooi</a> en op het <a href="https://ontology.firebim.be/ontology/fbo#EvacuationLevel">evacuatieniveau</a> moet een ingebouwde microfoon en luidspreker bevatten, een <a href="https://ontology.firebim.be/ontology/fbo#Telephone">telefoon met hoorn</a> is niet toegelaten.
+ex:Section_6_4_1_7 a fro:Section ;
+    fro:hasArticle ex:Article_6_4_1_7_1 ;
+    fro:hasID "6.4.1.7" .
 
-De <a href="https://ontology.firebim.be/ontology/fbo#ElectricalCabling">bedrading van het communicatiesysteem</a> moet in de <a href="https://ontology.firebim.be/ontology/fbo#ElevatorShaft">liftschacht</a> en/of in voorkomend geval in de <a href="https://ontology.firebim.be/ontology/fbo#MachineRoom">machinekamer</a> geïnstalleerd zijn."""@nl .
+ex:Article_6_4_1_7_1 a fro:Article ;
+    fro:hasID "A6.4.1.7.1" ;
+    fro:hasMember ex:Member_6_4_1_7_1,
+        ex:Member_6_4_1_7_2,
+        ex:Member_6_4_1_7_3 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_6_4_1_7_1 a fro:Member ;
+    fro:hasOriginalText "De lift moet een intercomsysteem bevatten dat mondelinge tweerichtingscommunicatie toelaat als de lift in evacuatiemodus is. Dit systeem moet toelaten om te communiceren tussen de liftkooi, het evacuatieniveau en de machinekamer of het paneel van de hulpverleningsoperaties."@nl ;
+    fro:linksTo fbo:AutomaticWarningSystem,
+        fbo-be:EvacuationLevel,
+        fbo-be:TechnicalRoom .
+
+ex:Member_6_4_1_7_2 a fro:Member ;
+    fro:hasOriginalText "De communicatie-uitrusting in de liftkooi en op het evacuatieniveau moet een ingebouwde microfoon en luidspreker bevatten, een telefoon met hoorn is niet toegelaten."@nl ;
+    fro:linksTo fbo-be:EvacuationLevel .
+
+ex:Member_6_4_1_7_3 a fro:Member ;
+    fro:hasOriginalText "De bedrading van het communicatiesysteem moet in de liftschacht en/of in voorkomend geval in de machinekamer geïnstalleerd zijn."@nl ;
+    fro:linksTo fbo-be:TechnicalRoom,
+        fbo-be:VerticalShaft .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
 

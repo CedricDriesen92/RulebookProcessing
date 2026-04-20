@@ -1,7 +1,27 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_7_1_1 a fro:Section ;
+ex:Section_6_7_1_1 a fro:Section ;
+    fro:hasArticle ex:Article_6_7_1_1_1 ;
     fro:hasID "6.7.1.1" ;
-    fro:hasOriginalText """Integratie van <a href="https://ontology.firebim.be/ontology/fbo#Room">lokalen</a> of gesloten ruimten in de <a href="https://ontology.firebim.be/ontology/fbo#Room">lokalen</a>
-Geen enkel <a href="https://ontology.firebim.be/ontology/fbo#Room">lokaal</a> of gesloten ruimte, zelfs niet op een <a href="https://ontology.firebim.be/ontology/fbo#CeilingVoid">zolder</a> of in een <a href="https://ontology.firebim.be/ontology/fbo#UndergroundRoom">kelder</a>, mag geïntegreerd worden in het net van <a href="https://ontology.firebim.be/ontology/fbo#AirDuct">luchtkanalen</a>, tenzij deze ruimten voldoen aan de voorschriften opgelegd aan de kanalen."""@nl .
+    fro:hasOriginalText "Integratie van lokalen of gesloten ruimten in de lokalen"@nl .
+
+ex:Article_6_7_1_1_1 a fro:Article ;
+    fro:hasID "A6.7.1.1.1" ;
+    fro:hasMember ex:Member_6_7_1_1_1 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_6_7_1_1_1 a fro:Member ;
+    fro:hasOriginalText "Geen enkel lokaal of gesloten ruimte, zelfs niet op een zolder of in een kelder, mag geïntegreerd worden in het net van luchtkanalen, tenzij deze ruimten voldoen aan de voorschriften opgelegd aan de kanalen."@nl ;
+    fro:linksTo fbo:Roomfunction,
+        fbo-be:Duct .
+
+fro:v0_1 a fro:Version ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
+    fro:hasDescription "Version 0.1 of the document" ;
+    fro:hasVersionNumber "0.1" .
 

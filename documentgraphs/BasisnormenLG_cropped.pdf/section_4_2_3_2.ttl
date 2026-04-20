@@ -1,25 +1,35 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_4_2_3_2 a fro:Section ;
-    fro:hasArticle fro:Article_4_2_3_2_1 ;
+ex:Section_4_2_3 fro:hasSection ex:Section_4_2_3_2 .
+
+ex:Article_4_2_3_2_1 a fro:Article ;
+    fro:hasID "A4.2.3.2.1" ;
+    fro:hasMember ex:Member_4_2_3_2_1_1,
+        ex:Member_4_2_3_2_1_2 ;
+    fro:hasVersion fro:v0_1 .
+
+ex:Member_4_2_3_2_1_1 a fro:Member ;
+    fro:hasOriginalText "Deze nuttige breedte is ten minste gelijk aan 0,80 m en bereikt ten minste de vereiste nuttige breedte br berekend volgens bijlage 1 \"Terminologie\"."@nl ;
+    fro:linksTo fbo:UsefulWidth,
+        fbo-be:KBARApp1Terminology .
+
+ex:Member_4_2_3_2_1_2 a fro:Member ;
+    fro:hasOriginalText "De traparmen en de overlopen der trappenhuizen van één zelfde compartiment mogen in hun nuttige breedte niet meer dan één doorgangseenheid verschillen."@nl ;
+    fro:linksTo fbo:UsefulWidth,
+        fbo-be:FireCompartment .
+
+ex:Section_4_2_3_2 a fro:Section ;
+    fro:hasArticle ex:Article_4_2_3_2_1 ;
     fro:hasID "4.2.3.2" ;
     fro:hasOriginalText "Nuttige breedte van traparmen, overlopen en sassen."@nl .
 
-fro:Article_4_2_3_2_1 a fro:Article ;
-    fro:hasID "A4.2.3.2.1" ;
-    fro:hasMember fro:Member_4_2_3_2_1_1,
-        fro:Member_4_2_3_2_1_2 ;
-    fro:hasVersion fro:v0_1 .
-
-fro:Member_4_2_3_2_1_1 a fro:Member ;
-    fro:hasOriginalText "Deze <a href=\"https://ontology.firebim.be/ontology/fbo#UsefulWidth\">nuttige breedte</a> is ten minste gelijk aan 0,80 m en bereikt ten minste de vereiste <a href=\"https://ontology.firebim.be/ontology/fbo#RequiredUsefulWidth\">nuttige breedte</a> br berekend volgens bijlage 1 \"Terminologie\"."@nl .
-
-fro:Member_4_2_3_2_1_2 a fro:Member ;
-    fro:hasOriginalText "De <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">traparmen</a> en de <a href=\"https://ontology.firebim.be/ontology/fbo#Landing\">overlopen</a> der <a href=\"https://ontology.firebim.be/ontology/fbo#Staircase\">trappenhuizen</a> van één zelfde <a href=\"https://ontology.firebim.be/ontology/fbo#Compartment\">compartiment</a> mogen in hun <a href=\"https://ontology.firebim.be/ontology/fbo#UsefulWidth\">nuttige breedte</a> niet meer dan één doorgangseenheid verschillen."@nl .
-
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2025-04-18T13:53:21.948619"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

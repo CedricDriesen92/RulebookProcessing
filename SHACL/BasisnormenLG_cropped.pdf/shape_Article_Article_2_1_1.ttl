@@ -1,82 +1,107 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix fro: <http://www.firebim.org/ontologies/fro#> .
-@prefix fbo: <http://www.firebim.org/ontologies/fbo#> .
-@prefix bot: <https://w3id.org/bot#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
+@prefix fbo-be: <https://ontology.firebim.be/ontology/fbo-BE#> .
+@prefix ex: <http://example.org/ontology#> .
 
-<https://ontology.firebim.be/ontology/fro#Article_2_1_1>
-    a sh:NodeShape ;
-    rdfs:label "Compartimentering Oppervlakte en Lengte"@nl ;
-    rdfs:comment "Regels met betrekking tot de maximale oppervlakte en lengte van brandcompartimenten (Art 2.1.1)."@nl ;
+fro:Shape_Article_2_1_1 a sh:NodeShape ;
     sh:targetClass fbo:FireCompartment ;
-    sh:message "Het compartiment voldoet niet aan de eisen van Artikel 2.1.1 met betrekking tot oppervlakte, lengte of vereiste uitrusting."@nl ;
+    sh:description "Regels inzake de maximale oppervlakte en lengte van brandcompartimenten, inclusief uitzonderingen voor parkings, actieve blus/RWA installaties en ministeriële afwijkingen." ;
     sh:or (
-        # Exception 1: Parkings (Excluded from this specific rule, referenced in 5.2)
+        # Condition 1: Exemption for parking areas
         [
-            sh:path fbo:hasFunction ;
-            sh:hasValue fbo:ParkingFunction ;
-            sh:message "Uitzondering voor parkings."@nl ;
+            sh:property [
+                sh:path fbo:Roomfunction ;
+                sh:hasValue "Parking" ;
+                sh:message "met uitzondering van de parkings (zie 5.2)." ;
+            ]
         ]
-        # Exception 2: Administrative Derogation (Ministerial exception)
-        [
-            sh:path fbo:hasDerogation ;
-            sh:hasValue true ;
-            sh:message "Ministeriële afwijking toegestaan."@nl ;
-        ]
-        # Exception 3: Equipped with Automatic Extinguishing AND Smoke/Heat Extraction
-        # If equipped, the strict area limits of 2500/3500 do not apply (implicit unlimited/higher limit)
+        
+        # Condition 2: Area can be larger if equipped with both an automatic extinguishing system AND a smoke and heat exhaust system
         [
             sh:and (
                 [
-                    sh:path fbo:hasAutomaticFireSuppressionSystem ;
-                    sh:hasValue true ;
-                ]
-                [
-                    sh:path fbo:hasSmokeAndHeatExtractionSystem ;
-                    sh:hasValue true ;
-                ]
-            ) ;
-            sh:message "Toegestaan wegens aanwezigheid blusinstallatie en RWA."@nl ;
-        ]
-        # Exception 4: Single-story building with exactly one compartment
-        # Max Area: 3500m², Max Length: 90m
-        [
-            sh:and (
-                [
-                    # Check context: Building is single storey
-                    sh:path fbo:isCompartmentOf ;
-                    sh:node [
-                        sh:property [
-                            sh:path fbo:isSingleStorey ;
-                            sh:hasValue true ;
-                        ] ;
-                        # Check context: Building consists of one compartment
-                        sh:property [
-                            sh:path fbo:numberOfCompartments ;
-                            sh:maxInclusive 1 ;
-                        ] ;
+                    sh:property [
+                        sh:path fbo:hasSubitem ;
+                        sh:qualifiedValueShape [ sh:class fbo:AutomaticFireExtinguishSystem ] ;
+                        sh:qualifiedMinCount 1 ;
+                        sh:message "indien het compartiment is uitgerust met een automatische blusinstallatie" ;
                     ]
                 ]
                 [
-                    sh:path fbo:floorArea ;
-                    sh:maxInclusive 3500 ;
-                    sh:datatype xsd:double ;
+                    sh:property [
+                        sh:path fbo:hasSubitem ;
+                        sh:qualifiedValueShape [ sh:class fbo:AutomaticFireVentilationsystem ] ;
+                        sh:qualifiedMinCount 1 ;
+                        sh:message "en een rook- en warmteafvoerinstallatie." ;
+                    ]
                 ]
-                [
-                    sh:path fbo:length ;
-                    sh:maxInclusive 90 ;
-                    sh:datatype xsd:double ;
-                ]
-            ) ;
-            sh:message "Gelijkvloers gebouw met 1 compartiment: max 3500m² en max 90m lengte."@nl ;
+            )
         ]
-        # Standard Rule: Max Area 2500m²
+        
+        # Condition 3: Ministerial exception conditions met without needing active systems
         [
-            sh:path fbo:floorArea ;
-            sh:maxInclusive 2500 ;
-            sh:datatype xsd:double ;
-            sh:message "Standaard regel: compartiment max 2500m²."@nl ;
+            sh:property [
+                sh:path fbo:hasFireExpertValidation ;
+                sh:hasValue true ;
+                sh:message "De Minister van Binnenlandse Zaken bepaalt de voorwaarden waaronder uitzonderingen mogelijk zijn op de grootte van het compartiment [...] zonder dat een automatische blusinstallatie en/of een rook- en warmteafvoerinstallatie moet voorzien worden." ;
+            ]
+        ]
+        
+        # Condition 4: Baseline area and length limits based on building type
+        [
+            sh:or (
+                # Sub-condition 4a: Single-story building consisting of 1 compartment
+                [
+                    sh:and (
+                        [
+                            sh:property [
+                                sh:path [ sh:inversePath fbo:hasSubitem ] ;
+                                sh:node [
+                                    a sh:NodeShape ;
+                                    sh:property [
+                                        sh:path fbo:BuildingLayers ;
+                                        sh:maxInclusive 1 ;
+                                        sh:message "gelijkvloers gebouw" ;
+                                    ] ;
+                                    sh:property [
+                                        sh:path fbo:hasSubitem ;
+                                        sh:maxCount 1 ;
+                                        sh:message "bestaande uit één compartiment" ;
+                                    ]
+                                ] ;
+                                sh:message "Het compartiment moet deel uitmaken van een gelijkvloers gebouw dat uit slechts één compartiment bestaat." ;
+                            ]
+                        ]
+                        [
+                            sh:property [
+                                sh:path fbo:AreaFireCompartment ;
+                                sh:maxInclusive 3500.0 ;
+                                sh:datatype xsd:decimal ;
+                                sh:message "De maximale oppervlakte van een gelijkvloers gebouw bestaande uit één compartiment mag 3500 m² bedragen." ;
+                            ]
+                        ]
+                        [
+                            sh:property [
+                                sh:path ex:compartmentLength ; # NOTE: no ontology term found
+                                sh:maxInclusive 90.0 ;
+                                sh:datatype xsd:decimal ;
+                                sh:message "De lengte van dit compartiment bedraagt niet meer dan 90 m." ;
+                            ]
+                        ]
+                    )
+                ]
+                
+                # Sub-condition 4b: Default rule for compartments (area < 2500 m²)
+                [
+                    sh:property [
+                        sh:path fbo:AreaFireCompartment ;
+                        sh:maxExclusive 2500.0 ;
+                        sh:datatype xsd:decimal ;
+                        sh:message "Het gebouw is verdeeld in compartimenten waarvan de oppervlakte kleiner is dan 2500 m²" ;
+                    ]
+                ]
+            )
         ]
     ) .

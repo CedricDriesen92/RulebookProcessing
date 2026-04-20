@@ -1,0 +1,13 @@
+flowchart TD
+    classDef rootCls fill:#e8daef,stroke:#8e44ad,stroke-width:2px,color:#333
+    classDef orCls fill:#fef9e7,stroke:#f39c12,stroke-width:2px,color:#333
+    classDef andCls fill:#eafaf1,stroke:#27ae60,stroke-width:2px,color:#333
+    classDef propCls fill:#ebf5fb,stroke:#2980b9,stroke-width:1px,color:#333
+    classDef sqCls fill:#fdedec,stroke:#e74c3c,stroke-width:1px,color:#333
+    classDef notCls fill:#fdedec,stroke:#e74c3c,stroke-width:2px,color:#333
+    classDef refCls fill:#f2f3f4,stroke:#7f8c8d,stroke-width:1px,color:#333
+    ROOT(["nea077f26ffd54300b9c5286872191c3cb18"]):::rootCls
+    P1["fbo:BuildingLayers | <= 1<br/>gelijkvloers gebouw"]:::propCls
+    P2["fbo:hasSubitem | max: 1<br/>bestaande uit één compartiment"]:::propCls
+    ROOT --> P1
+    ROOT --> P2

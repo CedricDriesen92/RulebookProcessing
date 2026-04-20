@@ -6,22 +6,22 @@
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @base <https://ontology.firebim.be/ontology/fro> .
 
-fro:Section_2_2_1_2 a fro:Section ;
+ex:Section_2_2_1_2 a fro:Section ;
     fro:hasID "2.2.1.2" ;
     fro:hasOriginalText "EVACUATION"@fr ;
-    fro:hasArticle fro:Article_2_2_1_2_1 .
+    fro:hasArticle ex:Article_2_2_1_2_1 .
 
-fro:Article_2_2_1_2_1 a fro:Article ;
+ex:Article_2_2_1_2_1 a fro:Article ;
     fro:hasID "A2.2.1.2.1" ;
-    fro:hasMember fro:Member_2_2_1_2_1_1, fro:Member_2_2_1_2_1_2, fro:Member_2_2_1_2_1_3 .
+    fro:hasMember ex:Member_2_2_1_2_1_1, ex:Member_2_2_1_2_1_2, ex:Member_2_2_1_2_1_3 .
 
-fro:Member_2_2_1_2_1_1 a fro:Member ;
+ex:Member_2_2_1_2_1_1 a fro:Member ;
     fro:hasOriginalText """L'évacuation d'un bâtiment peut se faire par les voies prévues à cet effet, telles que couloirs, escaliers, paliers, sas, terrasses d'évacuation, portes, etc."""@fr .
 
-fro:Member_2_2_1_2_1_2 a fro:Member ;
+ex:Member_2_2_1_2_1_2 a fro:Member ;
     fro:hasOriginalText """Un chemin d'évacuation est une voie située à l'intérieur d'un bâtiment, présentant une pente de 10 % au maximum et donnant accès à une issue, une cage d'escalier ou une terrasse d'évacuation."""@fr .
 
-fro:Member_2_2_1_2_1_3 a fro:Member ;
+ex:Member_2_2_1_2_1_3 a fro:Member ;
     fro:hasOriginalText """Une terrasse d'évacuation est une voie située à l'extérieur du bâtiment, présentant une pente de 10 % au maximum et donnant accès à un escalier."""@fr .
 
-fro:Section_2_2_1 fro:hasSection fro:Section_2_2_1_2 .
+ex:Section_2_2_1 fro:hasSection ex:Section_2_2_1_2 .

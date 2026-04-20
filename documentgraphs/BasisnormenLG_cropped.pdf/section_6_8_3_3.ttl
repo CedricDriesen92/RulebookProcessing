@@ -1,27 +1,28 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
+@prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fro:Section_6_8_3 fro:hasSection fro:Section_6_8_3_3 .
+ex:Section_6_8_3_3 a fro:Section ;
+    fro:hasArticle ex:Article_6_8_3_3_1 ;
+    fro:hasID "6.8.3.3" .
 
-fro:Article_6_8_3_3_1 a fro:Article ;
+ex:Article_6_8_3_3_1 a fro:Article ;
     fro:hasID "A6.8.3.3.1" ;
-    fro:hasMember fro:Member_6_8_3_3_1_1,
-        fro:Member_6_8_3_3_1_2 ;
+    fro:hasMember ex:Member_6_8_3_3_1_1,
+        ex:Member_6_8_3_3_1_2 ;
     fro:hasVersion fro:v0_1 .
 
-fro:Member_6_8_3_3_1_1 a fro:Member ;
-    fro:hasOriginalText "Elk <a href=\"https://ontology.firebim.be/ontology/fbo#CommunicationDevice\">toestel</a> dat de verbinding tot stand kan brengen mits menselijke interventie, draagt een bericht over zijn bestemming en gebruiksaanwijzing."@nl .
+ex:Member_6_8_3_3_1_1 a fro:Member ;
+    fro:hasOriginalText "Elk toestel dat de verbinding tot stand kan brengen mits menselijke interventie, draagt een bericht over zijn bestemming en gebruiksaanwijzing."@nl .
 
-fro:Member_6_8_3_3_1_2 a fro:Member ;
-    fro:hasOriginalText "Gaat het om een <a href=\"https://ontology.firebim.be/ontology/fbo#Telephone\">telefoontoestel</a>, dan vermeldt dit bericht het te vormen oproepnummer, tenzij de verbinding rechtstreeks of automatisch geschiedt."@nl .
-
-fro:Section_6_8_3_3 a fro:Section ;
-    fro:hasArticle fro:Article_6_8_3_3_1 ;
-    fro:hasID "6.8.3.3" ;
-    fro:hasOriginalText "ELK TOESTEL DAT DE VERBINDING TOT STAND KAN BRENGEN MITS MENSELIJKE INTERVENTIE, DRAAGT EEN BERICHT OVER ZIJN BESTEMMING EN GEBRUIKSAANWIJZING."@nl .
+ex:Member_6_8_3_3_1_2 a fro:Member ;
+    fro:hasOriginalText "Gaat het om een telefoontoestel, dan vermeldt dit bericht het te vormen oproepnummer, tenzij de verbinding rechtstreeks of automatisch geschiedt."@nl ;
+    fro:linksTo fbo:AutomaticWarningSystem .
 
 fro:v0_1 a fro:Version ;
-    fro:hasDate "2026-01-08T12:38:28.462111"^^xsd:dateTime ;
+    fro:hasDate "2026-04-20T13:00:27.442218"^^xsd:dateTime ;
     fro:hasDescription "Version 0.1 of the document" ;
     fro:hasVersionNumber "0.1" .
 

@@ -1,8 +1,10 @@
+@base <https://ontology.firebim.be/ontology/fro> .
+@prefix ex: <https://example.org/rulebook#> .
 @prefix fro: <https://ontology.firebim.be/ontology/fro#> .
 
-fro:Section_6_7_4 fro:hasSection fro:Section_6_7_4_1 .
+ex:Section_6_7_4 fro:hasSection ex:Section_6_7_4_1 .
 
-fro:Section_6_7_4_1 a fro:Section ;
+ex:Section_6_7_4_1 a fro:Section ;
     fro:hasID "6.7.4.1" ;
     fro:hasOriginalText "Bediening"@nl .
 
