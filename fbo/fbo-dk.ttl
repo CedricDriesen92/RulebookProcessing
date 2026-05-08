@@ -1,11 +1,14 @@
 @prefix fbo: <https://ontology.firebim.be/ontology/fbo#> .
 @prefix fbo-dk: <https://ontology.firebim.be/ontology/fbo-DK#> .
 @prefix fbo-ifc: <https://ontology.firebim.be/ontology/fbo-ifc#> .
+@prefix fbo-nl: <https://ontology.firebim.be/ontology/fbo-NL#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <https://qudt.org/3.1.0/schema/qudt/> .
+@prefix qudt-unit: <https://qudt.org/3.1.0/vocab/unit/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fbo-dk:AreaBuildingFunctionalFireUnit a owl:ObjectProperty ;
+fbo-dk:AreaBuildingFunctionalFireUnit a owl:Class ;
     rdfs:label "Bygningsafsnitsareal"@da-DK,
         "Functional Fire Unit Area"@en ;
     fbo:hasCountry fbo:Denmark ;
@@ -35,10 +38,10 @@ fbo-dk:AreaEvacuationroute a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/AreaEvacuationroute-151f8487e6e780629f6de578c7bda3ae> ;
     fbo:isLinkedTo fbo:AreaEvacuationroute .
 
-fbo-dk:AreaFireCompartment a owl:DatatypeProperty ;
+fbo-dk:AreaFireCompartment a owl:Class ;
     rdfs:label "Etageareal i brandmæssig henseende"@da-DK,
         "Compartment-Area - Floor area"@en ;
-    rdfs:subPropertyOf fbo:AreaFireCompartment ;
+    rdfs:subClassOf fbo:AreaFireCompartment ;
     fbo:hasAdoptedDefinitionType "Explicit and implicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01, BR18-§455" ;
     fbo:hasCountry fbo:Denmark ;
@@ -55,9 +58,9 @@ fbo-dk:AreaFireCompartment a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-03T14:38:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "69" ;
     fbo:hasNotionURL <https://www.notion.so/AreaFireCompartment-151f8487e6e7800fa26cdd6dd0fb5b2a> ;
-    fbo:hasUnit "m2" ;
     fbo:hasValueType "Number" ;
-    fbo:isLinkedTo fbo:AreaFireCompartment .
+    fbo:isLinkedTo fbo:AreaFireCompartment ;
+    qudt:hasApplicableUnit qudt-unit:M2 .
 
 fbo-dk:AreaFloorRoom a owl:Class ;
     rdfs:label "Gulvareal"@da-DK,
@@ -77,10 +80,10 @@ fbo-dk:AreaFloorRoom a owl:Class ;
     fbo:hasLastEdition "2026-02-10T08:11:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "165" ;
     fbo:hasNotionURL <https://www.notion.so/AreaFloorRoom-151f8487e6e780f8bac2c40437774032> ;
-    fbo:hasUnit "m2" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-dk:AreaFreespace a owl:DatatypeProperty ;
+fbo-dk:AreaFreespace a owl:Class ;
     rdfs:label "Friareal"@da-DK,
         "Free space"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -98,7 +101,7 @@ fbo-dk:AreaFreespace a owl:DatatypeProperty ;
     fbo:hasNotionURL <https://www.notion.so/AreaFreespace-151f8487e6e780feb8a6d6212d0fc7c4> ;
     fbo:hasValueType "Number" .
 
-fbo-dk:AreaOpeningClearAerodynamicAa a owl:DatatypeProperty ;
+fbo-dk:AreaOpeningClearAerodynamicAa a owl:Class ;
     rdfs:label "Aerodynamisk frit areal (Aa)"@da-DK,
         "Aerodynamic free area (Aa)"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -117,7 +120,7 @@ fbo-dk:AreaOpeningClearAerodynamicAa a owl:DatatypeProperty ;
     fbo:hasNotionURL <https://www.notion.so/AreaOpeningClearAerodynamic-Aa-151f8487e6e7803489efc5b46dc09e0c> ;
     fbo:hasValueType "Number" .
 
-fbo-dk:AreaOpeningClearGeometric a owl:DatatypeProperty ;
+fbo-dk:AreaOpeningClearGeometric a owl:Class ;
     rdfs:label "Frit åbningsareal (geometrisk frit åbningsareal)"@da-DK,
         "Free opening area (geometric free opening area)"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -132,10 +135,10 @@ fbo-dk:AreaOpeningClearGeometric a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-17T13:13:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "158" ;
     fbo:hasNotionURL <https://www.notion.so/AreaOpeningClearGeometric-151f8487e6e780e786d5f8888fc32961> ;
-    fbo:hasUnit "m2" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-dk:AreaOpeningGeometricAg a owl:DatatypeProperty ;
+fbo-dk:AreaOpeningGeometricAg a owl:Class ;
     rdfs:label "Geometrisk åbningsareal (Ag)"@da-DK,
         "Geometric opening area (Ag)"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -153,7 +156,7 @@ fbo-dk:AreaOpeningGeometricAg a owl:DatatypeProperty ;
     fbo:hasNotionURL <https://www.notion.so/AreaOpeningGeometric-Ag-151f8487e6e7803999ecc4a087e5a058> ;
     fbo:hasValueType "Number" .
 
-fbo-dk:AreaSubCompartment a owl:ObjectProperty ;
+fbo-dk:AreaSubCompartment a owl:Class ;
     rdfs:label "Brandcelle areal"@da-DK,
         "Subcompartment area"@en ;
     fbo:hasAdoptedDefinitionType "Explicit and implicit definition" ;
@@ -191,6 +194,7 @@ fbo-dk:AutomaticWarningsystem a owl:Class ;
     fbo:hasDomainReference fbo:X2EVACUATION ;
     fbo:hasEquivalentTerm "Automatic warning device AVA, AVA automatic alarm system" ;
     fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:AutomaticDetection ;
     fbo:hasLastEdition "2026-02-03T14:46:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "147" ;
     fbo:hasNotionURL <https://www.notion.so/AutomaticWarningsystem-151f8487e6e780c99835da6a4163a27d> ;
@@ -447,13 +451,13 @@ fbo-dk:BoundaryFireCompartment a owl:Class ;
     fbo:hasLastEdition "2026-02-17T13:10:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "123" ;
     fbo:hasNotionURL <https://www.notion.so/BoundaryFireCompartment-151f8487e6e7808fb6c3f0b89dd68121> ;
-    fbo:hasUnit "[-]" ;
-    fbo:isLinkedTo fbo:BoundaryFireCompartment .
+    fbo:isLinkedTo fbo:BoundaryFireCompartment ;
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:BoundarySubcompartment a owl:DatatypeProperty ;
+fbo-dk:BoundarySubcompartment a owl:Class ;
     rdfs:label "Brandcelleadskillelse"@da-DK,
         "Room - Subcompartment - boundary"@en ;
-    rdfs:subPropertyOf fbo:BoundaryFireCompartment ;
+    rdfs:subClassOf fbo:BoundaryFireCompartment ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -468,8 +472,8 @@ fbo-dk:BoundarySubcompartment a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-17T13:10:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "125" ;
     fbo:hasNotionURL <https://www.notion.so/BoundarySubcompartment-151f8487e6e78090953bc8ffbac2f18f> ;
-    fbo:hasUnit "[-]" ;
-    fbo:isLinkedTo fbo:BoundaryFireCompartment .
+    fbo:isLinkedTo fbo:BoundaryFireCompartment ;
+    qudt:hasApplicableUnit "[-]" .
 
 fbo-dk:BuildingFireCompartmentDaytimeoccupancy a owl:Class ;
     rdfs:label "Dagophold"@da-DK,
@@ -486,11 +490,11 @@ fbo-dk:BuildingFireCompartmentDaytimeoccupancy a owl:Class ;
         fbo:X2EVACUATION ;
     fbo:hasEquivalentTerm "Day stay, Daycare" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-02-10T08:11:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-04-22T10:14:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "124" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingFireCompartmentDaytimeoccupancy-151f8487e6e780908a31f285f6bc52bd> ;
-    fbo:hasUnit "Y/N" ;
-    fbo:hasValueType "Boolean (yes/no)" .
+    fbo:hasValueType "Boolean (yes/no)" ;
+    qudt:hasApplicableUnit "Y/N" .
 
 fbo-dk:BuildingFunctionalFireUnit a owl:Class ;
     rdfs:label "Bygningsafsnit"@da-DK,
@@ -523,10 +527,10 @@ A Functional Fire Unit can be organised as one or more fire compartments and mus
         fbo:X1COMPARTMENTATION ;
     fbo:hasEquivalentTerm "Building compartment, Building section" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-02-17T13:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-04-22T12:57:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "271" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingFunctionalFireUnit-21ff8487e6e780e9a2c0e11513d03987> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
 fbo-dk:BuildingLayers a owl:Class ;
     rdfs:label "Etager"@da-DK,
@@ -541,14 +545,15 @@ fbo-dk:BuildingLayers a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasEquivalentTerm "Floors, Storeys" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-02-03T14:48:00+00:00"^^xsd:dateTime ;
+    fbo:hasIFCMapping fbo-ifc:BuildingLayersBuilding ;
+    fbo:hasLastEdition "2026-04-22T10:09:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "91" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingLayers-151f8487e6e7803c939dc924dbcbf60c> ;
-    fbo:hasUnit "number" ;
     fbo:hasValueType "Number" ;
-    fbo:isLinkedTo fbo:BuildingLayers .
+    fbo:isLinkedTo fbo:BuildingLayers ;
+    qudt:hasApplicableUnit "number" .
 
-fbo-dk:BuildingsectionOffices a owl:DatatypeProperty ;
+fbo-dk:BuildingsectionOffices a owl:Class ;
     rdfs:label "Kontor"@da-DK,
         "Offices"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -565,7 +570,7 @@ fbo-dk:BuildingsectionOffices a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "93" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingsectionOffices-151f8487e6e78044ad0fdfc509de8863> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
 fbo-dk:CeilingSuspended a owl:Class ;
     rdfs:label "Nedhængt loft"@da-DK,
@@ -580,11 +585,11 @@ fbo-dk:CeilingSuspended a owl:Class ;
     fbo:hasEquivalentTerm "Drop ceiling" ;
     fbo:hasFireExpertValidation true ;
     fbo:hasIFCMapping fbo-ifc:Ceiling ;
-    fbo:hasLastEdition "2026-02-03T14:37:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-02-25T15:40:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "73" ;
     fbo:hasNotionURL <https://www.notion.so/CeilingSuspended-151f8487e6e7801bacefef8078481871> .
 
-fbo-dk:CompartmentSleeping a owl:DatatypeProperty ;
+fbo-dk:CompartmentSleeping a owl:Class ;
     rdfs:label "Soverumsafsnit"@da-DK,
         "Sleeping section"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -601,7 +606,7 @@ fbo-dk:CompartmentSleeping a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "84" ;
     fbo:hasNotionURL <https://www.notion.so/CompartmentSleeping-151f8487e6e78030a27cf1e4dbf00b10> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
 fbo-dk:DistanceActualTravel a owl:Class ;
     rdfs:label "Ganglængde"@da-DK,
@@ -620,10 +625,10 @@ fbo-dk:DistanceActualTravel a owl:Class ;
     fbo:hasLastEdition "2026-02-17T13:14:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "85" ;
     fbo:hasNotionURL <https://www.notion.so/DistanceActualTravel-151f8487e6e780318ce5e17e203ed2e4> ;
-    fbo:hasUnit "m" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M .
 
-fbo-dk:DistanceBlindEnd a owl:DatatypeProperty ;
+fbo-dk:DistanceBlindEnd a owl:Class ;
     rdfs:label "Længde på blind ende"@da-DK,
         "Distance Blind End"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -660,8 +665,8 @@ fbo-dk:DistanceDirectTravel a owl:Class ;
     fbo:hasLastEdition "2026-02-17T13:13:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "172" ;
     fbo:hasNotionURL <https://www.notion.so/DistanceDirectTravel-151f8487e6e780ff92c4cfcb580c9b7c> ;
-    fbo:hasUnit "m" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M .
 
 fbo-dk:DistancePathway a owl:Class ;
     rdfs:label "Ganglinje"@da-DK,
@@ -680,8 +685,8 @@ fbo-dk:DistancePathway a owl:Class ;
     fbo:hasLastEdition "2026-02-17T13:14:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "102" ;
     fbo:hasNotionURL <https://www.notion.so/DistancePathway-151f8487e6e7805a9013f4c4ea54de44> ;
-    fbo:hasUnit "m" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M .
 
 fbo-dk:DoorEscaperoute a owl:Class ;
     rdfs:label "Flugtvejsdør"@da-DK,
@@ -700,8 +705,8 @@ fbo-dk:DoorEscaperoute a owl:Class ;
     fbo:hasLastEdition "2026-02-17T13:11:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "121" ;
     fbo:hasNotionURL <https://www.notion.so/DoorEscaperoute-151f8487e6e7808cb60dc47065e43a7a> ;
-    fbo:hasUnit "[-]" ;
-    fbo:isLinkedTo fbo:DoorEscaperoute .
+    fbo:isLinkedTo fbo:DoorEscaperoute ;
+    qudt:hasApplicableUnit "[-]" .
 
 fbo-dk:DoorExit a owl:Class ;
     rdfs:label "Udgangsdør"@da-DK,
@@ -720,7 +725,7 @@ fbo-dk:DoorExit a owl:Class ;
     fbo:hasNotionID "111" ;
     fbo:hasNotionURL <https://www.notion.so/DoorExit-151f8487e6e780759841e40e7b1da4ad> .
 
-fbo-dk:DoorIndependentExitdoors a owl:ObjectProperty ;
+fbo-dk:DoorIndependentExitdoors a owl:Class ;
     rdfs:label "Uafhængige udgangsdøre"@da-DK,
         "Independent exit doors"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -738,7 +743,26 @@ fbo-dk:DoorIndependentExitdoors a owl:ObjectProperty ;
     fbo:hasNotionID "110" ;
     fbo:hasNotionURL <https://www.notion.so/DoorIndependentExitdoors-151f8487e6e78074ba7ef53efaae1d99> .
 
-fbo-dk:EvacuationRoutePrimary a owl:ObjectProperty ;
+fbo-dk:EscapeRoute a owl:Class ;
+    rdfs:label "Vluchtroute"@da-DK,
+        "Escape route"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Bbl - Bijlage 1" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Route die begint in ruimte voor personen, alleen voert over vloeren, trappen of hellingbanen en eindigt op een veilige plaats, zonder dat gebruik moet worden gemaakt van een lift"@da-DK,
+        "Route that starts in a space for people, only runs over floors, stairs or ramps and ends in a safe place, without the need to use a lift"@en ;
+    fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:EscapeRoute ;
+    fbo:hasLastEdition "2026-04-22T13:06:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "602" ;
+    fbo:hasNotionURL <https://www.notion.so/EscapeRoute-34af8487e6e780d3a2f3f8cda70b6af4> ;
+    fbo:hasValueType "Boolean (yes/no)" ;
+    qudt:hasApplicableUnit "[-]" .
+
+fbo-dk:EvacuationRoutePrimary a owl:Class ;
     rdfs:label "Primær flugtvej"@da-DK,
         "Primary Evacuation route"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -751,9 +775,11 @@ fbo-dk:EvacuationRoutePrimary a owl:ObjectProperty ;
     fbo:hasDomainReference fbo:X2EVACUATION ;
     fbo:hasEquivalentTerm "Primary escape route, Primary means of escape, Main escape route" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-02-17T13:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasIFCMapping fbo-ifc:EscapeRoute ;
+    fbo:hasLastEdition "2026-04-22T13:14:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "133" ;
-    fbo:hasNotionURL <https://www.notion.so/EvacuationRoutePrimary-151f8487e6e780a083d1dc4cdd3809a8> .
+    fbo:hasNotionURL <https://www.notion.so/EvacuationRoutePrimary-151f8487e6e780a083d1dc4cdd3809a8> ;
+    fbo:hasValueType "Boolean (yes/no)" .
 
 fbo-dk:EvacuationTime a owl:Class ;
     rdfs:label "Evakueringstid"@da-DK,
@@ -816,16 +842,16 @@ fbo-dk:FireCompartment a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasEquivalentTerm "Fire section, Fire division" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-02-17T13:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-04-22T11:48:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "130" ;
     fbo:hasNotionURL <https://www.notion.so/FireCompartment-151f8487e6e78099a790f6834c50080d> ;
-    fbo:hasUnit "[-]" ;
-    fbo:isLinkedTo fbo:FireCompartment .
+    fbo:isLinkedTo fbo:FireCompartment ;
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:FireCompartmentSubcompartment a owl:DatatypeProperty ;
+fbo-dk:FireCompartmentSubcompartment a owl:Class ;
     rdfs:label "Brandcelle"@da-DK,
         "Compartment - Subcompartment"@en ;
-    rdfs:subPropertyOf fbo:FireCompartment ;
+    rdfs:subClassOf fbo:FireCompartment ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -840,8 +866,8 @@ fbo-dk:FireCompartmentSubcompartment a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "117" ;
     fbo:hasNotionURL <https://www.notion.so/FireCompartmentSubcompartment-151f8487e6e7807e9a2ff97037e84332> ;
-    fbo:hasUnit "[-]" ;
-    fbo:isLinkedTo fbo:FireCompartment .
+    fbo:isLinkedTo fbo:FireCompartment ;
+    qudt:hasApplicableUnit "[-]" .
 
 fbo-dk:FireHazardSpecial a owl:Class ;
     rdfs:label "Særlig brandfare"@da-DK,
@@ -861,10 +887,10 @@ fbo-dk:FireHazardSpecial a owl:Class ;
     fbo:hasNotionID "282" ;
     fbo:hasNotionURL <https://www.notion.so/FireHazardSpecial-225f8487e6e78050b456c5ffd945ddaa> .
 
-fbo-dk:FireResistance a owl:DatatypeProperty ;
+fbo-dk:FireResistance a owl:Class ;
     rdfs:label "Brandmodstandsevne"@da-DK,
         "Fire resistance"@en ;
-    rdfs:subPropertyOf fbo:FireResistance ;
+    rdfs:subClassOf fbo:FireResistance ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -877,6 +903,7 @@ fbo-dk:FireResistance a owl:DatatypeProperty ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertGuidance "The prescriptive requirements in DK are EI120/A2-s1,d0, EI120-M/A2-s1,d0, EI60/A2-s1,d0, EI60-M/A2-s1,d0, EI60, EI30 and EW30/EI15, EI2 60, EI2 30" ;
     fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:FireResistance ;
     fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "139" ;
     fbo:hasNotionURL <https://www.notion.so/FireResistance-151f8487e6e780b2b4c2dc16842781bd> ;
@@ -920,10 +947,10 @@ fbo-dk:FireSafetyUnit a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/FireSafetyUnit-22cf8487e6e780aeafdecff79690eebc> ;
     fbo:isLinkedTo fbo:FireCompartment .
 
-fbo-dk:FireloadDensity a owl:DatatypeProperty ;
+fbo-dk:FireloadDensity a owl:Class ;
     rdfs:label "Brandbelastning"@da-DK,
         "Fire load density"@en ;
-    rdfs:subPropertyOf fbo:FireLoadDensity ;
+    rdfs:subClassOf fbo:FireLoadDensity ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -952,11 +979,11 @@ The permanent fire load consists of the building's combustible structures, surfa
     fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "171" ;
     fbo:hasNotionURL <https://www.notion.so/FireloadDensity-151f8487e6e780ff8c87e56531014b22> ;
-    fbo:hasUnit "MJ/m²" ;
     fbo:hasValueType "Number" ;
-    fbo:isLinkedTo fbo:FireLoadDensity .
+    fbo:isLinkedTo fbo:FireLoadDensity ;
+    qudt:hasApplicableUnit "MJ/m²" .
 
-fbo-dk:FreeOpenRamps a owl:ObjectProperty ;
+fbo-dk:FreeOpenRamps a owl:Class ;
     rdfs:label "Bygningsafsnit med frie åbne ramper"@da-DK,
         "Building compartments with free open ramps"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1037,10 +1064,10 @@ Daycare centres""" ;
     fbo:hasNotionID "302" ;
     fbo:hasNotionURL <https://www.notion.so/FunctionType-231f8487e6e780b9abcdc629d9ce358b> .
 
-fbo-dk:HeightBuilding a owl:DatatypeProperty ;
+fbo-dk:HeightBuilding a owl:Class ;
     rdfs:label "Gulv i øverste etage"@da-DK,
         "Height - building"@en ;
-    rdfs:subPropertyOf fbo:HeightBuilding ;
+    rdfs:subClassOf fbo:HeightBuilding ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-K03-3.1.3" ;
     fbo:hasCountry fbo:Denmark ;
@@ -1054,10 +1081,10 @@ fbo-dk:HeightBuilding a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-03T14:44:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "148" ;
     fbo:hasNotionURL <https://www.notion.so/HeightBuilding-151f8487e6e780caa417e904081d16d9> ;
-    fbo:hasUnit "m" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M .
 
-fbo-dk:HeightRescue a owl:DatatypeProperty ;
+fbo-dk:HeightRescue a owl:Class ;
     rdfs:label "Redningshøjde"@da-DK,
         "Rescue height"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1073,10 +1100,10 @@ fbo-dk:HeightRescue a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "142" ;
     fbo:hasNotionURL <https://www.notion.so/HeightRescue-151f8487e6e780bc9975c1b96f0a284f> ;
-    fbo:hasUnit "m" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M .
 
-fbo-dk:HeightStackingRack a owl:DatatypeProperty ;
+fbo-dk:HeightStackingRack a owl:Class ;
     rdfs:label "Stablingshøjde"@da-DK,
         "Stacking height"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1092,8 +1119,8 @@ fbo-dk:HeightStackingRack a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "281" ;
     fbo:hasNotionURL <https://www.notion.so/HeightStackingRack-223f8487e6e780e1a007c106c8feacd8> ;
-    fbo:hasUnit "m" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M .
 
 fbo-dk:HoseReel a owl:Class ;
     rdfs:label "Slangevinde"@da-DK,
@@ -1114,9 +1141,19 @@ fbo-dk:HoseReel a owl:Class ;
     fbo:hasLastEdition "2026-02-10T08:15:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "71" ;
     fbo:hasNotionURL <https://www.notion.so/HoseReel-151f8487e6e78013b015d88fcbbde463> ;
-    fbo:hasUnit "-" .
+    qudt:hasApplicableUnit "-" .
 
-fbo-dk:IndustrialClass5 a owl:ObjectProperty ;
+fbo-dk:IfcSpaceIfcSpatialZone a owl:Class ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-04-22T13:03:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "603",
+        "604" ;
+    fbo:hasNotionURL <https://www.notion.so/IfcSpace-IfcSpatialZone-9bac9cdc11e740008873e48799eccc36>,
+        <https://www.notion.so/IfcSpace-IfcSpatialZone-e616c41839c1456d9938bd35e228ac80> .
+
+fbo-dk:IndustrialClass5 a owl:Class ;
     rdfs:label "Industri- og lagerklasse 5 (ILK5)"@da-DK,
         "Industrial and warehouse class 5"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1164,10 +1201,10 @@ fbo-dk:LengthHosepath a owl:Class ;
     fbo:hasLastEdition "2026-02-17T13:15:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "141" ;
     fbo:hasNotionURL <https://www.notion.so/LengthHosepath-151f8487e6e780b9b88cda41efc871d3> ;
-    fbo:hasUnit "m" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M .
 
-fbo-dk:NumberOccupantsEvacuationRoute a owl:DatatypeProperty ;
+fbo-dk:NumberOccupantsEvacuationRoute a owl:Class ;
     rdfs:label "Personbelastning pr.evakueringsrute"@da-DK,
         "Number of Occupants per Evacuation route"@en ;
     fbo:hasAdoptedDefinitionType "Explicit and implicit definition" ;
@@ -1179,12 +1216,12 @@ fbo-dk:NumberOccupantsEvacuationRoute a owl:DatatypeProperty ;
         fbo:X2EVACUATION ;
     fbo:hasEquivalentTerm "Person load" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-02-17T13:21:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-04-22T13:12:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "366" ;
     fbo:hasNotionURL <https://www.notion.so/NumberOccupantsEvacuationRoute-24ff8487e6e78014b21ad3c18206b3fe> ;
     fbo:hasValueType "Number" .
 
-fbo-dk:NumberOccupantsSpaceCompartment a owl:DatatypeProperty ;
+fbo-dk:NumberOccupantsSpaceCompartment a owl:Class ;
     rdfs:label "Personbelastning i brandsektioner"@da-DK,
         "Number of Occupants per Compartment"@en ;
     fbo:hasAdoptedDefinitionType "Explicit and implicit definition" ;
@@ -1201,13 +1238,14 @@ fbo-dk:NumberOccupantsSpaceCompartment a owl:DatatypeProperty ;
     fbo:hasEquivalentTerm "Person load in fire compartments, Person load in fire sections" ;
     fbo:hasFireExpertGuidance "The number of persons per fire compartment may be less than the sum of the number of persons per subcompartment located in the fire compartment, as the function of the rooms and the use of the building are taken into account." ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasIFCMapping fbo-ifc:OccupantsCompartment ;
+    fbo:hasLastEdition "2026-04-22T12:59:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "154" ;
     fbo:hasNotionURL <https://www.notion.so/NumberOccupantsSpaceCompartment-151f8487e6e780d9b0f3d719f7ff51be> ;
-    fbo:hasUnit "[-]" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:NumberOccupantsSubcompartments a owl:DatatypeProperty ;
+fbo-dk:NumberOccupantsSubcompartments a owl:Class ;
     rdfs:label "Personbelastning i brandceller"@da-DK,
         "Number of Occupants per Subcompartments"@en ;
     fbo:hasAdoptedDefinitionType "Explicit and implicit definition" ;
@@ -1223,13 +1261,13 @@ fbo-dk:NumberOccupantsSubcompartments a owl:DatatypeProperty ;
         fbo:X2EVACUATION ;
     fbo:hasEquivalentTerm "Person load in rooms, Occupant load in rooms" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-04-27T12:23:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "143" ;
     fbo:hasNotionURL <https://www.notion.so/NumberOccupantsSubcompartments-151f8487e6e780be97f0ed03353f9368> ;
-    fbo:hasUnit "[-]" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:NumberSleepingarea a owl:DatatypeProperty ;
+fbo-dk:NumberSleepingarea a owl:Class ;
     rdfs:label "Soveplads"@da-DK,
         "Sleeping area"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1246,7 +1284,7 @@ fbo-dk:NumberSleepingarea a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "81" ;
     fbo:hasNotionURL <https://www.notion.so/NumberSleepingarea-151f8487e6e7802ba3d3c18a6dcd4ba7> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
 fbo-dk:OpeningRescue a owl:Class ;
     rdfs:label "Redningsåbning"@da-DK,
@@ -1286,7 +1324,7 @@ fbo-dk:PassiveFireProtection a owl:Class ;
     fbo:hasNotionID "167" ;
     fbo:hasNotionURL <https://www.notion.so/PassiveFireProtection-151f8487e6e780fba155d4bc6fded875> .
 
-fbo-dk:PeopleKnowledgeEscaperoutes a owl:DatatypeProperty ;
+fbo-dk:PeopleKnowledgeEscaperoutes a owl:Class ;
     rdfs:label "Stedkendt person"@da-DK,
         "People with knowledge of escape routes"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1303,8 +1341,8 @@ fbo-dk:PeopleKnowledgeEscaperoutes a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "113" ;
     fbo:hasNotionURL <https://www.notion.so/PeopleKnowledgeEscape-routes-151f8487e6e7807887a4d9cc8eadd6fa> ;
-    fbo:hasUnit "Y/N" ;
-    fbo:hasValueType "Boolean (yes/no)" .
+    fbo:hasValueType "Boolean (yes/no)" ;
+    qudt:hasApplicableUnit "Y/N" .
 
 fbo-dk:PlaceSaferefuge a owl:Class ;
     rdfs:label "Sikkert sted"@da-DK,
@@ -1326,7 +1364,7 @@ fbo-dk:PlaceSaferefuge a owl:Class ;
     fbo:hasNotionID "134" ;
     fbo:hasNotionURL <https://www.notion.so/PlaceSaferefuge-151f8487e6e780a2a9a3f04bcdefb983> .
 
-fbo-dk:RiskClass a owl:DatatypeProperty ;
+fbo-dk:RiskClass a owl:Class ;
     rdfs:label "Risikoklasse"@da-DK,
         "Risk class"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1343,7 +1381,7 @@ fbo-dk:RiskClass a owl:DatatypeProperty ;
     fbo:hasNotionURL <https://www.notion.so/RiskClass-2bcf8487e6e7800f9f5ad0a85c6180fc> ;
     fbo:hasValueType "Number" .
 
-fbo-dk:SeparationFire a owl:ObjectProperty ;
+fbo-dk:SeparationFire a owl:Class ;
     rdfs:label "Brandmæssig adskillelse"@da-DK,
         "Fire separation"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1379,7 +1417,7 @@ fbo-dk:Site a owl:Class ;
     fbo:hasNotionID "101" ;
     fbo:hasNotionURL <https://www.notion.so/Site-151f8487e6e78057b007f5c578c0f1e6> .
 
-fbo-dk:SpaceLivingunit a owl:DatatypeProperty ;
+fbo-dk:SpaceLivingunit a owl:Class ;
     rdfs:label "Boenhed eller Boligenhed"@da-DK,
         "Living or Housing unit"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1396,10 +1434,10 @@ fbo-dk:SpaceLivingunit a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-17T13:09:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "72" ;
     fbo:hasNotionURL <https://www.notion.so/SpaceLivingunit-151f8487e6e7801a95fade238b16fcdd> ;
-    fbo:hasUnit "[-]" ;
-    fbo:isLinkedTo fbo:Roomfunction .
+    fbo:isLinkedTo fbo:Roomfunction ;
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:SpaceUsableAttic a owl:DatatypeProperty ;
+fbo-dk:SpaceUsableAttic a owl:Class ;
     rdfs:label "Udnyttelig tageetage (tagrum)"@da-DK,
         "Usable attic (roof space)"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1416,9 +1454,29 @@ fbo-dk:SpaceUsableAttic a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "159" ;
     fbo:hasNotionURL <https://www.notion.so/SpaceUsableAttic-151f8487e6e780e887f8df140bb4f56c> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:StairInternal a owl:ObjectProperty ;
+fbo-dk:SpacialZone a owl:Class ;
+    rdfs:label "Boenhed eller Boligenhed"@da-DK,
+        "Living or Housing unit"@en ;
+    fbo:hasAdoptedDefinitionType "Explicit definition" ;
+    fbo:hasArticleID "BR18-VK5-D01" ;
+    fbo:hasCountry fbo:Denmark ;
+    fbo:hasCountryCode "DK" ;
+    fbo:hasDefinition "Afgrænset del af bygning bestående af et eller flere værelser/rum, f.eks. på hoteller og plejehjem, hvor mindst et af rummene er indrettet med sovepladser. Bygning, eller afgrænset del af bygning, henført til anvendelseskategori 4, hvor der bor én familie eller relaterede personer, f.eks. bofællesskab, generationsfællesskab og lignende."@da-DK,
+        "Delimited part of a building consisting of one or more rooms/spaces, e.g. in hotels and nursing homes, where at least one of the rooms is furnished with sleeping accommodation. Or Building, or defined part of a building, assigned to use category 4, where one family or related persons live, e.g. cohousing, intergenerational community and similar."@en ;
+    fbo:hasDocumentReference fbo-dk:BR18VK5D01 ;
+    fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasEquivalentTerm "Living unit or Residential unit" ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-04-22T13:57:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "607" ;
+    fbo:hasNotionURL <https://www.notion.so/SpacialZone-34af8487e6e7807c9bafcf663a69db44> ;
+    fbo:isLinkedTo fbo:Roomfunction ;
+    qudt:hasApplicableUnit "[-]" .
+
+fbo-dk:StairInternal a owl:Class ;
     rdfs:label "Intern trappe"@da-DK,
         "Internal staircase"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1451,7 +1509,7 @@ fbo-dk:SurfaceCladding a owl:Class ;
     fbo:hasLastEdition "2026-01-06T12:13:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "82" ;
     fbo:hasNotionURL <https://www.notion.so/SurfaceCladding-151f8487e6e7802eb9cde1e46df78a50> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
 fbo-dk:SurfaceCladdingRainscreen a owl:Class ;
     rdfs:label "Regnskærm"@da-DK,
@@ -1485,7 +1543,7 @@ fbo-dk:SurfaceExposed a owl:Class ;
     fbo:hasNotionID "153" ;
     fbo:hasNotionURL <https://www.notion.so/SurfaceExposed-151f8487e6e780d79199e530c05e4b4a> .
 
-fbo-dk:SystemEscaperouteSecondary a owl:ObjectProperty ;
+fbo-dk:SystemEscaperouteSecondary a owl:Class ;
     rdfs:label "Sekundær flugtvej"@da-DK,
         "Secondary escape route"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1502,7 +1560,7 @@ fbo-dk:SystemEscaperouteSecondary a owl:ObjectProperty ;
     fbo:hasNotionID "140" ;
     fbo:hasNotionURL <https://www.notion.so/SystemEscaperouteSecondary-151f8487e6e780b78337f0f8ebcd0063> .
 
-fbo-dk:SystemEscaperouteShared a owl:ObjectProperty ;
+fbo-dk:SystemEscaperouteShared a owl:Class ;
     rdfs:label "Fælles flugtvej"@da-DK,
         "Shared escape route"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1519,7 +1577,7 @@ fbo-dk:SystemEscaperouteShared a owl:ObjectProperty ;
     fbo:hasNotionID "127" ;
     fbo:hasNotionURL <https://www.notion.so/SystemEscaperouteShared-151f8487e6e780919ba2dad4a99822b2> .
 
-fbo-dk:SystemEvacuationroute a owl:ObjectProperty ;
+fbo-dk:SystemEvacuationroute a owl:Class ;
     rdfs:label "Flugtvejssystem"@da-DK,
         "Evacuation route system"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1536,7 +1594,7 @@ fbo-dk:SystemEvacuationroute a owl:ObjectProperty ;
     fbo:hasNotionID "95" ;
     fbo:hasNotionURL <https://www.notion.so/SystemEvacuationroute-151f8487e6e78047b3b6d9573d5504f4> .
 
-fbo-dk:SystemIndependentEvacuationRoute a owl:ObjectProperty ;
+fbo-dk:SystemIndependentEvacuationRoute a owl:Class ;
     rdfs:label "Uafhængige flugtveje"@da-DK,
         "Independent evacuation routes"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1554,7 +1612,7 @@ fbo-dk:SystemIndependentEvacuationRoute a owl:ObjectProperty ;
     fbo:hasNotionID "114" ;
     fbo:hasNotionURL <https://www.notion.so/SystemIndependentEvacuationRoute-151f8487e6e78078a26ec6de375fc343> .
 
-fbo-dk:SystemIndependentExit a owl:ObjectProperty ;
+fbo-dk:SystemIndependentExit a owl:Class ;
     rdfs:label "Uafhængige udgange"@da-DK,
         "Independent exits"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1591,7 +1649,7 @@ fbo-dk:TimeWalking a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/TimeWalking-151f8487e6e7805bb03efe7bdb9be161> ;
     fbo:hasValueType "Number" .
 
-fbo-dk:TypeProject a owl:ObjectProperty ;
+fbo-dk:TypeProject a owl:Class ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
     fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
@@ -1601,7 +1659,7 @@ fbo-dk:TypeProject a owl:ObjectProperty ;
     fbo:hasNotionURL <https://www.notion.so/TypeProject-26af8487e6e7809ba6e1fac9f97839c7> ;
     fbo:hasRemarks "New/existing/renovation" .
 
-fbo-dk:WalltypeBuildingFirewall a owl:DatatypeProperty ;
+fbo-dk:WalltypeBuildingFirewall a owl:Class ;
     rdfs:label "Brandvæg"@da-DK,
         "Building-Firewall"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
@@ -1618,8 +1676,8 @@ fbo-dk:WalltypeBuildingFirewall a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-17T13:11:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "157" ;
     fbo:hasNotionURL <https://www.notion.so/WalltypeBuildingFirewall-151f8487e6e780e39a9ac98952f1becb> ;
-    fbo:hasUnit "[-]" ;
-    fbo:isLinkedTo fbo:WalltypeCompartmentFirewall .
+    fbo:isLinkedTo fbo:WalltypeCompartmentFirewall ;
+    qudt:hasApplicableUnit "[-]" .
 
 fbo-dk:WalltypeCompartmentFirewall a owl:Class ;
     rdfs:label "Brandsektionsvæg"@da-DK,
@@ -1639,7 +1697,7 @@ fbo-dk:WalltypeCompartmentFirewall a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/WalltypeCompartmentFirewall-1b2f8487e6e780c68f94cddce381314b> ;
     fbo:isLinkedTo fbo:WalltypeCompartmentFirewall .
 
-fbo-dk:WalltypeSubcompartmentFirewall a owl:ObjectProperty ;
+fbo-dk:WalltypeSubcompartmentFirewall a owl:Class ;
     rdfs:label "Brandcellevæg"@da-DK,
         "Subcompartment Firewall"@en ;
     fbo:hasAdoptedDefinitionType "Implicit definition" ;
@@ -1715,6 +1773,7 @@ fbo-dk:AutomaticFireAlarmsystem a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasEquivalentTerm "Automatic fire alarm installations" ;
     fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:AutomaticDetection ;
     fbo:hasLastEdition "2026-02-03T14:38:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "137" ;
     fbo:hasNotionURL <https://www.notion.so/AutomaticFireAlarmsystem-151f8487e6e780acb6a2ed6a6e96ab25> ;
@@ -1736,6 +1795,7 @@ fbo-dk:AutomaticFireSprinklersystem a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasEquivalentTerm "Automatic water sprinkler system" ;
     fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:AutomaticFireExtinguishSystem ;
     fbo:hasLastEdition "2026-02-03T14:38:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "120" ;
     fbo:hasNotionURL <https://www.notion.so/AutomaticFireSprinklersystem-151f8487e6e78089ab55f08e806a900a> ;
@@ -1818,10 +1878,10 @@ fbo-dk:EmergencyPanicLights a owl:Class ;
     fbo:hasNotionID "74" ;
     fbo:hasNotionURL <https://www.notion.so/EmergencyPanicLights-151f8487e6e7801e959bf123e1cb9c1a> .
 
-fbo-dk:RoomOccupancy a owl:DatatypeProperty ;
+fbo-dk:RoomOccupancy a owl:Class ;
     rdfs:label "Opholdsrum"@da-DK,
         "Room for occupancy"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -1838,13 +1898,13 @@ fbo-dk:RoomOccupancy a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "109" ;
     fbo:hasNotionURL <https://www.notion.so/RoomOccupancy-151f8487e6e78074afddfea39f811778> ;
-    fbo:hasUnit "Y/N" ;
-    fbo:hasValueType "Boolean (yes/no)" .
+    fbo:hasValueType "Boolean (yes/no)" ;
+    qudt:hasApplicableUnit "Y/N" .
 
-fbo-dk:RoomfunctionAssemblyrooms a owl:DatatypeProperty ;
+fbo-dk:RoomfunctionAssemblyrooms a owl:Class ;
     rdfs:label "Forsamlingslokale"@da-DK,
         "Assembly rooms"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -1859,12 +1919,12 @@ fbo-dk:RoomfunctionAssemblyrooms a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "106" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionAssemblyrooms-151f8487e6e78063b1aafedf81f6e2cf> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:RoomfunctionCanteen a owl:ObjectProperty ;
+fbo-dk:RoomfunctionCanteen a owl:Class ;
     rdfs:label "Kantine"@da-DK,
         "Canteen"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
     fbo:hasFireExpertValidation false ;
@@ -1872,10 +1932,10 @@ fbo-dk:RoomfunctionCanteen a owl:ObjectProperty ;
     fbo:hasNotionID "445" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionCanteen-276f8487e6e78047b80cd0fff4fe0b75> .
 
-fbo-dk:RoomfunctionClassrooms a owl:ObjectProperty ;
+fbo-dk:RoomfunctionClassrooms a owl:Class ;
     rdfs:label "Undervisningsrum"@da-DK,
         "Classrooms"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
     fbo:hasFireExpertValidation false ;
@@ -1883,10 +1943,10 @@ fbo-dk:RoomfunctionClassrooms a owl:ObjectProperty ;
     fbo:hasNotionID "446" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionClassrooms-276f8487e6e78049a0fddbb90db3c474> .
 
-fbo-dk:RoomfunctionCopyroom a owl:ObjectProperty ;
+fbo-dk:RoomfunctionCopyroom a owl:Class ;
     rdfs:label "Kopirum"@da-DK,
         "Copy room"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
     fbo:hasFireExpertValidation false ;
@@ -1894,10 +1954,10 @@ fbo-dk:RoomfunctionCopyroom a owl:ObjectProperty ;
     fbo:hasNotionID "451" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionCopyroom-276f8487e6e780f0b4bac4a9ea030324> .
 
-fbo-dk:RoomfunctionDormitory a owl:ObjectProperty ;
+fbo-dk:RoomfunctionDormitory a owl:Class ;
     rdfs:label "Kollegieværelse"@da-DK,
         "Dormitory"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
     fbo:hasFireExpertValidation false ;
@@ -1905,10 +1965,10 @@ fbo-dk:RoomfunctionDormitory a owl:ObjectProperty ;
     fbo:hasNotionID "448" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionDormitory-276f8487e6e7804f8e18dc8bf8db1c5c> .
 
-fbo-dk:RoomfunctionEscaperouteCorridor a owl:DatatypeProperty ;
+fbo-dk:RoomfunctionEscaperouteCorridor a owl:Class ;
     rdfs:label "Flugtvejsgang"@da-DK,
         "Evacuation route corridor"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -1924,13 +1984,13 @@ fbo-dk:RoomfunctionEscaperouteCorridor a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-17T13:11:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "126" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionEscaperouteCorridor-151f8487e6e78091963dcb4545955bc5> ;
-    fbo:hasUnit "[-]" ;
-    fbo:isLinkedTo fbo:Roomfunction .
+    fbo:isLinkedTo fbo:Roomfunction ;
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:RoomfunctionEscapestaircase a owl:DatatypeProperty ;
+fbo-dk:RoomfunctionEscapestaircase a owl:Class ;
     rdfs:label "Flugtvejstrappe"@da-DK,
         "Emergency escape staircase"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -1947,12 +2007,12 @@ fbo-dk:RoomfunctionEscapestaircase a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "163" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionEscapestaircase-151f8487e6e780f48f1af84303ea1cc3> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:RoomfunctionKitchen a owl:DatatypeProperty ;
+fbo-dk:RoomfunctionKitchen a owl:Class ;
     rdfs:label "Køkken"@da-DK,
         "Kitchen"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -1967,12 +2027,12 @@ fbo-dk:RoomfunctionKitchen a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "119" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionKitchen-151f8487e6e780838e7cfcb25eb89045> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:RoomfunctionKitchenette a owl:DatatypeProperty ;
+fbo-dk:RoomfunctionKitchenette a owl:Class ;
     rdfs:label "Te- eller anretterkøkken"@da-DK,
         "Kitchenette"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -1987,12 +2047,12 @@ fbo-dk:RoomfunctionKitchenette a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "112" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionKitchenette-151f8487e6e780768793dd587231cdad> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:RoomfunctionOfficespace a owl:ObjectProperty ;
+fbo-dk:RoomfunctionOfficespace a owl:Class ;
     rdfs:label "Kontorlokaler"@da-DK,
         "Office space"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
     fbo:hasFireExpertValidation false ;
@@ -2000,10 +2060,10 @@ fbo-dk:RoomfunctionOfficespace a owl:ObjectProperty ;
     fbo:hasNotionID "449" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionOfficespace-276f8487e6e7805882d5e1818f2b4e31> .
 
-fbo-dk:RoomfunctionProductionskitchen a owl:DatatypeProperty ;
+fbo-dk:RoomfunctionProductionskitchen a owl:Class ;
     rdfs:label "Produktionskøkken"@da-DK,
         "Production kitchen"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -2017,12 +2077,12 @@ fbo-dk:RoomfunctionProductionskitchen a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "86" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionProductionskitchen-151f8487e6e78031acc6cf58c33847ac> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:RoomfunctionResidentialunit a owl:ObjectProperty ;
+fbo-dk:RoomfunctionResidentialunit a owl:Class ;
     rdfs:label "Boenhed"@da-DK,
         "Residential unit"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
     fbo:hasFireExpertValidation false ;
@@ -2031,10 +2091,10 @@ fbo-dk:RoomfunctionResidentialunit a owl:ObjectProperty ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionResidentialunit-276f8487e6e78025938ad07cfd899a84> ;
     fbo:isLinkedTo fbo:Roomfunction .
 
-fbo-dk:RoomfunctionSafetyStaircase a owl:DatatypeProperty ;
+fbo-dk:RoomfunctionSafetyStaircase a owl:Class ;
     rdfs:label "Sikkerhedstrappe"@da-DK,
         "Emergency safety staircase"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -2050,12 +2110,12 @@ fbo-dk:RoomfunctionSafetyStaircase a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-17T13:11:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "152" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionSafetyStaircase-151f8487e6e780d5a338ef8a215e292d> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:RoomfunctionSchoolkitchen a owl:DatatypeProperty ;
+fbo-dk:RoomfunctionSchoolkitchen a owl:Class ;
     rdfs:label "Skolekøkken"@da-DK,
         "School kitchen"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasArticleID "BR18-VK5-D01" ;
     fbo:hasCountry fbo:Denmark ;
@@ -2069,12 +2129,12 @@ fbo-dk:RoomfunctionSchoolkitchen a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "160" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionSchoolkitchen-151f8487e6e780ed8f75c82b45594041> ;
-    fbo:hasUnit "[-]" .
+    qudt:hasApplicableUnit "[-]" .
 
-fbo-dk:RoomfunctionShop a owl:ObjectProperty ;
+fbo-dk:RoomfunctionShop a owl:Class ;
     rdfs:label "Butik med lagerrum"@da-DK,
         "Shop including storage room"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
     fbo:hasFireExpertValidation false ;
@@ -2083,10 +2143,10 @@ fbo-dk:RoomfunctionShop a owl:ObjectProperty ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionShop-276f8487e6e7804d97d1fc3a06a23d96> ;
     fbo:isLinkedTo fbo:Roomfunction .
 
-fbo-dk:RoomfunctionStaffroom a owl:ObjectProperty ;
+fbo-dk:RoomfunctionStaffroom a owl:Class ;
     rdfs:label "Personalerum"@da-DK,
         "Staff room"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
     fbo:hasFireExpertValidation false ;
@@ -2094,10 +2154,10 @@ fbo-dk:RoomfunctionStaffroom a owl:ObjectProperty ;
     fbo:hasNotionID "450" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionStaffroom-276f8487e6e780db8988f4b2a242b4f9> .
 
-fbo-dk:RoomfunctionStorage a owl:ObjectProperty ;
+fbo-dk:RoomfunctionStorage a owl:Class ;
     rdfs:label "Lagerrum"@da-DK,
         "Storage room"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
     fbo:hasFireExpertValidation false ;
@@ -2105,10 +2165,10 @@ fbo-dk:RoomfunctionStorage a owl:ObjectProperty ;
     fbo:hasNotionID "452" ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionStorage-276f8487e6e780fa9c7ac40b2d6873f1> .
 
-fbo-dk:RoomfunctionStorageroom a owl:ObjectProperty ;
+fbo-dk:RoomfunctionStorageroom a owl:Class ;
     rdfs:label "Depot"@da-DK,
         "Storageroom"@en ;
-    rdfs:subPropertyOf fbo-dk:Roomfunction ;
+    rdfs:subClassOf fbo-dk:Roomfunction ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
     fbo:hasFireExpertValidation false ;
@@ -2117,10 +2177,10 @@ fbo-dk:RoomfunctionStorageroom a owl:ObjectProperty ;
     fbo:hasNotionURL <https://www.notion.so/RoomfunctionStorageroom-276f8487e6e78027a913c1e074f45192> ;
     fbo:isLinkedTo fbo:Roomfunction .
 
-fbo-dk:UseCategoryAK1 a owl:ObjectProperty ;
+fbo-dk:UseCategoryAK1 a owl:Class ;
     rdfs:label "Anvendelseskategori 1"@da-DK,
         "Use category AK1"@en ;
-    rdfs:subPropertyOf fbo-dk:UseCategory ;
+    rdfs:subClassOf fbo-dk:UseCategory ;
     fbo:hasArticleID "BR18-VK5-K01-1.4.3" ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
@@ -2129,10 +2189,10 @@ fbo-dk:UseCategoryAK1 a owl:ObjectProperty ;
     fbo:hasNotionID "492" ;
     fbo:hasNotionURL <https://www.notion.so/UseCategory-AK1-2aaf8487e6e7809fbe08de0acdea4d53> .
 
-fbo-dk:UseCategoryAK2 a owl:ObjectProperty ;
+fbo-dk:UseCategoryAK2 a owl:Class ;
     rdfs:label "Anvendelseskategori 2"@da-DK,
         "Use category AK2"@en ;
-    rdfs:subPropertyOf fbo-dk:UseCategory ;
+    rdfs:subClassOf fbo-dk:UseCategory ;
     fbo:hasArticleID "BR18-VK5-K01-1.4.3" ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
@@ -2141,10 +2201,10 @@ fbo-dk:UseCategoryAK2 a owl:ObjectProperty ;
     fbo:hasNotionID "491" ;
     fbo:hasNotionURL <https://www.notion.so/UseCategory-AK2-2aaf8487e6e7808dbb5dedff11229bff> .
 
-fbo-dk:UseCategoryAK3 a owl:ObjectProperty ;
+fbo-dk:UseCategoryAK3 a owl:Class ;
     rdfs:label "Anvendelseskategori 3"@da-DK,
         "Use category AK3"@en ;
-    rdfs:subPropertyOf fbo-dk:UseCategory ;
+    rdfs:subClassOf fbo-dk:UseCategory ;
     fbo:hasArticleID "BR18-VK5-K01-1.4.3" ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
@@ -2153,10 +2213,10 @@ fbo-dk:UseCategoryAK3 a owl:ObjectProperty ;
     fbo:hasNotionID "494" ;
     fbo:hasNotionURL <https://www.notion.so/UseCategory-AK3-2aaf8487e6e780f7b121cf2ec831a1cb> .
 
-fbo-dk:UseCategoryAK4 a owl:ObjectProperty ;
+fbo-dk:UseCategoryAK4 a owl:Class ;
     rdfs:label "Anvendelseskategori 4"@da-DK,
         "Use category AK4"@en ;
-    rdfs:subPropertyOf fbo-dk:UseCategory ;
+    rdfs:subClassOf fbo-dk:UseCategory ;
     fbo:hasArticleID "BR18-VK5-K01-1.4.3" ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
@@ -2165,10 +2225,10 @@ fbo-dk:UseCategoryAK4 a owl:ObjectProperty ;
     fbo:hasNotionID "489" ;
     fbo:hasNotionURL <https://www.notion.so/UseCategory-AK4-2aaf8487e6e78071b10bca40c2eca7a1> .
 
-fbo-dk:UseCategoryAK5 a owl:ObjectProperty ;
+fbo-dk:UseCategoryAK5 a owl:Class ;
     rdfs:label "Anvendelseskategori 5"@da-DK,
         "Use category AK5"@en ;
-    rdfs:subPropertyOf fbo-dk:UseCategory ;
+    rdfs:subClassOf fbo-dk:UseCategory ;
     fbo:hasArticleID "BR18-VK5-K01-1.4.3" ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
@@ -2177,10 +2237,10 @@ fbo-dk:UseCategoryAK5 a owl:ObjectProperty ;
     fbo:hasNotionID "493" ;
     fbo:hasNotionURL <https://www.notion.so/UseCategory-AK5-2aaf8487e6e780e78234fcf8ad540020> .
 
-fbo-dk:UseCategoryAK6 a owl:ObjectProperty ;
+fbo-dk:UseCategoryAK6 a owl:Class ;
     rdfs:label "Anvendelseskategori 6"@da-DK,
         "Use category AK6"@en ;
-    rdfs:subPropertyOf fbo-dk:UseCategory ;
+    rdfs:subClassOf fbo-dk:UseCategory ;
     fbo:hasArticleID "BR18-VK5-K01-1.4.3" ;
     fbo:hasCountry fbo:Denmark ;
     fbo:hasCountryCode "DK" ;
@@ -2202,6 +2262,7 @@ fbo-dk:ActiveFireProtection a owl:Class ;
         fbo:X1COMPARTMENTATION,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:ActiveFireProtection ;
     fbo:hasLastEdition "2026-02-17T13:12:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "275" ;
     fbo:hasNotionURL <https://www.notion.so/ActiveFireProtection-222f8487e6e7805a8988d633b5d8aa19> ;
@@ -2212,7 +2273,7 @@ fbo-dk:ActiveFireProtection a owl:Class ;
         fbo-dk:EmergencyPanicLights ;
     fbo:isLinkedTo fbo:ActiveFireProtection .
 
-fbo-dk:UseCategory a owl:DatatypeProperty ;
+fbo-dk:UseCategory a owl:Class ;
     rdfs:label "Anvendelseskategori"@da-DK,
         "Use category"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;

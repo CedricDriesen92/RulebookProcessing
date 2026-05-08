@@ -2,31 +2,15 @@
 @prefix fbo-ifc: <https://ontology.firebim.be/ontology/fbo-ifc#> .
 @prefix fbo-lt: <https://ontology.firebim.be/ontology/fbo-LT#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <https://qudt.org/3.1.0/schema/qudt/> .
+@prefix qudt-unit: <https://qudt.org/3.1.0/vocab/unit/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fbo-lt:AreaConditionalFireCompartment a owl:Class ;
-    rdfs:label "Conditional Fire Compartment Area"@en,
-        "Sąlyginis gaisrinio skyriaus plotas"@lt-LT ;
-    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
-    fbo:hasArticleID "Annex 3, Paragraph 1, Table 1" ;
-    fbo:hasCountry fbo:Lithuania ;
-    fbo:hasCountryCode "LT" ;
-    fbo:hasDefinition "Conditional area of the fire department, depending on the purpose of the building [m2]. The numerical value is specified in Table 1 of Annex 3 to the Basic Fire Safety Requirements."@en,
-        "Sąlyginis gaisrinio skyriaus plotas, priklausantis nuo statinio paskirties [m2]. Skaitinė reikšmė nurodyta Gaisrinės saugos pagrindinių reikalavimų 3 priedo 1-oje lentelėje."@lt-LT ;
-    fbo:hasDesignator "Fs" ;
-    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
-    fbo:hasDomainReference fbo:X11CompartmentSize,
-        fbo:X1COMPARTMENTATION ;
-    fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
-    fbo:hasNotionID "454" ;
-    fbo:hasNotionURL <https://www.notion.so/AreaConditionalFireCompartment-27ef8487e6e7805eb245f03ceea62204> .
-
-fbo-lt:AreaFireCompartment a owl:DatatypeProperty ;
+fbo-lt:AreaFireCompartment a owl:Class ;
     rdfs:label "Fire compartment area"@en,
         "Gaisrinio skyriaus plotas"@lt-LT ;
-    rdfs:subPropertyOf fbo:AreaFireCompartment ;
+    rdfs:subClassOf fbo:AreaFireCompartment ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter X, Paragraph 51." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -39,11 +23,14 @@ fbo-lt:AreaFireCompartment a owl:DatatypeProperty ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
     fbo:hasIFCMapping fbo-ifc:AreaFireCompartment2a ;
-    fbo:hasLastEdition "2026-02-03T14:40:00+00:00"^^xsd:dateTime ;
-    fbo:hasNotionID "273" ;
-    fbo:hasNotionURL <https://www.notion.so/AreaFireCompartment-221f8487e6e7805ab3cff8f9c178a739> ;
-    fbo:hasUnit "m^2" ;
-    fbo:hasValueType "Number" .
+    fbo:hasLastEdition "2026-02-03T14:40:00+00:00"^^xsd:dateTime,
+        "2026-04-10T09:03:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "273",
+        "584" ;
+    fbo:hasNotionURL <https://www.notion.so/AreaFireCompartment-221f8487e6e7805ab3cff8f9c178a739>,
+        <https://www.notion.so/AreaFireCompartment-2fbf8487e6e781258004f9ebfff486c3> ;
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit "m^2" .
 
 fbo-lt:AutomaticFireExtinguish a owl:Class ;
     rdfs:label "Sprinkler systems (automatic)"@en,
@@ -59,6 +46,7 @@ fbo-lt:AutomaticFireExtinguish a owl:Class ;
     fbo:hasDomainReference fbo:X11CompartmentSize,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:AutomaticFireExtinguishSystem ;
     fbo:hasLastEdition "2026-02-03T14:40:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "209" ;
     fbo:hasNotionURL <https://www.notion.so/AutomaticFireExtinguish-214f8487e6e78045b581cc9c9810c145> ;
@@ -79,11 +67,11 @@ fbo-lt:BuildingStorey a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
     fbo:hasIFCMapping fbo-ifc:BuildingStorey ;
-    fbo:hasLastEdition "2026-02-23T14:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-02-25T15:40:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "517" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingStorey-2c7f8487e6e780e18d1dc13aa187ba1d> .
 
-fbo-lt:BuildingStoreyFloorArea a owl:DatatypeProperty ;
+fbo-lt:BuildingStoreyFloorArea a owl:Class ;
     rdfs:label "Floor area of the storey of the building"@en,
         "Pastato aukšto grindų plotas"@lt-LT ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -96,29 +84,13 @@ fbo-lt:BuildingStoreyFloorArea a owl:DatatypeProperty ;
     fbo:hasDomainReference fbo:X11CompartmentSize,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:BuildingStoreyFloorArea,
+        fbo-ifc:CompartmentBuildingStoreyArea ;
     fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "511" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingStoreyFloorArea-2c6f8487e6e7801a91cbd050dc37a5b6> ;
-    fbo:hasUnit "m2" ;
-    fbo:hasValueType "Number" .
-
-fbo-lt:CalculatedAltitude a owl:Class ;
-    rdfs:label "Calculated altitude"@en,
-        "Skaičiuojamoji altitudė"@lt-LT ;
-    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
-    fbo:hasArticleID "Annex 3, Paragraph 1, Table 1" ;
-    fbo:hasCountry fbo:Lithuania ;
-    fbo:hasCountryCode "LT" ;
-    fbo:hasDefinition "The calculated altitude depends on the purpose of the building [m]. The numerical value is specified in Table 1 of Annex 3 to the Basic Fire Safety Requirements."@en,
-        "Skaičiuojamoji altitudė priklausanti nuo statinio paskirties [m]. Skaitinė reikšmė nurodyta Gaisrinės saugos pagrindinių reikalavimų 3 priedo 1-oje lentelėje."@lt-LT ;
-    fbo:hasDesignator "Habs" ;
-    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
-    fbo:hasDomainReference fbo:X11CompartmentSize,
-        fbo:X1COMPARTMENTATION ;
-    fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
-    fbo:hasNotionID "455" ;
-    fbo:hasNotionURL <https://www.notion.so/CalculatedAltitude-27ff8487e6e78041a3e0c1af6427bd5d> .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M2 .
 
 fbo-lt:CeilingMembrane a owl:Class ;
     rdfs:label "Ceiling membrane"@en,
@@ -132,7 +104,7 @@ fbo-lt:CeilingMembrane a owl:Class ;
     fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
     fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-04-24T08:16:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "250" ;
     fbo:hasNotionURL <https://www.notion.so/Ceiling_Membrane-214f8487e6e780c0a529f47c3efe30cf> ;
     fbo:hasValueType "Boolean (yes/no)" .
@@ -150,9 +122,11 @@ fbo-lt:ConnectingBuildingStoreys a owl:Class ;
     fbo:hasDomainReference fbo:X11CompartmentSize,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasIFCMapping fbo-ifc:ConnectingBuildingStorey ;
+    fbo:hasLastEdition "2026-04-24T08:16:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "516" ;
-    fbo:hasNotionURL <https://www.notion.so/ConnectingBuildingStoreys-2c7f8487e6e780a68865f26360ef654c> .
+    fbo:hasNotionURL <https://www.notion.so/ConnectingBuildingStoreys-2c7f8487e6e780a68865f26360ef654c> ;
+    fbo:hasValueType "Boolean (yes/no)" .
 
 fbo-lt:CreatingPressureDifference a owl:Class ;
     rdfs:label "Creating pressure difference"@en,
@@ -171,7 +145,7 @@ fbo-lt:CreatingPressureDifference a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/CreatingPressureDifference-214f8487e6e78089b3cbd8b2ed124e34> ;
     fbo:hasValueType "Number" .
 
-fbo-lt:EmergencyLighting a owl:DatatypeProperty ;
+fbo-lt:EmergencyLighting a owl:Class ;
     rdfs:label "Emergency lighting"@en,
         "Avarinis apšvietimas"@lt-LT ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -219,38 +193,32 @@ fbo-lt:EvacuationTime a owl:Class ;
     fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
     fbo:hasDomainReference fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-02-10T08:13:00+00:00"^^xsd:dateTime ;
-    fbo:hasNotionID "235" ;
-    fbo:hasNotionURL <https://www.notion.so/EvacuationTime-214f8487e6e7809996b2cc75bcf83fbf> ;
-    fbo:hasUnit "min/h" ;
-    fbo:hasValueType "Number" .
+    fbo:hasLastEdition "2026-02-10T08:13:00+00:00"^^xsd:dateTime,
+        "2026-04-21T12:34:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "235",
+        "595" ;
+    fbo:hasNotionURL <https://www.notion.so/EvacuationTime-214f8487e6e7809996b2cc75bcf83fbf>,
+        <https://www.notion.so/EvacuationTime-2fbf8487e6e781a1a4c7dd839c7ed615> ;
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit "min/h" .
 
-fbo-lt:ExitRoute a owl:DatatypeProperty ;
-    rdfs:label "Exit route"@en,
-        "Išėjimo maršrutas"@lt-LT ;
-    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
-    fbo:hasArticleID "Chapter II, Paragraph 10.13. (STR 2.01.01(2):1999)" ;
+fbo-lt:Exit a owl:Class ;
+    rdfs:label "Evacuation Exit"@en,
+        "Evakuacinis išėjimas"@lt-LT ;
+    rdfs:subClassOf fbo:Exit ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
+    fbo:hasArticleID "Chapter XIV, Paragraph 117." ;
     fbo:hasCountry fbo:Lithuania ;
     fbo:hasCountryCode "LT" ;
-    fbo:hasDefinition "a predetermined route from any location in the building to the exit."@en,
-        "iš anksto numatytas kelias iš bet kurios pastato vietos išėjimo link."@lt-LT ;
-    fbo:hasDocumentReference fbo-lt:AUTOMOBILISAUGYKLGAISRINSSAUGOSTAISYKLSNr144,
-        fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338,
-        fbo-lt:GAMYBOSPRAMONSIRSANDLIAVIMOSTATINIGAISRINSSAUGOSTAISYKLSNr145,
-        fbo-lt:GYVENAMJPASTATGAISRINSSAUGOSTAISYKLSNr164,
-        fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422,
-        fbo-lt:VISUOMENINISTATINIGAISRINSSAUGOSTAISYKLSNr114 ;
-    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
-        fbo:X22TravelDistance,
-        fbo:X23LengthofEvacuationPath,
-        fbo:X24WithoftheExits,
-        fbo:X25WithoftheEvacuationPath,
+    fbo:hasDefinition "Evacuation exit – a door leading directly from a room to the outside, a hallway, or another adjacent room."@en,
+        "Evakuacinis išėjimas - durys vedančios iš patalpų tiesiai į lauką, koridorių ar į kitą gretimą patalpą."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X24WithoftheExits,
         fbo:X2EVACUATION ;
-    fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
-    fbo:hasNotionID "190" ;
-    fbo:hasNotionURL <https://www.notion.so/ExitRoute-209f8487e6e780b1b5a8ebb5893681c3> ;
-    fbo:hasValueType "Boolean (yes/no)" .
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-04-21T13:35:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "596" ;
+    fbo:hasNotionURL <https://www.notion.so/Exit-349f8487e6e78018ad47ddac1c0118dd> .
 
 fbo-lt:ExitSigns a owl:Class ;
     rdfs:label "Exit signs"@en,
@@ -270,7 +238,7 @@ fbo-lt:ExitSigns a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/Exit_Signs-214f8487e6e780d3ba5cd1fab9bc484f> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:ExposedSurface a owl:DatatypeProperty ;
+fbo-lt:ExposedSurface a owl:Class ;
     rdfs:label "Exposed surface"@en,
         "Eksponuojamas paviršius"@lt-LT ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -400,10 +368,32 @@ fbo-lt:FireCompartment a owl:Class ;
     fbo:hasDomainReference fbo:X11CompartmentSize,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:FireCompartment4 ;
     fbo:hasLastEdition "2026-02-03T14:42:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "243" ;
     fbo:hasNotionURL <https://www.notion.so/FireCompartment-214f8487e6e780b3bd4aef253d8df937> ;
     fbo:hasValueType "Number" .
+
+fbo-lt:FireCompartmentHeight a owl:Class ;
+    rdfs:label "Height of building"@en,
+        "Pastato aukštis"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "height from the lowest surface elevation of the building to the access route for firefighting and rescue vehicles, and where access for firefighting and rescue vehicles is not required, from the lowest surface elevation of the portable fire ladders to the floor elevation of the highest storey (including attic) of the building (fire compartment), m."@en,
+        "aukštis nuo gaisrų gesinimo ir gelbėjimo automobilių privažiavimo prie statinio žemiausios paviršiaus altitudės, o kai gaisrų gesinimo ir gelbėjimo automobilių privažiavimo įrengti nebūtina, – nuo nešiojamųjų gaisrinių kopėčių pastatymo žemiausios paviršiaus altitudės iki statinio (gaisrinio skyriaus) aukščiausio aukšto (įskaitant mansardinį) grindų altitudės, m."@lt-LT ;
+    fbo:hasDesignator "H" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-03-10T07:32:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "571" ;
+    fbo:hasNotionURL <https://www.notion.so/FireCompartmentHeight-2fbf8487e6e781cb8b9efc4d93b9e3cb> ;
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M .
 
 fbo-lt:FireDoors a owl:Class ;
     rdfs:label "Fire doors"@en,
@@ -424,10 +414,10 @@ fbo-lt:FireDoors a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/FireDoors-214f8487e6e7808eb58cf2199dd1bd82> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:FireLoad a owl:DatatypeProperty ;
+fbo-lt:FireLoad a owl:Class ;
     rdfs:label "Fire Load"@en,
         "Gaisro apkrova"@lt-LT ;
-    rdfs:subPropertyOf fbo:FireLoad ;
+    rdfs:subClassOf fbo:FireLoad ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.29. (STR 2.01.01(2):1999)" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -442,13 +432,13 @@ fbo-lt:FireLoad a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "193" ;
     fbo:hasNotionURL <https://www.notion.so/FireLoad-20ff8487e6e780f08d15ccff6b4b67bb> ;
-    fbo:hasUnit "MJ" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit "MJ" .
 
-fbo-lt:FireLoadDensity a owl:DatatypeProperty ;
+fbo-lt:FireLoadDensity a owl:Class ;
     rdfs:label "Fire Load Density"@en,
         "Gaisro apkrovos tankis"@lt-LT ;
-    rdfs:subPropertyOf fbo:FireLoadDensity ;
+    rdfs:subClassOf fbo:FireLoadDensity ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.30." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -462,8 +452,8 @@ fbo-lt:FireLoadDensity a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "191" ;
     fbo:hasNotionURL <https://www.notion.so/FireLoadDensity-20ff8487e6e7802b9fd4c730004fe8d9> ;
-    fbo:hasUnit "MJ/m^2" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit "MJ/m^2" .
 
 fbo-lt:FireProtectionCeiling a owl:Class ;
     rdfs:label "Fire protection ceiling"@en,
@@ -482,10 +472,10 @@ fbo-lt:FireProtectionCeiling a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/FireProtectionCeiling-214f8487e6e78046bcd8cf10e5a87964> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:FireResistance a owl:DatatypeProperty ;
+fbo-lt:FireResistance a owl:Class ;
     rdfs:label "Fire Resistance"@en,
         "Atsparumas ugniai"@lt-LT ;
-    rdfs:subPropertyOf fbo:FireResistance ;
+    rdfs:subClassOf fbo:FireResistance ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.33." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -496,35 +486,17 @@ fbo-lt:FireResistance a owl:DatatypeProperty ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:FireResistance ;
     fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "192" ;
     fbo:hasNotionURL <https://www.notion.so/FireResistance-20ff8487e6e7803cad52e816e5a43e65> ;
-    fbo:hasUnit "minutes" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit "minutes" .
 
-fbo-lt:FireResistanceBuilding a owl:Class ;
-    rdfs:label "Fire resistance rating of the Building"@en,
-        "Statinio atsparumo ugniai laipsnis"@lt-LT ;
-    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
-    fbo:hasArticleID "Chapter VIII, Paragraph 40, Table 2" ;
-    fbo:hasCountry fbo:Lithuania ;
-    fbo:hasCountryCode "LT" ;
-    fbo:hasDefinition "Buildings and fire compartments of buildings, taking into account their fire load categories and the fire resistance of the structural elements used to build them, are divided into buildings and fire compartments of fire resistance levels I, II, III."@en,
-        "Statiniai, statinių gaisriniai skyriai, atsižvelgiant į jų gaisro apkrovos kategorijas ir jiems statyti panaudotų konstrukcijų elementų atsparumą ugniai, skirstomi į I, II, III atsparumo ugniai laipsnio statinius, statinių gaisrinius skyrius."@lt-LT ;
-    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
-    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
-        fbo:X11CompartmentSize,
-        fbo:X1COMPARTMENTATION ;
-    fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
-    fbo:hasNotionID "453" ;
-    fbo:hasNotionURL <https://www.notion.so/FireResistanceBuilding-27ef8487e6e7804aa998d4407c309c66> ;
-    fbo:hasRemarks "Usually Fire Safety engineer decides what Fire resistance rating of the building will be" .
-
-fbo-lt:FireResistanceClasses a owl:DatatypeProperty ;
+fbo-lt:FireResistanceClasses a owl:Class ;
     rdfs:label "Fire resistance classes"@en,
         "Atsparumo ugniai klasės"@lt-LT ;
-    rdfs:subPropertyOf fbo:FireResistance ;
+    rdfs:subClassOf fbo:FireResistance ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.34." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -538,6 +510,26 @@ fbo-lt:FireResistanceClasses a owl:DatatypeProperty ;
     fbo:hasNotionID "248" ;
     fbo:hasNotionURL <https://www.notion.so/FireResistanceClasses-214f8487e6e780bcbd86e88dae9a998e> ;
     fbo:hasValueType "Number" .
+
+fbo-lt:FireResistanceDegreeOfBuilding a owl:Class ;
+    rdfs:label "Fire resistance rating of the Building"@en,
+        "Statinio atsparumo ugniai laipsnis"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter VIII, Paragraph 40, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Buildings and fire compartments of buildings, taking into account their fire load categories and the fire resistance of the structural elements used to build them, are divided into buildings and fire compartments of fire resistance levels I, II, III."@en,
+        "Statiniai, statinių gaisriniai skyriai, atsižvelgiant į jų gaisro apkrovos kategorijas ir jiems statyti panaudotų konstrukcijų elementų atsparumą ugniai, skirstomi į I, II, III atsparumo ugniai laipsnio statinius, statinių gaisrinius skyrius."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
+        fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:FireResistanceBuilding ;
+    fbo:hasLastEdition "2026-03-09T08:27:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "453" ;
+    fbo:hasNotionURL <https://www.notion.so/FireResistanceDegreeOfBuilding-27ef8487e6e7804aa998d4407c309c66> ;
+    fbo:hasRemarks "Usually Fire Safety engineer decides what Fire resistance rating of the building will be" .
 
 fbo-lt:FireResistantCable a owl:Class ;
     rdfs:label "Fire-resistant cable"@en,
@@ -555,35 +547,6 @@ fbo-lt:FireResistantCable a owl:Class ;
     fbo:hasNotionID "226" ;
     fbo:hasNotionURL <https://www.notion.so/FireResistantCable-214f8487e6e780819f23dea643b8ab4f> ;
     fbo:hasValueType "Boolean (yes/no)" .
-
-fbo-lt:FireSafetyAssessmentCoefficient a owl:DatatypeProperty ;
-    rdfs:label "Assessment coefficient for fire safety of a building"@en,
-        "Pastato gaisrinės saugos įvertinimo koeficientas"@lt-LT ;
-    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
-    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
-    fbo:hasCountry fbo:Lithuania ;
-    fbo:hasCountryCode "LT" ;
-    fbo:hasDefinition """G – assessment coefficient for fire safety of a building, generally considered to be equal to 1.
-The coefficient G is determined as follows:
-G = G1+…+G8, if the coefficient G1 is assessed;
-G = 1+(G2+…+G8), if the G1 coefficient is not assessed;
-where: G1…G8 – partial coefficients for the fire safety assessment of a building, depending on the fire safety systems installed in the building and the capabilities of the fire rescue service; their numerical values are given in Table 2 of Annex 3 (https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.388658/asr).
-The values of the partial coefficients G3 and G4 shall only be applied with the approval of the state fire rescue service."""@en,
-        """G – pastato gaisrinės saugos įvertinimo koeficientas, bendruoju atveju laikomas lygus 1.
-Koeficientas G nustatomas taip:
-G = G1+…+G8, jeigu yra įvertinamas G1 koeficientas;
-G = 1+(G2+…+G8), jeigu G1 koeficientas neįvertinamas;
-čia: G1…G8 – statinio gaisrinės saugos įvertinimo daliniai koeficientai, priklausantys nuo pastate įdiegiamų gaisrinės saugos sistemų ir priešgaisrinės gelbėjimo tarnybos galimybių; jų skaitinės vertės pateiktos 3 priedo 2 lentelėje (https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.388658/asr).
-G3, G4 dalinių koeficientų reikšmės taikomos tik pritarus valstybinei priešgaisrinei gelbėjimo tarnybai."""@lt-LT ;
-    fbo:hasDesignator "G" ;
-    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
-    fbo:hasDomainReference fbo:X11CompartmentSize,
-        fbo:X1COMPARTMENTATION ;
-    fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
-    fbo:hasNotionID "510" ;
-    fbo:hasNotionURL <https://www.notion.so/FireSafetyAssessmentCoefficient-2c6f8487e6e7800790d8ce7843cf1134> ;
-    fbo:hasValueType "Number" .
 
 fbo-lt:FireWallFireBarrier a owl:Class ;
     rdfs:label "Fire wall (fire barrier)"@en,
@@ -603,10 +566,68 @@ fbo-lt:FireWallFireBarrier a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/FireWallFireBarrier-214f8487e6e780989cbcc39fac60175e> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:HeightBuilding a owl:DatatypeProperty ;
+fbo-lt:FsAreaConditionalFireCompartment a owl:Class ;
+    rdfs:label "Conditional Fire Compartment Area"@en,
+        "Sąlyginis gaisrinio skyriaus plotas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 1" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Conditional area of the fire department, depending on the purpose of the building [m2]. The numerical value is specified in Table 1 of Annex 3 to the Basic Fire Safety Requirements."@en,
+        "Sąlyginis gaisrinio skyriaus plotas, priklausantis nuo statinio paskirties [m2]. Skaitinė reikšmė nurodyta Gaisrinės saugos pagrindinių reikalavimų 3 priedo 1-oje lentelėje."@lt-LT ;
+    fbo:hasDesignator "Fs" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:AreaConditionalFireCompartment ;
+    fbo:hasLastEdition "2026-04-24T08:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "454" ;
+    fbo:hasNotionURL <https://www.notion.so/FsAreaConditionalFireCompartment-27ef8487e6e7805eb245f03ceea62204> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:GCoeficient a owl:Class ;
+    rdfs:label "Fire safety rating coefficient"@en,
+        "Gaisrinės saugos įvertinimo koeficientas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "fire safety assessment coefficient of a building, generally considered to be equal to 1"@en,
+        "Pastato gaisrinės saugos įvertinimo koeficientas, bendruoju atveju laikomas lygus 1"@lt-LT ;
+    fbo:hasDesignator "G" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-04-21T13:29:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "583" ;
+    fbo:hasNotionURL <https://www.notion.so/GCoeficient-32ff8487e6e780168ef3dd62014c2e66> .
+
+fbo-lt:HabsCalculatedAltitude a owl:Class ;
+    rdfs:label "Calculated altitude"@en,
+        "Skaičiuojamoji altitudė"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 1" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "The calculated altitude depends on the purpose of the building [m]. The numerical value is specified in Table 1 of Annex 3 to the Basic Fire Safety Requirements."@en,
+        "Skaičiuojamoji altitudė priklausanti nuo statinio paskirties [m]. Skaitinė reikšmė nurodyta Gaisrinės saugos pagrindinių reikalavimų 3 priedo 1-oje lentelėje."@lt-LT ;
+    fbo:hasDesignator "Habs" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:CalculatedAltitude ;
+    fbo:hasLastEdition "2026-04-24T08:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "455" ;
+    fbo:hasNotionURL <https://www.notion.so/HabsCalculatedAltitude-27ff8487e6e78041a3e0c1af6427bd5d> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:HeightBuilding a owl:Class ;
     rdfs:label "Height of building"@en,
         "Pastato aukštis"@lt-LT ;
-    rdfs:subPropertyOf fbo:HeightBuilding ;
+    rdfs:subClassOf fbo:HeightBuilding ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -622,10 +643,28 @@ fbo-lt:HeightBuilding a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-02-03T14:44:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "274" ;
     fbo:hasNotionURL <https://www.notion.so/HeightBuilding-221f8487e6e780a6add7c25912c612c4> ;
-    fbo:hasUnit "m" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M .
 
-fbo-lt:IntendedUseOfTheBuilding a owl:DatatypeProperty ;
+fbo-lt:HeightFreeEvacuationRoutes a owl:Class ;
+    rdfs:label "Height of Evacuation Route"@en,
+        "Evakavimo(si) kelio aukštis"@lt-LT ;
+    rdfs:subClassOf fbo:WidthFreeEvacuationroutes ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter XIV, Paragraph 119." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "The clearance height of evacuation routes and doorways must be at least 2 m."@en,
+        "Evakavimo(si) keliuose praeigos aukštis ir durų varčia turi būti ne žemesni kaip 2 m."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-04-21T13:59:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "598" ;
+    fbo:hasNotionURL <https://www.notion.so/HeightFreeEvacuationRoutes-349f8487e6e780588bbfdd52b41a87e4> ;
+    qudt:hasApplicableUnit qudt-unit:M .
+
+fbo-lt:IntendedUseOfBuilding a owl:Class ;
     rdfs:label "Intended use of the building"@en,
         "Pastato naudojimo paskirtis"@lt-LT ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -640,9 +679,10 @@ fbo-lt:IntendedUseOfTheBuilding a owl:DatatypeProperty ;
         fbo:X1COMPARTMENTATION,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasIFCMapping fbo-ifc:IntendedUseOfBuilding ;
+    fbo:hasLastEdition "2026-03-09T08:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "200" ;
-    fbo:hasNotionURL <https://www.notion.so/IntendedUseOfTheBuilding-214f8487e6e780218c01dfc6414c1cfa> ;
+    fbo:hasNotionURL <https://www.notion.so/IntendedUseOfBuilding-214f8487e6e780218c01dfc6414c1cfa> ;
     fbo:hasValueType "Enumeration (choice)" .
 
 fbo-lt:LietuvosRespublikospriegaisrinssaugosstatymasNrIX1225 a owl:NamedIndividual,
@@ -656,7 +696,26 @@ fbo-lt:LietuvosRespublikospriegaisrinssaugosstatymasNrIX1225 a owl:NamedIndividu
     fbo:hasPublicationDate "2019-01-01"^^xsd:date ;
     fbo:hasURL <https://e-seimas.lrs.lt/portal/legalActEditions/lt/TAD/TAIS.197461> .
 
-fbo-lt:MaxBuildingStoreyFloorArea a owl:DatatypeProperty ;
+fbo-lt:MaxAreaFireCompartment a owl:Class ;
+    rdfs:label "Maximum area of fire compartment"@en,
+        "Maksimalus gaisrinio skyriaus plotas"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1." ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "The area of the fire compartment is determined according to the formula Fg = Fs·G·cos(90KH)"@en,
+        "gaisrinio skyriaus plotas nustatomas pagal formulę Fg = Fs·G·cos(90KH)"@lt-LT ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:MaxAreaFireCompartment ;
+    fbo:hasLastEdition "2026-03-09T08:25:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "272" ;
+    fbo:hasNotionURL <https://www.notion.so/MaxAreaFireCompartment-221f8487e6e78049b8aad80a4dfb302c> ;
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit "m^2" .
+
+fbo-lt:MaxBuildingStoreyFloorArea a owl:Class ;
     rdfs:label "Maximum floor area of the building storey"@en,
         "Maksimalus pastato aukšto grindų plotas"@lt-LT ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
@@ -672,10 +731,10 @@ fbo-lt:MaxBuildingStoreyFloorArea a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "514" ;
     fbo:hasNotionURL <https://www.notion.so/MaxBuildingStoreyFloorArea-2c7f8487e6e7806783b6d895f50f6b74> ;
-    fbo:hasUnit "m2" ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-lt:MaxBuildingStoreyFloorAreaOfConnectingStoreys a owl:DatatypeProperty ;
+fbo-lt:MaxBuildingStoreyFloorAreaOfConnectingStoreys a owl:Class ;
     rdfs:label "Maximum floor area of connected storeys of the building"@en,
         "Maksimalus susisiekiančių aukštų grindų plotas"@lt-LT ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
@@ -691,47 +750,8 @@ fbo-lt:MaxBuildingStoreyFloorAreaOfConnectingStoreys a owl:DatatypeProperty ;
     fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "513" ;
     fbo:hasNotionURL <https://www.notion.so/MaxBuildingStoreyFloorAreaOfConnectingStoreys-2c7f8487e6e7802db024dc649cf7c891> ;
-    fbo:hasUnit "m2" ;
-    fbo:hasValueType "Number" .
-
-fbo-lt:MaximumAreaOfFireCompartment a owl:DatatypeProperty ;
-    rdfs:label "Maximum area of fire compartment"@en,
-        "Maksimalus gaisrinio skyriaus plotas"@lt-LT ;
-    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
-    fbo:hasArticleID "Annex 3, Paragraph 1." ;
-    fbo:hasCountry fbo:Lithuania ;
-    fbo:hasCountryCode "LT" ;
-    fbo:hasDefinition "The area of the fire compartment is determined according to the formula Fg = Fs·G·cos(90KH)"@en,
-        "gaisrinio skyriaus plotas nustatomas pagal formulę Fg = Fs·G·cos(90KH)"@lt-LT ;
-    fbo:hasDomainReference fbo:X11CompartmentSize,
-        fbo:X1COMPARTMENTATION ;
-    fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
-    fbo:hasNotionID "272" ;
-    fbo:hasNotionURL <https://www.notion.so/MaximumAreaOfFireCompartment-221f8487e6e78049b8aad80a4dfb302c> ;
-    fbo:hasUnit "m^2" ;
-    fbo:hasValueType "Number" .
-
-fbo-lt:PartialCoefficient a owl:DatatypeProperty ;
-    rdfs:label "partial coefficients for the fire safety assessment of a building"@en,
-        "statinio gaisrinės saugos įvertinimo daliniai koeficientai"@lt-LT ;
-    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
-    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
-    fbo:hasCountry fbo:Lithuania ;
-    fbo:hasCountryCode "LT" ;
-    fbo:hasDefinition """G1…G8 – partial coefficients for the fire safety assessment of a building, depending on the fire safety systems installed in the building and the capabilities of the fire rescue service; their numerical values are given in Table 2 of Annex 3 (https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.388658/asr).
-The values of the partial coefficients G3 and G4 shall only be applied with the approval of the state fire rescue service."""@en,
-        """G1…G8 – statinio gaisrinės saugos įvertinimo daliniai koeficientai, priklausantys nuo pastate įdiegiamų gaisrinės saugos sistemų ir priešgaisrinės gelbėjimo tarnybos galimybių; jų skaitinės vertės pateiktos 3 priedo 2 lentelėje (https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.388658/asr).
-G3, G4 dalinių koeficientų reikšmės taikomos tik pritarus valstybinei priešgaisrinei gelbėjimo tarnybai."""@lt-LT ;
-    fbo:hasDesignator "G1…G8" ;
-    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
-    fbo:hasDomainReference fbo:X11CompartmentSize,
-        fbo:X1COMPARTMENTATION ;
-    fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
-    fbo:hasNotionID "512" ;
-    fbo:hasNotionURL <https://www.notion.so/PartialCoefficient-2c6f8487e6e780b0b4adee6268ab4c80> ;
-    fbo:hasValueType "Number" .
+    fbo:hasValueType "Number" ;
+    qudt:hasApplicableUnit qudt-unit:M2 .
 
 fbo-lt:ReactionToFire a owl:Class ;
     rdfs:label "Reaction to fire"@en,
@@ -768,7 +788,7 @@ fbo-lt:RoofCoverings a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/RoofCoverings-214f8487e6e78096a1dff2334b769db7> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:SeparateFunction a owl:DatatypeProperty ;
+fbo-lt:SeparateFunction a owl:Class ;
     rdfs:label "Separate function"@en,
         "Atskiriamoji funkcija"@lt-LT ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -799,6 +819,7 @@ fbo-lt:SmokeAndHeatVentilationEquipment a owl:Class ;
     fbo:hasDomainReference fbo:X0BUILDINGINFORMATION,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:SmokeAndHeatExtraction ;
     fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "207" ;
     fbo:hasNotionURL <https://www.notion.so/SmokeAndHeatVentilationEquipment-214f8487e6e7803b86cdeec7b28a5561> ;
@@ -821,7 +842,7 @@ fbo-lt:SmokeBarriersRoofScreens a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/SmokeBarriersRoofScreens-214f8487e6e780b09d22caa05acb390d> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:SmokeControl a owl:DatatypeProperty ;
+fbo-lt:SmokeControl a owl:Class ;
     rdfs:label "Smoke control"@en,
         "Dūmų kontrolė"@lt-LT ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -903,7 +924,8 @@ fbo-lt:SuspendedCeilings a owl:Class ;
     fbo:hasDocumentReference fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422 ;
     fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:10:00+00:00"^^xsd:dateTime ;
+    fbo:hasIFCMapping fbo-ifc:Ceiling ;
+    fbo:hasLastEdition "2026-02-25T16:00:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "225" ;
     fbo:hasNotionURL <https://www.notion.so/SuspendedCeilings-214f8487e6e7807fa66ec0cbf3e70eea> ;
     fbo:hasValueType "Boolean (yes/no)" .
@@ -925,38 +947,230 @@ fbo-lt:WaterSprayEquipment a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/WaterSprayEquipment-214f8487e6e7807c92adff0f8cc3413e> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:AUTOMOBILISAUGYKLGAISRINSSAUGOSTAISYKLSNr144 a owl:NamedIndividual,
-        fbo:Document ;
-    rdfs:label "AUTOMOBILIŲ SAUGYKLŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-44"@en ;
+fbo-lt:WidthFreeEvacuationRoutes a owl:Class ;
+    rdfs:label "Width of Evacuation Route"@en,
+        "Evakavimo(si) kelio plotis"@lt-LT ;
+    rdfs:subClassOf fbo:WidthFreeEvacuationroutes ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter XIV, Paragraph 120." ;
     fbo:hasCountry fbo:Lithuania ;
-    fbo:hasDescription "Fire safety rules for car storage facilities"@en ;
-    fbo:hasDocumentType "regulation" ;
-    fbo:hasOriginalLanguage "lt-LT" ;
-    fbo:hasOriginalName "AUTOMOBILIŲ SAUGYKLŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-44"@lt-LT ;
-    fbo:hasPublicationDate "2019-11-01"^^xsd:date ;
-    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.418483/asr> .
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "The width of evacuation routes must be at least 1 m, excluding the width of the door leaf."@en,
+        "Evakavimo(si) kelių plotis turi būti ne mažesnis kaip 1 m, išskyrus durų varčios plotį."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X25WithoftheEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-04-21T13:59:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "597" ;
+    fbo:hasNotionURL <https://www.notion.so/WidthFreeEvacuationRoutes-349f8487e6e7806b984fd0ea7dd31f3e> ;
+    qudt:hasApplicableUnit qudt-unit:M .
 
-fbo-lt:GAMYBOSPRAMONSIRSANDLIAVIMOSTATINIGAISRINSSAUGOSTAISYKLSNr145 a owl:NamedIndividual,
-        fbo:Document ;
-    rdfs:label "GAMYBOS, PRAMONĖS IR SANDĖLIAVIMO STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-45"@en ;
+fbo-lt:Deadend a owl:Class ;
+    rdfs:label "Deadend"@en,
+        "Aklakelis"@lt-LT ;
+    rdfs:subClassOf fbo-lt:ExitRoute ;
+    fbo:hasAdoptedDefinitionType "Implicit Definition" ;
     fbo:hasCountry fbo:Lithuania ;
-    fbo:hasDescription "Fire safety rules for production, industrial and storage buildings"@en ;
-    fbo:hasDocumentType "regulation" ;
-    fbo:hasOriginalLanguage "lt-LT" ;
-    fbo:hasOriginalName "GAMYBOS, PRAMONĖS IR SANDĖLIAVIMO STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-45"@lt-LT ;
-    fbo:hasPublicationDate "2024-11-01"^^xsd:date ;
-    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.418484?jfwid=> .
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "An evacuation route that passes through a dead-end section of a corridor or hallway."@en,
+        "Evakavimo(si) kelias vedantis per akliną koridoriaus ar holo dalį."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:AUTOMOBILISAUGYKLGAISRINSSAUGOSTAISYKLSNr144,
+        fbo-lt:GAMYBOSPRAMONSIRSANDLIAVIMOSTATINIGAISRINSSAUGOSTAISYKLSNr145,
+        fbo-lt:GYVENAMJPASTATGAISRINSSAUGOSTAISYKLSNr164,
+        fbo-lt:VISUOMENINISTATINIGAISRINSSAUGOSTAISYKLSNr114 ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X23LengthofEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertGuidance "The length of the evacuation route depends on the building's intended use. Specific distances are specified in the relevant legislation." ;
+    fbo:hasFireExpertValidation false ;
+    fbo:hasLastEdition "2026-04-21T14:05:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "594" ;
+    fbo:hasNotionURL <https://www.notion.so/Deadend-349f8487e6e780dd9482e5fdd70ee40b> .
 
-fbo-lt:GYVENAMJPASTATGAISRINSSAUGOSTAISYKLSNr164 a owl:NamedIndividual,
-        fbo:Document ;
-    rdfs:label "GYVENAMŲJŲ PASTATŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-64"@en ;
+fbo-lt:EvacuationRoute a owl:Class ;
+    rdfs:label "Evacuation Route"@en,
+        "Evakavimo(si) kelias"@lt-LT ;
+    rdfs:subClassOf fbo-lt:ExitRoute ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter IXIV, Paragraph 99" ;
     fbo:hasCountry fbo:Lithuania ;
-    fbo:hasDescription "Fire safety rules for residential buildings"@en ;
-    fbo:hasDocumentType "regulation" ;
-    fbo:hasOriginalLanguage "lt-LT" ;
-    fbo:hasOriginalName "GYVENAMŲJŲ PASTATŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-64"@lt-LT ;
-    fbo:hasPublicationDate "2024-11-07"^^xsd:date ;
-    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.393013?jfwid=32wf8tn4> .
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition """Evacuation route – a route leading from the premises:
+• On the first floor: directly to the outside or through a corridor, vestibule, staircase to the outside;
+• On any floor (except the first): through a corridor, hall, operated roof to the staircase or directly to it. The evacuation route from the staircase must lead directly to the outside or through a vestibule separated from the corridors by partitions and doors, directly to the outside;
+• To an adjacent fire compartment or room on the same floor that is not dangerous in terms of explosion and fire risk and has the above-mentioned evacuation routes."""@en,
+        """Evakavimo(si) kelias – kelias, vedantis iš patalpų:
+  • Pirmame aukšte: tiesiai į lauką arba koridoriumi, vestibiuliu, laiptine į lauką;
+  • Bet kuriame aukšte (išskyrus pirmą): koridoriumi, holu, eksploatuojamu stogu į laiptinę arba tiesiai į ją. Evakavimo(si) kelias iš laiptinės turi vesti tiesiai į lauką arba per vestibiulį, atskirtą nuo koridorių pertvaromis ir durimis, tiesiai į lauką;
+  • Į gretimą tame pat aukšte esančią pagal sprogimo ir gaisro pavojų nepavojingą gaisrinį skyrių ar patalpą, turinčią pirmiau nurodytus evakavimo(si) kelius."""@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X22TravelDistance,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-04-21T14:05:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "591" ;
+    fbo:hasNotionURL <https://www.notion.so/EvacuationRoute-349f8487e6e78054919dea9ed371695e> .
+
+fbo-lt:G1PartialCoefficient a owl:Class ;
+    rdfs:label "Partial coefficients for the fire safety assessment of a building G1"@en,
+        "Gaisrinės saugos įvertinimo dalinis koeficientas G1"@lt-LT ;
+    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Visose gaisrinio skyriaus patalpose įrengta stacionarioji gaisrų gesinimo sistema [G1=2.0]"@en,
+        "A fixed fire extinguishing system is installed in all premises of the fire compartment. [G1=2.0]"@lt-LT ;
+    fbo:hasDesignator "G1" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-03-10T08:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "572" ;
+    fbo:hasNotionURL <https://www.notion.so/G1PartialCoefficient-31ff8487e6e780f8a752f5403dd94a5c> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:G2PartialCoefficient a owl:Class ;
+    rdfs:label "Partial coefficients for the fire safety assessment of a building G2"@en,
+        "Gaisrinės saugos įvertinimo dalinis koeficientas G2"@lt-LT ;
+    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Pastato patalpų pastovioji ir laikinoji suminė gaisrinė apkrova neviršija 200 MJ/m2. [G2=0.15]"@en,
+        "The permanent and temporary total fire load of the building premises does not exceed 200 MJ/m2. [G2=0.15]"@lt-LT ;
+    fbo:hasDesignator "G2" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-03-10T08:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "573" ;
+    fbo:hasNotionURL <https://www.notion.so/G2PartialCoefficient-31ff8487e6e780499c50fcdaf79e493d> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:G3PartialCoefficient a owl:Class ;
+    rdfs:label "Partial coefficients for the fire safety assessment of a building G3"@en,
+        "Gaisrinės saugos įvertinimo dalinis koeficientas G3"@lt-LT ;
+    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Artimiausia valstybinės priešgaisrinės gelbėjimo tarnybos komanda yra mažesniu kaip 2 km atstumu arba, neatsižvelgiant į atstumą, kai vykimo iki objekto laikas neviršija 10 min. [G3=0.27]"@en,
+        "The nearest state fire and rescue service team is less than 2 km away or, regardless of the distance, when the travel time to the facility does not exceed 10 minutes. [G3=0.27]"@lt-LT ;
+    fbo:hasDesignator "G3" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-03-10T08:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "574" ;
+    fbo:hasNotionURL <https://www.notion.so/G3PartialCoefficient-31ff8487e6e780b4bbe5f75c1f35874b> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:G4PartialCoefficient a owl:Class ;
+    rdfs:label "Partial coefficients for the fire safety assessment of a building G4"@en,
+        "Gaisrinės saugos įvertinimo dalinis koeficientas G4"@lt-LT ;
+    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Valstybinė priešgaisrinė gelbėjimo tarnyba yra tinkamai aprūpinta ir parengta galimiems ekstremaliesiems įvykiams objekte likviduoti (turima visa reikiama technika gaisrams gesinti ir gelbėjimo darbams atlikti, pvz., aukštybinės kopėčios-keltuvas, vandens siurblinės, putų automobilis ir pan.) [G4=0.13]"@en,
+        "The Fire and Rescue Service is properly equipped and prepared to deal with possible emergencies at the facility (all necessary equipment is available for extinguishing fires and performing rescue operations, e.g., high-altitude ladder-lift, water pumping stations, foam truck, etc.) [G4=0.13]"@lt-LT ;
+    fbo:hasDesignator "G4" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-03-10T09:08:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "575" ;
+    fbo:hasNotionURL <https://www.notion.so/G4PartialCoefficient-31ff8487e6e78019b00cc6aafe65f4f4> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:G5PartialCoefficient a owl:Class ;
+    rdfs:label "Partial coefficients for the fire safety assessment of a building G5"@en,
+        "Gaisrinės saugos įvertinimo dalinis koeficientas G5"@lt-LT ;
+    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Gaisrinių žarnų ilgis nuo artimiausio vandens šaltinio (gaisrinio hidranto, vandens rezervuaro ar pan.) iki tolimiausio gaisro židinio pastate neviršija 100 m. [G5=0.12]"@en,
+        "The length of fire hoses from the nearest water source (fire hydrant, water tank, etc.) to the furthest fire source in the building does not exceed 100 m. [G5=0.12]"@lt-LT ;
+    fbo:hasDesignator "G5" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-03-10T12:07:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "576" ;
+    fbo:hasNotionURL <https://www.notion.so/G5PartialCoefficient-31ff8487e6e7800a8b6cc50e41fa6ddf> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:G6PartialCoefficient a owl:Class ;
+    rdfs:label "Partial coefficients for the fire safety assessment of a building G6"@en,
+        "Gaisrinės saugos įvertinimo dalinis koeficientas G6"@lt-LT ;
+    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Visose gaisrinio skyriaus patalpose įrengta adresinė gaisro aptikimo ir signalizavimo sistema. [G6=0.12]"@en,
+        "All premises in the fire compartment are equipped with an addressable fire detection and alarm system. [G6=0.12]"@lt-LT ;
+    fbo:hasDesignator "G6" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-03-10T12:12:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "577" ;
+    fbo:hasNotionURL <https://www.notion.so/G6PartialCoefficient-31ff8487e6e780d89f73fd0258be18d1> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:G7PartialCoefficient a owl:Class ;
+    rdfs:label "Partial coefficients for the fire safety assessment of a building G7"@en,
+        "Gaisrinės saugos įvertinimo dalinis koeficientas G7"@lt-LT ;
+    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Gaisriniame skyriuje įrengta mechaninė dūmų šalinimo sistema. [G7=0.11]"@en,
+        "Fire Compartment is equipped with a mechanical smoke removal system. [G7=0.11]"@lt-LT ;
+    fbo:hasDesignator "G7" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-03-10T12:12:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "578" ;
+    fbo:hasNotionURL <https://www.notion.so/G7PartialCoefficient-31ff8487e6e78092822af850ecbdad8e> ;
+    fbo:hasValueType "Number" .
+
+fbo-lt:G8PartialCoefficient a owl:Class ;
+    rdfs:label "Partial coefficients for the fire safety assessment of a building G8"@en,
+        "Gaisrinės saugos įvertinimo dalinis koeficientas G8"@lt-LT ;
+    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "Objekte įrengtas automatinis pranešimas apie gaisrą valstybinei priešgaisrinei gelbėjimo tarnybai.  [G8=0.10]"@en,
+        "The facility is equipped with an automatic fire notification system for the state fire and rescue service. [G8=0.10]"@lt-LT ;
+    fbo:hasDesignator "G8" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-03-10T12:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "579" ;
+    fbo:hasNotionURL <https://www.notion.so/G8PartialCoefficient-31ff8487e6e780e7b982d8dae5f40a49> ;
+    fbo:hasValueType "Number" .
 
 fbo-lt:NEKILNOJAMJDAIKTKADASTRODUOMENNUSTATYMOTAISYKLSNrD1349 a owl:NamedIndividual,
         fbo:Document ;
@@ -981,6 +1195,69 @@ fbo-lt:STATYBOSTECHNINISREGLAMENTASSTR101032017STATINIIRPATALPKLASIFIKAVIMAS a o
     fbo:hasPublicationDate "2016-10-27"^^xsd:date ;
     fbo:hasURL <https://www.e-tar.lt/portal/lt/legalAct/c14e6210afe511e6b844f0f29024f5ac/asr> .
 
+fbo-lt:AUTOMOBILISAUGYKLGAISRINSSAUGOSTAISYKLSNr144 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "AUTOMOBILIŲ SAUGYKLŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-44"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Fire safety rules for car storage facilities"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "AUTOMOBILIŲ SAUGYKLŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-44"@lt-LT ;
+    fbo:hasPublicationDate "2019-11-01"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.418483/asr> .
+
+fbo-lt:ExitRoute a owl:Class ;
+    rdfs:label "Exit route"@en,
+        "Išėjimo maršrutas"@lt-LT ;
+    rdfs:subClassOf fbo:TravelDistance ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Chapter II, Paragraph 10.13. (STR 2.01.01(2):1999)" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition "a predetermined route from any location in the building to the exit."@en,
+        "iš anksto numatytas kelias iš bet kurios pastato vietos išėjimo link."@lt-LT ;
+    fbo:hasDocumentReference fbo-lt:AUTOMOBILISAUGYKLGAISRINSSAUGOSTAISYKLSNr144,
+        fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338,
+        fbo-lt:GAMYBOSPRAMONSIRSANDLIAVIMOSTATINIGAISRINSSAUGOSTAISYKLSNr145,
+        fbo-lt:GYVENAMJPASTATGAISRINSSAUGOSTAISYKLSNr164,
+        fbo-lt:StatybostechninireikalavimreglamentasSTR2010121999esminiaistatinioreikalavimaigaisrinsaugaNr422,
+        fbo-lt:VISUOMENINISTATINIGAISRINSSAUGOSTAISYKLSNr114 ;
+    fbo:hasDomainReference fbo:X21NumberofDoorsExits,
+        fbo:X22TravelDistance,
+        fbo:X23LengthofEvacuationPath,
+        fbo:X24WithoftheExits,
+        fbo:X25WithoftheEvacuationPath,
+        fbo:X2EVACUATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasLastEdition "2026-04-21T14:05:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "190" ;
+    fbo:hasNotionURL <https://www.notion.so/ExitRoute-209f8487e6e780b1b5a8ebb5893681c3> ;
+    fbo:hasSubitem fbo-lt:Deadend,
+        fbo-lt:EvacuationRoute ;
+    fbo:hasValueType "Boolean (yes/no)" .
+
+fbo-lt:GAMYBOSPRAMONSIRSANDLIAVIMOSTATINIGAISRINSSAUGOSTAISYKLSNr145 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "GAMYBOS, PRAMONĖS IR SANDĖLIAVIMO STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-45"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Fire safety rules for production, industrial and storage buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "GAMYBOS, PRAMONĖS IR SANDĖLIAVIMO STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-45"@lt-LT ;
+    fbo:hasPublicationDate "2024-11-01"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.418484?jfwid=> .
+
+fbo-lt:GYVENAMJPASTATGAISRINSSAUGOSTAISYKLSNr164 a owl:NamedIndividual,
+        fbo:Document ;
+    rdfs:label "GYVENAMŲJŲ PASTATŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-64"@en ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasDescription "Fire safety rules for residential buildings"@en ;
+    fbo:hasDocumentType "regulation" ;
+    fbo:hasOriginalLanguage "lt-LT" ;
+    fbo:hasOriginalName "GYVENAMŲJŲ PASTATŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-64"@lt-LT ;
+    fbo:hasPublicationDate "2024-11-07"^^xsd:date ;
+    fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.393013?jfwid=32wf8tn4> .
+
 fbo-lt:VISUOMENINISTATINIGAISRINSSAUGOSTAISYKLSNr114 a owl:NamedIndividual,
         fbo:Document ;
     rdfs:label "VISUOMENINIŲ STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-14"@en ;
@@ -991,6 +1268,36 @@ fbo-lt:VISUOMENINISTATINIGAISRINSSAUGOSTAISYKLSNr114 a owl:NamedIndividual,
     fbo:hasOriginalName "VISUOMENINIŲ STATINIŲ GAISRINĖS SAUGOS TAISYKLĖS Nr. 1-14"@lt-LT ;
     fbo:hasPublicationDate "2024-11-01"^^xsd:date ;
     fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.391196?jfwid=> .
+
+fbo-lt:PartialCoefficient a owl:Class ;
+    rdfs:label "Partial coefficients for the fire safety assessment of a building"@en,
+        "statinio gaisrinės saugos įvertinimo daliniai koeficientai"@lt-LT ;
+    fbo:hasAdoptedDefinitionType "Explicit Definition" ;
+    fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
+    fbo:hasCountry fbo:Lithuania ;
+    fbo:hasCountryCode "LT" ;
+    fbo:hasDefinition """G1…G8 – partial coefficients for the fire safety assessment of a building, depending on the fire safety systems installed in the building and the capabilities of the fire rescue service; their numerical values are given in Table 2 of Annex 3 (https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.388658/asr).
+The values of the partial coefficients G3 and G4 shall only be applied with the approval of the state fire rescue service."""@en,
+        """G1…G8 – statinio gaisrinės saugos įvertinimo daliniai koeficientai, priklausantys nuo pastate įdiegiamų gaisrinės saugos sistemų ir priešgaisrinės gelbėjimo tarnybos galimybių; jų skaitinės vertės pateiktos 3 priedo 2 lentelėje (https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.388658/asr).
+G3, G4 dalinių koeficientų reikšmės taikomos tik pritarus valstybinei priešgaisrinei gelbėjimo tarnybai."""@lt-LT ;
+    fbo:hasDesignator "G1…G8" ;
+    fbo:hasDocumentReference fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 ;
+    fbo:hasDomainReference fbo:X11CompartmentSize,
+        fbo:X1COMPARTMENTATION ;
+    fbo:hasFireExpertValidation true ;
+    fbo:hasIFCMapping fbo-ifc:PartialCoefficient ;
+    fbo:hasLastEdition "2026-03-10T12:12:00+00:00"^^xsd:dateTime ;
+    fbo:hasNotionID "512" ;
+    fbo:hasNotionURL <https://www.notion.so/PartialCoefficient-2c6f8487e6e780b0b4adee6268ab4c80> ;
+    fbo:hasSubitem fbo-lt:G1PartialCoefficient,
+        fbo-lt:G2PartialCoefficient,
+        fbo-lt:G3PartialCoefficient,
+        fbo-lt:G4PartialCoefficient,
+        fbo-lt:G5PartialCoefficient,
+        fbo-lt:G6PartialCoefficient,
+        fbo-lt:G7PartialCoefficient,
+        fbo-lt:G8PartialCoefficient ;
+    fbo:hasValueType "Number" .
 
 fbo-lt:GAISRINSSAUGOSPAGRINDINIAIREIKALAVIMAINr1338 a owl:NamedIndividual,
         fbo:Document ;

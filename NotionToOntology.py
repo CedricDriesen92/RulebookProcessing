@@ -10,7 +10,7 @@ QUDT_UNIT = Namespace("https://qudt.org/3.1.0/vocab/unit/")
 import re
 from collections import Counter
 
-# Unit string (from Notion TD - Unit) → QUDT unit fragment
+# Unit string map
 UNIT_MAP = {
     "m": "M",
     "m²": "M2",
@@ -567,7 +567,7 @@ def create_ontology():
 
     print(f"Indexed {len(page_registry)} entities. Generating triples...")
 
-    # 3b. Resolve general URI types — use majority vote when countries disagree
+    # 3b. Resolve general URI types
     general_uri_votes = {}  # general_uri -> list of owl_type votes
     for meta in page_registry.values():
         g_uri = str(meta["general_uri"])
@@ -724,7 +724,7 @@ def create_ontology():
         if equiv_term:
             g.add((s_uri, FBO.hasEquivalentTerm, Literal(equiv_term)))
 
-        # --- Reference Metadata (TR) --- (commented out for now)
+        # --- Reference Metadata (TR)
         # tr_code = get_property_value(props, PROP_MAP["TR_Code"])
         # if tr_code:
         #     g.add((s_uri, FBO.hasReferenceCode, Literal(tr_code)))

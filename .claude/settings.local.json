@@ -5,7 +5,11 @@
       "Bash(python3:*)",
       "Bash(python:*)",
       "Bash(where:*)",
-      "Bash(py:*)"
+      "Bash(py:*)",
+      "Bash(ls /c/Python*/python.exe)",
+      "Read(//c/Users/CDRI/AppData/Local/Programs/Python/**)",
+      "Bash(conda info:*)",
+      "Bash(start SHACL/output/shacl_diagrams.html)"
     ]
   }
 }
