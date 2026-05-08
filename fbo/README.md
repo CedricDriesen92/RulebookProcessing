@@ -8,7 +8,7 @@ All files share the same base namespace `https://ontology.firebim.be/ontology/` 
 
 ### Core
 
-- **[fbo.ttl](fbo.ttl)** — Core FireBIM ontology (`fbo:`). Country-agnostic / European-level concepts (e.g. `ActiveFireProtection`, `AreaFireCompartment`), shared properties, datatypes, units (QUDT) and the Notion identifiers. Country-specific terms link back here via `fbo:hasSubitem` / `fbo:isLinkedTo`.
+- **[fbo.ttl](fbo.ttl)** — Core FireBIM ontology (`fbo:`). Country-agnostic / European-level concepts (e.g. `ActiveFireProtection`, `AreaFireCompartment`), shared properties, datatypes, units (QUDT), time-stamps (time last edited in Notion for now) and the Notion identifiers. Country-specific terms link back here via `fbo:hasSubitem` / `fbo:isLinkedTo`.
 
 - **[firebim_ontology_unified.ttl](firebim_ontology_unified.ttl)** — Single merged graph containing the core ontology, all country modules and the IFC mapping module. Use this when you want to load everything at once instead of importing the pieces individually.
 
