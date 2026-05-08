@@ -12,9 +12,10 @@
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fbo:ActiveFireProtection a owl:Class ;
+fbo:ActiveFireProtection a owl:ObjectProperty ;
     rdfs:label "Active Fire Protection"@en,
         "Active fire protection"@en ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition """method(s) used to reduce or prevent the spread and effects of fire (3.138), heat or smoke (3.389) by virtue of detection and/or suppression of the fire and which require a certain amount of motion and/or response to be activated
@@ -22,7 +23,7 @@ EXAMPLE:The application of agents (e.g. halon gas or water spray) to the fire or
 Note 1 to entry: Compare with the terms passive fire protection (3.328) and suppression system (3.418)."""@en ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:ActiveFireProtection ;
-    fbo:hasLastEdition "2026-02-25T15:40:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "529" ;
     fbo:hasNotionURL <https://www.notion.so/ActiveFireProtection-df327ba2a2024353acf06ef6fc2d3c2d> ;
     fbo:hasRemarks "Either directly provided as property or inferred from availability of e.g. sprinkler system in that area/zone" ;
@@ -30,28 +31,29 @@ Note 1 to entry: Compare with the terms passive fire protection (3.328) and�
     fbo:hasValueType "Boolean (yes/no)" ;
     fbo:isLinkedTo fbo-dk:ActiveFireProtection .
 
-fbo:AreaEvacuationroute a owl:Class ;
+fbo:AreaEvacuationroute a owl:ObjectProperty ;
     rdfs:label "Evacuation route passage or Evacuation route area"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:11:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "462" ;
     fbo:hasNotionURL <https://www.notion.so/AreaEvacuationroute-2a8f8487e6e780409ac1ff2f3cd69b88> ;
     fbo:hasSubitem fbo-dk:AreaEvacuationroute ;
     fbo:isLinkedTo fbo-dk:AreaEvacuationroute .
 
-fbo:AreaFireCompartment a owl:Class ;
+fbo:AreaFireCompartment a owl:DatatypeProperty ;
     rdfs:label "Area of Fire Compartment"@en,
         "Area of a fire compartment"@en,
         "Compartment Area"@en,
         "Compartment-Area - Floor area"@en,
         "Fire compartment"@en,
         "Fire compartment area"@en ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:AreaFireCompartment1,
         fbo-ifc:AreaFireCompartment2a ;
-    fbo:hasLastEdition "2026-02-03T14:40:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "524" ;
     fbo:hasNotionURL <https://www.notion.so/AreaFireCompartment-96ee5e0e075a400cbe3cb8409cd9b61e> ;
     fbo:hasSubitem fbo-be:AreaFireCompartment,
@@ -65,11 +67,12 @@ fbo:AreaFireCompartment a owl:Class ;
         fbo-dk:AreaSubCompartment ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo:AreaFloorRoom a owl:Class ;
+fbo:AreaFloorRoom a owl:DatatypeProperty ;
     rdfs:label "Floor area in rooms"@en ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:11:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "477" ;
     fbo:hasNotionURL <https://www.notion.so/AreaFloorRoom-2a8f8487e6e780c196e7db6cb1b9d180> ;
     fbo:hasSubitem fbo-dk:AreaFloorRoom ;
@@ -83,18 +86,19 @@ fbo:AutomaticFireAlarmsystem a owl:Class ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:AutomaticDetection ;
-    fbo:hasLastEdition "2025-11-13T07:53:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "474" ;
     fbo:hasNotionURL <https://www.notion.so/AutomaticFireAlarmsystem-2a8f8487e6e7809386aeef4997ee55ce> ;
     fbo:isLinkedTo fbo-dk:AutomaticFireAlarmsystem .
 
-fbo:AutomaticFireExtinguishSystem a owl:Class ;
+fbo:AutomaticFireExtinguishSystem a owl:DatatypeProperty ;
     rdfs:label "Automatic Fire Extinguish System"@en,
         "Automatic fire extinguishing system"@en ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:AutomaticFireExtinguishSystem ;
-    fbo:hasLastEdition "2026-02-03T14:40:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "276" ;
     fbo:hasNotionURL <https://www.notion.so/AutomaticFireExtinguishSystem-223f8487e6e780058ab9c21320d0070a> ;
     fbo:hasSubitem fbo-be:AutomaticFireExtinguishSystem,
@@ -106,7 +110,7 @@ fbo:AutomaticFireVentilationsystem a owl:Class ;
     rdfs:label "Automatic Fire Ventilationsystem"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2025-11-13T07:53:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "466" ;
     fbo:hasNotionURL <https://www.notion.so/AutomaticFireVentilationsystem-2a8f8487e6e7806fb9a6c9fa2cd0c75d> ;
     fbo:isLinkedTo fbo-dk:AutomaticFireVentilationsystem .
@@ -127,23 +131,23 @@ fbo:Belgium a owl:NamedIndividual,
     rdfs:label "Belgium"@en ;
     fbo:hasCountryCode "BE" .
 
-fbo:BuildingFireCompartmentDaytimeoccupancy a owl:Class ;
+fbo:BuildingFireCompartmentDaytimeoccupancy a owl:DatatypeProperty ;
     rdfs:label "Daytime occupancy buildings"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:11:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "465" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingFireCompartmentDaytimeoccupancy-2a8f8487e6e780698781e227dd48d06b> ;
     fbo:hasSubitem fbo-dk:BuildingFireCompartmentDaytimeoccupancy .
 
-fbo:BuildingFunctionalFireUnit a owl:Class ;
+fbo:BuildingFunctionalFireUnit a owl:DatatypeProperty ;
     rdfs:label "Functional Fire Unit"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition """(from DK) A building, or part of a building, in which the existing fire risk conditions indicated by use category(ies) and risk class are similar. A Functional Fire Unit shall be assigned to one or more use categories, but only one risk class.
 A Functional Fire Unit may consist of one or more rooms, and a Functional Fire Unit also includes supporting functions such as corridors, kitchens, storage rooms, technical rooms, toilet rooms, bathrooms or similar, which are directly related to the function of the Functional Fire Unit.
 A Functional Fire Unit can be organised as one or more fire compartments and must have access to associated escape routes."""@en ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-26T15:40:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "471" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingFunctionalFireUnit-2a8f8487e6e7808599d3c888759db51b> ;
     fbo:hasSubitem fbo-dk:BuildingFunctionalFireUnit .
@@ -153,7 +157,7 @@ fbo:BuildingLayers a owl:Class ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:BuildingLayersBuilding ;
-    fbo:hasLastEdition "2026-04-22T08:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "464" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingLayers-2a8f8487e6e78063a7f2fb0f3c692f42> ;
     fbo:hasSubitem fbo-dk:BuildingLayers ;
@@ -166,7 +170,7 @@ fbo:BuildingStorey a owl:Class ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:BuildingStorey ;
-    fbo:hasLastEdition "2026-02-23T14:11:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:25:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "567" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingStorey-310f8487e6e7806b8130c780d585bbc4> ;
     fbo:hasSubitem fbo-be:BuildingLayer,
@@ -179,34 +183,34 @@ fbo:Denmark a owl:NamedIndividual,
     rdfs:label "Denmark"@en ;
     fbo:hasCountryCode "DK" .
 
-fbo:DistanceActualTravel a owl:Class ;
+fbo:DistanceActualTravel a owl:DatatypeProperty ;
     rdfs:label "Distance - Actual travel distance"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition "(from DK) The actual distance that a person must walk in a walking line to reach a given point. The walking line is laid out as the direct route, taking into account fixed obstacles or fixtures, and on a walkable surface. Also used to refer to the physical length of a corridor."@en ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-03T14:49:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "478" ;
     fbo:hasNotionURL <https://www.notion.so/DistanceActualTravel-2a8f8487e6e780c3a077deca3adc6cc4> ;
     fbo:hasSubitem fbo-dk:DistanceActualTravel,
         fbo-nl:WalkingDistance .
 
-fbo:DistanceDirectTravel a owl:Class ;
+fbo:DistanceDirectTravel a owl:DatatypeProperty ;
     rdfs:label "Distance - Direct travel distance (theoretical)"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition "(from DK) The theoretical longest distance a person must travel to reach the nearest exit or exit door by moving along a path of travel. The paths are laid out corresponding to the most unfavorable location of the person."@en ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-03T14:49:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "460" ;
     fbo:hasNotionURL <https://www.notion.so/DistanceDirectTravel-2a8f8487e6e7802ba2b0f54532b55053> ;
     fbo:hasSubitem fbo-dk:DistanceDirectTravel,
         fbo-nl:CorrectedWalkingDistance .
 
-fbo:DistancePathway a owl:Class ;
+fbo:DistancePathway a owl:DatatypeProperty ;
     rdfs:label "Distance - Pathway"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition "(from DK) Imaginary line that you follow when walking towards a door in a room, down a hallway or on a staircase or ramp, for example. Where the pathway runs along inclined building elements, such as ramps or stairs, the pathway is laid out as the inclined line along the element from top to bottom."@en ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-03T14:49:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "476" ;
     fbo:hasNotionURL <https://www.notion.so/DistancePathway-2a8f8487e6e780b98312fa90ba91da01> ;
     fbo:hasSubitem fbo-dk:DistancePathway .
@@ -215,7 +219,7 @@ fbo:DoorEscaperoute a owl:Class ;
     rdfs:label "Escape route door"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-03T14:50:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "468" ;
     fbo:hasNotionURL <https://www.notion.so/DoorEscaperoute-2a8f8487e6e780769afee12c36d85d1d> ;
     fbo:hasSubitem fbo-dk:DoorEscaperoute ;
@@ -226,33 +230,33 @@ fbo:DoorExit a owl:Class ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:Exit ;
-    fbo:hasLastEdition "2026-04-10T10:09:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "473" ;
     fbo:hasNotionURL <https://www.notion.so/DoorExit-2a8f8487e6e780929c3cf82e6ae0b252> ;
     fbo:hasSubitem fbo-dk:DoorExit .
 
-fbo:EmergencyExitLighting a owl:Class ;
+fbo:EmergencyExitLighting a owl:ObjectProperty ;
     rdfs:label "Emergency exit lighting"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2025-11-13T07:53:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:24:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "479" ;
     fbo:hasNotionURL <https://www.notion.so/EmergencyExitLighting-2a8f8487e6e780c5b112eb7e342b1d5d> ;
     fbo:isLinkedTo fbo-dk:EmergencyExitLighting .
 
-fbo:EmergencyPanicLights a owl:Class ;
+fbo:EmergencyPanicLights a owl:ObjectProperty ;
     rdfs:label "Emergency panic lights"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2025-11-13T07:53:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:24:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "458" ;
     fbo:hasNotionURL <https://www.notion.so/EmergencyPanicLights-2a8f8487e6e7801b8160e280be41ba9c> .
 
-fbo:EvacuationTime a owl:Class ;
+fbo:EvacuationTime a owl:DatatypeProperty ;
     rdfs:label "Evacuation time"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "482" ;
     fbo:hasNotionURL <https://www.notion.so/EvacuationTime-2a8f8487e6e780dc8b75f39b1a0374fc> ;
     fbo:hasSubitem fbo-dk:EvacuationTime,
@@ -264,13 +268,14 @@ fbo:Exit a owl:Class ;
     rdfs:label "Evacuation Exit"@en,
         "Exit"@en,
         "exit"@en ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition "(this content has copy right, will be removed after WIP stage)“ designated point of departure from a building or from an enclosure (3.106)” https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.120"@en ;
     fbo:hasDocumentReference fbo:ISO139432023FiresafetyVocabulary ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:Exit ;
-    fbo:hasLastEdition "2026-02-25T15:40:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "519" ;
     fbo:hasNotionURL <https://www.notion.so/Exit-4a1b3836270445d7b48ecbf4b5ac6865> ;
     fbo:hasSubitem fbo-dk:Exit,
@@ -279,15 +284,16 @@ fbo:Exit a owl:Class ;
         fbo-pt:Exit ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo:ExteriorWall a owl:Class ;
+fbo:ExteriorWall a owl:DatatypeProperty ;
     rdfs:label "Exterior Wall"@en ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition "(this content has copy right, will be removed after WIP stage) “wall, bearing or non-bearing, that is used as an enclosing wall for a building, other than a fire wall, and that has a slope of 60° or greater with the horizontal planeNote 1 to entry: The exterior wall contains an exterior wall assembly (3.130) which, in turn, includes an exterior wall covering (3.131).” https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.129"@en ;
     fbo:hasDocumentReference fbo:ISO139432023FiresafetyVocabulary ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:ExteriorWall ;
-    fbo:hasLastEdition "2026-02-25T15:40:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "523" ;
     fbo:hasNotionURL <https://www.notion.so/ExteriorWall-9393e1e31c0847c18d2393837a304c63> ;
     fbo:hasSubitem fbo-lt:FacadeExteriorWall ;
@@ -295,18 +301,19 @@ fbo:ExteriorWall a owl:Class ;
 
 fbo:FireBIMOntology a owl:Ontology .
 
-fbo:FireHazardSpecial a owl:Class ;
+fbo:FireHazardSpecial a owl:ObjectProperty ;
     rdfs:label "Special fire hazard"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:13:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "472" ;
     fbo:hasNotionURL <https://www.notion.so/FireHazardSpecial-2a8f8487e6e7808eab73f1d99c18beb8> ;
     fbo:hasSubitem fbo-dk:FireHazardSpecial .
 
-fbo:FireLoad a owl:Class ;
+fbo:FireLoad a owl:DatatypeProperty ;
     rdfs:label "Fire Load"@en,
         "Fire load"@en ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition """(this content has copy right, will be removed after WIP stage) quantity of heat which could be released by the complete combustion (3.66) of all the combustible (3.59) materials in a volume, including the facings of all bounding surfaces
@@ -323,9 +330,10 @@ Note 3 to entry: The typical unit is kJ or MJ. https://www.iso.org/obp/ui/#iso:
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit "MJ" .
 
-fbo:FireLoadDensity a owl:Class ;
+fbo:FireLoadDensity a owl:DatatypeProperty ;
     rdfs:label "Fire Load Density"@en,
         "Fire load density"@en ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition """(this content has copy right, will be removed after WIP stage) “ fire load (3.158) per unit area
@@ -344,9 +352,10 @@ Note 1 to entry: The typical unit is kJ⋅m−2.“ https://www.iso.org/obp/ui/
     fbo:isLinkedTo fbo-dk:FireloadDensity ;
     qudt:hasApplicableUnit "MJ/m²" .
 
-fbo:FireResistance a owl:Class ;
+fbo:FireResistance a owl:DatatypeProperty ;
     rdfs:label "Fire Resistance"@en,
         "Fire resistance"@en ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition "(this content has copy right, will be removed after WIP stage)  “ability of a test specimen (3.428) to withstand fire (3.138) or give protection from it for a period of timeNote 1 to entry: Typical criteria used to assess fire resistance in a standard fire test (3.180) are fire integrity (3.157), fire stability (3.179)and thermal insulation (3.435).Note 2 to entry: “Fire resistant” (adj.) refers only to this ability.Note 3 to entry: The term \"fireproof\" has been used to describe buildings with non-combustible (3.315) structural elements and high levels of fire resistance, but this is a deprecated term. The term is often misunderstood to mean an absolute or unconditional property, and therefore the use of the term \"fireproof\" is inappropriate and misleading.” https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.165"@en ;
@@ -368,21 +377,21 @@ fbo:FireSafetyInstallationSmokeAlarmsystem a owl:Class ;
     rdfs:label "Smoke alarm system"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "467" ;
     fbo:hasNotionURL <https://www.notion.so/FireSafetyInstallationSmokeAlarmsystem-2a8f8487e6e78072b400c7e8688fdd1f> ;
     fbo:hasSubitem fbo-dk:FireSafetyInstallationSmokeAlarmsystem .
 
-fbo:FireSafetyUnit a owl:Class ;
+fbo:FireSafetyUnit a owl:ObjectProperty ;
     rdfs:label "Fire safety unit"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "484" ;
     fbo:hasNotionURL <https://www.notion.so/FireSafetyUnit-2a8f8487e6e780e6a813c3431e2cec78> ;
     fbo:hasSubitem fbo-dk:FireSafetyUnit .
 
-fbo:FireStability a owl:Class ;
+fbo:FireStability a owl:DatatypeProperty ;
     rdfs:label "Fire Stability"@en ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasCountry fbo:Europe ;
@@ -396,16 +405,17 @@ https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.157"""@en ;
     fbo:hasNotionURL <https://www.notion.so/FireStability-1e0f8487e6e78009b7c0dfe83e87ba7d> ;
     fbo:hasSubitem fbo-pt:FireStability .
 
-fbo:HeightBuilding a owl:Class ;
+fbo:HeightBuilding a owl:DatatypeProperty ;
     rdfs:label "Building height"@en,
         "Height - building"@en,
         "Height of a building"@en,
         "Height of building"@en,
         "Height of the building"@en ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:HeightBuilding ;
-    fbo:hasLastEdition "2026-02-10T08:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "525" ;
     fbo:hasNotionURL <https://www.notion.so/HeightBuilding-a0152f1f68d8426aa5303fcb592b9590> ;
     fbo:hasSubitem fbo-be:HeightBuilding,
@@ -422,7 +432,7 @@ fbo:HoseReel a owl:Class ;
     fbo:hasDefinition "A fire hose reel is a flexible hose that is connected to a hydrant in order to extinguish a fire. It is often supported by a reel and the ensemble is known as a hydrant or reel depending on the region"@en ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:HoseReel ;
-    fbo:hasLastEdition "2026-02-25T15:40:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:25:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "457" ;
     fbo:hasNotionURL <https://www.notion.so/HoseReel-2a8f8487e6e7800d8119f3e50d013438> ;
     fbo:hasSubitem fbo-dk:HoseReel .
@@ -436,8 +446,9 @@ fbo:ISO670712020BuildingsandcivilengineeringworksVocabularyPart1Generalterms a o
     fbo:hasPublicationDate "2020-08-09"^^xsd:date ;
     fbo:hasURL <https://www.iso.org/obp/ui/#iso:std:iso:6707:-1:ed-6:v1:en:term:3.3.1.11> .
 
-fbo:Integrity a owl:Class ;
+fbo:Integrity a owl:DatatypeProperty ;
     rdfs:label "Integrity"@en ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition """(this content has copy right, will be removed after WIP stage)  ability of a separating element (3.386), when exposed to fire (3.138) on one side, to prevent the passage of flames (3.184) and hot gases or the occurrence of flames on the unexposed side for a stated period of time in a standard fire resistance (3.165) test
@@ -452,11 +463,11 @@ Note 1 to entry: Compare with the term integrity criterion “E” (3.257).""
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit "Minutes" .
 
-fbo:LengthHosepath a owl:Class ;
+fbo:LengthHosepath a owl:DatatypeProperty ;
     rdfs:label "Distance - Hose path"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:25:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "459" ;
     fbo:hasNotionURL <https://www.notion.so/LengthHosepath-2a8f8487e6e7802b9ea1c960fef0e43c> ;
     fbo:hasSubitem fbo-dk:LengthHosepath .
@@ -471,40 +482,40 @@ fbo:Netherlands a owl:NamedIndividual,
     rdfs:label "Netherlands"@en ;
     fbo:hasCountryCode "NL" .
 
-fbo:NumberOccupants a owl:Class ;
+fbo:NumberOccupants a owl:ObjectProperty ;
     rdfs:label "Number of Occupants"@en,
         "Number of occupants of a compartment"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:OccupantsCompartment ;
-    fbo:hasLastEdition "2026-02-10T08:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "485" ;
     fbo:hasNotionURL <https://www.notion.so/NumberOccupants-2a8f8487e6e780f680b5e63d208aadce> ;
     fbo:hasSubitem fbo-be:NumberOccupants .
 
-fbo:OpeningRescue a owl:Class ;
+fbo:OpeningRescue a owl:ObjectProperty ;
     rdfs:label "Rescue opening"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:16:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "469" ;
     fbo:hasNotionURL <https://www.notion.so/OpeningRescue-2a8f8487e6e7807baed9f8b4a564e138> ;
     fbo:hasSubitem fbo-dk:OpeningRescue .
 
-fbo:PassiveFireProtection a owl:Class ;
+fbo:PassiveFireProtection a owl:ObjectProperty ;
     rdfs:label "Passive fire protection"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "463" ;
     fbo:hasNotionURL <https://www.notion.so/PassiveFireProtection-2a8f8487e6e78049b60ac09965855c31> ;
     fbo:hasSubitem fbo-dk:PassiveFireProtection .
 
-fbo:PlaceSaferefuge a owl:Class ;
+fbo:PlaceSaferefuge a owl:ObjectProperty ;
     rdfs:label "Safe refuge"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "470" ;
     fbo:hasNotionURL <https://www.notion.so/PlaceSaferefuge-2a8f8487e6e7807e992fc0ceb85167ff> ;
     fbo:hasSubitem fbo-dk:PlaceSaferefuge .
@@ -514,25 +525,26 @@ fbo:Portugal a owl:NamedIndividual,
     rdfs:label "Portugal"@en ;
     fbo:hasCountryCode "PT" .
 
-fbo:ReactionToFire a owl:Class ;
+fbo:ReactionToFire a owl:DatatypeProperty ;
     rdfs:label "Fire Reaction"@en,
         "Reaction to fire"@en ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition "(this content has copy right, will be removed after WIP stage) “response of a test specimen (3.428) when it is exposed to fire (3.138) under specified conditions in a fire test (3.180)Note 1 to entry: Fire resistance (3.165) is regarded as a special case and is not normally considered as a “reaction to fire” property. “ https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.364"@en ;
     fbo:hasDocumentReference fbo:ISO139432023FiresafetyVocabulary ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-03T14:44:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "526" ;
     fbo:hasNotionURL <https://www.notion.so/ReactionToFire-ab86156611b246349bdebb2642e86cf3> ;
     fbo:hasSubitem fbo-lt:ReactionToFire ;
     fbo:hasValueType "Number" .
 
-fbo:Roomfunction a owl:Class ;
+fbo:Roomfunction a owl:ObjectProperty ;
     rdfs:label "Room function"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:17:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "481" ;
     fbo:hasNotionURL <https://www.notion.so/Roomfunction-2a8f8487e6e780d99665ff8c6360a37c> ;
     fbo:hasSubitem fbo-dk:Roomfunction,
@@ -559,55 +571,60 @@ fbo:Samplerelationdeleteorrename a owl:ObjectProperty ;
     rdfs:comment "Buildings have compartments"@en ;
     fbo:hasNotionURL <https://www.notion.so/Sample-relation-delete-or-rename-30cf8487e6e7805399d1e5cb2791d61e> .
 
-fbo:SelfClosing a owl:Class ;
+fbo:SelfClosing a owl:DatatypeProperty ;
     rdfs:label "Self-closing"@en ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:SelfClosing ;
-    fbo:hasLastEdition "2026-02-25T15:46:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "520" ;
     fbo:hasNotionURL <https://www.notion.so/SelfClosing-6798d0b72381498aa129ac04fd6cedd7> ;
     fbo:hasRemarks "Is the door provided with a self-closing mechanism (triggered or always closing?)" ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo:SwingDirection a owl:Class ;
+fbo:SwingDirection a owl:DatatypeProperty ;
     rdfs:label "Swing Direction"@en ;
+    schema1:rangeIncludes xsd:string ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2025-11-12T15:15:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "182" ;
     fbo:hasNotionURL <https://www.notion.so/SwingDirection-1c1fb3294a7a499082f78811cd428a57> ;
     fbo:hasRemarks "Needed to derive whether the door swings open in the direction of the escape route" ;
     fbo:hasValueType "Enumeration (choice)" .
 
-fbo:TeachingZone a owl:Class ;
+fbo:TeachingZone a owl:DatatypeProperty ;
     rdfs:label "Teaching Zone"@en ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition "(this content has copy right, will be removed after WIP stage) zone (3.1.9) where a group of pupils or students are taught or study together https://www.iso.org/obp/ui/#iso:std:iso:6707:-4:ed-1:v1:en:terms:3.3.23"@en ;
     fbo:hasDocumentReference fbo:ISO139432023FiresafetyVocabulary ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:TeachingZone ;
-    fbo:hasLastEdition "2026-02-25T15:41:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "528" ;
     fbo:hasNotionURL <https://www.notion.so/TeachingZone-d2711d97704e4504a5f90726ba433f55> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo:ThermalConductivity a owl:Class ;
+fbo:ThermalConductivity a owl:DatatypeProperty ;
     rdfs:label "Thermal Conductivity"@en ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition "(this content has copy right, will be removed after WIP stage) parameter related to the rate at which heat flows through a materialNote 1 to entry: Thermal conductivity is calculated using the following formula:k = (Q·d)/(A·t·θ)where k is the thermal conductivity and Q is the amount of heat that flows in time, t, through a material of thickness, d, and cross-sectional  area , A, and which has a temperature difference, θ, across it, and where no heat is exchanged with the surroundings.Note 2 to entry: The typical unit is W·m−1·K−1. https://www.iso.org/obp/ui/#iso:std:iso:13943:ed-4:v1:en:term:3.430"@en ;
     fbo:hasDocumentReference fbo:ISO139432023FiresafetyVocabulary ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2025-11-12T15:18:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "64" ;
     fbo:hasNotionURL <https://www.notion.so/ThermalConductivity-126f8487e6e78043b2bddf36704ce878> ;
     fbo:hasValueType "Number" .
 
-fbo:ThermalInsulation a owl:Class ;
+fbo:ThermalInsulation a owl:DatatypeProperty ;
     rdfs:label "Thermal Insulation"@en,
         "Thermal insulation"@en ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit definition" ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasDefinition """(this content has copy right, will be removed after WIP stage) “<fire resistance> ability of a separating element (3.386), when exposed to fire (3.138) on one side, to restrict the transmission of heat”
@@ -620,11 +637,11 @@ Note 1 to entry: Compare with the term fire resistance (3.165). https://www.i
     fbo:hasSubitem fbo-pt:ThermalInsulation ;
     fbo:hasValueType "Number" .
 
-fbo:TimeWalking a owl:Class ;
+fbo:TimeWalking a owl:DatatypeProperty ;
     rdfs:label "Walking time"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:18:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "475" ;
     fbo:hasNotionURL <https://www.notion.so/TimeWalking-2a8f8487e6e780b7b536ecb6b14df9d3> ;
     fbo:hasSubitem fbo-dk:TimeWalking .
@@ -645,21 +662,22 @@ fbo:TravelDistance a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M .
 
-fbo:UsefulWidth a owl:Class ;
+fbo:UsefulWidth a owl:DatatypeProperty ;
     rdfs:label "Useful Width"@en ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2025-11-13T07:53:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "527" ;
     fbo:hasNotionURL <https://www.notion.so/UsefulWidth-b78ae954f9f340329688df717f19ff34> ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M .
 
-fbo:WalltypeCompartmentFirewall a owl:Class ;
+fbo:WalltypeCompartmentFirewall a owl:ObjectProperty ;
     rdfs:label "Compartment Firewall"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:18:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "456" ;
     fbo:hasNotionURL <https://www.notion.so/WalltypeCompartmentFirewall-2a8f8487e6e780098ae9f93627e26f7f> ;
     fbo:hasSubitem fbo-dk:WalltypeCompartmentFirewall ;
@@ -667,12 +685,12 @@ fbo:WalltypeCompartmentFirewall a owl:Class ;
         fbo-dk:WalltypeCompartmentFirewall,
         fbo-dk:WalltypeSubcompartmentFirewall .
 
-fbo:WidthFreeDoors a owl:Class ;
+fbo:WidthFreeDoors a owl:DatatypeProperty ;
     rdfs:label "Free width Emergency escape door"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:WidthFreeDoors ;
-    fbo:hasLastEdition "2026-02-10T08:18:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "486" ;
     fbo:hasNotionURL <https://www.notion.so/WidthFreeDoors-2a8f8487e6e780ff8b6af003a462f9fc> ;
     fbo:hasSubitem fbo-dk:WidthFreeDoors .
@@ -816,7 +834,7 @@ fbo:BoundaryFireCompartment a owl:Class ;
     rdfs:label "Fire compartment - boundary"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-03T14:46:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "480" ;
     fbo:hasNotionURL <https://www.notion.so/BoundaryFireCompartment-2a8f8487e6e780ce9789da88a1c3d3f7> ;
     fbo:hasSubitem fbo-dk:BoundaryFireCompartment,
@@ -825,11 +843,11 @@ fbo:BoundaryFireCompartment a owl:Class ;
         fbo-dk:BoundarySubcompartment,
         fbo-dk:SeparationFire .
 
-fbo:WidthFreeEvacuationroutes a owl:Class ;
+fbo:WidthFreeEvacuationroutes a owl:ObjectProperty ;
     rdfs:label "Free width Evacuation routes"@en ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
-    fbo:hasLastEdition "2026-02-10T08:18:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:26:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "483" ;
     fbo:hasNotionURL <https://www.notion.so/WidthFreeEvacuationroutes-2a8f8487e6e780dfa4aad00d4679181e> ;
     fbo:hasSubitem fbo-dk:WidthFreeEvacuationroutes,
@@ -842,7 +860,7 @@ fbo:Building a owl:Class ;
     fbo:hasCountry fbo:Europe ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:Building ;
-    fbo:hasLastEdition "2026-02-25T15:40:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "546" ;
     fbo:hasNotionURL <https://www.notion.so/Building-2fcf8487e6e7805384d5d5519fdb646d> ;
     fbo:hasSubitem fbo-be:Building,
@@ -865,7 +883,7 @@ fbo:FireCompartment a owl:Class ;
         fbo-ifc:FireCompartment2b,
         fbo-ifc:FireCompartment2c,
         fbo-ifc:FireCompartment3 ;
-    fbo:hasLastEdition "2026-02-03T14:43:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:22:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "279" ;
     fbo:hasNotionURL <https://www.notion.so/FireCompartment-223f8487e6e78062941dcf8ae22bdb7f> ;
     fbo:hasSubitem fbo-be:FireCompartment,

@@ -5,9 +5,10 @@
 @prefix qudt: <https://qudt.org/3.1.0/schema/qudt/> .
 @prefix qudt-unit: <https://qudt.org/3.1.0/vocab/unit/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fbo-nl:AccessibleSector a owl:Class ;
+fbo-nl:AccessibleSector a owl:ObjectProperty ;
     rdfs:label "accessible sector"@en,
         "toegankelijkheidssector"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition + Implicit Definition" ;
@@ -20,11 +21,11 @@ fbo-nl:AccessibleSector a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:18:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "406" ;
     fbo:hasNotionURL <https://www.notion.so/AccessibleSector-24ff8487e6e780cfb1a9f9b7e3c3018c> .
 
-fbo-nl:AccessibleSectorElevatorLobby a owl:Class ;
+fbo-nl:AccessibleSectorElevatorLobby a owl:ObjectProperty ;
     rdfs:label "elevator lobby accessible sector"@en,
         "voorportaal lift toegankelijkheidssector"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
@@ -37,13 +38,14 @@ fbo-nl:AccessibleSectorElevatorLobby a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-02-20T14:48:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:18:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "392" ;
     fbo:hasNotionURL <https://www.notion.so/AccessibleSectorElevatorLobby-24ff8487e6e7808284d4d0230b610660> .
 
-fbo-nl:AdditionallyProtectedEscapeRoute a owl:Class ;
+fbo-nl:AdditionallyProtectedEscapeRoute a owl:DatatypeProperty ;
     rdfs:label "Additionally protected escape route"@en,
         "Extra beschermde vluchtroute"@nl-NL ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bbl 4.50.4" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -75,14 +77,15 @@ fbo-nl:AdjoiningTerrain a owl:Class ;
     fbo:hasDomainReference fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
     fbo:hasIFCMapping fbo-ifc:AdjoiningTerrain ;
-    fbo:hasLastEdition "2026-02-25T15:40:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:18:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "395" ;
     fbo:hasNotionURL <https://www.notion.so/AdjoiningTerrain-24ff8487e6e78099ba16d66b520d46d2> .
 
-fbo-nl:AreaFireCompartment a owl:Class ;
+fbo-nl:AreaFireCompartment a owl:DatatypeProperty ;
     rdfs:label "Fire compartment"@en,
         "Brandcompartiment"@nl-NL ;
-    rdfs:subClassOf fbo:AreaFireCompartment ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo:AreaFireCompartment ;
     fbo:hasAdoptedDefinitionType "Explicit Definition + Implicit Definition" ;
     fbo:hasArticleID "Bbl - 4.50.1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -99,7 +102,7 @@ fbo-nl:AreaFireCompartment a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-nl:AreaFireSubCompartment a owl:Class ;
+fbo-nl:AreaFireSubCompartment a owl:ObjectProperty ;
     rdfs:label "fire-sub-compartment_area"@en,
         "subbrandcompartiment"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -113,11 +116,11 @@ fbo-nl:AreaFireSubCompartment a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
     fbo:hasIFCMapping fbo-ifc:AreaFireCompartment2a ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:18:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "417" ;
     fbo:hasNotionURL <https://www.notion.so/AreaFireSubCompartment-24ff8487e6e780fd943edd6d472f6d78> .
 
-fbo-nl:AreaProtectedFireSubCompartment a owl:Class ;
+fbo-nl:AreaProtectedFireSubCompartment a owl:ObjectProperty ;
     rdfs:label "protected fire-sub-compartment_area"@en,
         "beschermd subbrandcompartiment"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -130,7 +133,7 @@ fbo-nl:AreaProtectedFireSubCompartment a owl:Class ;
     fbo:hasDomainReference fbo:X11CompartmentSize,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-02-23T12:03:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:18:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "364" ;
     fbo:hasNotionURL <https://www.notion.so/AreaProtectedFireSubCompartment-24ff8487e6e78004bee7f147d5e306dd> .
 
@@ -148,11 +151,11 @@ fbo-nl:BuildingInternalWall a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
     fbo:hasIFCMapping fbo-ifc:InternalWall ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:19:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "342" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingInternalWall-233f8487e6e780069a2bd3d306d33b3a> .
 
-fbo-nl:BuildingPartitionConstructionExternal a owl:Class ;
+fbo-nl:BuildingPartitionConstructionExternal a owl:ObjectProperty ;
     rdfs:label "external partition (construction)"@en,
         "uitwendige scheidingsconstructie"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -165,13 +168,14 @@ fbo-nl:BuildingPartitionConstructionExternal a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:19:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "376" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingPartitionConstructionExternal-24ff8487e6e78039a20ad39fa7ba7e6f> .
 
-fbo-nl:BuildingPlot a owl:Class ;
+fbo-nl:BuildingPlot a owl:DatatypeProperty ;
     rdfs:label "Building plot"@en,
         "Bouwwerkperceel"@nl-NL ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -200,11 +204,11 @@ fbo-nl:BuildingPlotBoundary a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:19:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "397" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingPlotBoundary-24ff8487e6e780a5a04ac083c6e77f0e> .
 
-fbo-nl:BuildingResidential a owl:Class ;
+fbo-nl:BuildingResidential a owl:ObjectProperty ;
     rdfs:label "residential building"@en,
         "woongebouw"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -217,7 +221,7 @@ fbo-nl:BuildingResidential a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:19:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "394" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingResidential-24ff8487e6e780939fdfc4e86d1c5f9d> .
 
@@ -254,13 +258,14 @@ fbo-nl:Cell a owl:Class ;
     fbo:hasDomainReference fbo:X11CompartmentSize,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:19:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "412" ;
     fbo:hasNotionURL <https://www.notion.so/Cell-24ff8487e6e780ed8e33d62ebeb32a08> .
 
-fbo-nl:Common a owl:Class ;
+fbo-nl:Common a owl:DatatypeProperty ;
     rdfs:label "Common"@en,
         "Gemeenschappelijk"@nl-NL ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.51.6" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -296,9 +301,10 @@ fbo-nl:CorrectedWalkingDistance a owl:Class ;
     fbo:hasNotionID "377" ;
     fbo:hasNotionURL <https://www.notion.so/CorrectedWalkingDistance-24ff8487e6e7803a9d92e09137eac5b3> .
 
-fbo-nl:DetatchedBuildingConstruction a owl:Class ;
+fbo-nl:DetatchedBuildingConstruction a owl:DatatypeProperty ;
     rdfs:label "Detached building construction"@en,
         "Vrijstaande bouwconstructie"@nl-NL ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -326,11 +332,11 @@ fbo-nl:DrivingLane a owl:Class ;
     fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
     fbo:hasDomainReference fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "384" ;
     fbo:hasNotionURL <https://www.notion.so/DrivingLane-24ff8487e6e7804a9cfdca5e10feccc5> .
 
-fbo-nl:DrivingLaneSurface a owl:Class ;
+fbo-nl:DrivingLaneSurface a owl:ObjectProperty ;
     rdfs:label "drive lane surface"@en,
         "rijbaanvloer"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
@@ -345,13 +351,14 @@ fbo-nl:DrivingLaneSurface a owl:Class ;
         fbo:X23LengthofEvacuationPath,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "391" ;
     fbo:hasNotionURL <https://www.notion.so/DrivingLaneSurface-24ff8487e6e7807e8f10f1d9528fc2a4> .
 
-fbo-nl:EnclosedSpace a owl:Class ;
+fbo-nl:EnclosedSpace a owl:DatatypeProperty ;
     rdfs:label "Enclosed space"@en,
         "Besloten ruimte"@nl-NL ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Expert Definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.50" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -386,13 +393,14 @@ fbo-nl:Entrance a owl:Class ;
         fbo:X23LengthofEvacuationPath,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "389" ;
     fbo:hasNotionURL <https://www.notion.so/Entrance-24ff8487e6e780719da5f1414b2a261e> .
 
-fbo-nl:EscapeRoute a owl:Class ;
+fbo-nl:EscapeRoute a owl:DatatypeProperty ;
     rdfs:label "Escape route"@en,
         "Vluchtroute"@nl-NL ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -409,7 +417,7 @@ fbo-nl:EscapeRoute a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:EscapeRouteCapacity a owl:Class ;
+fbo-nl:EscapeRouteCapacity a owl:ObjectProperty ;
     rdfs:label "capacity"@en,
         "capaciteit"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Expert Definition" ;
@@ -424,7 +432,7 @@ fbo-nl:EscapeRouteCapacity a owl:Class ;
     fbo:hasExpertDefinition "capacity of an escape route: the flow capacity in combination with the reception capacity. The flow capacity is the number of presons that, dependant on the width of the escape route, are moving through an escape route (expressed in persons per minute). The reception capacity is the number of persons that can safely stay put in a space (expressed in people per square meters). A calculation by the fire expert is needed."@en,
         "capaciteit van een vluchtroute: de doorstroomcapaciteit in combinatie met de opvangcapaciteit. De doorstroomcapaciteit is het aantal personen dat, afhankelijk van de breedte van de vluchtroute, zich door een vluchtroute beweegt (uitgedrukt in personen per minuut). De opvangcapaciteit is het aantal personen dat veilig in een ruimte kan verblijven (uitgedrukt in personen per vierkante meter). Hiervoor dient een berekening uitgevoerd te worden door een fire expert."@nl-NL ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:29:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "373" ;
     fbo:hasNotionURL <https://www.notion.so/EscapeRouteCapacity-24ff8487e6e780329514dc80b618d513> .
 
@@ -446,7 +454,7 @@ fbo-nl:EscapeRouteFreePassage a owl:Class ;
     fbo:hasNotionID "407" ;
     fbo:hasNotionURL <https://www.notion.so/EscapeRouteFreePassage-24ff8487e6e780d0a706df5892b714d1> .
 
-fbo-nl:EscapeRouteProtected a owl:Class ;
+fbo-nl:EscapeRouteProtected a owl:ObjectProperty ;
     rdfs:label "protected escape route"@en,
         "beschermde vluchtroute"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -459,11 +467,11 @@ fbo-nl:EscapeRouteProtected a owl:Class ;
     fbo:hasDomainReference fbo:X10AssignCompartment,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "367" ;
     fbo:hasNotionURL <https://www.notion.so/EscapeRouteProtected-24ff8487e6e7801685efdc9a0f7971b2> .
 
-fbo-nl:EscapeRouteSafety a owl:Class ;
+fbo-nl:EscapeRouteSafety a owl:ObjectProperty ;
     rdfs:label "safety escape route"@en,
         "veiligheidsvluchtroute"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -476,7 +484,7 @@ fbo-nl:EscapeRouteSafety a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:31:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "410" ;
     fbo:hasNotionURL <https://www.notion.so/EscapeRouteSafety-24ff8487e6e780e1b3c4e8519a870882> .
 
@@ -515,13 +523,14 @@ fbo-nl:FireBrigadeElevator a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasEquivalentTerm "fire fighter elevator" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:31:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "393" ;
     fbo:hasNotionURL <https://www.notion.so/FireBrigadeElevator-24ff8487e6e7808dbf26dceda7f2bed1> .
 
-fbo-nl:FireClass a owl:Class ;
+fbo-nl:FireClass a owl:DatatypeProperty ;
     rdfs:label "Reaction to fire; fire class"@en,
         "Brandklasse"@nl-NL ;
+    schema1:rangeIncludes xsd:string ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - 4.50.2.c" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -540,10 +549,11 @@ fbo-nl:FireClass a owl:Class ;
     fbo:hasValueType "Enumeration (choice)" ;
     qudt:hasApplicableUnit "Choice" .
 
-fbo-nl:FireLoadDensity a owl:Class ;
+fbo-nl:FireLoadDensity a owl:DatatypeProperty ;
     rdfs:label "Fire load density"@en,
         "Vuurbelasting"@nl-NL ;
-    rdfs:subClassOf fbo:FireLoadDensity ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo:FireLoadDensity ;
     fbo:hasAdoptedDefinitionType "Expert Definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.50.6" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -575,11 +585,11 @@ fbo-nl:FirePenetration a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:31:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "365" ;
     fbo:hasNotionURL <https://www.notion.so/FirePenetration-24ff8487e6e78014809eed01391b2b66> .
 
-fbo-nl:FireSpread a owl:Class ;
+fbo-nl:FireSpread a owl:ObjectProperty ;
     rdfs:label "fire spread/ flash over"@en,
         "brandoverslag"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition + Implicit Definition" ;
@@ -593,7 +603,7 @@ fbo-nl:FireSpread a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertGuidance "Additional calculation needed made by fire expert to check if fire spreads through open air." ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:31:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "371" ;
     fbo:hasNotionURL <https://www.notion.so/FireSpread-24ff8487e6e7802ba1b4da1cb9201c1e> .
 
@@ -609,11 +619,11 @@ fbo-nl:Floor a owl:Class ;
     fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
     fbo:hasDomainReference fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "398" ;
     fbo:hasNotionURL <https://www.notion.so/Floor-24ff8487e6e780af93c8f212149b7256> .
 
-fbo-nl:FurnishingsOfEscapeRoutes a owl:Class ;
+fbo-nl:FurnishingsOfEscapeRoutes a owl:ObjectProperty ;
     rdfs:label "furnishings of escape routes"@en,
         "inrichting vluchtroute"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -626,14 +636,15 @@ fbo-nl:FurnishingsOfEscapeRoutes a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "382" ;
     fbo:hasNotionURL <https://www.notion.so/FurnishingsOfEscapeRoutes-24ff8487e6e780449b64c592b58e1101> .
 
-fbo-nl:HeightBuilding a owl:Class ;
+fbo-nl:HeightBuilding a owl:DatatypeProperty ;
     rdfs:label "Building height"@en,
         "Gebouwhoogte"@nl-NL ;
-    rdfs:subClassOf fbo:HeightBuilding ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo:HeightBuilding ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.88" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -662,13 +673,14 @@ fbo-nl:LiftCage a owl:Class ;
     fbo:hasDomainReference fbo:X25WithoftheEvacuationPath,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:29:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "385" ;
     fbo:hasNotionURL <https://www.notion.so/LiftCage-24ff8487e6e7805e95bbe8727ca537de> .
 
-fbo-nl:LoadBearing a owl:Class ;
+fbo-nl:LoadBearing a owl:DatatypeProperty ;
     rdfs:label "Load-bearing"@en,
         "Dragend"@nl-NL ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "NEN 2580:2007/C1:2008" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -685,7 +697,7 @@ fbo-nl:LoadBearing a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:MeasurementLevel a owl:Class ;
+fbo-nl:MeasurementLevel a owl:ObjectProperty ;
     rdfs:label "measurement level"@en,
         "meetniveau"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -698,11 +710,11 @@ fbo-nl:MeasurementLevel a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:31:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "415" ;
     fbo:hasNotionURL <https://www.notion.so/MeasurementLevel-24ff8487e6e780f98fa7cccd10dc5423> .
 
-fbo-nl:MirrorSymmetrical a owl:Class ;
+fbo-nl:MirrorSymmetrical a owl:ObjectProperty ;
     rdfs:label "mirror symmetrical"@en,
         "spiegelsymmetrisch"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Expert Definition" ;
@@ -715,7 +727,7 @@ fbo-nl:MirrorSymmetrical a owl:Class ;
     fbo:hasExpertDefinition "building located on another plot of land identical to a building that is mirrored in relation to the plot boundary"@en,
         "op een ander perceel gelegen gebouw van een identiek maar gespiegeld ten opzichte van de perceelsgrens gelegen gebouw"@nl-NL ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:31:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "375" ;
     fbo:hasNotionURL <https://www.notion.so/MirrorSymmetrical-24ff8487e6e78038bd7cdb821a3bff5a> .
 
@@ -744,13 +756,14 @@ fbo-nl:NeighbouringPlot a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasEquivalentTerm "adjecent grounds" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:31:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "414" ;
     fbo:hasNotionURL <https://www.notion.so/NeighbouringPlot-24ff8487e6e780f1bd23fcb705ec358a> .
 
-fbo-nl:NonEnclosed a owl:Class ;
+fbo-nl:NonEnclosed a owl:DatatypeProperty ;
     rdfs:label "Non-enclosed"@en,
         "Niet-besloten"@nl-NL ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Expert definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.50" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -769,10 +782,10 @@ fbo-nl:NonEnclosed a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:NumberOccupants a owl:Class ;
+fbo-nl:NumberOccupants a owl:ObjectProperty ;
     rdfs:label "Number of Occupants"@en,
         "Personenaantal"@nl-NL ;
-    rdfs:subClassOf fbo:NumberOccupants ;
+    rdfs:subPropertyOf fbo:NumberOccupants ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.66.3" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -785,11 +798,11 @@ fbo-nl:NumberOccupants a owl:Class ;
         fbo:X23LengthofEvacuationPath,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-04-10T10:24:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "404" ;
     fbo:hasNotionURL <https://www.notion.so/NumberOccupants-24ff8487e6e780c9afeacd38b0f557c5> .
 
-fbo-nl:Occupation a owl:Class ;
+fbo-nl:Occupation a owl:ObjectProperty ;
     rdfs:label "occupation"@en,
         "bezetting"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
@@ -804,13 +817,14 @@ fbo-nl:Occupation a owl:Class ;
         fbo:X23LengthofEvacuationPath,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-04-10T10:23:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:28:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "586" ;
     fbo:hasNotionURL <https://www.notion.so/Occupation-33ef8487e6e780bf9950c53d3090afa1> .
 
-fbo-nl:PermanentFireLoadDensity a owl:Class ;
+fbo-nl:PermanentFireLoadDensity a owl:DatatypeProperty ;
     rdfs:label "Permanent fire load density"@en,
         "Permanente vuurbelasting"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.50.8" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -842,7 +856,7 @@ fbo-nl:PublicGreen a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "399" ;
     fbo:hasNotionURL <https://www.notion.so/PublicGreen-24ff8487e6e780b5b79de82e40a4e7cc> .
 
@@ -859,7 +873,7 @@ fbo-nl:PublicRoad a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "369" ;
     fbo:hasNotionURL <https://www.notion.so/PublicRoad-24ff8487e6e7802487def8dfc058829c> .
 
@@ -876,7 +890,7 @@ fbo-nl:PublicWater a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "387" ;
     fbo:hasNotionURL <https://www.notion.so/PublicWater-24ff8487e6e7806a87d1d8c5d32fd55c> .
 
@@ -898,7 +912,7 @@ fbo-nl:ResistanceAgainstFirePenetration a owl:Class ;
     fbo:hasNotionID "403" ;
     fbo:hasNotionURL <https://www.notion.so/ResistanceAgainstFirePenetration-24ff8487e6e780c1b447f55e1d496be4> .
 
-fbo-nl:ResistanceAgainstFireSpread a owl:Class ;
+fbo-nl:ResistanceAgainstFireSpread a owl:ObjectProperty ;
     rdfs:label "resistance against fire spread"@en,
         "weerstand tegen brandoverslag"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Expert Definition" ;
@@ -911,7 +925,7 @@ fbo-nl:ResistanceAgainstFireSpread a owl:Class ;
     fbo:hasExpertDefinition "resistance against  the spread of fire through open air"@en,
         "weerstand tegen de uitbreiding van brand via de buitenlucht"@nl-NL ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:31:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "416" ;
     fbo:hasNotionURL <https://www.notion.so/ResistanceAgainstFireSpread-24ff8487e6e780fa9869de8b0b6ee3f8> .
 
@@ -927,7 +941,7 @@ fbo-nl:RoadTunnel a owl:Class ;
     fbo:hasDocumentReference fbo-nl:Besluitbouwwerkenleefomgeving ;
     fbo:hasDomainReference fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "372" ;
     fbo:hasNotionURL <https://www.notion.so/RoadTunnel-24ff8487e6e7802eadf5ff4e48486289> .
 
@@ -944,11 +958,11 @@ fbo-nl:RoadTunnelTubePipe a owl:Class ;
     fbo:hasDomainReference fbo:X22TravelDistance,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "370" ;
     fbo:hasNotionURL <https://www.notion.so/RoadTunnelTubePipe-24ff8487e6e780298f52cc4eb581b88c> .
 
-fbo-nl:RoofConstruction a owl:Class ;
+fbo-nl:RoofConstruction a owl:ObjectProperty ;
     rdfs:label "roof construction"@en,
         "dakconstructie"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
@@ -961,27 +975,29 @@ fbo-nl:RoofConstruction a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "379" ;
     fbo:hasNotionURL <https://www.notion.so/RoofConstruction-24ff8487e6e7803ea27ae1ed0e614c25> .
 
-fbo-nl:SelfClosing a owl:Class ;
+fbo-nl:SelfClosing a owl:DatatypeProperty ;
     rdfs:label "Self-closing"@en,
         "Zelfsluitend"@nl-NL ;
-    rdfs:subClassOf fbo:SelfClosing ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo:SelfClosing ;
     fbo:hasCountry fbo:Netherlands ;
     fbo:hasCountryCode "NL" ;
     fbo:hasDefinition "The door is provided with a self-closing mechanism (either triggered or always closing)"@nl-NL ;
     fbo:hasFireExpertValidation false ;
     fbo:hasIFCMapping fbo-ifc:SelfClosing ;
-    fbo:hasLastEdition "2026-04-10T10:33:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:28:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "587" ;
     fbo:hasNotionURL <https://www.notion.so/SelfClosing-33ef8487e6e780258090e4afeaa30c73> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-nl:SmokeClass a owl:Class ;
+fbo-nl:SmokeClass a owl:DatatypeProperty ;
     rdfs:label "Reaction to fire; smoke class"@en,
         "Rookklasse"@nl-NL ;
+    schema1:rangeIncludes xsd:string ;
     fbo:hasAdoptedDefinitionType "Expert definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.50.2b" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1000,7 +1016,7 @@ fbo-nl:SmokeClass a owl:Class ;
     fbo:hasValueType "Enumeration (choice)" ;
     qudt:hasApplicableUnit "Choice" .
 
-fbo-nl:SmokeLock a owl:Class ;
+fbo-nl:SmokeLock a owl:ObjectProperty ;
     rdfs:label "smoke lock"@en,
         "rooksluis"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
@@ -1013,11 +1029,11 @@ fbo-nl:SmokeLock a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "413" ;
     fbo:hasNotionURL <https://www.notion.so/SmokeLock-24ff8487e6e780ef8c32c06d598dc402> .
 
-fbo-nl:SmokeResistance a owl:Class ;
+fbo-nl:SmokeResistance a owl:ObjectProperty ;
     rdfs:label "smoke resistance"@en,
         "rookwerendheid"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -1031,7 +1047,7 @@ fbo-nl:SmokeResistance a owl:Class ;
     fbo:hasDomainReference fbo:X12FireCompartmentBoundary,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-02-24T14:20:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "388" ;
     fbo:hasNotionURL <https://www.notion.so/SmokeResistance-24ff8487e6e7806b8ab1fcc3a66f7107> .
 
@@ -1051,7 +1067,7 @@ fbo-nl:Space a owl:Class ;
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
     fbo:hasIFCMapping fbo-ifc:Space ;
-    fbo:hasLastEdition "2026-02-25T15:46:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "400" ;
     fbo:hasNotionURL <https://www.notion.so/Space-24ff8487e6e780b5bb8ddb61dea8b8cd> .
 
@@ -1068,11 +1084,11 @@ fbo-nl:SpaceOutdoor a owl:Class ;
     fbo:hasDomainReference fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
     fbo:hasIFCMapping fbo-ifc:ExteriorSpace ;
-    fbo:hasLastEdition "2026-02-25T15:46:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "383" ;
     fbo:hasNotionURL <https://www.notion.so/SpaceOutdoor-24ff8487e6e78049b04ce1bd150ab321> .
 
-fbo-nl:StructuralComponentsMovable a owl:Class ;
+fbo-nl:StructuralComponentsMovable a owl:ObjectProperty ;
     rdfs:label "movable structural components"@en,
         "beweegbaar constructiedeel"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
@@ -1086,7 +1102,7 @@ fbo-nl:StructuralComponentsMovable a owl:Class ;
         fbo:X23LengthofEvacuationPath,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "386" ;
     fbo:hasNotionURL <https://www.notion.so/StructuralComponentsMovable-24ff8487e6e780608293f09b3d5c6cc9> .
 
@@ -1103,11 +1119,11 @@ fbo-nl:Structure a owl:Class ;
     fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
     fbo:hasFireExpertValidation true ;
     fbo:hasIFCMapping fbo-ifc:Building ;
-    fbo:hasLastEdition "2026-04-13T12:12:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:18:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "343" ;
     fbo:hasNotionURL <https://www.notion.so/Structure-233f8487e6e7804aa0b2fa226e553342> .
 
-fbo-nl:SupervisionLevelBedriddenPatients a owl:Class ;
+fbo-nl:SupervisionLevelBedriddenPatients a owl:ObjectProperty ;
     rdfs:label "level of supervision"@en,
         "bewakingsniveau"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Expert Definition" ;
@@ -1122,11 +1138,11 @@ fbo-nl:SupervisionLevelBedriddenPatients a owl:Class ;
     fbo:hasFireExpertEntity "Integrale Nota van Toelichting behorende bij Besluit Bouwwerken Leefomgeving" ;
     fbo:hasFireExpertGuidance "Additional check needed for supervision level from fire expertserts" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "396" ;
     fbo:hasNotionURL <https://www.notion.so/SupervisionLevelBedriddenPatients-24ff8487e6e780a2baedfcd371f702d8> .
 
-fbo-nl:SupervisionLevelPermanentBedriddenPatients a owl:Class ;
+fbo-nl:SupervisionLevelPermanentBedriddenPatients a owl:ObjectProperty ;
     rdfs:label "permanent supervision"@en,
         "permanente bewaking"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Expert Definition" ;
@@ -1141,11 +1157,11 @@ fbo-nl:SupervisionLevelPermanentBedriddenPatients a owl:Class ;
     fbo:hasFireExpertEntity "Integrale Nota van Toelichting behorende bij Besluit Bouwwerken Leefomgeving" ;
     fbo:hasFireExpertGuidance "Additional check needed for supervision level from fire experts" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "401" ;
     fbo:hasNotionURL <https://www.notion.so/SupervisionLevelPermanentBedriddenPatients-24ff8487e6e780b6b337c2d3ea6d7b16> .
 
-fbo-nl:TemporaryAccomodation a owl:Class ;
+fbo-nl:TemporaryAccomodation a owl:ObjectProperty ;
     rdfs:label "temporary accomodation"@en,
         "logiesverblijf"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -1158,13 +1174,14 @@ fbo-nl:TemporaryAccomodation a owl:Class ;
     fbo:hasDomainReference fbo:X10AssignCompartment,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "402" ;
     fbo:hasNotionURL <https://www.notion.so/TemporaryAccomodation-24ff8487e6e780b9b313eafb47446d07> .
 
-fbo-nl:TerrainHeight a owl:Class ;
+fbo-nl:TerrainHeight a owl:DatatypeProperty ;
     rdfs:label "Terrain height"@en,
         "Meetniveau"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - 4.53.3b" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1193,7 +1210,7 @@ fbo-nl:TrafficSpace a owl:Class ;
     fbo:hasDomainReference fbo:X10AssignCompartment,
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "390" ;
     fbo:hasNotionURL <https://www.notion.so/TrafficSpace-24ff8487e6e7807780c5d61d13e4e78f> .
 
@@ -1212,11 +1229,11 @@ fbo-nl:TunnelWall a owl:Class ;
         fbo:X23LengthofEvacuationPath,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "408" ;
     fbo:hasNotionURL <https://www.notion.so/TunnelWall-24ff8487e6e780d989fbf95cb961c7eb> .
 
-fbo-nl:UsableAreaSleepingAreaForBedriddenPatients a owl:Class ;
+fbo-nl:UsableAreaSleepingAreaForBedriddenPatients a owl:ObjectProperty ;
     rdfs:label "sleeping area for bedridde patients"@en,
         "bedgebied voor bedgebonden patiënten"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition + Implicit Definition" ;
@@ -1230,11 +1247,11 @@ fbo-nl:UsableAreaSleepingAreaForBedriddenPatients a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertGuidance "Additional check needed for care function by fire experts" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:31:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "381" ;
     fbo:hasNotionURL <https://www.notion.so/UsableAreaSleepingAreaForBedriddenPatients-24ff8487e6e78042a11bed17203b4667> .
 
-fbo-nl:UsableAreaStaircase a owl:Class ;
+fbo-nl:UsableAreaStaircase a owl:ObjectProperty ;
     rdfs:label "staircase"@en,
         "trappenhuis"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
@@ -1247,13 +1264,14 @@ fbo-nl:UsableAreaStaircase a owl:Class ;
     fbo:hasDomainReference fbo:X22TravelDistance,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "368" ;
     fbo:hasNotionURL <https://www.notion.so/UsableAreaStaircase-24ff8487e6e7801a877ef6331480788c> .
 
-fbo-nl:UsableAreaVoid a owl:Class ;
+fbo-nl:UsableAreaVoid a owl:DatatypeProperty ;
     rdfs:label "Void"@en,
         "Vide"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Implicit definition" ;
     fbo:hasArticleID "NEN2580:2007" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1270,9 +1288,10 @@ fbo-nl:UsableAreaVoid a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-nl:UseableAreaBathroomSpace a owl:Class ;
+fbo-nl:UseableAreaBathroomSpace a owl:DatatypeProperty ;
     rdfs:label "Bathroom space"@en,
         "Badruimte"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.50.2b" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1289,9 +1308,10 @@ fbo-nl:UseableAreaBathroomSpace a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-nl:UseableAreaCantileveredBuildingPart a owl:Class ;
+fbo-nl:UseableAreaCantileveredBuildingPart a owl:DatatypeProperty ;
     rdfs:label "Cantilevered building part"@en,
         "Uitkragend bouwdeel"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
     fbo:hasArticleID "NEN 2580:2007/C1:2008" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1307,9 +1327,10 @@ fbo-nl:UseableAreaCantileveredBuildingPart a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-nl:UseableAreaCombustionAppliance a owl:Class ;
+fbo-nl:UseableAreaCombustionAppliance a owl:DatatypeProperty ;
     rdfs:label "Combustion appliance"@en,
         "Verbrandingstoestel"@nl-NL ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.50" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1327,9 +1348,10 @@ fbo-nl:UseableAreaCombustionAppliance a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:UseableAreaFireCompartment a owl:Class ;
+fbo-nl:UseableAreaFireCompartment a owl:DatatypeProperty ;
     rdfs:label "Fire compartment usable area"@en,
         "Gebruiksoppervlakte brandcompartiment"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.51.1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1347,7 +1369,7 @@ fbo-nl:UseableAreaFireCompartment a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-nl:UseableAreaFunctionalArea a owl:Class ;
+fbo-nl:UseableAreaFunctionalArea a owl:ObjectProperty ;
     rdfs:label "Functional area"@en,
         "Gebruiksgebied"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -1360,13 +1382,14 @@ fbo-nl:UseableAreaFunctionalArea a owl:Class ;
     fbo:hasDomainReference fbo:X1COMPARTMENTATION,
         fbo:X2EVACUATION ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:23:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "345" ;
     fbo:hasNotionURL <https://www.notion.so/UseableAreaFunctionalArea-233f8487e6e780df9534eb5902a483c7> .
 
-fbo-nl:UseableAreaHeightAboveFloor a owl:Class ;
+fbo-nl:UseableAreaHeightAboveFloor a owl:DatatypeProperty ;
     rdfs:label "Net height above floor"@en,
         "Netto-hoogte boven vloer"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Expert definition" ;
     fbo:hasArticleID "NEN 2580:2007/C1:2008" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1386,9 +1409,10 @@ fbo-nl:UseableAreaHeightAboveFloor a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M .
 
-fbo-nl:UseableAreaLiftShaft a owl:Class ;
+fbo-nl:UseableAreaLiftShaft a owl:DatatypeProperty ;
     rdfs:label "Lift shaft"@en,
         "Liftschacht"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Artikel 4.50.2c" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1406,9 +1430,10 @@ fbo-nl:UseableAreaLiftShaft a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-nl:UseableAreaNiche a owl:Class ;
+fbo-nl:UseableAreaNiche a owl:DatatypeProperty ;
     rdfs:label "Niche"@en,
         "Nis"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Implicit definition" ;
     fbo:hasArticleID "NEN 2580:2007/C1:2008" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1425,9 +1450,10 @@ fbo-nl:UseableAreaNiche a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-nl:UseableAreaNominalPower a owl:Class ;
+fbo-nl:UseableAreaNominalPower a owl:DatatypeProperty ;
     rdfs:label "Nominal power"@en,
         "Nominale belasting"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Artikel 4.50.2.d" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1445,9 +1471,10 @@ fbo-nl:UseableAreaNominalPower a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:KiloW .
 
-fbo-nl:UseableAreaPipeShaft a owl:Class ;
+fbo-nl:UseableAreaPipeShaft a owl:DatatypeProperty ;
     rdfs:label "Pipe shaft"@en,
         "Leidingschacht"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "NEN 2580:2007/C1:2008" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1464,9 +1491,10 @@ fbo-nl:UseableAreaPipeShaft a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-nl:UseableAreaRingHole a owl:Class ;
+fbo-nl:UseableAreaRingHole a owl:DatatypeProperty ;
     rdfs:label "Ring hole"@en,
         "Schalmgat"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "NEN 2580:2007/C1:2008" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1483,9 +1511,10 @@ fbo-nl:UseableAreaRingHole a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-nl:UseableAreaStairwell a owl:Class ;
+fbo-nl:UseableAreaStairwell a owl:DatatypeProperty ;
     rdfs:label "Stairwell"@en,
         "Trapgat"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
     fbo:hasArticleID "NEN 2580:2007/C1:2008" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1502,9 +1531,10 @@ fbo-nl:UseableAreaStairwell a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-nl:UseableAreaStayingArea a owl:Class ;
+fbo-nl:UseableAreaStayingArea a owl:DatatypeProperty ;
     rdfs:label "Staying area"@en,
         "Verblijfsgebied"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.51.6" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1521,7 +1551,7 @@ fbo-nl:UseableAreaStayingArea a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-nl:UseableAreaStayingAreaForSupervision a owl:Class ;
+fbo-nl:UseableAreaStayingAreaForSupervision a owl:ObjectProperty ;
     rdfs:label "staying area for supervision"@en,
         "verblijfsgebied voor bewaking"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -1535,13 +1565,14 @@ fbo-nl:UseableAreaStayingAreaForSupervision a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertGuidance "Additional advice needed for supervision level types from fire experts" ;
     fbo:hasFireExpertValidation true ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:30:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "411" ;
     fbo:hasNotionURL <https://www.notion.so/UseableAreaStayingAreaForSupervision-24ff8487e6e780eb864ac82f4b46b13e> .
 
-fbo-nl:UseableAreaTechnicalRoom a owl:Class ;
+fbo-nl:UseableAreaTechnicalRoom a owl:DatatypeProperty ;
     rdfs:label "Technical room"@en,
         "Technische ruimte"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.50.2d" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1559,9 +1590,10 @@ fbo-nl:UseableAreaTechnicalRoom a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-nl:UseableAreaToiletSpace a owl:Class ;
+fbo-nl:UseableAreaToiletSpace a owl:DatatypeProperty ;
     rdfs:label "Toilet space"@en,
         "Toiletruimte"@nl-NL ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Artikel 4.50.2a" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1598,10 +1630,11 @@ fbo-nl:WalkingDistance a owl:Class ;
     fbo:hasNotionID "380" ;
     fbo:hasNotionURL <https://www.notion.so/WalkingDistance-24ff8487e6e7803eb65ae6e42e384bcf> .
 
-fbo-nl:FunctionTypeAncillaryFunction a owl:Class ;
+fbo-nl:FunctionTypeAncillaryFunction a owl:DatatypeProperty ;
     rdfs:label "Ancillary function"@en,
         "Nevengebruiksfunctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Artikel 5.51.2" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1620,10 +1653,11 @@ fbo-nl:FunctionTypeAncillaryFunction a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeAssemblyFunction a owl:Class ;
+fbo-nl:FunctionTypeAssemblyFunction a owl:DatatypeProperty ;
     rdfs:label "Assembly function"@en,
         "Bijeenkomstfunctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1640,10 +1674,11 @@ fbo-nl:FunctionTypeAssemblyFunction a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeChildCare a owl:Class ;
+fbo-nl:FunctionTypeChildCare a owl:DatatypeProperty ;
     rdfs:label "Assembly function for child care"@en,
         "Bijeenkomstfunctie: voor kinderopvang"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1660,10 +1695,11 @@ fbo-nl:FunctionTypeChildCare a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeDetention a owl:Class ;
+fbo-nl:FunctionTypeDetention a owl:DatatypeProperty ;
     rdfs:label "Detention function"@en,
         "Celfunctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1680,10 +1716,11 @@ fbo-nl:FunctionTypeDetention a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeEducational a owl:Class ;
+fbo-nl:FunctionTypeEducational a owl:DatatypeProperty ;
     rdfs:label "Educational function"@en,
         "Onderwijsunfctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1700,10 +1737,11 @@ fbo-nl:FunctionTypeEducational a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeHealthCare a owl:Class ;
+fbo-nl:FunctionTypeHealthCare a owl:DatatypeProperty ;
     rdfs:label "Health care function"@en,
         "Gezondsheidszorgfunctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1721,10 +1759,11 @@ fbo-nl:FunctionTypeHealthCare a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeHealthCareWithBedArea a owl:Class ;
+fbo-nl:FunctionTypeHealthCareWithBedArea a owl:DatatypeProperty ;
     rdfs:label "Health care function: with bed area"@en,
         "Gezondsheidszorgfunctie: met bedgebied"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1742,10 +1781,11 @@ fbo-nl:FunctionTypeHealthCareWithBedArea a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeIndustrial a owl:Class ;
+fbo-nl:FunctionTypeIndustrial a owl:DatatypeProperty ;
     rdfs:label "Industrial function"@en,
         "Industriefunctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1762,10 +1802,11 @@ fbo-nl:FunctionTypeIndustrial a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeLightIndustrial a owl:Class ;
+fbo-nl:FunctionTypeLightIndustrial a owl:DatatypeProperty ;
     rdfs:label "Industrial function: light industrial function"@en,
         "Industriefunctie: lichte industriefunctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1802,10 +1843,11 @@ fbo-nl:FunctionTypeLightIndustrialAnimals a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeLightIndustrialCultivating a owl:Class ;
+fbo-nl:FunctionTypeLightIndustrialCultivating a owl:DatatypeProperty ;
     rdfs:label "Industrial function: light industrial function for growing, cultivating or storing crops or similar products"@en,
         "Lichte industriefunctie voor het telen, kweken of opslaan van gewassen of daarmee vergelijkbare producten"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1822,10 +1864,11 @@ fbo-nl:FunctionTypeLightIndustrialCultivating a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeNotBuilding a owl:Class ;
+fbo-nl:FunctionTypeNotBuilding a owl:DatatypeProperty ;
     rdfs:label "Structure other than a building"@en,
         "Bouwwerk geen gebouw zijnde"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1842,10 +1885,11 @@ fbo-nl:FunctionTypeNotBuilding a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeOffice a owl:Class ;
+fbo-nl:FunctionTypeOffice a owl:DatatypeProperty ;
     rdfs:label "Office function"@en,
         "Kantoorfunctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1862,10 +1906,11 @@ fbo-nl:FunctionTypeOffice a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeRemainingUse a owl:Class ;
+fbo-nl:FunctionTypeRemainingUse a owl:DatatypeProperty ;
     rdfs:label "Remaining functional use"@en,
         "Overige gebruiksfunctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1882,10 +1927,11 @@ fbo-nl:FunctionTypeRemainingUse a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeRemainingUseParkingVehicles a owl:Class ;
+fbo-nl:FunctionTypeRemainingUseParkingVehicles a owl:DatatypeProperty ;
     rdfs:label "Remaining functional use: for parking motor vehicles"@en,
         "Overige gebruiksfunctie: voor het stallen van motorvoertuigen"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1902,10 +1948,11 @@ fbo-nl:FunctionTypeRemainingUseParkingVehicles a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeRemainingUsePassengerTransport a owl:Class ;
+fbo-nl:FunctionTypeRemainingUsePassengerTransport a owl:DatatypeProperty ;
     rdfs:label "Remaining functional use: other passenger transport function:"@en,
         "Overige gebruiksfunctie: voor het personenvervoer"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1922,10 +1969,11 @@ fbo-nl:FunctionTypeRemainingUsePassengerTransport a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeResidential a owl:Class ;
+fbo-nl:FunctionTypeResidential a owl:DatatypeProperty ;
     rdfs:label "Residential function"@en,
         "Woonfunctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1942,10 +1990,11 @@ fbo-nl:FunctionTypeResidential a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeResidentialCaravan a owl:Class ;
+fbo-nl:FunctionTypeResidentialCaravan a owl:DatatypeProperty ;
     rdfs:label "Residential function: caravan"@en,
         "Woonfunctie: woonwagen"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -1981,10 +2030,11 @@ fbo-nl:FunctionTypeResidentialWithCare a owl:Class ;
     fbo:hasNotionID "374" ;
     fbo:hasNotionURL <https://www.notion.so/FunctionTypeResidentialWithCare-24ff8487e6e78036ba52e90406e0a0b0> .
 
-fbo-nl:FunctionTypeShop a owl:Class ;
+fbo-nl:FunctionTypeShop a owl:DatatypeProperty ;
     rdfs:label "Shop function"@en,
         "Winkelfunctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -2001,10 +2051,11 @@ fbo-nl:FunctionTypeShop a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeSports a owl:Class ;
+fbo-nl:FunctionTypeSports a owl:DatatypeProperty ;
     rdfs:label "Sports function"@en,
         "Sportfunctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -2021,10 +2072,11 @@ fbo-nl:FunctionTypeSports a owl:Class ;
     fbo:hasValueType "Boolean (yes/no)" ;
     qudt:hasApplicableUnit "[-]" .
 
-fbo-nl:FunctionTypeTemporaryAccomodation a owl:Class ;
+fbo-nl:FunctionTypeTemporaryAccomodation a owl:DatatypeProperty ;
     rdfs:label "Temporary accomodation function"@en,
         "Logiesfunctie"@nl-NL ;
-    rdfs:subClassOf fbo-nl:FunctionType ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo-nl:FunctionType ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Bbl - Bijlage 1" ;
     fbo:hasCountry fbo:Netherlands ;
@@ -2069,7 +2121,7 @@ fbo-nl:NEN25802007C12008 a owl:NamedIndividual,
     fbo:hasPublicationDate "2008-12-01"^^xsd:date ;
     fbo:hasRemarks "This document is appointed in the Bbl" .
 
-fbo-nl:FunctionType a owl:Class ;
+fbo-nl:FunctionType a owl:ObjectProperty ;
     rdfs:label "Functional usage"@en,
         "Gebruiksfunctie"@nl-NL ;
     fbo:hasAdoptedDefinitionType "Explicit Definition + Implicit Definition" ;
@@ -2082,7 +2134,7 @@ fbo-nl:FunctionType a owl:Class ;
     fbo:hasDomainReference fbo:X0BUILDINGINFORMATION ;
     fbo:hasFireExpertValidation true ;
     fbo:hasIFCMapping fbo-ifc:FunctionType ;
-    fbo:hasLastEdition "2026-01-06T12:14:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:23:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "344" ;
     fbo:hasNotionURL <https://www.notion.so/FunctionType-233f8487e6e7809eab16c3d528ac4a2e> ;
     fbo:hasSubitem fbo-nl:FunctionTypeAncillaryFunction,

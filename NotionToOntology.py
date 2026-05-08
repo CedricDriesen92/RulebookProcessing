@@ -70,6 +70,7 @@ PROP_MAP = {
     "EquivalentTerm": "TM - Equivalent Term",          # rich_text
     "Remarks_TM": "TM - Remarks",                      # rich_text
     "FB_Documents": "TM - FB:documents",               # relation
+    "Type": "TM - Type",                               # select
     # TC - new column and need to be completed
     "AdoptedDefinition": "TC - Adopted definition",     # select
     "ArticleID": "TC - Article ID (it depends of the country)",  # rich_text
@@ -85,7 +86,6 @@ PROP_MAP = {
     "LastEdition": "TC - Last Edition",                # date
     "FireExpertValidation": "TM - Fire Expert Validation",  # select/checkbox
     # TD - column for discussion
-    "Type": "TD - Type",                               # select
     "Unit": "TD - Unit",                               # rich_text
     "ValueType": "TD - Value",                         # rich_text
     # IFC columns removed — now sourced from DB_IFCMAPPING

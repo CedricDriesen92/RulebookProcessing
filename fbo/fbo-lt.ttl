@@ -5,12 +5,14 @@
 @prefix qudt: <https://qudt.org/3.1.0/schema/qudt/> .
 @prefix qudt-unit: <https://qudt.org/3.1.0/vocab/unit/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-fbo-lt:AreaFireCompartment a owl:Class ;
+fbo-lt:AreaFireCompartment a owl:DatatypeProperty ;
     rdfs:label "Fire compartment area"@en,
         "Gaisrinio skyriaus plotas"@lt-LT ;
-    rdfs:subClassOf fbo:AreaFireCompartment ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo:AreaFireCompartment ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter X, Paragraph 51." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -71,9 +73,10 @@ fbo-lt:BuildingStorey a owl:Class ;
     fbo:hasNotionID "517" ;
     fbo:hasNotionURL <https://www.notion.so/BuildingStorey-2c7f8487e6e780e18d1dc13aa187ba1d> .
 
-fbo-lt:BuildingStoreyFloorArea a owl:Class ;
+fbo-lt:BuildingStoreyFloorArea a owl:DatatypeProperty ;
     rdfs:label "Floor area of the storey of the building"@en,
         "Pastato aukšto grindų plotas"@lt-LT ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Paragraph 3.7.2.33" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -145,9 +148,10 @@ fbo-lt:CreatingPressureDifference a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/CreatingPressureDifference-214f8487e6e78089b3cbd8b2ed124e34> ;
     fbo:hasValueType "Number" .
 
-fbo-lt:EmergencyLighting a owl:Class ;
+fbo-lt:EmergencyLighting a owl:DatatypeProperty ;
     rdfs:label "Emergency lighting"@en,
         "Avarinis apšvietimas"@lt-LT ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.10." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -166,6 +170,7 @@ fbo-lt:EmergencyLighting a owl:Class ;
 fbo-lt:Evacuation a owl:Class ;
     rdfs:label "Evacuation"@en,
         "Evakuacija"@lt-LT ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.12." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -180,10 +185,11 @@ fbo-lt:Evacuation a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/Evacuation-209f8487e6e7806e9a15e58f8c36e62a> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:EvacuationTime a owl:Class ;
+fbo-lt:EvacuationTime a owl:DatatypeProperty ;
     rdfs:label "Evacuation time"@en,
         "Evakuacijos laikas"@lt-LT ;
-    rdfs:subClassOf fbo:EvacuationTime ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo:EvacuationTime ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.14." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -238,9 +244,10 @@ fbo-lt:ExitSigns a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/Exit_Signs-214f8487e6e780d3ba5cd1fab9bc484f> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:ExposedSurface a owl:Class ;
+fbo-lt:ExposedSurface a owl:DatatypeProperty ;
     rdfs:label "Exposed surface"@en,
         "Eksponuojamas paviršius"@lt-LT ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.17." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -355,6 +362,7 @@ fbo-lt:FireBarrier a owl:Class ;
 fbo-lt:FireCompartment a owl:Class ;
     rdfs:label "Fire compartment"@en,
         "Gaisrinis skyrius"@lt-LT ;
+    schema1:rangeIncludes xsd:float ;
     rdfs:subClassOf fbo:FireCompartment ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.24. (STR 2.01.01(2):1999)" ;
@@ -374,9 +382,10 @@ fbo-lt:FireCompartment a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/FireCompartment-214f8487e6e780b3bd4aef253d8df937> ;
     fbo:hasValueType "Number" .
 
-fbo-lt:FireCompartmentHeight a owl:Class ;
+fbo-lt:FireCompartmentHeight a owl:DatatypeProperty ;
     rdfs:label "Height of building"@en,
         "Pastato aukštis"@lt-LT ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -414,10 +423,11 @@ fbo-lt:FireDoors a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/FireDoors-214f8487e6e7808eb58cf2199dd1bd82> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:FireLoad a owl:Class ;
+fbo-lt:FireLoad a owl:DatatypeProperty ;
     rdfs:label "Fire Load"@en,
         "Gaisro apkrova"@lt-LT ;
-    rdfs:subClassOf fbo:FireLoad ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo:FireLoad ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.29. (STR 2.01.01(2):1999)" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -435,10 +445,11 @@ fbo-lt:FireLoad a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit "MJ" .
 
-fbo-lt:FireLoadDensity a owl:Class ;
+fbo-lt:FireLoadDensity a owl:DatatypeProperty ;
     rdfs:label "Fire Load Density"@en,
         "Gaisro apkrovos tankis"@lt-LT ;
-    rdfs:subClassOf fbo:FireLoadDensity ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo:FireLoadDensity ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.30." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -472,10 +483,11 @@ fbo-lt:FireProtectionCeiling a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/FireProtectionCeiling-214f8487e6e78046bcd8cf10e5a87964> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:FireResistance a owl:Class ;
+fbo-lt:FireResistance a owl:DatatypeProperty ;
     rdfs:label "Fire Resistance"@en,
         "Atsparumas ugniai"@lt-LT ;
-    rdfs:subClassOf fbo:FireResistance ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo:FireResistance ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.33." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -493,10 +505,11 @@ fbo-lt:FireResistance a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit "minutes" .
 
-fbo-lt:FireResistanceClasses a owl:Class ;
+fbo-lt:FireResistanceClasses a owl:DatatypeProperty ;
     rdfs:label "Fire resistance classes"@en,
         "Atsparumo ugniai klasės"@lt-LT ;
-    rdfs:subClassOf fbo:FireResistance ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo:FireResistance ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.34." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -511,7 +524,7 @@ fbo-lt:FireResistanceClasses a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/FireResistanceClasses-214f8487e6e780bcbd86e88dae9a998e> ;
     fbo:hasValueType "Number" .
 
-fbo-lt:FireResistanceDegreeOfBuilding a owl:Class ;
+fbo-lt:FireResistanceDegreeOfBuilding a owl:ObjectProperty ;
     rdfs:label "Fire resistance rating of the Building"@en,
         "Statinio atsparumo ugniai laipsnis"@lt-LT ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
@@ -526,7 +539,7 @@ fbo-lt:FireResistanceDegreeOfBuilding a owl:Class ;
         fbo:X1COMPARTMENTATION ;
     fbo:hasFireExpertValidation true ;
     fbo:hasIFCMapping fbo-ifc:FireResistanceBuilding ;
-    fbo:hasLastEdition "2026-03-09T08:27:00+00:00"^^xsd:dateTime ;
+    fbo:hasLastEdition "2026-05-08T09:21:00+00:00"^^xsd:dateTime ;
     fbo:hasNotionID "453" ;
     fbo:hasNotionURL <https://www.notion.so/FireResistanceDegreeOfBuilding-27ef8487e6e7804aa998d4407c309c66> ;
     fbo:hasRemarks "Usually Fire Safety engineer decides what Fire resistance rating of the building will be" .
@@ -566,9 +579,10 @@ fbo-lt:FireWallFireBarrier a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/FireWallFireBarrier-214f8487e6e780989cbcc39fac60175e> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:FsAreaConditionalFireCompartment a owl:Class ;
+fbo-lt:FsAreaConditionalFireCompartment a owl:DatatypeProperty ;
     rdfs:label "Conditional Fire Compartment Area"@en,
         "Sąlyginis gaisrinio skyriaus plotas"@lt-LT ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1, Table 1" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -604,9 +618,10 @@ fbo-lt:GCoeficient a owl:Class ;
     fbo:hasNotionID "583" ;
     fbo:hasNotionURL <https://www.notion.so/GCoeficient-32ff8487e6e780168ef3dd62014c2e66> .
 
-fbo-lt:HabsCalculatedAltitude a owl:Class ;
+fbo-lt:HabsCalculatedAltitude a owl:DatatypeProperty ;
     rdfs:label "Calculated altitude"@en,
         "Skaičiuojamoji altitudė"@lt-LT ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1, Table 1" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -624,10 +639,11 @@ fbo-lt:HabsCalculatedAltitude a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/HabsCalculatedAltitude-27ff8487e6e78041a3e0c1af6427bd5d> ;
     fbo:hasValueType "Number" .
 
-fbo-lt:HeightBuilding a owl:Class ;
+fbo-lt:HeightBuilding a owl:DatatypeProperty ;
     rdfs:label "Height of building"@en,
         "Pastato aukštis"@lt-LT ;
-    rdfs:subClassOf fbo:HeightBuilding ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo:HeightBuilding ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -664,9 +680,10 @@ fbo-lt:HeightFreeEvacuationRoutes a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/HeightFreeEvacuationRoutes-349f8487e6e780588bbfdd52b41a87e4> ;
     qudt:hasApplicableUnit qudt-unit:M .
 
-fbo-lt:IntendedUseOfBuilding a owl:Class ;
+fbo-lt:IntendedUseOfBuilding a owl:DatatypeProperty ;
     rdfs:label "Intended use of the building"@en,
         "Pastato naudojimo paskirtis"@lt-LT ;
+    schema1:rangeIncludes xsd:string ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 13." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -696,9 +713,10 @@ fbo-lt:LietuvosRespublikospriegaisrinssaugosstatymasNrIX1225 a owl:NamedIndividu
     fbo:hasPublicationDate "2019-01-01"^^xsd:date ;
     fbo:hasURL <https://e-seimas.lrs.lt/portal/legalActEditions/lt/TAD/TAIS.197461> .
 
-fbo-lt:MaxAreaFireCompartment a owl:Class ;
+fbo-lt:MaxAreaFireCompartment a owl:DatatypeProperty ;
     rdfs:label "Maximum area of fire compartment"@en,
         "Maksimalus gaisrinio skyriaus plotas"@lt-LT ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -715,9 +733,10 @@ fbo-lt:MaxAreaFireCompartment a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit "m^2" .
 
-fbo-lt:MaxBuildingStoreyFloorArea a owl:Class ;
+fbo-lt:MaxBuildingStoreyFloorArea a owl:DatatypeProperty ;
     rdfs:label "Maximum floor area of the building storey"@en,
         "Maksimalus pastato aukšto grindų plotas"@lt-LT ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
     fbo:hasArticleID "Chapter X, Paragraph 51" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -734,9 +753,10 @@ fbo-lt:MaxBuildingStoreyFloorArea a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-lt:MaxBuildingStoreyFloorAreaOfConnectingStoreys a owl:Class ;
+fbo-lt:MaxBuildingStoreyFloorAreaOfConnectingStoreys a owl:DatatypeProperty ;
     rdfs:label "Maximum floor area of connected storeys of the building"@en,
         "Maksimalus susisiekiančių aukštų grindų plotas"@lt-LT ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Implicit Definition" ;
     fbo:hasArticleID "Chapter X, Paragraph 51." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -753,10 +773,11 @@ fbo-lt:MaxBuildingStoreyFloorAreaOfConnectingStoreys a owl:Class ;
     fbo:hasValueType "Number" ;
     qudt:hasApplicableUnit qudt-unit:M2 .
 
-fbo-lt:ReactionToFire a owl:Class ;
+fbo-lt:ReactionToFire a owl:DatatypeProperty ;
     rdfs:label "Reaction to fire"@en,
         "Reakcija į ugnį"@lt-LT ;
-    rdfs:subClassOf fbo:ReactionToFire ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo:ReactionToFire ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.64." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -788,9 +809,10 @@ fbo-lt:RoofCoverings a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/RoofCoverings-214f8487e6e78096a1dff2334b769db7> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:SeparateFunction a owl:Class ;
+fbo-lt:SeparateFunction a owl:DatatypeProperty ;
     rdfs:label "Separate function"@en,
         "Atskiriamoji funkcija"@lt-LT ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.68." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -842,9 +864,10 @@ fbo-lt:SmokeBarriersRoofScreens a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/SmokeBarriersRoofScreens-214f8487e6e780b09d22caa05acb390d> ;
     fbo:hasValueType "Boolean (yes/no)" .
 
-fbo-lt:SmokeControl a owl:Class ;
+fbo-lt:SmokeControl a owl:DatatypeProperty ;
     rdfs:label "Smoke control"@en,
         "Dūmų kontrolė"@lt-LT ;
+    schema1:rangeIncludes xsd:boolean ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.71." ;
     fbo:hasCountry fbo:Lithuania ;
@@ -1012,10 +1035,11 @@ fbo-lt:EvacuationRoute a owl:Class ;
     fbo:hasNotionID "591" ;
     fbo:hasNotionURL <https://www.notion.so/EvacuationRoute-349f8487e6e78054919dea9ed371695e> .
 
-fbo-lt:G1PartialCoefficient a owl:Class ;
+fbo-lt:G1PartialCoefficient a owl:DatatypeProperty ;
     rdfs:label "Partial coefficients for the fire safety assessment of a building G1"@en,
         "Gaisrinės saugos įvertinimo dalinis koeficientas G1"@lt-LT ;
-    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo-lt:PartialCoefficient ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -1032,10 +1056,11 @@ fbo-lt:G1PartialCoefficient a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/G1PartialCoefficient-31ff8487e6e780f8a752f5403dd94a5c> ;
     fbo:hasValueType "Number" .
 
-fbo-lt:G2PartialCoefficient a owl:Class ;
+fbo-lt:G2PartialCoefficient a owl:DatatypeProperty ;
     rdfs:label "Partial coefficients for the fire safety assessment of a building G2"@en,
         "Gaisrinės saugos įvertinimo dalinis koeficientas G2"@lt-LT ;
-    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo-lt:PartialCoefficient ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -1052,10 +1077,11 @@ fbo-lt:G2PartialCoefficient a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/G2PartialCoefficient-31ff8487e6e780499c50fcdaf79e493d> ;
     fbo:hasValueType "Number" .
 
-fbo-lt:G3PartialCoefficient a owl:Class ;
+fbo-lt:G3PartialCoefficient a owl:DatatypeProperty ;
     rdfs:label "Partial coefficients for the fire safety assessment of a building G3"@en,
         "Gaisrinės saugos įvertinimo dalinis koeficientas G3"@lt-LT ;
-    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo-lt:PartialCoefficient ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -1072,10 +1098,11 @@ fbo-lt:G3PartialCoefficient a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/G3PartialCoefficient-31ff8487e6e780b4bbe5f75c1f35874b> ;
     fbo:hasValueType "Number" .
 
-fbo-lt:G4PartialCoefficient a owl:Class ;
+fbo-lt:G4PartialCoefficient a owl:DatatypeProperty ;
     rdfs:label "Partial coefficients for the fire safety assessment of a building G4"@en,
         "Gaisrinės saugos įvertinimo dalinis koeficientas G4"@lt-LT ;
-    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo-lt:PartialCoefficient ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -1092,10 +1119,11 @@ fbo-lt:G4PartialCoefficient a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/G4PartialCoefficient-31ff8487e6e78019b00cc6aafe65f4f4> ;
     fbo:hasValueType "Number" .
 
-fbo-lt:G5PartialCoefficient a owl:Class ;
+fbo-lt:G5PartialCoefficient a owl:DatatypeProperty ;
     rdfs:label "Partial coefficients for the fire safety assessment of a building G5"@en,
         "Gaisrinės saugos įvertinimo dalinis koeficientas G5"@lt-LT ;
-    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo-lt:PartialCoefficient ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -1112,10 +1140,11 @@ fbo-lt:G5PartialCoefficient a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/G5PartialCoefficient-31ff8487e6e7800a8b6cc50e41fa6ddf> ;
     fbo:hasValueType "Number" .
 
-fbo-lt:G6PartialCoefficient a owl:Class ;
+fbo-lt:G6PartialCoefficient a owl:DatatypeProperty ;
     rdfs:label "Partial coefficients for the fire safety assessment of a building G6"@en,
         "Gaisrinės saugos įvertinimo dalinis koeficientas G6"@lt-LT ;
-    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo-lt:PartialCoefficient ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -1132,10 +1161,11 @@ fbo-lt:G6PartialCoefficient a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/G6PartialCoefficient-31ff8487e6e780d89f73fd0258be18d1> ;
     fbo:hasValueType "Number" .
 
-fbo-lt:G7PartialCoefficient a owl:Class ;
+fbo-lt:G7PartialCoefficient a owl:DatatypeProperty ;
     rdfs:label "Partial coefficients for the fire safety assessment of a building G7"@en,
         "Gaisrinės saugos įvertinimo dalinis koeficientas G7"@lt-LT ;
-    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo-lt:PartialCoefficient ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -1152,10 +1182,11 @@ fbo-lt:G7PartialCoefficient a owl:Class ;
     fbo:hasNotionURL <https://www.notion.so/G7PartialCoefficient-31ff8487e6e78092822af850ecbdad8e> ;
     fbo:hasValueType "Number" .
 
-fbo-lt:G8PartialCoefficient a owl:Class ;
+fbo-lt:G8PartialCoefficient a owl:DatatypeProperty ;
     rdfs:label "Partial coefficients for the fire safety assessment of a building G8"@en,
         "Gaisrinės saugos įvertinimo dalinis koeficientas G8"@lt-LT ;
-    rdfs:subClassOf fbo-lt:PartialCoefficient ;
+    schema1:rangeIncludes xsd:float ;
+    rdfs:subPropertyOf fbo-lt:PartialCoefficient ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -1206,10 +1237,11 @@ fbo-lt:AUTOMOBILISAUGYKLGAISRINSSAUGOSTAISYKLSNr144 a owl:NamedIndividual,
     fbo:hasPublicationDate "2019-11-01"^^xsd:date ;
     fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.418483/asr> .
 
-fbo-lt:ExitRoute a owl:Class ;
+fbo-lt:ExitRoute a owl:DatatypeProperty ;
     rdfs:label "Exit route"@en,
         "Išėjimo maršrutas"@lt-LT ;
-    rdfs:subClassOf fbo:TravelDistance ;
+    schema1:rangeIncludes xsd:boolean ;
+    rdfs:subPropertyOf fbo:TravelDistance ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Chapter II, Paragraph 10.13. (STR 2.01.01(2):1999)" ;
     fbo:hasCountry fbo:Lithuania ;
@@ -1269,9 +1301,10 @@ fbo-lt:VISUOMENINISTATINIGAISRINSSAUGOSTAISYKLSNr114 a owl:NamedIndividual,
     fbo:hasPublicationDate "2024-11-01"^^xsd:date ;
     fbo:hasURL <https://e-seimas.lrs.lt/portal/legalAct/lt/TAD/TAIS.391196?jfwid=> .
 
-fbo-lt:PartialCoefficient a owl:Class ;
+fbo-lt:PartialCoefficient a owl:DatatypeProperty ;
     rdfs:label "Partial coefficients for the fire safety assessment of a building"@en,
         "statinio gaisrinės saugos įvertinimo daliniai koeficientai"@lt-LT ;
+    schema1:rangeIncludes xsd:float ;
     fbo:hasAdoptedDefinitionType "Explicit Definition" ;
     fbo:hasArticleID "Annex 3, Paragraph 1, Table 2" ;
     fbo:hasCountry fbo:Lithuania ;
